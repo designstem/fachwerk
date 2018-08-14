@@ -4,56 +4,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,700|Heebo:400,700|Rubik:400,700|Cousine|Noto+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,700|Heebo:400,700|Rubik:400,700|Cousine|Noto+Sans:400,700"
+    rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 
-<body style="margin: 2rem">
+<body>
 
-  <div style="
+  <header>
+
+    <div>This is a header</div>
+    <div>Hey</div>
+
+  </header>
+
+  <section style="margin: 3rem 2rem">
+
+    <div style="
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem;
   ">
 
-    <div>
-      <h1>Here is the main title</h1>
-      <h2>Here is the smaller subtitle</h2>
-      <p>Here is a paragraph with some text in it. Actually, it can be even longer if needed</p>
-    </div>
+      <div>
+        <h1>Here is the big title</h1>
+        <h2>Here is the smaller subtitle</h2>
+        <p>Here is a paragraph with some text in it. Actually, it can be even longer if needed</p>
+      </div>
 
-    <div>
-      <label>Here is the label</label>
-      <input type="range" />
-    </div>
+      <div>
+        <label>Here is the label</label>
+        <input type="range" />
+      </div>
 
-    <div>
-      <label>Here is the label</label>
-      <input type="text" />
-    </div>
+      <div>
+        <label>Here is the label</label>
+        <input type="text" />
+      </div>
 
-    <div class="card">
-      <h3>
-        I am card title
-      </h3>
-      <p>
-        I am card card_description
-      </p>
-      <!--ul>
+      <div class="card">
+        <h3>
+          I am card title
+        </h3>
+        <p>
+          I am card card_description
+        </p>
+        <!--ul>
         <li>First tag</li>
         <li>Second tag</li>
       </ul-->
-    </div>
+      </div>
 
-    <div style="display: flex">
-      <div style="background: var(--color-purple); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-      <div style="background: var(--color-red); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-      <div style="background: var(--color-yellow); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-      <div style="background: var(--color-brown); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-      <div style="background: var(--color-blue); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-    </div>
+      <div style="display: flex">
+        <div style="background: var(--color-purple); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-red); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-yellow); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-brown); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-blue); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+      </div>
 
-    <pre>
+      <pre>
 const { size } = this.state;
 render() {
   return (
@@ -62,13 +72,16 @@ render() {
 }
     </pre>
 
-    <div>
-      <div class="button_primary">I am a primary button</div>
-    </div>
+      <div>
+        <div class="button_primary">I am a primary button</div>
+      </div>
 
-    <div>
-      <div class="button_secondary">I am a secondary button</div>
-    </div>
+      <div>
+        <div class="button_secondary">I am a secondary button</div>
+      </div>
+
+  </section>
+
 </body>
 
 </html>

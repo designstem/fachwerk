@@ -26,6 +26,7 @@
 body {
   font-family: var(--font-primary);
   color: var(--color-gray-dark);
+  margin: 0;
 }
 
 /* Basic reset and typograpy */
@@ -49,7 +50,6 @@ p {
   padding: 0;
   line-height: 1.2em;
 }
-/* Reset */
 
 ul,
 li {
@@ -89,7 +89,7 @@ input[type="text"] {
   font-weight: bold;
 }
 
-label {
+label, .label {
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -106,6 +106,8 @@ pre {
   margin: 0;
   border-radius: var(--border-radius);
 }
+
+/* Compoents */
 
 /* Card */
 
@@ -135,6 +137,8 @@ pre {
   border-radius: var(--border-radius);
 }
 
+/* Button */
+
 .button_primary {
   background: var(--color-primary);
   padding: 0.75rem 1rem;
@@ -151,4 +155,17 @@ pre {
   border-radius: var(--border-radius);
   color: var(--color-gray-dark);
   font-weight: bold;
+}
+
+/* Layout */
+
+header {
+    display: flex;
+    height: 5rem;
+    padding: 0 2rem;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--border-width) solid var(--color-gray-dark);
+    font-size: 1.2rem;
+    font-weight: bold;
 }
