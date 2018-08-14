@@ -1,0 +1,154 @@
+/* Variables */
+
+:root {
+  --font-primary: Rubik, IBM Plex Sans, Heebo, Noto Sans, sans-serif;
+  --font-mono: Cousine, sans-serif;
+
+  --color-white: white;
+  --color-gray-dark: #555;
+  --color-gray-light: #ddd;
+  --color-purple: rebeccapurple;
+  --color-red: #ff595e;
+  --color-yellow: #ffca3a;
+  --color-brown: #5c415d;
+  --color-blue: #1982c4;
+
+  --color-primary: var(--color-purple);
+
+  --border-width: 3px;
+  --border-radius: 6px;
+
+  --slider-size: 20px;
+}
+
+/* Body */
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-gray-dark);
+}
+
+/* Basic reset and typograpy */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 2.8rem;
+}
+
+p {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+  line-height: 1.2em;
+}
+/* Reset */
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Forms */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: var(--color-gray-dark);
+  height: var(--border-width);
+  position: relative;
+  outline: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: var(--border-width) solid var(--color-gray-dark);
+  height: var(--slider-size);
+  width: var(--slider-size);
+  border-radius: var(--slider-size);
+  background: white;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Code */
+
+pre {
+  background: var(--color-gray-light);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  color: var(--color-gray-dark);
+  padding: 1rem;
+  margin: 0;
+  border-radius: var(--border-radius);
+}
+
+/* Card */
+
+.card {
+  background: var(--color-gray-dark);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.card > h3 {
+  color: var(--color-white);
+}
+
+.card > p {
+  color: var(--color-white);
+}
+
+.card > ul {
+  display: flex;
+}
+
+.card > ul > li {
+  padding: 0.35rem 0.5rem;
+  margin-right: 0.5rem;
+  background: var(--color-white);
+  font-size: 0.8rem;
+  border-radius: var(--border-radius);
+}
+
+.button_primary {
+  background: var(--color-primary);
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  border-radius: var(--border-radius);
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.button_secondary {
+  background: var(--color-gray-light);
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  border-radius: var(--border-radius);
+  color: var(--color-gray-dark);
+  font-weight: bold;
+}
