@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,550i,700,700i|Heebo:400,400i,700,700i|Rubik:400,400i,700,700i|Noto+Sans:400,700|Cousine|IBM+Plex+Serif:400,400i,700,700i');
+
 /* Variables */
 
 :root {
-  --font-primary: Rubik, IBM Plex Sans, Heebo, Noto Sans, sans-serif;
+  --font-serif: IBM Plex Sans, Rubik,Heebo, Noto Sans, sans-serif;
+  --font-sansserif: IBM Plex Serif, sans-serif;
   --font-mono: Cousine, sans-serif;
 
   --color-white: white;
   --color-gray-dark: #555;
-  --color-gray-light: #ddd;
+  --color-gray-medium: #aaa;
+  --color-gray-light: #eee;
   --color-purple: rebeccapurple;
   --color-red: #ff595e;
   --color-yellow: #ffca3a;
@@ -24,7 +28,7 @@
 /* Body */
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-serif);
   color: var(--color-gray-dark);
   margin: 0;
 }
@@ -44,13 +48,15 @@ h1 {
   font-size: 3rem;
   line-height: 2.8rem;
 }
-
 p {
-  margin: 0 0 0.5em 0;
-  padding: 0;
-  line-height: 1.2em;
+  line-height: 1.5rem;
 }
-
+a {
+  text-decoration: none;
+  color: var(--color-gray-dark);
+  border-bottom: 2px solid var(--color-gray-dark);
+  font-weight: bold;
+}
 ul,
 li {
   margin: 0;
@@ -61,6 +67,7 @@ li {
 /* Forms */
 
 input[type="range"] {
+  display: block;
   -webkit-appearance: none;
   width: 100%;
   background: var(--color-gray-dark);
@@ -68,6 +75,7 @@ input[type="range"] {
   position: relative;
   outline: none;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -81,17 +89,26 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="text"] {
+  display: block;
   border: var(--border-width) solid var(--color-gray-dark);
   border-radius: var(--border-radius);
   padding: 0.5rem;
   outline: none;
   font-size: 1rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 label, .label {
+  font-size: 1.1rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sublabel {
+  color: var(--color-gray-medium);
+  margin-top: -0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Code */
@@ -107,8 +124,38 @@ pre {
   border-radius: var(--border-radius);
 }
 
-/* Compoents */
+code {
+  font-family: var(--font-mono);
+  border-radius: 3px;
+  background: var(--color-gray-light);
+  padding: 0.1rem 0.3rem;
+  font-size: 0.95rem;
+}
 
+/* Components */
+
+/* Intro */
+
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+/* Body */
+
+.text {
+  font-family: var(--font-sansserif);
+  font-size: 1.1rem;
+}
+
+.text p {
+  line-height: 1.7rem;
+  margin: 0 0 0.5em 0;
+}
+
+.text a {
+  border-bottom: 2px solid var(--color-gray-dark);
+} 
 /* Card */
 
 .card {
