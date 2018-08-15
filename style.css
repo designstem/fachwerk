@@ -161,30 +161,25 @@ code {
 }
 /* Card */
 
-.card {
-  background: var(--color-gray-dark);
-  border-radius: var(--border-radius);
-  padding: 1rem;
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
 }
 
-.card > h3 {
-  color: var(--color-white);
+/* Text */
+
+.text {
+  font-family: var(--font-sansserif);
+  font-size: 1.1rem;
 }
 
-.card > p {
-  color: var(--color-white);
+.text p {
+  line-height: 1.7rem;
+  margin: 0 0 0.5em 0;
 }
 
-.card > ul {
-  display: flex;
-}
-
-.card > ul > li {
-  padding: 0.35rem 0.5rem;
-  margin-right: 0.5rem;
-  background: var(--color-white);
-  font-size: 0.8rem;
-  border-radius: var(--border-radius);
+.text a {
+  border-bottom: 2px solid var(--color-gray-dark);
 }
 
 /* Button */
