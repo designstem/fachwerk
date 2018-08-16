@@ -228,4 +228,5 @@ header, .header {
 }
 .header_inverse a {
   color: var(--color-white);
+  border-color: var(--color-white);
 }
