@@ -216,7 +216,7 @@ header, .header {
   font-weight: bold;
 }
 
-.header-inverse {
+.header_inverse {
   display: flex;
   height: 5rem;
   padding: 0 2rem;
@@ -226,6 +226,6 @@ header, .header {
   font-weight: bold;
   color: var(--color-white);
 }
-.header-inverse a {
+.header_inverse a {
   color: var(--color-white);
 }
