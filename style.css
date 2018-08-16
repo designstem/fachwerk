@@ -205,7 +205,7 @@ code {
 
 /* Layout */
 
-header {
+header, .header {
   display: flex;
   height: 5rem;
   padding: 0 2rem;
@@ -214,4 +214,18 @@ header {
   border-bottom: var(--border-width) solid var(--color-gray-dark);
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.header-inverse {
+  display: flex;
+  height: 5rem;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-white);
+}
+.header-inverse a {
+  color: var(--color-white);
 }
