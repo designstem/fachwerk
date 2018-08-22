@@ -102,6 +102,10 @@ input[type="number"] {
   margin-bottom: 1.5rem;
 }
 
+input:disabled {
+  opacity:0.3;
+}
+
 label,
 .label {
   font-size: 1.1rem;
