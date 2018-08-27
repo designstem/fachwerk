@@ -122,6 +122,8 @@ label,
 /* Code */
 
 pre {
+  overflow: auto;
+  max-width: 25vw;
   background: var(--color-gray-light);
   font-family: var(--font-mono);
   font-size: 0.9rem;

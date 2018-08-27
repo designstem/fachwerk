@@ -89,8 +89,20 @@
           <div class="button_tertiary">First</div>
           <div class="button_tertiary">Second</div>
         </div>
+      </div>
 
-        <dd>&lt;buttons<br>&nbsp;&nbsp;:buttons="['First','Second']"<br>&nbsp;&nbsp;v-model="index"<br></b>/&gt;</dd>
+      <div>
+
+        <pre>
+import Buttons from "https://rawgit.com/designstem/style/master/components/Buttons.js";
+export default {
+  components: { Buttons },
+  data: ({ index: 0 }),
+  template: `
+    &lt;buttons :buttons="['First','Second']" v-model="index" /&gt;
+  `
+}</pre>
+        <br>
         <buttons :buttons="['First','Second']" v-model="index" />
 
       </div>
