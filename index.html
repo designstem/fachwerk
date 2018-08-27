@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+  <div id="app">
   <header>
 
     <div>This is a header</div>
@@ -21,16 +21,22 @@
     <div style="
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 3rem;
+    grid-gap: 3rem; 
     ">
 
       <div>
+        <dd>h1</dd>
         <h1>Here is the big title</h1>
+        <dd>h2</dd>
         <h2>Here is the smaller subtitle</h2>
+        <dd>.intro</dd>
         <div class="intro">Here is a paragraph with some text in it. Actually, it can be even longer if needed</div>
+        <dd>p</dd>
         <p>This is just a regular text with <a>some links</a> if needed and also some <b>basic</b> if one so desiress.
       </div>
 
+      <div>
+      <dd>.text, b, i, code, a</dd>
       <div class="text">
         <p>Normal polygons are
           <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
@@ -38,22 +44,32 @@
         <p>For example <code>6px</code> triangles connected together form a regular polygon.
           <a href="">Normal polygons</a> are characterized by the number of edges or sides.</p>
       </div>
+      </div>
 
       <div>
+        <dd>label, .label</dd>
         <label>Here is the label</label>
+        <dd>.sublabel</dd>
         <div class="sublabel">Here is a longer description what does this widget actually do</div>
+        <dd>input[text]</dd>
         <input type="text" />
         <label>Here is the label</label>
+        <dd>input[range]</dd>
         <input type="range" />
 
       </div>
 
-      <div style="display: flex">
-        <div style="background: var(--color-purple); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-        <div style="background: var(--color-red); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-        <div style="background: var(--color-yellow); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-        <div style="background: var(--color-brown); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-        <div style="background: var(--color-blue); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+      <div style="display: grid; grid-template-columns: 3rem 5fr; grid-template-rows: repeat(5, 3rem); grid-gap: 0.5rem;">
+        <div style="background: var(--color-purple); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-purple)</dd>
+        <div style="background: var(--color-red); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-red)</dd>
+        <div style="background: var(--color-yellow); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-yellow)</dd>
+        <div style="background: var(--color-brown); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-brown)</dd>
+        <div style="background: var(--color-blue); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-blue)</dd>
       </div>
 
       <div>
@@ -70,11 +86,17 @@
         <dd>.buttons .button_tertiary</dd>
 
         <div class="buttons">
-          <div class="button_tertiary">First button</div>
-          <div class="button_tertiary">Second button</div>
+          <div class="button_tertiary">First</div>
+          <div class="button_tertiary">Second</div>
         </div>
+
+        <dd>&lt;buttons<br>&nbsp;&nbsp;:buttons="['First','Second']"<br>&nbsp;&nbsp;v-model="index"<br></b>/&gt;</dd>
+        <buttons :buttons="['First','Second']" v-model="index" />
+
       </div>
 
+      <div>
+      <dd>pre</dd>
       <pre>
 const { size } = this.state;
 render() {
@@ -84,7 +106,14 @@ render() {
 }
     </pre>
 
+    </div>
+
   </section>
+
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="./index.js" type="module"></script>
 
 </body>
 
