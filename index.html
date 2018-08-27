@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem;
-  ">
+    ">
 
       <div>
         <h1>Here is the big title</h1>
@@ -33,54 +33,45 @@
 
       <div class="text">
         <p>Normal polygons are
-        <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
-        <i>isosceles</i>.</p>
+          <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
+          <i>isosceles</i>.</p>
         <p>For example <code>6px</code> triangles connected together form a regular polygon.
           <a href="">Normal polygons</a> are characterized by the number of edges or sides.</p>
       </div>
 
       <div>
-<<<<<<< Updated upstream
         <label>Here is the label</label>
         <div class="sublabel">Here is a longer description what does this widget actually do</div>
         <input type="text" />
         <label>Here is the label</label>
-=======
-        <label>Here is the label <code>3px</code></label>
-        <div class="sublabel">Here is a longer description what does this widget actually do</div>
-        <input type="text" />
-        <label>Here is the label <code>3rad</code></label>
->>>>>>> Stashed changes
         <input type="range" />
-        
+
       </div>
 
-      <div class="card">
-        <h3>
-          I am card title
-        </h3>
-        <p>
-          I am card card_description
-        </p>
-        <!--ul>
-        <li>First tag</li>
-        <li>Second tag</li>
-      </ul-->
+      <div style="display: flex">
+        <div style="background: var(--color-purple); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-red); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-yellow); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-brown); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <div style="background: var(--color-blue); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
       </div>
 
       <div>
-        <div>
-          <div class="button_primary">I am a primary button</div>
-          <p />
-          <div class="button_secondary">I am a secondary button</div>
-          <p />
-        </div>
-        <div style="display: flex">
-          <div style="background: var(--color-purple); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-          <div style="background: var(--color-red); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-          <div style="background: var(--color-yellow); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-          <div style="background: var(--color-brown); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
-          <div style="background: var(--color-blue); width: 3rem; height: 3rem; border-radius: var(--border-radius); margin-right: 0.5rem;"></div>
+        <dd>.button_primary</dd>
+        <div class="button_primary">I am a primary button</div>
+
+        <dd>.button_secondary</dd>
+        <div class="button_secondary">I am a secondary button</div>
+        
+        <dd>.button_tertiary</dd>
+        
+        <div class="button_tertiary">I am tertiary button</div>
+
+        <dd>.buttons .button_tertiary</dd>
+
+        <div class="buttons">
+          <div class="button_tertiary">First button</div>
+          <div class="button_tertiary">Second button</div>
         </div>
       </div>
 

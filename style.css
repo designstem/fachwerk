@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,550i,700,700i|Heebo:400,400i,700,700i|Rubik:400,400i,700,700i|Noto+Sans:400,700|Cousine|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,550i,700,700i|Cousine|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
 
 :root {
-  --font-serif: IBM Plex Sans, Rubik, Heebo, Noto Sans, sans-serif;
+  --font-serif: IBM Plex Sans, sans-serif;
   --font-sansserif: IBM Plex Serif, sans-serif;
   --font-mono: Cousine, sans-serif;
 
@@ -196,6 +196,7 @@ code {
   border-radius: var(--border-radius);
   color: var(--color-white);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .button_secondary {
@@ -205,6 +206,37 @@ code {
   border-radius: var(--border-radius);
   color: var(--color-gray-dark);
   font-weight: bold;
+  cursor: pointer;
+}
+
+.button_tertiary {
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  border: 3px solid var(--color-gray-dark);
+  border-radius: var(--border-radius);
+  color: var(--color-gray-dark);
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons .button_tertiary {
+  margin-left: -3px;
+  border-radius: 0;
+}
+
+.buttons .button_tertiary:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.buttons .button_tertiary:last-child {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 /* Layout */
@@ -233,4 +265,14 @@ header, .header {
 .header_inverse a {
   color: var(--color-white);
   border-color: var(--color-white);
+}
+dd {
+  font-family: var(--font-mono);
+  color: var(--color-gray-medium);
+  margin: 0;
+  padding: 0;
+  margin: 1rem 0;
+}
+dd:first {
+  margin-top: 0;
 }
