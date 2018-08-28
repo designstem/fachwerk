@@ -144,29 +144,24 @@ code {
 
 /* Components */
 
+
+.bullet {
+  border: var(--border-width) solid var(--color-gray-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  margin-right: 0.5rem;
+  width: 1.5em;
+  height: 1.5em;
+}
+
 /* Intro */
 
 .intro {
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
-
-/* Body */
-
-.text {
-  font-family: var(--font-sansserif);
-  font-size: 1.1rem;
-}
-
-.text p {
-  line-height: 1.7rem;
-  margin: 0 0 0.5em 0;
-}
-
-.text a {
-  border-bottom: 2px solid var(--color-gray-dark);
-}
-/* Card */
 
 .intro {
   font-size: 1.1rem;
