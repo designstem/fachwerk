@@ -16,6 +16,7 @@
   --color-yellow: #ffca3a;
   --color-brown: #5c415d;
   --color-blue: #1982c4;
+  --color-blue-dark: #0B3954;
 
   --color-primary: var(--color-purple);
 
@@ -146,7 +147,7 @@ code {
 
 
 .bullet {
-  border: var(--border-width) solid var(--color-gray-dark);
+  border: var(--border-width) solid var(--color-purple);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -154,6 +155,8 @@ code {
   margin-right: 0.5rem;
   width: 1.5em;
   height: 1.5em;
+  background: var(--color-purple);
+  color: var(--color-white);
 }
 
 /* Intro */
