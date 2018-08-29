@@ -10,7 +10,7 @@
   --color-white: white;
   --color-gray-dark: #555;
   --color-gray-medium: #aaa;
-  --color-gray-light: #eee;
+  --color-gray-light: rgba(0,0,0,0.2);
   --color-purple: rebeccapurple;
   --color-red: #ff595e;
   --color-yellow: #ffca3a;
