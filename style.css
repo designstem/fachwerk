@@ -14,9 +14,9 @@
   --color-purple: rebeccapurple;
   --color-red: #ff595e;
   --color-yellow: #ffca3a;
-  --color-brown: #5c415d;
-  --color-blue: #1982c4;
-  --color-blue-dark: #0B3954;
+  --color-blue-light: #bfd7ea;
+  --color-blue-medium: #1982c4;
+  --color-blue-dark: #0b3954;
 
   --color-primary: var(--color-purple);
 
@@ -104,7 +104,7 @@ input[type="number"] {
 }
 
 input:disabled {
-  opacity:0.3;
+  opacity: 0.3;
 }
 
 label,
@@ -144,7 +144,6 @@ code {
 }
 
 /* Components */
-
 
 .bullet {
   border: var(--border-width) solid var(--color-purple);
@@ -241,7 +240,8 @@ code {
 
 /* Layout */
 
-header, .header {
+header,
+.header {
   display: flex;
   height: 5rem;
   padding: 0 2rem;
@@ -252,20 +252,21 @@ header, .header {
   font-weight: bold;
 }
 
-.header_inverse {
-  display: flex;
-  height: 5rem;
-  padding: 0 2rem;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--color-white);
+/* Third party libraries */
+
+.katex {
+  font-size: 1.5em;
+  color: var(--color-gray-dark);
+  padding: 2rem;
+  display: block;
 }
-.header_inverse a {
-  color: var(--color-white);
-  border-color: var(--color-white);
+
+.katex .colorbox {
+  border-radius: var(--border-radius);
+  font-family: sans-serif !important;
 }
+/* Internal styles */
+
 dd {
   font-family: var(--font-mono);
   color: var(--color-gray-medium);

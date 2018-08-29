@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/katex/dist/katex.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -43,6 +44,11 @@
         <p>Normal polygons are
           <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
           <i>isosceles</i>.</p>
+          
+          <dd>&lt;math math="c = a^2 + b^2 + 50"&gt;</dd>
+
+          <math :math="'c = a^2 + b^2 + \\colorbox{#ddd}{' + slider + '}'" />
+
         <p>For example <code>6px</code> triangles connected together form a regular polygon.
           <a href="">Normal polygons</a> are characterized by the number of edges or sides.</p>
       </div>
@@ -57,7 +63,7 @@
         <input type="text" />
         <label>Here is the label</label>
         <dd>input[range]</dd>
-        <input type="range" />
+        <input type="range" v-model="slider" />
 
       </div>
 
@@ -68,10 +74,10 @@
         <dd>var(--color-red)</dd>
         <div style="background: var(--color-yellow); border-radius: var(--border-radius);"></div>
         <dd>var(--color-yellow)</dd>
-        <div style="background: var(--color-brown); border-radius: var(--border-radius);"></div>
-        <dd>var(--color-brown)</dd>
-        <div style="background: var(--color-blue); border-radius: var(--border-radius);"></div>
-        <dd>var(--color-blue)</dd>
+        <div style="background: var(--color-blue-light); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-blue-light)</dd>
+        <div style="background: var(--color-blue-medium); border-radius: var(--border-radius);"></div>
+        <dd>var(--color-blue-medium)</dd>
         <div style="background: var(--color-blue-dark); border-radius: var(--border-radius);"></div>
         <dd>var(--color-blue-dark)</dd>
       </div>
@@ -129,6 +135,8 @@ render() {
   </div>
 
   <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/katex/dist/katex.min.js">
+  </script>
   <script src="./index.js" type="module"></script>
 
 </body>
