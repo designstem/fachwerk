@@ -250,6 +250,7 @@ header,
   border-bottom: var(--border-width) solid var(--color-gray-dark);
   font-size: 1.2rem;
   font-weight: bold;
+  background: var(--color-yellow);
 }
 
 /* Third party libraries */
