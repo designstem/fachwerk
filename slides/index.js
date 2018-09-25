@@ -1,27 +1,50 @@
 const slides = `
 
-# Hello first slide
+# I am a slide
 
 ---
 
-## Hello second slide
+## I am a slide too
 
 ---
 
-Something else here
+Some text here
 
-`
+---
+
+<Buttons :buttons="['First','Second']" />
+
+---
+
+<Math math="x = sin(y)" />
+
+---
+
+<pre>
+let y = 0
+let x = Math.sin(y)
+</pre>
+
+`;
+
+import Render from '../components/Render.js'
 
 const Slide = {
+  components: { Render },
   props: ['slide'],
   methods: { marked },
+  computed: {
+    t() {
+      return marked(this.slide, { breaks: true })
+    }
+  },
   template: `
     <div style="
       border: 3px solid var(--color-gray-dark);
       padding: 1rem;
       background: white;
     ">
-      <div v-html="marked(slide, { breaks: true })" />
+      <Render :t="t" />
     </div>
   `
 }
@@ -34,10 +57,10 @@ new Vue({
     <div style="
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 15rem;
+      grid-template-rows: 15rem 15rem 15rem;
       grid-gap: 1rem;
-      padding: 1rem;
-      background: var(--color-gray-light);
+      padding: 2rem;
+      background: var(--color-yellow);
       height: 100vh;
     ">
       <Slide v-for="(s,i) in slides.split('---')" :key="i" :slide="s" />
