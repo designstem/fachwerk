@@ -2,6 +2,7 @@ const slides = `
 
 # I am a slide
 
+Hmm, more text here
 ---
 
 ## I am a slide too
@@ -16,13 +17,16 @@ Some text here
 
 ---
 
+Some math here
+
 <Math math="x = sin(y)" />
 
 ---
 
+Some \`\`\`code\`\`\` here
+
 <pre>
-let y = 0
-let x = Math.sin(y)
+let even_more_code = 0
 </pre>
 
 `;
@@ -35,7 +39,7 @@ const Slide = {
   methods: { marked },
   computed: {
     t() {
-      return marked(this.slide, { breaks: true })
+      return `<div>${marked(this.slide, { breaks: true })}</div>`
     }
   },
   template: `
