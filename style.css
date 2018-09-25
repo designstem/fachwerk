@@ -65,6 +65,9 @@ li {
   padding: 0;
   list-style: none;
 }
+hr {
+  opacity: 0;
+}
 
 /* Forms */
 

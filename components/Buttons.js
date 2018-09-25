@@ -18,7 +18,7 @@ export default {
           fontSize: '0.9rem',
           marginLeft: '-3px',
           cursor: 'pointer',
-          background: i === value ? 'var(--color-gray-medium)' : ''
+          background: i === value ? 'var(--color-gray-medium)' : 'white'
         }"
       >
         {{ button }}

@@ -1,4 +1,5 @@
 import Render from '../components/Render.js'
+import Buttons from "../components/Buttons.js";
 
 const Slide = {
   components: { Render },
@@ -11,17 +12,16 @@ const Slide = {
   },
   template: `
     <div style="
-      border: 3px solid var(--color-gray-dark);
-      padding: 1rem;
       background: white;
+      padding: 1rem;
+      border: 3px solid var(--color-gray-dark);
     ">
       <Render :t="t" />
-    </div>
   `
 }
 
 new Vue({
-  components: { Slide },
+  components: { Slide, Render, Buttons },
   el: "#app",
   data: () => ({
     md: `
@@ -57,7 +57,8 @@ Some \`\`\`code\`\`\` here
 <pre>
 let even_more_code = 0
 </pre>
-  `
+  `,
+    cols: 1
   }),
   template: `
     <div style="display: flex; height: 100vh;">
@@ -75,15 +76,27 @@ let even_more_code = 0
       font-size: 0.8rem;
     "/>
     <div style="
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 12rem 12rem 12rem 12rem;
-      grid-gap: 1rem;
-      padding: 2rem;
+      padding: 1rem;
       background: var(--color-yellow);
       height: 100vh;
+      flex: 1;
+      overflow: auto;
     ">
-      <Slide v-for="(s,i) in md.split('---')" :key="i" :slide="s" />
+    <Buttons style="margin-bottom: 1rem" v-model="cols" :buttons="['Continuous','1 col','2 col','3 col']" />
+    <div
+      v-if="cols > 0"
+      style="
+        display: grid;
+        grid-template-rows: repeat(10, minmax(12rem, 1fr));
+      "
+      :style="{
+        gridGap: cols > 0 ? '1rem' : '',
+        gridTemplateColumns: 'repeat(' + (cols > 0 ? cols : 1)   + ', 1fr)'
+      }"
+    >
+        <Slide v-for="(s,i) in md.split('---')" :key="i" :slide="s" />
+    </div>
+    <Slide v-else :slide="md.replace('<hr>','')" /> 
     </div>
     </div>
   `
