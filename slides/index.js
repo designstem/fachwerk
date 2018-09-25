@@ -42,13 +42,15 @@ Some *text* **here**
 
 ---
 
-<Buttons :buttons="['First','Second']" />
+<Buttons :value="0" :buttons="['First','Second']" />
 
 ---
 
-Some math here
+> Normal polygons are **polygons** with all \`sides\` and angles equal. Are formed by \`triangles\`, normally *isosceles*.
 
 <Math math="a + b" />
+
+<input type="range" />
 
 ---
 
@@ -58,7 +60,7 @@ Some \`\`\`code\`\`\` here
 let even_more_code = 0
 </pre>
   `,
-    cols: 1
+    cols: 3
   }),
   template: `
     <div style="display: flex; height: 100vh;">

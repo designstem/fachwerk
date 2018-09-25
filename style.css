@@ -59,12 +59,14 @@ a {
   border-bottom: 2px solid var(--color-gray-dark);
   font-weight: bold;
 }
+/*
 ul,
 li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
+*/
 hr {
   opacity: 0;
 }
@@ -168,27 +170,25 @@ code {
   line-height: 1.5rem;
 }
 
-.intro {
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-}
-
 /* Text */
 
-.text {
+blockquote, .text {
   font-family: var(--font-sansserif);
   font-size: 1.1rem;
 }
 
-.text p {
+blockquote p, .text p {
   line-height: 1.7rem;
   margin: 0 0 0.5em 0;
 }
 
-.text a {
+blockquote a, .text a {
   border-bottom: 2px solid var(--color-gray-dark);
 }
 
+blockquote {
+  margin: 0;
+}
 /* Button */
 
 .button_primary {
