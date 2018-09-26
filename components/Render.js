@@ -1,9 +1,10 @@
 import Buttons from "./Buttons.js";
 import Math from "./Math.js";
+import Poly from "./Poly.js";
 
 export default {
-  components: { Buttons, Math },
-  props: {t: String},
+  components: { Buttons, Math, Poly },
+  props: { t: String },
   data: () => ({
     render: null
   }),
@@ -22,8 +23,8 @@ export default {
       { immediate: true }
     );
   },
-  render: function (h) {
-    return this.render ? this.render() : h()
+  render: function(h) {
+    return this.render ? this.render() : h();
   }
 };
 

@@ -1,5 +1,6 @@
 import Render from '../components/Render.js'
 import Buttons from "../components/Buttons.js";
+import Poly from "../components/Poly.js";
 
 import sample1 from "./sample1.js"
 import sample2 from "./sample2.js"
@@ -20,6 +21,7 @@ const Slide = {
       border: 3px solid var(--color-gray-dark);
     ">
       <Render :t="t" />
+    </div>
   `
 }
 
@@ -28,7 +30,7 @@ new Vue({
   el: "#app",
   data: () => ({
     md: sample2,
-    cols: 1
+    cols: 0
   }),
   template: `
     <div style="display: flex; height: 100vh;">

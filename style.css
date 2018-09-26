@@ -189,6 +189,21 @@ blockquote a, .text a {
 blockquote {
   margin: 0;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 2px solid var(--color-gray-dark);
+  padding: 1rem 0.2rem;
+  text-align: left;
+}
+tr {
+  border-bottom: 1px solid var(--color-gray-dark);
+  padding: 0.5rem 0.2rem;
+}
+
 /* Button */
 
 .button_primary {
@@ -256,14 +271,34 @@ header,
   background: var(--color-yellow);
 }
 
-/* Third party libraries */
+/* Math */
 
 .katex {
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: var(--color-gray-dark);
-  padding: 2rem;
+  padding: 1rem 2rem;
   display: block;
 }
+
+/*
+.katex {
+  font-size: 1.3em;
+  color: var(--color-blue-medium);
+  padding: 1rem 2rem;
+}
+.math {
+  display: block;
+}
+p > .math {
+  display: inline;
+}
+p > .math {
+  padding: 0 0.5em;
+}
+p > .math > .katex {
+  font-size: 1.2em;
+}
+*/
 
 .katex .colorbox {
   border-radius: var(--border-radius);
