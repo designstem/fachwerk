@@ -7,22 +7,32 @@ import sample from "./sample.js"
 const Slide = {
   components: { Render },
   props: ["slide"],
-  methods: { marked },
   computed: {
-    t() {
-      return `<div>${marked(this.slide, { breaks: true })}</div>`;
+    columns() {
+      return this.slide.split("---");
+    }
+  },
+  methods: {
+    renderSlide(s) {
+      return `<div
+        style="
+          background: white;
+          padding: 2rem;
+          height: calc(100vh - 5rem);
+        "
+        class="slide"
+       >
+        ${marked(s, { breaks: true })}
+      </div>`;
     }
   },
   template: `
-    <div
-      style="
-        background: white;
-        padding: 2rem;
-        height: calc(100vh - 5rem);
-      "
-      class="slide"
-    >
-      <Render :t="t" />
+    <div :style="{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(' + columns.length +', 1fr)',
+      gridGap: '1fr'
+    }">
+      <Render v-for="(c,i) in columns" :key="i" :t="renderSlide(c)" />
     </div>
   `
 };
@@ -37,7 +47,7 @@ new Vue({
   }),
   computed: {
     slides() {
-      return this.md.split("---");
+      return this.md.split("===");
     }
   },
   methods: {

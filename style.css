@@ -322,14 +322,17 @@ dd:first {
 
 /* Slide */
 
-.slide p {
+.slide p, .slide li, .slide .button_primary {
   font-size: 1.5rem;
   line-height: 2.2rem;
-  padding-right: 8rem;
 }
-.slide > * {
-  font-size: 1.5rem;
-  line-height: 2.2rem;
+.slide .button_primary,
+.slide .button_secondary {
+  font-size: 1.3rem;
+}
+.slide h2 {
+  font-size: 2.2em;
+  --line-height: 2.2rem;
 }
 .slide div {
   margin-top: 1rem;
@@ -339,4 +342,7 @@ dd:first {
 }
 .slide blockquote {
   margin: 2em 0 2em 2em;
+}
+.slide img {
+  width: 100%;
 }

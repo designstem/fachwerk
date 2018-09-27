@@ -11,8 +11,8 @@ export default {
   template: `
     <div>
       <Math :math="math" />
-      <label>Angle: <code>{{value}}</code>
+      <label>Angle: <code>{{value}}</code></label>
       <input type="range" v-model="value" />
-    <div>
+    </div>
   `
 }

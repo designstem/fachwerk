@@ -2,9 +2,11 @@ export default `# Looking for triangles
 
 Design a polyhedral shape bird nesting box and learn the geometry behind it
 
-<Example />
-
 ---
+
+![](../images/test2.png)
+
+===
 
 ## The assignment
 
@@ -14,10 +16,9 @@ The design should be based on **polyhedral shape**
 
 The material should have some thickness (wood, etc)
 
---
+![](../images/test3.png)
 
-![](../images/test1.png)
----
+===
 
 ## Design problem
 
@@ -29,19 +30,27 @@ There are birds which rely heavily on human made nesting boxes.
 
 ---
 
+![](../images/test4.png)
+
+===
+
 ## Why polyhedral shape?
 
 People suffering from natural disasters or war zones all over the world often need quick shelter. Some of the most efficient solutions for such constructions are based on polyhedral design.
 
 ---
 
-*Images...*
+![](../images/test5.png)
 
----
+===
 
-*Images...*
+![](../images/test6.png)
 
----
+===
+
+![](../images/test7.png)
+
+===
 
 ## Key steps
 
@@ -52,13 +61,17 @@ People suffering from natural disasters or war zones all over the world often ne
 
 ---
 
+![](../images/test8.png)
+
+===
+
 ## “But how?”
 
 you may ask...
 
 Let's find out!
 
----
+===
 
 ## Geometry behind the nesting box
 
@@ -70,19 +83,45 @@ For designing and building a solid polyhedral object you have to:
 
 ---
 
-## Polyhedron *is made of* Polygons *that are made of* triangles
+![](../images/test9.png)
+
+===
+
+## Polyhedron
+
+![](../images/test10a.png)
 
 Get to know the regular polyhedral shapes
 
+<div class="button_primary">
+  Explore ➜
+</div>
+
+---
+
+## Polygons
+
+![](../images/test10b.png)
+
 Find the polygons: the sides of a polyhedron
+
+<div class="button_primary">
+  Explore ➜
+</div>
+
+---
+
+## Triangles
+
+![](../images/test10c.png)
 
 Find the triangles: the “building blocks” of polygons
 
 <div class="button_primary">
-  Explore polyhedra ➜
+  Explore ➜
 </div>
 
----
+===
 
 ## Let’s start with triangles!
 
@@ -93,7 +132,7 @@ So let’s see, what type of triangles there are and what kind of relations exis
   Geometry of triangles ➜
 </div>
 
----
+===
 
 ## Polygon: made of triangles
 
@@ -107,15 +146,23 @@ So, in order to build a polyhedra, let’s get first familiar with it’s sides 
   Geometry of polygons ➜
 </div>
 
----
+===
 
 ## Simplification of polygons 
 
 Looking at these polygons below, how would you simplify the shapes to calculate angles and distances?
 
-<Poly />
+![](../images/test11a.png)
 
----
+===
+
+## Simplification of polygons 
+
+Looking at these polygons below, how would you simplify the shapes to calculate angles and distances?
+
+![](../images/test11b.png)
+
+===
 
 ## Polyhedron: *made of polygons*
 
@@ -123,29 +170,61 @@ Polyhedra (polyhedrons) are comprised of polygons.
 
 There are 5 convex regular polyhedra, also known as platonic solids. 
 
+![](../images/test3.png)
+
 <div class="button_primary">
   Geometry of polygons ➜
 </div>
 
----
+===
 
 ## Simplification of polyhedron
 
 Looking at this polyhedron, how would you simplify it to calculate angles and distances?
 
+---
+
+![](../images/test12a.png)
+
+===
+
+![](../images/test12a.png)
+
+---
+
+![](../images/test12b.png)
+
 (You can see, that the sides of a polyhedron are polygons)
+
+---
+
+===
+
+![](../images/test12a.png)
+
+---
+
+![](../images/test12b.png)
+
+(You can see, that the sides of a polyhedron are polygons)
+
+---
+
+![](../images/test12c.png)
 
 (You can see, that the sides of a polyhedron are polygons, that are made of triangles)
 
-<Poly />
-
----
+===
 
 ## One more problem… material thickness
 
 Once you start to build your nesting box, you may face another problem: since material has some **thickness**, you have to cut the edges at a certain angle, in order to fit the sides of a polygons together.
 
 ---
+
+![](../images/test13.png)
+
+===
 
 ## Dihedral angle
 
@@ -156,6 +235,10 @@ The angle between two sides of a polygon is called the **dihedral angle**.
 </div>
 
 ---
+
+![](../images/test13.png)
+
+===
 
 OK, now you see, why this was all about
 
