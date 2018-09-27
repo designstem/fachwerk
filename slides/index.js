@@ -2,73 +2,98 @@ import Render from '../components/Render.js'
 import Buttons from "../components/Buttons.js";
 import Poly from "../components/Poly.js";
 
-import sample1 from "./sample1.js"
-import sample2 from "./sample2.js"
+import sample from "./sample.js"
 
 const Slide = {
   components: { Render },
-  props: ['slide'],
+  props: ["slide"],
   methods: { marked },
   computed: {
     t() {
-      return `<div>${marked(this.slide, { breaks: true })}</div>`
+      return `<div>${marked(this.slide, { breaks: true })}</div>`;
     }
   },
   template: `
-    <div style="
-      background: white;
-      padding: 1rem;
-      border: 3px solid var(--color-gray-dark);
-    ">
+    <div
+      style="
+        background: white;
+        padding: 2rem;
+        height: calc(100vh - 5rem);
+      "
+      class="slide"
+    >
       <Render :t="t" />
     </div>
   `
-}
+};
 
 new Vue({
   components: { Slide, Render, Buttons },
   el: "#app",
   data: () => ({
-    md: sample2,
-    cols: 0
+    md: sample,
+    cols: 0,
+    currentIndex: 0
   }),
+  computed: {
+    slides() {
+      return this.md.split("---");
+    }
+  },
+  methods: {
+    prev() {
+      this.currentIndex > 0 && this.currentIndex--;
+    },
+    next() {
+      this.currentIndex < this.slides.length - 1 && this.currentIndex++;
+    }
+  },
+  mounted() {
+    document.addEventListener('keydown', e => {
+      if (e.keyCode == 37) { this.prev() }
+      if (e.keyCode == 39) { this.next() }
+    })
+  },
   template: `
+    <div>
+    <header>
+      <div>
+        <a href="..">Styles</a>
+        → Slide {{ currentIndex + 1 }}
+      </div>
+      <div class="buttons">
+        <div class="button_tertiary" @click="prev">← Previous</div>
+        <div class="button_tertiary" @click="next">Next →</div>
+      </div>
+    </header>
     <div style="display: flex; height: 100vh;">
     <textarea v-model="md" style="
       padding: 1rem;
-      color: var(--color-gray-dark);
+      color: var(--color-gray-darker);
       font-family: var(--font-mono);
       border: none;
       height: 100vh;
-      line-height: 1rem;
-      width: 350px;
+      line-height: 1.2rem;
+      width: 300px;
       outline: none;
       color: #eee;
-      background: var(--color-gray-dark);
+      background: var(--color-gray-darker);
       font-size: 0.8rem;
     "/>
     <div style="
-      padding: 1rem;
       background: var(--color-yellow);
       height: 100vh;
       flex: 1;
-      overflow: auto;
     ">
-    <Buttons style="margin-bottom: 1rem" v-model="cols" :buttons="['Continuous','1 col','2 col','3 col']" />
-    <div
-      v-if="cols > 0"
-      style="
-        display: grid;
-        grid-template-rows: repeat(10, minmax(12rem, 1fr));
-      "
-      :style="{
-        gridGap: cols > 0 ? '1rem' : '',
-        gridTemplateColumns: 'repeat(' + (cols > 0 ? cols : 1)   + ', 1fr)'
-      }"
-    >
-        <Slide v-for="(s,i) in md.split('---')" :key="i" :slide="s" />
+    <div>
+      <Slide
+        v-for="(s,i) in slides"
+        :key="i"
+        :slide="s"
+        v-show="i == currentIndex"
+      />
     </div>
-    <Slide v-else :slide="md.replace('<hr>','')" /> 
+    </div>
     </div>
     </div>
   `
