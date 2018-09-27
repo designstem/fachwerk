@@ -1,9 +1,10 @@
 import Buttons from "./Buttons.js";
 import Math from "./Math.js";
 import Poly from "./Poly.js";
+import Example from "./Example.js";
 
 export default {
-  components: { Buttons, Math, Poly },
+  components: { Buttons, Math, Poly, Example },
   props: { t: String },
   data: () => ({
     render: null

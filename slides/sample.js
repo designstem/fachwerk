@@ -2,6 +2,8 @@ export default `# Looking for triangles
 
 Design a polyhedral shape bird nesting box and learn the geometry behind it
 
+<Example />
+
 ---
 
 ## The assignment
@@ -12,6 +14,9 @@ The design should be based on **polyhedral shape**
 
 The material should have some thickness (wood, etc)
 
+--
+
+![](../images/test1.png)
 ---
 
 ## Design problem
