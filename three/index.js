@@ -256,6 +256,40 @@ const Triangle = {
   }
 }
 
+const Icosahedron = {
+  mixins: [Object3D],
+  data() {
+    let curObj = this.obj;
+    if (!curObj) {
+      var geometry = new THREE.IcosahedronGeometry(1, 0);
+      curObj = new THREE.Mesh(
+        geometry,
+        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+      );
+    }
+    curObj.name = curObj.name || curObj.type;
+    return { curObj };
+  }
+};
+
+const Dodecahedron = {
+  mixins: [Object3D],
+  data() {
+    let curObj = this.obj;
+    if (!curObj) {
+      var geometry = new THREE.DodecahedronGeometry(1, 0);
+      curObj = new THREE.Mesh(
+        geometry,
+        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+      );
+    }
+    curObj.name = curObj.name || curObj.type;
+    return { curObj };
+  }
+};
+
+
+
 const Mesh = {
   mixins: [Object3D],
   props: {
@@ -266,25 +300,25 @@ const Mesh = {
   }
 }
 
-const Geometry = {
-  mixins: [Base],
-  inject: ['meshVm'],
-  props: {
-    args: { type: Array, default: () => [] },
-    type: { type: String, default: '' }
-  },
-  data() {
-    let mod = `${this.type}Geometry`
-    let geometry = new THREE[mod](...this.args)
-    return { geometry }
-  },
-  mounted() {
-    this.meshVm.curObj.geometry = this.geometry
-  },
-  beforeDestroy() {
-    this.meshVm.curObj.geometry = null
-  }
-}
+// const Geometry = {
+//   mixins: [Base],
+//   inject: ['meshVm'],
+//   props: {
+//     args: { type: Array, default: () => [] },
+//     type: { type: String, default: '' }
+//   },
+//   data() {
+//     let mod = `${this.type}Geometry`
+//     let geometry = new THREE[mod](...this.args)
+//     return { geometry }
+//   },
+//   mounted() {
+//     this.meshVm.curObj.geometry = this.geometry
+//   },
+//   beforeDestroy() {
+//     this.meshVm.curObj.geometry = null
+//   }
+// }
 
 import { cx, cy } from '../components/utils.js'
 
@@ -296,9 +330,10 @@ new Vue({
     Camera,
     Light,
     Mesh,
-    Geometry,
     Stroke,
-    Triangle
+    Triangle,
+    Icosahedron,
+    Dodecahedron
   },
   data: () => ({ rotateY: 0, rotateX: 0.75, count: 0 }),
   methods: { cx, cy },
@@ -338,6 +373,7 @@ new Vue({
         <Scene>
           <Camera :position="{ z: 2.5 }" />
           <Mesh :rotation="{x: rotateX, y: rotateY, z: 0}">
+            <Dodecahedron />
             <template
               v-for="(a,j) in Array.from({ length: 14 }).map((_,i) => i + 3)"
               v-if="count == j"
@@ -368,6 +404,7 @@ new Vue({
         <label>Polygon count <code>{{ parseInt(count) + 3 }}</code></label>
         <input type="range" v-model="count" max="13" />
       </div>
+    </div>
     </div>
   `
 });
