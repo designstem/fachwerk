@@ -373,7 +373,6 @@ new Vue({
         <Scene>
           <Camera :position="{ z: 2.5 }" />
           <Mesh :rotation="{x: rotateX, y: rotateY, z: 0}">
-            <Dodecahedron />
             <template
               v-for="(a,j) in Array.from({ length: 14 }).map((_,i) => i + 3)"
               v-if="count == j"
@@ -390,6 +389,12 @@ new Vue({
             :key="'b' + i"
             :from="{x: cx(360 / 3 * c,1.5), y: 0, z: cy(360 / 3 * c,1.5)}"
             :to="{x: cx(360 / 3 * (c + 1),1.5), y: 0, z: cy(360 / 3 * (c + 1),1.5)}"
+          />
+           <Stroke
+            v-for="(c,i) in 200"
+            :key="i"
+            :from="{x: cx(1000 / 200 * c,1), y: i / 50, z: cy(1000 / 200 * c,1)}"
+            :to="{x: cx(1000 / 200 * (c + 1),1), y: i / 49, z: cy(1000 / 200 * (c + 1),1)}"
           />
           </Mesh>
         </Scene>
