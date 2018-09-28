@@ -225,7 +225,6 @@ tr {
   color: var(--color-gray-dark);
   font-weight: bold;
   cursor: pointer;
-  background: var(--color-white);
 }
 
 .button_tertiary {
