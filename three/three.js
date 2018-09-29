@@ -1,3 +1,5 @@
+import { cx, cy } from "../components/utils.js";
+
 const Base = {
   inject: ["_baseUrl"],
   props: {
@@ -335,7 +337,7 @@ const Mesh = {
 
 //stackoverflow.com/questions/18514423/generating-a-regular-polygon-with-three-js
 
-const Polygon2 = {
+const Polygo = {
   mixins: [Object3D],
   props: ["points"],
   data() {
@@ -354,6 +356,56 @@ const Polygon2 = {
   }
 };
 
+const RegularTessellatedPolygon = {
+  components: {
+    Polygo
+  },
+  props: ["count", "radius"],
+  computed: {
+    points() {
+      return Array.from({
+        length: this.count
+      }).map((p, i) => ({
+        x: cx((360 / this.count) * i, this.radius),
+        y: cy((360 / this.count) * i, this.radius)
+      }));
+    }
+  },
+  template: `
+    <Polygo :points="points"/>
+  `
+};
+
+const RegularPolygon = {
+  components: {
+    Triangle,
+    Mesh,
+    Stroke
+  },
+  props: ["count", "radius"],
+  computed: {
+    points() {
+      return Array.from({
+        length: this.count
+      }).map((p, i) => ({
+        x: cx((360 / this.count) * i, this.radius),
+        y: cy((360 / this.count) * i, this.radius)
+      }));
+    }
+  },
+  template: `
+    <Mesh :rotation="{x: 0}">
+      <Triangle
+        v-for="(p,i) in points"
+        :key="i"
+        :v1="{x: p.x, y: p.y, z: 0}"
+        :v2="{x: points[i == points.length - 1 ? 0 : i + 1].x, y: points[i == points.length - 1 ? 0 : i + 1].y, z: 0}"
+        :v3="{x: 0, y: 0, z: 0}"
+      />
+    </Mesh>
+  `
+};
+
 export {
   Renderer,
   Scene,
@@ -364,5 +416,7 @@ export {
   Triangle,
   Icosahedron,
   Dodecahedron,
-  Polygon2
+  Polygo,
+  RegularPolygon,
+  RegularTessellatedPolygon
 };

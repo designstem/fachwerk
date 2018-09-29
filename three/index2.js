@@ -8,30 +8,10 @@ import {
   Triangle,
   Icosahedron,
   Dodecahedron,
-  Polygon2
+  RegularPolygon
 } from "./three.js";
 
-import { cx, cy } from "../components/utils.js";
-
-const RegularPolygon2 = {
-  components: {
-    Polygon2
-  },
-  props: ["count", "radius"],
-  computed: {
-    points() {
-      return Array.from({
-        length: this.count
-      }).map((p, i) => ({
-        x: cx((360 / this.count) * i, this.radius),
-        y: cy((360 / this.count) * i, this.radius)
-      }));
-    }
-  },
-  template: `
-    <Polygon2 :points="points"/>
-  `
-};
+import { cx, cy, deg2rad } from "../components/utils.js";
 
 new Vue({
   el: "#app",
@@ -45,10 +25,10 @@ new Vue({
     Triangle,
     Icosahedron,
     Dodecahedron,
-    RegularPolygon2
+    RegularPolygon
   },
-  data: () => ({ rotateX: 2, rotateY: 0, count: 16 }),
-  methods: { cx, cy },
+  data: () => ({ rotateX: 90, count: 8 }),
+  methods: { deg2rad },
   computed: {
     points() {
       return Array.from({ length: this.count }).map((p, i) => ({
@@ -59,15 +39,16 @@ new Vue({
   },
   template: `
   <div style="padding: 3rem;">
-      <input style="width: 300px" type="range" v-model="rotateX" step="0.01" max="4" />
+      <input style="width: 300px" type="range" v-model="rotateX" step="1" max="180" />
       <Renderer :size="{ w: 600, h: 600 }">
         <Scene>
           <Camera :position="{ z: 2.5 }" />
           <Mesh
-            v-for="point in points"
+            v-for="(point,i) in points"
+            :key="i"
             :position="{y : point.y}"
-            :rotation="{x: rotateX }">
-            <RegularPolygon2 :count="count" :radius="point.x" />
+            :rotation="{x: deg2rad(rotateX), y: 0, z: deg2rad(i % 2 ? rotateX * 2 : rotateX * -2) }">
+            <RegularPolygon :count="count" :radius="point.x" />
           </Mesh>
         </Scene>
       </Renderer> 
