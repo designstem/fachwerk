@@ -1,4 +1,7 @@
 export default {
+  name: "Buttons",
+  description: "A component that does a lot",
+  example: `<buttons :buttons="['First','Second']" />`,
   props: ["buttons", "value"],
   template: `
     <div :style="{display: 'flex', marginLeft: '3px'}">

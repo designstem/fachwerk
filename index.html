@@ -21,7 +21,7 @@
 
   </header>
 
-  <section style="margin: 3rem 2rem">
+  <div style="margin: 3rem 2rem">
 
     <div style="
     display: grid;
@@ -105,42 +105,19 @@
         </div>
       </div>
 
-      <div>
+    </div>
 
-        <pre>
-import Buttons from "https://rawgit.com/designstem/style/master/components/Buttons.js";
-export default {
-  components: { Buttons },
-  data: ({ index: 0 }),
-  template: `
-    &lt;buttons :buttons="['First','Second']" v-model="index" /&gt;
-  `
-}</pre>
-        <br>
-        <buttons :buttons="['First','Second']" v-model="index" />
-
-      </div>
-
-      <div>
-      <dd>pre</dd>
-      <pre>
-const { size } = this.state;
-render() {
-  return (
-    &lt;div&gt;{size}&lt;/div&gt;
-  )
-}
-    </pre>
+    <br>
+    
+    <h1>Components</h1>
+    <Components />
 
     </div>
 
-  </section>
-
   </div>
-
   <script src="https://unpkg.com/vue"></script>
-  <script src="https://unpkg.com/katex/dist/katex.min.js">
-  </script>
+  <script src="https://unpkg.com/katex/dist/katex.min.js"></script>
+  <script src="https://unpkg.com/animejs"></script>
   <script src="./index.js" type="module"></script>
 
 </body>

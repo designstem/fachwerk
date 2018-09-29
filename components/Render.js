@@ -2,9 +2,10 @@ import Buttons from "./Buttons.js";
 import Math from "./Math.js";
 import Poly from "./Poly.js";
 import Example from "./Example.js";
+import Anime from "./Anime.js";
 
 export default {
-  components: { Buttons, Math, Poly, Example },
+  components: { Buttons, Math, Poly, Example, Anime },
   props: { t: String },
   data: () => ({
     render: null
