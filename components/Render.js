@@ -1,10 +1,11 @@
 import Buttons from "./Buttons.js";
 import Math from "./Math.js";
 import Poly from "./Poly.js";
+import Triangle from "./Triangle.js";
 import Example from "./Example.js";
 
 export default {
-  components: { Buttons, Math, Poly, Example },
+  components: { Buttons, Math, Poly, Triangle, Example },
   props: { t: String },
   data: () => ({
     render: null
