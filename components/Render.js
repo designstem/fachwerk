@@ -1,17 +1,29 @@
+import Anime from "./Anime.js";
 import Buttons from "./Buttons.js";
 import Math from "./Math.js";
-import Anime from "./Anime.js";
-import Transport from "./Transport.js";
+import Poly from "./experimental/Poly.js";
 import Slider from "./Slider.js";
+import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
+import ThreeScene from "./ThreeScene.js";
+import Transport from "./Transport.js";
 import Triangle from "./Triangle.js";
 
-import Poly from "./experimental/Poly.js";
-
 export default {
-  components: { Buttons, Math, Poly, Anime, Transport, Slider, Triangle },
+  components: {
+    Anime,
+    Buttons,
+    Math,
+    Poly,
+    Slider,
+    ThreeRegularPolygon,
+    ThreeScene,
+    Transport,
+    Triangle,
+  },
   props: { t: String },
   data: () => ({
-    render: null
+    render: null,
+    someVariable: null
   }),
   mounted() {
     this.$watch(

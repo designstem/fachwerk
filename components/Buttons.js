@@ -3,7 +3,7 @@ export default {
   description: "A button group, meant to be used with v-model",
   example: `
 <Buttons
-  v-model="activeTab"
+  v-model="someVariable"
   :buttons="['First','Second']"
 />
   `,

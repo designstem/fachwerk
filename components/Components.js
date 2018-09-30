@@ -5,8 +5,9 @@ import Buttons from "./Buttons.js";
 import Math2 from "./Math.js";
 import Transport from "./Transport.js";
 import Slider from "./Slider.js";
+import ThreeRegularPolygon from "./ThreeRegularPolygon.js"
 
-const importedComponents = [Anime, Buttons, Math2, Transport, Slider];
+const importedComponents = [ThreeRegularPolygon, Anime, Buttons, Math2, Transport, Slider];
 
 export default {
   components: { Render },
@@ -17,7 +18,7 @@ export default {
         example: example.trim(),
         description: description ? description : '',
         props: JSON.stringify(props, null, 2)
-      })
+      }),
     )
   }),
   template: `

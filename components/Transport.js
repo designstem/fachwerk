@@ -2,7 +2,7 @@ export default {
   name: "Transport",
   description: "A simple play / pause button, meant to be used with v-model",
   example: `
-<Transport v-model="playing" />
+<Transport v-model="someVariable" />
 <Transport :value="true" />
 <Transport :value="false" />
   `,

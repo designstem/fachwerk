@@ -29,7 +29,7 @@ new Vue({
       { title: "3D examples", sample: threesample }
     ],
     activeComponent: 0,
-    activeSample: 0
+    activeSample: 2
   }),
   mounted() {
     this.$watch(
