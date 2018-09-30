@@ -6,9 +6,6 @@ export default `# <span class="bullet">1</span> Triangles
 
 > In every triangle we distinguish 3 sides and 3 angles.
 
-<Triangle />
-<Triangle :p1="{x:10, y:20}" :p2="{x:60, y:10}" :p3="{x:90, y:90}" />
-
 > The length of the sides is measured in cm, inches, etc. 
 
 > Angles are measured in degrees. We name  angles by using the letter of their corresponding  corner eg. A, B, C 

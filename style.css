@@ -128,7 +128,7 @@ label,
 
 /* Code */
 
---pre {
+pre {
   overflow: auto;
   max-width: 25vw;
   background: var(--color-gray-light);
@@ -141,7 +141,7 @@ label,
   border-radius: var(--border-radius);
 }
 
---code {
+code {
   font-family: var(--font-mono);
   border-radius: 3px;
   background: var(--color-gray-light);

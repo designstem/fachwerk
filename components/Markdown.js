@@ -5,6 +5,6 @@ export default {
   props: ["content"],
   methods: { marked },
   template: `
-    <div v-html="marked(content, { breaks: true })" />
+    <Render :t="'<div>'+marked(content, { breaks: true })+'</div>'" />
   `
 };
