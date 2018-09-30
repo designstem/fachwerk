@@ -128,7 +128,7 @@ label,
 
 /* Code */
 
-pre {
+--pre {
   overflow: auto;
   max-width: 25vw;
   background: var(--color-gray-light);
@@ -141,7 +141,7 @@ pre {
   border-radius: var(--border-radius);
 }
 
-code {
+--code {
   font-family: var(--font-mono);
   border-radius: 3px;
   background: var(--color-gray-light);
@@ -349,8 +349,12 @@ dd:first {
 /* Layout */
 
 main {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 2rem;
+  display: flex;
   padding: 2rem;
+}
+main > * {
+  flex: 1;
+}
+main > *:nth-child(2) {
+  flex: 2;
 }
