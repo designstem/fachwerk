@@ -3,11 +3,9 @@ export default {
   description: "An animation component, in fact, AnimeJS wrapper",
   example: `
 <Anime :to="10" :duration="5000" >
-  <h2 slot-scope="{value}">
-    <span class="bullet">
+  <h1 slot-scope="{value}">
       {{ Math.floor(value) }}
-    </span>
-  </h2>
+  </h1>
 </Anime>
   `,
   props: {
@@ -18,10 +16,10 @@ export default {
     playing: { default: true },
     loop: { default: true },
     alternate: { default: false },
-    easing: { default: "linear" },
+    easing: { default: "linear" }
   },
   data: () => ({ value: 0 }),
-    mounted() {
+  mounted() {
     this.value = this.from;
     const a = anime({
       targets: this,

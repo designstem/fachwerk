@@ -5,9 +5,10 @@ import Triangle from "./Triangle.js";
 import Example from "./Example.js";
 import Anime from "./Anime.js";
 import Transport from "./Transport.js";
+import Slider from "./Slider.js";
 
 export default {
-  components: { Buttons, Math, Poly, Example, Anime, Transport },
+  components: { Buttons, Math, Poly, Example, Anime, Transport, Slider },
   props: { t: String },
   data: () => ({
     render: null
