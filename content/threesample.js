@@ -1,16 +1,21 @@
-export default `# 3D playground
+export default `## 3D playground
 
 ### Polygon and slider
 
-<Slider>
+<Slider :max="360" title="Angle" >
   <ThreeScene slot-scope="{value}">
     <ThreeMesh
-      :rotation="{x: value, y: value, z: value}"
-    >
+      :rotation="{
+        x: deg2rad(value),
+        y: deg2rad(value),
+        z: deg2rad(value)
+    }">
       <ThreeRegularPolygon />
     </ThreeMesh>
   </ThreeScene>  
 </Slider>
+
+---
 
 ### Spinning polygon
 
