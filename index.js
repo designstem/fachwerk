@@ -1,6 +1,6 @@
 import Buttons from "./components/Buttons.js";
 import Math from "./components/Math.js";
-import Components from "./components/Components.js";
+import Components from "./components/internal/Components.js";
 
 new Vue({
   components: { Buttons, Math, Components },

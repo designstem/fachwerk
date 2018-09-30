@@ -35,8 +35,7 @@ export default {
         line-height: 1.3rem;
         width: 95%;
         outline: none;
-        font-size: 0.9rem;
-        --overflow: auto;
+        font-size: 0.85rem;
       "
     />
   `

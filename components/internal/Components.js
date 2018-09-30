@@ -1,13 +1,22 @@
-import Render from "./Render.js";
+import Render from "../Render.js";
 
-import Anime from "./Anime.js";
-import Buttons from "./Buttons.js";
-import Math2 from "./Math.js";
-import Transport from "./Transport.js";
-import Slider from "./Slider.js";
-import ThreeRegularPolygon from "./ThreeRegularPolygon.js"
+import Anime from "../Anime.js";
+import Buttons from "../Buttons.js";
+import Math2 from "../Math.js";
+import Transport from "../Transport.js";
+import Slider from "../Slider.js";
+import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
+import ThreeLine from "../ThreeLine.js";
 
-const importedComponents = [ThreeRegularPolygon, Anime, Buttons, Math2, Transport, Slider];
+const importedComponents = [
+  ThreeLine,
+  ThreeRegularPolygon,
+  Anime,
+  Buttons,
+  Math2,
+  Transport,
+  Slider
+];
 
 export default {
   components: { Render },
@@ -24,7 +33,7 @@ export default {
   template: `
     <div>
         <div v-for="c in componentData" style="display: flex; margin-bottom: 2rem;">
-        <div style="flex: 1">
+        <div style="flex: 1.5">
           <h2>{{ c.name }}</h2>
           <p>{{ c.description }}</p>
           <pre style="background: white">{{ c.props }}</pre>

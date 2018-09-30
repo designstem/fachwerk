@@ -19,8 +19,8 @@ new Vue({
   data: () => ({
     content: "",
     components: [
-      { title: "Slides", component: ContentSlides },
       { title: "Document", component: ContentDocument },
+      { title: "Slides", component: ContentSlides },
       { title: "Cards", component: ContentCards }
     ],
     samples: [

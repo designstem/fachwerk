@@ -3,6 +3,7 @@ import Buttons from "./Buttons.js";
 import Math from "./Math.js";
 import Poly from "./experimental/Poly.js";
 import Slider from "./Slider.js";
+import ThreeLine from "./ThreeLine.js";
 import ThreeMesh from "./ThreeMesh.js";
 import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
@@ -18,6 +19,7 @@ export default {
     Math,
     Poly,
     Slider,
+    ThreeLine,
     ThreeMesh,
     ThreeRegularPolygon,
     ThreeScene,
