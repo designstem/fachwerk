@@ -1,8 +1,10 @@
-export default `# <span class="bullet">1</span> Triangles
+export default `# Triangles
 
 ## What is a triangle
 
 > Triangles derive when we join three lines together. 
+
+---
 
 > In every triangle we distinguish 3 sides and 3 angles.
 
@@ -16,6 +18,8 @@ export default `# <span class="bullet">1</span> Triangles
 
 > By comparing angles and sides, we distinguish triangles as follows. 
 
+---
+
 <Poly />
 
 ### Scalene triangle 
@@ -24,17 +28,23 @@ export default `# <span class="bullet">1</span> Triangles
 
 > Particularly, if one angle of the triangle is greater than 90° then this triangle is called Obtuse.
 
+---
+
 <Poly />
 
 ### Acute scalene triangle 
 
 > If all angles are less than 90° then it is called Acute
 
+---
+
 <Poly />
 
 ### Isosceles triangle
 
 > It  has two sides and angles equal.
+
+---
 
 <Poly />
 
@@ -43,6 +53,10 @@ export default `# <span class="bullet">1</span> Triangles
 > It has all three sides and angles equal. 
 
 > It can be proved that each angle is 60o.
+
+---
+
+<Poly />
 
 ### Orthogonal or Right Triangle
 
@@ -55,6 +69,8 @@ export default `# <span class="bullet">1</span> Triangles
 ## How to calculate angles and sides in triangles.
 
 > Rule: The sum of all 3 angles in every triangle is 180°. 
+
+---
 
 ### A
 
@@ -72,6 +88,8 @@ then, since
 
 <Math math="∠C = 180°  - ( ∠A + ∠B ) =  180° - (50°+30° ) = 180° - 80° = 100°"/>
 
+---
+
 ### B
 
 > In a **isosceles triangle**, we know angle A and we want to calculate angles 
@@ -80,6 +98,8 @@ B or C.
 > If we know the degrees of angle A we can calculate angles B and C by using the formula 
 
 <Math math="B or C=\\frac{180° - A}{2}"/>
+
+---
 
 > Example: if
 
@@ -139,6 +159,8 @@ B or C.
 
 > **The three common trigonometric ratios are the sine (sin), cosine (cos), and tangent (tan).**
 
+---
+
 > These are defined as follows 
 
 <Math math="\\sin({B}) = \\frac{b}{a}\\enspace \\sin({C}) = \\frac{c}{a}"/>
@@ -149,6 +171,8 @@ B or C.
 
 <Poly />
 
+---
+
 > Example. In the following right triangle, angle B can be estimated in terms of trigonometric functions as 
 
 <Math math="\\sin({B}) = \\frac{15}{17} \\approx 0.88"/>
@@ -157,7 +181,9 @@ B or C.
 
 <Math math="\\tan({B}) = \\frac{15}{8} \\approx 1.87"/>
 
-The actual value of angle B in degrees derives from the inverse function. For example if
+---
+
+> The actual value of angle B in degrees derives from the inverse function. For example if
 
 <Math math="sin(B) \\approx 0.88"/>
 
@@ -173,9 +199,11 @@ then
 
 ---
 
-# <span class="bullet">2</span> From triangles to polygons
+# From triangles to polygons
 
 > Polygons are shapes more complex than triangles, having more sides and angles than 3. 
+
+---
 
 ## Triangles form polygons
 
@@ -183,9 +211,13 @@ then
 
 > For example a polygon with four edges can be divided into two triangles, properly connected. 
 
+---
+
 <Poly />
 
 > In a different way, the diagonals of a polygon divide the whole shape into triangles. 
+
+---
 
 <Poly />
 
@@ -203,6 +235,8 @@ then
 
 > Normal polygons are characterized by the number of edges or sides. 
 
+---
+
 <Poly />
 
 > Square: 4 sides, edges / Pentagon: 5 sides, edges / Hexagon: 6 sides, edges / Heptagon: 7 sides, edges
@@ -218,6 +252,8 @@ then
 > * the apothem ***a***, the distance of the center to the midle of the side
 > * the radius ***r***, the distance from the center to an edge
 
+---
+
 > In a polygon with n sides, If we define the radius **r** that denotes its size, we can estimate the above measures using the formulas
 
 <Math math="w=\\frac{360}{n}"/>
@@ -230,11 +266,13 @@ then
 
 ---
 
-# <span class="bullet">3</span>Polyhedra
+# Poly hedra
 
 <Poly />
 
 > When regular polygons are expanded and seen in the three dimensions, form the Regular Polyhedra. These are solid objects bounded by flat surfaces.
+
+---
 
 > In regular polyhedral we distinguish *Faces*, *Edges* and *Vertices*.
 
@@ -251,20 +289,28 @@ then
 ### Regular tetrahedron, pyramid 
 4 faces, 6 edges, 4 vertices
 
+---
+
 <Poly />
 
 ### Cube
 6 faces, 12 edges, 8 vertices
+
+---
 
 <Poly />
 
 ### Octahedron
 8 faces, 12 edges, 6 vertices
 
+---
+
 <Poly />
 
 ### Dodecahedron
 12 faces, 30 edges, 20 vertices
+
+---
 
 <Poly />
 

@@ -14,4 +14,8 @@ const deg2rad = deg => (deg * Math.PI) / 180;
 
 const rad2deg = rad => (rad * 180) / Math.PI;
 
-export { cx, cy, scale, deg2rad, rad2deg };
+const flatten = list => list.reduce(
+  (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
+);
+
+export { cx, cy, scale, deg2rad, rad2deg, flatten };

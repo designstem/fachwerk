@@ -6,6 +6,8 @@ export default {
     };
   },
   mounted() {
+    // Handle tab key
+    // https://jsfiddle.net/2wAzx/13/
     this.$refs.editor.onkeydown = function(e) {
       if (e.keyCode === 9) {
         const val = this.value;
@@ -23,16 +25,15 @@ export default {
       v-model="content"
       @input="$emit('input', content)"
       style="
-        --padding: 1rem;
         color: var(--color-blue-medium);
         font-family: var(--font-mono);
         border: none;
-        height: 100vh;
+        min-height: 12rem;
         line-height: 1.3rem;
         width: 95%;
         outline: none;
-        --background: var(--color-gray-darker);
         font-size: 0.9rem;
+        overflow: auto;
       "
     />
   `
