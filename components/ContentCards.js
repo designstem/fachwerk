@@ -1,5 +1,5 @@
 import Markdown from "./Markdown.js";
-import { flatten } from "../../utils.js"
+import { flatten } from '../utils.js'
 
 export default {
   components: { Markdown },
