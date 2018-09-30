@@ -3,19 +3,21 @@ import Render from "../Render.js";
 import Anime from "../Anime.js";
 import Buttons from "../Buttons.js";
 import Math2 from "../Math.js";
-import Transport from "../Transport.js";
 import Slider from "../Slider.js";
-import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeLine from "../ThreeLine.js";
+import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
+import ThreeTriangle from "../ThreeTriangle.js";
+import Transport from "../Transport.js";
 
 const importedComponents = [
-  ThreeLine,
-  ThreeRegularPolygon,
   Anime,
   Buttons,
   Math2,
+  Slider,
+  ThreeLine,
+  ThreeRegularPolygon,
+  ThreeTriangle,
   Transport,
-  Slider
 ];
 
 export default {

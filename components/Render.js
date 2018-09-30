@@ -7,10 +7,11 @@ import ThreeLine from "./ThreeLine.js";
 import ThreeMesh from "./ThreeMesh.js";
 import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
+import ThreeTriangle from "./ThreeTriangle.js";
 import Transport from "./Transport.js";
 import Triangle from "./Triangle.js";
 
-import { rad2deg, deg2rad, cx, cy } from '../utils.js'
+  import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
 export default {
   components: {
@@ -23,6 +24,7 @@ export default {
     ThreeMesh,
     ThreeRegularPolygon,
     ThreeScene,
+    ThreeTriangle,
     Transport,
     Triangle,
   },
@@ -32,7 +34,10 @@ export default {
     someVariable: null
   }),
   methods: {
-    rad2deg, deg2rad, cx, cy
+    rad2deg,
+    deg2rad,
+    cx,
+    cy
   },
   mounted() {
     this.$watch(
