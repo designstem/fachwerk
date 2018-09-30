@@ -7,6 +7,7 @@ import Editor from "../components/Editor.js";
 
 import trianglesample from "./trianglesample.js";
 import mathsample from "./mathsample.js";
+import threesample from "./threesample.js";
 
 new Vue({
   el: "#app",
@@ -26,7 +27,8 @@ new Vue({
     ],
     samples: [
       { title: "Finding Triangles", sample: trianglesample },
-      { title: "Math theory", sample: mathsample }
+      { title: "Math theory", sample: mathsample },
+      { title: "3D examples", sample: threesample }
     ],
     activeComponent: 0,
     activeSample: 0

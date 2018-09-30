@@ -10,8 +10,8 @@ export default {
     preparedContent() {
       return this.content
         .replace(/\n--\n/g, "")
-        .replace(/\n-\n/g, "")
-        .split("---");
+        .split(/\n---\n/)
+        .map(s => s.split(/\n-\n/));
     }
   },
   methods: {
@@ -36,17 +36,26 @@ export default {
   template: `
     <div>
       <div
-        v-for="(slide,i) in preparedContent"
+        v-for="(cols,i) in preparedContent"
         v-if="i == currentIndex"
-        
+        class="slide"
+        :style="{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(' + cols.length +', 1fr)',
+          gridGap: '1fr'
+        }"
       >
-        <Markdown class="slide" :content="slide"/>
+        <Markdown
+          style="border: 3px solid black"
+          v-for="col in cols"
+          :content="col"
+        />
       </div>
     </div>
   `,
   css: `
     .slide p, .slide li, .slide .button_primary {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       line-height: 2.2rem;
     }
     .slide .button_primary,
