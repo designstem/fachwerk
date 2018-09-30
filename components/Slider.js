@@ -17,10 +17,4 @@ export default {
       <input type="range" v-model="value"/>
     </div>
   `
-  // render: function(h) {
-  //   return h("div", [
-  //     h("input", [], { attr }),
-  //     this.$scopedSlots.default({ [this.name]: this.value })
-  //   ]);
-  // }
 };

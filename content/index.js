@@ -1,4 +1,4 @@
-import Markdown from "../components/Markdown.js";
+import ContentDocument from "../components/ContentDocument.js";
 import AdvancedEditor from "../components/AdvancedEditor.js";
 import Editor from "../components/Editor.js";
 
@@ -6,7 +6,7 @@ import sample from "./sample.js";
 
 new Vue({
   el: "#app",
-  components: { Editor, AdvancedEditor, Markdown },
+  components: { Editor, AdvancedEditor, ContentDocument },
   data: () => ({ content: sample }),
   template: `
     <div>
@@ -18,7 +18,7 @@ new Vue({
           <Editor v-model="content" />
         </section>
         <section style="flex: 1; padding: 2rem;">
-          <Markdown :content="content" />
+          <ContentDocument :content="content" />
         </section>
       </main>
     </div>
