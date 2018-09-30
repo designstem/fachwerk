@@ -89,34 +89,47 @@ For designing and building a solid polyhedral object you have to:
 
 ## Polyhedron
 
-![](../images/test10a.png)
-
-Get to know the regular polyhedral shapes
-
-<div class="button_primary">
-  Explore ➜
-</div>
-
 -
 
 ## Polygons
-
-![](../images/test10b.png)
-
-Find the polygons: the sides of a polyhedron
-
-<div class="button_primary">
-  Explore ➜
-</div>
 
 -
 
 ## Triangles
 
+-
+
+![](../images/test10a.png)
+
+-
+
+![](../images/test10b.png)
+
+-
+
 ![](../images/test10c.png)
+
+-
+
+Get to know the regular polyhedral shapes
+
+-
+
+Find the polygons: the sides of a polyhedron
+
+-
 
 Find the triangles: the “building blocks” of polygons
 
+-
+<div class="button_primary">
+  Explore ➜
+</div>
+-
+<div class="button_primary">
+  Explore ➜
+</div>
+-
 <div class="button_primary">
   Explore ➜
 </div>
