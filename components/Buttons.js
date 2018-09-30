@@ -1,6 +1,6 @@
 export default {
   name: "Buttons",
-  description: "A button group, meant to be used with v-model",
+  description: "A button group, meant to be used with <code>v-model</code>",
   example: `
 <Buttons
   v-model="someVariable"

@@ -37,7 +37,7 @@ export default {
         <div v-for="c in componentData" style="display: flex; margin-bottom: 2rem;">
         <div style="flex: 1.5">
           <h2>{{ c.name }}</h2>
-          <p>{{ c.description }}</p>
+          <p v-html="c.description" />
           <pre style="background: white">{{ c.props }}</pre>
         </div>
         <div style="flex: 2; margin-left: 2rem;">

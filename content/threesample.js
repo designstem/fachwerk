@@ -1,4 +1,4 @@
-export default `## 3D playground
+export default `## 3D Examples
 
 <ThreeScene>
   <Anime

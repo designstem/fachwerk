@@ -24,12 +24,12 @@ new Vue({
       { title: "Cards", component: ContentCards }
     ],
     samples: [
+      { title: "3D examples", sample: threesample },
       { title: "Finding Triangles", sample: trianglesample },
       { title: "Math theory", sample: mathsample },
-      { title: "3D examples", sample: threesample }
     ],
     activeComponent: 0,
-    activeSample: 2
+    activeSample: 0
   }),
   mounted() {
     this.$watch(
