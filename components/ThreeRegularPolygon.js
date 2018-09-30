@@ -1,16 +1,18 @@
-import { Triangle, Mesh } from "./internal/three.js";
+import { Triangle } from "./internal/three.js";
+import ThreeMesh from "./ThreeMesh.js"
+
 import { cx, cy } from "../utils.js"
 
 export default {
   name: "ThreeRegularPolygon",
   example: `
 <ThreeScene>
-    <ThreeRegularPolygon />
+  <ThreeRegularPolygon />
 </ThreeScene>  
   `,
   components: {
     Triangle,
-    Mesh
+    ThreeMesh
   },
   props: { count: { default: 16 }, radius: { default: 1 } },
   computed: {
@@ -24,7 +26,7 @@ export default {
     }
   },
   template: `
-    <Mesh>
+    <ThreeMesh>
       <Triangle
         v-for="(p,i) in points"
         :key="i"
@@ -36,6 +38,6 @@ export default {
         }"
         :v3="{x: 0, y: 0, z: 0}"
       />
-    </Mesh>
+    </ThreeMesh>
   `
 };

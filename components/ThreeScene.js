@@ -7,9 +7,9 @@ export default {
   components: { Renderer, Scene, Camera },
   template: `
     <div class="three">
-      <Renderer :size="{ w: 250, h: 250 }">
+      <Renderer :size="{ w: 200, h: 200 }">
         <Scene>
-          <Camera :position="{ z: 2.5 }" />
+          <Camera :position="{ z: 2 }" />
           <slot />
         </Scene>
       </Renderer>

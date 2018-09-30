@@ -376,15 +376,16 @@ const RegularTessellatedPolygon = {
 };
 
 export {
+  Object3D,
   Renderer,
   Scene,
   Camera,
-  Light,
-  Mesh,
-  Stroke,
+  //Light,
+  //Mesh,
+  //Stroke,
   Triangle,
-  Icosahedron,
-  Dodecahedron,
-  Polygo,
-  RegularTessellatedPolygon
+  //Icosahedron,
+  //Dodecahedron,
+  //Polygo,
+  //RegularTessellatedPolygon
 };
