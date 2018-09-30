@@ -1,4 +1,22 @@
-export default `## 3D Examples
+export default `# Playground
+
+### Dynamic math
+
+<Slider>
+  <div slot-scope="{value}">
+    <Math :math="'a = ' + value" />
+    <Math :math="
+      'c = a^2 + 10 = '
+      + value
+      + '^2 + 10 = '
+      + (Math.pow(value,2) + 10)
+    " />
+  </div>
+</Slider>
+
+---
+
+### Rotating spiral
 
 <ThreeScene>
   <Anime
