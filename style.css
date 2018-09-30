@@ -321,7 +321,7 @@ dd:first {
 
 /* Slide */
 
-.slide p, .slide li, .slide .button_primary {
+/* .slide p, .slide li, .slide .button_primary {
   font-size: 1.5rem;
   line-height: 2.2rem;
 }
@@ -344,7 +344,7 @@ dd:first {
 }
 .slide img {
   width: 100%;
-}
+} */
 
 /* Layout */
 
@@ -355,6 +355,14 @@ main {
 main > * {
   flex: 1;
 }
+main > *:first-child {
+  margin-right: 2rem;
+}
 main > *:nth-child(2) {
   flex: 2;
 }
+
+    img {
+      width: 100%;
+      display: block;
+    }

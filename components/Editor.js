@@ -1,11 +1,14 @@
 export default {
   props: ["value"],
-  data() {
-    return {
-      content: this.value
-    };
-  },
+  data: () => ({ content: ''}),
   mounted() {
+    this.$watch(
+      "value",
+      value => {
+        this.content = value;
+      },
+      { immediate: true }
+    );
     // Handle tab key
     // https://jsfiddle.net/2wAzx/13/
     this.$refs.editor.onkeydown = function(e) {
@@ -33,7 +36,7 @@ export default {
         width: 95%;
         outline: none;
         font-size: 0.9rem;
-        overflow: auto;
+        --overflow: auto;
       "
     />
   `
