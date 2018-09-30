@@ -24,6 +24,7 @@ export default `## 3D Examples
       }"
     />
   </ThreeMesh>
+  </Anime>
 </ThreeScene>
 
 ---
