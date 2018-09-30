@@ -1,6 +1,5 @@
 export default {
   name: "Slider",
-  description: "An slider component",
   example: `
 <Slider>
   <h1 slot-scope="{value}">

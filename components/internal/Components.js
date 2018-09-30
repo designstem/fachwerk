@@ -1,4 +1,5 @@
 import Render from "../Render.js";
+import Editor from "../Editor.js"
 
 import Anime from "../Anime.js";
 import Buttons from "../Buttons.js";
@@ -21,7 +22,7 @@ const importedComponents = [
 ];
 
 export default {
-  components: { Render },
+  components: { Render, Editor },
   data: () => ({
     componentData: importedComponents.map(
       ({ name, example, description, props }) => ({
@@ -34,26 +35,16 @@ export default {
   }),
   template: `
     <div>
-        <div v-for="c in componentData" style="display: flex; margin-bottom: 2rem;">
+        <div v-for="c in componentData" style="
+          padding: 2rem 0;
+          border-top: 3px solid var(--color-gray-light); display: flex; margin-bottom: 2rem;">
         <div style="flex: 1.5">
           <h2>{{ c.name }}</h2>
           <p v-html="c.description" />
-          <pre style="background: white">{{ c.props }}</pre>
+          <pre style="background: white; max-height: 12rem; overflow: auto;">{{ c.props }}</pre>
         </div>
         <div style="flex: 2; margin-left: 2rem;">
-          <textarea v-model="c.example" style="
-            width: 90%;
-            padding: 1rem;
-            font-family: var(--font-mono);
-            border: none;
-            border-radius: var(--border-radius);
-            line-height: 1.4rem;
-            outline: none;
-            color: var(--color-gray-darker);
-            background: var(--color-gray-light);
-            font-size: 0.9rem;
-            min-height: 10rem;
-          "/>
+          <Editor v-model="c.example" />
         </div>
         <Render :t="'<div>'+c.example+'</div>'" style="flex: 2; align-items: flex-start; margin-left: 2rem;" />
         </div>
