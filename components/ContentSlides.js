@@ -46,7 +46,8 @@ export default {
         }"
       >
         <Markdown
-          v-for="col in cols"
+          v-for="(col,i) in cols"
+          :key="i"
           :content="col"
         />
       </div>

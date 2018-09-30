@@ -1,4 +1,4 @@
-import Math from './Math.js'
+import Math from '../Math.js'
 
 export default {
   components: { Math },

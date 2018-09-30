@@ -1,4 +1,4 @@
-import { cx, cy } from './utils.js'
+import { cx, cy } from '../../utils.js'
 
 export default {
   data: () => ({ maxSides: 16, sides: 6, size: 100 }),

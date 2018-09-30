@@ -1,35 +1,35 @@
-import { cx, cy } from './utils.js'
-
 export default {
-    props: {
-        p1: {
-            default: () => ({x:90, y:10})
-        },
-        p2: {
-            default: () => ({x:90, y:90})
-        },
-        p3: {
-            default: () => ({x:10, y:90})
-        },
-        value: {}
+  props: {
+    p1: {
+      default: () => ({ x: 90, y: 10 })
     },
-    data: () => ({ 
-        size: 100, 
-        currentIndex: 0,
-        points: []
-    }),
-    created: function () {
-        this.points = this.computedPoints;
+    p2: {
+      default: () => ({ x: 90, y: 90 })
     },
+    p3: {
+      default: () => ({ x: 10, y: 90 })
+    },
+    value: {}
+  },
+  data: () => ({
+    size: 100,
+    currentIndex: 0,
+    points: []
+  }),
+  created: function() {
+    this.points = this.computedPoints;
+  },
   computed: {
     viewBox() {
       return `0 0 ${this.size} ${this.size}`;
     },
     computedPoints() {
-        return Array.from([this.p1, this.p2, this.p3]);
+      return Array.from([this.p1, this.p2, this.p3]);
     },
     coordinates() {
-      return `${this.points[0].x},${this.points[0].y} ${this.points[1].x},${this.points[1].y} ${this.points[2].x},${this.points[2].y} `;
+      return `${this.points[0].x},${this.points[0].y} ${this.points[1].x},${
+        this.points[1].y
+      } ${this.points[2].x},${this.points[2].y} `;
     }
   },
   methods: {

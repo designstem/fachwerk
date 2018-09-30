@@ -2,7 +2,6 @@ import Buttons from "../components/Buttons.js";
 import ContentDocument from "../components/ContentDocument.js";
 import ContentSlides from "../components/ContentSlides.js";
 import ContentCards from "../components/ContentCards.js";
-import AdvancedEditor from "../components/AdvancedEditor.js";
 import Editor from "../components/Editor.js";
 
 import trianglesample from "./trianglesample.js";
@@ -13,7 +12,6 @@ new Vue({
   el: "#app",
   components: {
     Editor,
-    AdvancedEditor,
     ContentDocument,
     ContentSlides,
     Buttons
