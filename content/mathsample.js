@@ -102,17 +102,23 @@ B or C.
 
 > If we know the degrees of angle A we can calculate angles B and C by using the formula 
 
-<Math math="B or C=\\frac{180° - A}{2}"/>
+<Math>
+  B \\space or \\space C=\\frac{180\\degree - A}{2}
+</Math>
 
 ---
 
 > Example: if
 
-<Math math="A=100°"/>
+<Math>
+  A = 100\\degree
+</Math>
 
 > then
 
-<Math math="B=\\frac{(180°-100°)}{2}=\\frac{80°}{2}=40°"/>
+<Math>
+  B = \\frac{(180°-100°)}{2} = \\frac{80\\degree}{2} = 40\\degree
+</Math>
 
 ---
 
@@ -122,7 +128,9 @@ B or C.
 
 <Poly />
 
-<Math math="a^2=b^2+c^2"/>
+<Math>
+  a^2 = b^2 + c^2
+</Math>
 
 ---
 
@@ -130,13 +138,19 @@ B or C.
 
 > In a right triangle we know sides a and b and we want to calculate the third side c.
 
-> Let <Math math="a=5" /> and <Math math="b=4" />
+> Let <Math>a = 5</Math> and <Math>b = 4</Math>
 
-<Math math="a^2=b^2+c^2"/>
+<Math>
+  a ^ 2 = b^2 + c^2
+</Math>
 
-<Math math="c^2=a^2-b^2=5^2-4^2=25-16=9"/>
+<Math>
+  c^2 = a^2 - b^2 = 5^2 - 4^2 = 25 - 16 = 9
+</Math>
 
-<Math math="c=\\sqrt{9}=3"/>
+<Math>
+  c = \\sqrt{9} = 3
+</Math>
 
 ---
 
@@ -144,17 +158,37 @@ B or C.
 
 > In a isoskeles triangle, we know all the sides and we want to calculate the height from angle A
 
-> Let <Math math="a = 10"/> and <Math math="b = c = 16"/>
+> Let
+
+<Math>a = 10</Math>
+
+> and
+
+<Math>b = c = 16</Math>
 
 > The triangle AHC is orthogonal and the unknown height h is one of its vertical sides.
 
-> In that triangle holds the theorem of Pythogoras so <Math math="AC^2=AH^2+HC^2"/>. We notice that AH intersects BC in the middle H, so HC is half of BC, ie. <Math math="HC=\\frac{10}{2}=5"/>
+> In that triangle holds the theorem of Pythogoras so
+
+<Math>
+  AC^2 = AH^2 + HC^2
+</Math>
+
+> We notice that AH intersects BC in the middle H, so HC is half of BC, ie.
+
+<Math>
+  HC = \\frac{10}{2} = 5
+</Math>
 
 > The height h is estimated by
 
-<Math math="h^2=AH^2=AC^2+HC^2=16^2+5^2=256+25=281"/>
+<Math>
+  h^2 = AH^2 = AC^2 + HC^2 = 16^2 + 5^2 = 256 + 25 = 281
+</Math>
 
-<Math math="h=\\sqrt{281} \\approx 16.7"/>
+<Math>
+  h= \\sqrt{281} \\approx 16.7
+</Math>
 
 ---
 
@@ -168,11 +202,17 @@ B or C.
 
 > These are defined as follows 
 
-<Math math="\\sin({B}) = \\frac{b}{a}\\enspace \\sin({C}) = \\frac{c}{a}"/>
+<Math>
+  \\sin({B}) = \\frac{b}{a}\\enspace \\sin({C}) = \\frac{c}{a}
+</Math>
 
-<Math math="\\sin({C}) = \\frac{c}{a}\\enspace \\cos({B}) = \\frac{c}{a}"/>
+<Math>
+  \\sin({C}) = \\frac{c}{a} \\space \\cos({B}) = \\frac{c}{a}
+</Math>
 
-<Math math="\\tan({B}) = \\frac{b}{c}\\enspace \\tan({C}) = \\frac{b}{c}"/>
+<Math>
+  \\tan({B}) = \\frac{b}{c}\\enspace \\tan({C}) = \\frac{b}{c}
+</Math>
 
 <Poly />
 
@@ -180,21 +220,31 @@ B or C.
 
 > Example. In the following right triangle, angle B can be estimated in terms of trigonometric functions as 
 
-<Math math="\\sin({B}) = \\frac{15}{17} \\approx 0.88"/>
+<Math>
+  sin({B}) = \\frac{15}{17} \\approx 0.88
+</Math>
 
-<Math math="\\cos({B}) = \\frac{8}{17} \\approx 0.47"/>
+<Math>
+  cos({B}) = \\frac{8}{17} \\approx 0.47
+</Math>
 
-<Math math="\\tan({B}) = \\frac{15}{8} \\approx 1.87"/>
+<Math>
+  tan({B}) = \\frac{15}{8} \\approx 1.87
+</Math>
 
 ---
 
 > The actual value of angle B in degrees derives from the inverse function. For example if
 
-<Math math="sin(B) \\approx 0.88"/>
+<Math>
+  sin(B) \\approx 0.88"
+</Math>
 
-then
+> then
 
-<Math math="sin{^-1}(0.88) \\approx 28°"/>
+<Math>
+  sin{^-1}(0.88) \\approx 28\\degree
+</Math>
 
 > The inverse trigonometric functions can be found and estimated by a typical calclator.
 
@@ -261,13 +311,21 @@ then
 
 > In a polygon with n sides, If we define the radius **r** that denotes its size, we can estimate the above measures using the formulas
 
-<Math math="w=\\frac{360}{n}"/>
+<Math>
+  w = \\frac{360}{n}
+</Math>
 
-<Math math="s=2 \\cdot r\\cdot sin(w)"/>
+<Math>
+  s=2 \\cdot r\\cdot sin(w)
+</Math>
 
-<Math math="a = r \\cdot cos(\\frac{w}{2})"/>
+<Math>
+  a = r \\cdot cos(\\frac{w}{2})
+</Math>
 
-<Math math="interior \\enspace angle = \\frac{180 \\cdot (n-2)}{n}"/>
+<Math>
+  interior \\space angle = \\frac{180 \\cdot (n-2)}{n}
+</Math>
 
 ---
 
