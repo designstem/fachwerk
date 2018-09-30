@@ -11,7 +11,7 @@ import ThreeTriangle from "./ThreeTriangle.js";
 import Transport from "./Transport.js";
 import Triangle from "./Triangle.js";
 
-  import { rad2deg, deg2rad, cx, cy } from '../utils.js'
+import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
   props: { t: String },
   data: () => ({
     render: null,
-    someVariable: null
+    someVariable: 0
   }),
   methods: {
     rad2deg,

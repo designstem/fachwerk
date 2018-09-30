@@ -306,6 +306,10 @@ p > .math > .katex {
   border-radius: var(--border-radius);
   font-family: sans-serif !important;
 }
+.katex .boxpad {
+  padding: 0 .1em;
+}
+
 /* Internal styles */
 
 dd {

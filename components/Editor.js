@@ -31,7 +31,7 @@ export default {
         color: var(--color-blue-medium);
         font-family: var(--font-mono);
         border: none;
-        min-height: 12rem;
+        min-height: 14rem;
         line-height: 1.3rem;
         width: 95%;
         outline: none;

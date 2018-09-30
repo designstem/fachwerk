@@ -1,17 +1,22 @@
 export default `# Playground
 
-### Dynamic math
+### Dynamic math equations
 
 <Slider>
-  <div slot-scope="{value}">
-    <Math :math="'a = ' + value" />
-    <Math :math="
-      'c = a^2 + 10 = '
-      + value
-      + '^2 + 10 = '
-      + (Math.pow(value,2) + 10)
-    " />
-  </div>
+<Math
+  slot-scope="{value}"
+  :value="value"
+>
+  a = 10
+  b = a^2 + \\colorbox{#ccc}{
+    {{ value }}
+  }
+  b = 10^2 + \\colorbox{#ccc}{ 
+    {{ value }}
+  }
+  b = \\color{royalblue}
+    {{ Math.pow(10,2)+parseInt(value) }}
+</Math>
 </Slider>
 
 ---

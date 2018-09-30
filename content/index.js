@@ -6,7 +6,7 @@ import Editor from "../components/Editor.js";
 
 import trianglesample from "./trianglesample.js";
 import mathsample from "./mathsample.js";
-import threesample from "./threesample.js";
+import playgroundsample from "./playgroundsample.js";
 
 new Vue({
   el: "#app",
@@ -24,9 +24,9 @@ new Vue({
       { title: "Cards", component: ContentCards }
     ],
     samples: [
-      { title: "3D examples", sample: threesample },
+      { title: "Playground", sample: playgroundsample },
       { title: "Finding Triangles", sample: trianglesample },
-      { title: "Math theory", sample: mathsample },
+      { title: "Math theory", sample: mathsample }
     ],
     activeComponent: 0,
     activeSample: 0

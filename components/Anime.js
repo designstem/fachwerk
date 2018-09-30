@@ -2,7 +2,13 @@ export default {
   name: "Anime",
   description: "An animation component, in fact, AnimeJS wrapper",
   example: `
-<Anime :to="10" :duration="5000" >
+<Anime>
+  <h1 slot-scope="{value}">
+      {{ Math.floor(value) }}
+  </h1>
+</Anime>
+
+<Anime :duration="50000">
   <h1 slot-scope="{value}">
       {{ Math.floor(value) }}
   </h1>
@@ -12,7 +18,7 @@ export default {
     name: { default: "value" },
     from: { default: 0 },
     to: { default: 100 },
-    duration: { default: 1000 },
+    duration: { default: 5000 },
     playing: { default: true },
     loop: { default: true },
     alternate: { default: false },
