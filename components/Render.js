@@ -1,6 +1,7 @@
 import Buttons from "./Buttons.js";
 import Math from "./Math.js";
 import Poly from "./Poly.js";
+import Triangle from "./Triangle.js";
 import Example from "./Example.js";
 import Anime from "./Anime.js";
 import Transport from "./Transport.js";
