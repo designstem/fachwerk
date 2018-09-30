@@ -12,7 +12,7 @@ export default {
         const start = this.selectionStart;
         const end = this.selectionEnd;
         this.value = val.substring(0, start) + "  " + val.substring(end);
-        this.selectionStart = this.selectionEnd = start + 1;
+        this.selectionStart = this.selectionEnd = start + 2;
         return false;
       }
     };
