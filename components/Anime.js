@@ -1,8 +1,8 @@
 export default {
   name: "Anime",
-  description: "A component that does a lot",
+  description: "An animation component, in fact, AnimeJS wrapper",
   example: `
-<Anime :to="10" :duration="10000" >
+<Anime :to="10" :duration="5000" >
   <h2 slot-scope="{value}">
     <span class="bullet">
       {{ Math.floor(value) }}

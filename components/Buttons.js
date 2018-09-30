@@ -1,7 +1,12 @@
 export default {
   name: "Buttons",
-  description: "A component that does a lot",
-  example: `<buttons :buttons="['First','Second']" />`,
+  description: "A button group, meant to be used with v-model",
+  example: `
+<Buttons
+  v-model="activeTab"
+  :buttons="['First','Second']"
+/>
+  `,
   props: ["buttons", "value"],
   template: `
     <div :style="{display: 'flex', marginLeft: '3px'}">

@@ -1,21 +1,23 @@
-const components = [{ component: "Buttons", props: { buttons: ["a", "baa"] } }];
-
 import Render from "./Render.js";
 
-import Buttons from "./Buttons.js";
 import Anime from "./Anime.js";
+import Buttons from "./Buttons.js";
+import Math2 from "./Math.js";
+import Transport from "./Transport.js";
 
-const importedComponents = [Buttons,Anime];
+const importedComponents = [Anime, Buttons, Math2, Transport];
 
 export default {
   components: { Render },
   data: () => ({
-    componentData: importedComponents.map(({ name, example, description,props }) => ({
-      name,
-      example: example.trim(),
-      description,
-      props: JSON.stringify(props,null,2)
-    }))
+    componentData: importedComponents.map(
+      ({ name, example, description, props }) => ({
+        name,
+        example: example.trim(),
+        description: description ? description : '',
+        props: JSON.stringify(props, null, 2)
+      })
+    )
   }),
   template: `
     <div>
@@ -40,7 +42,7 @@ export default {
             min-height: 10rem;
           "/>
         </div>
-        <Render :t="c.example" style="flex: 2; align-items: flex-start; margin-left: 2rem;" />
+        <Render :t="'<div>'+c.example+'</div>'" style="flex: 2; align-items: flex-start; margin-left: 2rem;" />
         </div>
     </div>
   `
