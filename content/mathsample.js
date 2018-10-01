@@ -329,7 +329,7 @@ B or C.
 
 ---
 
-# Poly hedra
+# Polyhedra
 
 <Poly />
 
