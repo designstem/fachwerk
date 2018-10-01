@@ -106,11 +106,15 @@ input[type="range"]::-webkit-slider-thumb {
   border: var(--border-width) solid var(--color-gray-dark);
   height: var(--slider-size);
   width: var(--slider-size);
-  border-radius: var(--slider-size);
+  border-radius: 1000px;
   background: white;
   cursor: pointer;
 }
-
+input[type="range"]::-webkit-slider-thumb:hover {
+  height: calc(var(--slider-size) * 1.05);
+  width: calc(var(--slider-size) * 1.05);
+  border-radius: 1000px;
+}
 input[type="text"],
 input[type="number"] {
   display: block;
