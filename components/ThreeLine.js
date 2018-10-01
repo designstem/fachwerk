@@ -5,17 +5,16 @@ export default {
   example: `
 <ThreeScene>
   <ThreeLine
-    :from="{x: 0, y: 0, z: 0}"
-    :to="{x: 1, y: 0, z: 0}"
-  />
-  <ThreeLine
-    :from="{x: 0, y: 0, z: 0}"
-    :to="{x: 0, y: 1, z: 0}"
+    :points="[
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 0, y: 1 },
+    ]"
   />
   </ThreeScene>
   `,
   mixins: [Object3D],
-  props: ["from", "to"],
+  props: { points: { default: [] } },
   data() {
     let curObj = this.obj;
     if (!curObj) {
@@ -24,12 +23,9 @@ export default {
         linewidth: 3
       });
       var geometry = new THREE.Geometry();
-      geometry.vertices.push(
-        new THREE.Vector3(this.from.x, this.from.y, this.from.z)
-      );
-      geometry.vertices.push(
-        new THREE.Vector3(this.to.x, this.to.y, this.to.z)
-      );
+      this.points.forEach(p => {
+        geometry.vertices.push(new THREE.Vector3(p.x, p.y, p.z));
+      });
       curObj = new THREE.Line(geometry, material);
     }
     curObj.name = curObj.name || curObj.type;
