@@ -31,10 +31,11 @@ const importedComponents = [
   TwoPolygon,
   TwoRegularPolygon,
   ThreeScene,
+  ThreeGrid,
   ThreeLine,
   ThreeTriangle,
   ThreePolygon,
-  ThreeRegularPolygon,
+  ThreeRegularPolygon
 ];
 
 export default {

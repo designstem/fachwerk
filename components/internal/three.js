@@ -113,8 +113,6 @@ const Object3D = {
   }
 };
 
-// Public API
-
 const Scene = {
   mixins: [Object3D],
   inject: ["global"],
@@ -219,100 +217,103 @@ const Light = {
   }
 };
 
-const Stroke = {
-  mixins: [Object3D],
-  props: ["from", "to"],
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      var material = new THREE.LineBasicMaterial({
-        color: 0x333333,
-        linewidth: 3
-      });
-      var geometry = new THREE.Geometry();
-      geometry.vertices.push(
-        new THREE.Vector3(this.from.x, this.from.y, this.from.z)
-      );
-      geometry.vertices.push(
-        new THREE.Vector3(this.to.x, this.to.y, this.to.z)
-      );
-      curObj = new THREE.Line(geometry, material);
-    }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
-};
 
-const Triangle = {
-  mixins: [Object3D],
-  props: ["v1", "v2", "v3"],
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      var material = new THREE.MeshNormalMaterial();
-      var geometry = new THREE.Geometry();
-      geometry.vertices.push(
-        new THREE.Vector3(this.v1.x, this.v1.y, this.v1.z)
-      );
-      geometry.vertices.push(
-        new THREE.Vector3(this.v2.x, this.v2.y, this.v2.z)
-      );
-      geometry.vertices.push(
-        new THREE.Vector3(this.v3.x, this.v3.y, this.v3.z)
-      );
-      geometry.faces.push(new THREE.Face3(0, 1, 2));
-      geometry.computeFaceNormals();
-      curObj = new THREE.Mesh(
-        geometry,
-        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-      );
-    }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
-};
+export { Object3D, Renderer, Scene, Camera };
 
-const Icosahedron = {
-  mixins: [Object3D],
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      var geometry = new THREE.IcosahedronGeometry(1, 0);
-      curObj = new THREE.Mesh(
-        geometry,
-        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-      );
-    }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
-};
+// const Stroke = {
+//   mixins: [Object3D],
+//   props: ["from", "to"],
+//   data() {
+//     let curObj = this.obj;
+//     if (!curObj) {
+//       var material = new THREE.LineBasicMaterial({
+//         color: 0x333333,
+//         linewidth: 3
+//       });
+//       var geometry = new THREE.Geometry();
+//       geometry.vertices.push(
+//         new THREE.Vector3(this.from.x, this.from.y, this.from.z)
+//       );
+//       geometry.vertices.push(
+//         new THREE.Vector3(this.to.x, this.to.y, this.to.z)
+//       );
+//       curObj = new THREE.Line(geometry, material);
+//     }
+//     curObj.name = curObj.name || curObj.type;
+//     return { curObj };
+//   }
+// };
 
-const Dodecahedron = {
-  mixins: [Object3D],
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      var geometry = new THREE.DodecahedronGeometry(1, 0);
-      curObj = new THREE.Mesh(
-        geometry,
-        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-      );
-    }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
-};
+// const Triangle = {
+//   mixins: [Object3D],
+//   props: ["v1", "v2", "v3"],
+//   data() {
+//     let curObj = this.obj;
+//     if (!curObj) {
+//       var material = new THREE.MeshNormalMaterial();
+//       var geometry = new THREE.Geometry();
+//       geometry.vertices.push(
+//         new THREE.Vector3(this.v1.x, this.v1.y, this.v1.z)
+//       );
+//       geometry.vertices.push(
+//         new THREE.Vector3(this.v2.x, this.v2.y, this.v2.z)
+//       );
+//       geometry.vertices.push(
+//         new THREE.Vector3(this.v3.x, this.v3.y, this.v3.z)
+//       );
+//       geometry.faces.push(new THREE.Face3(0, 1, 2));
+//       geometry.computeFaceNormals();
+//       curObj = new THREE.Mesh(
+//         geometry,
+//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+//       );
+//     }
+//     curObj.name = curObj.name || curObj.type;
+//     return { curObj };
+//   }
+// };
 
-const Mesh = {
-  mixins: [Object3D],
-  props: {
-    type: { type: String, default: "Mesh" }
-  },
-  provide() {
-    return { meshVm: this };
-  }
-};
+// const Icosahedron = {
+//   mixins: [Object3D],
+//   data() {
+//     let curObj = this.obj;
+//     if (!curObj) {
+//       var geometry = new THREE.IcosahedronGeometry(1, 0);
+//       curObj = new THREE.Mesh(
+//         geometry,
+//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+//       );
+//     }
+//     curObj.name = curObj.name || curObj.type;
+//     return { curObj };
+//   }
+// };
+
+// const Dodecahedron = {
+//   mixins: [Object3D],
+//   data() {
+//     let curObj = this.obj;
+//     if (!curObj) {
+//       var geometry = new THREE.DodecahedronGeometry(1, 0);
+//       curObj = new THREE.Mesh(
+//         geometry,
+//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+//       );
+//     }
+//     curObj.name = curObj.name || curObj.type;
+//     return { curObj };
+//   }
+// };
+
+// const Mesh = {
+//   mixins: [Object3D],
+//   props: {
+//     type: { type: String, default: "Mesh" }
+//   },
+//   provide() {
+//     return { meshVm: this };
+//   }
+// };
 
 // const Geometry = {
 //   mixins: [Base],
@@ -336,56 +337,41 @@ const Mesh = {
 
 //stackoverflow.com/questions/18514423/generating-a-regular-polygon-with-three-js
 
-const Polygo = {
-  mixins: [Object3D],
-  props: ["points"],
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      var vectorPoints = this.points.map(p => new THREE.Vector2(p.x, p.y));
-      var shape = new THREE.Shape(vectorPoints);
-      var geometry = new THREE.ShapeGeometry(shape);
-      curObj = new THREE.Mesh(
-        geometry,
-        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-      );
-    }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
-};
+// const Polygo = {
+//   mixins: [Object3D],
+//   props: ["points"],
+//   data() {
+//     let curObj = this.obj;
+//     if (!curObj) {
+//       var vectorPoints = this.points.map(p => new THREE.Vector2(p.x, p.y));
+//       var shape = new THREE.Shape(vectorPoints);
+//       var geometry = new THREE.ShapeGeometry(shape);
+//       curObj = new THREE.Mesh(
+//         geometry,
+//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+//       );
+//     }
+//     curObj.name = curObj.name || curObj.type;
+//     return { curObj };
+//   }
+// };
 
-const RegularTessellatedPolygon = {
-  components: {
-    Polygo
-  },
-  props: ["count", "radius"],
-  computed: {
-    points() {
-      return Array.from({
-        length: this.count
-      }).map((p, i) => ({
-        x: cx((360 / this.count) * i, this.radius),
-        y: cy((360 / this.count) * i, this.radius)
-      }));
-    }
-  },
-  template: `
-    <Polygo :points="points"/>
-  `
-};
-
-export {
-  Object3D,
-  Renderer,
-  Scene,
-  Camera,
-  //Light,
-  //Mesh,
-  //Stroke,
-  Triangle,
-  //Icosahedron,
-  //Dodecahedron,
-  //Polygo,
-  //RegularTessellatedPolygon
-};
+// const RegularTessellatedPolygon = {
+//   components: {
+//     Polygo
+//   },
+//   props: ["count", "radius"],
+//   computed: {
+//     points() {
+//       return Array.from({
+//         length: this.count
+//       }).map((p, i) => ({
+//         x: cx((360 / this.count) * i, this.radius),
+//         y: cy((360 / this.count) * i, this.radius)
+//       }));
+//     }
+//   },
+//   template: `
+//     <Polygo :points="points"/>
+//   `
+// };

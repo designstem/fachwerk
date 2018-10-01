@@ -4,7 +4,7 @@ import ThreeLine from "./ThreeLine.js";
 import { deg2rad } from "../utils.js";
 
 export default {
-  name: "ThreeScene",
+  name: "ThreeGrid",
   example: `
 <ThreeScene>
   <ThreeGrid />
