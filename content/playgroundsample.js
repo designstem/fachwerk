@@ -1,18 +1,36 @@
 export default `# Playground
 
-## 2D animations
+## Rotating spiral
 
-<Anime :alternate="true">
-  <div slot-scope={value}>
-  <TwoScene>
-      <circle :r="value" />
-  </TwoScene>
-  <label>
-    Radius <code>{{ Math.floor(value) }}px</code>
-  </label>
-  <input type="range" v-model="value" step="0.01"/>
-  </div>
-</Anime>
+<ThreeScene>
+<ThreeGrid />
+  <Anime
+    :to="deg2rad(360)"
+    duration="10000"
+  >
+  <ThreeGroup
+    slot-scope="{value}"
+    :rotation="{x: value, y: value}"
+  >
+    <ThreeLine
+      v-for="(c,i) in 100"
+      :key="i"
+      :points="[
+        {
+          x: cx(500 / 100 * c, 2),
+          y: i / 150 - 1,
+          z: cy(500 / 100 * c, 2)
+        },
+        {
+          x: cx(500 / 100 * (c + 1), 1),
+          y: i / 5,
+          z: cy(500 / 100 * (c + 1), 1)
+        }
+      ]"
+    /><ThreeGrid />
+  </ThreeGroup>
+  </Anime>
+</ThreeScene>
 
 ---
 
@@ -26,42 +44,11 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
   :value="value"
 >
   a = 10
-  b = a^2 + \\colorbox{c}{ {{ value }} }
-  b = 10^2 + \\colorbox{c}{ {{ value }} }
+  b = a^2 + \colorbox{c}{ {{ value }} }
+  b = 10^2 + \colorbox{c}{ {{ value }} }
   b = {{ Math.pow(10,2)+parseInt(value) }}
 </Math>
 </Slider>
-
----
-
-## Rotating spiral
-
-<ThreeScene>
-  <Anime
-    :to="deg2rad(360)"
-    duration="10000"
-  >
-  <ThreeGroup
-    slot-scope="{value}"
-    :rotation="{x: value, y: value}"
-  >
-    <ThreeLine
-      v-for="(c,i) in 50"
-      :key="i"
-      :from="{
-        x: cx(500 / 100 * c, 0.5),
-        y: i / 200,
-        z: cy(500 / 100 * c, 0.5)
-      }"
-      :to="{
-        x: cx(500 / 100 * (c + 1), 0.5),
-        y: i / 100,
-        z: cy(500 / 100 * (c + 1), 0.5)
-      }"
-    />
-  </ThreeGroup>
-  </Anime>
-</ThreeScene>
 
 ---
 
@@ -97,5 +84,6 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
     </ThreeGroup>
     </Anime>
 </ThreeScene>  
+
 
 `;

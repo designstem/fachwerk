@@ -6,32 +6,35 @@ import Anime from "../Anime.js";
 import Buttons from "../Buttons.js";
 import Math2 from "../Math.js";
 import Slider from "../Slider.js";
+import ThreeGrid from "../ThreeGrid.js";
 import ThreeLine from "../ThreeLine.js";
 import ThreePolygon from "../ThreePolygon.js";
 import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
+import ThreeScene from "../ThreeScene.js";
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
-import TwoScene from "../TwoScene.js";
-import TwoPolygon from "../TwoPolygon.js";
 import TwoGrid from "../TwoGrid.js";
 import TwoLine from "../TwoLine.js";
+import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
+import TwoScene from "../TwoScene.js";
 
 const importedComponents = [
   Anime,
   Buttons,
   Math2,
   Slider,
-  ThreeLine,
-  ThreePolygon,
-  ThreeRegularPolygon,
-  ThreeTriangle,
   Transport,
   TwoScene,
-  TwoPolygon,
   TwoGrid,
   TwoLine,
-  TwoRegularPolygon
+  TwoPolygon,
+  TwoRegularPolygon,
+  ThreeScene,
+  ThreeLine,
+  ThreeTriangle,
+  ThreePolygon,
+  ThreeRegularPolygon,
 ];
 
 export default {

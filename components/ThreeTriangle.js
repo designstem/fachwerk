@@ -26,7 +26,7 @@ export default {
       geometry.computeFaceNormals();
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
+        new THREE.MeshNormalMaterial({ flatShading: true, opacity: 0.5, side: THREE.DoubleSide })
       );
     }
     curObj.name = curObj.name || curObj.type;

@@ -1,27 +1,22 @@
 import { Renderer, Scene, Camera } from './internal/three.js'
 
-import Css from "../mixins/Css.js";
-
 export default {
-  mixins: [Css],
+  name: "ThreeScene",
+  example: `
+<ThreeScene>
+  <ThreeDodecahedron />
+  <ThreeIcosahedron />
+</ThreeScene>
+  `,
   components: { Renderer, Scene, Camera },
   template: `
     <div class="three">
-      <Renderer :size="{ w: 200, h: 200 }">
+      <Renderer :size="{ w: 250, h: 250 }">
         <Scene>
-          <Camera :position="{ z: 2 }" />
+          <Camera :position="{ z: 2.63 }" />
           <slot />
         </Scene>
       </Renderer>
     </div>
-  `,
-  css: `
-    .hree svg path {
-      stroke-width: 3;
-      stroke: rgba(0,0,0,0.8);
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: 0.4;
-    }
   `
 };

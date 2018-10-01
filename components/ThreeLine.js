@@ -4,6 +4,7 @@ export default {
   name: "ThreeLine",
   example: `
 <ThreeScene>
+  <ThreeGrid />
   <ThreeLine
     :points="[
       { x: 0, y: 0 },
@@ -14,17 +15,21 @@ export default {
   </ThreeScene>
   `,
   mixins: [Object3D],
-  props: { points: { default: [] } },
+  props: {
+    points: { default: [] },
+    stroke: { default: 0x333333 },
+    strokeWidth: { default: 3 }
+  },
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var material = new THREE.LineBasicMaterial({
-        color: 0x333333,
-        linewidth: 3
-      });
-      var geometry = new THREE.Geometry();
+      const geometry = new THREE.Geometry();
       this.points.forEach(p => {
-        geometry.vertices.push(new THREE.Vector3(p.x, p.y, p.z));
+        geometry.vertices.push(new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0));
+      });
+      const material = new THREE.LineBasicMaterial({
+        color: this.stroke,
+        linewidth: this.strokeWidth
       });
       curObj = new THREE.Line(geometry, material);
     }

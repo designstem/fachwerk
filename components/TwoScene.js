@@ -4,15 +4,14 @@ export default {
   mixins: [Css],
   name: "TwoScene",
   description: `
-A simple 2D scene with some tweaks to compared to regulat SVG document.
+A simple 2D scene with some tweaks to regular SVG document.
 
-Here the Y axis is **flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
+Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
 `,
   example: `
 <TwoScene>
-  <TwoGrid />
   <Anime :to="1" :alternate="true">
-    <circle cx="1" cy="1" slot-scope={value} :r="value" />
+    <circle slot-scope={value} :r="value" />
   </Anime>
 </TwoScene>
   `,

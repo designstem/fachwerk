@@ -3,13 +3,12 @@ import { cx, cy } from "../utils.js";
 
 export default {
   name: "TwoRegularPolygon",
-  description: `Regular!`,
   example: `
-<Slider :min="3" :max="16">
+<Anime :to="16">
   <TwoScene slot-scope="{value}">
     <TwoRegularPolygon :count="value" />
   </TwoScene>
-</Slider>
+</Anime>
   `,
   components: { TwoPolygon },
   props: { count: { default: 6 }, radius: { default: 1 } },

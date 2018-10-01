@@ -16,7 +16,7 @@ export default {
     ThreeGroup,
     ThreeLine
   },
-  props: { count: { default: 16 }, radius: { default: 1 } },
+  props: { count: { default: 6 }, radius: { default: 1 } },
   computed: {
     points() {
       return Array.from({

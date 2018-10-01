@@ -10,12 +10,15 @@ import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
 import ThreeTriangle from "./ThreeTriangle.js";
 import Transport from "./Transport.js";
-import Triangle from "./Triangle.js";
+import Triangle from "./experimental/Triangle.js";
 import TwoScene from "./TwoScene.js";
 import TwoPolygon from "./TwoPolygon.js";
 import TwoGrid from "./TwoGrid.js";
 import TwoLine from "./TwoLine.js";
 import TwoRegularPolygon from "./TwoRegularPolygon.js";
+import ThreeGrid from "./ThreeGrid.js";
+import ThreeDodecahedron from "./ThreeDodecahedron.js";
+import ThreeIcosahedron from "./ThreeIcosahedron.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -38,7 +41,10 @@ export default {
     TwoPolygon,
     TwoGrid,
     TwoLine,
-    TwoRegularPolygon
+    TwoRegularPolygon,
+    ThreeGrid,
+    ThreeDodecahedron,
+    ThreeIcosahedron
   },
   props: { t: String },
   data: () => ({
