@@ -1,5 +1,6 @@
 import Render from "../Render.js";
 import Editor from "../Editor.js"
+import Markdown from "../Markdown.js";
 
 import Anime from "../Anime.js";
 import Buttons from "../Buttons.js";
@@ -22,7 +23,7 @@ const importedComponents = [
 ];
 
 export default {
-  components: { Render, Editor },
+  components: { Render, Editor, Markdown },
   data: () => ({
     componentData: importedComponents.map(
       ({ name, example, description, props }) => ({
@@ -36,7 +37,7 @@ export default {
   template: `
     <div>
         <div v-for="c in componentData" style="
-          padding: 2rem 0;
+          padding: 2.5rem 0;
           border-bottom: 3px solid var(--color-gray-light);
           min-height: 15rem;
         "
@@ -44,15 +45,15 @@ export default {
           <h2>{{ c.name }}</h2>
           <div style="display: flex">
             <div style="width: 300px;">
-              <p v-html="c.description" />
+              <Markdown :content="c.description" />
               <br>
               <h3>Props</h3>
               <pre style="
                 background: white;
-                max-height: 12rem;
+                max-height: 8rem;
                 overflow: auto;
                 padding: 0;
-                white-space: normal;
+                --white-space: normal;
               ">{{ c.props }}</pre>
             </div>
             <div style="width: 500px; margin-left: 2rem;">

@@ -44,7 +44,7 @@ new Vue({
     <div>
       <header>
         <div>
-          <a href="..">Styles</a>
+          <a href="..">Fachwerk</a>
         → Content editor
         </div>
         <Buttons :buttons="samples.map(s => s.title)" v-model="activeSample"/>

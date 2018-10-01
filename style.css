@@ -15,7 +15,7 @@
   --color-purple: rebeccapurple;
   --color-red: #ff595e;
   --color-yellow: #ffca3a;
-  --color-blue-light: #bfd7ea;
+  --color-blue-light: #e0ecf5;
   --color-blue-medium: #1982c4;
   --color-blue-dark: #0b3954;
 
@@ -58,7 +58,7 @@ h1 {
 }
 p {
   line-height: 1.5rem;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
 }
 a {
   text-decoration: none;
@@ -66,7 +66,10 @@ a {
   border-bottom: 2px solid var(--color-gray-dark);
   font-weight: bold;
 }
-
+small {
+  font-size: 100%;
+  color: var(--color-gray-medium);
+}
 img {
   width: 100%;
   display: block;
@@ -156,7 +159,8 @@ pre {
 code {
   font-family: var(--font-mono);
   border-radius: 3px;
-  background: var(--color-gray-light);
+  background: var(--color-blue-light);
+  color: var(--color-blue-medium);
   padding: 0.1rem 0.3rem;
   font-size: 0.95rem;
 }
@@ -179,8 +183,8 @@ code {
 /* Intro */
 
 .intro {
-  font-size: 1.1rem;
-  line-height: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 }
 
 /* Text */

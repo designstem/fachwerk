@@ -1,6 +1,10 @@
 export default {
   name: "Anime",
-  description: "An animation component, in fact, AnimeJS wrapper",
+  description: `
+An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library.
+
+Supports most of the animation options AnimeJS provides, in addition allows to configure the returned variable name with <code>:name</code> prop. 
+  `,
   example: `
 <Anime>
   <h1 class="bullet" slot-scope="{value}">
@@ -8,9 +12,9 @@ export default {
   </h1>
 </Anime>
 
-<Anime :duration="50000">
-  <h1 class="bullet" slot-scope="{value}">
-      {{ Math.floor(value) }}
+<Anime name="count" :duration="50000">
+  <h1 class="bullet" slot-scope="{count}">
+      {{ Math.floor(count) }}
   </h1>
 </Anime>
   `,
@@ -49,8 +53,10 @@ export default {
     );
   },
   render() {
-    return this.$scopedSlots.default ? this.$scopedSlots.default({
-      [this.name]: this.value
-    }) : '';
+    return this.$scopedSlots.default
+      ? this.$scopedSlots.default({
+          [this.name]: this.value
+        })
+      : "";
   }
 };
