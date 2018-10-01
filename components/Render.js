@@ -5,6 +5,7 @@ import Poly from "./experimental/Poly.js";
 import Slider from "./Slider.js";
 import ThreeLine from "./ThreeLine.js";
 import ThreeGroup from "./ThreeGroup.js";
+import ThreePolygon from "./ThreePolygon.js";
 import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
 import ThreeTriangle from "./ThreeTriangle.js";
@@ -27,6 +28,7 @@ export default {
     Slider,
     ThreeLine,
     ThreeGroup,
+    ThreePolygon,
     ThreeRegularPolygon,
     ThreeScene,
     ThreeTriangle,

@@ -7,6 +7,7 @@ import Buttons from "../Buttons.js";
 import Math2 from "../Math.js";
 import Slider from "../Slider.js";
 import ThreeLine from "../ThreeLine.js";
+import ThreePolygon from "../ThreePolygon.js";
 import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
@@ -22,6 +23,7 @@ const importedComponents = [
   Math2,
   Slider,
   ThreeLine,
+  ThreePolygon,
   ThreeRegularPolygon,
   ThreeTriangle,
   Transport,
@@ -37,8 +39,8 @@ export default {
   data: () => ({
     componentData: importedComponents.map(
       ({ name, example, description, props }) => ({
-        name,
-        example: example.trim(),
+        name: name ? name : "Was ist das?",
+        example: example ? example.trim() : "",
         description: description ? description : "",
         props: JSON.stringify(props, null, 2)
       })

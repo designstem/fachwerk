@@ -16,7 +16,7 @@ export default {
     </div>
   `,
   css: `
-    .three svg path {
+    .hree svg path {
       stroke-width: 3;
       stroke: rgba(0,0,0,0.8);
       stroke-linecap: round;
