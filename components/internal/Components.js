@@ -12,6 +12,7 @@ import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
 import TwoScene from "../TwoScene.js";
 import TwoPolygon from "../TwoPolygon.js";
+import TwoGrid from "../TwoGrid.js";
 
 const importedComponents = [
   Anime,
@@ -23,7 +24,8 @@ const importedComponents = [
   ThreeTriangle,
   Transport,
   TwoScene,
-  TwoPolygon
+  TwoPolygon,
+  TwoGrid
 ];
 
 export default {
@@ -51,14 +53,16 @@ export default {
             <div style="width: 300px;">
               <Markdown :content="c.description" />
               <br>
-              <h3>Props</h3>
-              <pre style="
-                background: white;
-                max-height: 8rem;
-                overflow: auto;
-                padding: 0;
-                --white-space: normal;
-              ">{{ c.props }}</pre>
+              <template v-if="c.props">
+                <h3>Props</h3>
+                <pre style="
+                  background: white;
+                  max-height: 8rem;
+                  overflow: auto;
+                  padding: 0;
+                  --white-space: normal;
+                ">{{ c.props }}</pre>
+              </template>
             </div>
             <div style="width: 500px; margin-left: 2rem;">
               <Editor v-model="c.example" />

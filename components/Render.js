@@ -12,6 +12,7 @@ import Transport from "./Transport.js";
 import Triangle from "./Triangle.js";
 import TwoScene from "./TwoScene.js";
 import TwoPolygon from "./TwoPolygon.js";
+import TwoGrid from "./TwoGrid.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -30,7 +31,8 @@ export default {
     Transport,
     Triangle,
     TwoScene,
-    TwoPolygon
+    TwoPolygon,
+    TwoGrid,
   },
   props: { t: String },
   data: () => ({
