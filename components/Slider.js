@@ -2,7 +2,7 @@ export default {
   name: "Slider",
   example: `
 <Slider>
-  <h1 slot-scope="{value}">
+  <h1 class="bullet" slot-scope="{value}">
     {{ value }}
   </h1>
 </Slider>
@@ -20,4 +20,4 @@ export default {
       <input type="range" v-model="value" :max="max" :step="step" />
     </div>
   `
-}
+};

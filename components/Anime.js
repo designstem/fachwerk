@@ -3,13 +3,13 @@ export default {
   description: "An animation component, in fact, AnimeJS wrapper",
   example: `
 <Anime>
-  <h1 slot-scope="{value}">
+  <h1 class="bullet" slot-scope="{value}">
       {{ Math.floor(value) }}
   </h1>
 </Anime>
 
 <Anime :duration="50000">
-  <h1 slot-scope="{value}">
+  <h1 class="bullet" slot-scope="{value}">
       {{ Math.floor(value) }}
   </h1>
 </Anime>
@@ -49,6 +49,8 @@ export default {
     );
   },
   render() {
-    return this.$scopedSlots.default({ [this.name]: this.value });
+    return this.$scopedSlots.default ? this.$scopedSlots.default({
+      [this.name]: this.value
+    }) : '';
   }
 };

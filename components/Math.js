@@ -1,6 +1,8 @@
 export default {
   name: "Math",
-  description: `Typesetting math equations using <a href="https://katex.org/docs/support_table.html">KaTeX library</a>, using classic <a href="https://reu.dimacs.rutgers.edu/Symbols.pdf">LaTeX math syntax</a>.`,
+  description: `
+Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://reu.dimacs.rutgers.edu/Symbols.pdf">LaTeX math syntax</a>.
+  `,
   example: `
 Does not update
 <Math>
@@ -18,7 +20,7 @@ Does update
   </Math>
 </Slider>
   `,
-  props: ['value'],
+  props: ["value"],
   data: () => ({ math: 0 }),
   methods: {
     renderMath() {

@@ -1,9 +1,9 @@
-import Buttons from "./components/Buttons.js";
-import Math from "./components/Math.js";
 import Components from "./components/internal/Components.js";
 
+// Vue.config.warnHandler = function(msg, vm, trace) {
+// };
+
 new Vue({
-  components: { Buttons, Math, Components },
+  components: { Components },
   el: "#app",
-  data: ({ index: 0, slider: 50 })
 });
