@@ -27,6 +27,12 @@
   --slider-size: 20px;
 }
 
+/* All */
+
+* {
+  box-sizing: border-box;
+}
+
 /* Body */
 
 body {
@@ -60,6 +66,12 @@ a {
   border-bottom: 2px solid var(--color-gray-dark);
   font-weight: bold;
 }
+
+img {
+  width: 100%;
+  display: block;
+}
+
 /*
 ul,
 li {
@@ -351,7 +363,7 @@ dd:first {
 } */
 
 /* Layout */
-
+/* 
 main {
   display: flex;
   padding: 2rem;
@@ -364,9 +376,4 @@ main > *:first-child {
 }
 main > *:nth-child(2) {
   flex: 2;
-}
-
-    img {
-      width: 100%;
-      display: block;
-    }
+} */

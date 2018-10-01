@@ -50,17 +50,20 @@ new Vue({
         <Buttons :buttons="samples.map(s => s.title)" v-model="activeSample"/>
         <Buttons :buttons="components.map(c => c.title)" v-model="activeComponent"/>
       </header>
-      <main style="height: calc(100vh - 5rem)">
-        <section>
-          <Editor v-model="content" style="height: 100%" />
-        </section>
-        <section>
+      <div
+        style="display: flex;"
+        :style="{height: activeComponent == 1 ? 'calc(100vh - 5rem)' : ''}"
+      >
+        <div style="width: 450px;">
+          <Editor style="padding: 1rem" v-model="content" />
+        </div>
+        <div style="flex: 1; padding: 1.5rem;">
           <component
             :is="components[activeComponent].component"
             :content="content"
           />
-        </section>
-      </main>
+        </div>
+      </div>
     </div>
   `
 });

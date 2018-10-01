@@ -1,6 +1,6 @@
 export default {
   props: ["value"],
-  data: () => ({ content: ''}),
+  data: () => ({ content: "" }),
   mounted() {
     this.$watch(
       "value",
@@ -28,14 +28,15 @@ export default {
       v-model="content"
       @input="$emit('input', content)"
       style="
+        border: none;
         color: var(--color-blue-medium);
         font-family: var(--font-mono);
-        border: none;
-        min-height: 14rem;
-        line-height: 1.3rem;
-        width: 95%;
-        outline: none;
         font-size: 0.85rem;
+        height: 100%;
+        line-height: 1.3rem;
+        outline: none;
+        resize: none;
+        width: 100%;
       "
     />
   `
