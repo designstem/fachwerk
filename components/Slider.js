@@ -10,14 +10,17 @@ export default {
   props: {
     title: { default: "Value" },
     max: { default: 100 },
-    step: { default: 1 }
+    step: { default: 1 },
+    min: { default: 0 }
   },
-  data: () => ({ value: 0 }),
+  data: function() {
+    return { value: this.min };
+  },
   template: `
     <div>
       <slot :value="value"/>
       <label>{{ title }} <code>{{ value }}</code></label>
-      <input type="range" v-model="value" :max="max" :step="step" />
+      <input type="range" v-model="value" :min="min" :max="max" :step="step" />
     </div>
   `
 };

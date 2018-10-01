@@ -1,12 +1,11 @@
 import { cx, cy } from "../utils.js";
 
 export default {
-  name: "TwoPolygon",
+  name: "TwoLine",
   example: `
 <TwoScene>
   <TwoGrid />
-  <TwoPolygon
-    fill="var(--color-red)"
+  <TwoLine
     :points="[
       { x: 0, y: 0 },
       { x: 1, y: 0 },
@@ -17,7 +16,6 @@ export default {
   `,
   props: {
     points: { default: [] },
-    fill: { default: "none" },
     stroke: { default: "var(--color-gray-dark)" }
   },
   computed: {
@@ -26,13 +24,13 @@ export default {
     }
   },
   template: `
-    <polygon
+    <polyline
       :points="svgPoints"
       :stroke="stroke"
-      :fill="fill"
       stroke-width="3"
       stroke-linecap="round"
       stroke-linejoin="round"
+      fill="none"
     />
     `
 };

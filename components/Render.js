@@ -13,6 +13,8 @@ import Triangle from "./Triangle.js";
 import TwoScene from "./TwoScene.js";
 import TwoPolygon from "./TwoPolygon.js";
 import TwoGrid from "./TwoGrid.js";
+import TwoLine from "./TwoLine.js";
+import TwoRegularPolygon from "./TwoRegularPolygon.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -33,6 +35,8 @@ export default {
     TwoScene,
     TwoPolygon,
     TwoGrid,
+    TwoLine,
+    TwoRegularPolygon
   },
   props: { t: String },
   data: () => ({

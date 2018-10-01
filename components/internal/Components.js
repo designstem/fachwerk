@@ -13,6 +13,8 @@ import Transport from "../Transport.js";
 import TwoScene from "../TwoScene.js";
 import TwoPolygon from "../TwoPolygon.js";
 import TwoGrid from "../TwoGrid.js";
+import TwoLine from "../TwoLine.js";
+import TwoRegularPolygon from "../TwoRegularPolygon.js";
 
 const importedComponents = [
   Anime,
@@ -25,7 +27,9 @@ const importedComponents = [
   Transport,
   TwoScene,
   TwoPolygon,
-  TwoGrid
+  TwoGrid,
+  TwoLine,
+  TwoRegularPolygon
 ];
 
 export default {

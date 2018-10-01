@@ -8,11 +8,11 @@ A simple 2D scene with some tweaks to compared to regulat SVG document.
 
 Here the Y axis is **flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
 `,
-example: `
+  example: `
 <TwoScene>
   <TwoGrid />
   <Anime :to="1" :alternate="true">
-    <circle slot-scope={value} :r="value" />
+    <circle cx="1" cy="1" slot-scope={value} :r="value" />
   </Anime>
 </TwoScene>
   `,
