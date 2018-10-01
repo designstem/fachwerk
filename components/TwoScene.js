@@ -3,7 +3,7 @@ import Css from "../mixins/Css.js";
 export default {
   mixins: [Css],
   name: "TwoScene",
-  description: `A simple 2D scene with some tweaks to regular SVG document: **Y axis is flipped** and the **units spread from <code>-2</code> to <code>2</code>** to work same way as **ThreeScene**. `,
+  description: `A simple 2D scene with some tweaks to regular SVG document: Y axis is **flipped** and <code>x</code> and <code>y</code> spread from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**. `,
   example: `
 <TwoScene>
   <Anime :to="1" :alternate="true">
