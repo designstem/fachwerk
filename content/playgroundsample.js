@@ -1,8 +1,8 @@
 export default `# Playground
 
-## Test
+## Dynamic math equations
 
-### Dynamic math equations
+After [killing math](http://worrydream.com/KillMath/) it is time to [bring it back alive](https://beta.observablehq.com/@mbostock/colorized-math)!
 
 <Slider>
 <Math
@@ -10,14 +10,9 @@ export default `# Playground
   :value="value"
 >
   a = 10
-  b = a^2 + \\colorbox{#ccc}{
-    {{ value }}
-  }
-  b = 10^2 + \\colorbox{#ccc}{ 
-    {{ value }}
-  }
-  b = \\color{royalblue}
-    {{ Math.pow(10,2)+parseInt(value) }}
+  b = a^2 + \\colorbox{c}{ {{ value }} }
+  b = 10^2 + \\colorbox{c}{ {{ value }} }
+  b = {{ Math.pow(10,2)+parseInt(value) }}
 </Math>
 </Slider>
 

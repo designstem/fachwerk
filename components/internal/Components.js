@@ -36,11 +36,11 @@ export default {
   }),
   template: `
     <div>
-        <div v-for="c in componentData" style="
-          padding: 2.5rem 0;
-          border-bottom: 3px solid var(--color-gray-light);
-          min-height: 15rem;
-        "
+        <div v-for="(c,i) in componentData" :style="{
+          padding: '2rem 0',
+          borderTop: i > 0 ? '3px solid var(--color-gray-light)' : '',
+          minHeight: '15rem'
+        }"
         >
           <h2>{{ c.name }}</h2>
           <div style="display: flex">
