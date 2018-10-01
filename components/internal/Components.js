@@ -11,6 +11,7 @@ import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
 import TwoScene from "../TwoScene.js";
+import TwoPolygon from "../TwoPolygon.js";
 
 const importedComponents = [
   Anime,
@@ -21,7 +22,8 @@ const importedComponents = [
   ThreeRegularPolygon,
   ThreeTriangle,
   Transport,
-  TwoScene
+  TwoScene,
+  TwoPolygon
 ];
 
 export default {
