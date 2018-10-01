@@ -1,5 +1,21 @@
 export default `# Playground
 
+## 2D animations
+
+<Anime :alternate="true">
+  <div slot-scope={value}>
+  <TwoScene>
+      <circle :r="value" />
+  </TwoScene>
+  <label>
+    Radius <code>{{ Math.floor(value) }}px</code>
+  </label>
+  <input type="range" v-model="value" step="0.01"/>
+  </div>
+</Anime>
+
+---
+
 ## Dynamic math equations
 
 After [killing math](http://worrydream.com/KillMath/) it is time to [bring it back alive](https://beta.observablehq.com/@mbostock/colorized-math)!
@@ -18,14 +34,14 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
 
 ---
 
-### Rotating spiral
+## Rotating spiral
 
 <ThreeScene>
   <Anime
     :to="deg2rad(360)"
     duration="10000"
   >
-  <ThreeMesh
+  <ThreeGroup
     slot-scope="{value}"
     :rotation="{x: value, y: value}"
   >
@@ -43,42 +59,42 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
         z: cy(500 / 100 * (c + 1), 0.5)
       }"
     />
-  </ThreeMesh>
+  </ThreeGroup>
   </Anime>
 </ThreeScene>
 
 ---
 
-### Polygon and slider
+## Polygon and slider
 
 <Slider :max="360" title="Angle" >
   <ThreeScene slot-scope="{value}">
-    <ThreeMesh
+    <ThreeGroup
       :rotation="{
         x: deg2rad(value),
         y: deg2rad(value),
         z: deg2rad(value)
     }">
       <ThreeRegularPolygon />
-    </ThreeMesh>
+    </ThreeGroup>
   </ThreeScene>  
 </Slider>
 
 ---
 
-### Spinning polygon
+## Spinning polygon
 
 <ThreeScene>
   <Anime
     :to="deg2rad(360)"
     duration="10000"
   >
-    <ThreeMesh
+    <ThreeGroup
       slot-scope="{value}"
       :rotation="{z: value}"
     >
       <ThreeRegularPolygon />
-    </ThreeMesh>
+    </ThreeGroup>
     </Anime>
 </ThreeScene>  
 

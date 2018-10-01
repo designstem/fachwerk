@@ -1,5 +1,5 @@
 import { Triangle } from "./internal/three.js";
-import ThreeMesh from "./ThreeMesh.js"
+import ThreeGroup from "./ThreeGroup.js"
 
 import { cx, cy } from "../utils.js"
 
@@ -12,7 +12,7 @@ export default {
   `,
   components: {
     Triangle,
-    ThreeMesh
+    ThreeGroup
   },
   props: { count: { default: 16 }, radius: { default: 1 } },
   computed: {
@@ -26,7 +26,7 @@ export default {
     }
   },
   template: `
-    <ThreeMesh>
+    <ThreeGroup>
       <Triangle
         v-for="(p,i) in points"
         :key="i"
@@ -38,6 +38,6 @@ export default {
         }"
         :v3="{x: 0, y: 0, z: 0}"
       />
-    </ThreeMesh>
+    </ThreeGroup>
   `
 };

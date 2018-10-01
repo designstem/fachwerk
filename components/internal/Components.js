@@ -10,6 +10,7 @@ import ThreeLine from "../ThreeLine.js";
 import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
+import TwoScene from "../TwoScene.js";
 
 const importedComponents = [
   Anime,
@@ -20,6 +21,7 @@ const importedComponents = [
   ThreeRegularPolygon,
   ThreeTriangle,
   Transport,
+  TwoScene
 ];
 
 export default {

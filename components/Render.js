@@ -4,12 +4,13 @@ import Math from "./Math.js";
 import Poly from "./experimental/Poly.js";
 import Slider from "./Slider.js";
 import ThreeLine from "./ThreeLine.js";
-import ThreeMesh from "./ThreeMesh.js";
+import ThreeGroup from "./ThreeGroup.js";
 import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
 import ThreeTriangle from "./ThreeTriangle.js";
 import Transport from "./Transport.js";
 import Triangle from "./Triangle.js";
+import TwoScene from "./TwoScene.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -21,12 +22,13 @@ export default {
     Poly,
     Slider,
     ThreeLine,
-    ThreeMesh,
+    ThreeGroup,
     ThreeRegularPolygon,
     ThreeScene,
     ThreeTriangle,
     Transport,
     Triangle,
+    TwoScene
   },
   props: { t: String },
   data: () => ({
