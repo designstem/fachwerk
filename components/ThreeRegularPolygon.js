@@ -1,5 +1,6 @@
-import { Triangle } from "./internal/three.js";
+import ThreeTriangle from "./ThreeTriangle.js";
 import ThreeGroup from "./ThreeGroup.js"
+import ThreeLine from "./ThreeLine.js";
 
 import { cx, cy } from "../utils.js"
 
@@ -11,7 +12,7 @@ export default {
 </ThreeScene>  
   `,
   components: {
-    Triangle,
+    ThreeTriangle,
     ThreeGroup
   },
   props: { count: { default: 16 }, radius: { default: 1 } },
@@ -27,16 +28,18 @@ export default {
   },
   template: `
     <ThreeGroup>
-      <Triangle
+      <ThreeTriangle
         v-for="(p,i) in points"
         :key="i"
-        :v1="{x: p.x, y: p.y, z: 0}"
-        :v2="{
-          x: points[i == points.length - 1 ? 0 : i + 1].x,
-          y: points[i == points.length - 1 ? 0 : i + 1].y,
-          z: 0
-        }"
-        :v3="{x: 0, y: 0, z: 0}"
+        :points="[
+          {x: p.x, y: p.y, z: 0},
+          {
+            x: points[i == points.length - 1 ? 0 : i + 1].x,
+            y: points[i == points.length - 1 ? 0 : i + 1].y,
+            z: 0
+          },
+          {x: 0, y: 0, z: 0}
+        ]"
       />
     </ThreeGroup>
   `
