@@ -13,7 +13,8 @@ export default {
   `,
   components: {
     ThreeTriangle,
-    ThreeGroup
+    ThreeGroup,
+    ThreeLine
   },
   props: { count: { default: 16 }, radius: { default: 1 } },
   computed: {
@@ -41,6 +42,7 @@ export default {
           {x: 0, y: 0, z: 0}
         ]"
       />
+      <ThreeLine :points="points.concat(points[0])" />
     </ThreeGroup>
   `
 };
