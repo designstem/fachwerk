@@ -18,6 +18,7 @@ import TwoLine from "../TwoLine.js";
 import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
+import Hedron from "../Hedron.js";
 
 const importedComponents = [
   Anime,
@@ -35,7 +36,8 @@ const importedComponents = [
   ThreeLine,
   ThreeTriangle,
   ThreePolygon,
-  ThreeRegularPolygon
+  ThreeRegularPolygon,
+  Hedron
 ];
 
 export default {

@@ -19,7 +19,7 @@ import TwoRegularPolygon from "./TwoRegularPolygon.js";
 import ThreeGrid from "./ThreeGrid.js";
 import ThreeDodecahedron from "./ThreeDodecahedron.js";
 import ThreeIcosahedron from "./ThreeIcosahedron.js";
-import HedronData from "./HedronData.js";
+import Hedron from "./Hedron.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -46,7 +46,7 @@ export default {
     ThreeGrid,
     ThreeDodecahedron,
     ThreeIcosahedron,
-    HedronData
+    Hedron
   },
   props: { t: String },
   data: () => ({
