@@ -18,7 +18,7 @@ Passes <code>x y z</code> coordinates of regular polyhedra as <code>{ normals, v
           x:value,
           y: value
         }">
-        <ThreeHedron />
+        <ThreePolyhedron />
         <ThreeLine
           v-for="(v,i) in vertices"
           :key="'v'+i"

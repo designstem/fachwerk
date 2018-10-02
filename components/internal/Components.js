@@ -18,7 +18,7 @@ import TwoLine from "../TwoLine.js";
 import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
-import ThreeHedron from "../ThreeHedron.js";
+import ThreePolyhedron from "../ThreePolyhedron.js";
 import PolyhedronScope from "../PolyhedronScope.js";
 import PolygonScope from "../PolygonScope.js";
 
@@ -37,7 +37,7 @@ const importedComponents = [
   ThreeLine,
   ThreePolygon,
   ThreeRegularPolygon,
-  ThreeHedron,
+  ThreePolyhedron,
   Anime,
   Slider,
   PolygonScope,

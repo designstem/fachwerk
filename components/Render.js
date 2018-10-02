@@ -17,7 +17,7 @@ import TwoGrid from "./TwoGrid.js";
 import TwoLine from "./TwoLine.js";
 import TwoRegularPolygon from "./TwoRegularPolygon.js";
 import ThreeGrid from "./ThreeGrid.js";
-import ThreeHedron from "./ThreeHedron.js";
+import ThreePolyhedron from "./ThreePolyhedron.js";
 import PolyhedronScope from "./PolyhedronScope.js";
 import PolygonScope from "./PolygonScope.js";
 
@@ -44,9 +44,9 @@ export default {
     TwoLine,
     TwoRegularPolygon,
     ThreeGrid,
-    ThreeHedron,
+    ThreePolyhedron,
     PolyhedronScope,
-    PolygonScope,
+    PolygonScope
   },
   props: { t: String },
   data: () => ({
