@@ -13,7 +13,7 @@ const InternalThreePolygon = {
       var geometry = new THREE.ShapeGeometry(shape);
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({ flatShading: true, opacity: 0.5, side: THREE.DoubleSide })
+        new THREE.MeshNormalMaterial({ flatShading: true, opacity: 0.7, side: THREE.DoubleSide })
       );
     }
     curObj.name = curObj.name || curObj.type;
@@ -24,6 +24,9 @@ const InternalThreePolygon = {
 export default {
   mixins: [Object3D],
   name: "ThreePolygon",
+  description: `
+Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
+  `,
   example: `
 <ThreeScene>
   <ThreeGrid />

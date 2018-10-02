@@ -9,7 +9,10 @@ export default {
   name: "ThreeGrid",
   example: `
 <ThreeScene>
-  <ThreeGrid />
+  <ThreeGrid
+    :rotation="{ y: 0.5, x: 0.5 }"
+    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
+  />
 </ThreeScene>
   `,
   components: { ThreeGroup, ThreeLine },

@@ -1,10 +1,10 @@
 export default {
-  name: "Hedron",
+  name: "PolyhedronScope",
   description: `
-Provides 3D coordinates of regular polyhedra.
+Passes <code>x y z</code> coordinates of regular polyhedra as <code>{ normals, vertices }</code> down to the children components. Supports <code>Tetrahedron</code>, <code>Octahedron</code>, <code>Icosahedron</code> and <code>Dodecahedron</code>.
   `,
   example: `
-<Hedron>
+<PolyhedronScope>
   <ThreeScene
     slot-scope="{ normals, vertices }"
   >
@@ -34,7 +34,7 @@ Provides 3D coordinates of regular polyhedra.
       </ThreeGroup>
     </Anime>
   </ThreeScene>
-</Hedron>
+</PolyhedronScope>
   `,
   props: { hedron: { default: "Icosahedron" }, radius: { default: 1 } },
   computed: {

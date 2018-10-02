@@ -1,5 +1,8 @@
 export default {
   name: "Slider",
+  description: `
+**⚠️ To be renamed to SliderScope**.
+  `,
   example: `
 <Slider>
   <h1 class="bullet" slot-scope="{value}">

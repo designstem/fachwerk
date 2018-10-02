@@ -3,8 +3,10 @@ import ThreeGroup from "./ThreeGroup.js"
 import ThreeLine from "./ThreeLine.js";
 
 import { cx, cy } from "../utils.js"
+import { Object3D } from "./internal/three.js";
 
 export default {
+  mixins: [Object3D],
   name: "ThreeRegularPolygon",
   example: `
 <ThreeScene>

@@ -168,6 +168,7 @@ code {
   padding: 0.1em 0.3em 0 0.3em;
   font-size: 0.95em;
   font-weight: normal;
+  white-space: nowrap;
 }
 
 /* Components */

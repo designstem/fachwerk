@@ -4,8 +4,7 @@ export default {
   mixins: [Object3D],
   name: "ThreeLine",
   description: `
-An array of lines in full 3D space.  
-  `,
+Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:points</code> array.  `,
   example: `
 <ThreeScene>
   <ThreeGroup
@@ -15,11 +14,10 @@ An array of lines in full 3D space.
   <ThreeGrid />
   <ThreeLine
     :points="[
-      { x:  1, y:  1, z: 0 },
-      { x:  1, y: -1, z: 0 },
-      { x: -1, y: -1, z: 0 },
-      { x: -1, y:  1, z: 0 },
-      { x: -1, y:  1, z: 1 },
+      { x: 1, y:  1, z: 0 },
+      { x: 1, y:  0, z: 1 },
+      { x: 1, y: -1, z: 0 },
+      { x: 1, y: -2, z: 0 },
     ]"
   />
   </ThreeGroup>

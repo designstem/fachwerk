@@ -19,13 +19,12 @@ import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
 import ThreeHedron from "../ThreeHedron.js";
-import Hedron from "../Hedron.js";
+import PolyhedronScope from "../PolyhedronScope.js";
+import PolygonScope from "../PolygonScope.js";
 
 const importedComponents = [
-  Anime,
   Buttons,
   Math2,
-  Slider,
   Transport,
   TwoScene,
   TwoGrid,
@@ -39,7 +38,10 @@ const importedComponents = [
   ThreePolygon,
   ThreeRegularPolygon,
   ThreeHedron,
-  Hedron
+  Anime,
+  Slider,
+  PolygonScope,
+  PolyhedronScope
 ];
 
 export default {

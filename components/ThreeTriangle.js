@@ -2,15 +2,24 @@ import { Object3D } from "./internal/three.js";
 
 export default {
   name: "ThreeTriangle",
+  description: `
+<i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D <i>Raum</i>. It accepts three 3D coordinates in <code>:points</code> array.
+  `,
   example: `
 <ThreeScene>
-  <ThreeTriangle
-    :points="[
-      { x: 0, y: 0, z: 0 },
-      { x: 1, y: 0, z: 0 },
-      { x: 0, y: 1, z: 0 }
-    ]" 
-  />
+  <ThreeGroup
+    :rotation="{ y: 0.5, x: 0.5 }"
+    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
+  >
+    <ThreeGrid />
+    <ThreeTriangle
+      :points="[
+        { x: 1, y: 1,  z: 0 },
+        { x: 1, y: 0,  z: 1 },
+        { x: 1, y: -1, z: 0 },
+      ]" 
+    /> 
+  </ThreeGroup>
 </ThreeScene>
   `,
   mixins: [Object3D],
@@ -26,7 +35,11 @@ export default {
       geometry.computeFaceNormals();
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({ flatShading: true, opacity: 0.5, side: THREE.DoubleSide })
+        new THREE.MeshNormalMaterial({
+          flatShading: true,
+          opacity: 0.5,
+          side: THREE.DoubleSide
+        })
       );
     }
     curObj.name = curObj.name || curObj.type;

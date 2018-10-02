@@ -4,7 +4,14 @@ export default {
   name: "ThreeScene",
   example: `
 <ThreeScene>
-    <ThreeRegularPolygon count="64" />
+    <ThreeRegularPolygon
+      count="64"
+      :rotation="{ y: 0.5, x: 0.5 }"
+    />
+    <ThreeLine
+      :points="[{ z: 0 },{ z: 1 }]"
+      :rotation="{ y: 0.5, x: 0.5 }"
+    />
 </ThreeScene>
   `,
   components: { Renderer, Scene, Camera },
