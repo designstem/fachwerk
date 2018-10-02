@@ -4,15 +4,26 @@ export default {
   name: 'ThreeHedron',
   example: `
 <ThreeScene>
-  <ThreeHedron hedron="Icosahedron" />
+  <ThreeHedron
+    v-for="(hedron,i) in [
+      'Tetrahedron',
+      'Octahedron',
+      'Icosahedron',
+      'Dodecahedron'
+    ]"
+    :key="i"
+    :hedron="hedron"
+    :position="{x: i - 1.5}"
+    radius="0.5"
+  />
 </ThreeScene>  
   `,
   mixins: [Object3D],
-  props: { hedron: { default: 'Icosahedron' } },
+  props: { hedron: { default: 'Icosahedron' }, radius: { default: 1 } },
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var geometry = new THREE[this.hedron + 'Geometry'](1, 0)
+      var geometry = new THREE[this.hedron + 'Geometry'](this.radius, 0)
       curObj = new THREE.Mesh(
         geometry,
         new THREE.MeshNormalMaterial({

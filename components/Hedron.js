@@ -1,5 +1,5 @@
 export default {
-  name: 'Hedron',
+  name: "Hedron",
   description: `
 Provides 3D coordinates of regular polyhedra.
   `,
@@ -36,17 +36,17 @@ Provides 3D coordinates of regular polyhedra.
   </ThreeScene>
 </Hedron>
   `,
-  props: { hedron: { default: 'Icosahedron' } },
+  props: { hedron: { default: "Icosahedron" }, radius: { default: 1 } },
   computed: {
     vertices() {
-      return new THREE[this.hedron + 'Geometry'](1, 0).vertices.map(
+      return new THREE[this.hedron + "Geometry"](this.radius, 0).vertices.map(
         ({ x, y, z }) => ({ x, y, z })
       );
     },
     normals() {
-      return new THREE[this.hedron + "Geometry"](1, 0).faces.map(f =>
-          f.vertexNormals.map(({ x, y, z }) => ({ x, y, z }))
-        );
+      return new THREE[this.hedron + "Geometry"](this.radius, 0).faces.map(f =>
+        f.vertexNormals.map(({ x, y, z }) => ({ x, y, z }))
+      );
     }
   },
   render() {
@@ -56,5 +56,5 @@ Provides 3D coordinates of regular polyhedra.
           normals: this.normals
         })
       : "";
-  },
+  }
 };
