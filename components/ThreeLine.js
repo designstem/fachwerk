@@ -17,7 +17,7 @@ export default {
   mixins: [Object3D],
   props: {
     points: { default: [] },
-    stroke: { default: 0x333333 },
+    stroke: { default: 'black' },
     strokeWidth: { default: 3 }
   },
   data() {
