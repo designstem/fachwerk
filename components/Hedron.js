@@ -36,16 +36,17 @@ Provides 3D coordinates of regular polyhedra.
   </ThreeScene>
 </Hedron>
   `,
+  props: { hedron: { default: 'Icosahedron' } },
   computed: {
     vertices() {
-      return new THREE.IcosahedronGeometry(1, 0).vertices.map(
+      return new THREE[this.hedron + 'Geometry'](1, 0).vertices.map(
         ({ x, y, z }) => ({ x, y, z })
       );
     },
     normals() {
-      return new THREE.IcosahedronGeometry(1, 0).faces.map(f =>
-        f.vertexNormals.map(({ x, y, z }) => ({ x, y, z }))
-      );
+      return new THREE[this.hedron + "Geometry"](1, 0).faces.map(f =>
+          f.vertexNormals.map(({ x, y, z }) => ({ x, y, z }))
+        );
     }
   },
   render() {
