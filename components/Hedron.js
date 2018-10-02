@@ -18,7 +18,7 @@ Provides 3D coordinates of regular polyhedra.
           x:value,
           y: value
         }">
-        <ThreeIcosahedron />
+        <ThreeHedron />
         <ThreeLine
           v-for="(v,i) in vertices"
           :key="'v'+i"

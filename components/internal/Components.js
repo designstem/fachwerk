@@ -18,6 +18,7 @@ import TwoLine from "../TwoLine.js";
 import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
+import ThreeHedron from "../ThreeHedron.js";
 import Hedron from "../Hedron.js";
 
 const importedComponents = [
@@ -37,6 +38,7 @@ const importedComponents = [
   ThreeTriangle,
   ThreePolygon,
   ThreeRegularPolygon,
+  ThreeHedron,
   Hedron
 ];
 
