@@ -165,8 +165,9 @@ code {
   border-radius: 3px;
   background: var(--color-blue-light);
   color: var(--color-blue-medium);
-  padding: 0.1rem 0.3rem;
-  font-size: 0.95rem;
+  padding: 0.1em 0.3em 0 0.3em;
+  font-size: 0.95em;
+  font-weight: normal;
 }
 
 /* Components */
