@@ -3,9 +3,9 @@ import { Renderer, Scene, Camera } from './internal/three.js'
 export default {
   name: "ThreeScene",
   example: `
-  <ThreeScene>
-    
-  </ThreeScene>
+<ThreeScene>
+    <ThreeRegularPolygon count="64" />
+</ThreeScene>
   `,
   components: { Renderer, Scene, Camera },
   template: `

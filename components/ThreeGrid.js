@@ -2,8 +2,10 @@ import ThreeGroup from "./ThreeGroup.js";
 import ThreeLine from "./ThreeLine.js";
 
 import { deg2rad } from "../utils.js";
+import { Object3D } from "./internal/three.js";
 
 export default {
+  mixins: [Object3D],
   name: "ThreeGrid",
   example: `
 <ThreeScene>
@@ -27,7 +29,7 @@ export default {
       v-for="(x,i) in [-2,-1,0,1,2]"
       :key="'a'+i"
       stroke-width="1"
-      :stroke="i == 0 ? 0xaaaaaa : 0xdddddd"
+      :stroke="0xdddddd"
       :points="[
         { x, y: 2 },
         { x, y: -2 }
@@ -37,13 +39,37 @@ export default {
       v-for="(y,i) in [-2,-1,0,1,2]"
       :key="'b'+i"
       stroke-width="1"
-      :stroke="0xcccccc"
+      :stroke="0xdddddd"
       :points="[
         { x: 2, y },
         { x: -2, y }
       ]"
     />
   </ThreeGroup>
+  <ThreeLine
+      :stroke="0xaaaaaa"
+      :strokeWidth="1.5"
+      :points="[
+        { x: 0, y: 2, z: 0 },
+        { x: 0, y: -2, z: 0 }
+      ]"
+  />
+  <ThreeLine
+    :stroke="0xaaaaaa"
+    :strokeWidth="1.5"
+    :points="[
+      { x: 2, y: 0, z: 0 },
+      { x: -2, y: 0, z: 0 }
+    ]"
+  />
+  <ThreeLine
+    :stroke="0xaaaaaa"
+    :strokeWidth="1.5"
+    :points="[
+      { x: 2, y: 0, z: 0 },
+      { x: -2, y: 0, z: 0 }
+    ]"
+  />
   </ThreeGroup>
   `
 };

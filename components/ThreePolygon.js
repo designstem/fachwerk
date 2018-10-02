@@ -22,15 +22,17 @@ const InternalThreePolygon = {
 };
 
 export default {
+  mixins: [Object3D],
   name: "ThreePolygon",
   example: `
 <ThreeScene>
   <ThreeGrid />
   <ThreePolygon
     :points="[
-      { x: 0, y: 0 },
-      { x: 1, y: 0 },
-      { x: 0, y: 1 },
+      { x:  1, y:  1 },
+      { x:  1, y: -1 },
+      { x: -1, y: -1 },
+      { x: -1, y:  1 },
     ]"
   />
 </ThreeScene>
@@ -40,9 +42,9 @@ export default {
   computed: {
     linePoints() {
       return this.points.concat(this.points[0]).map(p => {
-        p.z = 0
-        return p
-      })
+        p.z = 0;
+        return p;
+      });
     }
   },
   template: `
