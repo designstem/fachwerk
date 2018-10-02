@@ -21,6 +21,8 @@ import TwoScene from "../TwoScene.js";
 import ThreePolyhedron from "../ThreePolyhedron.js";
 import PolyhedronScope from "../PolyhedronScope.js";
 import PolygonScope from "../PolygonScope.js";
+// Experimental
+import TwoSceneScope from "../experimental/TwoSceneScope.js";
 
 const importedComponents = [
   Buttons,
@@ -41,7 +43,9 @@ const importedComponents = [
   Anime,
   Slider,
   PolygonScope,
-  PolyhedronScope
+  PolyhedronScope,
+  // Experimental
+  TwoSceneScope,
 ];
 
 export default {

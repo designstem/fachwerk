@@ -20,6 +20,8 @@ import ThreeGrid from "./ThreeGrid.js";
 import ThreePolyhedron from "./ThreePolyhedron.js";
 import PolyhedronScope from "./PolyhedronScope.js";
 import PolygonScope from "./PolygonScope.js";
+// Experimental
+import TwoSceneScope from "./experimental/TwoSceneScope.js";
 
 import { rad2deg, deg2rad, cx, cy } from '../utils.js'
 
@@ -46,7 +48,9 @@ export default {
     ThreeGrid,
     ThreePolyhedron,
     PolyhedronScope,
-    PolygonScope
+    PolygonScope,
+    // Experimental
+    TwoSceneScope,
   },
   props: { t: String },
   data: () => ({
