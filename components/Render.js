@@ -12,6 +12,7 @@ import ThreeTriangle from "./ThreeTriangle.js";
 import Transport from "./Transport.js";
 import Triangle from "./experimental/Triangle.js";
 import TwoScene from "./TwoScene.js";
+import TwoGroup from "./TwoGroup.js";
 import TwoPolygon from "./TwoPolygon.js";
 import TwoGrid from "./TwoGrid.js";
 import TwoLine from "./TwoLine.js";
@@ -41,6 +42,7 @@ export default {
     Transport,
     Triangle,
     TwoScene,
+    TwoGroup,
     TwoPolygon,
     TwoGrid,
     TwoLine,
