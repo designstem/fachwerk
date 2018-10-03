@@ -11,6 +11,7 @@ import ThreeLine from "../ThreeLine.js";
 import ThreePolygon from "../ThreePolygon.js";
 import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeScene from "../ThreeScene.js";
+import ThreeGroup from "../ThreeGroup.js";
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
 import TwoGrid from "../TwoGrid.js";
@@ -36,6 +37,7 @@ const importedComponents = [
   TwoPolygon,
   TwoRegularPolygon,
   ThreeScene,
+  ThreeGroup,
   ThreeGrid,
   ThreeTriangle,
   ThreeLine,
