@@ -1,8 +1,7 @@
 export default {
   name: "TwoGroup",
   description: `
-The component is here for feature parity with <code>ThreeGroup</code> and applying transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>
-Note that using a SVGgs handy <code>g</code> is *Geil* as well.
+The component is a wrapper around SVG's <code>g</code> for feature parity with <code>ThreeGroup</code> and applying transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>
 
   `,
   example: `
@@ -13,12 +12,7 @@ Note that using a SVGgs handy <code>g</code> is *Geil* as well.
     :rotation="{ z: 45 }"
     :scale="{ x: 0.2, y: 0.2 }"
   >
-    <rect
-      x="-0.5"
-      y="-0.5"
-      width="1"
-      height="1"
-    />
+    <TwoBox />
   </TwoGroup>
 </TwoScene>
   `,
@@ -52,9 +46,3 @@ Note that using a SVGgs handy <code>g</code> is *Geil* as well.
     </g>
   `
 };
-/*
-      'scale(' + scale.x + ' ' + scale.y + ') '
-      'rotate(' + rotation.x + ' ' + rotation.y ? rotation.y : rotation.x + ')' +
-      'scale(' + rotation.z + ')'
-
-*/

@@ -6,6 +6,7 @@ import Slider from "./Slider.js";
 import ThreeLine from "./ThreeLine.js";
 import ThreeGroup from "./ThreeGroup.js";
 import ThreePolygon from "./ThreePolygon.js";
+import ThreeBox from "./ThreeBox.js";
 import ThreeRegularPolygon from "./ThreeRegularPolygon.js";
 import ThreeScene from "./ThreeScene.js";
 import ThreeTriangle from "./ThreeTriangle.js";
@@ -13,6 +14,7 @@ import Transport from "./Transport.js";
 import Triangle from "./experimental/Triangle.js";
 import TwoScene from "./TwoScene.js";
 import TwoGroup from "./TwoGroup.js";
+import TwoBox from "./TwoBox.js";
 import TwoPolygon from "./TwoPolygon.js";
 import TwoGrid from "./TwoGrid.js";
 import TwoLine from "./TwoLine.js";
@@ -21,6 +23,7 @@ import ThreeGrid from "./ThreeGrid.js";
 import ThreePolyhedron from "./ThreePolyhedron.js";
 import PolyhedronScope from "./PolyhedronScope.js";
 import PolygonScope from "./PolygonScope.js";
+
 // Experimental
 import TwoSceneScope from "./experimental/TwoSceneScope.js";
 
@@ -35,6 +38,7 @@ export default {
     Slider,
     ThreeLine,
     ThreeGroup,
+    ThreeBox,
     ThreePolygon,
     ThreeRegularPolygon,
     ThreeScene,
@@ -53,6 +57,7 @@ export default {
     PolygonScope,
     // Experimental
     TwoSceneScope,
+    TwoBox,
   },
   props: { t: String },
   data: () => ({

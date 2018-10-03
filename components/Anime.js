@@ -1,7 +1,7 @@
 export default {
   name: "Anime",
   description: `
-**⚠️ To be renamed to AnimeScope**.
+**⚠️ To be renamed to AnimeData**.
 
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library.
 

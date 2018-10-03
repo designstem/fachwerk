@@ -1,5 +1,27 @@
 export default `# Playground
 
+## 2D groups and rotations
+
+<Anime :to="360">
+<TwoScene slot-scope="{value}">
+  <TwoGrid />
+  <!-- Group and then rotate -->
+  <TwoGroup :rotation="{ z: value } ">
+    <TwoBox :x="x" v-for="x in [-1,0,1]" />
+  </TwoGroup>
+  <!-- Rotate and then group -->
+  <TwoGroup
+    v-for="x in [-1,0,1]"
+    :rotation="{ z: value }"
+    :position="{ x }"
+  >
+    <TwoBox fill="var(--color-red)" opacity="0.5" />
+  </TwoGroup>
+</TwoScene>
+</Anime>
+
+---
+
 ## Rotating spiral
 
 <ThreeScene>
@@ -44,8 +66,8 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
   :value="value"
 >
   a = 10
-  b = a^2 + \colorbox{c}{ {{ value }} }
-  b = 10^2 + \colorbox{c}{ {{ value }} }
+  b = a^2 + \\colorbox{c}{ {{ value }} }
+  b = 10^2 + \\colorbox{c}{ {{ value }} }
   b = {{ Math.pow(10,2)+parseInt(value) }}
 </Math>
 </Slider>

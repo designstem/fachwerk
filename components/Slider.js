@@ -1,7 +1,7 @@
 export default {
   name: "Slider",
   description: `
-**⚠️ To be renamed to SliderScope**.
+**⚠️ To be renamed to SliderData**.
   `,
   example: `
 <Slider>

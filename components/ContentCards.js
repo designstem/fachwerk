@@ -9,12 +9,10 @@ export default {
   data: () => ({ currentIndex: 0 }),
   computed: {
     preparedContent() {
-      return flatten(
-        this.content
+      return flatten(this.content
           .replace(/\n-\n/g, "")
-          .split("---")
-          .map(s => s.split("--"))
-      );
+          .split(/\n---\n/)
+        .map(s => s.split(/\n--\n/)));
     }
   },
   template: `

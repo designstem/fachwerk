@@ -12,6 +12,7 @@ import ThreePolygon from "../ThreePolygon.js";
 import ThreeRegularPolygon from "../ThreeRegularPolygon.js"
 import ThreeScene from "../ThreeScene.js";
 import ThreeGroup from "../ThreeGroup.js";
+import ThreeBox from "../ThreeBox.js";
 import ThreeTriangle from "../ThreeTriangle.js";
 import Transport from "../Transport.js";
 import TwoGrid from "../TwoGrid.js";
@@ -23,6 +24,8 @@ import TwoScene from "../TwoScene.js";
 import ThreePolyhedron from "../ThreePolyhedron.js";
 import PolyhedronScope from "../PolyhedronScope.js";
 import PolygonScope from "../PolygonScope.js";
+import TwoBox from "../TwoBox.js";
+
 // Experimental
 import TwoSceneScope from "../experimental/TwoSceneScope.js";
 
@@ -33,6 +36,7 @@ const importedComponents = [
   TwoScene,
   TwoGrid,
   TwoGroup,
+  TwoBox,
   TwoLine,
   TwoPolygon,
   TwoRegularPolygon,
@@ -41,6 +45,7 @@ const importedComponents = [
   ThreeGrid,
   ThreeTriangle,
   ThreeLine,
+  ThreeBox,
   ThreePolygon,
   ThreeRegularPolygon,
   ThreePolyhedron,
