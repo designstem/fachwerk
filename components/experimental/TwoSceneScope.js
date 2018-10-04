@@ -12,13 +12,20 @@ export default {
 <TwoSceneScope>  
   <g slot-scope="{ value }">
     <circle
+      :r="value.mousePressed ? 1.1 : 1"
+      opacity="0.1"
+      style="transition: all 100ms"
+    />
+    <circle
       :r="value.mousePressed ? 0.8 : 1"
+      style="transition: all 100ms"
     />
     <circle
       :cx="value.mouseX"
       :cy="value.mouseY"
       :r="value.mousePressed ? 0.2 : 0.1"
       fill="var(--color-red)"
+      style="transition: all 100ms"
     />
   </g>
 </TwoSceneScope>

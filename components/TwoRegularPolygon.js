@@ -1,7 +1,9 @@
 import TwoPolygon from "./TwoPolygon.js"
 import { cx, cy } from "../utils.js";
+import { Object2D } from "./internal/two.js";
 
 export default {
+  mixins: [Object2D],
   name: "TwoRegularPolygon",
   description: `
 🚜 **This component needs rework.** 
@@ -9,7 +11,15 @@ export default {
   example: `
 <Anime :to="16">
   <TwoScene slot-scope="{value}">
-    <TwoRegularPolygon :count="value" />
+    <TwoRegularPolygon
+      :count="value"
+    />
+    <TwoRegularPolygon
+      :count="value"
+      :position="{ x: 1, y: 1 }"
+      :rotation="{ z: 45 }"
+      :scale="{ x: 0.2, y: 0.2 }"
+    />
   </TwoScene>
 </Anime>
   `,
@@ -28,8 +38,9 @@ export default {
     }
   },
   template: `
-  <g>
-    <TwoPolygon :points="points" />
-  </g>
+    <TwoPolygon
+      :points="points"
+      :transform="transform"
+    />
   `
 };

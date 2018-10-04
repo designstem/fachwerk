@@ -1,17 +1,23 @@
+import { Object2D } from "./internal/two.js";
+
 export default {
+  mixins: [Object2D],
   name: "TwoGrid",
   description: `
-**⚠️ Does not yet support 2D transformations.**
-
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
   `,
   example: `
 <TwoScene>
   <TwoGrid />
+  <TwoGrid
+    :position="{ x: 1, y: 1 }"
+    :rotation="{ z: 45 }"
+    :scale="{ x: 0.2, y: 0.2 }"
+  />
 </TwoScene>
   `,
   template: `
-  <g>
+  <g :transform="transform">
     <line
       v-for="x in [-2,-1,0,1,2]"
       :x1="x"
