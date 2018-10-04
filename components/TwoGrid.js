@@ -1,6 +1,8 @@
 export default {
   name: "TwoGrid",
   description: `
+**⚠️ Does not yet support 2D transformations.**
+
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
   `,
   example: `

@@ -2,6 +2,9 @@ import { cx, cy } from "../utils.js";
 
 export default {
   name: "TwoLine",
+  description: `
+**⚠️ Does not yet support 2D transformations.**
+  `,
   example: `
 <TwoScene>
   <TwoGrid />
@@ -15,6 +18,7 @@ export default {
 </TwoScene>
   `,
   props: {
+    opacity: { default: 1 },
     points: { default: [] },
     stroke: { default: "var(--color-gray-dark)" }
   },
@@ -31,6 +35,7 @@ export default {
       stroke-linecap="round"
       stroke-linejoin="round"
       fill="none"
+      :opacity="opacity"
     />
     `
 };

@@ -19,11 +19,10 @@ export default {
     <div style="
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      --grid-template-rows: 1fr;
       grid-gap: 1rem;
     ">
       <div
-        v-for="(slide,i) in preparedContent"
+        v-for="(card,i) in preparedContent"
         style="
           padding: 1rem;
           border: 3px solid var(--color-gray-medium);
@@ -31,7 +30,7 @@ export default {
         "
         class="card"
       >
-        <Markdown :content="slide"/>
+        <Markdown :content="card"/>
       </div>
     </div>
   `,

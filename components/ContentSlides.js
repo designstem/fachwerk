@@ -36,17 +36,17 @@ export default {
   template: `
     <div>
       <div
-        v-for="(cols,i) in preparedContent"
+        v-for="(slide,i) in preparedContent"
         v-if="i == currentIndex"
         class="slide"
         :style="{
           display: 'grid',
-          gridTemplateColumns: 'repeat(' + Math.min(cols.length, 3) +', 1fr)',
+          gridTemplateColumns: 'repeat(' + Math.min(slide.length, 3) +', 1fr)',
           gridGap: '1fr'
         }"
       >
         <Markdown
-          v-for="(col,i) in cols"
+          v-for="(col,i) in slide"
           :key="i"
           :content="col"
         />

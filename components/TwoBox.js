@@ -1,15 +1,19 @@
+import { Object2D } from "./internal/two.js";
 
 export default {
+  mixins: [Object2D],
   name: "TwoBox",
   description: `
-**⚠️ Does not yet support 2D transformations...**
-
- ...but Kazimir Malevich must still be proud.  
+ Kazimir Malevich must still be proud.  
   `,
   example: `
 <TwoScene>
   <TwoGrid />
-  <TwoBox />
+  <TwoBox
+    :position="{ x: 1, y: 1 }"
+    :rotation="{ z: 45 }"
+    :scale="{ x: 0.2, y: 0.2 }"
+  />
 </TwoScene>
   `,
   props: {
@@ -28,6 +32,7 @@ export default {
       :height="height"
       :fill="fill"
       :opacity="opacity"
+      :transform="transform"
     />
   `
 };

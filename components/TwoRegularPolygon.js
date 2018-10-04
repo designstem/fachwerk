@@ -3,6 +3,9 @@ import { cx, cy } from "../utils.js";
 
 export default {
   name: "TwoRegularPolygon",
+  description: `
+🚜 **This component needs rework.** 
+  `,
   example: `
 <Anime :to="16">
   <TwoScene slot-scope="{value}">
