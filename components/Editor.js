@@ -37,6 +37,9 @@ export default {
         outline: none;
         resize: none;
         width: 100%;
+        background: var(--color-blue-light);
+        padding: 0.8rem;
+        border-radius: var(--border-radius);
       "
     />
   `

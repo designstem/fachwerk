@@ -55,7 +55,7 @@ new Vue({
         :style="{height: activeComponent == 1 ? 'calc(100vh - 5rem)' : ''}"
       >
         <div style="width: 450px;">
-          <Editor style="padding: 1rem" v-model="content" />
+          <Editor v-model="content" />
         </div>
         <div style="flex: 1; padding: 1.5rem;">
           <component
