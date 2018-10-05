@@ -75,7 +75,7 @@ export default {
     <div>
         <div v-for="(c,i) in componentData" :style="{
           padding: '2rem 0',
-          borderTop: i > 0 ? '3px solid var(--color-gray-light)' : '',
+          borderTop: i > 0 ? '0px solid var(--color-gray-light)' : '',
           minHeight: '15rem'
         }"
         >
