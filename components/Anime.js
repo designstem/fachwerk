@@ -20,7 +20,7 @@ Supports most of the animation options AnimeJS provides, in addition allows to c
 </Anime>
   `,
   props: {
-    name: { default: "value" },
+    name: { default: "value", type: String },
     from: { default: 0 },
     to: { default: 100 },
     duration: { default: 5000 },

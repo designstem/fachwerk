@@ -4,6 +4,7 @@ import { rad2deg, deg2rad, cx, cy } from "../utils.js";
 import componentList from "./internal/componentList.js";
 
 export default {
+  name: 'Render',
   components: componentList,
   props: { t: String },
   data: () => ({

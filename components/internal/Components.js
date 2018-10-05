@@ -5,24 +5,57 @@ import Markdown from "../Markdown.js";
 import componentList from "./componentList.js";
 
 const Props = {
-  props: { props: { type: Object } }, // Arrays are Objects in JS
+  props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
+  methods: {
+    formatType(type) {
+      if (type) {
+        if (type instanceof Array) {
+          return typeof (type[0])()
+        }
+        return typeof (type)()
+      }
+      return null;
+    }
+  },
   computed: {
     propsData() {
-      return (this.props instanceof Array)
-        ? this.props.map(p => ({ name: p }))
-        : Object.entries(this.props).map(p => ({ name: p[0] }));
+      if (this.props) {
+        return this.props instanceof Array
+          ? this.props.map(p => ({ name: p }))
+          : Object.entries(this.props).map(p => ({
+              name: p[0],
+              default: p[1].default ? p[1].default : null,
+//              type: p[1].type ? typeof (p[1].type)() : null
+              type: this.formatType(p[1].type)
+            }));
+      } else {
+        return [];
+      }
     }
   },
   template: `
-    <pre>{{ propsData }}</pre>
-    <!--table>
+    <div style="font-size: 0.9rem">
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Default</th>
+        <th>Type</th>
+      </thead>
       <tbody>
-        <tr v-for"prop in propsData">
-          <td>{{ prop[0] }}</td>
-          <td>{{ prop[1].default ? prop[1].default : '' }}</td>
+        <tr v-for="prop in propsData">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code v-if="prop.default" style="background: none">{{ prop.default }}</code></td>
+          <td>
+            <code
+              v-if="prop.type"
+              style="background: none; color: var(--color-gray-medium)">
+                {{ prop.type }}
+            </code>
+          </td>
         </tr>
       </tbody>
-    </table-->
+    </table>
+    </div>
   `
 };
 
@@ -32,10 +65,10 @@ export default {
     componentData: Object.entries(componentList)
       .map(c => ({ ...c[1], name: c[0]}))
       .map(({ name, example, description, props }) => ({
-        name: name,
+        name,
         example: example ? example.trim() : "",
         description: description || "",
-        props: props
+        props
       }))
   }),
   template: `
@@ -53,13 +86,7 @@ export default {
               <br>
               <template v-if="c.props">
                 <h3>Props</h3>
-                <pre style="
-                  background: white;
-                  max-height: 8rem;
-                  overflow: auto;
-                  padding: 0;
-                  --white-space: normal;
-                ">{{ c.props }}</pre>
+                <Props :props="c.props" />
               </template>
             </div>
             <div style="width: 500px; margin-left: 2rem;">
