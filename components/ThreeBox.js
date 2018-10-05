@@ -1,7 +1,6 @@
 import { Object3D } from "./internal/three.js";
 
 export default {
-  name: "ThreeBox",
   example: `
 <ThreeScene>
   <ThreeGrid />

@@ -1,5 +1,4 @@
 export default {
-  name: "PolyhedronScope",
   description: `
 **⚠️ To be renamed to PolyhedronData**.
 Passes <code>x y z</code> coordinates of regular polyhedra as <code>{ normals, vertices }</code> down to the children components. Supports <code>Tetrahedron</code>, <code>Octahedron</code>, <code>Icosahedron</code> and <code>Dodecahedron</code>.

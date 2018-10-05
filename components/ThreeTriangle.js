@@ -1,7 +1,6 @@
 import { Object3D } from "./internal/three.js";
 
 export default {
-  name: "ThreeTriangle",
   description: `
 <i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D <i>Raum</i>. It accepts three 3D coordinates in <code>:points</code> array.
   `,

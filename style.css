@@ -218,13 +218,17 @@ table {
   border-collapse: collapse;
 }
 th {
-  border-bottom: 2px solid var(--color-gray-dark);
-  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--color-gray-medium);
+  padding: 0.5rem 0.25rem;
   text-align: left;
+  font-weight: normal;
+  color: var(--color-gray-light);
 }
 tr {
-  border-bottom: 1px solid var(--color-gray-dark);
-  padding: 0.5rem 0.2rem;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+td {
+  padding: 0.5rem 0.25rem;
 }
 
 /* Button */

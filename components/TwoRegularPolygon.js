@@ -4,7 +4,6 @@ import { Object2D } from "./internal/two.js";
 
 export default {
   mixins: [Object2D],
-  name: "TwoRegularPolygon",
   description: `
 🚜 **This component needs rework.** 
   `,

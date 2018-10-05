@@ -1,5 +1,4 @@
 export default {
-  name: "Slider",
   description: `
 **⚠️ To be renamed to SliderData**.
   `,

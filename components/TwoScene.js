@@ -2,7 +2,6 @@ import Css from "../mixins/Css.js";
 
 export default {
   mixins: [Css],
-  name: "TwoScene",
   description: `
 A simple 2D scene with some tweaks to regular SVG document.
 

@@ -7,7 +7,6 @@ import { Object3D } from "./internal/three.js";
 
 export default {
   mixins: [Object3D],
-  name: "ThreeRegularPolygon",
   description: `
 🚜 **This component needs rework.** 
   `,
