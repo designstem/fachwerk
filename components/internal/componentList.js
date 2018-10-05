@@ -26,6 +26,9 @@ import TwoScene from "../TwoScene.js";
 
 import TwoSceneScope from "../experimental/TwoSceneScope.js";
 import VrScene from "../experimental/VrScene.js";
+import VrBox from "../experimental/VrBox.js";
+import VrLine from "../experimental/VrLine.js";
+import VrGrid from "../experimental/VrGrid.js";
 
 export default {
   Anime,
@@ -37,6 +40,9 @@ export default {
   Slider,
   ThreeBox,
   VrScene,
+  VrBox,
+  VrLine,
+  VrGrid,
   ThreeGrid,
   ThreeGroup,
   ThreeLine,
@@ -54,8 +60,8 @@ export default {
   TwoPolygon,
   TwoRegularPolygon,
   TwoScene,
-  TwoSceneScope,
-}
+  TwoSceneScope
+};
 
 /*
 
