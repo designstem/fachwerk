@@ -6,6 +6,6 @@ export default {
 See the VrScene example above
   `,
   template: `
-    <a-box height="1" color="black"></a-box>
+    <a-box height="1" color="black" opacity="0.5" ></a-box>
   `
 };
