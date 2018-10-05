@@ -2,7 +2,6 @@ import { Object3D } from "./internal/three.js";
 
 export default {
   mixins: [Object3D],
-  name: "ThreeLine",
   description: `
 Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:points</code> array.  `,
   example: `

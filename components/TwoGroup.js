@@ -2,7 +2,6 @@ import { Object2D } from "./internal/two.js";
 
 export default {
   mixins: [Object2D],
-  name: "TwoGroup",
   description: `
 The component is a wrapper around SVG's <code>g</code> for feature parity with <code>ThreeGroup</code> and applying transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>
 

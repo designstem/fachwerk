@@ -2,7 +2,6 @@ import { Object2D } from "./internal/two.js";
 
 export default {
   mixins: [Object2D],
-  name: "TwoGrid",
   description: `
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
   `,

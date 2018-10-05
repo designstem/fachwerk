@@ -1,7 +1,6 @@
 import { cx, cy } from "../utils.js";
 
 export default {
-  name: "PolygonScope",
   description: `
 **⚠️ To be renamed to PolygonData**.
 Passes <code>x y</code> coordinates of regular polygon (or points on the 2D circle) as <code>{ points }</code> down to the children components.

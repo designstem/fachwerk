@@ -2,7 +2,6 @@ import { Object2D } from "./internal/two.js";
 
 export default {
   mixins: [Object2D],
-  name: "TwoBox",
   description: `
  Kazimir Malevich must still be proud.  
   `,

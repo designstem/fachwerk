@@ -1,5 +1,4 @@
 export default {
-  name: "Anime",
   description: `
 **⚠️ To be renamed to AnimeData**.
 

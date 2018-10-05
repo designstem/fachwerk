@@ -1,7 +1,6 @@
 import { Renderer, Scene, Camera } from './internal/three.js'
 
 export default {
-  name: "ThreeScene",
   example: `
 <ThreeScene>
     <ThreeRegularPolygon

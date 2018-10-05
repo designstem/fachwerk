@@ -54,3 +54,35 @@ export default {
   TwoScene,
   TwoSceneScope,
 }
+
+/*
+
+const importedComponents = [
+  Buttons,
+  Math2,
+  Transport,
+  TwoScene,
+  TwoGrid,
+  TwoGroup,
+  TwoBox,
+  TwoLine,
+  TwoPolygon,
+  TwoRegularPolygon,
+  ThreeScene,
+  ThreeGroup,
+  ThreeGrid,
+  ThreeTriangle,
+  ThreeLine,
+  ThreeBox,
+  ThreePolygon,
+  ThreeRegularPolygon,
+  ThreePolyhedron,
+  Anime,
+  Slider,
+  PolygonScope,
+  PolyhedronScope,
+  // Experimental
+  TwoSceneScope,
+];
+
+*/
