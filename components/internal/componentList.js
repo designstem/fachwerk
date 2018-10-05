@@ -25,6 +25,7 @@ import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
 
 import TwoSceneScope from "../experimental/TwoSceneScope.js";
+import VrScene from "../experimental/VrScene.js";
 
 export default {
   Anime,
@@ -35,6 +36,7 @@ export default {
   PolyhedronScope,
   Slider,
   ThreeBox,
+  VrScene,
   ThreeGrid,
   ThreeGroup,
   ThreeLine,
