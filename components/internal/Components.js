@@ -57,6 +57,9 @@ const importedComponents = [
   TwoSceneScope,
 ];
 
+import componentList from "./componentList.js";
+console.log(Object.entries(componentList))
+
 const Props = {
   props: { props: { type: Object } }, // Arrays are Objects in JS
   computed: {
@@ -82,14 +85,14 @@ const Props = {
 export default {
   components: { Render, Editor, Markdown, Props },
   data: () => ({
-    componentData: importedComponents.map(
-      ({ name, example, description, props }) => ({
+    componentData: Object.entries(componentList)
+      .map(c => c[1])
+      .map(({ name, example, description, props }) => ({
         name: name ? name : "Das Komponent",
         example: example ? example.trim() : "",
-        description: description || '',
+        description: description || "",
         props: props
-      })
-    )
+      }))
   }),
   template: `
     <div>
