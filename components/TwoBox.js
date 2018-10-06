@@ -16,12 +16,12 @@ export default {
 </TwoScene>
   `,
   props: {
-    x: { default: 0 },
-    y: { default: 0 },
-    width: { default: 1 },
-    height: { default: 1 },
-    fill: { default: "black" },
-    opacity: { default: 1 }
+    x: { default: 0, type: Number },
+    y: { default: 0, type: Number },
+    width: { default: 1, type: Number },
+    height: { default: 1, type: Number },
+    fill: { default: "black", type: String },
+    opacity: { default: 1, type: Number }
   },
   template: `
     <rect

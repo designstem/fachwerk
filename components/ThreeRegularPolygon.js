@@ -1,8 +1,8 @@
 import ThreeTriangle from "./ThreeTriangle.js";
-import ThreeGroup from "./ThreeGroup.js"
+import ThreeGroup from "./ThreeGroup.js";
 import ThreeLine from "./ThreeLine.js";
 
-import { cx, cy } from "../utils.js"
+import { cx, cy } from "../utils.js";
 import { Object3D } from "./internal/three.js";
 
 export default {
@@ -20,7 +20,10 @@ export default {
     ThreeGroup,
     ThreeLine
   },
-  props: { count: { default: 6 }, radius: { default: 1 } },
+  props: {
+    count: { default: 6, type: Number },
+    radius: { default: 1, type: Number }
+  },
   computed: {
     points() {
       return Array.from({

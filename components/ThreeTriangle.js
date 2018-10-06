@@ -2,7 +2,7 @@ import { Object3D } from "./internal/three.js";
 
 export default {
   description: `
-<i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D <i>Raum</i>. It accepts three 3D coordinates in <code>:points</code> array.
+<i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
   `,
   example: `
 <ThreeScene>
@@ -22,7 +22,9 @@ export default {
 </ThreeScene>
   `,
   mixins: [Object3D],
-  props: { points: { default: [] } },
+  props: {
+    points: { default: [], type: Array }
+  },
   data() {
     let curObj = this.obj;
     if (!curObj) {

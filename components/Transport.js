@@ -3,7 +3,9 @@ export default {
   example: `
 <Transport v-model="someVariable" />
   `,
-  props: ["value"],
+  props: { 
+    value: { default: false, type: Boolean }
+  },
   template: `
     <div
       class="button_secondary"

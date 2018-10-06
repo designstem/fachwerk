@@ -1,6 +1,9 @@
 import { Renderer, Scene, Camera } from './internal/three.js'
 
 export default {
+  description: `
+_Der Raum_.
+`,
   example: `
 <ThreeScene>
     <ThreeRegularPolygon

@@ -18,7 +18,10 @@ export default {
 </ThreeScene>  
   `,
   mixins: [Object3D],
-  props: { hedron: { default: "Icosahedron" }, radius: { default: 1 } },
+  props: {
+    hedron: { default: "Icosahedron", type: String },
+    radius: { default: 1, type: Number }
+  },
   data() {
     let curObj = this.obj;
     if (!curObj) {
