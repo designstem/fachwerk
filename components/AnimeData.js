@@ -28,7 +28,7 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   props: {
     name: { default: "value", type: String },
     from: { default: 0, type: Number },
-    to: { default: 360, type: Number },
+    to: { default: 100, type: Number },
     duration: { default: 5000, type: Number },
     playing: { default: true, type: Boolean },
     loop: { default: true, type: Boolean },

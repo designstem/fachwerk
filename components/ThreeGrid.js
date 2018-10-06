@@ -6,7 +6,9 @@ import { Object3D } from "./internal/three.js";
 
 export default {
   mixins: [Object3D],
-  name: "ThreeGrid",
+  description: `
+Adds a grid to the 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
+  `,
   example: `
 <ThreeScene>
   <ThreeGrid

@@ -28,7 +28,7 @@ export default `# Playground
 <ThreeGrid />
   <AnimeData
     :to="deg2rad(360)"
-    duration="10000"
+    :duration="10000"
   >
   <ThreeGroup
     slot-scope="{value}"
@@ -60,34 +60,34 @@ export default `# Playground
 
 After [killing math](http://worrydream.com/KillMath/) it is time to [bring it back alive](https://beta.observablehq.com/@mbostock/colorized-math)!
 
-<Slider>
+<SliderData>
 <Math
-  slot-scope="{value}"
-  :value="value"
+  slot-scope="data"
+  :update="data.value"
 >
   a = 10
-  b = a^2 + \\colorbox{c}{ {{ value }} }
-  b = 10^2 + \\colorbox{c}{ {{ value }} }
-  b = {{ Math.pow(10,2)+parseInt(value) }}
+  b = a^2 + \\colorbox{c}{ {{ data.value }} }
+  b = 10^2 + \\colorbox{c}{ {{ data.value }} }
+  b = {{ Math.pow(10,2)+parseInt(data.value) }}
 </Math>
-</Slider>
+</SliderData>
 
 ---
 
 ## Polygon and slider
 
-<Slider :max="360" title="Angle" >
-  <ThreeScene slot-scope="{value}">
+<SliderData :max="360" title="Angle" >
+  <ThreeScene slot-scope="data">
     <ThreeGroup
       :rotation="{
-        x: deg2rad(value),
-        y: deg2rad(value),
-        z: deg2rad(value)
+        x: deg2rad(data.value),
+        y: deg2rad(data.value),
+        z: deg2rad(data.value)
     }">
       <ThreeRegularPolygon />
     </ThreeGroup>
   </ThreeScene>  
-</Slider>
+</SliderData>
 
 ---
 
@@ -96,7 +96,7 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
 <ThreeScene>
   <AnimeData
     :to="deg2rad(360)"
-    duration="10000"
+    :duration="10000"
   >
     <ThreeGroup
       slot-scope="{value}"

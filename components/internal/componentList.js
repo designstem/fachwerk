@@ -4,7 +4,7 @@ import Math from "../Math.js";
 import Poly from "../experimental/Poly.js";
 import PolygonData from "../PolygonData.js";
 import PolyhedronData from "../PolyhedronData.js";
-import Slider from "../Slider.js";
+import SliderData from "../SliderData.js";
 import ThreeBox from "../ThreeBox.js";
 import ThreeGrid from "../ThreeGrid.js";
 import ThreeGroup from "../ThreeGroup.js";
@@ -37,7 +37,7 @@ export default {
   Poly,
   PolygonData,
   PolyhedronData,
-  Slider,
+  SliderData,
   ThreeBox,
   VrScene,
   VrBox,

@@ -9,9 +9,9 @@ export default {
   `,
   mixins: [Object3D],
   props: {
-    width: { default: 1 },
-    height: { default: 1 },
-    depth: { default: 1 }
+    width: { default: 1, type: Number },
+    height: { default: 1, type: Number },
+    depth: { default: 1, type: Number }
   },
   data() {
     let curObj = this.obj;
