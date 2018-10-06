@@ -7,12 +7,16 @@ import componentList from "./componentList.js";
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
   methods: {
-    formatType(type) {
-      if (type) {
-        if (type instanceof Array) {
-          return typeof (type[0])()
-        }
-        return typeof (type)()
+    formatDefault(prop) {
+      if (prop.hasOwnProperty('default')) {
+        return prop.default.length == 0 ? '[]' : String(prop.default)
+      }
+      return null;
+    },
+    formatType(prop) {
+      if (prop.hasOwnProperty('type')) {
+        const t = prop.type instanceof Array ? (prop.type[0])() : (prop.type)()
+        return (t instanceof Array) ? 'array' : typeof t
       }
       return null;
     }
@@ -24,9 +28,8 @@ const Props = {
           ? this.props.map(p => ({ name: p }))
           : Object.entries(this.props).map(p => ({
               name: p[0],
-              default: p[1].default ? p[1].default : null,
-//              type: p[1].type ? typeof (p[1].type)() : null
-              type: this.formatType(p[1].type)
+              default: this.formatDefault(p[1]),
+              type: this.formatType(p[1])
             }));
       } else {
         return [];
@@ -43,7 +46,7 @@ const Props = {
       </thead>
       <tbody>
         <tr v-for="prop in propsData">
-          <td><code>{{ prop.name }}</code></td>
+          <td><code>:{{ prop.name }}</code></td>
           <td><code v-if="prop.default" style="background: none">{{ prop.default }}</code></td>
           <td>
             <code

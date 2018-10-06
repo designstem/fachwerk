@@ -1,9 +1,9 @@
-import Anime from "../Anime.js";
+import AnimeData from "../AnimeData.js";
 import Buttons from "../Buttons.js";
 import Math from "../Math.js";
 import Poly from "../experimental/Poly.js";
-import PolygonScope from "../PolygonScope.js";
-import PolyhedronScope from "../PolyhedronScope.js";
+import PolygonData from "../PolygonData.js";
+import PolyhedronData from "../PolyhedronData.js";
 import Slider from "../Slider.js";
 import ThreeBox from "../ThreeBox.js";
 import ThreeGrid from "../ThreeGrid.js";
@@ -31,12 +31,12 @@ import VrLine from "../experimental/VrLine.js";
 import VrGrid from "../experimental/VrGrid.js";
 
 export default {
-  Anime,
+  AnimeData,
   Buttons,
   Math,
   Poly,
-  PolygonScope,
-  PolyhedronScope,
+  PolygonData,
+  PolyhedronData,
   Slider,
   ThreeBox,
   VrScene,

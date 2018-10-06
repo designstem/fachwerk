@@ -8,7 +8,7 @@ export default {
 🚜 **This component needs rework.** 
   `,
   example: `
-<Anime :to="16">
+<AnimeData :to="16">
   <TwoScene slot-scope="{value}">
     <TwoRegularPolygon
       :count="value"
@@ -20,7 +20,7 @@ export default {
       :scale="{ x: 0.2, y: 0.2 }"
     />
   </TwoScene>
-</Anime>
+</AnimeData>
   `,
   components: { TwoPolygon },
   props: { count: { default: 6 }, radius: { default: 1 } },

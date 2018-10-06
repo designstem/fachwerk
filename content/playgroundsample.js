@@ -2,7 +2,7 @@ export default `# Playground
 
 ## 2D groups and rotations
 
-<Anime :to="360">
+<AnimeData :to="360">
 <TwoScene slot-scope="{value}">
   <TwoGrid />
   <!-- Group and then rotate -->
@@ -18,7 +18,7 @@ export default `# Playground
     <TwoBox fill="var(--color-red)" opacity="0.5" />
   </TwoGroup>
 </TwoScene>
-</Anime>
+</AnimeData>
 
 ---
 
@@ -26,7 +26,7 @@ export default `# Playground
 
 <ThreeScene>
 <ThreeGrid />
-  <Anime
+  <AnimeData
     :to="deg2rad(360)"
     duration="10000"
   >
@@ -51,7 +51,7 @@ export default `# Playground
       ]"
     /><ThreeGrid />
   </ThreeGroup>
-  </Anime>
+  </AnimeData>
 </ThreeScene>
 
 ---
@@ -94,7 +94,7 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
 ## Spinning polygon
 
 <ThreeScene>
-  <Anime
+  <AnimeData
     :to="deg2rad(360)"
     duration="10000"
   >
@@ -104,7 +104,7 @@ After [killing math](http://worrydream.com/KillMath/) it is time to [bring it ba
     >
       <ThreeRegularPolygon />
     </ThreeGroup>
-    </Anime>
+  </AnimeData>
 </ThreeScene>  
 
 

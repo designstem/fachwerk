@@ -2,33 +2,35 @@ import { cx, cy } from "../utils.js";
 
 export default {
   description: `
-**⚠️ To be renamed to PolygonData**.
-Passes <code>x y</code> coordinates of regular polygon (or points on the 2D circle) as <code>{ points }</code> down to the children components.
+Passes <code>:count</code> points on the 2D circle with radius <code>:radius</code> as <code>data.points</code> down to the children components.
   `,
   example: `
-<PolygonScope>
-  <TwoScene slot-scope="{ points }">
-    <TwoPolygon :points="points" />
+<PolygonData>
+  <TwoScene slot-scope="data">
+    <TwoPolygon :points="data.points" />
     <TwoPolygon :points="[
-      points[0],
-      points[1],
+      data.points[0],
+      data.points[1],
       {x: 0, y: 0}
     ]"/>
   </TwoScene>
-</PolygonScope> 
+</PolygonData> 
 
-<PolygonScope>
-  <ThreeScene slot-scope="{ points }">
-    <ThreePolygon :points="points" />
+<PolygonData>
+  <ThreeScene slot-scope="data">
+    <ThreePolygon :points="data.points" />
     <ThreePolygon :points="[
-      points[0],
-      points[1],
+      data.points[0],
+      data.points[1],
       {x: 0, y: 0}
     ]"/>
   </ThreeScene>
-</PolygonScope>
+</PolygonData>
   `,
-  props: { count: { default: 6 }, radius: { default: 1 } },
+  props: {
+    count: { default: 6, type: Number },
+    radius: { default: 1, type: Number }
+  },
   computed: {
     points() {
       return Array.from({

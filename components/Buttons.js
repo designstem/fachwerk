@@ -8,7 +8,10 @@ A button group, meant to be used with <code>v-model</code>.
   :buttons="['First','Second']"
 />
   `,
-  props: ["buttons", "value"],
+  props: {
+    "buttons": { default: [], type: Array },
+    "value": { default: 0, type: Number }
+  },
   template: `
     <div :style="{display: 'flex', marginLeft: '3px'}">
       <div

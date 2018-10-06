@@ -6,7 +6,7 @@ export default {
   description: `
 Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://reu.dimacs.rutgers.edu/Symbols.pdf">LaTeX math syntax</a>.
 <small>
-It also supports dynamic content but due to the technical limitations you will need to pass the dynamic <code>:value</code> prop to the component to indicate the contents need to update.
+It also supports dynamic content with inline variables but due to the technical limitations you will need to pass the <code>:value</code> prop of any type to the component to indicate the contents need to update.
 </small>
   `,
   example: `

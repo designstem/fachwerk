@@ -1,16 +1,15 @@
 export default {
   description: `
-**⚠️ To be renamed to PolyhedronData**.
-Passes <code>x y z</code> coordinates of regular polyhedra as <code>{ normals, vertices }</code> down to the children components. Supports <code>Tetrahedron</code>, <code>Octahedron</code>, <code>Icosahedron</code> and <code>Dodecahedron</code>.
+Passes 3D coordinates of regular polyhedra as <code>data.normals</code> and <code>data.vertices</code> down to the children components. Supports <code>Tetrahedron</code>, <code>Octahedron</code>, <code>Icosahedron</code> and <code>Dodecahedron</code>.
   `,
   example: `
-<PolyhedronScope>
+<PolyhedronData>
   <ThreeScene
-    slot-scope="{ normals, vertices }"
+    slot-scope="data"
   >
-    <Anime
+    <AnimeData
     :to="deg2rad(360)"
-    duration="10000"
+    :duration="10000"
     >
       <ThreeGroup
         slot-scope="{value}"
@@ -20,23 +19,26 @@ Passes <code>x y z</code> coordinates of regular polyhedra as <code>{ normals, v
         }">
         <ThreePolyhedron />
         <ThreeLine
-          v-for="(v,i) in vertices"
+          v-for="(v,i) in data.vertices"
           :key="'v'+i"
           :points="[v,v]"
           stroke="red"
         />
         <ThreeGroup
-          v-for="(n,i) in normals"
+          v-for="(n,i) in data.normals"
           :key="'n'+i"
         >
           <ThreeLine :points="n" />
         </ThreeGroup>
       </ThreeGroup>
-    </Anime>
+    </AnimeData>
   </ThreeScene>
-</PolyhedronScope>
+</PolyhedronData>
   `,
-  props: { hedron: { default: "Icosahedron" }, radius: { default: 1 } },
+  props: {
+    hedron: { default: "Icosahedron", type: String },
+    radius: { default: 1, type: Number }
+  },
   computed: {
     vertices() {
       return new THREE[this.hedron + "Geometry"](this.radius, 0).vertices.map(
