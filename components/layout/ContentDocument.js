@@ -1,4 +1,4 @@
-import Markdown from "./Markdown.js";
+import Markdown from "../Markdown.js";
 
 export default {
   components: { Markdown },

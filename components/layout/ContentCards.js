@@ -1,6 +1,6 @@
-import Markdown from "./Markdown.js";
-import { flatten } from '../utils.js'
-import Css from "../mixins/Css.js";
+import Markdown from "../Markdown.js";
+import { flatten } from '../../utils.js'
+import Css from "../../mixins/Css.js";
 
 export default {
   mixins: [Css],

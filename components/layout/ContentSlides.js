@@ -1,5 +1,5 @@
-import Markdown from "./Markdown.js";
-import Css from "../mixins/Css.js";
+import Markdown from "../Markdown.js";
+import Css from "../../mixins/Css.js";
 
 export default {
   mixins: [Css],

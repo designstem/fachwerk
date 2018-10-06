@@ -11,14 +11,6 @@ export default {
 
 A basic [A-Frame](https://aframe.io/) wrapper.
   `,
-  example: `
-<VrScene>
-  <VrGrid />
-  <VrBox />
-  <VrLine />
-  <a-sphere position="0 0 0" radius="0.5" color="red"/>
-</VrScene>
-  `,
   template: `
     <a-scene embedded style="
       width: 250px;

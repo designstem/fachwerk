@@ -64,6 +64,7 @@ export default {
   data: () => ({
     componentData: Object.entries(componentList)
       .map(c => ({ ...c[1], name: c[0]}))
+      .filter(c => c.example)
       .map(({ name, example, description, props }) => ({
         name,
         example: example ? example.trim() : "",
