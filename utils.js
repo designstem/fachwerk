@@ -18,4 +18,8 @@ const flatten = list => list.reduce(
   (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
 );
 
-export { cx, cy, scale, deg2rad, rad2deg, flatten };
+// From https://bl.ocks.org/danasilver/cc5f33a5ba9f90be77d96897768802ca
+const snapToGrid = (value, snap) => {
+  return value % snap < snap / 2 ? value - (value % snap) : value + snap - (value % snap)
+}
+export { cx, cy, scale, deg2rad, rad2deg, flatten, snapToGrid };

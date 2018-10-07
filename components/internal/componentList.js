@@ -24,6 +24,7 @@ import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
 import TwoSceneScope from "../TwoSceneScope.js";
+import TwoDragScope from "../TwoDragScope.js";
 
 import VrScene from "../experimental/VrScene.js";
 import VrBox from "../experimental/VrBox.js";
@@ -60,7 +61,8 @@ export default {
   TwoPolygon,
   TwoRegularPolygon,
   TwoScene,
-  TwoSceneScope
+  TwoSceneScope,
+  TwoDragScope
 };
 
 /*

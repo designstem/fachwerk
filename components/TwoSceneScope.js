@@ -71,8 +71,14 @@ export default {
     </svg>
   `,
   css: `
-    .two * {
-      vector-effect: non-scaling-stroke;
-    }
+  .two * {
+    vector-effect: non-scaling-stroke;
+  }
+  .two text {
+    font-size: 1.5%;
+    transform: scale(1, -1);
+    text-anchor: middle;
+    pointer-events: none;
+  }
   `
 };

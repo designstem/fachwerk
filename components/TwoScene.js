@@ -37,7 +37,10 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
       vector-effect: non-scaling-stroke;
     }
     .two text {
-      font-size: 12px;
+      font-size: 1.5%;
+      transform: scale(1, -1);
+      text-anchor: middle;
+      pointer-events: none;
     }
   `
 };
