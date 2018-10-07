@@ -3,20 +3,24 @@ import { snapToGrid } from "../utils.js"
 
 export default {
   description: `
-Draggable component.
+**🔬 This component is experimental.**
 `,
   example: `
 <TwoSceneScope>  
   <TwoDragScope
     slot-scope="mouseData"
     :mouseData="mouseData"
-    :points="[{ x: 0, y: 1 },{ x: 1, y: -1 },{ x: -1, y: -1 }]"
+    :points="[
+      { x: 0, y: 1 },
+      { x: 1, y: -1 },
+      { x: -1, y: -1 }
+    ]"
     :snap="true"
   >
-    <g slot-scope="dragData">
+    <TwoGroup slot-scope="dragData">
       <TwoGrid />
       <TwoPolygon :points="dragData.dragData" />
-    </g> 
+    </TwoGroup> 
   </TwoDragScope>
 </TwoSceneScope>
   `,
@@ -39,17 +43,18 @@ Draggable component.
         <circle
           :cx="p.x"
           :cy="p.y"
-          :r="p.active ? 0.21 : 0.2"
+          :r="p.active ? 0.22 : 0.2"
           stroke-width="3"
           stroke="black"
           :fill="p.pressed ? '#eee' : 'white'"
+          style="transition: fill r 100ms"
         />
         <circle
           :cx="p.x"
           :cy="p.y"
-          r="1"
+          r="1.25"
           fill="rgba(0,0,0,0)"
-          @mouseout="p.pressed = false"
+          @mouseout="p.pressed = false; p.active = false"
         />
         <circle
           :cx="p.x"
@@ -60,7 +65,7 @@ Draggable component.
           @mouseover="p.active = true"
           @mouseout="p.active = false"
           @mousedown="p.pressed = true"
-          @mouseup="p.pressed = false"
+          @mouseup="p.pressed = false; p.active = false"
           @mousemove="handleMove(p)"
         />
       </g>
