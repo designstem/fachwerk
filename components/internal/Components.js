@@ -23,6 +23,7 @@ const Props = {
   },
   computed: {
     propsData() {
+      console.log(this.mixins)
       if (this.props) {
         return this.props instanceof Array
           ? this.props.map(p => ({ name: p }))

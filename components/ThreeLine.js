@@ -25,8 +25,8 @@ Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:po
   mixins: [Object3D],
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "black", type: String },
-    strokeWidth: { default: 3, type: Number }
+    stroke: { default: "black" },
+    strokeWidth: { default: 3 }
   },
   data() {
     let curObj = this.obj;

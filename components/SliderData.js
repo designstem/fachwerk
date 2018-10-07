@@ -23,13 +23,13 @@ Wrapper component, adding a slider below the children and passing down the slide
     step: { default: 1, type: Number },
   },
   data: function() {
-    return { value: this.value };
+    return { innerValue: this.value };
   },
   template: `
     <div>
-      <slot :value="value"/>
-      <label>{{ title }} <code>{{ value }}</code></label>
-      <input type="range" v-model="value" :min="from" :max="to" :step="step" />
+      <slot :value="innerValue"/>
+      <label>{{ title }} <code>{{ innerValue }}</code></label>
+      <input type="range" v-model="innerValue" :min="from" :max="to" :step="step" />
     </div>
   `
 };

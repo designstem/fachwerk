@@ -4,7 +4,7 @@ export default {
 <Transport v-model="someVariable" />
   `,
   props: { 
-    value: { default: false, type: Boolean }
+    value: { default: false }
   },
   template: `
     <div

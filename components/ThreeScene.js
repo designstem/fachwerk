@@ -7,7 +7,7 @@ _Der Raum_.
   example: `
 <ThreeScene>
     <ThreeRegularPolygon
-      count="64"
+      :count="64"
       :rotation="{ y: 0.5, x: 0.5 }"
     />
     <ThreeLine

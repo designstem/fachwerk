@@ -13,7 +13,7 @@ export default {
     :key="i"
     :hedron="hedron"
     :position="{x: i - 1.5}"
-    radius="0.5"
+    :radius="0.5"
   />
 </ThreeScene>  
   `,

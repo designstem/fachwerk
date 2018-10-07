@@ -53,7 +53,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   </ThreeGroup>
   <ThreeLine
       :stroke="0xaaaaaa"
-      :strokeWidth="1.5"
+      :stroke-width="1.5"
       :points="[
         { x: 0, y: 2, z: 0 },
         { x: 0, y: -2, z: 0 }
@@ -61,7 +61,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   />
   <ThreeLine
     :stroke="0xaaaaaa"
-    :strokeWidth="1.5"
+    :stroke-width="1.5"
     :points="[
       { x: 2, y: 0, z: 0 },
       { x: -2, y: 0, z: 0 }
@@ -69,7 +69,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   />
   <ThreeLine
     :stroke="0xaaaaaa"
-    :strokeWidth="1.5"
+    :stroke-width="1.5"
     :points="[
       { x: 2, y: 0, z: 0 },
       { x: -2, y: 0, z: 0 }
