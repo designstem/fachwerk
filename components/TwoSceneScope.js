@@ -10,20 +10,20 @@ export default {
 `,
   example: `
 <TwoSceneScope>  
-  <g slot-scope="{ value }">
+  <g slot-scope="data">
     <circle
-      :r="value.mousePressed ? 1.1 : 1"
+      :r="data.mouse.pressed ? 1.1 : 1"
       opacity="0.1"
       style="transition: all 100ms"
     />
     <circle
-      :r="value.mousePressed ? 0.8 : 1"
+      :r="data.mouse.pressed ? 0.8 : 1"
       style="transition: all 100ms"
     />
     <circle
-      :cx="value.mouseX"
-      :cy="value.mouseY"
-      :r="value.mousePressed ? 0.2 : 0.1"
+      :cx="data.mouse.x"
+      :cy="data.mouse.y"
+      :r="data.mouse.pressed ? 0.2 : 0.1"
       fill="var(--color-red)"
       style="transition: all 100ms"
     />
@@ -66,7 +66,7 @@ export default {
     >
       <g transform="scale(1,-1)" ref="container">
         <slot name="content" />
-        <slot :value="{ mouseX, mouseY, mousePressed }" />
+        <slot :mouse="{ x: mouseX, y: mouseY, pressed: mousePressed }" />
       </g>
     </svg>
   `,
