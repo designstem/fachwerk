@@ -11,7 +11,10 @@ export default {
   props: {
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
-    depth: { default: 1, type: Number }
+    depth: { default: 1, type: Number },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   data() {
     let curObj = this.obj;

@@ -18,6 +18,11 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
 </ThreeScene>
   `,
   components: { ThreeGroup, ThreeLine },
+  props: {
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
+  },
   methods: { deg2rad },
   template: `
   <ThreeGroup>

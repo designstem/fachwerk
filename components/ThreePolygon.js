@@ -41,7 +41,12 @@ Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points<
 </ThreeScene>
   `,
   components: { InternalThreePolygon, ThreeGroup, ThreeLine },
-  props: { points: { default: [], type: Array } },
+  props: {
+    points: { default: [], type: Array },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
+  },
   computed: {
     linePoints() {
       return this.points.concat(this.points[0]).map(p => {

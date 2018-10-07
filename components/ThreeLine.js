@@ -26,7 +26,10 @@ Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:po
   props: {
     points: { default: [], type: Array },
     stroke: { default: "black" },
-    strokeWidth: { default: 3 }
+    strokeWidth: { default: 3 },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   data() {
     let curObj = this.obj;

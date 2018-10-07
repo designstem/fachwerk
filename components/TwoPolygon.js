@@ -6,7 +6,6 @@ export default {
 <TwoScene>
   <TwoGrid />
   <TwoPolygon
-    fill="var(--color-red)"
     :points="[
       { x: 0, y: 0 },
       { x: 1, y: 0 },
@@ -14,7 +13,6 @@ export default {
     ]"
   />
   <TwoPolygon
-    fill="var(--color-red)"
     :points="[
       { x: 0, y: 0 },
       { x: 1, y: 0 },
@@ -28,18 +26,16 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    fill: { default: "none", type: String },
-    stroke: { default: "var(--color-gray-dark)", type: String }
+    fill: { default: "gray", type: String },
+    stroke: { default: "black", type: String },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
   },
   computed: {
     svgPoints() {
       return this.points.map(({ x, y }) => `${x},${y}`).join(" ");
     }
-  },
-  props: {
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object }
   },
   template: `
     <polygon

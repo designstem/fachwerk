@@ -9,7 +9,7 @@ const Props = {
   methods: {
     formatDefault(prop) {
       if (prop.hasOwnProperty('default')) {
-        if (prop.default instanceof Object) {
+        if (prop.default instanceof Object && !(prop.default instanceof Array)) {
           return '{}'
         }
         return prop.default.length == 0 ? '[]' : String(prop.default)
@@ -50,7 +50,7 @@ const Props = {
       </thead>
       <tbody>
         <tr v-for="prop in propsData">
-          <td><code>:{{ prop.name }}</code></td>
+          <td><code style="background: none">:{{ prop.name }}</code></td>
           <td><code v-if="prop.default" style="background: none">{{ prop.default }}</code></td>
           <td>
             <code

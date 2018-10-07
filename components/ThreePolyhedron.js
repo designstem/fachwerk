@@ -20,7 +20,10 @@ export default {
   mixins: [Object3D],
   props: {
     hedron: { default: "Icosahedron", type: String },
-    radius: { default: 1, type: Number }
+    radius: { default: 1, type: Number },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   data() {
     let curObj = this.obj;

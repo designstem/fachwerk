@@ -22,7 +22,10 @@ export default {
   },
   props: {
     count: { default: 6, type: Number },
-    radius: { default: 1, type: Number }
+    radius: { default: 1, type: Number },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   computed: {
     points() {

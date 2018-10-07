@@ -4,7 +4,7 @@ export default {
   mixins: [Object3D],
   name: "ThreeGroup",
   description: `
-Group components in 3D scene and apply transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
+Groups components in 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
   `,
   example: `
 <ThreeScene>
@@ -19,7 +19,10 @@ Group components in 3D scene and apply transformations like <code>:position</cod
 </ThreeScene>
   `,
   props: {
-    type: { type: String, default: "Mesh" }
+    type: { type: String, default: "Mesh" },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   provide() {
     return { meshVm: this };

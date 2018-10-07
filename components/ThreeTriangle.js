@@ -23,7 +23,10 @@ export default {
   `,
   mixins: [Object3D],
   props: {
-    points: { default: [], type: Array }
+    points: { default: [], type: Array },
+    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   data() {
     let curObj = this.obj;
