@@ -36,6 +36,11 @@ export default {
       return this.points.map(({ x, y }) => `${x},${y}`).join(" ");
     }
   },
+  props: {
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
+  },
   template: `
     <polygon
       :points="svgPoints"

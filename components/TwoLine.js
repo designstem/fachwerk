@@ -28,8 +28,11 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "var(--color-gray-dark)", type: String },
+    stroke: { default: "black", type: String },
     opacity: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
   },
   computed: {
     svgPoints() {

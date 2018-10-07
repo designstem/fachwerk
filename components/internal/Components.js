@@ -9,6 +9,9 @@ const Props = {
   methods: {
     formatDefault(prop) {
       if (prop.hasOwnProperty('default')) {
+        if (prop.default instanceof Object) {
+          return '{}'
+        }
         return prop.default.length == 0 ? '[]' : String(prop.default)
       }
       return null;

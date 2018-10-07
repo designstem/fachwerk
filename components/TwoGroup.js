@@ -18,6 +18,11 @@ The component is a wrapper around SVG's <code>g</code> for feature parity with <
   </TwoGroup>
 </TwoScene>
   `,
+  props: {
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
+  },
   template: `
     <g :transform="transform">
       <slot />

@@ -25,7 +25,10 @@ export default {
   components: { TwoPolygon },
   props: {
     count: { default: 6, type: Number },
-    radius: { default: 1, type: Number }
+    radius: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
   },
   computed: {
     points() {

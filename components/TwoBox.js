@@ -21,7 +21,10 @@ export default {
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
     fill: { default: "black", type: String },
-    opacity: { default: 1, type: Number }
+    opacity: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
   },
   template: `
     <rect

@@ -1,9 +1,4 @@
 const Object2D = {
-  props: {
-    position: { default: () => ({}) },
-    rotation: { default: () => ({}) },
-    scale: { default: () => ({}) }
-  },
   computed: {
     positionTransform() {
       return `translate(${this.position.x || 0} ${this.position.y || 0})`;

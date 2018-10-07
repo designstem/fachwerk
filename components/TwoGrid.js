@@ -15,6 +15,11 @@ As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), t
   />
 </TwoScene>
   `,
+  props: {
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
+  },
   template: `
   <g :transform="transform">
     <line
