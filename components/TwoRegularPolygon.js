@@ -23,7 +23,10 @@ export default {
 </AnimeData>
   `,
   components: { TwoPolygon },
-  props: { count: { default: 6 }, radius: { default: 1 } },
+  props: {
+    count: { default: 6, type: Number },
+    radius: { default: 1, type: Number }
+  },
   computed: {
     points() {
       return Array.from({

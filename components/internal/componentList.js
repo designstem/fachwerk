@@ -23,8 +23,8 @@ import TwoLine from "../TwoLine.js";
 import TwoPolygon from "../TwoPolygon.js";
 import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
+import TwoSceneScope from "../TwoSceneScope.js";
 
-import TwoSceneScope from "../experimental/TwoSceneScope.js";
 import VrScene from "../experimental/VrScene.js";
 import VrBox from "../experimental/VrBox.js";
 import VrLine from "../experimental/VrLine.js";

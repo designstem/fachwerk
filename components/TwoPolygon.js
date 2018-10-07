@@ -27,9 +27,9 @@ export default {
 </TwoScene>
   `,
   props: {
-    points: { default: [] },
-    fill: { default: "none" },
-    stroke: { default: "var(--color-gray-dark)" }
+    points: { default: [], type: Array },
+    fill: { default: "none", type: String },
+    stroke: { default: "var(--color-gray-dark)", type: String }
   },
   computed: {
     svgPoints() {

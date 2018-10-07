@@ -12,7 +12,9 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
     <circle r="1" />
 </TwoScene>
   `,
-  props: { size: { default: 250 }},
+  props: {
+    size: { default: 250, type: Number }
+  },
   computed: {
     viewBox() {
       return `-2 -2 4 4`;

@@ -30,7 +30,9 @@ export default {
   </g>
 </TwoSceneScope>
   `,
-  props: { size: { default: 250, mouse: { default: false } } },
+  props: {
+    size: { default: 250, type: Number }
+  },
   computed: {
     viewBox() {
       return `-2 -2 4 4`;
