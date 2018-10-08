@@ -1,6 +1,8 @@
 // TODO: publish the public functions
 
 import { rad2deg, deg2rad, cx, cy } from "../utils.js";
+import * as utils from "../utils.js";
+
 import componentList from "./internal/componentList.js";
 
 export default {
@@ -11,12 +13,7 @@ export default {
     render: null,
     someVariable: 0
   }),
-  methods: {
-    rad2deg,
-    deg2rad,
-    cx,
-    cy
-  },
+  methods: {...utils},
   mounted() {
     this.$watch(
       "t",

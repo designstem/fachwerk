@@ -201,177 +201,178 @@ const Camera = {
   }
 };
 
-const Light = {
-  mixins: [Object3D],
-  props: {
-    hex: Number,
-    intensity: Number
-  },
-  data() {
-    let curObj = this.obj;
-    if (!curObj) {
-      curObj = new THREE.DirectionalLight(this.hex, this.intensity);
+const generateSTL = scene => {
+  var vector = new THREE.Vector3();
+  var normalMatrixWorld = new THREE.Matrix3();
+
+  var output = "";
+
+  output += "solid exported\n";
+
+  scene.traverse(function(object) {
+    if (object instanceof THREE.Mesh) {
+      // if object is hidden - exit
+      if (object.visible == false) return;
+
+      var geometry = object.geometry;
+      var matrixWorld = object.matrixWorld;
+      var mesh = object;
+
+      if (geometry instanceof THREE.BufferGeometry)
+        geometry = new THREE.Geometry().fromBufferGeometry(geometry);
+
+      if (geometry instanceof THREE.Geometry) {
+        var vertices = geometry.vertices;
+        var faces = geometry.faces;
+
+        normalMatrixWorld.getNormalMatrix(matrixWorld);
+
+        if (typeof faces != "undefined") {
+          for (var i = 0, l = faces.length; i < l; i++) {
+            var face = faces[i];
+
+            vector
+              .copy(face.normal)
+              .applyMatrix3(normalMatrixWorld)
+              .normalize();
+
+            output +=
+              "\tfacet normal " +
+              vector.x +
+              " " +
+              vector.y +
+              " " +
+              vector.z +
+              "\n";
+            output += "\t\touter loop\n";
+
+            var indices = [face.a, face.b, face.c];
+
+            for (var j = 0; j < 3; j++) {
+              var vertexIndex = indices[j];
+              if (
+                typeof geometry.skinIndices !== "undefined" &&
+                geometry.skinIndices.length == 0
+              ) {
+                vector.copy(vertices[vertexIndex]).applyMatrix4(matrixWorld);
+                output +=
+                  "\t\t\tvertex " +
+                  vector.x +
+                  " " +
+                  vector.y +
+                  " " +
+                  vector.z +
+                  "\n";
+              } else {
+                vector.copy(vertices[vertexIndex]); //.applyMatrix4( matrixWorld );
+
+                // see https://github.com/mrdoob/three.js/issues/3187
+                var boneIndices = [
+                  geometry.skinIndices[vertexIndex].x,
+                  geometry.skinIndices[vertexIndex].y,
+                  geometry.skinIndices[vertexIndex].z,
+                  geometry.skinIndices[vertexIndex].w
+                ];
+
+                var weights = [
+                  geometry.skinWeights[vertexIndex].x,
+                  geometry.skinWeights[vertexIndex].y,
+                  geometry.skinWeights[vertexIndex].z,
+                  geometry.skinWeights[vertexIndex].w
+                ];
+
+                var inverses = [
+                  skeleton.boneInverses[boneIndices[0]],
+                  skeleton.boneInverses[boneIndices[1]],
+                  skeleton.boneInverses[boneIndices[2]],
+                  skeleton.boneInverses[boneIndices[3]]
+                ];
+
+                var skinMatrices = [
+                  skeleton.bones[boneIndices[0]].matrixWorld,
+                  skeleton.bones[boneIndices[1]].matrixWorld,
+                  skeleton.bones[boneIndices[2]].matrixWorld,
+                  skeleton.bones[boneIndices[3]].matrixWorld
+                ];
+
+                //this checks to see if the mesh has any morphTargets - jc
+                if (geometry.morphTargets !== "undefined") {
+                  var morphMatricesX = [];
+                  var morphMatricesY = [];
+                  var morphMatricesZ = [];
+                  var morphMatricesInfluence = [];
+
+                  for (var mt = 0; mt < geometry.morphTargets.length; mt++) {
+                    //collect the needed vertex info - jc
+                    morphMatricesX[mt] =
+                      geometry.morphTargets[mt].vertices[vertexIndex].x;
+                    morphMatricesY[mt] =
+                      geometry.morphTargets[mt].vertices[vertexIndex].y;
+                    morphMatricesZ[mt] =
+                      geometry.morphTargets[mt].vertices[vertexIndex].z;
+                    morphMatricesInfluence[mt] = morphTargetInfluences[mt];
+                  }
+                }
+
+                var finalVector = new THREE.Vector4();
+
+                if (mesh.geometry.morphTargets !== "undefined") {
+                  var morphVector = new THREE.Vector4(
+                    vector.x,
+                    vector.y,
+                    vector.z
+                  );
+
+                  for (var mt = 0; mt < geometry.morphTargets.length; mt++) {
+                    //not pretty, but it gets the job done - jc
+                    morphVector.lerp(
+                      new THREE.Vector4(
+                        morphMatricesX[mt],
+                        morphMatricesY[mt],
+                        morphMatricesZ[mt],
+                        1
+                      ),
+                      morphMatricesInfluence[mt]
+                    );
+                  }
+                }
+
+                for (var k = 0; k < 4; k++) {
+                  var tempVector = new THREE.Vector4(
+                    vector.x,
+                    vector.y,
+                    vector.z
+                  );
+                  tempVector.multiplyScalar(weights[k]);
+                  //the inverse takes the vector into local bone space
+                  tempVector
+                    .applyMatrix4(inverses[k])
+                    //which is then transformed to the appropriate world space
+                    .applyMatrix4(skinMatrices[k]);
+                  finalVector.add(tempVector);
+                }
+
+                output +=
+                  "\t\t\tvertex " +
+                  finalVector.x +
+                  " " +
+                  finalVector.y +
+                  " " +
+                  finalVector.z +
+                  "\n";
+              }
+            }
+            output += "\t\tendloop\n";
+            output += "\tendfacet\n";
+          }
+        }
+      }
     }
-    curObj.name = curObj.name || curObj.type;
-    return { curObj };
-  }
+  });
+
+  output += "endsolid exported\n";
+
+  return output;
 };
 
-
-export { Object3D, Renderer, Scene, Camera };
-
-// const Stroke = {
-//   mixins: [Object3D],
-//   props: ["from", "to"],
-//   data() {
-//     let curObj = this.obj;
-//     if (!curObj) {
-//       var material = new THREE.LineBasicMaterial({
-//         color: 0x333333,
-//         linewidth: 3
-//       });
-//       var geometry = new THREE.Geometry();
-//       geometry.vertices.push(
-//         new THREE.Vector3(this.from.x, this.from.y, this.from.z)
-//       );
-//       geometry.vertices.push(
-//         new THREE.Vector3(this.to.x, this.to.y, this.to.z)
-//       );
-//       curObj = new THREE.Line(geometry, material);
-//     }
-//     curObj.name = curObj.name || curObj.type;
-//     return { curObj };
-//   }
-// };
-
-// const Triangle = {
-//   mixins: [Object3D],
-//   props: ["v1", "v2", "v3"],
-//   data() {
-//     let curObj = this.obj;
-//     if (!curObj) {
-//       var material = new THREE.MeshNormalMaterial();
-//       var geometry = new THREE.Geometry();
-//       geometry.vertices.push(
-//         new THREE.Vector3(this.v1.x, this.v1.y, this.v1.z)
-//       );
-//       geometry.vertices.push(
-//         new THREE.Vector3(this.v2.x, this.v2.y, this.v2.z)
-//       );
-//       geometry.vertices.push(
-//         new THREE.Vector3(this.v3.x, this.v3.y, this.v3.z)
-//       );
-//       geometry.faces.push(new THREE.Face3(0, 1, 2));
-//       geometry.computeFaceNormals();
-//       curObj = new THREE.Mesh(
-//         geometry,
-//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-//       );
-//     }
-//     curObj.name = curObj.name || curObj.type;
-//     return { curObj };
-//   }
-// };
-
-// const Icosahedron = {
-//   mixins: [Object3D],
-//   data() {
-//     let curObj = this.obj;
-//     if (!curObj) {
-//       var geometry = new THREE.IcosahedronGeometry(1, 0);
-//       curObj = new THREE.Mesh(
-//         geometry,
-//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-//       );
-//     }
-//     curObj.name = curObj.name || curObj.type;
-//     return { curObj };
-//   }
-// };
-
-// const Dodecahedron = {
-//   mixins: [Object3D],
-//   data() {
-//     let curObj = this.obj;
-//     if (!curObj) {
-//       var geometry = new THREE.DodecahedronGeometry(1, 0);
-//       curObj = new THREE.Mesh(
-//         geometry,
-//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-//       );
-//     }
-//     curObj.name = curObj.name || curObj.type;
-//     return { curObj };
-//   }
-// };
-
-// const Mesh = {
-//   mixins: [Object3D],
-//   props: {
-//     type: { type: String, default: "Mesh" }
-//   },
-//   provide() {
-//     return { meshVm: this };
-//   }
-// };
-
-// const Geometry = {
-//   mixins: [Base],
-//   inject: ['meshVm'],
-//   props: {
-//     args: { type: Array, default: () => [] },
-//     type: { type: String, default: '' }
-//   },
-//   data() {
-//     let mod = `${this.type}Geometry`
-//     let geometry = new THREE[mod](...this.args)
-//     return { geometry }
-//   },
-//   mounted() {
-//     this.meshVm.curObj.geometry = this.geometry
-//   },
-//   beforeDestroy() {
-//     this.meshVm.curObj.geometry = null
-//   }
-// }
-
-//stackoverflow.com/questions/18514423/generating-a-regular-polygon-with-three-js
-
-// const Polygo = {
-//   mixins: [Object3D],
-//   props: ["points"],
-//   data() {
-//     let curObj = this.obj;
-//     if (!curObj) {
-//       var vectorPoints = this.points.map(p => new THREE.Vector2(p.x, p.y));
-//       var shape = new THREE.Shape(vectorPoints);
-//       var geometry = new THREE.ShapeGeometry(shape);
-//       curObj = new THREE.Mesh(
-//         geometry,
-//         new THREE.MeshNormalMaterial({ opacity: 0.5, side: THREE.DoubleSide })
-//       );
-//     }
-//     curObj.name = curObj.name || curObj.type;
-//     return { curObj };
-//   }
-// };
-
-// const RegularTessellatedPolygon = {
-//   components: {
-//     Polygo
-//   },
-//   props: ["count", "radius"],
-//   computed: {
-//     points() {
-//       return Array.from({
-//         length: this.count
-//       }).map((p, i) => ({
-//         x: cx((360 / this.count) * i, this.radius),
-//         y: cy((360 / this.count) * i, this.radius)
-//       }));
-//     }
-//   },
-//   template: `
-//     <Polygo :points="points"/>
-//   `
-// };
+export { Object3D, Renderer, Scene, Camera, generateSTL };

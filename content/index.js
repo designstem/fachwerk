@@ -10,7 +10,7 @@ import Editor from "../components/Editor.js";
 import trianglesample from "./trianglesample.js";
 import mathsample from "./mathsample.js";
 import playgroundsample from "./playgroundsample.js";
-import vrsample from "./vrsample.js";
+import experimentssample from "./experimentssample.js";
 
 new Vue({
   el: "#app",
@@ -32,7 +32,7 @@ new Vue({
       { title: "Playground", sample: playgroundsample },
       { title: "Finding Triangles", sample: trianglesample },
       { title: "Math theory", sample: mathsample },
-      { title: "VR experiments", sample: vrsample }
+      { title: "Misc experiments", sample: experimentssample }
     ],
     activeComponent: 0,
     activeSample: 0

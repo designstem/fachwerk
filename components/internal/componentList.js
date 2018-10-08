@@ -25,6 +25,7 @@ import TwoRegularPolygon from "../TwoRegularPolygon.js";
 import TwoScene from "../TwoScene.js";
 import TwoSceneScope from "../TwoSceneScope.js";
 import TwoDragScope from "../TwoDragScope.js";
+import ThreeLight from "../ThreeLight.js";
 
 import VrScene from "../experimental/VrScene.js";
 import VrBox from "../experimental/VrBox.js";
@@ -46,6 +47,7 @@ export default {
   VrGrid,
   ThreeGrid,
   ThreeGroup,
+  ThreeLight,
   ThreeLine,
   ThreePolygon,
   ThreePolyhedron,

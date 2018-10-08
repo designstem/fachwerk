@@ -153,14 +153,15 @@ label,
 pre {
   overflow: auto;
   max-width: 25vw;
-  background: var(--color-gray-light);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
   line-height: 1.4rem;
-  color: var(--color-gray-dark);
-  padding: 0.75rem;
-  margin: 0;
-  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  border-radius: 3px;
+  background: var(--color-blue-light);
+  color: var(--color-blue-medium);
+  padding: 0.5rem;
+  font-size: 0.95em;
+  font-weight: normal;
+  white-space: pre;
 }
 
 code {
