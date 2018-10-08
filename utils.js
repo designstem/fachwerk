@@ -1,17 +1,19 @@
 let d = []
 
 d.push(`
-**<code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>**
+## scale
+
+<code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>
 
 Scales linearily the input <code>value</code>
 from the input range between <code>start1</code> and <code>stop1</code>
 to the output range  <code>start2</code> and <code>stop2</code>.
 
-Example:
+#### Example:
 
     scale(50, 0, 100, 0, 1)
 
-Output:
+#### Output:
 
     {{ scale(50, 0, 100, 0, 1) }}
 
@@ -23,7 +25,9 @@ const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
 
 
 d.push(`
-**<code>round(value, decimals = 0)</code>**
+## round
+
+<code>round(value, decimals = 0)</code>
 
 Rounds a number <code>value</code> to optional <code>decimals</code>.
 
@@ -44,7 +48,9 @@ const round = (value, decimals = 0) => {
 }
 
 d.push(`
-**<code>random(from, to, float = false)</code>**
+## random
+
+<code>random(from, to, float = false)</code>
 
 Generates a random integer number between <code>from</code> and <code>to</code>. 
 If <code>float = true</code>, the output value will be floating point number.
@@ -66,7 +72,9 @@ const random = (from, to, float = false) => {
 }
 
 d.push(`
-**<code>range(from, to, step = 1)</code>**
+## range
+
+<code>range(from, to, step = 1)</code>
 
 Generates an array of integer numbers in between <code>from</code> and <code>to</code> with optional <code>step</code> parameter.
 
@@ -87,6 +95,24 @@ const range = (from, to, step = 1) => {
 
 // Trigonometry
 
+d.push(`
+## cx and cy
+
+<code>cx(angle, radius)</code>
+<code>cy(angle, radius)</code>
+
+Return 2D x and y coordinates on point on the circle (_polar coordinates_) based on <code>angle</code> in degrees and circle's <code>radius</code>.
+
+#### Example
+
+    cx(90, 10); cy(90, 10);
+
+#### Output
+
+    {{ cx(90, 10) }} {{ cy(90, 10) }}
+
+
+`)
 const cx = (deg, radius) => {
   return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
 };
@@ -95,6 +121,21 @@ const cy = (deg, radius) => {
   return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
 };
 
+d.push(`
+## cpoints
+
+<code>cpoints(count, radius)</code>
+
+Based on <code>cx</code> and <code>cy</code> functions above calculates and <code>count</code> of <code>{ x, y }</code> points on the circle.
+
+#### Example
+
+    cpoints(4,10)
+
+#### Output
+
+    {{ cpoints(4,10) }}
+`)
 const cpoints = (count, radius) => {
   return Array.from({
     length: count
@@ -105,7 +146,43 @@ const cpoints = (count, radius) => {
   }));
 }
 
+d.push(`
+## deg2rad
+
+<code>deg2rad(angle)</code>
+
+Converts angle in degrees to radians.
+
+#### Example
+
+<Math>
+radians = \\frac{degrees \\cdot \\pi}{180} = \\frac{180 \\cdot \\pi}{180} = \\pi
+</Math>
+
+    deg2rad(180)
+
+#### Output
+
+    {{ deg2rad(180) }}
+`)
+
 const deg2rad = deg => (deg * Math.PI) / 180;
+
+d.push(`
+## rad2deg
+
+<code>rad2deg(angle)</code>
+
+Converts angle in radians to degrees.
+
+#### Example
+
+    rad2deg(Math.PI)
+
+#### Output
+
+    {{ rad2deg(Math.PI) }}
+`)
 
 const rad2deg = rad => (rad * 180) / Math.PI;
 
