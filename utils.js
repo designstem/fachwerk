@@ -1,12 +1,53 @@
-// Math
+let d = []
+
+d.push(`
+  ### <code>scale = (value, start1, stop1, start2 = -2, stop2 = 2)</code>
+
+  Scales linearily the input <code>value</code> from the input range between <code>start1</code> and <code>stop1</code> to the output range  <code>start2</code> and <code>stop2</code>.
+  
+  Example:
+
+    // Scaling 50 in 0-100 range to 0-1 range
+    scale(50, 0, 100, 0, 1)
+  
+  Output:
+
+    {{ scale(50, 0, 100, 0, 1) }}
+
+  ...
+`)
 
 const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
   return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2
 }
 
+
+d.push(`
+### <code>round = (value, decimals = 0)</code>
+
+  Rounds a number <code>value</code> to optional <code>decimals</code>.
+`)
+
 const round = (value, decimals = 0) => {
   return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals)
 }
+
+d.push(`
+  ### <code>const random = (a, b, int = false)</code>
+
+  Generates a random _floating_ number between <code>a</code> and <code>b</code>. If <code>int = true</code>, the output value will be _integer_.
+
+  Example:
+    
+    random(0, 1);
+    random(0, 1, true);
+
+  Output:
+  
+    {{ random(0, 1) }}
+    {{ random(0, 1, true) }}
+
+`)
 
 const random = (a, b, int = false) => {
   const r = a + Math.random() * (b - a)
@@ -78,6 +119,8 @@ const parseSheet = data => {
 
 const log = value => console.log(value)
 
+const docs = () => d
+
 export {
   scale,
   round,
@@ -94,4 +137,5 @@ export {
   flatten,
   snapToGrid,
   parseSheet,
+  docs
 };
