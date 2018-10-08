@@ -26,6 +26,8 @@ import TwoScene from "./components/TwoScene.js";
 import TwoSceneScope from "./components/TwoSceneScope.js";
 import TwoDragScope from "./components/TwoDragScope.js";
 import ThreeLight from "./components/ThreeLight.js";
+import FetchData from "./components/FetchData.js";
+import SheetData from "./components/SheetData.js";
 
 import VrScene from "./components/experimental/VrScene.js";
 import VrBox from "./components/experimental/VrBox.js";
@@ -64,5 +66,7 @@ export {
   TwoRegularPolygon,
   TwoScene,
   TwoSceneScope,
-  TwoDragScope
+  TwoDragScope,
+  FetchData,
+  SheetData
 };
