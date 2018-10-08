@@ -2,7 +2,7 @@ import Render from "../Render.js";
 import Editor from "../Editor.js"
 import Markdown from "../Markdown.js";
 
-import componentList from "./componentList.js";
+import frameworkComponents from "../../framework.js";
 
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
@@ -68,7 +68,7 @@ const Props = {
 export default {
   components: { Render, Editor, Markdown, Props },
   data: () => ({
-    componentData: Object.entries(componentList)
+    componentData: Object.entries(frameworkComponents)
       .map(c => ({ ...c[1], name: c[0]}))
       .filter(c => c.example)
       .map(({ name, example, description, props }) => ({

@@ -1,21 +1,21 @@
 let d = []
 
 d.push(`
-  ### <code>scale = (value, start1, stop1, start2 = -2, stop2 = 2)</code>
+**<code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>**
 
-  Scales linearily the input <code>value</code> from the input range between <code>start1</code> and <code>stop1</code> to the output range  <code>start2</code> and <code>stop2</code>.
-  
-  Example:
+Scales linearily the input <code>value</code>
+from the input range between <code>start1</code> and <code>stop1</code>
+to the output range  <code>start2</code> and <code>stop2</code>.
 
-    // Scaling 50 in 0-100 range to 0-1 range
+Example:
+
     scale(50, 0, 100, 0, 1)
-  
-  Output:
+
+Output:
 
     {{ scale(50, 0, 100, 0, 1) }}
 
-  ...
-`)
+  `)
 
 const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
   return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2
@@ -23,9 +23,20 @@ const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
 
 
 d.push(`
-### <code>round = (value, decimals = 0)</code>
+**<code>round(value, decimals = 0)</code>**
 
-  Rounds a number <code>value</code> to optional <code>decimals</code>.
+Rounds a number <code>value</code> to optional <code>decimals</code>.
+
+Example:
+    
+    round(0.1234);
+    round(0.1234, 2);
+
+Output:
+  
+    {{ round(0.1234) }}
+    {{ round(0.1234, 2) }}
+
 `)
 
 const round = (value, decimals = 0) => {
@@ -33,28 +44,46 @@ const round = (value, decimals = 0) => {
 }
 
 d.push(`
-  ### <code>const random = (a, b, int = false)</code>
+**<code>random(from, to, float = false)</code>**
 
-  Generates a random _floating_ number between <code>a</code> and <code>b</code>. If <code>int = true</code>, the output value will be _integer_.
+Generates a random integer number between <code>from</code> and <code>to</code>. 
+If <code>float = true</code>, the output value will be floating point number.
 
-  Example:
+Example:
     
-    random(0, 1);
-    random(0, 1, true);
+    random(0, 2);
+    random(0, 2, true);
 
-  Output:
+Output:
   
-    {{ random(0, 1) }}
-    {{ random(0, 1, true) }}
+    {{ random(0, 2) }}
+    {{ random(0, 2, true) }}
+`)
+
+const random = (from, to, float = false) => {
+  const r = from + Math.random() * (to - from)
+  return float ? r : Math.floor(r, 2)
+}
+
+d.push(`
+**<code>range(from, to, step = 1)</code>**
+
+Generates an array of integer numbers in between <code>from</code> and <code>to</code> with optional <code>step</code> parameter.
+
+Example
+
+    range(-1, 1, 0.5)
+
+Output
+
+    {{ range(-1, 1, 0.5) }}
 
 `)
 
-const random = (a, b, int = false) => {
-  const r = a + Math.random() * (b - a)
-  return int ? Math.floor(r, 2) : r
+const range = (from, to, step = 1) => {
+  const length = Math.floor((to - from) / step) + 1
+  return Array.from({ length }).map((_, i) => from + (i * step))
 }
-
-const range = (a, b) => [...Array(n).keys()]
 
 // Trigonometry
 

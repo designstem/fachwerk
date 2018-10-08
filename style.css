@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,500i,700,700i|Cousine|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,500i,700,700i|Cousine:400,700|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
 
@@ -160,7 +160,6 @@ pre {
   color: var(--color-blue-medium);
   padding: 0.5rem;
   font-size: 0.95em;
-  font-weight: normal;
   white-space: pre;
 }
 
@@ -171,7 +170,6 @@ code {
   color: var(--color-blue-medium);
   padding: 0.1em 0.3em 0 0.3em;
   font-size: 0.95em;
-  font-weight: normal;
   white-space: nowrap;
 }
 

@@ -1,13 +1,9 @@
-// TODO: publish the public functions
-
-import { rad2deg, deg2rad, cx, cy } from "../utils.js";
+import frameworkComponents from "../framework.js";
 import * as utils from "../utils.js";
-
-import componentList from "./internal/componentList.js";
 
 export default {
   name: 'Render',
-  components: componentList,
+  components: frameworkComponents,
   props: { t: String },
   data: () => ({
     render: null,

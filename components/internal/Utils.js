@@ -5,6 +5,6 @@ export default {
   components: { Markdown },
   data: () => ({ docs: docs() }),
   template: `
-      <Markdown :content="docs.join('<br>')" />
+      <Markdown :content="docs.join('<br><p />')" />
   `
 }
