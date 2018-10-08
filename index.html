@@ -37,8 +37,9 @@
     <dd>.h1</dd>
     <h1>Typograhphy & Forms</h1>
 
-    <div class="intro">A case full of emotionally moving type for laying out documents. Johannes Gensfleisch G should be proud.</div>
-    <br>
+    <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
+    <pre>
+&lt;link rel="stylesheet" href="https://rawgit.com/designstem/framework/master/style.css"&gt; </pre>
 
     <div style="
     display: grid;
@@ -144,11 +145,31 @@
     <h1>Components</h1>
 
     <div class="intro">
-        A set of VueJS-based components. All <code>code samples</code> are editable, jump right in!
+        A set of VueJS-based components.
+        
+        Use them like this:
     </div>
     
-    <br>
+    <pre>
+// Import single component to Vue
 
+import { TwoScene } from 'https://rawgit.com/designstem/framework/master/framework.js'
+new Vue({
+  components: { TwoScene }
+})
+
+// Import all components to Vue
+import * as components from 'https://rawgit.com/designstem/framework/master/framework.js'
+new Vue({
+  components: { ...components }
+})</pre>
+
+<br><br>
+<div class="intro">
+
+🌊 All code samples below are editable, jump right in!
+
+</div>
     <Components />
       
   </div>

@@ -342,6 +342,7 @@ export {
   hsl,
   flatten,
   snapToGrid,
+  log,
   parseSheet,
   docs
 };

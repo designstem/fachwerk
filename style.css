@@ -158,7 +158,7 @@ pre {
   background: var(--color-blue-light);
   color: var(--color-blue-medium);
   padding: 0.5rem;
-  font-size: 0.95em;
+  font-size: 0.85em;
   white-space: pre;
 }
 
@@ -168,7 +168,7 @@ code {
   background: var(--color-blue-light);
   color: var(--color-blue-medium);
   padding: 0.1em 0.3em 0 0.3em;
-  font-size: 0.95em;
+  font-size: 0.85em;
   white-space: nowrap;
 }
 

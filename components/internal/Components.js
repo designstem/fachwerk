@@ -97,7 +97,7 @@ export default {
               </template>
             </div>
             <div style="width: 500px; margin-left: 2rem;">
-              <Editor v-model="c.example" />
+              <Editor style="border: 3px solid var(--color-gray-light)" v-model="c.example" />
             </div>
             <Render :t="'<div>'+c.example+'</div>'" style="flex: 1; align-items: flex-start; margin-left: 2rem;" />
           </div>
