@@ -160,11 +160,16 @@
     <div class="intro">A set of Javascript helper functions. Use them like this:</div>
 
     <pre>
-// Import all under utils.* namespace
+// Import just some functions
+import { random } from 'https://rawgit.com/designstem/framework/master/utils.js'
+
+// Import all under utils namespace
 import * as utils from 'https://rawgit.com/designstem/framework/master/utils.js'
 
-// Import just some functions
-import { random, hsl } from 'https://rawgit.com/designstem/framework/master/utils.js'</pre>
+// Make all utils available for Vue templates
+new Vue({
+  methods: { ...utils }
+})</pre>
 
     <Utils />
 
