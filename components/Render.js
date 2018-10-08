@@ -1,9 +1,9 @@
-import frameworkComponents from "../framework.js";
+import * as frameworkComponents from "../framework.js";
 import * as utils from "../utils.js";
 
 export default {
   name: 'Render',
-  components: frameworkComponents,
+  components: { ...frameworkComponents },
   props: { t: String },
   data: () => ({
     render: null,

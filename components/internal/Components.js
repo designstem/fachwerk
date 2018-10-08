@@ -2,7 +2,7 @@ import Render from "../Render.js";
 import Editor from "../Editor.js"
 import Markdown from "../Markdown.js";
 
-import frameworkComponents from "../../framework.js";
+import * as frameworkComponents from "../../framework.js";
 
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS

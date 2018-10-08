@@ -32,7 +32,7 @@ import VrBox from "./components/experimental/VrBox.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 
-export default {
+export {
   AnimeData,
   Buttons,
   Math,
