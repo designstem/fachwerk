@@ -33,8 +33,8 @@ Rounds a number <code>value</code> to optional <code>decimals</code>.
 
 Example:
     
-    round(0.1234);
-    round(0.1234, 2);
+    round(0.1234)
+    round(0.1234, 2)
 
 Output:
   
@@ -57,8 +57,8 @@ If <code>float = true</code>, the output value will be floating point number.
 
 Example:
     
-    random(0, 2);
-    random(0, 2, true);
+    random(0, 2)
+    random(0, 2, true)
 
 Output:
   
@@ -96,7 +96,7 @@ const range = (from, to, step = 1) => {
 // Trigonometry
 
 d.push(`
-## cx and cy
+## cx cy
 
 <code>cx(angle, radius)</code>
 <code>cy(angle, radius)</code>
@@ -105,7 +105,7 @@ Return 2D x and y coordinates on point on the circle (_polar coordinates_) based
 
 #### Example
 
-    cx(90, 10); cy(90, 10);
+    cx(90, 10) cy(90, 10)
 
 #### Output
 
@@ -188,24 +188,126 @@ const rad2deg = rad => (rad * 180) / Math.PI;
 
 // Array
 
+d.push(`
+## shuffle
+
+<code>shuffle(array)</code>
+
+Sorts the array in random order.
+
+#### Example
+
+    shuffle(range(0,3))
+
+#### Output
+
+    {{ shuffle(range(0,3)) }}
+
+`)
+
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
-const any = function(arr) { return typeof arr == 'array' ? shuffle(arr)[0] : shuffle(Array.from(arguments))[0]}
+d.push(`
+## any
+
+<code>any(array)</code>
+
+Picks a random element from the array.
+Supports both array and function parameters syntax.
+
+#### Example
+
+    any([0,1,2])
+    any(0,1,2)
+
+#### Output
+
+    {{ any([0,1,2]) }}
+    {{ any(0,1,2) }}
+
+`)
+
+const any = function(arr) {
+  return arr instanceof Array ? shuffle(arr)[0] : shuffle(Array.from(arguments))[0]
+}
+
+d.push(`
+## flatten
+
+<code>flatten(array)</code>
+
+Flatten multidimensional array
+
+#### Example
+
+    flatten([0,1,[2,[3,4]]])
+
+#### Output
+
+    {{ flatten([0,1,[2,[3,4]]]) }}
+
+`)
+const flatten = list =>
+  list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 // Color
+
+d.push(`
+## hsl
+
+<code>hsl(h, s = 100, l = 50, a = 1)</code>
+
+Generates CSS <code>hsl()</code> color string based on function parameters.
+
+#### Example
+
+    hsl(100,50,0,0.5)
+    hsl(100)
+
+#### Output
+
+    {{ hsl(100,50,0,0.5) }}
+    {{ hsl(100) }}
+
+`)
 
 const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`
 
 // Other utils
 
-const flatten = list =>
-  list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+d.push(`
+## snapToGrid
 
-const snapToGrid = (value, snap) => {
-  return value % snap < snap / 2
-    ? value - (value % snap)
-    : value + snap - (value % snap);
+<code>snapToGrid(value, gridsize)</code>
+
+Returns the value in the closest point of 2D grid.
+
+#### Input
+
+    snapToGrid(0.51,0.5)
+
+#### Output
+
+    {{ snapToGrid(0.51,0.5) }}
+`)
+
+const snapToGrid = (value, gridsize) => {
+  return value % gridsize < gridsize / 2
+    ? value - (value % gridsize)
+    : value + gridsize - (value % gridsize);
 };
+
+d.push(`
+## log
+
+<code>log(message) = console.log(message) </code>
+
+
+`)
+
+const log = value => console.log(value)
+
+// Google Sheets
 
 const parseSheet = data => {
   return data.feed.entry.map(entry => {
@@ -222,8 +324,6 @@ const parseSheet = data => {
       }, {});
   });
 };
-
-const log = value => console.log(value)
 
 const docs = () => d
 
