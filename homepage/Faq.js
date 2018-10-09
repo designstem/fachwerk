@@ -1,4 +1,4 @@
-import Markdown from "../Markdown.js";
+import Markdown from "../components/Markdown.js";
 
 const content = `
 ## What's missing?

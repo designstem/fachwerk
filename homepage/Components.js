@@ -1,8 +1,8 @@
-import Render from "../Render.js";
-import Editor from "../Editor.js"
-import Markdown from "../Markdown.js";
+import Render from "../components/Render.js";
+import Editor from "../components/Editor.js"
+import Markdown from "../components/Markdown.js";
 
-import { sortedComponents } from "../../framework.js";
+import { sortedComponents } from "../framework.js";
 
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS

@@ -1,6 +1,6 @@
-import Components from "./components/internal/Components.js";
-import Utils from "./components/internal/Utils.js";
-import Faq from "./components/internal/Faq.js";
+import Components from "./homepage/Components.js";
+import Utils from "./homepage/Utils.js";
+import Faq from "./homepage/Faq.js";
 
 new Vue({
   components: { Components, Utils, Faq },
