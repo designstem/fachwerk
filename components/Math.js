@@ -31,8 +31,7 @@ Updates when edited and slider changed
   methods: {
     renderMath() {
       this.math = katex.renderToString(
-        //this.$slots.default[0].text.trim().replace(/\n+/g, "\\newline"),
-        this.$slots.default[0].text.trim(),
+        this.$slots.default[0].text.trim().replace(/\n+/g, "\\newline"),
         {
           throwOnError: false
         }
