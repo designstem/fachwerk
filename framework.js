@@ -9,6 +9,7 @@ import SheetData from "./components/SheetData.js";
 import SliderData from "./components/SliderData.js";
 import Tabs from "./components/Tabs.js";
 import ThreeBox from "./components/ThreeBox.js";
+import ThreeCircle from "./components/ThreeCircle.js";
 import ThreeGrid from "./components/ThreeGrid.js";
 import ThreeGroup from "./components/ThreeGroup.js";
 import ThreeLight from "./components/ThreeLight.js";
@@ -22,6 +23,7 @@ import Transport from "./components/Transport.js";
 import Triangle from "./components/experimental/Triangle.js";
 import TwoBox from "./components/TwoBox.js";
 import TwoDragScope from "./components/TwoDragScope.js";
+import TwoCircle from "./components/TwoCircle.js";
 import TwoGrid from "./components/TwoGrid.js";
 import TwoGroup from "./components/TwoGroup.js";
 import TwoLine from "./components/TwoLine.js";
@@ -46,6 +48,7 @@ export {
   SliderData,
   Tabs,
   ThreeBox,
+  ThreeCircle,
   ThreeGrid,
   ThreeGroup,
   ThreeLight,
@@ -58,6 +61,7 @@ export {
   Transport,
   Triangle,
   TwoBox,
+  TwoCircle,
   TwoDragScope,
   TwoGrid,
   TwoGroup,
@@ -78,6 +82,7 @@ export const sortedComponents = [
   { TwoGrid },
   { TwoGroup },
   { TwoLine },
+  { TwoCircle },
   { TwoBox },
   { TwoPolygon },
   { TwoRegularPolygon },
@@ -89,6 +94,7 @@ export const sortedComponents = [
   { ThreeGrid },
   { ThreeTriangle },
   { ThreeLine },
+  { ThreeCircle },
   { ThreeBox },
   { ThreePolygon },
   { ThreePolyhedron },
