@@ -7,6 +7,7 @@ import PolygonData from "./components/PolygonData.js";
 import PolyhedronData from "./components/PolyhedronData.js";
 import SheetData from "./components/SheetData.js";
 import SliderData from "./components/SliderData.js";
+import Tabs from "./components/Tabs.js";
 import ThreeBox from "./components/ThreeBox.js";
 import ThreeGrid from "./components/ThreeGrid.js";
 import ThreeGroup from "./components/ThreeGroup.js";
@@ -42,6 +43,7 @@ export {
   PolyhedronData,
   SheetData,
   SliderData,
+  Tabs,
   ThreeBox,
   ThreeGrid,
   ThreeGroup,
@@ -113,5 +115,7 @@ export const sortedComponents = [
   { VrBox },
   { VrLine },
   { VrGrid },
+
+  { Tabs }
 
 ]
