@@ -2,7 +2,7 @@ import Render from "../Render.js";
 import Editor from "../Editor.js"
 import Markdown from "../Markdown.js";
 
-import * as frameworkComponents from "../../framework.js";
+import { sortedComponents } from "../../framework.js";
 
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
@@ -65,11 +65,12 @@ const Props = {
   `
 };
 
+//console.log(sortedComponents)
+
 export default {
   components: { Render, Editor, Markdown, Props },
   data: () => ({
-    componentData: Object.entries(frameworkComponents)
-      .map(c => ({ ...c[1], name: c[0]}))
+    componentData: sortedComponents
       .filter(c => c.example)
       .map(({ name, example, description, props }) => ({
         name,
