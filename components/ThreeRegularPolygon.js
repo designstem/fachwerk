@@ -22,7 +22,7 @@ export default {
       v-for="c in 2"
       :rotation="{ x: deg2rad(360 / 2 * c) }"
       :count="4"
-      :height="0.5"
+      :height="1"
     />
   </ThreeGroup>
 </ThreeScene>
