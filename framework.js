@@ -35,6 +35,7 @@ import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 
 export {
+  AnimeData,
   Buttons,
   FetchData,
   Math,
