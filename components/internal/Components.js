@@ -65,12 +65,12 @@ const Props = {
   `
 };
 
-//console.log(sortedComponents)
-
 export default {
   components: { Render, Editor, Markdown, Props },
   data: () => ({
     componentData: sortedComponents
+      .map(c => Object.entries(c)[0])
+      .map(c => ({ name: c[0], ...c[1]}))
       .filter(c => c.example)
       .map(({ name, example, description, props }) => ({
         name,
