@@ -1,4 +1,4 @@
-import Css from "../mixins/Css.js";
+import Css from "./Css.js";
 
 export default {
   mixins: [Css],

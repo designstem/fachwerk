@@ -1,5 +1,5 @@
-import Markdown from "../Markdown.js";
-import { docs } from '../../utils.js'
+import Markdown from "../components/Markdown.js";
+import { docs } from '../utils.js'
 
 export default {
   components: { Markdown },

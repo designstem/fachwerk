@@ -1,29 +1,7 @@
 import { snapToGrid } from "../utils.js"
+import TwoSceneScope from "./TwoSceneScope.js"
 
-export default {
-  description: `
-**🔬 This component is experimental.**
-<br><br><br><br><br><br>
-`,
-  example: `
-<TwoSceneScope>  
-  <TwoDragScope
-    slot-scope="data"
-    :mouse="data.mouse"
-    :points="[
-      { x:  0, y:  1 },
-      { x:  1, y: -1 },
-      { x: -1, y: -1 }
-    ]"
-    :snap="true"
-  >
-    <TwoGroup slot-scope="dragData">
-      <TwoGrid />
-      <TwoPolygon :points="dragData.draggedPoints" />
-    </TwoGroup> 
-  </TwoDragScope>
-</TwoSceneScope>
-  `,
+const Drag = {
   props: ['mouse', 'points', 'snap' ],
   data: function() {
     return { draggedPoints: this.points }
@@ -70,5 +48,59 @@ export default {
         />
       </g>
     </g>
+  `,
+};
+
+export default {
+  description: `
+**🔬 This component is experimental.**
+<br><br><br><br><br><br>
+`,
+  example: `
+  <TwoDragScope
+    :points="[
+      { x:  0, y:  1 },
+      { x:  1, y: -1 },
+      { x: -1, y: -1 }
+    ]"
+    :snap="true"
+  >
+    <TwoGroup slot-scope="data">
+      <TwoGrid />
+      <TwoPolygon :points="data.points" />
+    </TwoGroup>
+  </TwoDragScope>
+</TwoSceneScope>
+  `,
+  components: { Drag, TwoSceneScope },
+  props: ['points', 'snap' ],
+  data: function() {
+    return { draggedPoints: this.points }
+  },
+  methods: {
+    handleMove(p) {
+      if (p.pressed) {
+        p.x = this.snap ? snapToGrid(this.mouse.x, 0.25) : this.mouse.x
+        p.y = this.snap ? snapToGrid(this.mouse.y, 0.25) : this.mouse.y
+      }
+    }
+  },
+  template: `
+  <TwoSceneScope>  
+    <Drag
+      slot-scope="mouseData"
+      :mouse="mouseData.mouse"
+      :points="[
+        { x:  0, y:  1 },
+        { x:  1, y: -1 },
+        { x: -1, y: -1 }
+      ]"
+      :snap="snap"
+    >
+      <template slot-scope="data">
+        <slot :points="data.draggedPoints" :mouse="mouseData.mouse" />
+      </template>
+    </Drag>
+  </TwoSceneScope>
   `,
 };
