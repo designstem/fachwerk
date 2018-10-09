@@ -106,7 +106,6 @@ export const sortedComponents = [
   { FetchData },
   { SheetData },
   
-  { PolygonData },
   { PolyhedronData },
 
   { Math },
@@ -123,6 +122,8 @@ export const sortedComponents = [
   { VrLine },
   { VrGrid },
 
-  { Tabs }
+  { Tabs },
+
+  { PolygonData },
 
 ]
