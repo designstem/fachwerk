@@ -17,12 +17,11 @@ const Base = {
   },
   methods: {
     dispatchEvent(name, detail, options = {}) {
-      let e = new CustomEvent(name, {
+      let e = new CustomEvent(name, Object.assign(options, {
         detail,
         bubbles: true,
         cancelable: true,
-        ...options
-      });
+      }));
       return this.$el.dispatchEvent(e);
     }
   },

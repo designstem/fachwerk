@@ -70,7 +70,7 @@ export default {
   data: () => ({
     componentData: sortedComponents
       .map(c => Object.entries(c)[0])
-      .map(c => ({ name: c[0], ...c[1]}))
+      .map(c => Object.assign(c[1], { name: c[0] }))
       .filter(c => c.example)
       .map(({ name, example, description, props }) => ({
         name,

@@ -3,13 +3,13 @@ import * as utils from "../utils.js";
 
 export default {
   name: 'Render',
-  components: { ...frameworkComponents },
+  components: frameworkComponents,
   props: { t: String },
   data: () => ({
     render: null,
     someVariable: 0
   }),
-  methods: {...utils},
+  methods: utils,
   mounted() {
     this.$watch(
       "t",
