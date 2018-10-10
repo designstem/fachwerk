@@ -185,7 +185,7 @@ Converts angle in radians to degrees.
 `)
 
 const rad2deg = rad => (rad * 180) / Math.PI;
-
+ 
 // Array
 
 d.push(`

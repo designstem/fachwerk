@@ -326,3 +326,35 @@ dd:first {
     flex-direction: column;
   }
 }
+
+/* Hero */
+
+.hero {
+  padding: 3rem;
+  background: var(--color-gray-darker);
+  border-bottom: 3px solid var(--color-gray-dark);
+  color: var(--color-yellow);
+}
+
+.hero h1 {
+  font-size: 6rem;
+  line-height: 6rem;
+  letter-spacing: -0.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  font-size: 1.9rem;
+  margin-right: 20vw;
+}
+
+.hero h3 {
+  font-size: 1.3rem;
+  margin-right: 20vw;
+}
+
+.hero .button_primary {
+  font-size: 1.3rem;
+  background: var(--color-red);
+  color: var(--color-white);
+}
