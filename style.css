@@ -351,10 +351,12 @@ dd:first {
 .hero h3 {
   font-size: 1.3rem;
   margin-right: 20vw;
+  color: var(--color-yellow);
 }
 
 .hero .button_primary {
   font-size: 1.3rem;
-  background: var(--color-red);
-  color: var(--color-white);
+  background: var(--color-yellow);
+  color: var(--color-gray-dark);
+  border: none;
 }
