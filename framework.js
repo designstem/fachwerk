@@ -35,6 +35,7 @@ import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
+import StateData from "./components/experimental/StateData.js";
 
 export {
   AnimeData,
@@ -74,9 +75,12 @@ export {
   VrGrid,
   VrLine,
   VrScene,
+  StateData
 };
 
 export const sortedComponents = [
+
+  { StateData },
 
   { TwoScene },
   { TwoGrid },
