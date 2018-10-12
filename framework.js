@@ -80,8 +80,6 @@ export {
 
 export const sortedComponents = [
 
-  { StateData },
-
   { TwoScene },
   { TwoGrid },
   { TwoGroup },
@@ -129,5 +127,7 @@ export const sortedComponents = [
   { Tabs },
 
   { PolygonData },
+
+  { StateData },
 
 ]
