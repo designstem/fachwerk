@@ -22,3 +22,17 @@ Components:
 - `Pager`
 - `Carousel`?
 
+### Future
+
+```html
+<StateData :length="100 * 100">
+  <PixelScene slot-scope="data">
+    <Pixel
+      v-for="(p,i) in data.value"
+      :offset="i"
+      color="p ? 'black' : 'white'"
+      @click="data.update(i, !p)"
+    />
+  </PixelScene>
+</StateData>
+```
