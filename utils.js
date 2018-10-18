@@ -1,4 +1,4 @@
-let d = []
+let d = [];
 
 d.push(`
 ## scale
@@ -17,12 +17,11 @@ to the output range  <code>start2</code> and <code>stop2</code>.
 
     {{ scale(50, 0, 100, 0, 1) }}
 
-  `)
+  `);
 
 const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
-  return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2
-}
-
+  return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+};
 
 d.push(`
 ## round
@@ -41,11 +40,11 @@ Output:
     {{ round(0.1234) }}
     {{ round(0.1234, 2) }}
 
-`)
+`);
 
 const round = (value, decimals = 0) => {
-  return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals)
-}
+  return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+};
 
 d.push(`
 ## random
@@ -64,12 +63,12 @@ Output:
   
     {{ random(0, 2) }}
     {{ random(0, 2, true) }}
-`)
+`);
 
 const random = (from, to, float = false) => {
-  const r = from + Math.random() * (to - from)
-  return float ? r : Math.floor(r, 2)
-}
+  const r = from + Math.random() * (to - from);
+  return float ? r : Math.floor(r, 2);
+};
 
 d.push(`
 ## range
@@ -86,12 +85,12 @@ Output
 
     {{ range(-1, 1, 0.5) }}
 
-`)
+`);
 
 const range = (from, to, step = 1) => {
-  const length = Math.floor((to - from) / step) + 1
-  return Array.from({ length }).map((_, i) => from + (i * step))
-}
+  const length = Math.floor((to - from) / step) + 1;
+  return Array.from({ length }).map((_, i) => from + i * step);
+};
 
 // Trigonometry
 
@@ -112,7 +111,7 @@ Return 2D x and y coordinates on point on the circle (_polar coordinates_) based
     {{ cx(90, 10) }} {{ cy(90, 10) }}
 
 
-`)
+`);
 const cx = (deg, radius) => {
   return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
 };
@@ -135,16 +134,15 @@ Based on <code>cx</code> and <code>cy</code> functions above calculates and <cod
 #### Output
 
     {{ cpoints(4,10) }}
-`)
+`);
 const cpoints = (count, radius) => {
   return Array.from({
     length: count
-  })
-  .map((p, i) => ({
+  }).map((p, i) => ({
     x: cx((360 / count) * i, radius),
     y: cy((360 / count) * i, radius)
   }));
-}
+};
 
 d.push(`
 ## deg2rad
@@ -164,7 +162,7 @@ radians = \\frac{degrees \\cdot \\pi}{180} = \\frac{180 \\cdot \\pi}{180} = \\pi
 #### Output
 
     {{ deg2rad(180) }}
-`)
+`);
 
 const deg2rad = deg => (deg * Math.PI) / 180;
 
@@ -182,10 +180,10 @@ Converts angle in radians to degrees.
 #### Output
 
     {{ rad2deg(Math.PI) }}
-`)
+`);
 
 const rad2deg = rad => (rad * 180) / Math.PI;
- 
+
 // Array
 
 d.push(`
@@ -203,7 +201,7 @@ Sorts the array in random order.
 
     {{ shuffle(range(0,3)) }}
 
-`)
+`);
 
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
@@ -225,11 +223,13 @@ Supports both array and function parameters syntax.
     {{ any([0,1,2]) }}
     {{ any(0,1,2) }}
 
-`)
+`);
 
 const any = function(arr) {
-  return arr instanceof Array ? shuffle(arr)[0] : shuffle(Array.from(arguments))[0]
-}
+  return arr instanceof Array
+    ? shuffle(arr)[0]
+    : shuffle(Array.from(arguments))[0];
+};
 
 d.push(`
 ## flatten
@@ -246,9 +246,31 @@ Flatten multidimensional array
 
     {{ flatten([0,1,[2,[3,4]]]) }}
 
-`)
+`);
 const flatten = list =>
   list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+
+d.push(`
+## chunk
+
+<code>chunk(array, length)</code>
+
+Chunks array into smaller <code>length</code>-sized arrays
+
+#### Example
+
+    chunk([0,1,2,3],2)
+
+#### Output
+
+    {{ chunk([0,1,2,3],2) }}
+
+`);
+
+const chunk = (arr, length) =>
+  Array.from({ length: Math.ceil(arr.length / length) }).map((_, n) =>
+    arr.slice(n * length, n * length + length)
+  );
 
 // Color
 
@@ -269,9 +291,9 @@ Generates CSS <code>hsl()</code> color string based on function parameters.
     {{ hsl(100,50,0,0.5) }}
     {{ hsl(100) }}
 
-`)
+`);
 
-const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`
+const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
 
 // Other utils
 
@@ -289,7 +311,7 @@ Returns the value in the closest point of 2D grid.
 #### Output
 
     {{ snapToGrid(0.51,0.5) }}
-`)
+`);
 
 const snapToGrid = (value, gridsize) => {
   return value % gridsize < gridsize / 2
@@ -303,9 +325,9 @@ d.push(`
 <code>log(message) = console.log(message) </code>
 
 
-`)
+`);
 
-const log = value => console.log(value)
+const log = value => console.log(value);
 
 // Google Sheets
 
@@ -325,7 +347,7 @@ const parseSheet = data => {
   });
 };
 
-const docs = () => d
+const docs = () => d;
 
 export {
   scale,
@@ -339,6 +361,7 @@ export {
   rad2deg,
   shuffle,
   any,
+  chunk,
   hsl,
   flatten,
   snapToGrid,

@@ -1,15 +1,19 @@
 import Markdown from "../components/Markdown.js";
 
 const content = `
-## What's missing?
+## Inspiration?
 
-Phew, a lot. Some ideas:
+**Nadieh Bremer**'s work all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
 
-<code>CanvasScene</code>, a simple wrapper around 2d canvas, just providing way to set pixels, modeled after [this tutorial](https://alligator.io/vuejs/vue-html5-canvas/)
+**Lea Verou** and her [Mavo](https://www.smashingmagazine.com/2017/05/introducing-mavo/) framework with just-write-HTML promise.
 
-<code>StateData</code>, small set of state containers, modeled after [React Powerplug](https://alligator.io/react/react-powerplug/)
+**Alan Kay** ahd his [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) lecture and its [spiritual following](https://www.youtube.com/watch?v=8pTEmbeENF4).
 
-Generic <code>FetchData</code>, modeled after [So Fetch](https://beta.observablehq.com/@alecglassford/so-fetch)
+**Rune Madsen** and his [Programming Design Systems](https://programmingdesignsystems.com/) book and [rune.js](http://runemadsen.github.io/rune.js/) framework.
+
+**John Gold** and his [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
+
+**Steven Wittens** and his [interactive math explorations](http://acko.net).
 
 <br>
 
