@@ -54,6 +54,9 @@ export default {
     </div>
   `,
   css: `
+    .slide {
+      padding: 1.5rem;
+    }
     .slide p, .slide li, .slide .button_primary {
       font-size: 1.3rem;
       line-height: 2.2rem;

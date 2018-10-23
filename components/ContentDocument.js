@@ -12,7 +12,7 @@ export default {
     }
   },
   template: `
-    <div>
+    <div style="padding: 1.5rem;">
       <Markdown :content="preparedContent"/>
     </div>
   `

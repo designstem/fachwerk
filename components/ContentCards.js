@@ -20,6 +20,7 @@ export default {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 1rem;
+      padding: 1.5rem;
     ">
       <div
         v-for="(card,i) in preparedContent"
