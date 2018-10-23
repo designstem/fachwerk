@@ -36,8 +36,14 @@
 
     </div>
 
-    <div style="margin: 3rem;">
+    <div :style="inverted && {
+      background: 'var(--darkestgray)',
+      '--primary': 'var(--white)',
+      '--secondary': 'var(--lightgray)',
+      '--tertiary': 'var(--gray)'
+    }">
 
+    <div style="padding: 3rem;">
         <dd>.h1</dd>
         <h1>Typograhphy & Forms</h1>
   
@@ -81,8 +87,28 @@
                   For example 6px triangles connected together form a regular polygon. Normal polygons are characterized
                   by the number of
                   edges or sides.
-                </small></p>
+              </small></p>
             </div>
+
+            <dd>table</dd>
+            
+            <table>
+              <thead>
+                <th>First col</th>
+                <th>Second col</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First col</td>
+                  <td>Second col</td>
+                </tr>
+                <tr>
+                    <td>First col</td>
+                    <td>Second col</td>
+                  </tr>
+              </tbody>
+            </table>
+
           </div>
   
           <div>
@@ -92,7 +118,6 @@
             <div class="sublabel">Here is a longer description what does this widget actually do</div>
             <dd>input[text]</dd>
             <input type="text" />
-            <label>Here is the label</label>
             <dd>input[range]</dd>
             <input type="range" />
             <dd>.button_primary</dd>
@@ -127,18 +152,21 @@
   
         <div style="display: grid; grid-template-columns: 3rem 5fr 3rem 5fr 3rem 5fr; grid-template-rows: repeat(4, 3rem); grid-gap: 0.5rem;">
           <template v-for="c in [
-          'purple',
+          'purple', 
           'red',
           'yellow',
           'darkblue',
           'blue',
           'lightblue',
+          'darkestgray',
           'darkergray',
           'darkgray',
           'gray',
-          'lightgray',
+          'lightgray', 
           'white',
-          'black'
+          'primary',
+          'secondary',
+          'tertiary'
         ]">
             <div :style="{
             background: 'var(--' + c + ')',
@@ -209,7 +237,7 @@ new Vue({
       <Faq />
     </div>
 
-
+  </div>
 
     <div class="footer">
       <div>

@@ -8,10 +8,11 @@
   --font-mono: Cousine, sans-serif;
 
   --white: white;
+  --darkestgray: #1c1c1c; 
   --darkergray: #333; 
   --darkgray: #555;         /* darkgray */
   --gray: #aaa;
-  --lightgray: #ddd;        /* lightgray */
+  --lightgray: #ccc;        /* lightgray */
   --purple: #663399;        /* rebeccapurple; */
   --red: #ff595e;           /* tomato */
   --yellow: #ffca3a;        /* gold */
@@ -22,6 +23,7 @@
 
   --primary: var(--darkgray);
   --secondary: var(--gray);
+  --tertiary: var(--lightgray);
 
   /*
   --color-white: white;
@@ -53,7 +55,7 @@
 
 body {
   font-family: var(--font-serif);
-  color: var(--primary);
+  --color: var(--primary);
   margin: 0;
 }
 
@@ -66,6 +68,7 @@ h4 {
   margin: 0 0 0.5em 0;
   padding: 0;
   line-height: 1.2em;
+  color: var(--primary);
 }
 
 h1 {
@@ -78,6 +81,7 @@ h2 {
 p {
   line-height: 1.5rem;
   margin: 0 0 0.5rem 0;
+  color: var(--primary);
 }
 a {
   text-decoration: none;
@@ -138,7 +142,7 @@ input[type="text"],
 input[type="number"] {
   display: block;
   border: var(--border-width) solid var(--primary);
-  color: var(--primary);
+  color: var(--darkgray);
   border-radius: var(--border-radius);
   padding: 0.5rem;
   outline: none;
@@ -156,12 +160,13 @@ label,
   font-size: 1.1rem;
   display: block;
   margin-bottom: 0.75rem;
+  color: var(--primary);
 }
 
 .sublabel {
-  color: var(--secondary);
   margin-top: -0.75rem;
   margin-bottom: 0.75rem;
+  color: var(--secondary);
 }
 
 /* Code */
@@ -208,6 +213,7 @@ code {
 .intro {
   font-size: 1.2rem;
   line-height: 1.6rem;
+  color: var(--primary);
 }
 
 /* Text */
@@ -215,19 +221,23 @@ code {
 blockquote, .text {
   font-family: var(--font-sansserif);
   font-size: 1.1rem;
+  color: var(--primary);
 }
 
 blockquote p, .text p {
   line-height: 1.7rem;
   margin: 0 0 0.5em 0;
+  color: var(--primary);
 }
 
 blockquote a, .text a {
   border-bottom: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 blockquote {
   margin: 0;
+  color: var(--primary);
 }
 
 table {
@@ -246,6 +256,7 @@ tr {
 }
 td {
   padding: 0.5rem 0.25rem;
+  color: var(--primary);
 }
 
 /* Button */
@@ -265,7 +276,7 @@ td {
   padding: 0.75rem 1rem;
   display: inline-flex;
   border-radius: var(--border-radius);
-  color: var(--primary);
+  color: var(--darkgray);
   font-weight: bold;
   cursor: pointer;
 }
@@ -279,7 +290,6 @@ td {
   font-weight: bold;
   font-size: 0.9rem;
   cursor: pointer;
-  background: var(--tertiary);
 }
 
 .buttons {
@@ -320,7 +330,7 @@ header,
 
 dd {
   font-family: var(--font-mono);
-  color: var(--gray);
+  color: var(--tertiary);
   margin: 0;
   padding: 0;
   margin: 1rem 0;
