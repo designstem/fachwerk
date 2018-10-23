@@ -38,6 +38,122 @@
 
     <div style="margin: 3rem;">
 
+        <dd>.h1</dd>
+        <h1>Typograhphy & Forms</h1>
+  
+        <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
+        <pre>
+  &lt;link rel="stylesheet" href="https://rawgit.com/designstem/framework/master/style.css"&gt; </pre>
+  
+        <div style="
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 3rem; 
+      ">
+  
+          <div>
+            <dd>h1 .bullet</dd>
+            <h2><span class="bullet">2</span>Here is the smaller subtitle</h2>
+            <dd>h3 .bullet</dd>
+            <h3><span class="bullet">3</span>Here is the even smaller subtitle</h3>
+            <dd>.intro</dd>
+            <div class="intro">Here is a paragraph with <a href="https://en.wikipedia.org/wiki/Johannes_Gutenberg">some
+                links</a> in it. Actually, it can be even longer if needed</div>
+            <dd>p, p b, p i</dd>
+            <p>This is just a regular text wish some <b>basic</b> <i>formatting</i> if one so desires.</p>
+            <dd>p small, p small b, p small i</dd>
+            <p><small>This is just a small regular text wish some <b>basic</b> <i>formatting</i> if one so desires.</small></p>
+          </div>
+  
+          <div>
+            <dd>.text, .text b, .text i</dd>
+            <div class="text">
+              <p>Normal polygons are
+                <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
+                <i>isosceles</i>.
+              </p>
+              <dd>.text code, .text a</dd>
+              <p>For example <code>6px</code> triangles connected together form a regular polygon.
+                Normal polygons are characterized by the number of edges or sides.
+              </p>
+              <dd>.text p small</dd>
+              <p><small>
+                  For example 6px triangles connected together form a regular polygon. Normal polygons are characterized
+                  by the number of
+                  edges or sides.
+                </small></p>
+            </div>
+          </div>
+  
+          <div>
+            <dd>label, .label</dd>
+            <label>Here is the label</label>
+            <dd>.sublabel</dd>
+            <div class="sublabel">Here is a longer description what does this widget actually do</div>
+            <dd>input[text]</dd>
+            <input type="text" />
+            <label>Here is the label</label>
+            <dd>input[range]</dd>
+            <input type="range" />
+            <dd>.button_primary</dd>
+  
+            <div class="button_primary">I am a primary button</div>
+            <dd>.button_secondary</dd>
+            <div class="button_secondary">I am a secondary button</div>
+            <dd>.button_tertiary</dd>
+            <div class="button_tertiary">I am tertiary button</div>
+            <dd>.buttons .button_tertiary</dd>
+            <div class="buttons">
+              <div class="button_tertiary">First</div>
+              <div class="button_tertiary">Second</div>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+  
+      <div style="margin: 3rem;">
+  
+        <h1>Colors</h1>
+  
+        <div class="intro">
+          A compact set of useful colors, available as CSS variables.
+        </div>
+        <br><br>
+  
+        <div style="display: grid; grid-template-columns: 3rem 5fr 3rem 5fr 3rem 5fr; grid-template-rows: repeat(4, 3rem); grid-gap: 0.5rem;">
+          <template v-for="c in [
+          'purple',
+          'red',
+          'yellow',
+          'darkblue',
+          'blue',
+          'lightblue',
+          'darkergray',
+          'darkgray',
+          'gray',
+          'lightgray',
+          'white',
+          'black'
+        ]">
+            <div :style="{
+            background: 'var(--' + c + ')',
+            borderRadius: 'var(--border-radius)'
+          }"></div>
+            <dd>var(--{{ c }})</dd>
+          </template>
+        </div>
+  
+      </div>
+
+    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+
+    <div style="margin: 3rem;">
+
       <h1>Components</h1>
 
       <div class="intro">
@@ -60,121 +176,6 @@ new Vue({
 })</pre>
 
       <Components />
-
-    </div>
-
-
-    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
-
-    <div style="margin: 3rem;">
-
-      <dd>.h1</dd>
-      <h1>Typograhphy & Forms</h1>
-
-      <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
-      <pre>
-&lt;link rel="stylesheet" href="https://rawgit.com/designstem/framework/master/style.css"&gt; </pre>
-
-      <div style="
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 3rem; 
-    ">
-
-        <div>
-          <dd>h1 .bullet</dd>
-          <h2><span class="bullet">2</span>Here is the smaller subtitle</h2>
-          <dd>h3 .bullet</dd>
-          <h3><span class="bullet">3</span>Here is the even smaller subtitle</h3>
-          <dd>.intro</dd>
-          <div class="intro">Here is a paragraph with <a href="https://en.wikipedia.org/wiki/Johannes_Gutenberg">some
-              links</a> in it. Actually, it can be even longer if needed</div>
-          <dd>p, p b, p i</dd>
-          <p>This is just a regular text wish some <b>basic</b> <i>formatting</i> if one so desires.</p>
-          <dd>p small, p small b, p small i</dd>
-          <p><small>This is just a small regular text wish some <b>basic</b> <i>formatting</i> if one so desires.</small></p>
-        </div>
-
-        <div>
-          <dd>.text, .text b, .text i</dd>
-          <div class="text">
-            <p>Normal polygons are
-              <b>polygons</b> with all sides and angles equal. Are formed by triangles, normally
-              <i>isosceles</i>.
-            </p>
-            <dd>.text code, .text a</dd>
-            <p>For example <code>6px</code> triangles connected together form a regular polygon.
-              Normal polygons are characterized by the number of edges or sides.
-            </p>
-            <dd>.text p small</dd>
-            <p><small>
-                For example 6px triangles connected together form a regular polygon. Normal polygons are characterized
-                by the number of
-                edges or sides.
-              </small></p>
-          </div>
-        </div>
-
-        <div>
-          <dd>label, .label</dd>
-          <label>Here is the label</label>
-          <dd>.sublabel</dd>
-          <div class="sublabel">Here is a longer description what does this widget actually do</div>
-          <dd>input[text]</dd>
-          <input type="text" />
-          <label>Here is the label</label>
-          <dd>input[range]</dd>
-          <input type="range" />
-          <dd>.button_primary</dd>
-
-          <div class="button_primary">I am a primary button</div>
-          <dd>.button_secondary</dd>
-          <div class="button_secondary">I am a secondary button</div>
-          <dd>.button_tertiary</dd>
-          <div class="button_tertiary">I am tertiary button</div>
-          <dd>.buttons .button_tertiary</dd>
-          <div class="buttons">
-            <div class="button_tertiary">First</div>
-            <div class="button_tertiary">Second</div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
-
-    <div style="margin: 3rem;">
-
-      <h1>Colors</h1>
-
-      <div class="intro">
-        A compact set of useful colors, available as CSS variables.
-      </div>
-      <br><br>
-
-      <div style="display: grid; grid-template-columns: 3rem 5fr 3rem 5fr 3rem 5fr; grid-template-rows: repeat(4, 3rem); grid-gap: 0.5rem;">
-        <template v-for="c in [
-        'purple',
-        'red',
-        'yellow',
-        'blue-light',
-        'blue-medium',
-        'blue-dark',
-        'gray-darker',
-        'gray-dark',
-        'gray-medium',
-        'gray-light'
-      ]">
-          <div :style="{
-          background: 'var(--color-' + c + ')',
-          borderRadius: 'var(--border-radius)'
-        }"></div>
-          <dd>var(--color-{{ c }})</dd>
-        </template>
-      </div>
 
     </div>
 

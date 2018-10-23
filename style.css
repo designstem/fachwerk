@@ -7,6 +7,23 @@
   --font-sansserif: IBM Plex Serif, sans-serif;
   --font-mono: Cousine, sans-serif;
 
+  --white: white;
+  --darkergray: #333; 
+  --darkgray: #555;         /* darkgray */
+  --gray: #aaa;
+  --lightgray: #ddd;        /* lightgray */
+  --purple: #663399;        /* rebeccapurple; */
+  --red: #ff595e;           /* tomato */
+  --yellow: #ffca3a;        /* gold */
+  --lightblue: #f0f5fa;     /* ghostwhite */
+  --blue: #1982c4;          /* steelblue */
+  --darkblue: #0b3954;
+  --black: #000;
+
+  --primary: var(--darkgray);
+  --secondary: var(--gray);
+
+  /*
   --color-white: white;
   --color-gray-darker: #333;
   --color-gray-dark: #555;
@@ -18,8 +35,7 @@
   --color-blue-light: #f0f5fa;
   --color-blue-medium: #1982c4;
   --color-blue-dark: #0b3954;
-
-  --color-primary: var(--color-purple);
+*/
 
   --border-width: 3px;
   --border-radius: 6px;
@@ -37,7 +53,7 @@
 
 body {
   font-family: var(--font-serif);
-  color: var(--color-gray-dark);
+  color: var(--primary);
   margin: 0;
 }
 
@@ -65,13 +81,13 @@ p {
 }
 a {
   text-decoration: none;
-  color: var(--color-gray-dark);
-  border-bottom: 2px solid var(--color-gray-dark);
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
   font-weight: bold;
 }
 small {
   font-size: 100%;
-  color: var(--color-gray-medium);
+  color: var(--secondary);
 }
 img {
   width: 100%;
@@ -96,7 +112,7 @@ input[type="range"] {
   display: block;
   -webkit-appearance: none;
   width: 100%;
-  background: var(--color-gray-dark);
+  background: var(--primary);
   height: var(--border-width);
   position: relative;
   outline: none;
@@ -106,7 +122,7 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: var(--border-width) solid var(--color-gray-dark);
+  border: var(--border-width) solid var(--primary);
   height: var(--slider-size);
   width: var(--slider-size);
   border-radius: 1000px;
@@ -121,8 +137,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
 input[type="text"],
 input[type="number"] {
   display: block;
-  border: var(--border-width) solid var(--color-gray-dark);
-  color: var(--color-gray-dark);
+  border: var(--border-width) solid var(--primary);
+  color: var(--primary);
   border-radius: var(--border-radius);
   padding: 0.5rem;
   outline: none;
@@ -143,7 +159,7 @@ label,
 }
 
 .sublabel {
-  color: var(--color-gray-medium);
+  color: var(--secondary);
   margin-top: -0.75rem;
   margin-bottom: 0.75rem;
 }
@@ -155,8 +171,8 @@ pre {
   line-height: 1.4rem;
   font-family: var(--font-mono);
   border-radius: 3px;
-  background: var(--color-blue-light);
-  color: var(--color-blue-medium);
+  background: var(--lightblue);
+  color: var(--blue);
   padding: 0.5rem;
   font-size: 0.85rem;
   white-space: pre;
@@ -165,8 +181,8 @@ pre {
 code {
   font-family: var(--font-mono);
   border-radius: 3px;
-  background: var(--color-blue-light);
-  color: var(--color-blue-medium);
+  background: var(--lightblue);
+  color: var(--blue);
   padding: 0.1em 0.3em 0 0.3em;
   font-size: 0.85rem;
   white-space: nowrap;
@@ -175,7 +191,7 @@ code {
 /* Components */
 
 .bullet {
-  border: var(--border-width) solid var(--color-purple);
+  border: var(--border-width) solid var(--purple);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -183,8 +199,8 @@ code {
   margin-right: 0.5rem;
   width: 1.5em;
   height: 1.5em;
-  background: var(--color-purple);
-  color: var(--color-white);
+  background: var(--purple);
+  color: var(--white);
 }
 
 /* Intro */
@@ -207,7 +223,7 @@ blockquote p, .text p {
 }
 
 blockquote a, .text a {
-  border-bottom: 2px solid var(--color-gray-dark);
+  border-bottom: 2px solid var(--primary);
 }
 
 blockquote {
@@ -219,14 +235,14 @@ table {
   border-collapse: collapse;
 }
 th {
-  border-bottom: 3px solid var(--color-gray-light);
+  border-bottom: 3px solid var(--tertiary);
   padding: 0.5rem 0.25rem;
   text-align: left;
   font-weight: normal;
-  color: var(--color-gray-medium);
+  color: var(--secondary);
 }
 tr {
-  border-bottom: 1px solid var(--color-gray-light);
+  border-bottom: 1px solid var(--tertiary);
 }
 td {
   padding: 0.5rem 0.25rem;
@@ -235,21 +251,21 @@ td {
 /* Button */
 
 .button_primary {
-  background: var(--color-primary);
+  background: var(--purple);
   padding: 0.75rem 1rem;
   display: inline-flex;
   border-radius: var(--border-radius);
-  color: var(--color-white);
+  color: var(--white);
   font-weight: bold;
   cursor: pointer;
 }
 
 .button_secondary {
-  background: var(--color-gray-light);
+  background: var(--tertiary);
   padding: 0.75rem 1rem;
   display: inline-flex;
   border-radius: var(--border-radius);
-  color: var(--color-gray-dark);
+  color: var(--primary);
   font-weight: bold;
   cursor: pointer;
 }
@@ -257,13 +273,13 @@ td {
 .button_tertiary {
   padding: 0.25rem 0.5rem;
   display: inline-flex;
-  border: 3px solid var(--color-gray-dark);
+  border: 3px solid var(--primary);
   border-radius: var(--border-radius);
-  color: var(--color-gray-dark);
+  color: var(--primary);
   font-weight: bold;
   font-size: 0.9rem;
   cursor: pointer;
-  background: var(--color-white);
+  background: var(--tertiary);
 }
 
 .buttons {
@@ -294,17 +310,17 @@ header,
   padding: 0 2rem;
   align-items: center;
   justify-content: space-between;
-  border-bottom: var(--border-width) solid var(--color-gray-dark);
+  border-bottom: var(--border-width) solid var(--darkgray);
   font-size: 1.2rem;
   font-weight: bold;
-  background: var(--color-yellow);
+  background: var(--yellow);
 }
 
 /* Internal styles */
 
 dd {
   font-family: var(--font-mono);
-  color: var(--color-gray-medium);
+  color: var(--gray);
   margin: 0;
   padding: 0;
   margin: 1rem 0;
@@ -314,11 +330,11 @@ dd:first {
 }
 
 .footer {
-  border-top: 3px solid var(--color-gray-dark);
+  border-top: 3px solid var(--darkgray);
   padding: 3rem 3rem 6rem 3rem;
   display: flex;
   justify-content: space-between;
-  background: var(--color-yellow);
+  background: var(--yellow);
 }
 
 @media (max-width: 800px) {
@@ -331,9 +347,9 @@ dd:first {
 
 .hero {
   padding: 3rem;
-  background: var(--color-gray-darker);
-  border-bottom: 3px solid var(--color-gray-dark);
-  color: var(--color-yellow);
+  background: var(--darkergray);
+  border-bottom: 3px solid var(--darkgray);
+  color: var(--yellow);
 }
 
 .hero h1 {
@@ -359,12 +375,12 @@ dd:first {
 .hero h3 {
   font-size: 1.3rem;
   margin-right: 20vw;
-  color: var(--color-yellow);
+  color: var(--yellow);
 }
 
 .hero .button_primary {
   font-size: 1.3rem;
-  background: var(--color-yellow);
-  color: var(--color-gray-dark);
+  background: var(--yellow);
+  color: var(--darkgray);
   border: none;
 }
