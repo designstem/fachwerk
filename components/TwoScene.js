@@ -9,7 +9,7 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
 `,
   example: `
 <TwoScene>
-    <circle r="1" />
+    <circle fill="var(--primary)" r="1" />
 </TwoScene>
   `,
   props: {

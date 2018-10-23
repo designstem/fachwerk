@@ -5,7 +5,7 @@ import Faq from "./homepage/Faq.js";
 new Vue({
   components: { Components, Utils, Faq },
   el: "#app",
-  data: () => ({ inverted: false }),
+  data: () => ({ inverted: true }),
   mounted() {
     document.addEventListener("keydown", e => {
       if (e.altKey && e.keyCode === 73) { // Alt + I

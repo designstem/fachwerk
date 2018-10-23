@@ -28,7 +28,7 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "black", type: String },
+    stroke: { default: "var(--primary)", type: String },
     opacity: { default: 1, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },

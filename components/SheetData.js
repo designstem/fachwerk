@@ -13,7 +13,7 @@ Fetches data from Google Sheets.
     :y="-2"
     :height="scale(v.age,0,100,0,2.9)"
     :width="(4 / data.value.length) - 0.1"
-    fill="var(--color-red)"
+    fill="var(--red)"
     rx="0.05"
   />  
 </TwoScene>

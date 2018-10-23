@@ -14,17 +14,19 @@ export default {
     <circle
       :r="data.mouse.pressed ? 1.1 : 1"
       opacity="0.1"
+      fill="var(--primary)"
       style="transition: all 100ms"
     />
     <circle
       :r="data.mouse.pressed ? 0.8 : 1"
       style="transition: all 100ms"
+      fill="var(--primary)"
     />
     <circle
       :cx="data.mouse.x"
       :cy="data.mouse.y"
       :r="data.mouse.pressed ? 0.2 : 0.1"
-      fill="var(--color-red)"
+      fill="var(--red)"
       style="transition: all 100ms"
     />
   </g>

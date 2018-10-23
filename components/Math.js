@@ -10,14 +10,14 @@ It also supports dynamic content with inline variables but due to the technical 
 </small>
   `,
   example: `
-Does not update
+<p>Does not update</p>
 <Math>
   a = 10
   b = a^2 + 100
   c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
 </Math>
 
-Updates when edited and slider changed
+<p>Updates when edited and slider changed</p>
 <SliderData>
   <Math slot-scope="data" :update="data.value">
     a = 10
@@ -48,20 +48,20 @@ Updates when edited and slider changed
   css: `
   .katex {
     font-size: 1.3em;
-    color: var(--color-gray-dark);
+    color: var(--primary);
     padding: 1rem 2rem;
     display: block;
   }
   .katex .colorbox {
     border-radius: var(--border-radius);
     color: red;
-    background: var(--color-blue-light) !important;
+    background: var(--lightblue) !important;
   }
   .katex .boxpad {
     padding: 0;
   }
   .katex .boxpad .mord {
-    color: var(--color-blue-medium);
+    color: var(--blue);
     font-family: var(--font-mono) !important;
     font-size: 1rem;
   }

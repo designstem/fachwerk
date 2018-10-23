@@ -23,8 +23,8 @@ const Drag = {
           :cy="p.y"
           :r="p.active ? 0.22 : 0.2"
           stroke-width="3"
-          stroke="black"
-          :fill="p.pressed ? '#eee' : 'white'"
+          stroke="var(--primary)"
+          :fill="p.pressed ? 'var(--primary)' : 'var(--secondary)'"
           style="transition: fill r 100ms"
         />
         <circle

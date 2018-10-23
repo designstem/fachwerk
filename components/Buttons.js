@@ -20,17 +20,17 @@ A button group, meant to be used with <code>v-model</code>.
         @click="$emit('input',i)"
         :style="{
           padding: '0.25rem 0.5rem',
-          border: '3px solid var(--color-gray-dark)',
+          border: '3px solid var(--primary)',
           borderTopLeftRadius: i == 0 && 'var(--border-radius)',
           borderBottomLeftRadius: i == 0 && 'var(--border-radius)',
           borderTopRightRadius: i == buttons.length - 1 && 'var(--border-radius)',
           borderBottomRightRadius: i == buttons.length - 1 && 'var(--border-radius)',
-          color: 'var(--color-gray-dark)',
+          color: i === value ? 'var(--primary)' : 'var(--secondary)',
           fontWeight: 'bold',
           fontSize: '0.9rem',
           marginLeft: '-3px',
           cursor: 'pointer',
-          background: i === value ? 'var(--color-gray-medium)' : 'white'
+          background: i === value ? 'var(--tertiary)' : 'none'
         }"
       >
         {{ button }}

@@ -17,7 +17,7 @@ Sounds like [Zeit](https://www.youtube.com/watch?v=rjvF36gzLF8).
   `,
   props: {
     r: { default: 1, type: Number },
-    fill: { default: 'black', type: String},
+    fill: { default: 'var(--primary)', type: String},
     stroke: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },

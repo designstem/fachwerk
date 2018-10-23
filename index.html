@@ -28,7 +28,7 @@
 
       <h1>Love <i>Ordnung</i>?<br>Here is Fachwerk.</h1>
 
-      <h2>A VueJS-based frontend framework for creating interactive learning materials. <span style="color: var(--color-red)">Only
+      <h2>A VueJS-based frontend framework for creating interactive learning materials. <span style="color: var(--red)">Only
           the latest desktop Chrome</span> for now.</h2>
       <br>
       <h3><a href="https://github.com/designstem/template" class="button_primary">Get starter template</a> or play with
@@ -38,9 +38,10 @@
 
     <div :style="inverted && {
       background: 'var(--darkestgray)',
-      '--primary': 'var(--white)',
+      '--primary': 'var(--lightergray)',
       '--secondary': 'var(--lightgray)',
-      '--tertiary': 'var(--gray)'
+      '--tertiary': 'var(--gray)',
+      '--lightblue': 'var(--darkergray)'
     }">
 
     <div style="padding: 3rem;">
@@ -139,7 +140,7 @@
   
       </div>
   
-      <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+      <div style="border-bottom: 3px solid var(--primary);">&nbsp;</div>
   
       <div style="margin: 3rem;">
   
@@ -155,15 +156,19 @@
           'purple', 
           'red',
           'yellow',
+
           'darkblue',
           'blue',
           'lightblue',
+
           'darkestgray',
           'darkergray',
           'darkgray',
+
           'gray',
           'lightgray', 
-          'white',
+          'lightergray', 
+          
           'primary',
           'secondary',
           'tertiary'
@@ -178,7 +183,7 @@
   
       </div>
 
-    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+    <div style="border-bottom: 3px solid var(--primary);">&nbsp;</div>
 
     <div style="margin: 3rem;">
 
@@ -208,7 +213,7 @@ new Vue({
     </div>
 
 
-    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+    <div style="border-bottom: 3px solid var(--primary);">&nbsp;</div>
 
     <div style="margin: 3rem 3rem 3rem 3rem;">
       <h1>Utils</h1>
@@ -230,7 +235,7 @@ new Vue({
 
     </div>
 
-    <div style="border-bottom: 3px solid var(--color-gray-dark);">&nbsp;</div>
+    <div style="border-bottom: 3px solid var(--primary);">&nbsp;</div>
 
     <div style="margin: 3rem 30vw 3rem 3rem;">
       <h1>FAQ</h1>

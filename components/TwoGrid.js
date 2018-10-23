@@ -28,7 +28,8 @@ As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), t
       :y1="-3"
       :x2="x"
       :y2="3"
-      :stroke="'rgba(0,0,0,' + (x == 0 ? 0.5: 0.2) + ')'"
+      stroke="var(--primary)"
+      opacity="0.2"
     />
     <line
       v-for="y in [-2,-1,0,1,2]"
@@ -36,7 +37,8 @@ As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), t
       :y1="y"
       :x2="3"
       :y2="y"
-      :stroke="'rgba(0,0,0,' + (y == 0 ? 0.5: 0.2) + ')'"
+      stroke="var(--primary"
+      opacity="0.2"
     />
   </g>
   `
