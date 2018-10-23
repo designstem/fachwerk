@@ -8,7 +8,7 @@
   --font-mono: Cousine, sans-serif;
 
   --white: #ffffff;
-  --darkestgray: #1c1c1c; 
+  --darkestgray: #222222; 
   --darkergray: #333333; 
   --darkgray: #555555;         /* darkgray */
   --gray: #aaaaaa;
@@ -19,7 +19,7 @@
   --yellow: #ffca3a;        /* gold */
   --lightblue: #f0f5fa;     /* ghostwhite */
   --blue: #1982c4;          /* steelblue */
-  --darkblue: #0b3954;
+  --darkblue: #07293D;
   --black: #000000;
 
   --primary: var(--darkgray);
@@ -325,6 +325,7 @@ header,
   font-size: 1.2rem;
   font-weight: bold;
   background: var(--yellow);
+  color: var(--darkgray);
 }
 
 /* Internal styles */
@@ -368,6 +369,7 @@ dd:first {
   line-height: 6rem;
   letter-spacing: -0.25rem;
   margin-bottom: 2rem;
+  color: var(--yellow);
 }
 
 @media (max-width: 800px) {
@@ -381,6 +383,7 @@ dd:first {
 .hero h2 {
   font-size: 1.9rem;
   margin-right: 20vw;
+  color: var(--darkgray);
 }
 
 .hero h3 {

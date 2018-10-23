@@ -25,7 +25,7 @@ A button group, meant to be used with <code>v-model</code>.
           borderBottomLeftRadius: i == 0 && 'var(--border-radius)',
           borderTopRightRadius: i == buttons.length - 1 && 'var(--border-radius)',
           borderBottomRightRadius: i == buttons.length - 1 && 'var(--border-radius)',
-          color: i === value ? 'var(--primary)' : 'var(--secondary)',
+          color: i === value ? 'var(--primary)' : 'var(--primary)',
           fontWeight: 'bold',
           fontSize: '0.9rem',
           marginLeft: '-3px',
