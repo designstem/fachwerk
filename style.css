@@ -7,12 +7,12 @@
   --font-sansserif: IBM Plex Serif, sans-serif;
   --font-mono: Cousine, sans-serif;
 
-  --white: white;
+  --white: #ffffff;
   --darkestgray: #1c1c1c; 
-  --darkergray: #333; 
-  --darkgray: #555;         /* darkgray */
-  --gray: #aaa;
-  --lightgray: #ccc;        /* lightgray */
+  --darkergray: #333333; 
+  --darkgray: #555555;         /* darkgray */
+  --gray: #aaaaaa;
+  --lightgray: #cccccc;        /* lightgray */
   --lightergray: #eee;          /* ? */
   --purple: #663399;        /* rebeccapurple; */
   --red: #ff595e;           /* tomato */
@@ -20,7 +20,7 @@
   --lightblue: #f0f5fa;     /* ghostwhite */
   --blue: #1982c4;          /* steelblue */
   --darkblue: #0b3954;
-  --black: #000;
+  --black: #000000;
 
   --primary: var(--darkgray);
   --secondary: var(--gray);
