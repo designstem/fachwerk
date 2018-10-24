@@ -109,6 +109,9 @@ img {
   display: block;
 }
 
+li {
+  color: var(--primary);
+}
 /*
 ul,
 li {
@@ -117,9 +120,6 @@ li {
   list-style: none;
 }
 */
-/* hr {
-  opacity: 0;
-} */
 
 /* Forms */
 
