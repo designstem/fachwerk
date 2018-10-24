@@ -26,7 +26,7 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    fill: { default: "var(--tertiary)", type: String },
+    fill: { default: "var(--secondary)", type: String },
     stroke: { default: "var(--primary)", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
