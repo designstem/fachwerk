@@ -2,7 +2,6 @@ import AnimeData from "./components/AnimeData.js";
 import Buttons from "./components/Buttons.js";
 import FetchData from "./components/FetchData.js";
 import Math from "./components/Math.js";
-import Poly from "./components/experimental/Poly.js";
 import PolygonData from "./components/PolygonData.js";
 import PolyhedronData from "./components/PolyhedronData.js";
 import SheetData from "./components/SheetData.js";
@@ -20,7 +19,6 @@ import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/Transport.js";
-import Triangle from "./components/experimental/Triangle.js";
 import TwoBox from "./components/TwoBox.js";
 import TwoDragScope from "./components/TwoDragScope.js";
 import TwoCircle from "./components/TwoCircle.js";
@@ -42,7 +40,6 @@ export {
   Buttons,
   FetchData,
   Math,
-  Poly,
   PolygonData,
   PolyhedronData,
   SheetData,
@@ -115,9 +112,6 @@ export const sortedComponents = [
   { Buttons },
 
   // Hidden
-
-  { Triangle },
-  { Poly },
 
   { VrScene },
   { VrBox },
