@@ -26,7 +26,7 @@ export default {
         v-for="(card,i) in preparedContent"
         style="
           padding: 1rem;
-          border: 3px solid var(--color-gray-medium);
+          border: 3px solid var(--gray);
           border-radius: var(--border-radius);
         "
         class="card"

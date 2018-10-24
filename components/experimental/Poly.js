@@ -25,13 +25,13 @@ export default {
           cy="0"
           :r="size / 2 - 2"
           fill="none"
-          stroke="var(--color-gray-dark)"
+          stroke="var(--primary)"
           opacity="0.5"
         />
         <polygon
           :points="points.map(p => p.join(',')).join(' ')"
           fill="none"
-          stroke="var(--color-gray-dark)"
+          stroke="var(--primary)"
           stroke-width="3"
         />
         <line
@@ -40,7 +40,7 @@ export default {
           y1="0"
           :x2="point[0]"
           :y2="point[1]"
-          stroke="var(--color-gray-dark)"
+          stroke="var(--primary)"
           opacity="0.5"
         />
       </svg>

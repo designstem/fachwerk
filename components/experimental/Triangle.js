@@ -63,7 +63,7 @@ export default {
           :points="coordinates"
          
           fill="none"
-          stroke="var(--color-gray-dark)"
+          stroke="var(--primary)"
           stroke-width="3"
           
         />

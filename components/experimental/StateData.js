@@ -13,8 +13,7 @@ export default {
       :key="i"
       :cx="[-1,0,1][i % 3]"
       r="0.5"
-      stroke="white"
-      :fill="data.value[i] ? 'black' : 'gray'"
+      :fill="data.value[i] ? 'var(--red)' : 'var(--primary)'"
       @click="data.update(i, 1 - data.value[i])"
     />
   </TwoScene>

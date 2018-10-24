@@ -162,13 +162,14 @@ const Renderer = {
       type: Object,
       required: true
     },
-    obj: { type: Object }
+    obj: { type: Object },
+    background: { type: String, default: '#ffffff'}
   },
   data() {
     let curObj = this.obj;
     if (!curObj) {
       curObj = new THREE.SVGRenderer({ antialias: true });
-      curObj.setClearColor(0xffffff);
+      curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
     curObj.setSize(this.size.w, this.size.h);

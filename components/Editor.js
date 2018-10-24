@@ -29,7 +29,7 @@ export default {
       @input="$emit('input', content)"
       style="
         border: none;
-        color: var(--color-blue-medium);
+        color: var(--blue);
         font-family: var(--font-mono);
         font-size: 0.85rem;
         height: 100%;
@@ -37,7 +37,7 @@ export default {
         outline: none;
         resize: none;
         width: 100%;
-        background: var(--color-blue-light);
+        background: var(--lightblue);
         padding: 0.8rem;
         border-radius: var(--border-radius);
       "

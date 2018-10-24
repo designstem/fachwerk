@@ -5,4 +5,12 @@ import Faq from "./homepage/Faq.js";
 new Vue({
   components: { Components, Utils, Faq },
   el: "#app",
+  data: () => ({ inverted: true }),
+  mounted() {
+    document.addEventListener("keydown", e => {
+      if (e.altKey && e.keyCode === 73) { // Alt + I
+        this.inverted = !this.inverted
+      }
+    });
+  }
 });

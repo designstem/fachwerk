@@ -7,7 +7,7 @@ Tabs, meant to be used with <code>v-model</code>.
     <div :style="{
       display: 'flex',
       height: '3rem',
-      borderBottom: '3px solid var(--color-gray-dark)'
+      borderBottom: '3px solid var(--darkgray)'
     }">
       <div
         v-for="(button,i) in buttons"
@@ -19,10 +19,10 @@ Tabs, meant to be used with <code>v-model</code>.
           justifyContent: 'center',
           padding: i == 0 ? '0 1.25rem 0 2rem' : '0 1.25rem',
           fontWeight: 'bold',
-          borderRight: '3px solid var(--color-gray-dark)',
-          color: 'var(--color-gray-dark)',
+          borderRight: '3px solid var(--darkgray)',
+          color: 'var(--darkgray)',
           cursor: 'pointer',
-          background: i === value ? 'var(--color-gray-medium)' : 'white'
+          background: i === value ? 'var(--gray)' : 'white'
         }"
       >
         {{ button }}

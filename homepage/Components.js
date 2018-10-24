@@ -54,7 +54,7 @@ const Props = {
           <td>
             <code
               v-if="prop.type"
-              style="background: none; color: var(--color-gray-medium)">
+              style="background: none; color: var(--secondary)">
                 {{ prop.type }}
             </code>
           </td>
@@ -83,7 +83,6 @@ export default {
     <div>
         <div v-for="(c,i) in componentData" :style="{
           padding: '2rem 0',
-          borderTop: i > 0 ? '0px solid var(--color-gray-light)' : '',
           minHeight: '15rem'
         }"
         >
@@ -98,7 +97,7 @@ export default {
               </template>
             </div>
             <div style="width: 500px; margin-left: 2rem;">
-              <Editor style="border: 3px solid var(--color-gray-light)" v-model="c.example" />
+              <Editor v-model="c.example" />
             </div>
             <Render :t="'<div>'+c.example+'</div>'" style="flex: 1; align-items: flex-start; margin-left: 2rem;" />
           </div>
