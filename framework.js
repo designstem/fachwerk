@@ -57,7 +57,6 @@ export {
   ThreeScene,
   ThreeTriangle,
   Transport,
-  Triangle,
   TwoBox,
   TwoCircle,
   TwoDragScope,
