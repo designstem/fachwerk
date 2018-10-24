@@ -1268,7 +1268,7 @@ THREE.SVGRenderer = function () {
 		if ( background && background.isColor ) {
 
 			removeChildNodes();
-			_svg.style.backgroundColor = getSvgColor( background );
+			//_svg.style.backgroundColor = getSvgColor( background );
 
 		} else if ( this.autoClear === true ) {
 
