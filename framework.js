@@ -42,6 +42,7 @@ import Editor from "./components/Editor.js";
 import ContentDocument from "./components/ContentDocument.js";
 import ContentSlides from "./components/ContentSlides.js";
 import ContentCards from "./components/ContentCards.js";
+import Sidebar from "./components/Sidebar.js";
 
 export {
   AnimeData,
@@ -87,7 +88,8 @@ export {
 
   ContentDocument,
   ContentSlides,
-  ContentCards
+  ContentCards,
+  Sidebar
 };
 
 export const sortedComponents = [
