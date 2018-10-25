@@ -384,15 +384,6 @@ const parseColumns = slide => {
   }
 };
 
-const darkStyle = {
-  background: "var(--darkestgray)",
-  "--primary": "var(--lightergray)",
-  "--secondary": "var(--lightgray)",
-  "--tertiary": "var(--gray)",
-  "--lightblue": "var(--darkblue)",
-  "--blue": "var(--lightgray)"
-};
-
 const docs = () => d;
 
 export {
@@ -415,6 +406,5 @@ export {
   parseSheet,
   docs,
   parseColumns,
-  cleanColumns,
-  darkStyle
+  cleanColumns
 };
