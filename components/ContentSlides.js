@@ -82,6 +82,9 @@ css: `
 .slide h2 {
   font-size: 2.2em;
 }
+.slide h3 {
+  font-size: 1.8em;
+}
 .slide li {
   margin-bottom: 0.5em;
 }
