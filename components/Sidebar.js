@@ -25,7 +25,7 @@ export default {
           style="
             cursor: pointer;
             position: fixed;
-            top: calc(5rem + 1rem);
+            top: 1rem;
             right: 1rem;
         ">✕</div>
         <content-document style="font-size: 0.8em;" :content="content" />
