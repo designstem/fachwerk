@@ -22,11 +22,13 @@ export default {
 </ArrayData>
   `,
   props: {
-    length: { default: 1, type: Number }
+    length: { default: 1, type: Number },
+    dimensions: { default: 1, type: Number }
   },
-  data: function() {
-    return { value: Array(this.length).fill(0) };
+  created() {
+    this.value = Array(this.length).fill(0)
   },
+  data: () => ({ value: [] }),
   template: `
     <slot :value="value" :update="onUpdate" /> 
   `
