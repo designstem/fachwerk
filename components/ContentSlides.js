@@ -27,10 +27,10 @@ export default {
   },
   mounted() {
     document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode == 37) {
+      if (e.keyCode == 37) {
         this.prev();
       }
-      if (e.altKey && e.keyCode == 39) {
+      if (e.keyCode == 39) {
         this.next();
       }
     });
