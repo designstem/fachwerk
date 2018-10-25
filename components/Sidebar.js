@@ -18,7 +18,7 @@ export default {
         background: var(--white);
         border-left: var(--border-width) solid var(--primary);
         overflowY: auto;
-        box-shadow: -1000px 0 rgba(0,0,0,0.2);
+        box-shadow: calc(50vw * -1) 0 rgba(0,0,0,0.15);
       ">
         <div
           @click="open = false"
