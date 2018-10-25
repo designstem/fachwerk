@@ -37,6 +37,7 @@ import StateData from "./components/experimental/StateData.js";
 
 import Markdown from "./components/Markdown.js";
 import Render from "./components/Render.js";
+import Editor from "./components/Editor.js";
 
 import ContentDocument from "./components/ContentDocument.js";
 import ContentSlides from "./components/ContentSlides.js";
@@ -82,6 +83,7 @@ export {
 
   Markdown,
   Render,
+  Editor,
 
   ContentDocument,
   ContentSlides,
