@@ -88,7 +88,7 @@ export default {
         >
           <h2>{{ c.name }}</h2>
           <div style="display: flex">
-            <div style="width: 300px;">
+            <div style="width: 280px;">
               <Markdown :content="c.description" />
               <br>
               <template v-if="c.props">
@@ -96,10 +96,10 @@ export default {
                 <Props :props="c.props" />
               </template>
             </div>
-            <div style="width: 500px; margin-left: 2rem;">
+            <div style="flex:1; margin-left: 2rem;">
               <Editor v-model="c.example" />
             </div>
-            <Render :t="'<div>'+c.example+'</div>'" style="flex: 1; align-items: flex-start; margin-left: 2rem;" />
+            <Render :t="'<div>'+c.example+'</div>'" style="width: 250px; align-items: flex-start; margin-left: 2rem;" />
           </div>
         </div>
     </div>
