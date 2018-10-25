@@ -11,13 +11,14 @@ export default {
       <a style="color: var(--blue); border-bottom: 2px dotted var(--blue); cursor: help;" @click.prevent="open = !open"><slot /></a>
       <div v-if="open" style="
         position: fixed;
-        top: 5rem;
+        top: 0px;
         right: 0px;
         bottom: 0px;
         width: 50vw;
         background: var(--white);
         border-left: var(--border-width) solid var(--primary);
         overflowY: auto;
+        box-shadow: -1000px 0 rgba(0,0,0,0.2);
       ">
         <div
           @click="open = false"
