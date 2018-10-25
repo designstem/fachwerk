@@ -16,30 +16,30 @@ export default {
   example: `
 <ArrayData :length="3" :dimensions="2">
   <TwoScene slot-scope="data">
-  <template v-for="(x,i) in data.value">
+  <template v-for="(col, x) in data.value">
   <circle
-      v-for="(y,j) in x"
-      :key="i * j"
-      :cx="i - 1"
-      :cy="j - 1"
-      r="0.5"
-      :fill="y ? 'var(--red)' : 'var(--primary)'"
-      @click="data.update(1 - y, i, j)"
-    />
+    v-for="(value, y) in col"
+    :key="x * y"
+    :cx="x - 1"
+    :cy="y - 1"
+    r="0.5"
+    :fill="value ? 'var(--red)' : 'var(--primary)'"
+    @click="data.update(1 - value, x, y)"
+  />
   </template>
   </TwoScene>
 </ArrayData>
 
 <ArrayData :length="3">
   <TwoScene slot-scope="data">
-    <circle
-      v-for="(x,i) in data.value"
-      :key="i"
-      :cx="i - 1"
-      r="0.5"
-      :fill="x ? 'var(--red)' : 'var(--primary)'"
-      @click="data.update(1 - x, i)"
-    />
+  <circle
+    v-for="(value,x) in data.value"
+    :key="x"
+    :cx="x - 1"
+    r="0.5"
+    :fill="value ? 'var(--red)' : 'var(--primary)'"
+    @click="data.update(1 - value, x)"
+  />
   </TwoScene>
 </ArrayData>
   `,
