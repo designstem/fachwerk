@@ -1,10 +1,18 @@
 import AnimeData from "./components/AnimeData.js";
+import ArrayData from "./components/ArrayData.js";
 import Buttons from "./components/Buttons.js";
+import ContentCards from "./components/ContentCards.js";
+import ContentDocument from "./components/ContentDocument.js";
+import ContentSlides from "./components/ContentSlides.js";
+import Editor from "./components/Editor.js";
 import FetchData from "./components/FetchData.js";
+import Markdown from "./components/Markdown.js";
 import Math from "./components/Math.js";
 import PolygonData from "./components/PolygonData.js";
 import PolyhedronData from "./components/PolyhedronData.js";
+import Render from "./components/Render.js";
 import SheetData from "./components/SheetData.js";
+import Sidebar from "./components/Sidebar.js";
 import SliderData from "./components/SliderData.js";
 import Tabs from "./components/Tabs.js";
 import ThreeBox from "./components/ThreeBox.js";
@@ -20,8 +28,8 @@ import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/Transport.js";
 import TwoBox from "./components/TwoBox.js";
-import TwoDragScope from "./components/TwoDragScope.js";
 import TwoCircle from "./components/TwoCircle.js";
+import TwoDragScope from "./components/TwoDragScope.js";
 import TwoGrid from "./components/TwoGrid.js";
 import TwoGroup from "./components/TwoGroup.js";
 import TwoLine from "./components/TwoLine.js";
@@ -33,25 +41,23 @@ import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
-import StateData from "./components/experimental/StateData.js";
-
-import Markdown from "./components/Markdown.js";
-import Render from "./components/Render.js";
-import Editor from "./components/Editor.js";
-
-import ContentDocument from "./components/ContentDocument.js";
-import ContentSlides from "./components/ContentSlides.js";
-import ContentCards from "./components/ContentCards.js";
-import Sidebar from "./components/Sidebar.js";
 
 export {
   AnimeData,
+  ArrayData,
   Buttons,
+  ContentCards,
+  ContentDocument,
+  ContentSlides,
+  Editor,
   FetchData,
+  Markdown,
   Math,
   PolygonData,
   PolyhedronData,
+  Render,
   SheetData,
+  Sidebar,
   SliderData,
   Tabs,
   ThreeBox,
@@ -80,16 +86,6 @@ export {
   VrGrid,
   VrLine,
   VrScene,
-  StateData,
-
-  Markdown,
-  Render,
-  Editor,
-
-  ContentDocument,
-  ContentSlides,
-  ContentCards,
-  Sidebar
 };
 
 export const sortedComponents = [
@@ -139,6 +135,6 @@ export const sortedComponents = [
 
   { PolygonData },
 
-  { StateData },
+  { ArrayData },
 
 ]

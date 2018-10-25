@@ -6,7 +6,7 @@ export default {
     }
   },
   example: `
-<StateData :length="3">
+<ArrayData :length="3">
   <TwoScene slot-scope="data">
     <circle
       v-for="(x,i) in data.value"
@@ -19,7 +19,7 @@ export default {
       @click="data.update(i, 1 - data.value[i])"
     />
   </TwoScene>
-</StateData>
+</ArrayData>
   `,
   props: {
     length: { default: 1, type: Number }
