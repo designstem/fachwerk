@@ -200,9 +200,7 @@
 // Import single component to Vue
 import { TwoScene } from 'https://rawgit.com/designstem/framework/master/framework.js'
 Vue.component('TwoScene', TwoScene)
-new Vue({
-  components: { TwoScene }
-})
+new Vue({ el: '#app' })
 
 // Import all framework components to Vue
 import * as components from 'https://rawgit.com/designstem/framework/master/framework.js'
