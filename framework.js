@@ -35,6 +35,9 @@ import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 import StateData from "./components/experimental/StateData.js";
 
+import Markdown from "./components/Markdown.js";
+import Render from "./components/Render.js";
+
 export {
   AnimeData,
   Buttons,
@@ -71,7 +74,10 @@ export {
   VrGrid,
   VrLine,
   VrScene,
-  StateData
+  StateData,
+
+  Markdown,
+  Render
 };
 
 export const sortedComponents = [
