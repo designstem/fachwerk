@@ -9,11 +9,13 @@ export default {
 <StateData :length="3">
   <TwoScene slot-scope="data">
     <circle
-      v-for="(x,i) in 3"
+      v-for="(x,i) in data.value"
       :key="i"
-      :cx="[-1,0,1][i % 3]"
+      :cx="i - 1"
       r="0.5"
-      :fill="data.value[i] ? 'var(--red)' : 'var(--primary)'"
+      :fill="
+      data.value[i] ? 'var(--red)' : 'var(--primary)'
+      "
       @click="data.update(i, 1 - data.value[i])"
     />
   </TwoScene>
