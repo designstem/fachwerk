@@ -10,6 +10,7 @@
 
 <body>
   <div id="app">
+
     <header>
 
       <div>Fachwerk is a part of <a href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</div>
@@ -199,15 +200,16 @@
       <pre>
 // Import single component to Vue
 import { TwoScene } from 'https://rawgit.com/designstem/framework/master/framework.js'
-new Vue({
-  components: { TwoScene }
-})
+Vue.component('TwoScene', TwoScene)
+new Vue({ el: '#app' })
 
-// Import all components to Vue
+// Import all framework components to Vue
 import * as components from 'https://rawgit.com/designstem/framework/master/framework.js'
-new Vue({
-  components: { ...components }
-})</pre>
+for (const name in components) {
+  Vue.component(name, components[name])
+}
+new Vue({ el: '#app' })
+</pre>
 
       <Components />
 

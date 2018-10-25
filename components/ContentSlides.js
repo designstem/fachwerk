@@ -1,6 +1,8 @@
 import Markdown from "./Markdown.js";
 import Css from "./Css.js";
 
+import { parseColumns } from '../utils.js'
+
 export default {
   mixins: [Css],
   components: { Markdown },
@@ -11,8 +13,8 @@ export default {
       return this.content
         .replace(/\n--\n/g, "")
         .split(/\n---\n/)
-        .map(s => s.split(/\n-\n/));
-    }
+        .map(parseColumns);
+    },
   },
   methods: {
     prev() {
@@ -25,59 +27,76 @@ export default {
   },
   mounted() {
     document.addEventListener("keydown", e => {
-      if (e.keyCode == 37) {
+      if (e.altKey && e.keyCode == 37) {
         this.prev();
       }
-      if (e.keyCode == 39) {
+      if (e.altKey && e.keyCode == 39) {
         this.next();
       }
     });
   },
   template: `
-    <div>
-      <div
-        v-for="(slide,i) in preparedContent"
-        v-if="i == currentIndex"
-        class="slide"
-        :style="{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(' + Math.min(slide.length, 3) +', 1fr)',
-          gridGap: '1fr'
-        }"
-      >
-        <Markdown
-          v-for="(col,i) in slide"
-          :key="i"
-          :content="col"
-        />
-      </div>
+  <div>
+    <div
+      v-for="(slide,i) in preparedContent"
+      v-if="i == currentIndex"
+      class="slide"
+      :style="{
+        display: 'grid',
+        gridGap: '2em',
+        gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
+        gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
+        gridTemplateAreas: slide.areas,
+        gridAutoRows: '',
+        gridAutoColumns: '',
+        overflow: 'hidden',
+      }"
+    >
+      <Markdown
+        v-for="(col,i) in slide.content"
+        :style="{ gridArea: 'a' + (i + 1) }"
+        :key="i"
+        :content="col"
+      />
     </div>
-  `,
-  css: `
-    .slide {
-      padding: 1.5rem;
-    }
-    .slide p, .slide li, .slide .button_primary {
-      font-size: 1.3rem;
-      line-height: 2.2rem;
-    }
-    .slide .button_primary,
-    .slide .button_secondary {
-      font-size: 1.3rem;
-    }
-    .slide h2 {
-      font-size: 2.2em;
-    }
-    /*
-    .slide div {
-      margin-top: 1rem;
-    }
-    */
-    .slide li {
-      margin-bottom: 0.5rem;
-    }
-    .slide blockquote {
-      margin: 2em 0 2em 2em;
-    }
-  `
+  </div>
+`,
+css: `
+.slide {
+  padding: 3em;
+}
+.slide p, .slide li, .slide .button_primary {
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+.slide li p {
+  font-size: 1rem;
+}
+.slide .button_primary,
+.slide .button_secondary {
+  font-size: 1.3em;
+}
+.slide h1 {
+  font-size: 3em;
+}
+.slide h2 {
+  font-size: 2.2em;
+}
+.slide li {
+  margin-bottom: 0.5em;
+}
+.slide blockquote {
+  margin: 2em 0 2em 0;
+}
+.slide blockquote p {
+  font-size: 1.3rem;
+}
+.slide small {
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+.slide p a, .slide a {
+  font-size: inherit;
+}
+`
 };
