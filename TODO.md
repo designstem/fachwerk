@@ -141,16 +141,19 @@ update-frequency=""
 
 <StateData :length="3">
   <TwoScene slot-scope="data">
-    <text>{{ data }}</text>
     <circle
       v-for="(x,i) in data.value"
       :key="i"
       :cx="i - 1"
       r="0.5"
-      :fill="data.value[i]
-        ? 'var(--red)'
-        : 'var(--primary)'"
+      :fill="
+      data.value[i] ? 'var(--red)' : 'var(--primary)'
+      "
       @click="data.update(i, 1 - data.value[i])"
     />
   </TwoScene>
 </StateData>
+
+---
+
+import('https://unpkg.com/d3-shape@1.2.2/src/index.js?module')
