@@ -1,3 +1,6 @@
+// Use full URL when in other repo:
+// import Css from "https://designstem.github.io/framework/components/Css.js";
+
 import Css from "./Css.js";
 
 export default {
