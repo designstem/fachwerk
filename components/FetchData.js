@@ -25,20 +25,18 @@ Weather in Berlin:
     type: { default: "text", type: String }
   },
   mounted() {
-    if (this.url && this.type == 'json') {
-      fetch(this.url)
-        .then(res => {
-          if (this.type == 'json') {
-            return res.json()
-          }
-          return res.text()
-        })
-        .then(res => {
-          this.value = res;
-          this.loaded = true
-        })
-        .catch(error => console.log(error))
-    }
+    fetch(this.url)
+      .then(res => {
+        if (this.type == 'json') {
+          return res.json()
+        }
+        return res.text()
+      })
+      .then(res => {
+        this.value = res;
+        this.loaded = true
+      })
+      .catch(error => console.log(error))
   },
   render() {
     return this.loaded
