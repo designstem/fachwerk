@@ -1,11 +1,6 @@
 export default {
   props: ["src"],
-  data: () => ({ content : '', open: false}),
-  mounted() {
-    fetch(this.src)
-      .then(res => res.text())
-      .then(content => this.content = content)
-  },
+  data: () => ({ open: false }),
   template: `
     <span>
       <a style="color: var(--blue); border-bottom: 2px dotted var(--blue); cursor: help;" @click.prevent="open = !open"><slot /></a>
@@ -28,7 +23,13 @@ export default {
             top: 1rem;
             right: 1rem;
         ">✕</div>
-        <content-document style="font-size: 0.8em;" :content="content" />
+        <fetch-data :url="src">
+          <content-document
+            slot-scope="data"
+            :content="data.value"
+            style="font-size: 0.8em;"
+          />
+        </fetch-data>
       </div>
 </span>
   `
