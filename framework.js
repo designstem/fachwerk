@@ -42,6 +42,7 @@ import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 import Fade from "./components/Fade.js";
+import ButtonsData from "./components/ButtonsData.js";
 
 export {
   AnimeData,
@@ -87,7 +88,8 @@ export {
   VrGrid,
   VrLine,
   VrScene,
-  Fade
+  Fade,
+  ButtonsData
 };
 
 export const sortedComponents = [
@@ -117,6 +119,7 @@ export const sortedComponents = [
 
   { AnimeData },
   { SliderData },
+  { ButtonsData },
   { FetchData },
   { SheetData },
   
@@ -125,6 +128,8 @@ export const sortedComponents = [
   { Math },
   { Transport },
   { Buttons },
+
+  { Fade },
 
   // Hidden
 

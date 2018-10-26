@@ -5,6 +5,14 @@ import Css from "./Css.js";
 
 export default {
   mixins: [Css],
+  description: `Fading transition`,
+  example: `
+<ButtonsData :buttons="['On', 'Off']">
+  <h3 style="height: 3rem" slot-scope="data">
+    <fade v-if="!data.value">Fading like a flower</fade>
+  </h3>
+</ButtonsData>  
+  `,
   template: `
   <transition appear name="fade">
     <p><slot /></p>
