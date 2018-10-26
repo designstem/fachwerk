@@ -3,10 +3,13 @@ export default {
 Themes the content
   `,
   example: `
-<buttons-data :value="1" :buttons="['Light', 'Dark', 'Blue']">
+<buttons-data
+  :value="1"
+  :buttons="['Light', 'Dark', 'Blue','Yellow']
+">
   <theme
     slot-scope="data"
-    :theme="['light', 'dark', 'blue'][data.value]"
+    :theme="['light', 'dark', 'blue', 'yellow'][data.value]"
     style="padding: 1rem;"
   >
     <h2>Themed content</h2>
@@ -36,6 +39,12 @@ Themes the content
         background: "var(--darkblue)",
         "--primary": "var(--lightergray)",
         "--secondary": "var(--lightgray)"
+      },
+      yellow: {
+        background: "var(--yellow)",
+        "--primary": "var(--darkgray)",
+        "--lightblue": "var(--darkblue)",
+        "--blue": "var(--lightgray)"
       }
     }
   }),
