@@ -8,7 +8,7 @@ export default {
   description: `Fading transition`,
   example: `
 <ButtonsData :buttons="['On', 'Off']">
-  <h3 style="height: 3rem" slot-scope="data">
+  <h3 slot-scope="data">
     <fade v-if="!data.value">Fading like a flower</fade>
   </h3>
 </ButtonsData>  

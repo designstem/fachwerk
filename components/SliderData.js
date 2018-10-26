@@ -1,6 +1,6 @@
 export default {
   description: `
-Wrapper component, adding a slider below the children and passing down the slider value as <code>data.value</code>.
+Adds a slider next to the content and passing the slider value as <code>data.value</code>.
   `,
   example: `
 <SliderData>
@@ -27,9 +27,9 @@ Wrapper component, adding a slider below the children and passing down the slide
   },
   template: `
     <div>
-      <slot :value="innerValue"/>
       <label>{{ title }} <code>{{ innerValue }}</code></label>
-      <input type="range" v-model="innerValue" :min="from" :max="to" :step="step" />
+      <input style="margin-bottom: 1rem;" type="range" v-model="innerValue" :min="from" :max="to" :step="step" />
+      <slot :value="innerValue"/>
     </div>
   `
 };

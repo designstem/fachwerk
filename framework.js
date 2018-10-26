@@ -43,6 +43,7 @@ import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 import Fade from "./components/Fade.js";
 import ButtonsData from "./components/ButtonsData.js";
+import Theme from "./components/Theme.js";
 
 export {
   AnimeData,
@@ -89,7 +90,8 @@ export {
   VrLine,
   VrScene,
   Fade,
-  ButtonsData
+  ButtonsData,
+  Theme
 };
 
 export const sortedComponents = [
@@ -130,6 +132,8 @@ export const sortedComponents = [
   { Buttons },
 
   { Fade },
+
+  { Theme },
 
   // Hidden
 
