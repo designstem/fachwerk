@@ -1,18 +1,4 @@
 export default {
-  methods: {
-    onUpdate(newValue, x, y = -1, z = -1) {
-      // if (y > -1 && z > -1) {
-      //   this.$set(this.value, x, newValue);
-      // }
-      if (y > -1 && z == -1) {
-        this.$set(this.value[x], y, newValue);
-      }
-      if (y == -1 && z == -1) {
-        this.$set(this.value, x, newValue);
-      }
-
-    }
-  },
   example: `
 <ArrayData :length="3">
   <TwoScene slot-scope="data">
@@ -43,26 +29,45 @@ export default {
   </template>
   </TwoScene>
 </ArrayData>
+
+<ArrayData :length="3" :map="(_,i) => i">
+  <pre slot-scope="data">{{ data }}</pre>
+</ArrayData>
   `,
   props: {
     length: { default: 1, type: Number },
-    dimensions: { default: 1, type: Number }
+    dimensions: { default: 1, type: Number },
+    map: { default: () => 0, type: Function }
+  },
+  methods: {
+    onUpdate(newValue, x, y = -1, z = -1) {
+      if (y > -1 && z > -1) {
+        this.$set(this.value[x][y], z, newValue);
+      }
+      if (y > -1 && z == -1) {
+        this.$set(this.value[x], y, newValue);
+      }
+      if (y == -1 && z == -1) {
+        this.$set(this.value, x, newValue);
+      }
+
+    }
   },
   created() {
     if (this.dimensions == 3) {
-      this.value = Array.from({ length: this.length }).map(_ =>
-        Array.from({ length: this.length }).map(_ =>
-          Array.from({ length: this.length }).map(_ => 0)
+      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
+        Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
+          Array.from({ length: 1000 }).slice(0, this.length).map(this.map)
         )
       );
     }
     if (this.dimensions == 2) {
-      this.value = Array.from({ length: this.length }).map(_ =>
-        Array.from({ length: this.length }).map(_ => 0)
+      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
+        Array.from({ length: 1000 }).slice(0, this.length).map(this.map)
       );
     }
     if (this.dimensions == 1) {
-      this.value = Array.from({ length: this.length }).map(_ => 0);
+      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(this.map);
     }
   },
   data: () => ({ value: [] }),
