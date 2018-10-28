@@ -37,40 +37,59 @@ export default {
   props: {
     length: { default: 1, type: Number },
     dimensions: { default: 1, type: Number },
-    map: { default: () => 0, type: Function }
+    map: { default: (d) => d, type: Function }
   },
   methods: {
     onUpdate(newValue, x, y = -1, z = -1) {
       if (y > -1 && z > -1) {
-        this.$set(this.value[x][y], z, newValue);
+        this.$set(this.maxValue[x][y], z, newValue);
       }
       if (y > -1 && z == -1) {
-        this.$set(this.value[x], y, newValue);
+        this.$set(this.maxValue[x], y, newValue);
       }
       if (y == -1 && z == -1) {
-        this.$set(this.value, x, newValue);
+        this.$set(this.maxValue, x, newValue);
       }
-
+      
     }
   },
   created() {
     if (this.dimensions == 3) {
-      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
-        Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
-          Array.from({ length: 1000 }).slice(0, this.length).map(this.map)
+      this.maxValue = Array.from({ length: 1000 }).map(_ =>
+        Array.from({ length: 1000 }).map(_ =>
+          Array.from({ length: 1000 }).map(_ => 0)
         )
       );
     }
     if (this.dimensions == 2) {
-      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(_ =>
-        Array.from({ length: 1000 }).slice(0, this.length).map(this.map)
+      this.maxValue = Array.from({ length: 1000 }).map(_ =>
+        Array.from({ length: 1000 }).map(_ => 0)
       );
     }
     if (this.dimensions == 1) {
-      this.value = Array.from({ length: 1000 }).slice(0, this.length).map(this.map);
+      this.maxValue = Array.from({ length: 1000 }).map(_ => 0)
     }
   },
-  data: () => ({ value: [] }),
+  computed: {
+    value() {
+      if (this.dimensions == 3) {
+        return this.maxValue.slice(0, this.length).map(x =>
+          x.slice(0, this.length).map(y =>
+            y.slice(0, this.length).map(this.map)
+          )
+        );
+      }
+      if (this.dimensions == 2) {
+        return this.maxValue.slice(0, this.length).map(x =>
+          x.slice(0, this.length).map(this.map)
+        );
+      }
+      if (this.dimensions == 1) {
+        return this.maxValue.slice(0, this.length).map(this.map);
+      }
+    }
+  },
+  data: () => ({ maxValue: [] }),
   template: `
     <slot :value="value" :update="onUpdate" /> 
   `
