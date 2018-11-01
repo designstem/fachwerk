@@ -42,6 +42,7 @@ import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 import Fade from "./components/Fade.js";
+import Bounce from "./components/Bounce.js";
 import ButtonsData from "./components/ButtonsData.js";
 import Theme from "./components/Theme.js";
 
@@ -90,6 +91,7 @@ export {
   VrLine,
   VrScene,
   Fade,
+  Bounce,
   ButtonsData,
   Theme
 };
@@ -132,6 +134,7 @@ export const sortedComponents = [
   { Buttons },
 
   { Fade },
+  { Bounce },
 
   { Theme },
 
