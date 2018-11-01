@@ -7,11 +7,26 @@ Supports most of the animation options AnimeJS provides.
 See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
   `,
   example: `
-<ButtonsData :buttons="['Pause','Play']" :value="1">
-<AnimeDataTwo slot-scope="bData" :values="[{ from: 0, duration: 10000 },{ duration: 100 }]" :playing="bData.value">
-  <pre slot-scope="aData" v-html="aData" />
+  <AnimeData :to="99">
+<h1
+  slot-scope="data"
+  class="bullet"
+>
+    {{ Math.floor(data.value) }}
+</h1>
+</AnimeData>
+
+<AnimeDataTwo :values="[
+  {to: 360, duration: 1000 * 60 * 10 },
+  {to: 360, duration: 1000 * 60 * 10 },
+  {to: 360, duration: 1000 * 60 * 10 }
+]">
+<ThreeScene slot-scope="data">
+<ThreeGrid
+  :rotation="{ x: data.values[0], y: data.values[1], z: data.values[1] }"
+/>
+</ThreeScene>
 </AnimeDataTwo>
-</ButtonsData>
   `,
   props: {
     value: { default: 0, type: Number },
@@ -26,39 +41,63 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   },
   data: () => ({ innerValue: 0, innerValues: [] }),
   mounted() {
-    this.innerValues = this.values.map(v => {
-      return { value: v.value ? v.value : v.from ? v.from : 0 };
-    });
-    const animes = this.values.map((v, i) =>
-      anime({
-        targets: this.innerValues[i],
-        duration: v.duration || 5000,
-        value: v.to || 100,
-        loop: this.loop || true,
-        direction: v.alternate ? "alternate" : null,
-        easing: v.easing || "linear",
+    if (this.values.length) {
+      this.innerValues = this.values.map(v => {
+        return { value: v.value ? v.value : v.from ? v.from : 0 };
+      });
+      const as = this.values.map((v, i) =>
+        anime({
+          targets: this.innerValues[i],
+          duration: v.duration || this.duration,
+          value: v.to || this.to,
+          loop: this.loop || this.loop,
+          direction: v.alternate ? "alternate" : this.direction,
+          easing: v.easing || this.easing,
+          autoplay: false
+        })
+      );
+      this.$watch(
+        "playing",
+        playing => {
+          as.forEach(a => {
+            if (playing) {
+              a.play();
+            } else {
+              a.pause();
+            }
+          });
+        },
+        { immediate: true }
+      );
+    } else {
+      this.innerValue = this.value ? this.value : this.from ? this.from : 0
+      const a = anime({
+        targets: this,
+        innerValue: this.to,
+        duration: this.duration,
+        loop: this.loop,
+        direction: this.alternate ? "alternate" : null,
+        easing: this.easing,
         autoplay: false
-      })
-    );
-    this.$watch(
-      "playing",
-      playing => {
-        animes.forEach(a => {
+      });
+      this.$watch(
+        "playing",
+        playing => {
           if (playing) {
             a.play();
           } else {
-            a.pause()
+            a.pause();
           }
-        })
-      },
-      { immediate: true }
-    );
+        },
+        { immediate: true }
+      );
+    }
   },
   render() {
     return this.$scopedSlots.default
-      ? this.$scopedSlots.default({
+      ? this.$scopedSlots.default(this.values.length ? {
           values: this.innerValues.map(v => v.value)
-        })
+        } : { value: this.innerValue })
       : "";
   }
 };
