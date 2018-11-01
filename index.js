@@ -16,7 +16,7 @@ new Vue({
   data: () => ({ inverted: false }),
   mounted() {
     document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode === 73) { // Alt + I
+      if (e.altKey && e.keyCode === 84) { // Alt + T
         this.inverted = !this.inverted
       }
     });
