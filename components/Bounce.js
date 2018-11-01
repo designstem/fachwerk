@@ -20,10 +20,10 @@ export default {
   `,
   css: `
   .bounce-enter-active {
-    animation: bounce-in .5s;
+    animation: bounce-in .4s;
   }
   .bounce-leave-active {
-    animation: bounce-in .5s reverse;
+    animation: bounce-in .4s reverse;
   }
   .bounce-enter, .bounce-leave-to {
     transform: scale(0);
@@ -34,7 +34,7 @@ export default {
       transform: scale(0);
     }
     50% {
-      transform: scale(1.5);
+      transform: scale(1.2);
     }
     100% {
       transform: scale(1);
