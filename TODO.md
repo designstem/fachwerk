@@ -157,3 +157,20 @@ update-frequency=""
 ---
 
 import('https://unpkg.com/d3-shape@1.2.2/src/index.js?module')
+
+---
+
+TwoText
+
+---
+
+rgbdata
+hsldata
+blendmoded
+
+blindRgb()
+blindHsl()
+
+canIuse
+
+d-scene2d canvas="maybe"
