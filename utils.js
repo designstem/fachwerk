@@ -1,6 +1,50 @@
 let d = [];
 
 d.push(`
+## rgb
+
+<code>rgb(r, g, b, a = 1)</code>
+
+Outputs a CSS <code>rgba()</code> string
+
+#### Example:
+
+    rgb(50,100,50,0.5)
+    rgb(50,100,50)
+
+#### Output:
+
+    {{ rgb(50,100,50,0.5) }}
+    {{ rgb(50,100,50) }}
+
+`);
+
+const rgb = (r, g, b, a = 1) => `rgba(${r},${g},${b},${a})`;
+
+d.push(`
+## hsl
+
+<code>hsl(h, s = 100, l = 50, a = 1)</code>
+
+Outputs a CSS <code>hsla()</code> string
+
+#### Example
+
+    hsl(50,100,50,0.5)
+    hsl(50,100,50)
+    hsl(50)
+
+#### Output
+
+    {{ hsl(50,100,50,0.5) }}
+    {{ hsl(50,100,50) }}
+    {{ hsl(50) }}
+
+`);
+
+const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
+
+d.push(`
 ## scale
 
 <code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>
@@ -272,29 +316,6 @@ const chunk = (arr, length) =>
     arr.slice(n * length, n * length + length)
   );
 
-// Color
-
-d.push(`
-## hsl
-
-<code>hsl(h, s = 100, l = 50, a = 1)</code>
-
-Generates CSS <code>hsl()</code> color string based on function parameters.
-
-#### Example
-
-    hsl(100,50,0,0.5)
-    hsl(100)
-
-#### Output
-
-    {{ hsl(100,50,0,0.5) }}
-    {{ hsl(100) }}
-
-`);
-
-const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
-
 // Other utils
 
 d.push(`
@@ -329,7 +350,7 @@ d.push(`
 
 const log = value => console.log(value);
 
-// Google Sheets
+// For internal use
 
 const parseSheet = data => {
   return data.feed.entry.map(entry => {
@@ -346,8 +367,6 @@ const parseSheet = data => {
       }, {});
   });
 };
-
-// For Internal use
 
 const cleanColumns = content => {
   const pattern = /(\|[0-9\s]+\n)/g;
@@ -387,6 +406,8 @@ const parseColumns = slide => {
 const docs = () => d;
 
 export {
+  rgb,
+  hsl,
   scale,
   round,
   random,
@@ -399,7 +420,6 @@ export {
   shuffle,
   any,
   chunk,
-  hsl,
   flatten,
   snapToGrid,
   log,
