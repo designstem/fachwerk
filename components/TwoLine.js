@@ -28,7 +28,7 @@ export default {
       { x: 1, y: 0 },
       { x: 0.5, y: 1 },
     ]"
-    :tension="0"
+    :curved="true"
   />
   <TwoLine
     :points="[
@@ -37,7 +37,8 @@ export default {
       { x: 1.5, y: 1 },
     ]"
     :closed="true"
-    :tension="0"
+    :curved="true"
+    :tension="3"
   />
 </TwoScene>
   `,
@@ -45,7 +46,8 @@ export default {
     points: { default: [], type: Array },
     stroke: { default: "var(--primary)", type: String },
     closed: { default: false, type: Boolean },
-    tension: { default: false, type: [Number,Boolean] },
+    curved: { default: false, type: Boolean },
+    tension: { default: false, type: [Number] },
     opacity: { default: 1, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
@@ -53,14 +55,14 @@ export default {
   },
   computed: {
     path() {
-      if (this.tension !== false && this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension))
+      if (this.curved && this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 0))
       }
-      if (this.tension !== false && !this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinal.tension(this.tension))
+      if (this.curved && !this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinal.tension(this.tension || 0))
       }
-      if (this.tension == false && this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(1))
+      if (!this.curved && this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 1))
       } 
       return d3.line().x(d => d.x).y(d => d.y)
     }
