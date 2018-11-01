@@ -1,4 +1,5 @@
 import AnimeData from "./components/AnimeData.js";
+import AnimeDataTwo from "./components/AnimeDataTwo.js";
 import ArrayData from "./components/ArrayData.js";
 import Buttons from "./components/Buttons.js";
 import ContentCards from "./components/ContentCards.js";
@@ -48,6 +49,7 @@ import Theme from "./components/Theme.js";
 
 export {
   AnimeData,
+  AnimeDataTwo,
   ArrayData,
   Buttons,
   ContentCards,
@@ -97,6 +99,8 @@ export {
 };
 
 export const sortedComponents = [
+
+  { AnimeDataTwo },
 
   { TwoScene },
   { TwoGrid },
