@@ -118,13 +118,7 @@ ThreeRegulaPolygon
 :scale	{}	object
 
 AnimeData // AniData // AnimationData // MotionData
-
-SliderData
-:count = 2
-:values="{
-  from, to, value, title, name: x
-}
-?
+multiple values
 
 data.x
 data.value[1]

@@ -1,6 +1,6 @@
 export default {
   description: `
-Adds a slider next to the content and passing the slider value as <code>data.value</code>.
+Adds a slider next to the content and passing the slider value as <code>data.value</code> or <code>data.values</code>
   `,
   example: `
 <SliderData>
