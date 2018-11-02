@@ -3,19 +3,15 @@ import { Object2D } from "./internal/two.js";
 export default {
   mixins: [Object2D],
   description: `
-Sounds like [Zeit](https://www.youtube.com/watch?v=rjvF36gzLF8).  
+Das schwarze Loch
   `,
   example: `
 <TwoScene>
   <TwoGrid />
-  <TwoCircle
-    :position="{ x: 1, y: 1 }"
-    :rotation="{ z: 45 }"
-    :scale="{ x: 0.25, y: 0.25 }"
-  />
+  <TwoCircle />
   <TwoCircle
     :points="[{x: -1},{x: 0},{x: 1}]"
-    :r="0.25"
+    :r="0.1"
     fill="var(--red)"
   />
 </TwoScene>  
@@ -48,6 +44,7 @@ Sounds like [Zeit](https://www.youtube.com/watch?v=rjvF36gzLF8).
       :opacity="p.opacity || opacity"
     />
     <circle
+      v-if="!points.length"
       :cx="x"
       :cy="y"
       :r="r"
