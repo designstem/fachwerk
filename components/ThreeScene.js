@@ -6,14 +6,7 @@ _Der Raum_.
 `,
   example: `
 <ThreeScene>
-    <ThreeRegularPolygon
-      :count="64"
-      :rotation="{ y: 0.5, x: 0.5 }"
-    />
-    <ThreeLine
-      :points="[{ z: 0 },{ z: 1 }]"
-      :rotation="{ y: 0.5, x: 0.5 }"
-    />
+  <ThreeBox :rotation="{ y: 0.1, x: 1, z: 0.1 }" />
 </ThreeScene>
   `,
   components: { Renderer, Scene, Camera },

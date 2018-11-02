@@ -45,34 +45,19 @@ TwoScene
 
 TwoGrid
 - step
-- opacity (koigil)
+- opacity
 
 TwoLine
 ?- (midagi yhele ja kahele poidile?)
-- closed -> <TwoPolygon :closed="true"...
-- fill: none
-- stroke-width
 
 TwoCircle
-- r / radius
-- stroke-width
+- r / radius?
 - scale = 1 nr
-
-TwoBox
-- x y maha?
-- stroke
-
-TwoPoylgon
-- sisuliselt TwoLine closed
-
-TwoRegularPolygon
-- sisuliselt cpoints + Twoline closed
 
 ThreeScene
 - size (w / h ?)
 
 ThreeGroup
-- :scale="{ x: 0.2, y: 0.2, z: 0.2 }"
 - opacity
 
 ThreeGrid
@@ -118,16 +103,9 @@ ThreeRegulaPolygon
 :scale	{}	object
 
 AnimeData // AniData // AnimationData // MotionData
-multiple values
-
-data.x
-data.value[1]
-
-data.value1
-data.value2
+multiple values...
 
 FetchData = SheetData
-text="true"
 update=""
 update-frequency=""
 

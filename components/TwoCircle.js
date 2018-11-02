@@ -3,16 +3,14 @@ import { Object2D } from "./internal/two.js";
 export default {
   mixins: [Object2D],
   description: `
-Das schwarze Loch
   `,
   example: `
 <TwoScene>
   <TwoGrid />
   <TwoCircle />
   <TwoCircle
-    :points="[{x: -1},{x: 0},{x: 1}]"
+    :points="[{x: -0.5},{x: 0},{x: 0.5}]"
     :r="0.1"
-    fill="var(--red)"
   />
 </TwoScene>  
   `,
@@ -21,9 +19,9 @@ Das schwarze Loch
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
     r: { default: 1, type: Number },
-    stroke: { default: 'none', type: String},
+    stroke: { default: 'var(--primary)', type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: 'var(--primary)', type: String},
+    fill: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },

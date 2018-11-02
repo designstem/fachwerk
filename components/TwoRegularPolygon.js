@@ -1,11 +1,10 @@
 import TwoPolygon from "./TwoPolygon.js"
-import { cx, cy } from "../utils.js";
+import { cpoints } from "../utils.js";
 import { Object2D } from "./internal/two.js";
 
 export default {
   mixins: [Object2D],
   description: `
-🚜 **This component needs rework.** 
   `,
   example: `
 <AnimeData :to="16">
@@ -26,26 +25,25 @@ export default {
   props: {
     count: { default: 6, type: Number },
     radius: { default: 1, type: Number },
+    stroke: { default: "var(--primary)", type: String },
+    strokeWidth: { default: 3, type: Number },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object }
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number },
   },
-  computed: {
-    points() {
-      return Array.from({
-        length: 1000
-      })
-        .slice(0, this.count)
-        .map((p, i) => ({
-          x: cx((360 / this.count) * i - 180, this.radius),
-          y: cy((360 / this.count) * i - 180, this.radius)
-        }));
-    }
-  },
+  methods: { cpoints },
   template: `
     <TwoPolygon
-      :points="points"
+      :points="cpoints(count,radius)"
+      :stroke="stroke"
+      :stroke-width="strokeWidth"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      :fill="fill"
       :transform="transform"
+      :opacity="opacity"
     />
   `
 };

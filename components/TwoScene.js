@@ -9,15 +9,17 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
 `,
   example: `
 <TwoScene>
-    <circle fill="var(--primary)" r="1" />
+  <TwoGrid />
+  <circle fill="var(--primary)" r="1" />
 </TwoScene>
   `,
   props: {
-    size: { default: 250, type: Number }
+    size: { default: 250, type: Number },
+    innerSize: { default: 4, type: Number }
   },
   computed: {
     viewBox() {
-      return `-2 -2 4 4`;
+      return `-${this.innerSize / 2} -${this.innerSize / 2} ${this.innerSize} ${this.innerSize}`;
     }
   },
   template: `

@@ -12,7 +12,7 @@ Groups components in 3D scene and applies transformations like <code>:position</
   <ThreeGroup
     :position="{ x: 1, y: 1 }"
     :rotation="{ z: 45 }"
-    :scale="{ x: 0.2, y: 0.2 }"
+    :scale="{ x: 0.2, y: 0.2, z: 0.2 }"
     >
       <ThreeBox />
   </ThreeGroup>

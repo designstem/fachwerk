@@ -14,7 +14,6 @@ export default {
     :r="0.1"
     width="0.2"
     height="0.2"
-    fill="var(--red)"
   />
 </TwoScene>
   `,
@@ -24,9 +23,9 @@ export default {
     points: { default: [], type: Array },
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
-    stroke: { default: 'none', type: String},
+    stroke: { default: 'var(--primary)', type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "var(--primary)", type: String },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },

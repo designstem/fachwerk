@@ -26,9 +26,9 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "none", type: String },
+    stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "var(--primary)", type: String },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
