@@ -1,6 +1,6 @@
 export default {
   description: `
-Adds a slider next to the content and passing the slider value as <code>data.value</code> or <code>data.values</code>
+Adds a slider next to the content and passing the slider value as <code>data.value</code> 
   `,
   example: `
 <SliderData>
@@ -58,7 +58,7 @@ Adds a slider next to the content and passing the slider value as <code>data.val
           v-model="innerValues[i]"
           :min="v.from"
           :max="v.to"
-          :step="v.step ? v.step : v.float ? 0.01 : 1"
+          :step="v.step ? v.step : v.float ? 0.000001 : 1"
         />
       </div>
       <slot v-if="values.length" :values="innerValues" />
