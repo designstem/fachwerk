@@ -2,10 +2,10 @@ import { deg2rad } from '../utils.js'
 
 export default {
   description: `
-Sliders for <code>x y z<code> coordinate data in *radians*. 
+Sliders for <code>x y z</code> coordinate data in *radians*. 
   `,
   example: `
-    <SliderDataXyz>
+    <XyzData>
       <ThreeScene slot-scope="data">
         <ThreeBox :rotation="{
           x: data.values[0],
@@ -13,7 +13,7 @@ Sliders for <code>x y z<code> coordinate data in *radians*.
           z: data.values[2]
         }" />
       </ThreeScene>
-    </SliderDataXyz>
+    </XyzData>
   `,
   methods: { deg2rad },
   template: `

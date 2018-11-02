@@ -45,7 +45,9 @@ import Fade from "./components/Fade.js";
 import Bounce from "./components/Bounce.js";
 import ButtonsData from "./components/ButtonsData.js";
 import Theme from "./components/Theme.js";
-import SliderDataXyz from "./components/SliderDataXyz.js";
+import XyzData from "./components/XyzData.js";
+import RgbData from "./components/RgbData.js";
+import HslData from "./components/HslData.js";
 
 export {
   AnimeData,
@@ -95,7 +97,9 @@ export {
   Bounce,
   ButtonsData,
   Theme,
-  SliderDataXyz
+  XyzData,
+  RgbData,
+  HslData
 };
 
 export const sortedComponents = [
@@ -125,7 +129,10 @@ export const sortedComponents = [
 
   { AnimeData },
   { SliderData },
-  { SliderDataXyz },
+  { XyzData },
+  { RgbData },
+  { HslData },
+
   { ButtonsData },
   { FetchData },
   { SheetData },
