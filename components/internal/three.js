@@ -168,8 +168,8 @@ const Renderer = {
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      //curObj = new THREE.SVGRenderer({ antialias: true });
-      curObj = new THREE.WebGLRenderer({ antialias: true });
+      curObj = new THREE.SVGRenderer({ antialias: true });
+      //curObj = new THREE.WebGLRenderer({ antialias: true });
       curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
