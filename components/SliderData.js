@@ -10,24 +10,15 @@ Adds a slider next to the content and passing the slider value as <code>data.val
 </SliderData>
 
 <SliderData :values="[
-  { title: 'R', to: 255, value: 102 },
-  { title: 'G', to: 255, value: 51 },
-  { title: 'B', to: 255, value: 153 },
-  { title: 'A', to: 1, value: 1, float: true },
+  { title: 'X', from: -2, to: 2, value: 0, float: true },
+  { title: 'Y', from: -2, to: 2, value: 0, float: true },
 ]">
   <TwoScene slot-scope="data">
-    <TwoCircle :fill="rgb(...data.values)" />
-  </TwoScene>
-</SliderData>
-
-<SliderData :values="[
-  { title: 'H', to: 255, value: 270 },
-  { title: 'S', to: 100, value: 50 },
-  { title: 'L', to: 100, value: 40 },
-  { title: 'A', to: 1, value: 1, float: true },
-]">
-  <TwoScene slot-scope="data">
-    <TwoCircle :fill="hsl(...data.values)" />
+    <TwoGrid />
+    <TwoCircle :position="{
+      x: data.values[0],
+      y: data.values[1]
+    }" />
   </TwoScene>
 </SliderData>
   `,
