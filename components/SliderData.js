@@ -47,9 +47,9 @@ Adds a slider next to the content and passing the slider value as <code>data.val
           style="margin-bottom: 1rem;"
           type="range"
           v-model="innerValues[i]"
-          :min="v.from"
-          :max="v.to"
-          :step="v.step ? v.step : v.float ? 0.000001 : 1"
+          :min="v.from || this.from"
+          :max="v.to || this.to"
+          :step="v.step ? v.step : this.step ? this.step : v.float ? 0.000001 : 1"
         />
       </div>
       <slot v-if="values.length" :values="innerValues" />
