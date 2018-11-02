@@ -257,3 +257,25 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   }
 };
 ```
+
+---
+
+<array-data :length="10" :dimensions="2">
+  <three-scene slot-scope="data">
+<three-group
+    :rotation="{ y: -0.5, x: 0.5 }"
+    :scale="{x: 0.5,y: 0.5, z: 0.5}"
+  >
+<three-group v-for="(col, x) in data.value">
+  <three-box
+    v-for="(value, y) in col"
+    :key="x * y"
+    :position="{ x: 4 / 10 * x - 2, y: 4 / 10 * y - 2 }"
+    :width="4 / 10"
+    :height="4 / 10"
+    :depth="4 / 10"
+  />
+  </three-group>
+  </three-group>
+  </three-scene>
+</array-data>
