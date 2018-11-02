@@ -23,13 +23,13 @@ Adds a slider next to the content and passing the slider value as <code>data.val
 </SliderData>
   `,
   props: {
-    title: { default: "Value", type: String },
     value: { default: 0, type: Number },
+    title: { default: "Value", type: String },
     from: { default: 0, type: Number },
     to: { default: 100, type: Number },
     step: { default: 1, type: Number },
+    float: { default: false, type: Boolean },
     values: { default: () => [], type: [Array] },
-    float: { default: false, type: Boolean }
   },
   data: function() {
     return {

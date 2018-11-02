@@ -5,7 +5,7 @@ export default {
 Sliders for <code>x y z</code> coordinate data in *radians*. 
   `,
   example: `
-    <XyzData>
+    <RotationData>
       <ThreeScene slot-scope="data">
         <ThreeBox :rotation="{
           x: data.values[0],
@@ -13,17 +13,16 @@ Sliders for <code>x y z</code> coordinate data in *radians*.
           z: data.values[2]
         }" />
       </ThreeScene>
-    </XyzData>
+    </RotationData>
   `,
   methods: { deg2rad },
   template: `
   <SliderData :values="[
-    { title: 'X', to: deg2rad(360), float: true },
-    { title: 'Y', to: deg2rad(360), float: true },
-    { title: 'Z', to: deg2rad(360), float: true },
+    { title: 'X axis', to: deg2rad(360), float: true },
+    { title: 'Y axis', to: deg2rad(360), float: true },
+    { title: 'Z axis', to: deg2rad(360), float: true },
   ]">
     <template slot-scope="data">
-      <pre>{{ data }}</pre>
       <slot :values="data.values" />
     </template>
   </SliderData>
