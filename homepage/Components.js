@@ -18,7 +18,7 @@ const Props = {
     },
     formatType(prop) {
       if (prop.hasOwnProperty('type')) {
-        const t = prop.type instanceof Array ? (prop.type[0])() : (prop.type)()
+        const t = prop.type instanceof Array ? (prop.type[0])() : typeof prop.type == 'function' ? (prop.type)() : prop.type
         return (t instanceof Array) ? 'array' : typeof t
       }
       return null;
