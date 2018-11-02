@@ -45,6 +45,8 @@ export default {
   props: {
     points: { default: [], type: Array },
     stroke: { default: "var(--primary)", type: String },
+    strokeWidth: { default: 3, type: Number },
+    fill: { default: "none", type: String },
     closed: { default: false, type: Boolean },
     curved: { default: false, type: Boolean },
     tension: { default: false, type: [Number] },
@@ -72,10 +74,10 @@ export default {
       <path
         :d="path(points)"
         :stroke="stroke"
-        stroke-width="3"
+        :stroke-width="strokeWidth"
         stroke-linecap="round"
         stroke-linejoin="round"
-        fill="none"
+        :fill="fill"
         :opacity="opacity"
       />
     </g>

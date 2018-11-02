@@ -26,26 +26,25 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    fill: { default: "var(--secondary)", type: String },
-    stroke: { default: "var(--primary)", type: String },
+    stroke: { default: "none", type: String },
+    strokeWidth: { default: 3, type: Number },
+    fill: { default: "var(--primary)", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object }
-  },
-  computed: {
-    svgPoints() {
-      return this.points.map(({ x, y }) => `${x},${y}`).join(" ");
-    }
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number },
   },
   template: `
-    <polygon
-      :points="svgPoints"
+    <TwoLine
+      :points="points"
       :stroke="stroke"
-      :fill="fill"
-      stroke-width="3"
+      :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
+      :fill="fill"
       :transform="transform"
+      :opacity="opacity"
+      :closed="true"
     />
-    `
+  `
 };
