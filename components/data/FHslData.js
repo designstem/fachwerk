@@ -1,15 +1,15 @@
-import { deg2rad } from "../utils.js";
+import { deg2rad } from "../../utils.js";
 
 export default {
   description: `
 Sliders for <code>h s l</code> color values.
   `,
   example: `
-<HslData h="270" s="50" l="40">
-  <TwoScene slot-scope="data">
-    <TwoCircle :fill="hsl(...data.values)" />
-  </TwoScene>
-</HslData>
+<f-hsl-data h="270" s="50" l="40">
+  <f-scene slot-scope="data">
+    <f-circle :fill="hsl(...data.values)" />
+  </f-scene>
+</f-hsl-data>
   `,
   props: {
     h: { default: 0, type: Number },
@@ -18,7 +18,7 @@ Sliders for <code>h s l</code> color values.
   },
   methods: { deg2rad },
   template: `
-<SliderData :values="[
+<f-slider-data :values="[
   { title: 'Hue', to: 360, value: h, },
   { title: 'Saturation', to: 100, value: s },
   { title: 'Lightness', to: 100, value: l },
@@ -26,6 +26,6 @@ Sliders for <code>h s l</code> color values.
     <template slot-scope="data">
       <slot :values="data.values" />
     </template>
-  </SliderData>
+  </f-slider-data>
   `
 };

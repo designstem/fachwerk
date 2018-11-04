@@ -1,9 +1,9 @@
 export default {
   description: `
-A button group, meant to be used with <code>v-model</code>.
+A button group, meant to be used with \`v-model\`.
   `,
   example: `
-<Buttons
+<f-buttons
   v-model="someVariable"
   :buttons="['First','Second']"
 />

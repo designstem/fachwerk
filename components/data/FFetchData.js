@@ -3,16 +3,18 @@ export default {
 Fetches data via AJAX.
   `,
   example: `
-<FetchData
+<f-fetch-data
   url="https://sofetch.glitch.me/https://samples.openweathermap.org/data/2.5/weather?q=Berlin,de&appid=b6907d289e10d714a6e88b30761fae22"
   type="json"
-> <pre
-  style="width: 250px"
-  slot-scope="data"
 >
-Weather in Berlin: {{ data.value.weather[0].main }}
-</pre>
-</FetchData>
+  <pre
+    style="width: 250px"
+    slot-scope="data"
+  >
+  Weather in Berlin:
+  {{ data.value.weather[0].main }}
+  </pre>
+</f-fetch-data>
   `,
   data: () => ({ value: null, loaded: false }),
   props: {

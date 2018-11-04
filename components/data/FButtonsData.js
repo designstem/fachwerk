@@ -17,7 +17,7 @@ Wrapper component, adding a set of buttons on below the content and passing the 
   },
   template: `
     <div>
-      <buttons
+      <f-buttons
         v-model="innerValue"
         :buttons="buttons"
         style="margin-bottom: 1rem;"

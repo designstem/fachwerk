@@ -1,15 +1,15 @@
-import { deg2rad } from "../utils.js";
+import { deg2rad } from "../../utils.js";
 
 export default {
   description: `
   Sliders for <code>r g b</code> color values.
   `,
   example: `
-<RgbData r="102" g="51" b="153">
-  <TwoScene slot-scope="data">
-    <TwoCircle :fill="rgb(...data.values)" />
-  </TwoScene>
-</RgbData>
+<f-rgb-data r="102" g="51" b="153">
+  <f-scene slot-scope="data">
+    <f-circle :fill="rgb(...data.values)" />
+  </f-scene>
+</f-rgb-data>
   `,
   props: {
     r: { default: 128, type: Number },
