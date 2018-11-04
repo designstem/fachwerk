@@ -3,24 +3,24 @@ export default {
 Adds a slider next to the content and passing the slider value as <code>data.value</code> 
   `,
   example: `
-<SliderData>
+<f-slider-data>
   <h1 class="bullet" slot-scope="data">
     {{ data.value }}
   </h1>
-</SliderData>
+</f-slider-data>
 
-<SliderData :values="[
+<f-slider-data :values="[
   { title: 'X', from: -2, to: 2, value: 0, float: true },
   { title: 'Y', from: -2, to: 2, value: 0, float: true },
 ]">
-  <TwoScene slot-scope="data">
-    <TwoGrid />
-    <TwoCircle :position="{
+  <f-scene slot-scope="data">
+    <f-grid />
+    <f-circle :position="{
       x: data.values[0],
       y: data.values[1]
     }" />
-  </TwoScene>
-</SliderData>
+  </f-scene>
+</f-slider-data>
   `,
   props: {
     value: { default: 0, type: Number },

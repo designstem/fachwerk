@@ -1,4 +1,4 @@
-import Css from "./Css.js";
+import Css from "../Css.js";
 
 export default {
   mixins: [Css],
@@ -11,20 +11,20 @@ It also supports dynamic content with inline variables but due to the technical 
   `,
   example: `
 <p>Does not update</p>
-<Math>
+<f-math>
   a = 10
   b = a^2 + 100
   c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
-</Math>
+</f-math>
 
 <p>Updates when edited and slider changed</p>
-<SliderData>
-  <Math slot-scope="data" :update="data.value">
+<f-slider-data>
+  <f-math slot-scope="data" :update="data.value">
     a = 10
     b = a^2 + {{ data.value }}
     c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
-  </Math>
-</SliderData>
+  </f-math>
+</f-slider-data>
   `,
   props: ["update"],
   data: () => ({ math: 0 }),

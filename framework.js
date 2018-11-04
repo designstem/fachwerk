@@ -50,10 +50,16 @@ export { FHslData };
 import FFetchData from "./components/data/FFetchData.js";
 export { FFetchData };
 
+import FSliderData from "./components/data/FSliderData.js";
+export { FSliderData }
+
 // Content
 
 import FButtons from "./components/content/FButtons.js";
 export { FButtons };
+
+import FMath from "./components/content/FMath.js";
+export { FMath }
 
 // Experimental
 
@@ -69,13 +75,11 @@ import ContentSlides from "./components/ContentSlides.js";
 import Editor from "./components/Editor.js";
 import Markdown from "./components/Markdown.js";
 
-import Math from "./components/Math.js";
 import PolygonData from "./components/PolygonData.js";
 import PolyhedronData from "./components/PolyhedronData.js";
 import Render from "./components/Render.js";
 import SheetData from "./components/SheetData.js";
 import Sidebar from "./components/Sidebar.js";
-import SliderData from "./components/SliderData.js";
 import Tabs from "./components/Tabs.js";
 import ThreeBox from "./components/ThreeBox.js";
 import ThreeCircle from "./components/ThreeCircle.js";
@@ -102,13 +106,11 @@ export {
   ContentSlides,
   Editor,
   Markdown,
-  Math,
   PolygonData,
   PolyhedronData,
   Render,
   SheetData,
   Sidebar,
-  SliderData,
   Tabs,
   ThreeBox,
   ThreeCircle,
@@ -146,6 +148,7 @@ export const sortedComponents = [
   { FArrayData },
   { FButtonsData },
 
+  { FSliderData },
   { FHslData },
   { FRgbData },
 
@@ -156,7 +159,8 @@ export const sortedComponents = [
   { FBounce },
 
   // Content
-  { FButtons }
+  { FButtons },
+  { FMath }
 
   // Experimental
   // { FSceneData },

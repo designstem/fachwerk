@@ -18,14 +18,14 @@ export default {
   },
   methods: { deg2rad },
   template: `
-<SliderData :values="[
+<f-slider-data :values="[
   { title: 'R', to: 255, value: r },
   { title: 'G', to: 255, value: g },
   { title: 'B', to: 255, value: b },
 ]">
-    <template slot-scope="data">
-      <slot :values="data.values" />
-    </template>
-  </SliderData>
+  <template slot-scope="data">
+    <slot :values="data.values" />
+  </template>
+</f-slider-data>
   `
 };
