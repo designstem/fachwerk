@@ -3,23 +3,23 @@ export default {
 Themes the content
   `,
   example: `
-<buttons-data
+<f-buttons-data
   :value="1"
   :buttons="['Light', 'Dark', 'Blue','Yellow']
 ">
-  <theme
+  <f-theme
     slot-scope="data"
     :theme="['light', 'dark', 'blue', 'yellow'][data.value]"
     style="padding: 1rem;"
   >
     <h2>Themed content</h2>
     <p>Some <code>code</code> here</p>
-    <two-scene size="220px">
-      <two-grid />
-      <two-circle />
-    </two-scene>
-  </theme>
-</buttons-data>
+    <f-scene size="220px">
+      <f-grid />
+      <f-circle />
+    </f-scene>
+  </f-theme>
+</f-buttons-data>
   `,
   props: {
     theme: { default: "light", type: String }

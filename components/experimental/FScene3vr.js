@@ -1,9 +1,4 @@
-Vue.config.ignoredElements = [
-  "a-scene",
-  "a-sky",
-  "a-box",
-  "a-line"
-]
+Vue.config.ignoredElements = ["a-scene", "a-sky", "a-box", "a-line"];
 
 export default {
   description: `

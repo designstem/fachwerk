@@ -51,6 +51,9 @@ export { FPolygon3 }
 import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
 export { FRegularpolygon3 }
 
+import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
+export { FPolyhedron3 }
+
 // Transitions
 
 import FFade from "./components/transitions/FFade.js";
@@ -96,6 +99,9 @@ export { FButtons };
 import FMath from "./components/content/FMath.js";
 export { FMath }
 
+import FTheme from "./components/content/FTheme.js";
+export { FTheme }
+
 // Experimental
 
 import FSceneData from "./components/experimental/FSceneData.js";
@@ -103,6 +109,20 @@ export { FSceneData };
 
 import FDragData from "./components/experimental/FDragData.js";
 export { FDragData };
+
+import FScene3vr from "./components/experimental/FScene3vr.js";
+export { FScene3vr }
+
+import FGrid3vr from "./components/experimental/FGrid3vr.js";
+export { FGrid3vr }
+
+import FBox3vr from "./components/experimental/FBox3vr.js";
+export { FBox3vr }
+
+import FLine3vr from "./components/experimental/FLine3vr.js";
+export { FLine3vr }
+
+// Other
 
 import ContentCards from "./components/ContentCards.js";
 import ContentDocument from "./components/ContentDocument.js";
@@ -112,15 +132,6 @@ import Markdown from "./components/Markdown.js";
 import Render from "./components/Render.js";
 import Sidebar from "./components/Sidebar.js";
 import Tabs from "./components/Tabs.js";
-import ThreeLight from "./components/experimental/ThreeLight.js";
-import ThreePolyhedron from "./components/ThreePolyhedron.js";
-
-import Transport from "./components/experimental/Transport.js";
-import VrBox from "./components/experimental/VrBox.js";
-import VrGrid from "./components/experimental/VrGrid.js";
-import VrLine from "./components/experimental/VrLine.js";
-import VrScene from "./components/experimental/VrScene.js";
-import Theme from "./components/Theme.js";
 
 export {
   ContentCards,
@@ -131,14 +142,6 @@ export {
   Render,
   Sidebar,
   Tabs,
-  ThreeLight,
-  ThreePolyhedron,
-  Transport,
-  VrBox,
-  VrGrid,
-  VrLine,
-  VrScene,
-  Theme,
 };
 
 export const sortedComponents = [
@@ -163,6 +166,11 @@ export const sortedComponents = [
   { FPolygon3 },
   { FRegularpolygon3 },
 
+  // Content
+  { FButtons },
+  { FMath },
+  { FTheme },
+
   // Data
   { FAnimationData },
   { FArrayData },
@@ -180,27 +188,5 @@ export const sortedComponents = [
   // Transitions
   { FFade },
   { FBounce },
-
-  // Content
-  { FButtons },
-  { FMath }
-
-  // Experimental
-  // { FSceneData },
-  // { FDragData },
-
-  // { ThreePolyhedron },
-  // { ThreeLight },
-
-  // { Theme },
-
-  // // Hidden
-
-  // { VrScene },
-  // { VrBox },
-  // { VrLine },
-  // { VrGrid },
-
-  // { Tabs },
 
 ];

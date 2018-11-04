@@ -1,9 +1,9 @@
-import { Object3D } from "./internal/three.js";
+import { Object3D } from "./3d.js";
 
 export default {
   example: `
-<ThreeScene>
-  <ThreePolyhedron
+<f-scene3>
+  <f-polyhedron3
     v-for="(hedron,i) in [
       'Tetrahedron',
       'Octahedron',
@@ -15,7 +15,7 @@ export default {
     :position="{x: i - 1.5}"
     :radius="0.5"
   />
-</ThreeScene>  
+</f-scene3>  
   `,
   mixins: [Object3D],
   props: {

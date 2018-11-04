@@ -1,6 +1,6 @@
 export default {
   template: `
-    <a-entity>
+  <a-entity>
     <a-entity
       v-for="x in [-2,-1,0,1,2]"
       :line="'start: '+x+', -2, 0; end: '+x+' 2 0; color: black'"
@@ -16,6 +16,6 @@ export default {
       :line="'start: 0, -2 '+z+'; end: 0 2 '+z+'; color: black'"
       :key="'z'+z"
     />
-    </a-entity>
+  </a-entity>
   `
 };
