@@ -1,14 +1,28 @@
 import FScene from "./components/2d/FScene.js";
-import FGrid from "./components/2d/FGrid.js";
-import FGroup from "./components/2d/FGroup.js";
-import FBox from "./components/2d/FBox.js";
-import FLine from "./components/2d/FLine.js";
-import FCircle from "./components/2d/FCircle.js";
-import FPolygon from "./components/2d/FPolygon.js";
-import FRegularpolygon from "./components/2d/FRegularpolygon.js";
-import FArrayData from "./components/data/FArrayData.js";
+export { FScene }
 
-import FAnimationData from "./components/data/FAnimationData.js";
+import FGrid from "./components/2d/FGrid.js";
+export { FGrid }
+
+import FGroup from "./components/2d/FGroup.js";
+export { FGroup }
+
+import FBox from "./components/2d/FBox.js";
+export { FBox }
+
+import FLine from "./components/2d/FLine.js";
+export { FLine }
+
+import FCircle from "./components/2d/FCircle.js";
+export { FCircle }
+
+import FPolygon from "./components/2d/FPolygon.js";
+export { FPolygon }
+
+import FRegularpolygon from "./components/2d/FRegularpolygon.js";
+export { FRegularpolygon }
+
+// Transitions
 
 import FFade from "./components/transitions/FFade.js";
 export { FFade }
@@ -16,11 +30,22 @@ export { FFade }
 import FBounce from "./components/transitions/FBounce.js";
 export { FBounce }
 
+// Data
+
+import FArrayData from "./components/data/FArrayData.js";
+export { FArrayData }
+
+import FAnimationData from "./components/data/FAnimationData.js";
+export { FAnimationData }
+
 import FButtonsData from "./components/data/FButtonsData.js";
 export { FButtonsData }
 
 import FSceneData from "./components/experimental/FSceneData.js"
+export { FSceneData }
+
 import FDragData from "./components/experimental/FDragData.js"
+export { FDragData }
 
 import Buttons from "./components/Buttons.js";
 import ContentCards from "./components/ContentCards.js";
@@ -60,20 +85,20 @@ import HslData from "./components/HslData.js";
 
 export {
 
-  FScene,
-  FGrid,
-  FGroup,
-  FBox,
-  FLine,
-  FCircle,
-  FPolygon,
-  FRegularpolygon,
+  // FScene,
+  // FGrid,
+  // FGroup,
+  // FBox,
+  // FLine,
+  // FCircle,
+  // FPolygon,
+  // FRegularpolygon,
 
-  FAnimationData,
-  FArrayData,
+  // FAnimationData,
+  // FArrayData,
 
-  FSceneData,
-  FDragData,
+  // FSceneData,
+  // FDragData,
   
   Buttons,
   ContentCards,
