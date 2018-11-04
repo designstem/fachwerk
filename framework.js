@@ -27,7 +27,6 @@ import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/Transport.js";
-import TwoDragScope from "./components/TwoDragScope.js";
 
 import FScene from "./components/2d/FScene.js";
 import FGrid from "./components/2d/FGrid.js";
@@ -38,9 +37,11 @@ import FCircle from "./components/2d/FCircle.js";
 import FPolygon from "./components/2d/FPolygon.js";
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 
+import FSceneData from "./components/experimental/FSceneData.js"
+import FDragData from "./components/experimental/FDragData.js"
+
 import FAnimationData from "./components/data/FAnimationData.js";
 
-import TwoSceneScope from "./components/TwoSceneScope.js";
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
@@ -82,7 +83,6 @@ export {
   ThreeScene,
   ThreeTriangle,
   Transport,
-  TwoDragScope,
 
   FScene,
   FGrid,
@@ -91,11 +91,13 @@ export {
   FLine,
   FCircle,
   FPolygon,
-  //FRegularpolygon,
+  FRegularpolygon,
+
+  FSceneData,
+  FDragData,
 
   //FAnimationData,
 
-  TwoSceneScope,
   VrBox,
   VrGrid,
   VrLine,
@@ -112,7 +114,6 @@ export {
 export const sortedComponents = [
 
   // 2D
-
   { FScene },
   { FGrid },
   { FGroup },
@@ -124,9 +125,11 @@ export const sortedComponents = [
 
   // Data
 
-  { FAnimationData },
+  { FSceneData },
+  { FDragData },
+
+  // { FAnimationData },
   
-  // { TwoRegularPolygon },
   // { TwoSceneScope },
   // { TwoDragScope },
 

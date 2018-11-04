@@ -8,23 +8,14 @@ export default {
   description: `
   `,
   example: `
-<f-animation-data :to="16">
-  <f-scene slot-scope="data">
-    <f-regularpolygon
-      :count="data.value"
-    />
-    <f-regularpolygon
-      :count="value"
-      :position="{ x: 1, y: 1 }"
-      :rotation="{ z: 45 }"
-      :scale="{ x: 0.2, y: 0.2 }"
-    />
-  </f-scene>
-</f-animation-data>
+<f-scene>
+  <f-regularpolygon />
+  <f-regularpolygon :r="0.5" :count="5" />
+</f-scene>
   `,
   props: {
     count: { default: 6, type: Number },
-    radius: { default: 1, type: Number },
+    r: { default: 1, type: Number },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
@@ -36,7 +27,7 @@ export default {
   methods: { cpoints },
   template: `
     <f-polygon
-      :points="cpoints(count,radius)"
+      :points="cpoints(count,r)"
       :stroke="stroke"
       :stroke-width="strokeWidth"
       stroke-linecap="round"

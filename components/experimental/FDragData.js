@@ -1,5 +1,4 @@
-import { snapToGrid } from "../utils.js"
-import TwoSceneScope from "./TwoSceneScope.js"
+import { snapToGrid } from "../../utils.js"
 
 const Drag = {
   props: ['mouse', 'points', 'snap' ],
@@ -54,10 +53,9 @@ const Drag = {
 export default {
   description: `
 **🔬 This component is experimental.**
-<br><br><br><br><br><br>
 `,
   example: `
-  <TwoDragScope
+  <f-drag-data
     :points="[
       { x:  0, y:  1 },
       { x:  1, y: -1 },
@@ -65,14 +63,13 @@ export default {
     ]"
     :snap="true"
   >
-    <TwoGroup slot-scope="data">
-      <TwoGrid />
-      <TwoPolygon :points="data.points" />
-    </TwoGroup>
-  </TwoDragScope>
-</TwoSceneScope>
+    <f-group slot-scope="data">
+      <f-grid />
+      <f-polygon :points="data.points" />
+    </f-group>
+  </f-drag-data>
   `,
-  components: { Drag, TwoSceneScope },
+  components: { Drag },
   props: ['points', 'snap' ],
   data: function() {
     return { draggedPoints: this.points }
@@ -86,7 +83,7 @@ export default {
     }
   },
   template: `
-  <TwoSceneScope>  
+  <f-scene-scope>  
     <Drag
       slot-scope="mouseData"
       :mouse="mouseData.mouse"
@@ -101,6 +98,6 @@ export default {
         <slot :points="data.draggedPoints" :mouse="mouseData.mouse" />
       </template>
     </Drag>
-  </TwoSceneScope>
+    </f-scene-scope>
   `,
 };
