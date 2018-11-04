@@ -1,4 +1,4 @@
-import { Object2D } from "./internal/two.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
@@ -6,14 +6,14 @@ export default {
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
   `,
   example: `
-<TwoScene>
-  <TwoGrid />
-  <TwoGrid
+<f-scene>
+  <f-grid />
+  <f-grid
     :position="{ x: 1, y: 1 }"
     :rotation="{ z: 45 }"
     :scale="{ x: 0.2, y: 0.2 }"
   />
-</TwoScene>
+</f-scene>
   `,
   props: {
     position: { default: () => ({}), type: Object },

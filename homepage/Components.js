@@ -3,6 +3,7 @@ import Editor from "../components/Editor.js"
 import Markdown from "../components/Markdown.js";
 
 import { sortedComponents } from "../framework.js";
+import { kebabCase } from "../utils.js";
 
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
@@ -79,6 +80,7 @@ export default {
         props
       }))
   }),
+  methods: { kebabCase },
   template: `
     <div>
         <div v-for="(c,i) in componentData" :style="{
@@ -86,7 +88,7 @@ export default {
           minHeight: '15rem'
         }"
         >
-          <h2>{{ c.name }}</h2>
+          <h2><{{ kebabCase(c.name) }}></h2>
           <div style="display: flex">
             <div style="width: 280px;">
               <Markdown :content="c.description" />

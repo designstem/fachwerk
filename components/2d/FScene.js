@@ -1,4 +1,4 @@
-import Css from "./Css.js";
+import Css from "../Css.js";
 
 export default {
   mixins: [Css],
@@ -8,10 +8,9 @@ A simple 2D scene with some tweaks to regular SVG document.
 Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
 `,
   example: `
-<TwoScene>
-  <TwoGrid />
+<f-scene>
   <circle fill="var(--primary)" r="1" />
-</TwoScene>
+</f-scene>
   `,
   props: {
     size: { default: 250, type: Number },

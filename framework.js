@@ -30,12 +30,16 @@ import Transport from "./components/Transport.js";
 import TwoBox from "./components/TwoBox.js";
 import TwoCircle from "./components/TwoCircle.js";
 import TwoDragScope from "./components/TwoDragScope.js";
-import TwoGrid from "./components/TwoGrid.js";
+
+import FGrid from "./components/2d/FGrid.js";
+
 import TwoGroup from "./components/TwoGroup.js";
 import TwoLine from "./components/TwoLine.js";
 import TwoPolygon from "./components/TwoPolygon.js";
 import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
-import TwoScene from "./components/TwoScene.js";
+
+import FScene from "./components/2d/FScene.js";
+
 import TwoSceneScope from "./components/TwoSceneScope.js";
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
@@ -82,12 +86,16 @@ export {
   TwoBox,
   TwoCircle,
   TwoDragScope,
-  TwoGrid,
+
+  FGrid,
+  
   TwoGroup,
   TwoLine,
   TwoPolygon,
   TwoRegularPolygon,
-  TwoScene,
+  
+  FScene,
+
   TwoSceneScope,
   VrBox,
   VrGrid,
@@ -104,61 +112,63 @@ export {
 
 export const sortedComponents = [
 
-  { TwoScene },
-  { TwoGrid },
-  { TwoGroup },
-  { TwoLine },
-  { TwoCircle },
-  { TwoBox },
-  { TwoPolygon },
-  { TwoRegularPolygon },
-  { TwoSceneScope },
-  { TwoDragScope },
+  { FScene },
+  { FGrid },
 
-  { ThreeScene },
-  { ThreeGroup },
-  { ThreeGrid },
-  { ThreeTriangle },
-  { ThreeLine },
-  { ThreeCircle },
-  { ThreeBox },
-  { ThreePolygon },
-  { ThreePolyhedron },
-  { ThreeRegularPolygon },
-  { ThreeLight },
+  // { TwoGrid },
+  // { TwoGroup },
+  // { TwoLine },
+  // { TwoCircle },
+  // { TwoBox },
+  // { TwoPolygon },
+  // { TwoRegularPolygon },
+  // { TwoSceneScope },
+  // { TwoDragScope },
 
-  { AnimeData },
-  { SliderData },
-  { RotationData },
-  { RgbData },
-  { HslData },
+  // { ThreeScene },
+  // { ThreeGroup },
+  // { ThreeGrid },
+  // { ThreeTriangle },
+  // { ThreeLine },
+  // { ThreeCircle },
+  // { ThreeBox },
+  // { ThreePolygon },
+  // { ThreePolyhedron },
+  // { ThreeRegularPolygon },
+  // { ThreeLight },
 
-  { ButtonsData },
-  { FetchData },
-  { SheetData },
+  // { AnimeData },
+  // { SliderData },
+  // { RotationData },
+  // { RgbData },
+  // { HslData },
+
+  // { ButtonsData },
+  // { FetchData },
+  // { SheetData },
   
-  { PolyhedronData },
+  // { PolyhedronData },
 
-  { Math },
-  { Transport },
-  { Buttons },
+  // { Math },
+  // { Transport },
+  // { Buttons },
 
-  { Fade },
-  { Bounce },
+  // { Fade },
+  // { Bounce },
 
-  { Theme },
+  // { Theme },
 
-  // Hidden
+  // // Hidden
 
-  { VrScene },
-  { VrBox },
-  { VrLine },
-  { VrGrid },
+  // { VrScene },
+  // { VrBox },
+  // { VrLine },
+  // { VrGrid },
 
-  { Tabs },
+  // { Tabs },
 
-  { PolygonData },
+  // { PolygonData },
 
-  { ArrayData },
+  // { ArrayData },
 
 ]
