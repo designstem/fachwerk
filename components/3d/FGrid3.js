@@ -1,8 +1,8 @@
-import ThreeGroup from "./ThreeGroup.js";
-import ThreeLine from "./ThreeLine.js";
+import ThreeGroup from "../ThreeGroup.js";
+import ThreeLine from "../ThreeLine.js";
 
-import { deg2rad } from "../utils.js";
-import { Object3D } from "./internal/three.js";
+import { deg2rad } from "../../utils.js";
+import { Object3D } from "./3d.js";
 
 export default {
   mixins: [Object3D],
@@ -10,12 +10,12 @@ export default {
 Adds a grid to the 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
   `,
   example: `
-<ThreeScene>
-  <ThreeGrid
+<f-scene3>
+  <f-grid3
     :rotation="{ y: 0.5, x: 0.5 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   />
-</ThreeScene>
+</f-scene3>
   `,
   components: { ThreeGroup, ThreeLine },
   props: {

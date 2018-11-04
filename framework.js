@@ -30,6 +30,9 @@ export { FScene3 }
 import FBox3 from "./components/3d/FBox3.js";
 export { FBox3 }
 
+import FGrid3 from "./components/3d/FGrid3.js";
+export { FGrid3 }
+
 // Transitions
 
 import FFade from "./components/transitions/FFade.js";
@@ -92,7 +95,7 @@ import Render from "./components/Render.js";
 import Sidebar from "./components/Sidebar.js";
 import Tabs from "./components/Tabs.js";
 import ThreeCircle from "./components/ThreeCircle.js";
-import ThreeGrid from "./components/ThreeGrid.js";
+import ThreeGrid from "./components/3d/FGrid3.js";
 import ThreeGroup from "./components/ThreeGroup.js";
 import ThreeLight from "./components/ThreeLight.js";
 import ThreeLine from "./components/ThreeLine.js";
@@ -118,7 +121,6 @@ export {
   Sidebar,
   Tabs,
   ThreeCircle,
-  ThreeGrid,
   ThreeGroup,
   ThreeLight,
   ThreeLine,
@@ -147,6 +149,7 @@ export const sortedComponents = [
 
   { FScene3 },
   { FBox3 },
+  { FGrid3 },
 
   // Data
   { FAnimationData },
