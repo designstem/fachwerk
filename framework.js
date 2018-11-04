@@ -47,11 +47,17 @@ export { FRgbData };
 import FHslData from "./components/data/FHslData.js";
 export { FHslData };
 
+import FSliderData from "./components/data/FSliderData.js";
+export { FSliderData }
+
 import FFetchData from "./components/data/FFetchData.js";
 export { FFetchData };
 
-import FSliderData from "./components/data/FSliderData.js";
-export { FSliderData }
+import FSheetData from "./components/data/FSheetData.js";
+export { FSheetData }
+
+import FRotationData from "./components/data/FRotationData.js";
+export { FRotationData };
 
 // Content
 
@@ -74,11 +80,7 @@ import ContentDocument from "./components/ContentDocument.js";
 import ContentSlides from "./components/ContentSlides.js";
 import Editor from "./components/Editor.js";
 import Markdown from "./components/Markdown.js";
-
-import PolygonData from "./components/PolygonData.js";
-import PolyhedronData from "./components/PolyhedronData.js";
 import Render from "./components/Render.js";
-import SheetData from "./components/SheetData.js";
 import Sidebar from "./components/Sidebar.js";
 import Tabs from "./components/Tabs.js";
 import ThreeBox from "./components/ThreeBox.js";
@@ -92,13 +94,12 @@ import ThreePolyhedron from "./components/ThreePolyhedron.js";
 import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
-import Transport from "./components/Transport.js";
+import Transport from "./components/depreciated/Transport.js";
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
 import Theme from "./components/Theme.js";
-import RotationData from "./components/RotationData.js";
 
 export {
   ContentCards,
@@ -106,10 +107,7 @@ export {
   ContentSlides,
   Editor,
   Markdown,
-  PolygonData,
-  PolyhedronData,
   Render,
-  SheetData,
   Sidebar,
   Tabs,
   ThreeBox,
@@ -129,7 +127,6 @@ export {
   VrLine,
   VrScene,
   Theme,
-  RotationData,
 };
 
 export const sortedComponents = [
@@ -152,7 +149,10 @@ export const sortedComponents = [
   { FHslData },
   { FRgbData },
 
+  { FRotationData },
+
   { FFetchData },
+  { FSheetData },
 
   // Transitions
   { FFade },
@@ -178,20 +178,9 @@ export const sortedComponents = [
   // { ThreeRegularPolygon },
   // { ThreeLight },
 
-  // { SliderData },
   // { RotationData },
 
-  // { ButtonsData },
-  // { SheetData },
-
-  // { PolyhedronData },
-
-  // { Math },
   // { Transport },
-  // { Buttons },
-
-  // { Fade },
-  // { Bounce },
 
   // { Theme },
 
@@ -204,7 +193,4 @@ export const sortedComponents = [
 
   // { Tabs },
 
-  // { PolygonData },
-
-  // { ArrayData },
 ];

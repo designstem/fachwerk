@@ -1,12 +1,12 @@
-import { parseSheet } from "../utils.js";
+import { parseSheet } from "../../utils.js";
 
 export default {
   description: `
 Fetches data from Google Sheets.
   `,
   example: `
-<SheetData id="110RcQmdpOkFcS2KIlahEh8QezwH2cwnihDiV__ZiYqk">
-<TwoScene slot-scope="data">
+<f-sheet-data id="110RcQmdpOkFcS2KIlahEh8QezwH2cwnihDiV__ZiYqk">
+<f-scene slot-scope="data">
   <rect 
     v-for="(v,i) in data.value"
     :x="scale(i,0,data.value.length,-1.9,1.9)"
@@ -16,8 +16,8 @@ Fetches data from Google Sheets.
     fill="var(--red)"
     rx="0.05"
   />  
-</TwoScene>
-</SheetData>
+</f-scene>
+</f-sheet-data>
   `,
   data: () => ({ value: null, loaded: false }),
   props: {
