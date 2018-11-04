@@ -1,4 +1,5 @@
 import { snapToGrid } from "../../utils.js"
+import FSceneScope from "../2d/FScene.js"
 
 const Drag = {
   props: ['mouse', 'points', 'snap' ],
@@ -56,20 +57,20 @@ export default {
 `,
   example: `
   <f-drag-data
-    :points="[
-      { x:  0, y:  1 },
-      { x:  1, y: -1 },
-      { x: -1, y: -1 }
-    ]"
-    :snap="true"
-  >
-    <f-group slot-scope="data">
-      <f-grid />
-      <f-polygon :points="data.points" />
-    </f-group>
-  </f-drag-data>
+  :points="[
+    { x:  0, y:  0.5 },
+    { x:  1, y: -1 },
+    { x: -1, y: -1 }
+  ]"
+  :snap="true"
+>
+  <f-group slot-scope="data">
+    <f-grid />
+    <f-polygon :points="data.points" />
+  </f-group>
+</f-drag-data>
   `,
-  components: { Drag },
+  components: { Drag, FSceneScope },
   props: ['points', 'snap' ],
   data: function() {
     return { draggedPoints: this.points }
@@ -87,11 +88,7 @@ export default {
     <Drag
       slot-scope="mouseData"
       :mouse="mouseData.mouse"
-      :points="[
-        { x:  0, y:  1 },
-        { x:  1, y: -1 },
-        { x: -1, y: -1 }
-      ]"
+      :points="points"
       :snap="snap"
     >
       <template slot-scope="data">

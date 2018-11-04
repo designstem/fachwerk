@@ -10,15 +10,19 @@ export default {
   example: `
 <f-scene>
   <f-regularpolygon />
-  <f-regularpolygon :r="0.5" :count="5" />
+  <f-regularpolygon
+    :r="0.5"
+    :count="5"
+    fill="var(--red)"
+  />
 </f-scene>
   `,
   props: {
     count: { default: 6, type: Number },
     r: { default: 1, type: Number },
-    stroke: { default: "var(--primary)", type: String },
+    stroke: { default: "none", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "none", type: String },
+    fill: { default: "var(--primary)", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },

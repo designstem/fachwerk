@@ -5,8 +5,6 @@ export default {
   name: "TwoSceneScope",
   description: `
 **🔬 This component is experimental.**
-
-\'f-scene\' with mouse tracking.
 `,
   example: `
 <f-scene-data>  
