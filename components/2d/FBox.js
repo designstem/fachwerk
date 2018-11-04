@@ -1,4 +1,4 @@
-import { Object2D } from "../internal/two.js";
+import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],

@@ -1,10 +1,8 @@
-import FPolygon from "./FPolygon.js"
 import { cpoints } from "../../utils.js";
-import { Object2D } from "../internal/two.js";
+import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
-  components: { FPolygon },
   description: `
   `,
   example: `
