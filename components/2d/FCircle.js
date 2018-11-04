@@ -7,10 +7,11 @@ export default {
   example: `
 <f-scene>
   <f-grid />
-  <f-grid />
+  <f-circle />
   <f-circle
     :points="[{x: -0.5},{x: 0},{x: 0.5}]"
     :r="0.1"
+    fill="var(--red)"
   />
 </f-scene>  
   `,

@@ -1,4 +1,4 @@
-import AnimeData from "./components/AnimeData.js";
+import AnimeData from "./components/data/FAnimationData.js";
 import ArrayData from "./components/ArrayData.js";
 import Buttons from "./components/Buttons.js";
 import ContentCards from "./components/ContentCards.js";
@@ -35,9 +35,11 @@ import FGroup from "./components/2d/FGroup.js";
 import FBox from "./components/2d/FBox.js";
 import FLine from "./components/2d/FLine.js";
 import FCircle from "./components/2d/FCircle.js";
+import FPolygon from "./components/2d/FPolygon.js";
+import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 
-import TwoPolygon from "./components/TwoPolygon.js";
-import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
+import FAnimationData from "./components/data/FAnimationData.js";
+
 import TwoSceneScope from "./components/TwoSceneScope.js";
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
@@ -52,7 +54,6 @@ import RgbData from "./components/RgbData.js";
 import HslData from "./components/HslData.js";
 
 export {
-  AnimeData,
   ArrayData,
   Buttons,
   ContentCards,
@@ -89,9 +90,11 @@ export {
   FBox,
   FLine,
   FCircle,
+  FPolygon,
+  //FRegularpolygon,
 
-  TwoPolygon,
-  TwoRegularPolygon,
+  //FAnimationData,
+
   TwoSceneScope,
   VrBox,
   VrGrid,
@@ -108,7 +111,7 @@ export {
 
 export const sortedComponents = [
 
-  // 2d
+  // 2D
 
   { FScene },
   { FGrid },
@@ -116,8 +119,13 @@ export const sortedComponents = [
   { FBox },
   { FLine },
   { FCircle },
+  { FPolygon },
+  { FRegularpolygon },
 
-  // { TwoPolygon },
+  // Data
+
+  { FAnimationData },
+  
   // { TwoRegularPolygon },
   // { TwoSceneScope },
   // { TwoDragScope },
