@@ -10,6 +10,12 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
   example: `
 <f-scene>
   <circle fill="var(--primary)" r="1" />
+  <circle
+    cx="1"
+    cy="1"
+    fill="var(--red)"
+    r="0.1"
+  />
 </f-scene>
   `,
   props: {

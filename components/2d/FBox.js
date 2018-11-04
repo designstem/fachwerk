@@ -1,4 +1,4 @@
-import { Object2D } from "./internal/two.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
@@ -6,16 +6,17 @@ export default {
  Kazimir Malevich must be proud.  
   `,
   example: `
-<TwoScene>
-  <TwoGrid />
-  <TwoBox />
-  <TwoBox
+<f-scene>
+  <f-grid />
+  <f-box />
+  <f-box
     :points="[{x: -1},{x: 0},{x: 1}]"
     :r="0.1"
     width="0.2"
     height="0.2"
+    fill="var(--red)"
   />
-</TwoScene>
+</f-scene>
   `,
   props: {
     x: { default: 0, type: Number },
@@ -23,9 +24,9 @@ export default {
     points: { default: [], type: Array },
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
-    stroke: { default: 'var(--primary)', type: String},
+    stroke: { default: 'none', type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "none", type: String },
+    fill: { default: "var(--primary)", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
