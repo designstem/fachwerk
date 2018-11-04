@@ -10,6 +10,15 @@ import FArrayData from "./components/data/FArrayData.js";
 
 import FAnimationData from "./components/data/FAnimationData.js";
 
+import FFade from "./components/transitions/FFade.js";
+export { FFade }
+
+import FBounce from "./components/transitions/FBounce.js";
+export { FBounce }
+
+import FButtonsData from "./components/data/FButtonsData.js";
+export { FButtonsData }
+
 import FSceneData from "./components/experimental/FSceneData.js"
 import FDragData from "./components/experimental/FDragData.js"
 
@@ -44,9 +53,6 @@ import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
 import VrScene from "./components/experimental/VrScene.js";
-import Fade from "./components/Fade.js";
-import Bounce from "./components/Bounce.js";
-import ButtonsData from "./components/ButtonsData.js";
 import Theme from "./components/Theme.js";
 import RotationData from "./components/RotationData.js";
 import RgbData from "./components/RgbData.js";
@@ -100,9 +106,9 @@ export {
   VrGrid,
   VrLine,
   VrScene,
-  Fade,
-  Bounce,
-  ButtonsData,
+  //Fade,
+  //Bounce,
+  //ButtonsData,
   Theme,
   RotationData,
   RgbData,
@@ -124,7 +130,12 @@ export const sortedComponents = [
   // Data
   { FAnimationData },
   { FArrayData },
-  
+  { FButtonsData },
+
+  // Transitions
+  { FFade },
+  { FBounce },
+
   // Experimental 
   // { FSceneData },
   // { FDragData },
@@ -142,7 +153,6 @@ export const sortedComponents = [
   // { ThreeRegularPolygon },
   // { ThreeLight },
 
-  // { AnimeData },
   // { SliderData },
   // { RotationData },
   // { RgbData },

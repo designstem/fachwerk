@@ -1,21 +1,20 @@
-// Use full URL when in other repo:
-// import Css from "https://designstem.github.io/framework/components/Css.js";
-
-import Css from "./Css.js";
+import Css from "../Css.js";
 
 export default {
   mixins: [Css],
-  description: `Fading transition`,
+  description: `
+Fading transition
+  `,
   example: `
-<ButtonsData :buttons="['On', 'Off']">
+<f-buttons-data :buttons="['On', 'Off']">
   <h3 slot-scope="data">
-    <fade v-if="!data.value">Fading like a flower</fade>
+    <f-fade v-if="!data.value">Fading like a flower</f-fade>
   </h3>
-</ButtonsData>  
+</f-buttons-data>  
   `,
   template: `
   <transition appear name="fade">
-    <p><slot /></p>
+    <div><slot /></div>
   </transition>
   `,
   css: `

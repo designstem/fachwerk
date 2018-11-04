@@ -1,21 +1,20 @@
-// Use full URL when in other repo:
-// import Css from "https://designstem.github.io/framework/components/Css.js";
-
-import Css from "./Css.js";
+import Css from "../Css.js";
 
 export default {
   mixins: [Css],
-  description: `Bounce transition`,
+  description: `
+Bounce transition
+  `,
   example: `
-<ButtonsData :buttons="['On', 'Off']">
+<f-buttons-data :buttons="['On', 'Off']">
   <h3 slot-scope="data">
-    <bounce v-if="!data.value">Bounce like a butterfly</bounce>
+    <f-bounce v-if="!data.value">Bounce like a butterfly</f-bounce>
   </h3>
-</ButtonsData>  
+</f-buttons-data>  
   `,
   template: `
   <transition appear name="bounce">
-    <p><slot /></p>
+    <div><slot /></div>
   </transition>
   `,
   css: `

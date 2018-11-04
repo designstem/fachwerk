@@ -35,8 +35,7 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
       loop: this.loop,
       direction: this.alternate ? "alternate" : null,
       easing: this.easing,
-      autoplay: false,
-      update: a => console.log(a.progress)
+      autoplay: false
     });
     this.$watch(
       "playing",
