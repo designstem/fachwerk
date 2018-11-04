@@ -6,13 +6,13 @@ import FLine from "./components/2d/FLine.js";
 import FCircle from "./components/2d/FCircle.js";
 import FPolygon from "./components/2d/FPolygon.js";
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
+import FArrayData from "./components/data/FArrayData.js";
 
 import FAnimationData from "./components/data/FAnimationData.js";
 
 import FSceneData from "./components/experimental/FSceneData.js"
 import FDragData from "./components/experimental/FDragData.js"
 
-import ArrayData from "./components/ArrayData.js";
 import Buttons from "./components/Buttons.js";
 import ContentCards from "./components/ContentCards.js";
 import ContentDocument from "./components/ContentDocument.js";
@@ -64,11 +64,11 @@ export {
   FRegularpolygon,
 
   FAnimationData,
+  FArrayData,
 
   FSceneData,
   FDragData,
   
-  ArrayData,
   Buttons,
   ContentCards,
   ContentDocument,
@@ -123,7 +123,8 @@ export const sortedComponents = [
 
   // Data
   { FAnimationData },
-
+  { FArrayData },
+  
   // Experimental 
   // { FSceneData },
   // { FDragData },

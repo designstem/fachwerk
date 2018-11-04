@@ -1,7 +1,7 @@
 export default {
   example: `
-<ArrayData :length="3">
-  <TwoScene slot-scope="data">
+<f-array-data :length="3">
+  <f-scene slot-scope="data">
   <circle
     v-for="(value,x) in data.value"
     :key="x"
@@ -10,13 +10,13 @@ export default {
     :fill="value ? 'var(--red)' : 'var(--primary)'"
     @click="data.update(1 - value, x)"
   />
-  </TwoScene>
-</ArrayData>
+  </f-scene>
+</f-array-data>
 
-<ArrayData :length="7" :dimensions="2">
-  <TwoScene slot-scope="data">
+<f-array-data :length="7" :dimensions="2">
+  <f-scene slot-scope="data">
   <template v-for="(col, x) in data.value">
-  <two-box
+  <f-box
     v-for="(value, y) in col"
     :key="x * y"
     :x="x / 2 - 1.2"
@@ -27,12 +27,12 @@ export default {
     @click.native="data.update(1 - value, x, y)"
   />
   </template>
-  </TwoScene>
-</ArrayData>
+  </f-scene>
+</f-array-data>
 
-<ArrayData :length="3" :map="(_,i) => i">
+<f-array-data :length="3" :map="(_,i) => i">
   <pre slot-scope="data">{{ data }}</pre>
-</ArrayData>
+</f-array-data>
   `,
   props: {
     length: { default: 1, type: Number },
