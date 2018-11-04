@@ -22,6 +22,14 @@ export { FPolygon };
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
+// 3d
+
+import FScene3 from "./components/3d/FScene3.js";
+export { FScene3 }
+
+import FBox3 from "./components/3d/FBox3.js";
+export { FBox3 }
+
 // Transitions
 
 import FFade from "./components/transitions/FFade.js";
@@ -83,7 +91,6 @@ import Markdown from "./components/Markdown.js";
 import Render from "./components/Render.js";
 import Sidebar from "./components/Sidebar.js";
 import Tabs from "./components/Tabs.js";
-import ThreeBox from "./components/ThreeBox.js";
 import ThreeCircle from "./components/ThreeCircle.js";
 import ThreeGrid from "./components/ThreeGrid.js";
 import ThreeGroup from "./components/ThreeGroup.js";
@@ -92,7 +99,7 @@ import ThreeLine from "./components/ThreeLine.js";
 import ThreePolygon from "./components/ThreePolygon.js";
 import ThreePolyhedron from "./components/ThreePolyhedron.js";
 import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
-import ThreeScene from "./components/ThreeScene.js";
+
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/depreciated/Transport.js";
 import VrBox from "./components/experimental/VrBox.js";
@@ -110,7 +117,6 @@ export {
   Render,
   Sidebar,
   Tabs,
-  ThreeBox,
   ThreeCircle,
   ThreeGrid,
   ThreeGroup,
@@ -119,7 +125,6 @@ export {
   ThreePolygon,
   ThreePolyhedron,
   ThreeRegularPolygon,
-  ThreeScene,
   ThreeTriangle,
   Transport,
   VrBox,
@@ -139,6 +144,9 @@ export const sortedComponents = [
   { FCircle },
   { FPolygon },
   { FRegularpolygon },
+
+  { FScene3 },
+  { FBox3 },
 
   // Data
   { FAnimationData },

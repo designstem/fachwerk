@@ -1,11 +1,10 @@
-import { Object3D } from "./internal/three.js";
+import { Object3D } from "./3d.js";
 
 export default {
   example: `
-<ThreeScene>
-  <ThreeGrid />
-  <ThreeBox />
-</ThreeScene>  
+<f-scene3>
+  <f-box3 />
+</f-scene3>  
   `,
   mixins: [Object3D],
   props: {

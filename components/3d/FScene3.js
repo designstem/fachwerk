@@ -1,13 +1,13 @@
-import { Renderer, Scene, Camera } from './internal/three.js'
+import { Renderer, Scene, Camera } from './3d.js'
 
 export default {
   description: `
 _Der Raum_.
 `,
   example: `
-<ThreeScene>
-  <ThreeBox :rotation="{ y: 0.1, x: 1, z: 0.1 }" />
-</ThreeScene>
+<f-scene3>
+  <f-box3 :rotation="{ y: 0.1, x: 1, z: 0.1 }" />
+</f-scene3>
   `,
   components: { Renderer, Scene, Camera },
   template: `
