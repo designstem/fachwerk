@@ -1,4 +1,4 @@
-import Css from "./Css.js";
+import Css from "../Css.js";
 
 export default {
   mixins: [Css],
@@ -6,10 +6,10 @@ export default {
   description: `
 **🔬 This component is experimental.**
 
-<code>TwoScene</code> with mouse tracking!
+\'f-scene\' with mouse tracking.
 `,
   example: `
-<TwoSceneScope>  
+<f-scene-data>  
   <g slot-scope="data">
     <circle
       :r="data.mouse.pressed ? 1.1 : 1"
@@ -30,7 +30,7 @@ export default {
       style="transition: all 100ms"
     />
   </g>
-</TwoSceneScope>
+</f-scene-data>
   `,
   props: {
     size: { default: 250, type: Number }
@@ -71,16 +71,5 @@ export default {
         <slot :mouse="{ x: mouseX, y: mouseY, pressed: mousePressed }" />
       </g>
     </svg>
-  `,
-  css: `
-  .two * {
-    vector-effect: non-scaling-stroke;
-  }
-  .two text {
-    font-size: 1.5%;
-    transform: scale(1, -1);
-    text-anchor: middle;
-    pointer-events: none;
-  }
   `
 };

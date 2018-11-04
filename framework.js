@@ -1,4 +1,4 @@
-import AnimeData from "./components/AnimeData.js";
+import AnimeData from "./components/data/FAnimationData.js";
 import ArrayData from "./components/ArrayData.js";
 import Buttons from "./components/Buttons.js";
 import ContentCards from "./components/ContentCards.js";
@@ -27,7 +27,6 @@ import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/Transport.js";
-import TwoDragScope from "./components/TwoDragScope.js";
 
 import FScene from "./components/2d/FScene.js";
 import FGrid from "./components/2d/FGrid.js";
@@ -35,10 +34,14 @@ import FGroup from "./components/2d/FGroup.js";
 import FBox from "./components/2d/FBox.js";
 import FLine from "./components/2d/FLine.js";
 import FCircle from "./components/2d/FCircle.js";
+import FPolygon from "./components/2d/FPolygon.js";
+import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 
-import TwoPolygon from "./components/TwoPolygon.js";
-import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
-import TwoSceneScope from "./components/TwoSceneScope.js";
+import FSceneData from "./components/experimental/FSceneData.js"
+import FDragData from "./components/experimental/FDragData.js"
+
+import FAnimationData from "./components/data/FAnimationData.js";
+
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
@@ -52,7 +55,6 @@ import RgbData from "./components/RgbData.js";
 import HslData from "./components/HslData.js";
 
 export {
-  AnimeData,
   ArrayData,
   Buttons,
   ContentCards,
@@ -81,7 +83,6 @@ export {
   ThreeScene,
   ThreeTriangle,
   Transport,
-  TwoDragScope,
 
   FScene,
   FGrid,
@@ -89,10 +90,14 @@ export {
   FBox,
   FLine,
   FCircle,
+  FPolygon,
+  FRegularpolygon,
 
-  TwoPolygon,
-  TwoRegularPolygon,
-  TwoSceneScope,
+  FSceneData,
+  FDragData,
+
+  //FAnimationData,
+
   VrBox,
   VrGrid,
   VrLine,
@@ -108,17 +113,23 @@ export {
 
 export const sortedComponents = [
 
-  // 2d
-
+  // 2D
   { FScene },
   { FGrid },
   { FGroup },
   { FBox },
   { FLine },
   { FCircle },
+  { FPolygon },
+  { FRegularpolygon },
 
-  // { TwoPolygon },
-  // { TwoRegularPolygon },
+  // Data
+
+  { FSceneData },
+  { FDragData },
+
+  // { FAnimationData },
+  
   // { TwoSceneScope },
   // { TwoDragScope },
 

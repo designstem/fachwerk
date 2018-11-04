@@ -1,18 +1,18 @@
-import { Object2D } from "./internal/two.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
   example: `
-<TwoScene>
-  <TwoGrid />
-  <TwoPolygon
+<f-scene>
+  <f-grid />
+  <f-polygon
     :points="[
       { x: 0, y: 0 },
       { x: 1, y: 0 },
       { x: 0, y: 1 },
     ]"
   />
-  <TwoPolygon
+  <f-polygon
     :points="[
       { x: 0, y: 0 },
       { x: 1, y: 0 },
@@ -22,20 +22,20 @@ export default {
     :rotation="{ z: 45 }"
     :scale="{ x: 0.2, y: 0.2 }"
   />
-</TwoScene>
+</f-scene>
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "var(--primary)", type: String },
+    stroke: { default: "none", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "none", type: String },
+    fill: { default: "var(--primary)", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
   },
   template: `
-    <TwoLine
+    <f-line
       :points="points"
       :stroke="stroke"
       :stroke-width="strokeWidth"

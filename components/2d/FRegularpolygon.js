@@ -1,30 +1,21 @@
-import TwoPolygon from "./TwoPolygon.js"
-import { cpoints } from "../utils.js";
-import { Object2D } from "./internal/two.js";
+import FPolygon from "./FPolygon.js"
+import { cpoints } from "../../utils.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
+  components: { FPolygon },
   description: `
   `,
   example: `
-<AnimeData :to="16">
-  <TwoScene slot-scope="{value}">
-    <TwoRegularPolygon
-      :count="value"
-    />
-    <TwoRegularPolygon
-      :count="value"
-      :position="{ x: 1, y: 1 }"
-      :rotation="{ z: 45 }"
-      :scale="{ x: 0.2, y: 0.2 }"
-    />
-  </TwoScene>
-</AnimeData>
+<f-scene>
+  <f-regularpolygon />
+  <f-regularpolygon :r="0.5" :count="5" />
+</f-scene>
   `,
-  components: { TwoPolygon },
   props: {
     count: { default: 6, type: Number },
-    radius: { default: 1, type: Number },
+    r: { default: 1, type: Number },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
@@ -35,8 +26,8 @@ export default {
   },
   methods: { cpoints },
   template: `
-    <TwoPolygon
-      :points="cpoints(count,radius)"
+    <f-polygon
+      :points="cpoints(count,r)"
       :stroke="stroke"
       :stroke-width="strokeWidth"
       stroke-linecap="round"

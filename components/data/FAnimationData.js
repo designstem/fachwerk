@@ -7,26 +7,16 @@ Supports most of the animation options AnimeJS provides.
 See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
   `,
   example: `
-<AnimeData :to="99">
+<f-animation-data :to="99">
   <h1
     slot-scope="data"
     class="bullet"
   >
       {{ Math.floor(data.value) }}
   </h1>
-</AnimeData>
-
-<AnimeData :to="99" name="count" :duration="50000">
-  <h1
-    slot-scope="data"
-    class="bullet"
-  >
-    {{ Math.floor(data.count) }}
-  </h1>
-</AnimeData>
+</f-animation-data>
   `,
   props: {
-    name: { default: "value", type: String },
     from: { default: 0, type: Number },
     to: { default: 100, type: Number },
     duration: { default: 5000, type: Number },
@@ -62,7 +52,7 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   render() {
     return this.$scopedSlots.default
       ? this.$scopedSlots.default({
-          [this.name]: this.value
+          value: this.value
         })
       : "";
   }
