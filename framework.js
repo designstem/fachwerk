@@ -33,6 +33,24 @@ export { FBox3 }
 import FGrid3 from "./components/3d/FGrid3.js";
 export { FGrid3 }
 
+import FGroup3 from "./components/3d/FGroup3.js";
+export { FGroup3 }
+
+import FLine3 from "./components/3d/FLine3.js";
+export { FLine3 }
+
+import FCircle3 from "./components/3d/FCircle3.js";
+export { FCircle3 };
+
+import FTriangle3 from "./components/3d/FTriangle3.js";
+export { FTriangle3 }
+
+import FPolygon3 from "./components/3d/FPolygon3.js";
+export { FPolygon3 }
+
+import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
+export { FRegularpolygon3 }
+
 // Transitions
 
 import FFade from "./components/transitions/FFade.js";
@@ -94,17 +112,10 @@ import Markdown from "./components/Markdown.js";
 import Render from "./components/Render.js";
 import Sidebar from "./components/Sidebar.js";
 import Tabs from "./components/Tabs.js";
-import ThreeCircle from "./components/ThreeCircle.js";
-import ThreeGrid from "./components/3d/FGrid3.js";
-import ThreeGroup from "./components/ThreeGroup.js";
-import ThreeLight from "./components/ThreeLight.js";
-import ThreeLine from "./components/ThreeLine.js";
-import ThreePolygon from "./components/ThreePolygon.js";
+import ThreeLight from "./components/experimental/ThreeLight.js";
 import ThreePolyhedron from "./components/ThreePolyhedron.js";
-import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 
-import ThreeTriangle from "./components/ThreeTriangle.js";
-import Transport from "./components/depreciated/Transport.js";
+import Transport from "./components/experimental/Transport.js";
 import VrBox from "./components/experimental/VrBox.js";
 import VrGrid from "./components/experimental/VrGrid.js";
 import VrLine from "./components/experimental/VrLine.js";
@@ -120,14 +131,8 @@ export {
   Render,
   Sidebar,
   Tabs,
-  ThreeCircle,
-  ThreeGroup,
   ThreeLight,
-  ThreeLine,
-  ThreePolygon,
   ThreePolyhedron,
-  ThreeRegularPolygon,
-  ThreeTriangle,
   Transport,
   VrBox,
   VrGrid,
@@ -150,6 +155,13 @@ export const sortedComponents = [
   { FScene3 },
   { FBox3 },
   { FGrid3 },
+
+  { FGroup3 },
+  { FLine3 },
+  { FTriangle3 },
+  { FCircle3 },
+  { FPolygon3 },
+  { FRegularpolygon3 },
 
   // Data
   { FAnimationData },
@@ -177,21 +189,8 @@ export const sortedComponents = [
   // { FSceneData },
   // { FDragData },
 
-  // { ThreeScene },
-  // { ThreeGroup },
-  // { ThreeGrid },
-  // { ThreeTriangle },
-  // { ThreeLine },
-  // { ThreeCircle },
-  // { ThreeBox },
-  // { ThreePolygon },
   // { ThreePolyhedron },
-  // { ThreeRegularPolygon },
   // { ThreeLight },
-
-  // { RotationData },
-
-  // { Transport },
 
   // { Theme },
 

@@ -1,25 +1,25 @@
-import { Object3D } from "./internal/three.js";
+import { Object3D } from "./3d.js";
 
 export default {
   description: `
 <i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
   `,
   example: `
-<ThreeScene>
-  <ThreeGroup
+<f-scene3>
+  <f-group3
     :rotation="{ y: 0.5, x: 0.5 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   >
-    <ThreeGrid />
-    <ThreeTriangle
+    <f-grid3 />
+    <f-triangle3
       :points="[
         { x: 1, y: 1,  z: 0 },
         { x: 1, y: 0,  z: 1 },
         { x: 1, y: -1, z: 0 },
       ]" 
     /> 
-  </ThreeGroup>
-</ThreeScene>
+  </f-group3>
+</f-scene3>
   `,
   mixins: [Object3D],
   props: {

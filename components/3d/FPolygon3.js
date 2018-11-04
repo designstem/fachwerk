@@ -1,8 +1,6 @@
-import { Object3D } from "./internal/three.js";
-import ThreeLine from "./ThreeLine.js"
-import ThreeGroup from "./ThreeGroup.js";
+import { Object3D } from "../internal/three.js";
 
-const InternalThreePolygon = {
+const InternalPolygon = {
   mixins: [Object3D],
   props: { points: { default: [] } },
   data() {
@@ -23,14 +21,13 @@ const InternalThreePolygon = {
 
 export default {
   mixins: [Object3D],
-  name: "ThreePolygon",
   description: `
 Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
   `,
   example: `
-<ThreeScene>
-  <ThreeGrid />
-  <ThreePolygon
+<f-scene3>
+  <f-grid3 />
+  <f-polygon3
     :points="[
       { x:  1, y:  1 },
       { x:  1, y: -1 },
@@ -38,9 +35,9 @@ Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points<
       { x: -1, y:  1 },
     ]"
   />
-</ThreeScene>
+</f-scene3>
   `,
-  components: { InternalThreePolygon, ThreeGroup, ThreeLine },
+  components: { InternalPolygon },
   props: {
     points: { default: [], type: Array },
     scale: { default: () => ({}), type: [Object, Number] },
@@ -56,9 +53,9 @@ Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points<
     }
   },
   template: `
-    <ThreeGroup>
-      <InternalThreePolygon :points="points" />
-      <ThreeLine :points="linePoints" />
-    </ThreeGroup>
+    <f-group>
+      <InternalPolygon :points="points" />
+      <f-line :points="linePoints" />
+    </f-group>
   `
 };

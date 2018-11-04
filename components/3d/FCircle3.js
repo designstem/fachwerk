@@ -1,22 +1,20 @@
-import ThreeRegularPolygon from './ThreeRegularPolygon.js'
-import { Object3D } from "./internal/three.js";
+
+import { Object3D } from "./3d.js";
 
 export default {
   mixins: [Object3D],
   description: `
-[Zeit](https://www.youtube.com/watch?v=rjvF36gzLF8).
   `,
   example: `
-<ThreeScene>
-  <ThreeGrid />
-  <ThreeCircle
+<f-scene3>
+  <f-grid3 />
+  <f-circle3
     :position="{ x: 1, y: 1 }"
     :rotation="{ z: 45 }"
     :scale="{ x: 0.2, y: 0.2 }"
   />
-</ThreeScene>
+</f-scene3>
   `,
-  components: { ThreeRegularPolygon },
   props: {
     r: { default: 1, type: Number },
     position: { default: () => ({}), type: Object },
@@ -24,6 +22,6 @@ export default {
     scale: { default: () => ({}), type: [Object, Number] },
   },
   template: `
-    <ThreeRegularPolygon :radius="r" :count="64" />
+    <f-regularpolygon3 :radius="r" :count="64" />
   `
 }

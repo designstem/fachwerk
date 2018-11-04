@@ -1,4 +1,4 @@
-import { Object3D } from "./internal/three.js";
+import { Object3D } from "../3d/3d.js";
 
 export default {
   mixins: [Object3D],

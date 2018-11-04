@@ -1,6 +1,3 @@
-import ThreeGroup from "../ThreeGroup.js";
-import ThreeLine from "../ThreeLine.js";
-
 import { deg2rad } from "../../utils.js";
 import { Object3D } from "./3d.js";
 
@@ -17,7 +14,6 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   />
 </f-scene3>
   `,
-  components: { ThreeGroup, ThreeLine },
   props: {
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
@@ -25,8 +21,8 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   },
   methods: { deg2rad },
   template: `
-  <ThreeGroup>
-    <ThreeGroup
+  <f-group3>
+    <f-group3
       v-for="(rotation,i) in [
         { x: 0, y: 0, z: 0},
         { x: 0, y: deg2rad(90), z: 0},
@@ -35,7 +31,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
       :rotation="rotation"
       :key="i"
     >
-    <ThreeLine
+    <f-line3
       v-for="(x,i) in [-2,-1,0,1,2]"
       :key="'a'+i"
       stroke-width="1"
@@ -45,7 +41,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
         { x, y: -2 }
       ]"
     />
-    <ThreeLine
+    <f-line3
       v-for="(y,i) in [-2,-1,0,1,2]"
       :key="'b'+i"
       stroke-width="1"
@@ -55,8 +51,8 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
         { x: -2, y }
       ]"
     />
-  </ThreeGroup>
-  <ThreeLine
+  </f-group3>
+  <f-line3
       :stroke="0xaaaaaa"
       :stroke-width="1.5"
       :points="[
@@ -64,7 +60,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
         { x: 0, y: -2, z: 0 }
       ]"
   />
-  <ThreeLine
+  <f-line3
     :stroke="0xaaaaaa"
     :stroke-width="1.5"
     :points="[
@@ -72,7 +68,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
       { x: -2, y: 0, z: 0 }
     ]"
   />
-  <ThreeLine
+  <f-line3
     :stroke="0xaaaaaa"
     :stroke-width="1.5"
     :points="[
@@ -80,6 +76,6 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
       { x: -2, y: 0, z: 0 }
     ]"
   />
-  </ThreeGroup>
+  </f-group3>
   `
 };

@@ -1,22 +1,21 @@
-import { Object3D } from './internal/three.js'
+import { Object3D } from './3d.js'
 
 export default {
   mixins: [Object3D],
-  name: "ThreeGroup",
   description: `
 Groups components in 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
   `,
   example: `
-<ThreeScene>
-  <ThreeGrid />
-  <ThreeGroup
+<f-scene3>
+  <f-grid3 />
+  <f-group3
     :position="{ x: 1, y: 1 }"
     :rotation="{ z: 45 }"
     :scale="{ x: 0.2, y: 0.2, z: 0.2 }"
     >
-      <ThreeBox />
-  </ThreeGroup>
-</ThreeScene>
+      <f-box3 />
+  </f-group3>
+</f-scene3>
   `,
   props: {
     type: { type: String, default: "Mesh" },

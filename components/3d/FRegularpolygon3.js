@@ -1,38 +1,29 @@
-import ThreeTriangle from "./ThreeTriangle.js";
-import ThreeGroup from "./ThreeGroup.js";
-import ThreeLine from "./ThreeLine.js";
-
-import { cx, cy, cpoints } from "../utils.js";
-import { Object3D } from "./internal/three.js";
+import { cx, cy, cpoints } from "../../utils.js";
+import { Object3D } from "./3d.js";
 
 export default {
   mixins: [Object3D],
   description: `
   `,
   example: `
-<AnimeData :duration="10000" :to="360">
-<ThreeScene slot-scope="data">
-  <ThreeGroup
+<f-anime-data :duration="10000" :to="360">
+<f-scene3 slot-scope="data">
+  <f-group3
     :rotation="{
       x: deg2rad(data.value),
       y: deg2rad(data.value)
     }"
   >
-    <ThreeRegularPolygon
+    <f-regularpolygon3
       v-for="c in 2"
       :rotation="{ x: deg2rad(360 / 2 * c) }"
       :count="4"
       :height="1"
     />
-  </ThreeGroup>
-</ThreeScene>
-</AnimeData>
+  </f-group3>
+</f-scene3>
+</f-anime-data>
   `,
-  components: {
-    ThreeTriangle,
-    ThreeGroup,
-    ThreeLine
-  },
   methods: { cpoints },
   props: {
     count: { default: 6, type: Number },
@@ -48,8 +39,8 @@ export default {
     }
   },
   template: `
-    <ThreeGroup>
-      <ThreeTriangle
+    <f-group3>
+      <f-triangle3
         v-for="(p,i) in points"
         :key="i"
         :points="[
@@ -62,7 +53,7 @@ export default {
           {x: 0, y: 0, z: 0}
         ]"
       />   
-      <ThreeTriangle
+      <f-triangle3
         v-for="(p,i) in points"
         :key="i"
         :points="[
@@ -75,14 +66,14 @@ export default {
           {x: 0, y: 0, z: height}
         ]"
       />
-      <ThreeLine :points="points.concat(points[0])" />
-      <ThreeLine
+      <f-line3 :points="points.concat(points[0])" />
+      <f-line3
         v-for="p in points"
         :points="[
           {x: p.x, y: p.y, z: 0},
           {x: 0, y: 0, z: height}
         ]"
       />
-    </ThreeGroup>
+      </f-group3>
   `
 };
