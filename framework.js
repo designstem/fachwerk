@@ -165,6 +165,7 @@ export const sortedComponents = [
   { FCircle3 },
   { FPolygon3 },
   { FRegularpolygon3 },
+  { FPolyhedron3 },
 
   // Content
   { FButtons },

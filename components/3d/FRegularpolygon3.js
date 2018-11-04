@@ -4,9 +4,10 @@ import { Object3D } from "./3d.js";
 export default {
   mixins: [Object3D],
   description: `
+Regular polygon
   `,
   example: `
-<f-anime-data :duration="10000" :to="360">
+<f-animation-data :duration="10000" :to="360">
 <f-scene3 slot-scope="data">
   <f-group3
     :rotation="{
@@ -22,7 +23,7 @@ export default {
     />
   </f-group3>
 </f-scene3>
-</f-anime-data>
+</f-animation-data>
   `,
   methods: { cpoints },
   props: {
