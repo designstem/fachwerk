@@ -1,46 +1,45 @@
-import { Object2D } from "./internal/two.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
   description: `
   `,
   example: `
-<TwoScene>
-  <TwoGrid />
-  <TwoLine
+<f-scene>
+  <f-grid />
+  <f-line
     :points="[
       { x: -1.5, y: 0 },
-      { x: -1, y: 0 },
-      { x: -1.5, y: 1 },
+      { x: -1,   y: 0 },
+      { x: -1.5, y: 0.5 },
     ]"
   />
-  <TwoLine
+  <f-line
     :points="[
-      { x: -0.5, y: 0 },
-      { x: 0, y: 0 },
-      { x: -0.5, y: 1 },
+      { x: -0.5, y: 0   },
+      { x: 0,    y: 0   },
+      { x: -0.5, y: 0.5 },
     ]"
     :closed="true"
   />
-  <TwoLine
+  <f-line
     :points="[
-      { x: 0.5, y: 0 },
-      { x: 1, y: 0 },
-      { x: 0.5, y: 1 },
+      { x: 0.5, y: 0   },
+      { x: 1,   y: 0   },
+      { x: 0.5, y: 0.5 },
     ]"
     :curved="true"
   />
-  <TwoLine
+  <f-line
     :points="[
-      { x: 1.5, y: 0 },
-      { x: 2, y: 0 },
-      { x: 1.5, y: 1 },
+      { x: 1.5, y: 0   },
+      { x: 2,   y: 0   },
+      { x: 1.5, y: 0.5 },
     ]"
     :closed="true"
     :curved="true"
-    :tension="3"
   />
-</TwoScene>
+</f-scene>
   `,
   props: {
     points: { default: [], type: Array },

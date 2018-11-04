@@ -34,8 +34,8 @@ import FScene from "./components/2d/FScene.js";
 import FGrid from "./components/2d/FGrid.js";
 import FGroup from "./components/2d/FGroup.js";
 import FBox from "./components/2d/FBox.js";
+import FLine from "./components/2d/FLine.js";
 
-import TwoLine from "./components/TwoLine.js";
 import TwoPolygon from "./components/TwoPolygon.js";
 import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
 import TwoSceneScope from "./components/TwoSceneScope.js";
@@ -88,12 +88,10 @@ export {
   FGrid,
   FGroup,
   FBox,
+  FLine,
 
-  TwoLine,
   TwoPolygon,
   TwoRegularPolygon,
-  
-
   TwoSceneScope,
   VrBox,
   VrGrid,
@@ -110,12 +108,14 @@ export {
 
 export const sortedComponents = [
 
+  // 2d
+
   { FScene },
   { FGrid },
   { FGroup },
   { FBox },
+  { FLine },
 
-  // { TwoLine },
   // { TwoCircle },
   // { TwoPolygon },
   // { TwoRegularPolygon },
