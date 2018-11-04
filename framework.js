@@ -27,7 +27,6 @@ import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
 import ThreeScene from "./components/ThreeScene.js";
 import ThreeTriangle from "./components/ThreeTriangle.js";
 import Transport from "./components/Transport.js";
-import TwoCircle from "./components/TwoCircle.js";
 import TwoDragScope from "./components/TwoDragScope.js";
 
 import FScene from "./components/2d/FScene.js";
@@ -35,6 +34,7 @@ import FGrid from "./components/2d/FGrid.js";
 import FGroup from "./components/2d/FGroup.js";
 import FBox from "./components/2d/FBox.js";
 import FLine from "./components/2d/FLine.js";
+import FCircle from "./components/2d/FCircle.js";
 
 import TwoPolygon from "./components/TwoPolygon.js";
 import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
@@ -81,7 +81,6 @@ export {
   ThreeScene,
   ThreeTriangle,
   Transport,
-  TwoCircle,
   TwoDragScope,
 
   FScene,
@@ -89,6 +88,7 @@ export {
   FGroup,
   FBox,
   FLine,
+  FCircle,
 
   TwoPolygon,
   TwoRegularPolygon,
@@ -115,8 +115,8 @@ export const sortedComponents = [
   { FGroup },
   { FBox },
   { FLine },
+  { FCircle },
 
-  // { TwoCircle },
   // { TwoPolygon },
   // { TwoRegularPolygon },
   // { TwoSceneScope },

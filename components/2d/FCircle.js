@@ -1,27 +1,27 @@
-import { Object2D } from "./internal/two.js";
+import { Object2D } from "../internal/two.js";
 
 export default {
   mixins: [Object2D],
   description: `
   `,
   example: `
-<TwoScene>
-  <TwoGrid />
-  <TwoCircle />
-  <TwoCircle
+<f-scene>
+  <f-grid />
+  <f-grid />
+  <f-circle
     :points="[{x: -0.5},{x: 0},{x: 0.5}]"
     :r="0.1"
   />
-</TwoScene>  
+</f-scene>  
   `,
   props: {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
     r: { default: 1, type: Number },
-    stroke: { default: 'var(--primary)', type: String},
+    stroke: { default: 'none', type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: 'none', type: String},
+    fill: { default: 'var(--primary)', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
