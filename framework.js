@@ -1,164 +1,202 @@
-import AnimeData from "./components/AnimeData.js";
-import ArrayData from "./components/ArrayData.js";
-import Buttons from "./components/Buttons.js";
+// 2d
+
+import FScene from "./components/2d/FScene.js";
+export { FScene };
+
+import FArtboard from "./components/2d/FArtboard.js";
+export { FArtboard };
+
+import FGrid from "./components/2d/FGrid.js";
+export { FGrid };
+
+import FGroup from "./components/2d/FGroup.js";
+export { FGroup };
+
+import FBox from "./components/2d/FBox.js";
+export { FBox };
+
+import FLine from "./components/2d/FLine.js";
+export { FLine };
+
+import FCircle from "./components/2d/FCircle.js";
+export { FCircle };
+
+import FPolygon from "./components/2d/FPolygon.js";
+export { FPolygon };
+
+import FRegularpolygon from "./components/2d/FRegularpolygon.js";
+export { FRegularpolygon };
+
+// 3d
+
+import FScene3 from "./components/3d/FScene3.js";
+export { FScene3 }
+
+import FBox3 from "./components/3d/FBox3.js";
+export { FBox3 }
+
+import FGrid3 from "./components/3d/FGrid3.js";
+export { FGrid3 }
+
+import FGroup3 from "./components/3d/FGroup3.js";
+export { FGroup3 }
+
+import FLine3 from "./components/3d/FLine3.js";
+export { FLine3 }
+
+import FCircle3 from "./components/3d/FCircle3.js";
+export { FCircle3 };
+
+import FTriangle3 from "./components/3d/FTriangle3.js";
+export { FTriangle3 }
+
+import FPolygon3 from "./components/3d/FPolygon3.js";
+export { FPolygon3 }
+
+import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
+export { FRegularpolygon3 }
+
+import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
+export { FPolyhedron3 }
+
+// Transitions
+
+import FFade from "./components/transitions/FFade.js";
+export { FFade };
+
+import FBounce from "./components/transitions/FBounce.js";
+export { FBounce };
+
+// Data
+
+import FArrayData from "./components/data/FArrayData.js";
+export { FArrayData };
+
+import FAnimationData from "./components/data/FAnimationData.js";
+export { FAnimationData };
+
+import FButtonsData from "./components/data/FButtonsData.js";
+export { FButtonsData };
+
+import FRgbData from "./components/data/FRgbData.js";
+export { FRgbData };
+
+import FHslData from "./components/data/FHslData.js";
+export { FHslData };
+
+import FSliderData from "./components/data/FSliderData.js";
+export { FSliderData }
+
+import FFetchData from "./components/data/FFetchData.js";
+export { FFetchData };
+
+import FSheetData from "./components/data/FSheetData.js";
+export { FSheetData }
+
+import FRotationData from "./components/data/FRotationData.js";
+export { FRotationData };
+
+// Content
+
+import FButtons from "./components/content/FButtons.js";
+export { FButtons };
+
+import FMath from "./components/content/FMath.js";
+export { FMath }
+
+import FTheme from "./components/content/FTheme.js";
+export { FTheme }
+
+// Experimental
+
+import FSceneData from "./components/experimental/FSceneData.js";
+export { FSceneData };
+
+import FDragData from "./components/experimental/FDragData.js";
+export { FDragData };
+
+import FScene3vr from "./components/experimental/FScene3vr.js";
+export { FScene3vr }
+
+import FGrid3vr from "./components/experimental/FGrid3vr.js";
+export { FGrid3vr }
+
+import FBox3vr from "./components/experimental/FBox3vr.js";
+export { FBox3vr }
+
+import FLine3vr from "./components/experimental/FLine3vr.js";
+export { FLine3vr }
+
+// Other
+
 import ContentCards from "./components/ContentCards.js";
 import ContentDocument from "./components/ContentDocument.js";
 import ContentSlides from "./components/ContentSlides.js";
 import Editor from "./components/Editor.js";
-import FetchData from "./components/FetchData.js";
 import Markdown from "./components/Markdown.js";
-import Math from "./components/Math.js";
-import PolygonData from "./components/PolygonData.js";
-import PolyhedronData from "./components/PolyhedronData.js";
 import Render from "./components/Render.js";
-import SheetData from "./components/SheetData.js";
 import Sidebar from "./components/Sidebar.js";
-import SliderData from "./components/SliderData.js";
 import Tabs from "./components/Tabs.js";
-import ThreeBox from "./components/ThreeBox.js";
-import ThreeCircle from "./components/ThreeCircle.js";
-import ThreeGrid from "./components/ThreeGrid.js";
-import ThreeGroup from "./components/ThreeGroup.js";
-import ThreeLight from "./components/ThreeLight.js";
-import ThreeLine from "./components/ThreeLine.js";
-import ThreePolygon from "./components/ThreePolygon.js";
-import ThreePolyhedron from "./components/ThreePolyhedron.js";
-import ThreeRegularPolygon from "./components/ThreeRegularPolygon.js";
-import ThreeScene from "./components/ThreeScene.js";
-import ThreeTriangle from "./components/ThreeTriangle.js";
-import Transport from "./components/Transport.js";
-import TwoBox from "./components/TwoBox.js";
-import TwoCircle from "./components/TwoCircle.js";
-import TwoDragScope from "./components/TwoDragScope.js";
-import TwoGrid from "./components/TwoGrid.js";
-import TwoGroup from "./components/TwoGroup.js";
-import TwoLine from "./components/TwoLine.js";
-import TwoPolygon from "./components/TwoPolygon.js";
-import TwoRegularPolygon from "./components/TwoRegularPolygon.js";
-import TwoScene from "./components/TwoScene.js";
-import TwoSceneScope from "./components/TwoSceneScope.js";
-import VrBox from "./components/experimental/VrBox.js";
-import VrGrid from "./components/experimental/VrGrid.js";
-import VrLine from "./components/experimental/VrLine.js";
-import VrScene from "./components/experimental/VrScene.js";
-import Fade from "./components/Fade.js";
-import Bounce from "./components/Bounce.js";
-import ButtonsData from "./components/ButtonsData.js";
-import Theme from "./components/Theme.js";
-import RotationData from "./components/RotationData.js";
-import RgbData from "./components/RgbData.js";
-import HslData from "./components/HslData.js";
 
 export {
-  AnimeData,
-  ArrayData,
-  Buttons,
   ContentCards,
   ContentDocument,
   ContentSlides,
   Editor,
-  FetchData,
   Markdown,
-  Math,
-  PolygonData,
-  PolyhedronData,
   Render,
-  SheetData,
   Sidebar,
-  SliderData,
   Tabs,
-  ThreeBox,
-  ThreeCircle,
-  ThreeGrid,
-  ThreeGroup,
-  ThreeLight,
-  ThreeLine,
-  ThreePolygon,
-  ThreePolyhedron,
-  ThreeRegularPolygon,
-  ThreeScene,
-  ThreeTriangle,
-  Transport,
-  TwoBox,
-  TwoCircle,
-  TwoDragScope,
-  TwoGrid,
-  TwoGroup,
-  TwoLine,
-  TwoPolygon,
-  TwoRegularPolygon,
-  TwoScene,
-  TwoSceneScope,
-  VrBox,
-  VrGrid,
-  VrLine,
-  VrScene,
-  Fade,
-  Bounce,
-  ButtonsData,
-  Theme,
-  RotationData,
-  RgbData,
-  HslData
 };
 
 export const sortedComponents = [
+  // 2D
+  { FScene },
+  { FArtboard },
+  { FGrid },
+  { FGroup },
+  { FBox },
+  { FLine },
+  { FCircle },
+  { FPolygon },
+  { FRegularpolygon },
 
-  { TwoScene },
-  { TwoGrid },
-  { TwoGroup },
-  { TwoLine },
-  { TwoCircle },
-  { TwoBox },
-  { TwoPolygon },
-  { TwoRegularPolygon },
-  { TwoSceneScope },
-  { TwoDragScope },
+  { FScene3 },
+  { FBox3 },
+  { FGrid3 },
 
-  { ThreeScene },
-  { ThreeGroup },
-  { ThreeGrid },
-  { ThreeTriangle },
-  { ThreeLine },
-  { ThreeCircle },
-  { ThreeBox },
-  { ThreePolygon },
-  { ThreePolyhedron },
-  { ThreeRegularPolygon },
-  { ThreeLight },
+  { FGroup3 },
+  { FLine3 },
+  { FTriangle3 },
+  { FCircle3 },
+  { FPolygon3 },
+  { FRegularpolygon3 },
+  { FPolyhedron3 },
 
-  { AnimeData },
-  { SliderData },
-  { RotationData },
-  { RgbData },
-  { HslData },
+  // Content
+  //{ FButtons },
+  { FMath },
+  { FTheme },
 
-  { ButtonsData },
-  { FetchData },
-  { SheetData },
-  
-  { PolyhedronData },
+  // Data
+  { FAnimationData },
+  { FArrayData },
+  { FButtonsData },
 
-  { Math },
-  { Transport },
-  { Buttons },
+  { FSliderData },
+  { FHslData },
+  { FRgbData },
 
-  { Fade },
-  { Bounce },
+  { FRotationData },
 
-  { Theme },
+  { FFetchData },
+  { FSheetData },
 
-  // Hidden
+  // Transitions
+  { FFade },
+  { FBounce },
 
-  { VrScene },
-  { VrBox },
-  { VrLine },
-  { VrGrid },
+  // Experimental
+  { FSceneData }
 
-  { Tabs },
-
-  { PolygonData },
-
-  { ArrayData },
-
-]
+];

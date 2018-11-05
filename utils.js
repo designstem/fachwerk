@@ -403,6 +403,9 @@ const parseColumns = slide => {
   }
 };
 
+const kebabCase = string =>
+  string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
+
 const docs = () => d;
 
 export {
@@ -426,5 +429,6 @@ export {
   parseSheet,
   docs,
   parseColumns,
-  cleanColumns
+  cleanColumns,
+  kebabCase
 };

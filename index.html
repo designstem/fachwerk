@@ -52,7 +52,7 @@
   
         <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
         <pre>
-  &lt;link rel="stylesheet" href="https://rawgit.com/designstem/framework/master/style.css"&gt; </pre>
+  &lt;link rel="stylesheet" href="https://designstem.github.io/framework/style.css"&gt; </pre>
   
         <div style="
       display: grid;
@@ -199,19 +199,22 @@
 
       <pre>
 // Import single component to Vue
-import { TwoScene } from 'https://rawgit.com/designstem/framework/master/framework.js'
+import { TwoScene } from 'https://designstem.github.io/framework/framework.js'
 Vue.component('TwoScene', TwoScene)
 new Vue({ el: '#app' })
 
 // Import all framework components to Vue
-import * as components from 'https://rawgit.com/designstem/framework/master/framework.js'
+import * as components from 'https://designstem.github.io/framework/framework.js'
 for (const name in components) {
   Vue.component(name, components[name])
 }
 new Vue({ el: '#app' })
 </pre>
-
-      <Components />
+    <br><br>
+    <template v-for="tag in ['2D','3D','Content','Data','Transitions','Experimental']">
+      <h1 style="margin: 2rem 0 0 0;">{{ tag == 'Experimental' ? '🔬 ' : ''}} {{ tag }}</h1>
+      <Components :tag="tag" />
+    </template>
 
     </div>
 
@@ -224,10 +227,10 @@ new Vue({ el: '#app' })
 
       <pre>
 // Import just some functions
-import { random } from 'https://rawgit.com/designstem/framework/master/utils.js'
+import { random } from 'https://designstem.github.io/framework/utils.js'
 
 // Import all under utils namespace
-import * as utils from 'https://rawgit.com/designstem/framework/master/utils.js'
+import * as utils from 'https://designstem.github.io/framework/utils.js'
 
 // Make all utils available for Vue templates
 new Vue({
