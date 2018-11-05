@@ -1,4 +1,5 @@
 export default {
+  tag: 'Layout',
   props: ["value"],
   data: () => ({ content: "" }),
   mounted() {

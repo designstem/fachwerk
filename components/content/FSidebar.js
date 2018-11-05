@@ -1,4 +1,10 @@
 export default {
+  tag: 'Content',
+  description: `
+  `,
+  example: `
+Want so see what this project <f-sidebar src="./README.md">is all about</f-sidebar>?   
+  `,
   props: ["src"],
   data: () => ({ open: false }),
   template: `
@@ -23,13 +29,13 @@ export default {
             top: 1rem;
             right: 1rem;
         ">✕</div>
-        <fetch-data :url="src">
-          <content-document
+        <f-fetch-data :url="src">
+          <f-content-document
             slot-scope="data"
             :content="data.value"
             style="font-size: 0.8em;"
           />
-        </fetch-data>
+        </f-fetch-data>
       </div>
 </span>
   `

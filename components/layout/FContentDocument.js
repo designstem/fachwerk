@@ -1,6 +1,7 @@
-import Markdown from "./Markdown.js";
+import Markdown from "../Markdown.js";
 
 export default {
+  tag: 'Layout',
   components: { Markdown },
   props: ["content"],
   computed: {

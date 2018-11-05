@@ -1,6 +1,7 @@
 import Render from "../components/Render.js";
-import Editor from "../components/Editor.js";
 import Markdown from "../components/Markdown.js";
+
+import Editor from "../components/layout/FEditor.js";
 
 import { sortedComponents } from "../framework.js";
 import { kebabCase } from "../utils.js";

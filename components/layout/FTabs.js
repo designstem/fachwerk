@@ -1,4 +1,5 @@
 export default {
+  tag: 'Layout',
   description: `
 Tabs, meant to be used with <code>v-model</code>.
   `,

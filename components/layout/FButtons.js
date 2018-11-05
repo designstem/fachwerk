@@ -1,5 +1,5 @@
 export default {
-  tag: 'Content',
+  tag: 'Layout',
   description: `
 A button group, meant to be used with \`v-model\`.
   `,

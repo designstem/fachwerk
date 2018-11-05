@@ -1,10 +1,11 @@
-import Markdown from "./Markdown.js";
-import Css from "./Css.js";
+import Markdown from "../Markdown.js";
+import Css from "../Css.js";
 
-import { parseColumns } from '../utils.js'
+import { parseColumns } from '../../utils.js'
 
 export default {
   mixins: [Css],
+  tag: 'Layout',
   components: { Markdown },
   props: ["content"],
   data: () => ({ currentIndex: 0 }),

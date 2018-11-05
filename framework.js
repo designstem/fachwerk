@@ -1,4 +1,4 @@
-// 2d
+// 2D
 
 import FScene from "./components/2d/FScene.js";
 export { FScene };
@@ -27,7 +27,7 @@ export { FPolygon };
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
-// 3d
+// 3D
 
 import FScene3 from "./components/3d/FScene3.js";
 export { FScene3 }
@@ -98,14 +98,11 @@ export { FRotationData };
 
 // Content
 
-import FButtons from "./components/content/FButtons.js";
-export { FButtons };
-
 import FMath from "./components/content/FMath.js";
 export { FMath }
 
-import FTheme from "./components/content/FTheme.js";
-export { FTheme }
+import FSidebar from "./components/content/FSidebar.js";
+export { FSidebar }
 
 // Experimental
 
@@ -127,29 +124,39 @@ export { FBox3vr }
 import FLine3vr from "./components/experimental/FLine3vr.js";
 export { FLine3vr }
 
-// Other
+// Layout
 
-import ContentCards from "./components/ContentCards.js";
-import ContentDocument from "./components/ContentDocument.js";
-import ContentSlides from "./components/ContentSlides.js";
-import Editor from "./components/Editor.js";
+import FButtons from "./components/layout/FButtons.js";
+export { FButtons };
+
+import FTheme from "./components/layout/FTheme.js";
+export { FTheme }
+
+import FContentDocument from "./components/layout/FContentDocument.js";
+export  { FContentDocument }
+
+import FContentSlides from "./components/layout/FContentSlides.js";
+export  { FContentSlides }
+
+import FContentCards from "./components/layout/FContentCards.js";
+export  { FContentCards }
+
+import FTabs from "./components/layout/FTabs.js";
+export  { FTabs }
+
+import FEditor from "./components/layout/FEditor.js";
+export { FEditor }
+
+// Internal
+
 import Markdown from "./components/Markdown.js";
-import Render from "./components/Render.js";
-import Sidebar from "./components/Sidebar.js";
-import Tabs from "./components/Tabs.js";
+export { Markdown }
 
-export {
-  ContentCards,
-  ContentDocument,
-  ContentSlides,
-  Editor,
-  Markdown,
-  Render,
-  Sidebar,
-  Tabs,
-};
+import Render from "./components/Render.js";
+export { Render }
 
 export const sortedComponents = [
+  
   // 2D
   { FScene },
   { FArtboard },
@@ -161,10 +168,11 @@ export const sortedComponents = [
   { FPolygon },
   { FRegularpolygon },
 
+  // 3D
+
   { FScene3 },
   { FBox3 },
   { FGrid3 },
-
   { FGroup3 },
   { FLine3 },
   { FTriangle3 },
@@ -174,29 +182,26 @@ export const sortedComponents = [
   { FPolyhedron3 },
 
   // Content
-  //{ FButtons },
   { FMath },
-  { FTheme },
+  { FSidebar },
 
   // Data
   { FAnimationData },
   { FArrayData },
   { FButtonsData },
-
   { FSliderData },
   { FHslData },
   { FRgbData },
-
   { FRotationData },
-
   { FFetchData },
   { FSheetData },
 
   // Transitions
+
   { FFade },
   { FBounce },
 
   // Experimental
-  { FSceneData }
+  //{ FSceneData }
 
 ];
