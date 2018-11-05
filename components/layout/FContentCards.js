@@ -30,7 +30,7 @@ export default {
           border: 3px solid var(--gray);
           border-radius: var(--border-radius);
         "
-        class="card"
+        class="card break"
       >
         <Markdown :content="card"/>
       </div>
