@@ -56,7 +56,7 @@
 
 body {
   font-family: var(--font-serif);
-  --color: var(--primary);
+  color: var(--primary);
   margin: 0;
 }
 
@@ -82,7 +82,6 @@ h2 {
 p {
   line-height: 1.5rem;
   margin: 0 0 0.5rem 0;
-  color: var(--primary);
 }
 a {
   text-decoration: none;
