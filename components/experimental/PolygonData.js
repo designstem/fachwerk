@@ -1,6 +1,7 @@
 import { cx, cy } from "../utils.js";
 
 export default {
+  tag: 'Experimental',
   description: `
 Passes <code>:count</code> points on the 2D circle with radius <code>:radius</code> as <code>data.points</code> down to the children components.
   `,

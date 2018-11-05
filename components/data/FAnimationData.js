@@ -1,4 +1,5 @@
 export default {
+  tag: 'Data',
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library.
 

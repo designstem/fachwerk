@@ -168,7 +168,7 @@ export const sortedComponents = [
   { FPolyhedron3 },
 
   // Content
-  { FButtons },
+  //{ FButtons },
   { FMath },
   { FTheme },
 
@@ -190,4 +190,7 @@ export const sortedComponents = [
   { FFade },
   { FBounce },
 
+  // Experimental
+  { FSceneData }
+  
 ];

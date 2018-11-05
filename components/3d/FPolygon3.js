@@ -21,6 +21,7 @@ const InternalPolygon = {
 
 export default {
   mixins: [Object3D],
+  tag: '3D',
   description: `
 Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
   `,

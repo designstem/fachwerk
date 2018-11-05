@@ -1,5 +1,5 @@
 import Render from "../components/Render.js";
-import Editor from "../components/Editor.js"
+import Editor from "../components/Editor.js";
 import Markdown from "../components/Markdown.js";
 
 import { sortedComponents } from "../framework.js";
@@ -9,18 +9,26 @@ const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
   methods: {
     formatDefault(prop) {
-      if (prop.hasOwnProperty('default')) {
-        if (prop.default instanceof Object && !(prop.default instanceof Array)) {
-          return '{}'
+      if (prop.hasOwnProperty("default")) {
+        if (
+          prop.default instanceof Object &&
+          !(prop.default instanceof Array)
+        ) {
+          return "{}";
         }
-        return prop.default.length == 0 ? '[]' : String(prop.default)
+        return prop.default.length == 0 ? "[]" : String(prop.default);
       }
       return null;
     },
     formatType(prop) {
-      if (prop.hasOwnProperty('type')) {
-        const t = prop.type instanceof Array ? (prop.type[0])() : typeof prop.type == 'function' ? (prop.type)() : prop.type
-        return (t instanceof Array) ? 'array' : typeof t
+      if (prop.hasOwnProperty("type")) {
+        const t =
+          prop.type instanceof Array
+            ? prop.type[0]()
+            : typeof prop.type == "function"
+              ? prop.type()
+              : prop.type;
+        return t instanceof Array ? "array" : typeof t;
       }
       return null;
     }
@@ -68,18 +76,22 @@ const Props = {
 
 export default {
   components: { Render, Editor, Markdown, Props },
-  data: () => ({
-    componentData: sortedComponents
+  props: { tag: { default: null } },
+  data: function() {
+    return { componentData: sortedComponents
       .map(c => Object.entries(c)[0])
       .map(c => Object.assign(c[1], { name: c[0] }))
       .filter(c => c.example)
+      .filter(c => {
+        return this.tag ? this.tag == c.tag : true
+      })
       .map(({ name, example, description, props }) => ({
         name,
         example: example ? example.trim() : "",
         description: description || "",
         props
       }))
-  }),
+  }},
   methods: { kebabCase },
   template: `
     <div>
@@ -88,9 +100,9 @@ export default {
           minHeight: '15rem'
         }"
         >
-          <h2><{{ kebabCase(c.name) }}></h2>
           <div style="display: flex">
-            <div style="width: 280px;">
+            <div style="width: 300px;">
+              <h2><{{ kebabCase(c.name) }}></h2>
               <Markdown :content="c.description" />
               <br>
               <template v-if="c.props">

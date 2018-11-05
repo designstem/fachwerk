@@ -2,6 +2,7 @@ import { Object3D } from './3d.js'
 
 export default {
   mixins: [Object3D],
+  tag: '3D',
   description: `
 Groups components in 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
   `,

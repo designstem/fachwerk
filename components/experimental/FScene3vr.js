@@ -1,9 +1,8 @@
 Vue.config.ignoredElements = ["a-scene", "a-sky", "a-box", "a-line"];
 
 export default {
+  tag: 'Experimental',
   description: `
-**🔬 This component is experimental.**
-
 A basic [A-Frame](https://aframe.io/) wrapper.
   `,
   template: `

@@ -1,6 +1,7 @@
 import { Renderer, Scene, Camera } from './3d.js'
 
 export default {
+  tag: '3D',
   description: `
 _Der Raum_.
 `,

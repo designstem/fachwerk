@@ -1,4 +1,5 @@
 export default {
+  tag: 'Data',
   example: `
 <f-array-data :length="3">
   <f-scene slot-scope="data">

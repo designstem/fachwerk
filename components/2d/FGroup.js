@@ -2,6 +2,7 @@ import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
+  tag: '2D',
   description: `
 The component is a wrapper around SVG's <code>g</code> for feature parity with \`f-group3\` and applying transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>
 

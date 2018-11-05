@@ -52,9 +52,9 @@ const Drag = {
 };
 
 export default {
+  tag: 'Experimental',
   description: `
-**🔬 This component is experimental.**
-`,
+  `,
   example: `
   <f-drag-data
   :points="[

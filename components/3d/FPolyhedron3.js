@@ -1,6 +1,7 @@
 import { Object3D } from "./3d.js";
 
 export default {
+  tag: '3D',
   example: `
 <f-scene3>
   <f-polyhedron3

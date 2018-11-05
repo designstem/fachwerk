@@ -2,6 +2,7 @@ import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
+  tag: '2D',
   description: `
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
   `,

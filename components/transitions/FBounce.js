@@ -2,6 +2,7 @@ import Css from "../Css.js";
 
 export default {
   mixins: [Css],
+  tag: 'Transitions',
   description: `
 Bounce transition
   `,

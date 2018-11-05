@@ -1,4 +1,5 @@
 export default {
+  tag: 'Experimental',
   description: "A simple play / pause button, meant to be used with v-model",
   example: `
 <Transport v-model="someVariable" />

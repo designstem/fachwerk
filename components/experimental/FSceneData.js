@@ -2,10 +2,9 @@ import Css from "../Css.js";
 
 export default {
   mixins: [Css],
-  name: "TwoSceneScope",
+  tag: 'Experimental',
   description: `
-**🔬 This component is experimental.**
-`,
+  `,
   example: `
 <f-scene-data>  
   <g slot-scope="data">

@@ -1,6 +1,7 @@
 import { parseSheet } from "../../utils.js";
 
 export default {
+  tag: 'Data',
   description: `
 Fetches data from Google Sheets.
   `,

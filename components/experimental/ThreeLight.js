@@ -2,6 +2,7 @@ import { Object3D } from "../3d/3d.js";
 
 export default {
   mixins: [Object3D],
+  tag: 'Experimental',
   props: {
     color: { default: 'white', type: [String, Number] },
     intensity: { default: 1, type: Number }

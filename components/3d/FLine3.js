@@ -2,6 +2,7 @@ import { Object3D } from "./3d.js";
 
 export default {
   mixins: [Object3D],
+  tag: '3D',
   description: `
 Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:points</code> array.  `,
   example: `

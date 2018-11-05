@@ -1,4 +1,5 @@
 export default {
+  tag: 'Content',
   description: `
 Themes the content
   `,

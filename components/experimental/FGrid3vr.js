@@ -1,4 +1,5 @@
 export default {
+  tag: 'Experimental',
   template: `
   <a-entity>
     <a-entity

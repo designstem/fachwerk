@@ -2,7 +2,7 @@ import Css from "../Css.js";
 
 export default {
   mixins: [Css],
-  name: "Math",
+  tag: 'Content',
   description: `
 Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://reu.dimacs.rutgers.edu/Symbols.pdf">LaTeX math syntax</a>.
 <small>

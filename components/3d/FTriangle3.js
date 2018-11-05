@@ -1,8 +1,9 @@
 import { Object3D } from "./3d.js";
 
 export default {
+  tag: '3D',
   description: `
-<i>Der Bauklotz</I> of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
+The key building block of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
   `,
   example: `
 <f-scene3>

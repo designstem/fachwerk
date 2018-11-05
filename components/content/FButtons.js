@@ -1,4 +1,5 @@
 export default {
+  tag: 'Content',
   description: `
 A button group, meant to be used with \`v-model\`.
   `,

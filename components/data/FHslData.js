@@ -1,6 +1,7 @@
 import { deg2rad } from "../../utils.js";
 
 export default {
+  tag: 'Data',
   description: `
 Sliders for <code>h s l</code> color values.
   `,

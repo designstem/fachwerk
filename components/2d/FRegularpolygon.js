@@ -3,6 +3,7 @@ import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
+  tag: '2D',
   description: `
   `,
   example: `

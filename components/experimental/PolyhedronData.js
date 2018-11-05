@@ -1,4 +1,5 @@
 export default {
+  tag: 'Experimental',
   description: `
 Passes 3D coordinates of regular polyhedra as <code>data.normals</code> and <code>data.vertices</code> down to the children components. Supports <code>Tetrahedron</code>, <code>Octahedron</code>, <code>Icosahedron</code> and <code>Dodecahedron</code>.
   `,

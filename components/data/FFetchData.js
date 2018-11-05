@@ -1,4 +1,5 @@
 export default {
+  tag: 'Data',
   description: `
 Fetches data via AJAX.
   `,

@@ -2,6 +2,7 @@ import Css from "../Css.js";
 
 export default {
   mixins: [Css],
+  tag: '2D',
   description: `
 A simple 2D scene with some tweaks to regular SVG document.
 
