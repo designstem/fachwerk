@@ -1,5 +1,10 @@
+// 2d
+
 import FScene from "./components/2d/FScene.js";
 export { FScene };
+
+import FArtboard from "./components/2d/FArtboard.js";
+export { FArtboard };
 
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
@@ -147,6 +152,7 @@ export {
 export const sortedComponents = [
   // 2D
   { FScene },
+  { FArtboard },
   { FGrid },
   { FGroup },
   { FBox },
@@ -192,5 +198,5 @@ export const sortedComponents = [
 
   // Experimental
   { FSceneData }
-  
+
 ];
