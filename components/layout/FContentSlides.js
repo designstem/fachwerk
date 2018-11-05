@@ -28,22 +28,13 @@ export default {
   },
   mounted() {
     document.addEventListener("keydown", e => {
-      if (e.defaultPrevented) {
-        return;
-      }
-      this.keys.forEach((k, i) => {
-        if (e.altKey && e.key == k) {
-          this.$set(this.values, i, 1 - this.values[i]);
-        }
-      });
-      if (e.keyCode == 37) {
+      if (e.altKey && e.keyCode == 37) {
         this.prev();
       }
-      if (e.keyCode == 39) {
+      if (e.altKey && e.keyCode == 39) {
         this.next();
       }
-      e.preventDefault();
-    },true);
+    });
   },
   template: `
   <div>

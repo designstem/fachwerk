@@ -104,26 +104,6 @@ export { FMath }
 import FSidebar from "./components/content/FSidebar.js";
 export { FSidebar }
 
-// Experimental
-
-import FSceneData from "./components/experimental/FSceneData.js";
-export { FSceneData };
-
-import FDragData from "./components/experimental/FDragData.js";
-export { FDragData };
-
-import FScene3vr from "./components/experimental/FScene3vr.js";
-export { FScene3vr }
-
-import FGrid3vr from "./components/experimental/FGrid3vr.js";
-export { FGrid3vr }
-
-import FBox3vr from "./components/experimental/FBox3vr.js";
-export { FBox3vr }
-
-import FLine3vr from "./components/experimental/FLine3vr.js";
-export { FLine3vr }
-
 // Layout
 
 import FButtons from "./components/layout/FButtons.js";
@@ -154,6 +134,29 @@ export { Markdown }
 
 import Render from "./components/Render.js";
 export { Render }
+
+// Experimental
+
+import FSceneData from "./components/experimental/FSceneData.js";
+export { FSceneData };
+
+import FDragData from "./components/experimental/FDragData.js";
+export { FDragData };
+
+import FScene3vr from "./components/experimental/FScene3vr.js";
+export { FScene3vr }
+
+import FGrid3vr from "./components/experimental/FGrid3vr.js";
+export { FGrid3vr }
+
+import FBox3vr from "./components/experimental/FBox3vr.js";
+export { FBox3vr }
+
+import FLine3vr from "./components/experimental/FLine3vr.js";
+export { FLine3vr }
+
+import FKeyboardData from "./components/experimental/FKeyboardData.js";
+export { FKeyboardData };
 
 export const sortedComponents = [
   
@@ -202,6 +205,6 @@ export const sortedComponents = [
   { FBounce },
 
   // Experimental
-  //{ FSceneData }
+  { FKeyboardData },
 
 ];
