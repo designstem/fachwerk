@@ -3,7 +3,7 @@ export default {
   props: { keys: { default: [], type: Array } },
   example: `
 <f-keyboard-data :keys="['a']">
-  <f-buttons slot-scope="data" :buttons="['a']" :value="data.values[0]">
+  <f-buttons slot-scope="data" :buttons="['a']" :value="1 - data.values[0]">
 </f-keyboard-data>
   `,
   data: () => ({ values: [] }),
@@ -12,17 +12,17 @@ export default {
     document.addEventListener(
       "keydown",
       e => {
-        if (e.defaultPrevented) {
-          return;
-        }
+        // if (e.defaultPrevented) {
+        //   return;
+        // }
         this.keys.forEach((k, i) => {
           if (e.key == k) {
             this.$set(this.values, i, 1 - this.values[i]);
           }
         });
-        e.preventDefault();
+        //e.preventDefault();
       },
-      true
+      false
     );
   },
   template: `
