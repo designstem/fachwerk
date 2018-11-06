@@ -12,15 +12,11 @@ export default {
     document.addEventListener(
       "keydown",
       e => {
-        // if (e.defaultPrevented) {
-        //   return;
-        // }
         this.keys.forEach((k, i) => {
           if (e.key == k) {
             this.$set(this.values, i, 1 - this.values[i]);
           }
         });
-        //e.preventDefault();
       },
       false
     );

@@ -1,4 +1,7 @@
-p styles -> body styles
+homepage -> utils
+
+const unique = array => [...new Set(array)];
+const flatten = array => [].concat(...array);
 
 ---
 
