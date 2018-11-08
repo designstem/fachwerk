@@ -56,6 +56,8 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
       { x:  1, y: 0 },
       { x: 0,  y: 1 },
     ], type: Array },
+    stroke: { default: "color('secondary')", type: String },
+    strokeWidth: { default: "3", type: Number },
     fill: { default: "color('primary')", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
@@ -71,9 +73,9 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
     }
   },
   template: `
-    <f-group>
-      <InternalPolygon :points="points" />
-      <f-line :points="linePoints" />
-    </f-group>
+    <f-group3>
+      <InternalPolygon :points="points" :fill="fill" :opacity="opacity" />
+      <f-line3 :points="linePoints" :stroke="stroke" :strokeWidth="strokeWidth" :opacity="opacity" />
+    </f-group3>
   `
 };

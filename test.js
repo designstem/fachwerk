@@ -15,8 +15,17 @@ new Vue({
   <f-theme theme="dark" style="margin: 2rem;">
   <f-scene3>
   <f-grid3 />
-  <f-polygon3 :fill="color('red')"
+  <f-line3
+    :points="[
+      { x: 1, y:  1, z: 0 },
+      { x: 1, y:  0, z: 1 },
+      { x: 1, y: -1, z: 0 },
+      { x: 1, y: -2, z: 0 },
+    ]"
+    :stroke="color('red')"
+    :opacity="0.2"
   />
+  <f-polygon3 :fill="color('red')" :stroke="color('blue')" :opacity="0.2" />
 </f-scene3>
 </f-theme>
   `
