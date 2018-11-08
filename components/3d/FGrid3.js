@@ -18,7 +18,8 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   props: {
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object }
+    rotation: { default: () => ({}), type: Object },
+    opacity: { default: 0.2, type: Number }
   },
   methods: { deg2rad },
   template: `
@@ -35,47 +36,48 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
     <f-line3
       v-for="(x,i) in [-2,-1,0,1,2]"
       :key="'a'+i"
-      stroke-width="1"
-      :stroke="0xdddddd"
+      :stroke-width="1"
       :points="[
         { x, y: 2 },
         { x, y: -2 }
       ]"
+      :opacity="opacity"
     />
     <f-line3
       v-for="(y,i) in [-2,-1,0,1,2]"
       :key="'b'+i"
       stroke-width="1"
-      :stroke="0xdddddd"
       :points="[
         { x: 2, y },
         { x: -2, y }
       ]"
+      :opacity="opacity"
     />
   </f-group3>
   <f-line3
-      :stroke="0xaaaaaa"
-      :stroke-width="1.5"
+      :stroke-width="1.25"
       :points="[
         { x: 0, y: 2, z: 0 },
         { x: 0, y: -2, z: 0 }
       ]"
+      :opacity="opacity"
+
   />
   <f-line3
-    :stroke="0xaaaaaa"
-    :stroke-width="1.5"
+    :stroke-width="1.25"
     :points="[
       { x: 2, y: 0, z: 0 },
       { x: -2, y: 0, z: 0 }
     ]"
+    :opacity="opacity"
   />
   <f-line3
-    :stroke="0xaaaaaa"
-    :stroke-width="1.5"
+    :stroke-width="1.25"
     :points="[
       { x: 2, y: 0, z: 0 },
       { x: -2, y: 0, z: 0 }
     ]"
+    :opacity="opacity"
   />
   </f-group3>
   `

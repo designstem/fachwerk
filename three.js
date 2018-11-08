@@ -1235,7 +1235,9 @@ THREE.SVGRenderer = function () {
 
 		if ( opacity === undefined || opacity === 1 ) return 'rgb(' + arg + ')';
 
-		return 'rgb(' + arg + '); fill-opacity: ' + opacity;
+		// CHANGED
+		//return 'rgb(' + arg + '); fill-opacity: ' + opacity;
+		return 'rgb(' + arg + '); opacity: ' + opacity;
 
 	}
 
@@ -1248,7 +1250,8 @@ THREE.SVGRenderer = function () {
 	this.clear = function () {
 
 		removeChildNodes();
-		_svg.style.backgroundColor = getSvgColor( _clearColor, _clearAlpha );
+		// CHANGED
+		//_svg.style.backgroundColor = getSvgColor( _clearColor, _clearAlpha );
 
 	};
 

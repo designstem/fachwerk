@@ -12,10 +12,11 @@ new Vue({
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
-  <f-theme theme="dark" style="margin: 2rem;">
-  <f-scene3>
-  <f-grid3 />
-  <f-line3
+  <f-theme theme="dark" style="padding: 2rem;">
+    <f-rotation-data>
+  <f-scene3 slot-scope="data">
+  <f-grid3 :rotation="{x: data.values[1],y: data.values[0]}" />
+  <f-line3 :rotation="{x: data.values[1],y: data.values[0]}"
     :points="[
       { x: 1, y:  1, z: 0 },
       { x: 1, y:  0, z: 1 },
@@ -23,10 +24,11 @@ new Vue({
       { x: 1, y: -2, z: 0 },
     ]"
     :stroke="color('red')"
-    :opacity="0.2"
+    :opacity="1"
   />
-  <f-polygon3 :fill="color('red')" :stroke="color('blue')" :opacity="0.2" />
+  <f-polygon3 :rotation="{x: data.values[1],y: data.values[0]}" :fill="color('red')" :stroke="color('blue')" :opacity="1" />
 </f-scene3>
+  </f-rotation-data>
 </f-theme>
   `
 });
