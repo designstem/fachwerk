@@ -13,10 +13,9 @@ new Vue({
   methods: utils,
   template: `
   <div style="margin: 2rem;">
-    <h2>Test</h2>
-    <f-scene>
-      <f-circle :fill="blue()" />
-    </f-scene>
+    <f-scene3 >
+      <f-triangle3 />
+    </f-scene3>
   </div>
   `
 });

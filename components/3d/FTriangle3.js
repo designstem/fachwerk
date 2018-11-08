@@ -1,7 +1,8 @@
 import { Object3D } from "./3d.js";
+import { color } from '../../utils.js'
 
 export default {
-  tag: '3D',
+  tag: "3D",
   description: `
 The key building block of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
   `,
@@ -24,10 +25,12 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
   `,
   mixins: [Object3D],
   props: {
-    points: { default: [], type: Array },
+    points: { default: [{}, { x: 1 }, { y: 1 }], type: Array },
+    fill: { default: "color('primary')", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object }
+    rotation: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number },
   },
   data() {
     let curObj = this.obj;
@@ -40,9 +43,9 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
       geometry.computeFaceNormals();
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({
-          flatShading: true,
-          opacity: 0.5,
+        new THREE.MeshBasicMaterial({
+          color: this.fill == "color('primary')" ? color('primary') : this.fill,
+          opacity: this.opacity,
           side: THREE.DoubleSide
         })
       );

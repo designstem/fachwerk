@@ -7,24 +7,62 @@ const getCssVariable = (variable, el = document.body) =>
 
 /* Colors */
 
-const white = () => getCssVariable('--darkestgray')
-const darkestgray = () => getCssVariable('--darkestgray')
-const darkergray = () => getCssVariable('--darkergray')
-const darkgray = () => getCssVariable('--darkgray')
-const gray = () => getCssVariable('--gray')
-const lightgray = () => getCssVariable('--lightgray')
-const lightergray = () => getCssVariable('--lightergray')
-const purple = () => getCssVariable('--purple')
-const red = () => getCssVariable('--red')
-const yellow = () => getCssVariable('--yellow')
-const lightblue = () => getCssVariable('--lightblue')
-const blue = () => getCssVariable('--blue')
-const darkblue = () => getCssVariable('--darkblue')
-const black = () => getCssVariable('--black')
 
-const primary = darkgray
-const secondary = gray
-const tertiary = lightgray
+d.push(`
+## color
+
+<code>color('name')</i></code>
+
+Returns a color value. If \`name\` matches one of framework colors, framework color value is returned. If not, a standard CSS color name is returned.
+
+{{ color('red') }}
+
+{{ color('papayawhip')}}
+
+`)
+
+const color = (name) => {
+    const color = getCssVariable(`--${name}`)
+    return color ? color.trim() : name.trim()
+ }
+
+//export const white = '#ffffff';
+// const darkestgray = '#222222'; 
+// const darkergray = '#333333'; 
+// const darkgray = '#555555';       
+// const gray = '#aaaaaa';
+// const lightgray = '#cccccc';       
+// const lightergray = '#eee';   
+// const purple = '#663399';
+// const red = '#ff595e';         
+// const yellow = '#ffca3a';       
+// const lightblue = '#f0f5fa';     
+// const blue = '#1982c4';          
+// const darkblue = '#162E3D';
+// const black = '#000000';
+
+// const primary = '#555555' // darkgray;
+// const secondary = '#aaaaaa' // gray;
+// const tertiary = '#cccccc' // lightgray;
+
+
+//   white,
+//   darkestgray,
+//   darkergray,
+//   darkgray,
+//   gray,
+//   lightgray,
+//   lightergray,
+//   purple,
+//   red,
+//   yellow,
+//   lightblue,
+//   blue,
+//   darkblue,
+//   black,
+//primary,
+//   secondary,
+//   tertiary,
 
 /* Color functions */
 
@@ -440,23 +478,7 @@ const docs = () => d;
 
 export {
   getCssVariable,
-  white,
-  darkestgray,
-  darkergray,
-  darkgray,
-  gray,
-  lightgray,
-  lightergray,
-  purple,
-  red,
-  yellow,
-  lightblue,
-  blue,
-  darkblue,
-  black,
-  primary,
-  secondary,
-  tertiary,
+  color,
   rgb,
   hsl,
   scale,
