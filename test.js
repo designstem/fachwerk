@@ -12,6 +12,7 @@ new Vue({
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
+<f-theme>
 <f-scene3>
   <f-group3 :rotation="{y: -1}">
   <f-grid3 />
@@ -25,6 +26,7 @@ new Vue({
   />
   </f-group3>
 </f-scene3>
+</f-theme>
   <!--
   <f-theme theme="dark" style="padding: 2rem;">
   <f-rotation-data>

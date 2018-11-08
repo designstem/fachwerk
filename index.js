@@ -14,13 +14,5 @@ Vue.config.devtools = true
 new Vue({
   components: { Components, Utils, Faq },
   el: "#app",
-  data: () => ({ inverted: false }),
-  methods: utils,
-  mounted() {
-    document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode === 84) { // Alt + T
-        this.inverted = !this.inverted
-      }
-    });
-  }
+  methods: utils
 });

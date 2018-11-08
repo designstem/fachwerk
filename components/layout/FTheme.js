@@ -1,5 +1,5 @@
 export default {
-  tag: 'Content',
+  tag: "Content",
   description: `
 Themes the content
   `,
@@ -25,32 +25,44 @@ Themes the content
   props: {
     theme: { default: "light", type: String }
   },
-  data: () => ({
-    themes: {
-      light: {},
-      dark: {
-        background: "var(--darkestgray)",
-        "--primary": "var(--lightergray)",
-        "--secondary": "var(--lightgray)",
-        "--tertiary": "var(--gray)",
-        "--lightblue": "var(--darkblue)",
-        "--blue": "var(--lightgray)"
-      },
-      blue: {
-        background: "var(--darkblue)",
-        "--primary": "var(--lightergray)",
-        "--secondary": "var(--lightgray)"
-      },
-      yellow: {
-        background: "var(--yellow)",
-        "--primary": "var(--darkgray)",
-        "--lightblue": "var(--darkblue)",
-        "--blue": "var(--lightgray)"
+  data: function() {
+    return {
+      currentTheme: this.theme,
+      themes: {
+        light: {},
+        dark: {
+          background: "var(--darkestgray)",
+          "--primary": "var(--lightergray)",
+          "--secondary": "var(--lightgray)",
+          "--tertiary": "var(--gray)",
+          "--lightblue": "var(--darkblue)",
+          "--blue": "var(--lightgray)"
+        },
+        blue: {
+          background: "var(--darkblue)",
+          "--primary": "var(--lightergray)",
+          "--secondary": "var(--lightgray)"
+        },
+        yellow: {
+          background: "var(--yellow)",
+          "--primary": "var(--darkgray)",
+          "--lightblue": "var(--darkblue)",
+          "--blue": "var(--lightgray)"
+        }
       }
-    }
-  }),
+    };
+  },
+  mounted() {
+    document.addEventListener("keydown", e => {
+      if (e.altKey && e.keyCode === 84) { 
+        if (this.theme == 'light' || this.theme == 'dark') {
+          this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
+        }
+      }
+    });
+  },
   template: `
-    <div :style="themes[theme]">
+    <div :style="themes[currentTheme]">
       <slot />
     </div>
   `
