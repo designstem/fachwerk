@@ -26,7 +26,11 @@ new Vue({
     :stroke="color('red')"
     :opacity="1"
   />
-  <f-polygon3 :rotation="{x: data.values[1],y: data.values[0]}" :fill="color('red')" :stroke="color('blue')" :opacity="1" />
+  <f-polygon3
+    :rotation="{x: data.values[1],y: data.values[0]}"
+    :fill="color('red')"
+    :opacity="0.5"
+  />
 </f-scene3>
   </f-rotation-data>
 </f-theme>
