@@ -33,7 +33,7 @@ Hedron
     r: { default: 1, type: Number },
     height: { default: 0, type: Number },
     heightStrokeWidth: { default: 0, type: Number },
-    stroke: { default: "color('secondary')", type: String },
+    stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "color('primary')", type: String },
     position: { default: () => ({}), type: Object },

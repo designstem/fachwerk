@@ -32,7 +32,7 @@ Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:po
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    opacity: { default: 0.5, type: Number }
+    opacity: { default: 3, type: Number }
   },
   data() {
     let curObj = this.obj;

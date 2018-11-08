@@ -15,6 +15,9 @@ export { FGroup };
 import FBox from "./components/2d/FBox.js";
 export { FBox };
 
+import FPoint from "./components/2d/FPoint.js";
+export { FPoint };
+
 import FLine from "./components/2d/FLine.js";
 export { FLine };
 
@@ -169,6 +172,7 @@ export const sortedComponents = [
   { FGrid },
   { FGroup },
   { FBox },
+  { FPoint },
   { FLine },
   { FCircle },
   { FPolygon },

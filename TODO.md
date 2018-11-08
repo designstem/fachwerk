@@ -1,5 +1,24 @@
+STABILIZING
+- error
+- layout
+- no markdown in component
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
 f-rotation-data -> value[0]
-snakecase 
+snakecase propidele
 
 homepage -> utils
 
@@ -46,7 +65,8 @@ Components:
   </PixelScene>
 </StateData>
 ```
-
+---
+f-sidebar: laius
 ---
 
 TwoScene
@@ -61,7 +81,7 @@ TwoLine
 ?- (midagi yhele ja kahele poidile?)
 
 TwoCircle
-- r / radius?
+- (r) / radius?
 - scale = 1 nr
 
 ThreeScene
@@ -112,12 +132,12 @@ ThreeRegulaPolygon
 :rotation	{}	object
 :scale	{}	object
 
-AnimeData // AniData // AnimationData // MotionData
-multiple values...
+//AnimeData // AniData // AnimationData // MotionData
+//multiple values...
 
 FetchData = SheetData
-update=""
-update-frequency=""
+//update=""
+//update-frequency=""
 
 ---
 
@@ -142,20 +162,19 @@ import('https://unpkg.com/d3-shape@1.2.2/src/index.js?module')
 
 ---
 
-TwoText
+// f-text -> text
+f-text3 ???
 
 ---
 
-rgbdata
-hsldata
-blendmoded
+//blendmoded?
 
-blindRgb()
-blindHsl()
+//blindRgb()
+//blindHsl()
 
-canIuse
+//canIuse
 
-d-scene2d canvas="maybe"
+//d-scene2d canvas="maybe"
 
 ---
 

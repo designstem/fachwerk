@@ -51,12 +51,8 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
   `,
   components: { InternalPolygon },
   props: {
-    points: { default: [
-      { x:  0, y:  0 },
-      { x:  1, y: 0 },
-      { x: 0,  y: 1 },
-    ], type: Array },
-    stroke: { default: "color('secondary')", type: String },
+    points: { default: [], type: Array },
+    stroke: { default: "", type: String },
     strokeWidth: { default: "3", type: Number },
     fill: { default: "color('primary')", type: String },
     scale: { default: () => ({}), type: [Object, Number] },

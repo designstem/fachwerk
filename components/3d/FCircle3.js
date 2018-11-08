@@ -18,14 +18,14 @@ export default {
   `,
   props: {
     r: { default: 1, type: Number },
-    stroke: { default: "color('secondary')", type: String },
+    stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: 1, type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
     opacity: { default: 1, type: Number },
-
+    shading: { default: false, type: Boolean },
   },
   template: `
     <f-regularpolygon3

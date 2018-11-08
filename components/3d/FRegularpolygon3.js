@@ -19,7 +19,7 @@ Regular polygon in 3D plane
   props: {
     count: { default: 6, type: Number },
     r: { default: 1, type: Number },
-    stroke: { default: "color('secondary')", type: String },
+    stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "color('primary')", type: String },
     position: { default: () => ({}), type: Object },

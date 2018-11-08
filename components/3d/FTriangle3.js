@@ -25,7 +25,7 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
   `,
   mixins: [Object3D],
   props: {
-    points: { default: [{}, { x: 1 }, { y: 1 }], type: Array },
+    points: { default: [], type: Array },
     fill: { default: "color('primary')", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
