@@ -44,6 +44,9 @@ export { FGrid3 }
 import FGroup3 from "./components/3d/FGroup3.js";
 export { FGroup3 }
 
+import FPoint3 from "./components/3d/FPoint3.js";
+export { FPoint3 };
+
 import FLine3 from "./components/3d/FLine3.js";
 export { FLine3 }
 
@@ -184,6 +187,7 @@ export const sortedComponents = [
   { FBox3 },
   { FGrid3 },
   { FGroup3 },
+  { FPoint3 },
   { FLine3 },
   { FTriangle3 },
   { FCircle3 },

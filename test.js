@@ -12,17 +12,19 @@ new Vue({
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
-<f-scene>
-  <f-grid />
-  <f-point
-    :points="range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))"
+<f-scene3>
+  <f-group3 :rotation="{y: -1}">
+  <f-grid3 />
+  <f-point3
+    :points="range(-4,4,0.05).map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
     :stroke="color('red')"
   />
-  <f-point
-    :points="range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))"
+  <f-point3
+    :points="range(-4,4,0.05).map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
     :stroke="color('blue')"
   />
-</f-scene>
+  </f-group3>
+</f-scene3>
   <!--
   <f-theme theme="dark" style="padding: 2rem;">
   <f-rotation-data>

@@ -1,26 +1,27 @@
-import { Object2D } from "./2d.js";
+
+import { Object3D } from "./3d.js";
 
 export default {
-  mixins: [Object2D],
-  tag: "2D",
+  mixins: [Object3D],
+  tag: "3D",
   description: `
   `,
   example: `
-<f-scene>
-  <f-grid />
-  <f-point
-    :points="
-      range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
-    "
+<f-scene3>
+  <f-group3 :rotation="{y: -1}">
+  <f-grid3 />
+  <f-point3
+    :points="range(-4,4,0.05)
+    .map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
     :stroke="color('red')"
   />
-  <f-point
-    :points="
-      range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
-    "
+  <f-point3
+    :points="range(-4,4,0.05)
+    .map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
     :stroke="color('blue')"
   />
-</f-scene>
+  </f-group3>
+</f-scene3>
   `,
   props: {
     points: { default: [], type: Array },
@@ -32,16 +33,17 @@ export default {
     opacity: { default: 1, type: Number },
   },
   template: `
-    <g :transform="transform">
-      <f-line
+    <f-group3>
+      <f-line3
         v-for="point in points"
-        :points="[{x: point.x, y: point.y},{x: point.x, y: point.y}]"
+        :points="[
+          {x: point.x, y: point.y, z: point.z},
+          {x: point.x, y: point.y, z: point.z}
+        ]"
         :stroke="stroke"
         :stroke-width="strokeWidth"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         :opacity="opacity"
       />
-    </g>
+    </f-group3>
     `
 };
