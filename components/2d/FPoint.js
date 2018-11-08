@@ -2,18 +2,23 @@ import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
-  tag: '2D',
+  tag: "2D",
   description: `
   `,
   example: `
 <f-scene>
   <f-grid />
   <f-point
-    :points="[
-      { x: -1.5, y: 0 },
-      { x: -1,   y: 0 },
-      { x: -1.5, y: 0.5 },
-    ]"
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
+    "
+    :stroke="color('red')"
+  />
+  <f-point
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
+    "
+    :stroke="color('blue')"
   />
 </f-scene>
   `,
@@ -25,7 +30,7 @@ export default {
     opacity: { default: 1, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object }
   },
   template: `
     <g :transform="transform">
