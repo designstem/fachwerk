@@ -1,3 +1,5 @@
+snakecase 
+
 homepage -> utils
 
 const unique = array => [...new Set(array)];

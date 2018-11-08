@@ -37,14 +37,7 @@
 
     </div>
 
-    <div :style="inverted && {
-      background: 'var(--darkestgray)',
-      '--primary': 'var(--lightergray)',
-      '--secondary': 'var(--lightgray)',
-      '--tertiary': 'var(--gray)',
-      '--lightblue': 'var(--darkblue)',
-      '--blue': 'var(--lightgray)'
-    }">
+    <f-theme :theme="inverted ? 'dark' : 'light'">
 
     <div style="padding: 3rem;">
         <dd>.h1</dd>
@@ -179,7 +172,7 @@
             background: 'var(--' + c + ')',
             borderRadius: 'var(--border-radius)'
           }"></div>
-            <dd>var(--{{ c }})</dd>
+            <dd style="margin: 0.2rem 0 0 0; line-height: 1.4rem;">CSS: var(--{{ c }})<br>JS:&nbsp;  {{ c }}()</dd>
           </template>
         </div>
   
@@ -248,8 +241,8 @@ new Vue({
       <Faq />
     </div>
 
-  </div>
-
+  </f-theme>
+  
     <div class="footer">
       <div>
         <p>

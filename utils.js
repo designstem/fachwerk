@@ -1,4 +1,32 @@
+/* Internal use */
+
 let d = [];
+
+const getCssVariable = (variable, el = document.body) =>
+  getComputedStyle(document.body).getPropertyValue(variable);
+
+/* Colors */
+
+const white = () => getCssVariable('--darkestgray')
+const darkestgray = () => getCssVariable('--darkestgray')
+const darkergray = () => getCssVariable('--darkergray')
+const darkgray = () => getCssVariable('--darkgray')
+const gray = () => getCssVariable('--gray')
+const lightgray = () => getCssVariable('--lightgray')
+const lightergray = () => getCssVariable('--lightergray')
+const purple = () => getCssVariable('--purple')
+const red = () => getCssVariable('--red')
+const yellow = () => getCssVariable('--yellow')
+const lightblue = () => getCssVariable('--lightblue')
+const blue = () => getCssVariable('--blue')
+const darkblue = () => getCssVariable('--darkblue')
+const black = () => getCssVariable('--black')
+
+const primary = darkgray
+const secondary = gray
+const tertiary = lightgray
+
+/* Color functions */
 
 d.push(`
 ## rgb
@@ -406,9 +434,29 @@ const parseColumns = slide => {
 const kebabCase = string =>
   string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
+/* Export */
+
 const docs = () => d;
 
 export {
+  getCssVariable,
+  white,
+  darkestgray,
+  darkergray,
+  darkgray,
+  gray,
+  lightgray,
+  lightergray,
+  purple,
+  red,
+  yellow,
+  lightblue,
+  blue,
+  darkblue,
+  black,
+  primary,
+  secondary,
+  tertiary,
   rgb,
   hsl,
   scale,
@@ -430,5 +478,5 @@ export {
   docs,
   parseColumns,
   cleanColumns,
-  kebabCase
+  kebabCase,
 };
