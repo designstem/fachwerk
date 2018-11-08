@@ -13,23 +13,19 @@ new Vue({
   methods: utils,
   template: `
   <f-theme theme="dark" style="padding: 2rem;">
+    <f-content-editor />
     <f-rotation-data>
   <f-scene3 slot-scope="data">
-  <f-grid3 :rotation="{x: data.values[1],y: data.values[0]}" />
-  <f-line3 :rotation="{x: data.values[1],y: data.values[0]}"
-    :points="[
-      { x: 1, y:  1, z: 0 },
-      { x: 1, y:  0, z: 1 },
-      { x: 1, y: -1, z: 0 },
-      { x: 1, y: -2, z: 0 },
-    ]"
-    :stroke="color('red')"
-    :opacity="1"
-  />
-  <f-polygon3
+  <f-grid3 :rotation="{x: data.values[1],y: data.values[0]}" opacity="0" />
+  <f-regularpolygon3
     :rotation="{x: data.values[1],y: data.values[0]}"
     :fill="color('red')"
+    :stroke="color('white')"
     :opacity="0.5"
+    :stroke-width="3"
+    :height="1"
+    :shading="true"
+    :height-stroke-width="3"
   />
 </f-scene3>
   </f-rotation-data>

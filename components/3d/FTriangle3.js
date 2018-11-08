@@ -31,6 +31,7 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
+    shading: { default: false, type: Boolean },
   },
   data() {
     let curObj = this.obj;
@@ -43,11 +44,15 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
       geometry.computeFaceNormals();
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshBasicMaterial({
-          color: this.fill == "color('primary')" ? color('primary') : this.fill,
+        this.shading ? new THREE.MeshNormalMaterial({
           opacity: this.opacity,
           side: THREE.DoubleSide
         })
+        : new THREE.MeshBasicMaterial({
+          color: this.fill == "color('primary')" ? color('primary') : this.fill,
+          opacity: this.opacity,
+          side: THREE.DoubleSide
+        }),
       );
     }
     curObj.name = curObj.name || curObj.type;

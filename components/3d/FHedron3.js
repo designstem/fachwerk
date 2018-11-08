@@ -21,7 +21,6 @@ Regular polygon
       :rotation="{ x: deg2rad(360 / 2 * c) }"
       :count="4"
       :height="1"
-      :shading="true"
     />
   </f-group3>
 </f-scene3>
@@ -32,15 +31,9 @@ Regular polygon
     count: { default: 6, type: Number },
     radius: { default: 1, type: Number },
     height: { default: 0, type: Number },
-    heightStrokeWidth: { default: 0, type: Number },
-    stroke: { default: "color('secondary')", type: String },
-    strokeWidth: { default: 3, type: Number },
-    fill: { default: "color('primary')", type: String },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
-    opacity: { default: 1, type: Number },
-    shading: { default: false, type: Boolean },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object }
   },
   computed: {
     points() {
@@ -61,9 +54,6 @@ Regular polygon
           },
           {x: 0, y: 0, z: 0}
         ]"
-        :fill="fill"
-        :opacity="opacity"
-        :shading="shading"
       />   
       <f-triangle3
         v-for="(p,i) in points"
@@ -77,26 +67,14 @@ Regular polygon
           },
           {x: 0, y: 0, z: height}
         ]"
-        :fill="fill"
-        :opacity="opacity"
-        :shading="shading"
       />
+      <f-line3 :points="points.concat(points[0])" />
       <f-line3
-        :points="points.concat(points[0])"
-        :stroke="stroke"
-        :strokeWidth="strokeWidth"
-        :opacity="opacity"
-      />
-      <f-line3
-        v-if="heightStrokeWidth"
         v-for="p in points"
         :points="[
           {x: p.x, y: p.y, z: 0},
           {x: 0, y: 0, z: height}
         ]"
-        :stroke="stroke"
-        :strokeWidth="heightStrokeWidth"
-        :opacity="opacity"
       />
       </f-group3>
   `
