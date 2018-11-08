@@ -12,10 +12,12 @@ new Vue({
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
-  <div style="margin: 2rem;">
-    <f-scene3 >
-      <f-triangle3 />
-    </f-scene3>
-  </div>
+  <f-theme theme="dark" style="margin: 2rem;">
+  <f-scene3>
+  <f-grid3 />
+  <f-polygon3 :fill="color('red')"
+  />
+</f-scene3>
+</f-theme>
   `
 });

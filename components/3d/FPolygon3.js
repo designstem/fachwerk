@@ -1,17 +1,28 @@
 import { Object3D } from "./3d.js";
+import { color } from '../../utils.js'
 
 const InternalPolygon = {
   mixins: [Object3D],
-  props: { points: { default: [] } },
+  props: {
+    points: { default: [], type: Array },
+    fill: { default: "color('primary')", type: String },
+    opacity: { default: 1, type: Number },
+  },
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var vectorPoints = this.points.map(p => new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0));
+      var vectorPoints = this.points.map(
+        p => new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0)
+      );
       var shape = new THREE.Shape(vectorPoints);
       var geometry = new THREE.ShapeGeometry(shape);
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({ flatShading: true, opacity: 0.7, side: THREE.DoubleSide })
+        new THREE.MeshBasicMaterial({
+          color: this.fill == "color('primary')" ? color("primary") : this.fill,
+          opacity: this.opacity,
+          side: THREE.DoubleSide
+        })
       );
     }
     curObj.name = curObj.name || curObj.type;
@@ -21,9 +32,9 @@ const InternalPolygon = {
 
 export default {
   mixins: [Object3D],
-  tag: '3D',
+  tag: "3D",
   description: `
-Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
+Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
   `,
   example: `
 <f-scene3>
@@ -40,10 +51,16 @@ Draws a polygon on a plane in 3D space, accepts 2D coordinates in <code>:points<
   `,
   components: { InternalPolygon },
   props: {
-    points: { default: [], type: Array },
+    points: { default: [
+      { x:  0, y:  0 },
+      { x:  1, y: 0 },
+      { x: 0,  y: 1 },
+    ], type: Array },
+    fill: { default: "color('primary')", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object }
+    rotation: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number },
   },
   computed: {
     linePoints() {
