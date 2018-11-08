@@ -1,5 +1,6 @@
 import * as components from "./framework.js";
 import * as utils from "./utils.js";
+import Markdown from "./components/Markdown.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -7,45 +8,79 @@ for (const name in components) {
 
 Vue.config.devtools = true;
 
+const renderer = new marked.Renderer();
+renderer.paragraph = text => {
+  return `<p>${text}</p>`
+};
+renderer.code = (c, l, e) => {
+  if (c.match(/\s{4}<f-/g)) { return `<pre>${c}</pre>` }
+  if (c.match(/<f-/g)) { return c }
+  return `<pre>${c}</pre>`
+}
+
+const Md = {
+  components: { Render },
+  props: ["content"],
+  computed: {
+    output() {
+      return marked(this.content, { breaks: true, renderer })
+    }
+  },
+  template: `
+    <div style="font-family: var(--font-mono); white-space: pre">{{ output }}</div>
+  `
+};
+Vue.component("Md", Md);
+
+import Render from "./components/Render.js";
+
+const Md2 = {
+  components: { Render },
+  props: ["content"],
+  computed: {
+    output() {
+      return marked(this.content, { breaks: true, renderer })
+    }
+  },
+  template: `
+    <div style="border: 3px solid red">
+     <Render :t="'<div>' + output + '</div>'" />
+    </div>
+  `
+};
+
+Vue.component("Md2", Md2);
+
+const FContentEditor = {
+  props: {
+    content: { default: "", type: String }
+  },
+  data: function() {
+    return { innerContent: this.content };
+  },
+  components: { Markdown },
+  template: `
+  <div style="display: flex">
+    <f-editor
+      v-model="innerContent"
+      style="flex: 1; height: 100vh;"
+    />
+    <md style="flex: 1; overflow: auto;" :content="innerContent" />
+    <md2 style="flex: 1" :content="innerContent" />
+  </div>
+  `
+};
+
+Vue.component("FContentEditor", FContentEditor);
+
+Vue.config.errorHandler = function(err, vm, info) {
+  console.log(err, vm, info);
+};
 new Vue({
   el: "#app",
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
-<f-theme>
-<f-scene3>
-  <f-group3 :rotation="{y: -1}">
-  <f-grid3 />
-  <f-point3
-    :points="range(-4,4,0.05).map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
-    :stroke="color('red')"
-  />
-  <f-point3
-    :points="range(-4,4,0.05).map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
-    :stroke="color('blue')"
-  />
-  </f-group3>
-</f-scene3>
-</f-theme>
-  <!--
-  <f-theme theme="dark" style="padding: 2rem;">
-  <f-rotation-data>
-  <f-scene3 slot-scope="data">
-  <f-grid3 :rotation="{x: data.values[1],y: data.values[0]}" opacity="0.2" />
-  <f-hedron3
-    :rotation="{x: data.values[1],y: data.values[0]}"
-    :fill="color('red')"
-    :stroke="color('white')"
-    :opacity="1"
-    :stroke-width="3"
-    :height="2"
-    :shading="true"
-    :height-stroke-width="3"
-  />
-<f-box3 :rotation="{x: data.values[1],y: data.values[0]}" opacity="1" shading="true" />
-</f-scene3>
-  </f-rotation-data>
-</f-theme>
--->
+<f-content-editor content="<f-scene><f-circle /></f-scene>" />
   `
 });
