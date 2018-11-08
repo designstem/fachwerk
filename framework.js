@@ -56,6 +56,9 @@ export { FPolygon3 }
 import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
 export { FRegularpolygon3 }
 
+import FHedron3 from "./components/3d/FHedron3.js";
+export { FHedron3 }
+
 import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
 export { FPolyhedron3 }
 
@@ -182,6 +185,7 @@ export const sortedComponents = [
   { FCircle3 },
   { FPolygon3 },
   { FRegularpolygon3 },
+  { FHedron3 },
   { FPolyhedron3 },
 
   // Content
