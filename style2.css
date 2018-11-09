@@ -370,9 +370,9 @@ footer, .footer {
   background: var(--darkergray);
   border-bottom: var(--border) solid var(--darkgray);
   color: var(--yellow);
+  letter-spacing: -0.03em;
 }
 .hero h1 {
-  letter-spacing: -0.03em;
   color: var(--yellow);
 }
 
