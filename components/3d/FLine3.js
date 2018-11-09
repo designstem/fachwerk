@@ -9,7 +9,7 @@ Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:po
   example: `
 <f-scene3>
   <f-group3
-    :rotation="{ y: 0.5, x: 0.5 }"
+    :rotation="{ y: 45, x: 45 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   >
   <f-grid3 />

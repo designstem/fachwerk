@@ -9,7 +9,7 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
   example: `
 <f-scene3>
   <f-group3
-    :rotation="{ y: 0.5, x: 0.5 }"
+    :rotation="{ y: 45, x: 45 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   >
     <f-grid3 />

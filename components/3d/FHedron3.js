@@ -8,24 +8,22 @@ export default {
 Hedron
   `,
   example: `
-<f-animation-data :duration="10000" :to="360">
-<f-scene3 slot-scope="data">
-  <f-group3
-    :rotation="{
-      x: deg2rad(data.value),
-      y: deg2rad(data.value)
-    }"
-  >
-    <f-hedron3
-      v-for="c in 2"
-      :rotation="{ x: deg2rad(360 / 2 * c) }"
-      :count="4"
-      :height="1"
-      :shading="true"
-    />
-  </f-group3>
-</f-scene3>
-</f-animation-data>
+  <f-animation-data :to="360" :duration="5000">
+  <f-scene3 slot-scope="data">
+    <f-group3
+      :rotation="{
+        x: data.value,
+        y: data.value
+      }"
+    >
+      <f-hedron3
+        :count="6"
+        :height="1"
+        :shading="true"
+      />
+    </f-group3>
+  </f-scene3>
+  </f-animation-data>
   `,
   methods: { cpoints },
   props: {

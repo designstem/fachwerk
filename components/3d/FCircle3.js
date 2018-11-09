@@ -8,19 +8,20 @@ export default {
   `,
   example: `
 <f-scene3>
-  <f-grid3 />
-  <f-circle3
-    :position="{ x: 1, y: 1 }"
-    :rotation="{ z: 45 }"
-    :scale="{ x: 0.2, y: 0.2 }"
-  />
+  <f-group3
+  :rotation="{ y: 45, x: 45 }"
+  :scale="{ x: 1, y: 1, z: 1 }"
+  >
+    <f-grid3 />
+    <f-circle3 />
+  </f-group3>
 </f-scene3>
   `,
   props: {
     r: { default: 1, type: Number },
     stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: 1, type: String },
+    fill: { default: "color('primary')", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
@@ -29,7 +30,7 @@ export default {
   },
   template: `
     <f-regularpolygon3
-      :radius="r"
+      :r="r"
       :count="64"
       :stroke="stroke"
       :strokeWidth="strokeWidth"

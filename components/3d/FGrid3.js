@@ -1,4 +1,4 @@
-import { deg2rad } from "../../utils.js";
+import { range } from "../../utils.js";
 import { Object3D } from "./3d.js";
 
 export default {
@@ -10,7 +10,7 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
   example: `
 <f-scene3>
   <f-grid3
-    :rotation="{ y: 0.5, x: 0.5 }"
+    :rotation="{ y: 45, x: 45 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   />
 </f-scene3>
@@ -21,64 +21,27 @@ Adds a grid to the 3D scene and applies transformations like <code>:position</co
     rotation: { default: () => ({}), type: Object },
     opacity: { default: 0.2, type: Number }
   },
-  methods: { deg2rad },
+  methods: { range },
   template: `
-  <f-group3>
+    <f-group3>
     <f-group3
-      v-for="(rotation,i) in [
-        { x: 0, y: 0, z: 0},
-        { x: 0, y: deg2rad(90), z: 0},
-        { x: deg2rad(90), y: 0, z: 0}
-      ]"
-      :rotation="rotation"
+      v-for="(rotation,i) in [{},{x:90},{y:90}]"
       :key="i"
+      :rotation="rotation"
     >
     <f-line3
-      v-for="(x,i) in [-2,-1,0,1,2]"
-      :key="'a'+i"
+      v-for="x in range(-2,2,1)"
+      :points="[{ x, y: -2},{ x, y: 2}]"
       :stroke-width="1"
-      :points="[
-        { x, y: 2 },
-        { x, y: -2 }
-      ]"
-      :opacity="opacity"
+      :opacity="x == 0 ? opacity * 2 : opacity"
     />
     <f-line3
-      v-for="(y,i) in [-2,-1,0,1,2]"
-      :key="'b'+i"
-      stroke-width="1"
-      :points="[
-        { x: 2, y },
-        { x: -2, y }
-      ]"
-      :opacity="opacity"
+      v-for="y in range(-2,2,1)"
+      :points="[{ x: -2, y },{ x: 2, y }]"
+      :stroke-width="1"
+      :opacity="y == 0 ? opacity * 2 : opacity"
     />
-  </f-group3>
-  <f-line3
-      :stroke-width="1.25"
-      :points="[
-        { x: 0, y: 2, z: 0 },
-        { x: 0, y: -2, z: 0 }
-      ]"
-      :opacity="opacity"
-
-  />
-  <f-line3
-    :stroke-width="1.25"
-    :points="[
-      { x: 2, y: 0, z: 0 },
-      { x: -2, y: 0, z: 0 }
-    ]"
-    :opacity="opacity"
-  />
-  <f-line3
-    :stroke-width="1.25"
-    :points="[
-      { x: 2, y: 0, z: 0 },
-      { x: -2, y: 0, z: 0 }
-    ]"
-    :opacity="opacity"
-  />
+    </f-group3>
   </f-group3>
   `
 };

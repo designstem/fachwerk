@@ -85,7 +85,7 @@ new Vue({
 <f-content-editor content="<f-scene><f-circle /></f-scene>" />
   `
 });
-*/
+
 
 const FGrid4 = {
   props: {
@@ -152,7 +152,18 @@ new Vue({
   `,
   template: `
 <f-scene3>
-  <f-grid4 />
+  <f-grid3 />
 </f-scene3>
   `
 });
+
+*/
+
+new Vue({
+  el: "#app",
+  data: () => ({ inverted: false }),
+  methods: utils,
+  template: `
+  <pre>Hey</pre>
+  `
+})

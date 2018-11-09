@@ -8,7 +8,7 @@ _Der Raum_.
   example: `
 <f-scene3>
   <f-box3
-    :rotation="{ y: 0.1, x: 1, z: 0.1 }"
+    :rotation="{ x: 0, y: 45, z: 0 }"
     :opacity="0.8"
   />
 </f-scene3>

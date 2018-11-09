@@ -61,7 +61,7 @@ const Props = {
       <tbody>
         <tr v-for="prop in propsData">
           <td><code style="background: none">:{{ kebabCase(prop.name) }}</code></td>
-          <td><code v-if="prop.default" style="background: none">{{ prop.default }}</code></td>
+          <td><code v-if="prop.default" style="overflow: hidden; background: none">{{ prop.default }}</code></td>
           <td>
             <code
               v-if="prop.type"
