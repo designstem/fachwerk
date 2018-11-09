@@ -37,7 +37,7 @@ const FSvg = {
         :width="width"
         :height="height"
         :view-box.camel="viewBox"
-        class="two"
+        class="f-svg"
         style="border: 1px solid red"
     >
       <g :transform="transform">
@@ -46,19 +46,17 @@ const FSvg = {
     </svg>
   `,
   css: `
-    .two * {
+    .f-svg * {
       vector-effect: non-scaling-stroke;
     }
-    .two text {
-      font-size: 1.5%;
-      transform: scale(1, -1);
-      text-anchor: middle;
-      pointer-events: none;
+    .f-svg text {
+      fill: var(--primary);
     }
   `
 };
 
 const FScene2 = {
+  mixins: [Css],
   props: {
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
@@ -73,10 +71,20 @@ const FScene2 = {
     :inner-width="4"
     :inner-height="4"
     :flip-y="true"
+    class="f-scene"
   >
+  <f-grid2 v-if="grid" />
   <slot />
   </f-svg>
+  `,
+  css: `
+  .f-scene text {
+    font-size: 1.6%;
+    transform: scale(1, -1);
+    pointer-events: none;
+  }
   `
+
 }
 
 const FBasegrid = {
@@ -98,7 +106,7 @@ const FBasegrid = {
         :y1="innerY"
         :x2="x"
         :y2="innerY + innerHeight"
-        :stroke="color('black')"
+        stroke="var(--primary)"
         :opacity="opacity"
       />
       <line
@@ -108,7 +116,7 @@ const FBasegrid = {
         :y1="y"
         :x2="innerX + innerWidth"
         :y2="y"
-        :stroke="color('black')"
+        stroke="var(--primary)"
         :opacity="opacity"
       />
     </f-group>
@@ -173,14 +181,15 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-<div>
+<f-theme theme="blue">
 <f-artboard2 :grid="true">
   <f-circle y="100" r="100" />
+  <text x="100" y="100">Hey</text>
 </f-artboard2>
-<f-scene2>
-  <f-grid2 />
+<f-scene2 grid>
+  <text>Hey</text>
   <f-circle x="-1" y="-1" r="0.5" />
 </f-scene2>
-<div>
+<f-theme>
   `
 });
