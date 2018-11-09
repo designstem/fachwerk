@@ -8,7 +8,10 @@ export default {
 Hedron
   `,
   example: `
-  <f-animation-data :to="360" :duration="5000">
+  <f-animation-data
+    :to="360"
+    :duration="1000 * 20"
+  >
   <f-scene3 slot-scope="data">
     <f-group3
       :rotation="{

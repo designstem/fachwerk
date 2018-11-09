@@ -1,29 +1,9 @@
-STABILIZING
-- error
-- layout
-- no markdown in component
-
-
-
-
-
-
-
-
-
-
-
-
----
-
+point / point3 x, y
 
 f-rotation-data -> value[0]
-snakecase propidele
 
-homepage -> utils
+// homepage -> utils
 
-const unique = array => [...new Set(array)];
-const flatten = array => [].concat(...array);
 
 ---
 

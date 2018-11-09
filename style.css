@@ -413,11 +413,38 @@ dd:first {
 
 /* Internal use */
 
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem; 
+}
+
+@media (max-width: 900px) {
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3rem; 
+  }
+}
+
+.colors {
+  display: grid;
+  grid-template-columns: 4rem 5fr 4rem 5fr 4rem 5fr;
+  grid-template-rows: repeat(4, 4rem);
+  grid-gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .colors {
+    grid-template-columns: 4rem 1fr;
+    grid-template-rows: repeat(12, 4rem);
+  }
+}
+
 .components {
   display: flex;
 }
 .components > div:nth-child(1) {
-  width: 380px;
+  width: 320px;
   margin: 0 1.5rem 0 0;
 }
 .components > div:nth-child(2) {

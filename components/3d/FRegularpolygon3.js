@@ -7,13 +7,19 @@ export default {
 Regular polygon in 3D plane
   `,
   example: `
-  <f-scene3>
-  <f-regularpolygon3 />
-  <f-regularpolygon3
-    :r="0.5"
-    :count="5"
-    :fill="color('red')"
-  />
+<f-scene3>
+  <f-group3
+  :rotation="{ y: 45, x: 45 }"
+  :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
+  >
+    <f-grid3 />
+    <f-regularpolygon3 />
+    <f-regularpolygon3
+      :r="0.5"
+      :count="5"
+      :fill="color('red')"
+    />
+  </f-group3>
 </f-scene3>
   `,
   props: {

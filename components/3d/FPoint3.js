@@ -8,7 +8,10 @@ export default {
   `,
   example: `
 <f-scene3>
-  <f-group3 :rotation="{y: -45}">
+  <f-group3
+    :rotation="{ y: 45, x: 45 }"
+    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
+  >
   <f-grid3 />
   <f-point3
     :points="range(-4,4,0.05)

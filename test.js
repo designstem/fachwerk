@@ -159,11 +159,37 @@ new Vue({
 
 */
 
+const FText = {
+  props: {
+    x: { default: 0, type: Number },
+    y: { default: 0, type: Number }
+  },
+  template: `
+  <f-group :position="{x: x, y: y}">
+    <text
+      dy="-0.2"
+      text-anchor="middle"
+      transform="scale(1,-1)"
+    >
+      <slot />
+    </text>
+  </f-group>
+  `
+}
+
+Vue.component("FText", FText);
+
 new Vue({
   el: "#app",
   data: () => ({ inverted: false }),
   methods: utils,
   template: `
-  <pre>Hey</pre>
+  <f-scene grid="true">
+  <circle cx="0" cy="0" r="0.1" :fill="color('orange')" />
+  <circle cx="1" cy="1" r="0.1" :fill="color('red')" />
+  <circle cx="-1" cy="-1" r="0.1" :fill="color('blue')" />
+  <f-text x="1" y="1">-1, -1</f-text>
+  <text x="1" y="1">-1, -1</text>
+</f-scene>
   `
 })

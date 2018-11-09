@@ -9,8 +9,8 @@ export default {
   example: `
 <f-scene3>
   <f-group3
-  :rotation="{ y: 45, x: 45 }"
-  :scale="{ x: 1, y: 1, z: 1 }"
+    :rotation="{ y: 45, x: 45 }"
+    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
   >
     <f-grid3 />
     <f-circle3 />

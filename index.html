@@ -37,21 +37,18 @@
 
     </div>
 
-    <f-theme theme="">
+    <f-theme>
 
     <div style="padding: 3rem;">
         <dd>.h1</dd>
         <h1>Typograhphy & Forms</h1>
   
         <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
+        <br>
         <pre>
   &lt;link rel="stylesheet" href="https://designstem.github.io/framework/style.css"&gt; </pre>
   
-        <div style="
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 3rem; 
-      ">
+        <div class="columns">
   
           <div>
             <dd>h1 .bullet</dd>
@@ -142,11 +139,11 @@
         <h1>Colors</h1>
   
         <div class="intro">
-          A compact set of useful colors, available as CSS variables.
+          A compact set of useful colors, available as CSS variables, <code>var(--purple)</code> and Javascript functions <code>color('purple')</code>.
         </div>
         <br><br>
   
-        <div style="display: grid; grid-template-columns: 3rem 5fr 3rem 5fr 3rem 5fr; grid-template-rows: repeat(4, 3rem); grid-gap: 0.5rem;">
+        <div class="colors">
           <template v-for="c in [
           'purple', 
           'red',
@@ -163,16 +160,12 @@
           'gray',
           'lightgray', 
           'lightergray', 
-          
-          'primary',
-          'secondary',
-          'tertiary'
         ]">
             <div :style="{
             background: 'var(--' + c + ')',
-            borderRadius: 'var(--border-radius)'
+            borderRadius: '1000px'
           }"></div>
-            <dd style="margin: 0.2rem 0 0 0; line-height: 1.4rem;">CSS: var(--{{ c }})<br>JS:&nbsp;  color('{{ c }}')</dd>
+            <code style="color: var(--secondary); background: none; margin: 0.5rem 0 0 0; line-height: 1.4rem;">var(--{{ c }})<br>color('{{ c }}')</code>
           </template>
         </div>
   
@@ -185,11 +178,10 @@
       <h1>Components</h1>
 
       <div class="intro">
-        A set of VueJS-based components.
-
-        Use them like this:
+        A set of VueJS-based components for 2D and 3D graphics, visual effects, user input and more.
+        <br>They are all <i>live-editable</i> ✏️✏️✏️, so try them out!
       </div>
-
+      <!--
       <pre>
 // Import single component to Vue
 import { TwoScene } from 'https://designstem.github.io/framework/framework.js'
@@ -203,12 +195,13 @@ for (const name in components) {
 }
 new Vue({ el: '#app' })
 </pre>
-    <br><br>
+    -->
+
     <template v-for="tag in ['2D','3D','Content','Data','Transitions','Experimental']">
       <h1 style="margin: 2rem 0 0 0;">{{ tag == 'Experimental' ? '🔬 ' : ''}} {{ tag }}</h1>
       <Components :tag="tag" />
     </template>
-
+    
     </div>
 
 

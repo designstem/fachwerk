@@ -8,7 +8,10 @@ export default {
   `,
   example: `
 <f-scene3>
-  <f-box3 />
+  <f-box3
+    :rotation="{ y: 45, x: 45 }"
+    :opacity="0.8"
+  />
 </f-scene3>  
   `,
   mixins: [Object3D],

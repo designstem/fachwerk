@@ -35,6 +35,9 @@ export { FPolygon };
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
+import FText from "./components/2d/FText.js";
+export { FText };
+
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
@@ -178,6 +181,8 @@ export { FArtboard };
 export const sortedComponents = [
   
   // 2D
+  { FText },
+
   { FScene },
   { FGrid },
   { FGroup },

@@ -9,12 +9,10 @@ A simple 2D scene with some tweaks to regular SVG document.
 Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
 `,
   example: `
-<f-scene>
-  <circle
-    cx="1"
-    cy="1"
-    r="0.1"
-  />
+<f-scene grid="true">
+  <circle cx="0" cy="0" r="0.1" :fill="color('orange')" />
+  <circle cx="1" cy="1" r="0.1" :fill="color('red')" />
+  <circle cx="-1" cy="-1" r="0.1" :fill="color('blue')" />
 </f-scene>
   `,
   props: {
@@ -40,7 +38,8 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
   `,
   css: `
   .f-scene text {
-    font-size: 1.6%;
+    font-family: var(--font-mono);
+    font-size: 1.4%;
     transform: scale(1, -1);
     pointer-events: none;
   }

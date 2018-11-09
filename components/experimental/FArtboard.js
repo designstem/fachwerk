@@ -4,7 +4,14 @@ export default {
   `,
   example: `
 <f-artboard grid="true">
-  <f-circle x="100" y="100" r="100" />
+  <f-circle
+    v-for="y in range(100, 300, 25)"
+    :x="100"
+    :y="y"
+    :r="50"
+    :fill="hsl(y)"
+    :opacity="0.25"
+  />
 </f-artboard>
   `,
   props: {

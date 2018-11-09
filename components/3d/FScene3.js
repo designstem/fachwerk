@@ -6,12 +6,13 @@ export default {
 _Der Raum_.
 `,
   example: `
-<f-scene3>
-  <f-box3
-    :rotation="{ x: 0, y: 45, z: 0 }"
-    :opacity="0.8"
-  />
-</f-scene3>
+<f-animation-data to="360">
+  <f-scene3 slot-scope="data">
+    <f-grid3
+      :rotation="{ x: data.value, y: data.value }"
+    />
+  </f-scene3>
+</f-animation-data>
   `,
   components: { Renderer, Scene, Camera },
   template: `
