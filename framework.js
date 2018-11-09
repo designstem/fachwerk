@@ -11,9 +11,6 @@ export { FBasegrid };
 import FScene from "./components/2d/FScene.js";
 export { FScene };
 
-import FArtboard from "./components/2d/FArtboard.js";
-export { FArtboard };
-
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 
@@ -175,11 +172,13 @@ export { FLine3vr }
 import FKeyboardData from "./components/experimental/FKeyboardData.js";
 export { FKeyboardData };
 
+import FArtboard from "./components/experimental/FArtboard.js";
+export { FArtboard };
+
 export const sortedComponents = [
   
   // 2D
   { FScene },
-  { FArtboard },
   { FGrid },
   { FGroup },
   { FBox },
@@ -226,5 +225,6 @@ export const sortedComponents = [
 
   // Experimental
   { FKeyboardData },
+  { FArtboard },
 
 ];

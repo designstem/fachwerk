@@ -9,6 +9,7 @@ import { kebabCase } from "../utils.js";
 const Props = {
   props: { props: { type: [Object, Array] } }, // Arrays are Objects in JS
   methods: {
+    kebabCase,
     formatDefault(prop) {
       if (prop.hasOwnProperty("default")) {
         if (
@@ -50,7 +51,7 @@ const Props = {
     }
   },
   template: `
-    <div style="font-size: 0.9rem">
+    <div style="font-size: 0.8rem">
     <table>
       <thead>
         <th>Name</th>
@@ -59,7 +60,7 @@ const Props = {
       </thead>
       <tbody>
         <tr v-for="prop in propsData">
-          <td><code style="background: none">:{{ prop.name }}</code></td>
+          <td><code style="background: none">:{{ kebabCase(prop.name) }}</code></td>
           <td><code v-if="prop.default" style="background: none">{{ prop.default }}</code></td>
           <td>
             <code

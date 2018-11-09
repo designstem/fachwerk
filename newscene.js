@@ -183,9 +183,9 @@ new Vue({
   methods: utils,
   template: `
 <f-theme theme="light">
-<f-scene grid="true">
-  <f-circle />
-</f-scene>
+<f-artboard grid="true">
+  <f-circle r="100" />
+</f-artboard>
 <f-theme>
   `
 });

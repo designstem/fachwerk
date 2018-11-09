@@ -26,44 +26,6 @@ const color = (name) => {
     return color ? color.trim() : name.trim()
  }
 
-//export const white = '#ffffff';
-// const darkestgray = '#222222'; 
-// const darkergray = '#333333'; 
-// const darkgray = '#555555';       
-// const gray = '#aaaaaa';
-// const lightgray = '#cccccc';       
-// const lightergray = '#eee';   
-// const purple = '#663399';
-// const red = '#ff595e';         
-// const yellow = '#ffca3a';       
-// const lightblue = '#f0f5fa';     
-// const blue = '#1982c4';          
-// const darkblue = '#162E3D';
-// const black = '#000000';
-
-// const primary = '#555555' // darkgray;
-// const secondary = '#aaaaaa' // gray;
-// const tertiary = '#cccccc' // lightgray;
-
-
-//   white,
-//   darkestgray,
-//   darkergray,
-//   darkgray,
-//   gray,
-//   lightgray,
-//   lightergray,
-//   purple,
-//   red,
-//   yellow,
-//   lightblue,
-//   blue,
-//   darkblue,
-//   black,
-//primary,
-//   secondary,
-//   tertiary,
-
 /* Color functions */
 
 d.push(`
