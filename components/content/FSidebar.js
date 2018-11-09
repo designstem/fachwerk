@@ -3,9 +3,12 @@ export default {
   description: `
   `,
   example: `
-Want so see what this project <f-sidebar src="./README.md">is all about</f-sidebar>?   
+Want so see what this project <f-sidebar :width="75vw" src="./README.md">is all about</f-sidebar>?   
   `,
-  props: ["src"],
+  props: {
+    src: { default: '', type: String },
+    width: { default: '50vw', type: String },
+  },
   data: () => ({ open: false }),
   template: `
     <span>
@@ -15,12 +18,15 @@ Want so see what this project <f-sidebar src="./README.md">is all about</f-sideb
         top: 0px;
         right: 0px;
         bottom: 0px;
-        width: 50vw;
         background: var(--white);
         border-left: var(--border-width) solid var(--primary);
         overflowY: auto;
         box-shadow: calc(50vw * -1) 0 rgba(0,0,0,0.15);
-      ">
+      "
+      :style="{
+        width: width,
+        boxShadow: 'calc(100vw - ' + width + ' * -1) 0 rgba(0,0,0,0.15)'
+      }">
         <div
           @click="open = false"
           style="
