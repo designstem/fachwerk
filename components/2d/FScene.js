@@ -22,7 +22,9 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
   <!-- Regular SVG elements are OK as well here -->
   <circle cx="-1" cy="-1" r="0.1" fill="rebeccapurple" />
 
-  <f-text x="-1" y="-1" :fill="color('blue')">x:-1 y:-1</f-text>
+  <f-text x="-1" y="-1" :fill="color('purple')">
+    x:-1 y:-1
+  </f-text>
 </f-scene>
   `,
   props: {

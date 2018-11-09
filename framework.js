@@ -181,7 +181,6 @@ export { FArtboard };
 export const sortedComponents = [
   
   // 2D
-  { FText },
 
   { FScene },
   { FGrid },
@@ -192,6 +191,7 @@ export const sortedComponents = [
   { FCircle },
   { FPolygon },
   { FRegularpolygon },
+  { FText },
 
   // 3D
 
