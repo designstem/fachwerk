@@ -171,25 +171,22 @@ const FArtboard2 = {
   </f-svg>
   `
 }
-Vue.component("f-svg", FSvg);
-Vue.component("f-scene2", FScene2);
-Vue.component("f-basegrid", FBasegrid);
-Vue.component("f-grid2", FGrid2);
-Vue.component("f-artboard2", FArtboard2);
+
+// Vue.component("f-svg", FSvg);
+// Vue.component("f-scene2", FScene2);
+// Vue.component("f-basegrid", FBasegrid);
+// Vue.component("f-grid2", FGrid2);
+// Vue.component("f-artboard2", FArtboard2);
 
 new Vue({
   el: "#app",
   methods: utils,
   template: `
-<f-theme theme="blue">
-<f-artboard2 :grid="true">
-  <f-circle y="100" r="100" />
-  <text x="100" y="100">Hey</text>
-</f-artboard2>
-<f-scene2 grid>
-  <text>Hey</text>
-  <f-circle x="-1" y="-1" r="0.5" />
-</f-scene2>
+<f-theme theme="light">
+<f-svg>
+  <f-basegrid />
+  <f-circle r="100" />
+</f-svg>
 <f-theme>
   `
 });

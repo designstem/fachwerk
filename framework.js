@@ -1,3 +1,11 @@
+// Internal 2D
+
+import FSvg from "./components/2d/FSvg.js";
+export { FSvg };
+
+import FBasegrid from "./components/2d/FBasegrid.js";
+export { FBasegrid };
+
 // 2D
 
 import FScene from "./components/2d/FScene.js";
