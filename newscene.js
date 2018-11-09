@@ -1,3 +1,4 @@
+
 import * as components from "./framework.js";
 import * as utils from "./utils.js";
 
@@ -14,17 +15,17 @@ const FSvg = {
   props: {
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
-    innerX: { default: -2, type: Number },
-    innerY: { default: -2, type: Number },
-    innerWidth: { default: 4, type: Number },
-    innerHeight: { default: 4, type: Number },
+    innerX: { default: 0, type: Number },
+    innerY: { default: 0, type: Number },
+    innerWidth: { default: null, type: Number },
+    innerHeight: { default: null, type: Number },
     flipX: { default: false, type: Boolean },
-    flipY: { default: true, type: Boolean }
+    flipY: { default: false, type: Boolean }
   },
   computed: {
     viewBox() {
-      return `${this.innerX} ${this.innerY} ${this.innerWidth} ${
-        this.innerHeight
+      return `${this.innerX} ${this.innerY} ${this.innerWidth || this.width} ${
+        this.innerHeight || this.height
       }`;
     },
     transform() {
@@ -57,13 +58,34 @@ const FSvg = {
   `
 };
 
-const FGridd = {
+const FScene2 = {
   props: {
-    innerX: { default: -2, type: Number },
-    innerY: { default: -2, type: Number },
-    innerWidth: { default: 4, type: Number },
-    innerHeight: { default: 4, type: Number },
-    step: { default: 0.5, type: Number },
+    width: { default: 250, type: Number },
+    height: { default: 250, type: Number },
+    grid: { default: false, type: Boolean }
+  }, 
+  template: `
+  <f-svg 
+    :width="width"
+    :height="height"
+    :inner-x="-2"
+    :inner-y="-2"
+    :inner-width="4"
+    :inner-height="4"
+    :flip-y="true"
+  >
+  <slot />
+  </f-svg>
+  `
+}
+
+const FBasegrid = {
+  props: {
+    innerX: { default: 0, type: Number },
+    innerY: { default: 0, type: Number },
+    innerWidth: { default: 250, type: Number },
+    innerHeight: { default: 250, type: Number },
+    step: { default: 25, type: Number },
     opacity: { default: 0.15, type: Number }
   },
   methods: utils,
@@ -92,31 +114,73 @@ const FGridd = {
     </f-group>
   `
 }
+
+const FGrid2 = {
+  template: `
+  <f-group>
+    <f-basegrid
+      :inner-x="-2"
+      :inner-y="-2"
+      :inner-width="4"
+      :inner-height="4"
+      :step="0.5"
+    />
+    <f-basegrid
+      :inner-x="-2"
+      :inner-y="-2"
+      :inner-width="4"
+      :inner-height="4"
+      :step="2"
+    />
+  </f-group>
+  `
+}
+
+const FArtboard2 = {
+  props: {
+    width: { default: 500, type: Number },
+    height: { default: 500, type: Number },
+    grid: { default: false, type: Boolean }
+  }, 
+  template: `
+  <f-svg 
+    :width="width"
+    :height="height"
+  >
+  <f-basegrid 
+    v-if="grid"
+    :inner-width="width"
+    :inner-height="height"
+    :step="25"
+  />
+  <f-basegrid 
+    v-if="grid"
+    :inner-width="width"
+    :inner-height="height"
+    :step="100"
+  />
+  <slot />
+  </f-svg>
+  `
+}
 Vue.component("f-svg", FSvg);
-Vue.component("f-gridd", FGridd);
+Vue.component("f-scene2", FScene2);
+Vue.component("f-basegrid", FBasegrid);
+Vue.component("f-grid2", FGrid2);
+Vue.component("f-artboard2", FArtboard2);
 
 new Vue({
   el: "#app",
-  data: () => ({ inverted: false }),
   methods: utils,
   template: `
-<f-svg
-  :width="200"
-  :height="200"
-  :inner-x="-10"
-  :inner-y="-10"
-  :inner-width="20"
-  :inner-height="20"
-  :flipY="false"
->
-  <f-gridd
-    :inner-x="-10"
-    :inner-y="-10"
-    :inner-width="20"
-    :inner-height="20"
-  />
-  <f-circle r="0.5" />
-</f-svg>
-
+<div>
+<f-artboard2 :grid="true">
+  <f-circle y="100" r="100" />
+</f-artboard2>
+<f-scene2>
+  <f-grid2 />
+  <f-circle x="-1" y="-1" r="0.5" />
+</f-scene2>
+<div>
   `
 });
