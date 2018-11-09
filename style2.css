@@ -271,7 +271,7 @@ td {
 
 .button_primary {
   background: var(--purple);
-  padding: calc(var(--base) * 1.25) calc(var(--base) * 1.75);
+  padding: calc(var(--base) * 1.25) calc(var(--base) * 2);
   display: inline-flex;
   border-radius: var(--border-radius);
   color: var(--white);
@@ -281,7 +281,7 @@ td {
 
 .button_secondary {
   background: var(--tertiary);
-  padding: calc(var(--base) * 1.5) calc(var(--base) * 1.75);
+  padding: calc(var(--base) * 1.5) calc(var(--base) * 2);
   display: inline-flex;
   border-radius: var(--border-radius);
   color: var(--darkgray);
