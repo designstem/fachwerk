@@ -10,7 +10,8 @@ export default {
   props: {
     width: { default: 1000, type: Number },
     height: { default: 1000, type: Number },
-    grid: { default: false, type: Boolean }
+    grid: { default: false, type: Boolean },
+    step: { default: 25, type: Number }
   }, 
   template: `
   <f-svg 
@@ -21,13 +22,13 @@ export default {
       v-if="grid"
       :inner-width="width"
       :inner-height="height"
-      :step="25"
+      :step="step"
     />
     <f-basegrid 
       v-if="grid"
       :inner-width="width"
       :inner-height="height"
-      :step="100"
+      :step="step * 4"
     />
     <slot />
   </f-svg>

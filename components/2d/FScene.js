@@ -20,7 +20,8 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
   props: {
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
-    grid: { default: false, type: Boolean }
+    grid: { default: false, type: Boolean },
+    step: { default: 0.5, type: Number }
   }, 
   template: `
   <f-svg 
@@ -33,7 +34,7 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
     :flip-y="true"
     class="f-scene"
   >
-    <f-grid v-if="grid" />
+    <f-grid :step="step" v-if="grid" />
     <slot />
   </f-svg>
   `,

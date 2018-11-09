@@ -409,3 +409,41 @@ dd:first {
   color: var(--darkgray);
   border: none;
 }
+
+/* Internal use */
+
+.components {
+  display: flex;
+}
+.components > div:nth-child(1) {
+  width: 300px;
+  margint: 0 1.5rem 0 0;
+}
+.components > div:nth-child(2) {
+  flex: 1;
+  margint: 0 1.5rem 0 0;
+  min-height: 20rem;
+}
+.components > div:nth-child(3) {
+  width: 300px;
+  max-height: 800px;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .components {
+    display: block;
+  }
+  .components > div:nth-child(1) {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+  .components > div:nth-child(2) {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+  .components > div:nth-child(3) {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}

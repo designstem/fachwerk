@@ -102,8 +102,8 @@ export default {
           minHeight: '15rem'
         }"
         >
-          <div style="display: flex">
-            <div style="width: 300px;">
+          <div class="components">
+            <div>
               <h2><{{ kebabCase(c.name) }}></h2>
               <Markdown :content="c.description" />
               <br>
@@ -112,10 +112,12 @@ export default {
                 <Props :props="c.props" />
               </template>
             </div>
-            <div style="flex:1; margin-left: 2rem;">
-              <Editor v-model="c.example" />
+            <div style="position: relative">
+              <Editor style="position: absolute; top: 0, right: 0; left: 0; bottom: 0;" v-model="c.example" />
             </div>
-            <Render :t="'<div>'+c.example+'</div>'" style="width: 250px; align-items: flex-start; margin-left: 2rem;" />
+            <div>
+              <Render :t="'<div>'+c.example+'</div>'" />
+            </div>
           </div>
         </div>
     </div>
