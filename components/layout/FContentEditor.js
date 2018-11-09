@@ -70,7 +70,7 @@ export default {
     min-height: 100vh;
   }
   .f-content-editor > div:nth-child(1) {
-    width: 33vw;
+    width: 40vw;
   }
   @media (max-width: 800px) {
     .f-content-editor {
