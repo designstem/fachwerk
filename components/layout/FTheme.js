@@ -54,7 +54,8 @@ Themes the content
   },
   mounted() {
     document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode === 84) { 
+      if (e.altKey && e.keyCode === 84) {
+        e.preventDefault()
         if (this.theme == 'light' || this.theme == 'dark') {
           this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
         }
