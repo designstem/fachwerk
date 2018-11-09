@@ -16,24 +16,29 @@ export default {
   <f-point3
     :points="range(-4,4,0.05)
     .map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
-    :stroke="color('red')"
+    :fill="color('red')"
   />
   <f-point3
     :points="range(-4,4,0.05)
     .map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
-    :stroke="color('blue')"
+    :fill="color('blue')"
   />
   </f-group3>
 </f-scene3>
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
+    fill: { default: "color('primary')", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
+  },
+  computed: {
+    strokeColor() {
+      return this.fill == "color('primary')" ? color('primary') : this.fill
+    }
   },
   template: `
     <f-group3>
@@ -43,7 +48,7 @@ export default {
           {x: point.x, y: point.y, z: point.z},
           {x: point.x, y: point.y, z: point.z}
         ]"
-        :stroke="stroke"
+        :stroke="strokeColor"
         :stroke-width="strokeWidth"
         :opacity="opacity"
       />

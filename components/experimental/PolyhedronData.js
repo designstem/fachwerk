@@ -9,7 +9,7 @@ Passes 3D coordinates of regular polyhedra as <code>data.normals</code> and <cod
     slot-scope="data"
   >
     <AnimeData
-    :to="deg2rad(360)"
+    :to="360"
     :duration="10000"
     >
       <ThreeGroup

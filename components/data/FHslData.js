@@ -1,5 +1,3 @@
-import { deg2rad } from "../../utils.js";
-
 export default {
   tag: 'Data',
   description: `
@@ -17,7 +15,6 @@ Sliders for <code>h s l</code> color values.
     s: { default: 100, type: Number },
     l: { default: 50, type: Number }
   },
-  methods: { deg2rad },
   template: `
 <f-slider-data :values="[
   { title: 'Hue', to: 360, value: h, },

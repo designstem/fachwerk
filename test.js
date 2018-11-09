@@ -1,12 +1,15 @@
 import * as components from "./framework.js";
 import * as utils from "./utils.js";
-import Markdown from "./components/Markdown.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
 Vue.config.devtools = true;
+
+// Vue.config.errorHandler = function(err, vm, info) {
+//   console.log(err, vm, info);
+// };
 
 /*
 const renderer = new marked.Renderer();
@@ -159,6 +162,7 @@ new Vue({
 
 */
 
+/*
 const FText = {
   props: {
     x: { default: 0, type: Number },
@@ -193,3 +197,87 @@ new Vue({
 </f-scene>
   `
 })
+*/
+
+const FContentEditor = {
+  props: {
+    content: { default: "", type: String }
+  },
+  data: function() {
+    return {
+      innerContent: this.content,
+      changed: false
+    };  
+  },
+  methods: {
+    handleReset() {
+      this.innerContent = this.content;
+      Vue.nextTick(() => this.changed = false)
+    }
+  },
+  mounted() {
+    const savedContent = JSON.parse(localStorage.getItem("f-content-editor"));
+    if (savedContent) {
+      this.innerContent = savedContent.content;
+    }
+    this.$watch("innerContent", innerContent => {
+      localStorage.setItem(
+        "f-content-editor",
+        JSON.stringify({ content: innerContent })
+      );
+      this.changed = true;
+    });
+  },
+  template: `
+  <div style="display: flex; min-height: 90vh;">
+    <div style="width: 33vw; position: relative;">
+    <f-editor
+      v-model="innerContent"
+      style="position: absolute; top: 0, right: 0, bottom: 0, left: 0"
+    />
+    <div
+      style="
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        font-size: 0.8rem;
+        color: var(--primary);
+      "
+      @click="handleReset"
+    >
+      {{ changed ? '↺' : ''}}
+    </div>
+    </div>
+    <div>
+      <slot :content="innerContent">
+        <f-content-document :content="innerContent" />
+      </slot> 
+    </div>
+  </div>
+  `
+};
+
+Vue.component("FContentEditor", FContentEditor);
+
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//   <f-theme theme="dark">
+//     <header>Yo</header>
+//     <f-content-editor content="# Helllo" />
+//   </f-theme>
+//   `
+// });
+
+new Vue({
+  el: "#app",
+  methods: utils,
+  template: `
+  <f-theme theme="dark">
+    <f-content-slides content="<f-content-editor content='# Helllo' />" />
+  </f-theme>
+  `
+});
+
+//   <f-content-slides slot-scope="{content}" :content="content" />

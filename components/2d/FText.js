@@ -1,3 +1,5 @@
+import { color } from "../../utils.js"
+
 export default {
   tag: '2D',
   description: `
@@ -5,13 +7,19 @@ Adds a text to the \`f-scene\`.
   `,
   example: `
 <f-scene>
-  <f-circle r="0.1" />
-  <f-text>x:0, y:0</f-text>
+  <f-text :fill="color('red')">x:0, y:0</f-text>
+  <f-point :stroke="color('red')" x="1" y="1" />
 </f-scene>
   `,
   props: {
     x: { default: 0, type: Number },
-    y: { default: 0, type: Number }
+    y: { default: 0, type: Number },
+    fill: { default: "color('primary')", type: 'String'}
+  },
+  computed: {
+    fillColor() {
+      return this.fill == "color('primary')" ? color('primary') : this.fill
+    }
   },
   template: `
   <f-group :position="{x: x, y: y}">
@@ -19,11 +27,10 @@ Adds a text to the \`f-scene\`.
       dy="-0.2"
       text-anchor="middle"
       transform="scale(1,-1)"
-      style="
-        font-family: var(--font-mono);
-        fill: var(--primary);
-      "
-    
+      :style="{
+        fontFamily: 'var(--font-mono)',
+        fill: fillColor
+      }"
     >
       <slot />
     </text>

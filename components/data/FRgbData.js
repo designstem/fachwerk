@@ -1,5 +1,3 @@
-import { deg2rad } from "../../utils.js";
-
 export default {
   tag: 'Data',
   description: `
@@ -17,7 +15,6 @@ export default {
     g: { default: 128, type: Number },
     b: { default: 128, type: Number }
   },
-  methods: { deg2rad },
   template: `
 <f-slider-data :values="[
   { title: 'R', to: 255, value: r },
