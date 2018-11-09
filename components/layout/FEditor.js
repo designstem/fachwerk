@@ -40,7 +40,6 @@ export default {
         width: 100%;
         background: var(--lightblue);
         padding: var(--base2);
-        border-radius: var(--border-radius);
       "
     />
   `
