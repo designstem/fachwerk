@@ -225,9 +225,9 @@ Converts angle in degrees to radians.
 
 #### Example
 
-<Math>
+<f-math>
 radians = \\frac{degrees \\cdot \\pi}{180} = \\frac{180 \\cdot \\pi}{180} = \\pi
-</Math>
+</f-math>
 
     deg2rad(180)
 
@@ -283,7 +283,7 @@ d.push(`
 <code>any(array)</code>
 
 Picks a random element from the array.
-Supports both array and function parameters syntax.
+Supports both array and function argument syntax.
 
 #### Example
 
@@ -308,7 +308,7 @@ d.push(`
 
 <code>flatten(array)</code>
 
-Flatten multidimensional array
+Flattens multidimensional array
 
 #### Example
 
@@ -343,6 +343,25 @@ const chunk = (arr, length) =>
   Array.from({ length: Math.ceil(arr.length / length) }).map((_, n) =>
     arr.slice(n * length, n * length + length)
   );
+
+  d.push(`
+## unique
+
+<code>unique(array)</code>
+
+Removes duplicates from the array
+
+#### Example
+
+    unique([0,0,1,2])
+
+#### Output
+
+    {{ unique([0,0,1,2]) }}
+
+`);
+
+const unique = arr => [...new Set(arr)];
 
 // Other utils
 
@@ -455,6 +474,7 @@ export {
   shuffle,
   any,
   chunk,
+  unique,
   flatten,
   snapToGrid,
   log,

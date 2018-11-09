@@ -3,7 +3,9 @@ export default {
   description: `
   `,
   example: `
-Want so see what this project <f-sidebar :width="75vw" src="./README.md">is all about</f-sidebar>?   
+Want so see what this project <f-sidebar src="./README.md">is all about</f-sidebar>?  
+<br><br>
+<f-sidebar width="100vw" src="./README.md"><div class="button_primary">See About page</div></f-sidebar>
   `,
   props: {
     src: { default: '', type: String },
@@ -22,6 +24,7 @@ Want so see what this project <f-sidebar :width="75vw" src="./README.md">is all 
         border-left: var(--border-width) solid var(--primary);
         overflowY: auto;
         box-shadow: calc(50vw * -1) 0 rgba(0,0,0,0.15);
+        zIndex: 1000;
       "
       :style="{
         width: width,
