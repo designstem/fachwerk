@@ -183,10 +183,9 @@ new Vue({
   methods: utils,
   template: `
 <f-theme theme="light">
-<f-svg>
-  <f-basegrid />
-  <f-circle r="100" />
-</f-svg>
+<f-scene grid="true">
+  <f-circle />
+</f-scene>
 <f-theme>
   `
 });

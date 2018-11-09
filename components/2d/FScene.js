@@ -10,45 +10,38 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
 `,
   example: `
 <f-scene>
-  <circle fill="var(--primary)" r="1" />
   <circle
     cx="1"
     cy="1"
-    fill="var(--red)"
     r="0.1"
   />
 </f-scene>
   `,
   props: {
-    size: { default: 250, type: Number },
-    innerSize: { default: 4, type: Number }
-  },
-  computed: {
-    viewBox() {
-      return `-${this.innerSize / 2} -${this.innerSize / 2} ${this.innerSize} ${this.innerSize}`;
-    }
-  },
+    width: { default: 250, type: Number },
+    height: { default: 250, type: Number },
+    grid: { default: false, type: Boolean }
+  }, 
   template: `
-    <svg
-        :width="size"
-        :height="size"
-        :view-box.camel="viewBox"
-        class="two"
-    >
-      <g transform="scale(1,-1)">
-        <slot />
-      </g>
-    </svg>
+  <f-svg 
+    :width="width"
+    :height="height"
+    :inner-x="-2"
+    :inner-y="-2"
+    :inner-width="4"
+    :inner-height="4"
+    :flip-y="true"
+    class="f-scene"
+  >
+    <f-grid v-if="grid" />
+    <slot />
+  </f-svg>
   `,
   css: `
-    .two * {
-      vector-effect: non-scaling-stroke;
-    }
-    .two text {
-      font-size: 1.5%;
-      transform: scale(1, -1);
-      text-anchor: middle;
-      pointer-events: none;
-    }
+  .f-scene text {
+    font-size: 1.6%;
+    transform: scale(1, -1);
+    pointer-events: none;
+  }
   `
 };

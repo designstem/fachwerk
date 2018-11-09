@@ -17,30 +17,30 @@ As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), t
 </f-scene>
   `,
   props: {
+    step: { default: 0.5, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object }
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 0.15, type: Number },
   },
   template: `
-  <g :transform="transform">
-    <line
-      v-for="x in [-2,-1,0,1,2]"
-      :x1="x"
-      :y1="-3"
-      :x2="x"
-      :y2="3"
-      stroke="var(--primary)"
-      opacity="0.2"
+  <f-group :transform="transform">
+    <f-basegrid
+      :inner-x="-2"
+      :inner-y="-2"
+      :inner-width="4"
+      :inner-height="4"
+      :step="step"
+      :opacity="opacity"
     />
-    <line
-      v-for="y in [-2,-1,0,1,2]"
-      :x1="-3"
-      :y1="y"
-      :x2="3"
-      :y2="y"
-      stroke="var(--primary"
-      opacity="0.2"
+    <f-basegrid
+      :inner-x="-2"
+      :inner-y="-2"
+      :inner-width="4"
+      :inner-height="4"
+      :step="step * 4"
+      :opacity="opacity"
     />
-  </g>
+  </f-group>
   `
 };
