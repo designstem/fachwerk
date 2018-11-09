@@ -67,7 +67,7 @@ export default {
   css: `
   .f-content-editor {
     display: flex;
-    min-height: 90vh;
+    min-height: 100vh;
   }
   .f-content-editor > div:nth-child(1) {
     width: 33vw;
