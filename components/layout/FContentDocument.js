@@ -13,7 +13,7 @@ export default {
     }
   },
   template: `
-    <div style="padding: 1.5rem;">
+    <div style="padding: var(--base4);">
       <Markdown :content="preparedContent"/>
     </div>
   `

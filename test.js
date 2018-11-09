@@ -248,7 +248,8 @@ const FContentEditor = {
         style="
           cursor: pointer;
           position: absolute;
-          right: 1rem;
+          top: calc(var(--base) * 1.5);
+          right: calc(var(--base) * 1.5);
           font-size: 0.8rem;
           color: var(--primary);
         "

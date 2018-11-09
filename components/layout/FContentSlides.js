@@ -63,46 +63,11 @@ export default {
       />
     </div>
   </div>
-`,
-css: `
-.slide {
-  padding: 3em;
-}
-.slide p, .slide li, .slide .button_primary {
-  font-size: 1.3em;
-  line-height: 1.7em;
-}
-.slide li p {
-  font-size: 1rem;
-}
-.slide .button_primary,
-.slide .button_secondary {
-  font-size: 1.3em;
-}
-.slide h1 {
-  font-size: 3em;
-}
-.slide h2 {
-  font-size: 2.2em;
-}
-.slide h3 {
-  font-size: 1.8em;
-}
-.slide li {
-  margin-bottom: 0.5em;
-}
-.slide blockquote {
-  margin: 2em 0 2em 0;
-}
-.slide blockquote p {
-  font-size: 1.3rem;
-}
-.slide small {
-  font-size: 1.3em;
-  line-height: 1.7em;
-}
-.slide p a, .slide a {
-  font-size: inherit;
-}
-`
+  `,
+  css: `
+  .slide {
+    --base: 11px;
+    padding: var(--base4);
+  }
+  `
 };

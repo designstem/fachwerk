@@ -48,8 +48,8 @@
 body {
   font-family: var(--font-serif);
   font-size: var(--base * 2);
-  color: var(--primary);
   margin: 0;
+  /*color: var(--primary);*/
 }
 
 /* Basic reset and typograpy */
@@ -85,6 +85,7 @@ p {
   font-size: calc(var(--base) * 2);
   line-height: calc(var(--base) * 3);
   margin: 0 0 calc(var(--base) * 2) 0;
+  color: var(--primary);
 }
 a {
   text-decoration: none;
@@ -100,17 +101,13 @@ img {
   width: 100%;
   display: block;
 }
+ul, ol {
+  margin: 0 0 calc(var(--base) * 2) 0;
+}
 li {
   color: var(--primary);
+  font-size: calc(var(--base) * 2);
 }
-/*
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-*/
 
 .break {
   overflow-wrap: break-word;
