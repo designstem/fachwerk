@@ -1,3 +1,5 @@
+fix f-text
+
 point / point3 x, y
 
 f-rotation-data -> value[0]

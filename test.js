@@ -200,7 +200,7 @@ new Vue({
 */
 
 import Css from "../components/Css.js";
-  
+
 const FContentEditor = {
   mixins: [Css],
   props: {
@@ -211,20 +211,22 @@ const FContentEditor = {
     return {
       innerContent: this.content,
       changed: false
-    };  
+    };
   },
   methods: {
     handleReset() {
       this.innerContent = this.content;
-      Vue.nextTick(() => this.changed = false)
+      Vue.nextTick(() => (this.changed = false));
     }
   },
   mounted() {
-    const savedContent = JSON.parse(localStorage.getItem(`f-content-editor-${this.autosaveId}`));
+    const savedContent = JSON.parse(
+      localStorage.getItem(`f-content-editor-${this.autosaveId}`)
+    );
     if (savedContent) {
       this.innerContent = savedContent.content;
       if (savedContent.content !== this.content) {
-        this.changed = true
+        this.changed = true;
       }
     }
     this.$watch("innerContent", innerContent => {
@@ -299,10 +301,27 @@ Vue.component("FContentEditor", FContentEditor);
 new Vue({
   el: "#app",
   methods: utils,
-  template: `
+  template2: `
   <f-theme theme="dark">
     <f-content-slides content="<f-content-editor content='# Helllo' />" />
   </f-theme>
+  `,
+  template: `
+  <div>
+  <header>Hey</header>
+  <div style="margin: var(--base4); --base: 8px">
+    <h1>Header1 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header</h1>
+    <h2>Header2 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h2>
+    <h3>Header3 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h3>
+    <h4>Header4 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h4>
+    <p>Actually ramps hella mixtape pop-up, ennui kickstarter gochujang succulents adaptogen tbh. Organic affogato gastropub air plant pabst swag try-hard echo park</p><p>knausgaard umami PBR&B yuccie seitan mlkshk. Salvia keytar man bun, kickstarter scenester photo booth offal lomo. Butcher brunch vaporware tilde health goth cliche craft beer hell of pinterest YOLO. Adaptogen keytar kickstarter</p>
+    <h3>Header3 Header Header Header Header Header</h3>
+    <p>microdosing tumeric art party truffaut knausgaard hell of tattooed mumblecore kogi. Knausgaard austin poke activated charcoal man bun bespoke distillery chillwave scenester etsy tacos synth tousled</p>
+    <h4>Header4 Header Header Header Header Header</h4>
+    <p>microdosing tumeric art party truffaut knausgaard hell of tattooed mumblecore kogi. Knausgaard austin poke activated charcoal man bun bespoke distillery chillwave scenester etsy tacos synth tousled</p>
+  </div>
+  <footer>Hey</footer>
+</div>
   `
 });
 
