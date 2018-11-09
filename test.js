@@ -201,7 +201,8 @@ new Vue({
 
 const FContentEditor = {
   props: {
-    content: { default: "", type: String }
+    content: { default: "", type: String },
+    autosaveId: { default: "0", type: String }
   },
   data: function() {
     return {
@@ -222,7 +223,7 @@ const FContentEditor = {
     }
     this.$watch("innerContent", innerContent => {
       localStorage.setItem(
-        "f-content-editor",
+        `f-content-editor-${this.autosaveId}`,
         JSON.stringify({ content: innerContent })
       );
       this.changed = true;
