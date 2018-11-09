@@ -32,14 +32,14 @@ export default {
         border: none;
         color: var(--blue);
         font-family: var(--font-mono);
-        font-size: 0.85rem;
+        font-size: calc(var(--base) * 1.75);
+        line-height: calc(var(--base) * 2.75);
         height: 100%;
-        line-height: 1.3rem;
         outline: none;
         resize: none;
         width: 100%;
         background: var(--lightblue);
-        padding: 0.8rem;
+        padding: var(--base2);
         border-radius: var(--border-radius);
       "
     />

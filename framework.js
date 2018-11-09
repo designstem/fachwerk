@@ -144,6 +144,9 @@ export  { FTabs }
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor }
 
+import FContentEditor from "./components/layout/FContentEditor.js";
+export { FContentEditor }
+
 // Internal
 
 import Markdown from "./components/Markdown.js";
