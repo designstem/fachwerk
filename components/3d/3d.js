@@ -62,13 +62,13 @@ const Object3D = {
     rotation: {
       deep: true,
       handler(v) {
-        // const degV = {
-        //   x: v.x ? deg2rad(v.x) : 0,
-        //   y: v.y ? deg2rad(v.y) : 0,
-        //   z: v.z ? deg2rad(v.z) : 0
-        // }
-        // Object.assign(this.curObj.rotation, degV);
-        Object.assign(this.curObj.rotation, v)
+        const degV = {
+          x: v.x ? deg2rad(v.x) : 0,
+          y: v.y ? deg2rad(v.y) : 0,
+          z: v.z ? deg2rad(v.z) : 0
+        }
+        Object.assign(this.curObj.rotation, degV);
+        //Object.assign(this.curObj.rotation, v)
       }
     },
     obj(obj) {
@@ -97,17 +97,17 @@ const Object3D = {
       obj.name = this.name || obj.name || obj.type;
       this.setScale(this.scale);
       Object.assign(obj.position, this.position);
-      // if (this.rotation) {
-      //   const rotation = {
-      //     x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
-      //     y: this.rotation.y ? deg2rad(this.rotation.y) : 0,
-      //     z: this.rotation.z ? deg2rad(this.rotation.z) : 0
-      //   }
-      //   Object.assign(obj.rotation, rotation);
-      // } else {
-      //   Object.assign(obj.rotation, this.rotation);
-      // }
-      Object.assign(obj.rotation, this.rotation)
+      if (this.rotation) {
+        const rotation = {
+          x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
+          y: this.rotation.y ? deg2rad(this.rotation.y) : 0,
+          z: this.rotation.z ? deg2rad(this.rotation.z) : 0
+        }
+        Object.assign(obj.rotation, rotation);
+      } else {
+        Object.assign(obj.rotation, this.rotation);
+      }
+      //Object.assign(obj.rotation, this.rotation)
       if (this.parentObj) {
         this.parentObj.add(obj);
       }

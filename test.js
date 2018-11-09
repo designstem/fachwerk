@@ -8,6 +8,7 @@ for (const name in components) {
 
 Vue.config.devtools = true;
 
+/*
 const renderer = new marked.Renderer();
 renderer.paragraph = text => {
   return `<p>${text}</p>`
@@ -82,5 +83,76 @@ new Vue({
   methods: utils,
   template: `
 <f-content-editor content="<f-scene><f-circle /></f-scene>" />
+  `
+});
+*/
+
+const FGrid4 = {
+  props: {
+    opacity: { default: 0.2, type: Number }
+  },
+  methods: utils,
+  template: `
+  <f-group3>
+    <f-group3
+      v-for="(rotation,i) in [{},{x:90},{y:90}]"
+      :key="i"
+      :rotation="rotation"
+    >
+    <f-line3
+      v-for="x in range(-2,2,0.5)"
+      :points="[{ x, y: -2},{ x, y: 2}]"
+      :stroke-width="1"
+      :opacity="x == 0 ? opacity * 2 : opacity"
+    />
+    <f-line3
+      v-for="y in range(-2,2,0.5)"
+      :points="[{ x: -2, y },{ x: 2, y }]"
+      :stroke-width="1"
+      :opacity="y == 0 ? opacity * 2 : opacity"
+    />
+    </f-group3>
+  </f-group3>
+  `
+}
+
+Vue.component("f-grid4", FGrid4);
+
+new Vue({
+  el: "#app",
+  data: () => ({ inverted: false }),
+  methods: utils,
+  template2: `
+<f-slider-data to="360">
+<f-scene3 slot-scope="data">
+    <f-group3 :rotation="{x: data.value, y: data.value / 2}">
+    
+    <f-group3
+      v-for="(rotation,i) in [{},{x:90},{y:90}]"
+      :key="i"
+      :rotation="rotation"
+    >
+    <f-line3
+      v-for="x in range(-2,2,0.5)"
+      :points="[{ x, y: -2},{ x, y: 2}]"
+      :stroke-width="1"
+      :opacity="x == 0 ? 0.8 : 0.4"
+    />
+    <f-line3
+      v-for="y in range(-2,2,0.5)"
+      :points="[{ x: -2, y },{ x: 2, y }]"
+      :stroke-width="1"
+      :opacity="y == 0 ? 0.8 : 0.4"
+    />
+    </f-group3>
+    <f-box3 opacity="0.3"  />  
+    
+    </f-group3>
+</f-scene3>
+  `,
+  template: `
+<f-scene3>
+  <f-grid4 />
+</f-scene3>
   `
 });
