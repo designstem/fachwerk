@@ -41,7 +41,8 @@ Themes the content
         blue: {
           background: "var(--darkblue)",
           "--primary": "var(--lightergray)",
-          "--secondary": "var(--lightgray)"
+          "--secondary": "var(--lightgray)",
+          "--lightblue": "var(--darkblue)",
         },
         yellow: {
           background: "var(--yellow)",
