@@ -260,7 +260,7 @@ const FContentEditor = {
     </div>
     <div>
       <slot :content="innerContent">
-        <f-content-slides :content="innerContent" />
+        <f-content-cards :content="innerContent" />
       </slot> 
     </div>
   </div>

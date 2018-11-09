@@ -25,11 +25,6 @@ export default {
     ">
       <div
         v-for="(card,i) in preparedContent"
-        style="
-          padding: 1rem;
-          border: 3px solid var(--gray);
-          border-radius: var(--border-radius);
-        "
         class="card break"
       >
         <Markdown :content="card"/>
@@ -37,9 +32,11 @@ export default {
     </div>
   `,
   css: `
-    .card h1 {
-      font-size: 2rem;
-      line-height: 2rem;
-    }
+  .card {
+    --base: 7px;
+    padding: var(--base2);
+    border: 3px solid var(--gray);
+    border-radius: var(--border-radius);
+  }
   `
 };
