@@ -66,7 +66,7 @@ export default {
     </div>
     <div>
       <slot :content="innerContent">
-        <f-content-slides :content="innerContent" />
+        <f-content-slides :content="innerContent" :autosave-id="autosaveId" />
       </slot> 
     </div>
   </div>

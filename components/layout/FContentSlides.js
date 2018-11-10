@@ -8,6 +8,7 @@ export default {
   props: {
     content: { default: '', type: String },
     base: { default: '12px', type: String },
+    autosaveId: { default: "0", type: String }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
@@ -28,6 +29,20 @@ export default {
     }
   },
   mounted() {
+    const savedContent = JSON.parse(
+      localStorage.getItem(`f-content-slides-${this.autosaveId}`)
+    );
+    if (savedContent) {
+      this.currentIndex = savedContent.currentIndex
+    }
+
+    this.$watch("currentIndex", currentIndex => {
+      localStorage.setItem(
+        `f-content-slides-${this.autosaveId}`,
+        JSON.stringify({ currentIndex })
+      );
+    });
+
     document.addEventListener("keydown", e => {
       if (e.altKey && e.keyCode == 37) {
         e.preventDefault()
