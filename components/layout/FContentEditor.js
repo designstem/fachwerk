@@ -45,7 +45,7 @@ export default {
   },
   template: `
   <div class="f-content-editor">
-    <div v-if="!fullscreen" style="position: relative;">
+    <div v-if="!fullscreen" class="f-content-editor--editor" style="position: relative;">
       <f-editor
         v-model="innerContent"
         style="position: absolute; top: 0, right: 0, bottom: 0, left: 0"
@@ -64,7 +64,7 @@ export default {
         {{ changed ? '↺' : ''}}
       </div>
     </div>
-    <div>
+    <div class="f-content-editor--preview">
       <slot :content="innerContent">
         <f-content-slides :content="innerContent" :autosave-id="autosaveId" />
       </slot> 
@@ -76,10 +76,10 @@ export default {
     display: flex;
     min-height: 100vh;
   }
-  .f-content-editor > div:nth-child(1) {
+  .f-content-editor--editor {
     width: 400px;
   }
-  .f-content-editor > div:nth-child(2) {
+  .f-content-editor--preview {
     flex: 1;
   }
   @media (max-width: 800px) {
@@ -87,7 +87,7 @@ export default {
       display: block;
       min-height: inherit;
     }
-    .f-content-editor > div:first-child {
+    .f-content-editor--editor {
       width: inherit;
       min-height: 20rem;
     }
