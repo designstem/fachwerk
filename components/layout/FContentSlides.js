@@ -1,13 +1,14 @@
 import Markdown from "../Markdown.js";
-import Css from "../Css.js";
 
 import { parseColumns } from '../../utils.js'
 
 export default {
-  mixins: [Css],
   tag: 'Layout',
   components: { Markdown },
-  props: ["content"],
+  props: {
+    content: { default: '', type: String },
+    base: { default: '12px', type: String },
+  },
   data: () => ({ currentIndex: 0 }),
   computed: {
     preparedContent() {
@@ -45,6 +46,7 @@ export default {
       v-if="i == currentIndex"
       class="slide"
       :style="{
+        '--base': base,
         display: 'grid',
         gridGap: '2em',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
@@ -53,6 +55,7 @@ export default {
         gridAutoRows: '',
         gridAutoColumns: '',
         overflow: 'hidden',
+        padding: 'var(--base4)'
       }"
     >
       <Markdown
@@ -63,11 +66,5 @@ export default {
       />
     </div>
   </div>
-  `,
-  css: `
-  .slide {
-    --base: 11px;
-    padding: var(--base4);
-  }
   `
 };

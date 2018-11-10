@@ -1,4 +1,4 @@
-fix f-text
+farraydata fmatrix fmatrix3
 
 point / point3 x, y
 
@@ -27,7 +27,6 @@ Layout:
 
 Components:
 
-- `Sidebar` (for theory)
 - `Tooltip`?
 - `Collapsible`?
 - `Pager`
@@ -48,22 +47,11 @@ Components:
 </StateData>
 ```
 ---
-f-sidebar: laius
----
-
-TwoScene
-- width / height
-- viewBox
-
-TwoGrid
-- step
-- opacity
 
 TwoLine
 ?- (midagi yhele ja kahele poidile?)
 
 TwoCircle
-- (r) / radius?
 - scale = 1 nr
 
 ThreeScene
@@ -76,48 +64,17 @@ ThreeGrid
 - step
 - opacity
 
-ThreeTriangle
-- stroke
-- strokeWidth
-
 ThreeLine 
 - closed
 
-ThreeCircle
-- fill
-- stroke
-
 ThreeBox
-
 :x?
 :y?
-:width	1	number
-:height	1	number
-:fill
-:opacity	1	number
-
-ThreePolygon
-
-:points	[]	array
-:fill	var(--secondary)	string
-:stroke	var(--primary)	string
-opacity 
-
-ThreePolyhedron
- opacity
-
-ThreeRegulaPolygon
-
-:count	6	number
-:radius	1	number
-:position	{}	object
-:rotation	{}	object
-:scale	{}	object
 
 //AnimeData // AniData // AnimationData // MotionData
 //multiple values...
 
-FetchData = SheetData
+//FetchData = SheetData
 //update=""
 //update-frequency=""
 
@@ -144,8 +101,7 @@ import('https://unpkg.com/d3-shape@1.2.2/src/index.js?module')
 
 ---
 
-// f-text -> text
-f-text3 ???
+//f-text3 ???
 
 ---
 

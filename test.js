@@ -293,8 +293,9 @@ new Vue({
   methods: utils,
   template: `
   <f-theme theme="dark">
-    <header>Yo</header>
-    <f-content-editor content="# Edit me" />
+    <f-content-editor content="aa">
+      <f-content-slides base="0.4vw" slot-scope="{ content }" :content="content" />
+    </f-content-editor>
   </f-theme>
   `
 });

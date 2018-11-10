@@ -6,36 +6,37 @@ export default {
   description: `
   `,
   example: `
-<f-scene>
+  <f-scene>
   <f-grid />
+  <f-line />
   <f-line
     :points="[
-      { x: -1.5, y: 0 },
-      { x: -1,   y: 0 },
-      { x: -1.5, y: 0.5 },
+      { x: -1.5, y: -1 },
+      { x: -1,   y: -1 },
+      { x: -1.5, y: -0.5 },
     ]"
   />
   <f-line
     :points="[
-      { x: -0.5, y: 0   },
-      { x: 0,    y: 0   },
-      { x: -0.5, y: 0.5 },
+      { x: -0.5, y: -1   },
+      { x: 0,    y: -1   },
+      { x: -0.5, y: -0.5 },
     ]"
     :closed="true"
   />
   <f-line
     :points="[
-      { x: 0.5, y: 0   },
-      { x: 1,   y: 0   },
-      { x: 0.5, y: 0.5 },
+      { x: 0.5, y: -1   },
+      { x: 1,   y: -1   },
+      { x: 0.5, y: -0.5 },
     ]"
     :curved="true"
   />
   <f-line
     :points="[
-      { x: 1.5, y: 0   },
-      { x: 2,   y: 0   },
-      { x: 1.5, y: 0.5 },
+      { x: 1.5, y: -1   },
+      { x: 2,   y: -1   },
+      { x: 1.5, y: -0.5 },
     ]"
     :closed="true"
     :curved="true"
@@ -43,6 +44,10 @@ export default {
 </f-scene>
   `,
   props: {
+    x1: { default: 0, type: Number },
+    y1: { default: 0, type: Number },
+    x2: { default: 4, type: Number },
+    y2: { default: 4, type: Number },
     points: { default: [], type: Array },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
@@ -71,7 +76,21 @@ export default {
   },
   template: `
     <g :transform="transform">
+      <line
+        v-if="!points.length"
+        :x1="x1"
+        :y1="y1"
+        :x2="x2"
+        :y2="y2"
+        :stroke="stroke"
+        :stroke-width="strokeWidth"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        :fill="fill"
+        :opacity="opacity"
+      />
       <path
+        v-if="points.length"
         :d="path(points)"
         :stroke="stroke"
         :stroke-width="strokeWidth"

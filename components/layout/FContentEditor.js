@@ -70,14 +70,17 @@ export default {
     min-height: 100vh;
   }
   .f-content-editor > div:nth-child(1) {
-    width: 45vw;
+    width: 400px;
+  }
+  .f-content-editor > div:nth-child(2) {
+    flex: 1;
   }
   @media (max-width: 800px) {
     .f-content-editor {
       display: block;
       min-height: inherit;
     }
-    .f-content-editor > div:nth-child(1) {
+    .f-content-editor > div:first-child {
       width: inherit;
       min-height: 20rem;
     }
