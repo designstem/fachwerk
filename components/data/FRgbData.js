@@ -6,7 +6,7 @@ export default {
   example: `
 <f-rgb-data r="102" g="51" b="153">
   <f-scene slot-scope="data">
-    <f-circle :fill="rgb(...data.values)" />
+    <f-circle :fill="rgb(...data.value)" />
   </f-scene>
 </f-rgb-data>
   `,
@@ -16,13 +16,13 @@ export default {
     b: { default: 128, type: Number }
   },
   template: `
-<f-slider-data :values="[
+<f-slider-data :sliders="[
   { title: 'R', to: 255, value: r },
   { title: 'G', to: 255, value: g },
   { title: 'B', to: 255, value: b },
 ]">
   <template slot-scope="data">
-    <slot :values="data.values" />
+    <slot :value="data.value" />
   </template>
 </f-slider-data>
   `

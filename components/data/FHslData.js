@@ -6,7 +6,7 @@ Sliders for <code>h s l</code> color values.
   example: `
 <f-hsl-data h="270" s="50" l="40">
   <f-scene slot-scope="data">
-    <f-circle :fill="hsl(...data.values)" />
+    <f-circle :fill="hsl(...data.value)" />
   </f-scene>
 </f-hsl-data>
   `,
@@ -16,13 +16,13 @@ Sliders for <code>h s l</code> color values.
     l: { default: 50, type: Number }
   },
   template: `
-<f-slider-data :values="[
+<f-slider-data :sliders="[
   { title: 'Hue', to: 360, value: h, },
   { title: 'Saturation', to: 100, value: s },
   { title: 'Lightness', to: 100, value: l },
 ]">
     <template slot-scope="data">
-      <slot :values="data.values" />
+      <slot :value="data.value" />
     </template>
   </f-slider-data>
   `

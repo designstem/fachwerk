@@ -10,15 +10,15 @@ Adds a slider next to the content and passing the slider value as <code>data.val
   </h1>
 </f-slider-data>
 
-<f-slider-data :values="[
+<f-slider-data :sliders="[
   { title: 'X', from: -2, to: 2, value: 0, float: true },
   { title: 'Y', from: -2, to: 2, value: 0, float: true },
 ]">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle :position="{
-      x: data.values[0],
-      y: data.values[1]
+      x: data.value[0],
+      y: data.value[1]
     }" />
   </f-scene>
 </f-slider-data>
@@ -30,19 +30,19 @@ Adds a slider next to the content and passing the slider value as <code>data.val
     to: { default: 100, type: Number },
     step: { default: 1, type: Number },
     float: { default: false, type: Boolean },
-    values: { default: () => [], type: [Array] },
+    sliders: { default: () => [], type: [Array] },
   },
   data: function() {
     return {
       innerValue: this.value,
-      innerValues: this.values.length
-        ? this.values.map(v => (v.value ? v.value : 0))
+      innerValues: this.sliders.length
+        ? this.sliders.map(v => (v.value ? v.value : 0))
         : null
     };
   },
   template: `
     <div>
-      <div v-if="values.length" v-for="(v,i) in values" :key="i">
+      <div v-if="sliders.length" v-for="(v,i) in sliders" :key="i">
         <label>{{ v.title ? v.title : 'Values ' + i }} <code>{{ innerValues[i] }}</code></label>
         <input
           style="margin-bottom: 1rem;"
@@ -53,12 +53,12 @@ Adds a slider next to the content and passing the slider value as <code>data.val
           :step="v.step ? v.step : this.step ? this.step : v.float ? 0.000001 : 1"
         />
       </div>
-      <slot v-if="values.length" :values="innerValues" />
-      <div v-if="!values.length">
+      <slot v-if="sliders.length" :value="innerValues" />
+      <div v-if="!sliders.length">
         <label>{{ title }} <code>{{ innerValue }}</code></label>
-        <input style="margin-bottom: 1rem;" type="range" v-model="innerValue" :min="from" :max="to" :step="step ? step : float ? 0.01 : 1" />
+        <input style="margin-bottom: 1rem;" type="range" v-model="innerValue" :min="from" :max="to" :step="step ? step : float ? 0.001 : 1" />
       </div>
-      <slot v-if="!values.length" :value="innerValue" />
+      <slot v-if="!sliders.length" :value="innerValue" />
     </div>
   `
 };
