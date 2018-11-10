@@ -2,51 +2,6 @@ farraydata fmatrix fmatrix3
 
 point3 x y z fill!
 
-f-rotation-data -> value[0]
-
-// homepage -> utils
-
-
----
-
-### Build
-
-```sh
-npx rollup -f iife -i index.js | npx uglifyjs > build.js
-```
-
-### Suggested IDE plugins
-
-https://github.com/faisalhakim47/vscode-vue-inline-template
-
-### Todo
-
-Layout:
-
-- `vsplit`, `hsplit`?
-
-Components:
-
-- `Tooltip`?
-- `Collapsible`?
-- `Pager`
-- `Carousel`?
-
-### Future
-
-```html
-<StateData :length="100 * 100">
-  <PixelScene slot-scope="data">
-    <Pixel
-      v-for="(p,i) in data.value"
-      :offset="i"
-      color="p ? 'black' : 'white'"
-      @click="data.update(i, !p)"
-    />
-  </PixelScene>
-</StateData>
-```
----
 
 TwoLine
 ?- (midagi yhele ja kahele poidile?)
@@ -78,6 +33,48 @@ ThreeBox
 //update=""
 //update-frequency=""
 
+
+//f-text3 ???
+
+//blendmoded?
+
+//blindRgb()
+//blindHsl()
+
+//canIuse
+
+//d-scene2d canvas="maybe"
+
+---
+
+// homepage -> utils
+
+Layout:
+
+- `vsplit`, `hsplit`?
+
+Components:
+
+- `Tooltip`?
+- `Collapsible`?
+- `Pager`
+- `Carousel`?
+
+### Future
+
+```html
+<StateData :length="100 * 100">
+  <PixelScene slot-scope="data">
+    <Pixel
+      v-for="(p,i) in data.value"
+      :offset="i"
+      color="p ? 'black' : 'white'"
+      @click="data.update(i, !p)"
+    />
+  </PixelScene>
+</StateData>
+```
+
 ---
 
 <StateData :length="3">
@@ -101,18 +98,6 @@ import('https://unpkg.com/d3-shape@1.2.2/src/index.js?module')
 
 ---
 
-//f-text3 ???
-
----
-
-//blendmoded?
-
-//blindRgb()
-//blindHsl()
-
-//canIuse
-
-//d-scene2d canvas="maybe"
 
 ---
 
@@ -246,3 +231,19 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   </three-group>
   </three-scene>
 </array-data>
+
+---
+
+--
+
+### Build
+
+```sh
+npx rollup -f iife -i index.js | npx uglifyjs > build.js
+```
+
+### Suggested IDE plugins
+
+https://github.com/faisalhakim47/vscode-vue-inline-template
+
+### Todo
