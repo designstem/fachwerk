@@ -46,8 +46,8 @@ export default {
   props: {
     x1: { default: 0, type: Number },
     y1: { default: 0, type: Number },
-    x2: { default: 4, type: Number },
-    y2: { default: 4, type: Number },
+    x2: { default: 2, type: Number },
+    y2: { default: 2, type: Number },
     points: { default: [], type: Array },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },

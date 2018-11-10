@@ -8,6 +8,7 @@ export default {
   `,
   example: `
 <f-scene3>
+  <f-point3 />
   <f-group3
     :rotation="{ y: 45, x: 45 }"
     :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
@@ -27,6 +28,9 @@ export default {
 </f-scene3>
   `,
   props: {
+    x: { default: 0, type: Number },
+    y: { default: 0, type: Number },
+    z: { default: 0, type: Number },
     points: { default: [], type: Array },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "color('primary')", type: String },
@@ -43,6 +47,18 @@ export default {
   template: `
     <f-group3>
       <f-line3
+        v-if="!points.length"
+        :x1="x"
+        :y1="y"
+        :z1="z"
+        :x2="x"
+        :y2="y"
+        :z2="z"
+        :stroke-width="strokeWidth"
+        :opacity="opacity"
+      />
+      <f-line3
+        v-if="points.length"
         v-for="point in points"
         :points="[
           {x: point.x, y: point.y, z: point.z},

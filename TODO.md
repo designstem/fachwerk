@@ -1,6 +1,6 @@
 farraydata fmatrix fmatrix3
 
-point / point3 x, y
+point3 x y z fill!
 
 f-rotation-data -> value[0]
 
