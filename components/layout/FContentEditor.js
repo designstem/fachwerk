@@ -9,7 +9,8 @@ export default {
   data: function() {
     return {
       innerContent: this.content,
-      changed: false
+      changed: false,
+      fullscreen: false
     };
   },
   methods: {
@@ -35,10 +36,16 @@ export default {
       );
       this.changed = true;
     });
+    document.addEventListener("keydown", e => {
+      if (e.altKey && e.keyCode === 70) { // f
+        e.preventDefault()
+        this.fullscreen = !this.fullscreen
+      }
+    });
   },
   template: `
   <div class="f-content-editor">
-    <div style="position: relative;">
+    <div v-if="!fullscreen" style="position: relative;">
       <f-editor
         v-model="innerContent"
         style="position: absolute; top: 0, right: 0, bottom: 0, left: 0"

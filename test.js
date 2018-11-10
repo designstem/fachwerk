@@ -293,9 +293,7 @@ new Vue({
   methods: utils,
   template: `
   <f-theme theme="dark">
-    <f-content-editor content="aa">
-      <f-content-slides base="0.4vw" slot-scope="{ content }" :content="content" />
-    </f-content-editor>
+    <f-content-editor content="aa" />
   </f-theme>
   `
 });
