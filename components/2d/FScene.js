@@ -33,18 +33,48 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
     grid: { default: false, type: Boolean },
     step: { default: 0.5, type: Number }
   }, 
+  computed: {
+    innerWidth() {
+      return this.width >= this.height ? (4 * this.width) / this.height : 4
+    },
+    innerHeight() {
+      return this.width >= this.height ? 4 : (4 * this.height) / this.width
+    },
+    innerX() {
+      return this.innerWidth / -2
+    },
+    innerY() {
+      return this.innerHeight / -2
+    },
+  },
+  mounted() {
+    console.log(this.innerWidth,this.innerHeight)
+  },
   template: `
   <f-svg 
     :width="width"
     :height="height"
-    :inner-x="-2"
-    :inner-y="-2"
-    :inner-width="4"
-    :inner-height="4"
+    :inner-x="innerX"
+    :inner-y="innerY"
+    :inner-width="innerWidth"
+    :inner-height="innerHeight"
     :flip-y="true"
     class="f-scene"
   >
-    <f-grid :step="step" v-if="grid" />
+    <f-basegrid
+      :inner-x="innerX"
+      :inner-y="innerY"
+      :inner-width="innerWidth"
+      :inner-height="innerHeight"
+      :step="step"
+    />
+    <!--f-basegrid
+      :inner-x="innerX"
+      :inner-y="innerY"
+      :inner-width="innerWidth"
+      :inner-height="innerHeight"
+      :step="step * 4"
+    /-->
     <slot />
   </f-svg>
   `,

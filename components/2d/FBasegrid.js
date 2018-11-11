@@ -1,4 +1,4 @@
-import { range } from "../../utils.js"
+import { range, color } from "../../utils.js"
 
 export default {
   props: {
@@ -9,27 +9,45 @@ export default {
     step: { default: 25, type: Number },
     opacity: { default: 0.15, type: Number }
   },
-  methods: { range },
+  methods: { range, color },
   template: `
     <f-group>
-      <line
-        v-for="(x,i) in range(innerX,innerX + innerWidth, step)"
-        :key="i"
+      <f-line
+        :x1="0"
+        :y1="innerY"
+        :x2="0"
+        :y2="innerY + innerHeight"
+        :stroke="color('primary')"
+        :stroke-width="1"
+        :opacity="opacity * 1.5"
+      />
+      <f-line
+        :x1="innerX"
+        :y1="0"
+        :x2="innerX + innerWidth"
+        :y2="0"
+        :stroke="color('primary')"
+        :stroke-width="1"
+        :opacity="opacity * 1.5"
+      />
+      <f-line
+        v-for="(x,i) in range(innerX,innerX + innerWidth,step)"
         :x1="x"
         :y1="innerY"
         :x2="x"
         :y2="innerY + innerHeight"
-        stroke="var(--primary)"
+        :stroke="color('primary')"
+        :stroke-width="1"
         :opacity="opacity"
       />
-      <line
-        v-for="(y,i) in range(innerY,innerY + innerHeight, step)"
-        :key="i"
+      <f-line
+        v-for="(y,i) in range(innerY,innerY + innerHeight,step)"
         :x1="innerX"
         :y1="y"
         :x2="innerX + innerWidth"
         :y2="y"
-        stroke="var(--primary)"
+        :stroke="color('primary')"
+        :stroke-width="1"
         :opacity="opacity"
       />
     </f-group>

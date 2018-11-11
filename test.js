@@ -292,9 +292,9 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-  <f-theme theme="dark">
-    <f-content-editor content="aa" />
-  </f-theme>
+    <f-scene grid>
+      <f-circle />
+    </f-scene>
   `
 });
 
