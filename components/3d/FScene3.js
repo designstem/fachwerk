@@ -3,7 +3,9 @@ import { Renderer, Scene, Camera } from './3d.js'
 export default {
   tag: '3D',
   description: `
-_Der Raum_.
+3D scene with \`x y z\` coordinates ranging from \`-2 to 2\`.
+
+Techically it is rendered using **ThreeJS* with custom *SVG* renderer.
 `,
   example: `
 <f-animation-data to="360">
@@ -15,14 +17,17 @@ _Der Raum_.
 </f-animation-data>
   `,
   components: { Renderer, Scene, Camera },
+  props: {
+    width: { default: 250, type: Number },
+    height: { default: 250, type: Number },
+    cameraPosition: { default: () => ({ x: 0, y: 0, z: 2.63 }), type: Object },
+  },
   template: `
-    <div class="three">
-      <Renderer :size="{ w: 250, h: 250 }">
-        <Scene>
-          <Camera :position="{ z: 2.63 }" />
-          <slot />
-        </Scene>
-      </Renderer>
-    </div>
+  <Renderer :size="{ w: width, h: height }">
+    <Scene>
+      <Camera :position="cameraPosition" />
+      <slot />
+    </Scene>
+  </Renderer>
   `
 };

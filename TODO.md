@@ -1,3 +1,5 @@
+f-scene dynaamiline inner
+
 farraydata fmatrix fmatrix3
 
 point3 x y z fill!
