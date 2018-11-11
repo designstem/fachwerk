@@ -292,9 +292,7 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-    <f-scene grid>
-      <f-circle />
-    </f-scene>
+    <f-content-editor />
   `
 });
 

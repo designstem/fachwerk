@@ -54,6 +54,7 @@ export default {
         :x2="x"
         :y2="y"
         :z2="z"
+        :stroke="strokeColor"
         :stroke-width="strokeWidth"
         :opacity="opacity"
       />

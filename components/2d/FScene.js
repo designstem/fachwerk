@@ -47,9 +47,6 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
       return this.innerHeight / -2
     },
   },
-  mounted() {
-    console.log(this.innerWidth,this.innerHeight)
-  },
   template: `
   <f-svg 
     :width="width"
@@ -62,19 +59,13 @@ Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from 
     class="f-scene"
   >
     <f-basegrid
+      v-if="grid"
       :inner-x="innerX"
       :inner-y="innerY"
       :inner-width="innerWidth"
       :inner-height="innerHeight"
       :step="step"
     />
-    <!--f-basegrid
-      :inner-x="innerX"
-      :inner-y="innerY"
-      :inner-width="innerWidth"
-      :inner-height="innerHeight"
-      :step="step * 4"
-    /-->
     <slot />
   </f-svg>
   `,
