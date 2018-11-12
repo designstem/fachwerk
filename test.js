@@ -369,8 +369,8 @@ const FRepeatCircle = {
   methods: utils,
   template: `
   <f-group>
-    <f-group v-for="({x,y}) in cpoints(count,r)" :position="{x,y}">
-        <slot f-repeat-circle />
+    <f-group v-for="({x,y},i) in cpoints(count,r)" :position="{x,y}">
+        <slot :value="i" />
       </f-group>
   </f-group>  
   `,
@@ -384,7 +384,7 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-    <f-slider-data to="360">
+    <f-animation-data to="360">
     <f-scene
       slot-scope="data"
       width="500"
@@ -392,15 +392,16 @@ new Vue({
       step="0.25"
       grid
     >
-    <f-repeat-grid>  
-      <f-repeat-flip slot-scope="grid">  
+    <f-repeat-circle>  
         <f-regularpolygon
-          count="3"
-          opacity="0.5"
-          slot-scope="repeat"
+          slot-scope="cdata"
+          count="5"
+          r="0.75"
           :rotation="{x:data.value}"
+          :fill="hsl(cdata.value * 100)"
+          opacity="0.5"
         />
-      </f-repeat-flip>
+    </f-repeat-circle>  
     </f-scene>
   `
 });
