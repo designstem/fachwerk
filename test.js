@@ -288,13 +288,13 @@ new Vue({
 
 //Vue.component("FContentEditor", FContentEditor);
 
-new Vue({
-  el: "#app",
-  methods: utils,
-  template: `
-    <f-content-editor />
-  `
-});
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//     <f-content-editor />
+//   `
+// });
 
 
 // new Vue({
@@ -325,3 +325,82 @@ new Vue({
 // });
 
 //   <f-content-slides slot-scope="{content}" :content="content" />
+
+const FRepeatGrid = {
+  props: {
+    step: { default: 1, type: Number }
+  },
+  methods: utils,
+  template: `
+  <f-group>
+    <f-group v-for="x in range(-1,1, step)" :position="{x,y:0}">
+      <f-group v-for="y in range(-1,1, step)" :position="{x:0,y}">
+        <slot f-repeat-grid />
+      </f-group>
+    </f-group>
+  </f-group>  
+  `,
+}
+
+const FRepeatFlip = {
+  methods: utils,
+  template: `
+  <f-group>
+    <f-group
+      :position="{x:-1}"
+      :scale="{ y: -1 }"
+    >
+      <slot f-repeat-flip />
+    </f-group>
+    <f-group
+      :position="{x:1}"
+    >
+      <slot f-repeat-flip />
+    </f-group>
+  </f-group>  
+  `,
+}
+
+const FRepeatCircle = {
+  props: {
+    count: { default: 6, type: Number },
+    r: { default: 1, type: Number },
+  },
+  methods: utils,
+  template: `
+  <f-group>
+    <f-group v-for="({x,y}) in cpoints(count,r)" :position="{x,y}">
+        <slot f-repeat-circle />
+      </f-group>
+  </f-group>  
+  `,
+}
+
+Vue.component("FRepeatGrid", FRepeatGrid);
+Vue.component("FRepeatFlip", FRepeatFlip);
+Vue.component("FRepeatCircle", FRepeatCircle);
+
+new Vue({
+  el: "#app",
+  methods: utils,
+  template: `
+    <f-slider-data to="360">
+    <f-scene
+      slot-scope="data"
+      width="500"
+      height="500"
+      step="0.25"
+      grid
+    >
+    <f-repeat-grid>  
+      <f-repeat-flip slot-scope="grid">  
+        <f-regularpolygon
+          count="3"
+          opacity="0.5"
+          slot-scope="repeat"
+          :rotation="{x:data.value}"
+        />
+      </f-repeat-flip>
+    </f-scene>
+  `
+});
