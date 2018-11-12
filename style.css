@@ -26,6 +26,8 @@
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
 
+  --emphasis: var(--primary);
+
   --border-width: 3px;
   --border-radius: 6px;
 
@@ -94,6 +96,14 @@ a {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
   font-weight: bold;
+}
+b, strong {
+  color: var(--emphasis);
+}
+big {
+  font-size: 3em;
+  line-height: 1em;
+  letter-spacing: -0.05em;
 }
 small {
   --font-size: calc(var(--base) * 2);
