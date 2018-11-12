@@ -335,7 +335,7 @@ const FRepeatGrid = {
   <f-group>
     <f-group v-for="x in range(-1,1, step)" :position="{x,y:0}">
       <f-group v-for="y in range(-1,1, step)" :position="{x:0,y}">
-        <slot f-repeat-grid />
+        <slot :value="[x,y]" />
       </f-group>
     </f-group>
   </f-group>  
@@ -350,12 +350,12 @@ const FRepeatFlip = {
       :position="{x:-1}"
       :scale="{ y: -1 }"
     >
-      <slot f-repeat-flip />
+      <slot :value="0" />
     </f-group>
     <f-group
       :position="{x:1}"
     >
-      <slot f-repeat-flip />
+      <slot :value="1" />
     </f-group>
   </f-group>  
   `,
