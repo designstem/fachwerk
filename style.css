@@ -35,6 +35,8 @@
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
+
+  --grid-gap: calc(var(--base) * 3);
 }
 
 /* All */

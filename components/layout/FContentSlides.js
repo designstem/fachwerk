@@ -63,7 +63,7 @@ export default {
       :style="{
         '--base': base,
         display: 'grid',
-        gridGap: '2em',
+        gridGap: 'var(--grid-gap)',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
         gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
         gridTemplateAreas: slide.areas,
