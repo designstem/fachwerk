@@ -3,16 +3,75 @@ import * as utils from "./utils.js";
 for (const name in components) {
   Vue.component(name, components[name]);
 }
+
+// new Vue({
+//   el: "#app",
+//   data: { r: 0, g: 0, b: 0 },
+//   methods: utils,
+//   computed: {
+//     done() {
+//       return this.r == 10
+//     }
+//   },
+//   template: `
+//   <div>
+//     <f-slider v-model="r" />
+//     <f-slider v-model="g" />
+//     <f-slider v-model="b" />
+//    <h1 v-if="done">YEEEEEEEE</h1>
+//   </div>
+//   `
+// });
+
+
+
 new Vue({
   el: "#app",
   methods: utils,
+  data: { r: 0, g: 0, b: 0 },
   template: `
+  <div>
+  <f-aframe width="500" height="500">
 
-  <f-aframe>
+    <a-plane
+      position="0 0 -4.01"
+      scale="3.65 1.3 1"
+      opacity="0.2"
+      material="emissive: #fff;"
+    />
 
-     <a-sphere position="0 0 -4" color="red" />
+    <a-plane
+      @click="r = 1 - r"
+      position="-1.2 0 -3.99"
+      material="emissive: #fff;"
+      :opacity="r ? 1 : 0.25"
+    />
+
+    <a-plane
+      @click="g = 1 - g"
+      position="0 0 -3.99"
+      material="emissive: #fff;"
+      :opacity="g ? 1 : 0.25"
+    />
+
+    <a-plane
+      @click="b = 1 - b"
+      position="1.2 0 -3.99"
+      material="emissive: #fff;"
+      :opacity="b ? 1 : 0.25"
+    />
+
+    <a-light position="0 10 2" :color="rgb(255,255,255)" />
+    <a-light position="0 -1 1" :color="rgb(100,100,100)" />
+
+    <a-light position="0 0 1" :color="rgb([0,255][r],[0,255][g],[0,255][b])" />
+
+    <a-sphere position="-5 0 -20" color="red" />
+    <a-sphere position="0 0 -20" color="yellow" />
+    <a-sphere position="5 0 -20" color="orange" />
 
   </f-aframe>
+  </div>
   
   `
 });

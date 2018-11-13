@@ -8,7 +8,8 @@ A basic [A-Frame](https://aframe.io/) wrapper.
   props: {
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
-    color: { default: 'black', type: Number },
+    color: { default: '#111', type: Number },
+    timeout: { default: 1500, type: Number }
   },
   template: `
     <a-scene embedded :style="{
@@ -16,7 +17,11 @@ A basic [A-Frame](https://aframe.io/) wrapper.
       height: height + 'px'
     }">
       <a-camera>
-        <a-cursor />
+        <a-cursor
+          :fuse="true" 
+          :fuse-timeout="timeout"
+          material="color: #fff"
+        />
       </a-camera>
       <a-sky :color="color"></a-sky>
       <slot />
