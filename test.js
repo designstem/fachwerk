@@ -27,14 +27,26 @@ for (const name in components) {
 
 new Vue({
   el: "#app",
-  methods: utils,
-  data: { r: 0, g: 0, b: 0 },
+  data: { r: 0, g: 0, b: 0, scene: 2, rSlider: 0 },
+  methods: { ...utils,
+    prevScene() {
+      if (this.scene >= 1) {
+        this.scene--
+      } 
+    },
+    nextScene() {
+      if (this.scene < 2) {
+        this.scene++
+      } 
+    }
+  },
   template: `
   <div>
   <f-aframe width="600" height="600">
 
     <a-entity position="0 0 -4" rotation="-35 0 0" scale="1.5 1.5 1.5">
     
+      <a-entity v-if="scene != 2">
       <a-entity
         @click="r = 1 - r"
         position="-2 -0.5 -4"
@@ -82,17 +94,111 @@ new Vue({
           width="10"
         />
       </a-entity>
+      </a-entity>
+
+      <!-- scene2 -->
+
+      <a-entity v-if="scene == 2">
+      <a-entity
+        @click="rSlider = rSlider - 25"
+        position="-2 -0.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="R-"
+          color="#777"
+          width="10"
+        />
+      </a-entity>
+
+      <a-entity
+        position="-0.5 -0.5 -4"
+      >
+        <a-text
+          position="0.32 0.5 0"
+          :value="rSlider"
+          color="#777"
+          width="10"
+        />
+      </a-entity>
+
+      <a-entity
+        @click="rSlider = rSlider + 25"
+        position="1 -0.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="R+"
+          color="#777"
+          width="10"
+        />
+      </a-entity>
+      </a-entity>
+
+      <!-- last -->
+
+      <a-entity
+        @click="prevScene"
+        position="-2 -2.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="<"
+          color="#777"
+          width="10"
+        />
+      </a-entity>
+
+      <a-entity
+      position="-0.5 -2.5 -4"
+      >
+        <a-text
+          position="0.32 0.5 0"
+          :value="scene"
+          color="#fff"
+          width="10"
+        />
+      </a-entity>
+
+      <a-entity
+        @click="nextScene"
+        position="1 -2.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value=">"
+          color="#777"
+          width="10"
+        />
+      </a-entity>
 
     </a-entity>
 
     <a-light position="0 10 2" :color="rgb(200,200,200)" />
     <a-light position="0 -1 1" :color="rgb(100,100,100)" />
 
-    <a-light position="0 0.5 1" :color="rgb([0,255][r],[0,255][g],[0,255][b])" />
+    <a-light v-if="scene !=2" position="0 0.5 1" :color="rgb([0,255][r],[0,255][g],[0,255][b])" />
+    <a-light v-if="scene ==2" position="0 0.5 1" :color="rgb(rSlider,0,0)" />
 
-    <a-sphere position="-5 0 -20" color="yellow" />
-    <a-sphere position="0 0 -20" color="red" />
-    <a-sphere position="5 0 -20" color="orange" />
+    <a-sphere position="-5 0 -20" :color="['white','yellow','yellow'][scene]" />
+    <a-sphere position="0 0 -20" :color="['white','red','red'][scene]" />
+    <a-sphere position="5 0 -20" :color="['white','orange','orange'][scene]" />
 
   </f-aframe>
   </div>
