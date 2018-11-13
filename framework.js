@@ -163,14 +163,11 @@ export { FSceneData };
 import FDragData from "./components/experimental/FDragData.js";
 export { FDragData };
 
-import FScene3vr from "./components/experimental/FScene3vr.js";
-export { FScene3vr };
+import FAframe from "./components/experimental/FAframe.js";
+export { FAframe };
 
-import FGrid3vr from "./components/experimental/FGrid3vr.js";
-export { FGrid3vr };
-
-import FBox3vr from "./components/experimental/FBox3vr.js";
-export { FBox3vr };
+import FAframeGrid from "./components/experimental/FAframeGrid.js";
+export { FAframeGrid };
 
 import FLine3vr from "./components/experimental/FLine3vr.js";
 export { FLine3vr };

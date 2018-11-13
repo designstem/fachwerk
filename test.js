@@ -7,6 +7,21 @@ for (const name in components) {
 
 Vue.config.devtools = true;
 
+new Vue({
+  el: "#app",
+  data: () => ({ inverted: false }),
+  methods: utils,
+  template: `
+  <f-aframe width="800" height="600">
+    <a-entity rotation="0 10 0">
+      <a-sphere :color="color('blue')"></a-box>
+    </a-entity>
+  </f-aframe>
+  `
+});
+
+/*
+
 // Vue.config.errorHandler = function(err, vm, info) {
 //   console.log(err, vm, info);
 // };
@@ -326,99 +341,99 @@ new Vue({
 
 //   <f-content-slides slot-scope="{content}" :content="content" />
 
-const FRepeatGrid = {
-  tag: `Experimental`,
-  description: `
-Repeats the contents in 2D grid.
-  `,
-  example: `
-<f-scene>
-  <f-repeat-grid>
-    <f-circle />
-  </f-repeat-grid>
-</f-scene>  
-  `,
-  props: {
-    fromX: { default: -1, type: Number },
-    toX: { default: 1, type: Number },
-    fromY: { default: -1, type: Number },
-    toY: { default: 1, type: Number },
-    step: { default: 1, type: Number },
-    stepX: { default: null, type: Number },
-    stepY: { default: null, type: Number },
-  },
-  methods: utils,
-  template: `
-  <f-group>
-    <f-group v-for="x in range(fromX,toX, stepX ? stepX : step)" :position="{x,y:0}">
-      <f-group v-for="y in range(fromY,toY, stepY ? stepY : step)" :position="{x:0,y}">
-        <slot :value="[x,y]" />
-      </f-group>
-    </f-group>
-  </f-group>  
-  `,
-}
+// const FRepeatGrid = {
+//   tag: `Experimental`,
+//   description: `
+// Repeats the contents in 2D grid.
+//   `,
+//   example: `
+// <f-scene>
+//   <f-repeat-grid>
+//     <f-circle />
+//   </f-repeat-grid>
+// </f-scene>  
+//   `,
+//   props: {
+//     fromX: { default: -1, type: Number },
+//     toX: { default: 1, type: Number },
+//     fromY: { default: -1, type: Number },
+//     toY: { default: 1, type: Number },
+//     step: { default: 1, type: Number },
+//     stepX: { default: null, type: Number },
+//     stepY: { default: null, type: Number },
+//   },
+//   methods: utils,
+//   template: `
+//   <f-group>
+//     <f-group v-for="x in range(fromX,toX, stepX ? stepX : step)" :position="{x,y:0}">
+//       <f-group v-for="y in range(fromY,toY, stepY ? stepY : step)" :position="{x:0,y}">
+//         <slot :value="[x,y]" />
+//       </f-group>
+//     </f-group>
+//   </f-group>  
+//   `,
+// }
 
-const FRepeatFlip = {
-  methods: utils,
-  template: `
-  <f-group>
-    <f-group
-      :position="{x:-1}"
-      :scale="{ y: -1 }"
-    >
-      <slot :value="0" />
-    </f-group>
-    <f-group
-      :position="{x:1}"
-    >
-      <slot :value="1" />
-    </f-group>
-  </f-group>  
-  `,
-}
+// const FRepeatFlip = {
+//   methods: utils,
+//   template: `
+//   <f-group>
+//     <f-group
+//       :position="{x:-1}"
+//       :scale="{ y: -1 }"
+//     >
+//       <slot :value="0" />
+//     </f-group>
+//     <f-group
+//       :position="{x:1}"
+//     >
+//       <slot :value="1" />
+//     </f-group>
+//   </f-group>  
+//   `,
+// }
 
-const FRepeatCircle = {
-  props: {
-    count: { default: 6, type: Number },
-    r: { default: 1, type: Number },
-  },
-  methods: utils,
-  template: `
-  <f-group>
-    <f-group v-for="({x,y},i) in cpoints(count,r)" :position="{x,y}">
-        <slot :value="i" />
-      </f-group>
-  </f-group>  
-  `,
-}
+// const FRepeatCircle = {
+//   props: {
+//     count: { default: 6, type: Number },
+//     r: { default: 1, type: Number },
+//   },
+//   methods: utils,
+//   template: `
+//   <f-group>
+//     <f-group v-for="({x,y},i) in cpoints(count,r)" :position="{x,y}">
+//         <slot :value="i" />
+//       </f-group>
+//   </f-group>  
+//   `,
+// }
 
-Vue.component("FRepeatGrid", FRepeatGrid);
-Vue.component("FRepeatFlip", FRepeatFlip);
-Vue.component("FRepeatCircle", FRepeatCircle);
+// Vue.component("FRepeatGrid", FRepeatGrid);
+// Vue.component("FRepeatFlip", FRepeatFlip);
+// Vue.component("FRepeatCircle", FRepeatCircle);
 
-new Vue({
-  el: "#app",
-  methods: utils,
-  template: `
-    <f-animation-data to="360">
-    <f-scene
-      slot-scope="data"
-      width="500"
-      height="500"
-      step="0.25"
-      grid
-    >
-    <f-repeat-circle>  
-        <f-regularpolygon
-          slot-scope="cdata"
-          count="5"
-          r="0.75"
-          :rotation="{x:data.value}"
-          :fill="hsl(cdata.value * 100)"
-          opacity="0.5"
-        />
-    </f-repeat-circle>  
-    </f-scene>
-  `
-});
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//     <f-animation-data to="360">
+//     <f-scene
+//       slot-scope="data"
+//       width="500"
+//       height="500"
+//       step="0.25"
+//       grid
+//     >
+//     <f-repeat-circle>  
+//         <f-regularpolygon
+//           slot-scope="cdata"
+//           count="5"
+//           r="0.75"
+//           :rotation="{x:data.value}"
+//           :fill="hsl(cdata.value * 100)"
+//           opacity="0.5"
+//         />
+//     </f-repeat-circle>  
+//     </f-scene>
+//   `
+// });
