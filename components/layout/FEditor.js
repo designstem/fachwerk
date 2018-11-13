@@ -1,6 +1,16 @@
 export default {
-  tag: 'Layout',
-  props: ["value"],
+  tag: "Layout",
+  props: { value: { default: "", type: String } },
+  description: `
+Creates a code editor, to be used with v-model.
+
+Technically it creates a \`<textarea>\` tag and handles pressing the \`TAB\` key.
+
+📝 Note: it is a low level component, it is usually easier to use \`<f-content-editor>\` instead.
+  `,
+  example: `
+<f-editor v-model="someVariable" />
+  `,
   data: () => ({ content: "" }),
   mounted() {
     this.$watch(

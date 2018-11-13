@@ -56,19 +56,19 @@ const Props = {
       <thead>
         <th>Name</th>
         <th>Default</th>
-        <!--th>Type</th-->
+        <th>Type</th>
       </thead>
       <tbody>
         <tr v-for="prop in propsData">
           <td><code style="background: none">:{{ kebabCase(prop.name) }}</code></td>
           <td><code v-if="prop.default" style="white-space: normal; width: 500px; overflow: hidden; background: none;">{{ prop.default }}</code></td>
-          <!--td>
+          <td>
             <code
               v-if="prop.type"
               style="background: none; color: var(--secondary)">
                 {{ prop.type }}
             </code>
-          </td-->
+          </td>
         </tr>
       </tbody>
     </table>
@@ -102,7 +102,7 @@ export default {
           minHeight: '15rem'
         }"
         >
-          <div class="components">
+          <div class="components2">
             <div>
             <h2><{{ kebabCase(c.name) }}></h2>
               <Markdown :content="c.description" />
@@ -115,9 +115,10 @@ export default {
             <div style="position: relative">
               <Editor style="position: absolute; top: 0, right: 0; left: 0; bottom: 0;" v-model="c.example" />
             </div>
-            <div>
-              <Render :t="'<div>'+c.example+'</div>'" />
-            </div>
+          </div>
+          <div style="margin-top: var(--base4);">
+          <h4>Preview</h4>
+            <Render :t="'<div>'+c.example+'</div>'" />
           </div>
         </div>
     </div>

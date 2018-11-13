@@ -1,8 +1,6 @@
 ⚠️ \`stroke\` and \`stroke-width\` are currently ignored
 
-f-box3
-
-f-scene dynaamiline inner
+f-slider -> f-slider-data
 
 farraydata fmatrix fmatrix3
 

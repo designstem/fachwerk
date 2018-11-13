@@ -1,4 +1,16 @@
 export default {
+  tag: "Layout",
+  description: `
+Allows to create a simple slider, to be used with \`v-model\`.
+
+Technically it is a combination of  \`label\` and \`<input type="range" />\` tags.
+  `,
+  example: `
+<f-slider
+  title="Some variable"
+  v-model="someVariable"
+/>
+  `,
   props: {
     title: { default: "Value", type: String },
     value: { default: 0, type: Number },

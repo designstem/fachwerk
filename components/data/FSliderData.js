@@ -27,7 +27,7 @@ Adds a slider next to the content and passing the slider value as <code>data.val
     value: { default: 0, type: Number },
     title: { default: "Value", type: String },
     from: { default: 0, type: Number },
-    to: { default: 100, type: Number },
+    to: { default: 360, type: Number },
     step: { default: 1, type: Number },
     float: { default: false, type: Boolean },
     sliders: { default: () => [], type: [Array] },

@@ -8,7 +8,7 @@ export default {
 Techically it a [ThreeJS](https://threejs.org/) wrapper with custom SVG renderer.
 `,
   example: `
-<f-animation-data to="360">
+<f-animation-data>
   <f-scene3 slot-scope="data">
     <f-grid3
       :rotation="{ x: data.value, y: data.value }"

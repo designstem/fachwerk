@@ -1,4 +1,5 @@
 import Components from "./homepage/Components.js";
+import Components2 from "./homepage/Components2.js";
 import Utils from "./homepage/Utils.js";
 import Faq from "./homepage/Faq.js";
 
@@ -12,7 +13,7 @@ for (const name in components) {
 Vue.config.devtools = true
 
 new Vue({
-  components: { Components, Utils, Faq },
+  components: { Components, Components2, Utils, Faq },
   el: "#app",
   methods: utils
 });

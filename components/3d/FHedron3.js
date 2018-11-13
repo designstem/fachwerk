@@ -8,7 +8,6 @@ export default {
   `,
   example: `
   <f-animation-data
-    :to="360"
     :duration="1000 * 20"
   >
   <f-scene3 slot-scope="data">

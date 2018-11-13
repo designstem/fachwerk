@@ -2,6 +2,15 @@ import Css from "../Css.js";
 
 export default {
   mixins: [Css],
+  tag: "Layout",
+  description: `
+Creates a code editor with live preview and auto-save the content to users browser.
+
+Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the saved data do not go to conflict with other code editor instances on the page.
+`,
+  example: `
+<f-content-editor content="#### Edit me" />
+  `,
   props: {
     content: { default: "", type: String },
     autosaveId: { default: "0", type: String }

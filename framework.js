@@ -236,5 +236,11 @@ export const sortedComponents = [
   // Experimental
   { FKeyboardData },
   { FArtboard },
-  { FRepeatGrid }
+  { FRepeatGrid },
+
+  // Layout
+  { FButtons },
+  { FSlider },
+  { FEditor },
+  { FContentEditor }
 ];

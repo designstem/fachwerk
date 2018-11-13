@@ -1,7 +1,7 @@
 export default {
   tag: 'Layout',
   description: `
-A button group, meant to be used with \`v-model\`.
+A button group, to be used with \`v-model\`.
   `,
   example: `
 <f-buttons
