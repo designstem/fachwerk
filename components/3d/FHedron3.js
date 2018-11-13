@@ -5,7 +5,6 @@ export default {
   mixins: [Object3D],
   tag: '3D',
   description: `
-Hedron
   `,
   example: `
   <f-animation-data

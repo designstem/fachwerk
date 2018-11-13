@@ -1,4 +1,4 @@
-import { cpoints } from "../../utils.js";
+import { color, cpoints } from "../../utils.js";
 import { Object2D } from "./2d.js";
 
 export default {
@@ -9,29 +9,30 @@ export default {
   example: `
 <f-scene>
   <f-regularpolygon />
-  <f-regularpolygon
-    :r="0.5"
-    :count="5"
-    fill="var(--red)"
-  />
+  <f-regularpolygon :count="3" />
 </f-scene>
   `,
   props: {
     count: { default: 6, type: Number },
     r: { default: 1, type: Number },
-    stroke: { default: "none", type: String },
+    stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "var(--primary)", type: String },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
   },
   methods: { cpoints },
+  computed: {
+    strokeColor() {
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    }
+  },
   template: `
     <f-polygon
       :points="cpoints(count,r)"
-      :stroke="stroke"
+      :stroke="strokeColor"
       :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"

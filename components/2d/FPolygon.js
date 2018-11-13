@@ -1,4 +1,5 @@
 import { Object2D } from "./2d.js";
+import { color } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -27,18 +28,23 @@ export default {
   `,
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "none", type: String },
+    stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "var(--primary)", type: String },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
   },
+  computed: {
+    strokeColor() {
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    }
+  },
   template: `
     <f-line
       :points="points"
-      :stroke="stroke"
+      :stroke="strokeColor"
       :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"

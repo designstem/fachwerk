@@ -4,8 +4,6 @@ import { color } from "../../utils.js";
 export default {
   mixins: [Object3D],
   tag: "3D",
-  description: `
-Draws a line in full 3D space, accepts any number of 3D coordinates in <code>:points</code> array.  `,
   example: `
 <f-scene3>
   <f-group3

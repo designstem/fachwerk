@@ -5,7 +5,6 @@ export default {
   mixins: [Object3D],
   tag: '3D',
   description: `
-Adds a grid to the 3D scene and applies transformations like <code>:position</code>, <code>:rotation</code> and <code>:scale</code>.
   `,
   example: `
 <f-scene3>

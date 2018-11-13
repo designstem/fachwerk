@@ -1,4 +1,5 @@
 import { Object2D } from "./2d.js";
+import { color } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -12,7 +13,6 @@ export default {
   <f-circle
     :points="[{x: -0.5},{x: 0},{x: 0.5}]"
     :r="0.1"
-    fill="var(--red)"
   />
 </f-scene>  
   `,
@@ -21,23 +21,28 @@ export default {
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
     r: { default: 1, type: Number },
-    stroke: { default: 'none', type: String},
+    stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: 'var(--primary)', type: String},
+    fill: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
   },
+  computed: {
+    strokeColor() {
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    }
+  },
   template: `
-    <g>
+    <f-group>
     <circle
       v-if="points.length"
       v-for="p in points"
       :cx="p.x || x"
       :cy="p.y || y"
       :r="p.r || r"
-      :stroke="p.stroke || stroke"
+      :stroke="p.stroke || strokeColor"
       :stroke-width="p.strokeWidth || strokeWidth"
       :fill="p.fill || fill"
       :transform="transform"
@@ -48,13 +53,13 @@ export default {
       :cx="x"
       :cy="y"
       :r="r"
-      :stroke="stroke"
+      :stroke="strokeColor"
       :stroke-width="strokeWidth"
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
     />
-    </g>
+    </f-group>
   `
 
 

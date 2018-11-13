@@ -4,7 +4,6 @@ import { color } from '../../utils.js'
 export default {
   tag: '3D',
   description: `
-⚠️ \`stroke\` and \`stroke-width\` are currently ignored
   `,
   example: `
 <f-scene3>

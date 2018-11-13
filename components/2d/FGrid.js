@@ -5,15 +5,14 @@ export default {
   tag: '2D',
   description: `
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
-  `,
+
+\`<f-grid\`> generates a regular 2D grid with optional \`step\` parameter and allows greater freedom to generate custom grid using transformation parameters.
+`,
   example: `
 <f-scene>
   <f-grid />
-  <f-grid
-    :position="{ x: 1, y: 1 }"
-    :rotation="{ z: 45 }"
-    :scale="{ x: 0.2, y: 0.2 }"
-  />
+  <f-grid :step="0.25" />
+  <f-grid :step="0.125" />
 </f-scene>
   `,
   props: {

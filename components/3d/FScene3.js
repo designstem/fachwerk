@@ -5,7 +5,7 @@ export default {
   description: `
 3D scene with \`x y z\` coordinates ranging from \`-2 to 2\`.
 
-Techically it is rendered using **ThreeJS* with custom *SVG* renderer.
+Techically it a [ThreeJS](https://threejs.org/) wrapper with custom SVG renderer.
 `,
   example: `
 <f-animation-data to="360">

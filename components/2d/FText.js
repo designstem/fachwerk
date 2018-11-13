@@ -8,7 +8,7 @@ Adds a text to the \`f-scene\`.
   example: `
 <f-scene>
   <f-text :fill="color('red')">x:0, y:0</f-text>
-  <f-point :fill="color('red')" />
+  <f-point :stroke="color('red')" />
 </f-scene>
   `,
   props: {

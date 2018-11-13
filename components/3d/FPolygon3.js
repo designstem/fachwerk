@@ -33,9 +33,9 @@ const InternalPolygon = {
 export default {
   mixins: [Object3D],
   tag: "3D",
-  description: `
-Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
-  `,
+//   description: `
+// Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
+//   `,
   example: `
 <f-scene3>
   <f-group3
@@ -57,9 +57,9 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
   components: { InternalPolygon },
   props: {
     points: { default: [], type: Array },
-    stroke: { default: "", type: String },
+    stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: "3", type: Number },
-    fill: { default: "color('primary')", type: String },
+    fill: { default: "", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
@@ -71,12 +71,15 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
         p.z = 0;
         return p;
       });
+    },
+    strokeColor() {
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
     }
   },
   template: `
     <f-group3>
       <InternalPolygon :points="points" :fill="fill" :opacity="opacity" />
-      <f-line3 :points="linePoints" :stroke="stroke" :strokeWidth="strokeWidth" :opacity="opacity" />
+      <f-line3 :points="linePoints" :stroke="strokeColor" :strokeWidth="strokeWidth" :opacity="opacity" />
     </f-group3>
   `
 };

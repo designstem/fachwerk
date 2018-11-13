@@ -4,23 +4,21 @@ export default {
   mixins: [Css],
   tag: '2D',
   description: `
-A simple 2D scene with some tweaks to regular SVG document.
+A 2D vector graphics scene.
 
-Note that **Y axis is flipped** and <code>x</code> and <code>y</code> span from <code>-2</code> to <code>2</code> to work same way as **ThreeScene**.
+Technically it draws a \`svg\` element and sets it coordinate system suitable for graph drawing and allows easy migration to 3D, just replace it with \`<f-scene3>\`.
 `,
   example: `
-<f-scene grid="true">
+  <f-scene grid="true">
   
-  <!-- Coordinate centerpoint is at x:0, y: 0 -->
-  <f-circle r="0.1" :fill="color('red')" />
-  <f-text :fill="color('red')">x:0 y:0</f-text>
-
   <!-- Coordinates increase towards top right -->
-  <f-circle r="0.1" x="1" y="1" :fill="color('blue')" />
-  <f-text x="1" y="1" :fill="color('blue')">x:1 y:1</f-text>
+  <f-point r="0.1" x="1" y="1" :stroke="color('blue')" />
+  <f-text x="1" y="1" :fill="color('blue')">
+    x:1 y:1
+  </f-text>
   
   <!-- Regular SVG elements are OK as well here -->
-  <circle cx="-1" cy="-1" r="0.1" fill="rebeccapurple" />
+  <circle cx="-1" cy="-1" r="0.02" fill="rebeccapurple" />
 
   <f-text x="-1" y="-1" :fill="color('purple')">
     x:-1 y:-1

@@ -1,10 +1,10 @@
 import { Object2D } from "./2d.js";
+import { color } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
   tag: '2D',
   description: `
- Kazimir Malevich must be proud.  
   `,
   example: `
 <f-scene>
@@ -15,7 +15,6 @@ export default {
     :r="0.1"
     width="0.2"
     height="0.2"
-    fill="var(--red)"
   />
 </f-scene>
   `,
@@ -25,13 +24,18 @@ export default {
     points: { default: [], type: Array },
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
-    stroke: { default: 'none', type: String},
+    stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "var(--primary)", type: String },
+    fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number },
+  },
+  computed: {
+    strokeColor() {
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    }
   },
   template: `
   <g>
@@ -42,7 +46,7 @@ export default {
       :y="p.y ? p.y - ((p.width ? p.width : width) / 2) : y - (width / 2)"
       :width="p.width || width"
       :height="p.height || height"
-      :stroke="p.stroke || stroke"
+      :stroke="p.stroke || strokeColor"
       :stroke-width="p.strokeWidth || strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -56,7 +60,7 @@ export default {
       :y="y - (width / 2)"
       :width="width"
       :height="height"
-      :stroke="stroke"
+      :stroke="strokeColor"
       :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"

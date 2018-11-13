@@ -8,12 +8,9 @@ Repeats the contents in 2D grid.
   example: `
 <f-scene>
   <f-repeat-grid>
-    <f-circle
-      slot-scope="data"
-      r="0.5"
-    />
+    <f-circle slot-scope="data" r="1" />
   </f-repeat-grid>
-</f-scene> 
+</f-scene>
   `,
   props: {
     fromX: { default: -1, type: Number },
@@ -27,9 +24,9 @@ Repeats the contents in 2D grid.
   methods: utils,
   template: `
   <f-group>
-    <f-group v-for="x in range(fromX,toX, stepX ? stepX : step)" :position="{x,y:0}">
-      <f-group v-for="y in range(fromY,toY, stepY ? stepY : step)" :position="{x:0,y}">
-        <slot :value="[x,y]" />
+    <f-group v-for="x in range(fromX, toX, stepX ? stepX : step)" :position="{x,y:0}">
+      <f-group v-for="y in range(fromY, toY, stepY ? stepY : step)" :position="{x:0,y}">
+        <slot :value="[x, y, x * y + y]" />
       </f-group>
     </f-group>
   </f-group>  

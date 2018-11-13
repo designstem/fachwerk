@@ -1,3 +1,7 @@
+⚠️ \`stroke\` and \`stroke-width\` are currently ignored
+
+f-box3
+
 f-scene dynaamiline inner
 
 farraydata fmatrix fmatrix3
