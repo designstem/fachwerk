@@ -9,7 +9,7 @@ A basic [A-Frame](https://aframe.io/) wrapper.
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
     color: { default: '#111', type: Number },
-    timeout: { default: 1500, type: Number }
+    timeout: { default: 700, type: Number }
   },
   template: `
     <a-scene embedded :style="{
@@ -20,7 +20,7 @@ A basic [A-Frame](https://aframe.io/) wrapper.
         <a-cursor
           :fuse="true" 
           :fuse-timeout="timeout"
-          material="color: #fff"
+          material="color: #eee"
         />
       </a-camera>
       <a-sky :color="color"></a-sky>

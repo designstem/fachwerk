@@ -31,43 +31,67 @@ new Vue({
   data: { r: 0, g: 0, b: 0 },
   template: `
   <div>
-  <f-aframe width="500" height="500">
+  <f-aframe width="600" height="600">
 
-    <a-plane
-      position="0 0 -4.01"
-      scale="3.65 1.3 1"
-      opacity="0.2"
-      material="emissive: #fff;"
-    />
+    <a-entity position="0 0 -4" rotation="-35 0 0" scale="1.5 1.5 1.5">
+    
+      <a-entity
+        @click="r = 1 - r"
+        position="-2 -0.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="R"
+          :color="r ? '#f00' : '#777'"
+          width="10"
+        />
+      </a-entity>
 
-    <a-plane
-      @click="r = 1 - r"
-      position="-1.2 0 -3.99"
-      material="emissive: #fff;"
-      :opacity="r ? 1 : 0.25"
-    />
+      <a-entity
+        @click="g = 1 - g"
+        position="-0.5 -0.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="G"
+          :color="g ? '#0f0' : '#777'"
+          width="10"
+        />
+      </a-entity>
 
-    <a-plane
-      @click="g = 1 - g"
-      position="0 0 -3.99"
-      material="emissive: #fff;"
-      :opacity="g ? 1 : 0.25"
-    />
+      <a-entity
+        @click="b = 1 - b"
+        position="1 -0.5 -4"
+      >
+        <a-rounded
+          radius="0.06"
+          material="emissive: #ccc"
+        />
+        <a-text
+          position="0.32 0.5 0"
+          value="B"
+          :color="b ? '#00f' : '#777'"
+          width="10"
+        />
+      </a-entity>
 
-    <a-plane
-      @click="b = 1 - b"
-      position="1.2 0 -3.99"
-      material="emissive: #fff;"
-      :opacity="b ? 1 : 0.25"
-    />
+    </a-entity>
 
-    <a-light position="0 10 2" :color="rgb(255,255,255)" />
+    <a-light position="0 10 2" :color="rgb(200,200,200)" />
     <a-light position="0 -1 1" :color="rgb(100,100,100)" />
 
-    <a-light position="0 0 1" :color="rgb([0,255][r],[0,255][g],[0,255][b])" />
+    <a-light position="0 0.5 1" :color="rgb([0,255][r],[0,255][g],[0,255][b])" />
 
-    <a-sphere position="-5 0 -20" color="red" />
-    <a-sphere position="0 0 -20" color="yellow" />
+    <a-sphere position="-5 0 -20" color="yellow" />
+    <a-sphere position="0 0 -20" color="red" />
     <a-sphere position="5 0 -20" color="orange" />
 
   </f-aframe>
