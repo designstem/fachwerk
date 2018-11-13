@@ -327,14 +327,31 @@ new Vue({
 //   <f-content-slides slot-scope="{content}" :content="content" />
 
 const FRepeatGrid = {
+  tag: `Experimental`,
+  description: `
+Repeats the contents in 2D grid.
+  `,
+  example: `
+<f-scene>
+  <f-repeat-grid>
+    <f-circle />
+  </f-repeat-grid>
+</f-scene>  
+  `,
   props: {
-    step: { default: 1, type: Number }
+    fromX: { default: -1, type: Number },
+    toX: { default: 1, type: Number },
+    fromY: { default: -1, type: Number },
+    toY: { default: 1, type: Number },
+    step: { default: 1, type: Number },
+    stepX: { default: null, type: Number },
+    stepY: { default: null, type: Number },
   },
   methods: utils,
   template: `
   <f-group>
-    <f-group v-for="x in range(-1,1, step)" :position="{x,y:0}">
-      <f-group v-for="y in range(-1,1, step)" :position="{x:0,y}">
+    <f-group v-for="x in range(fromX,toX, stepX ? stepX : step)" :position="{x,y:0}">
+      <f-group v-for="y in range(fromY,toY, stepY ? stepY : step)" :position="{x:0,y}">
         <slot :value="[x,y]" />
       </f-group>
     </f-group>

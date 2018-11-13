@@ -13,13 +13,13 @@ export default {
     :points="
       range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
     "
-    :fill="color('red')"
+    :stroke="color('red')"
   />
   <f-point
     :points="
       range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
     "
-    :fill="color('blue')"
+    :stroke="color('blue')"
   />
 </f-scene>
   `,
@@ -27,7 +27,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
-    fill: { default: "color('primary')", type: String },
+    stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     strokeColor() {
-      return this.fill == "color('primary')" ? color('primary') : this.fill
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
     }
   },
   template: `

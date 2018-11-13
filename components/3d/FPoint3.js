@@ -1,4 +1,4 @@
-
+import { color } from "../../utils.js";
 import { Object3D } from "./3d.js";
 
 export default {
@@ -17,12 +17,12 @@ export default {
   <f-point3
     :points="range(-4,4,0.05)
     .map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
-    :fill="color('red')"
+    :stroke="color('red')"
   />
   <f-point3
     :points="range(-4,4,0.05)
     .map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
-    :fill="color('blue')"
+    :stroke="color('blue')"
   />
   </f-group3>
 </f-scene3>
@@ -32,8 +32,8 @@ export default {
     y: { default: 0, type: Number },
     z: { default: 0, type: Number },
     points: { default: [], type: Array },
+    stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "color('primary')", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     strokeColor() {
-      return this.fill == "color('primary')" ? color('primary') : this.fill
+      return this.stroke == "color('primary')" ? color('primary') : this.stroke
     }
   },
   template: `

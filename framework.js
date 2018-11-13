@@ -41,40 +41,40 @@ export { FText };
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
-export { FScene3 }
+export { FScene3 };
 
 import FBox3 from "./components/3d/FBox3.js";
-export { FBox3 }
+export { FBox3 };
 
 import FGrid3 from "./components/3d/FGrid3.js";
-export { FGrid3 }
+export { FGrid3 };
 
 import FGroup3 from "./components/3d/FGroup3.js";
-export { FGroup3 }
+export { FGroup3 };
 
 import FPoint3 from "./components/3d/FPoint3.js";
 export { FPoint3 };
 
 import FLine3 from "./components/3d/FLine3.js";
-export { FLine3 }
+export { FLine3 };
 
 import FCircle3 from "./components/3d/FCircle3.js";
 export { FCircle3 };
 
 import FTriangle3 from "./components/3d/FTriangle3.js";
-export { FTriangle3 }
+export { FTriangle3 };
 
 import FPolygon3 from "./components/3d/FPolygon3.js";
-export { FPolygon3 }
+export { FPolygon3 };
 
 import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
-export { FRegularpolygon3 }
+export { FRegularpolygon3 };
 
 import FHedron3 from "./components/3d/FHedron3.js";
-export { FHedron3 }
+export { FHedron3 };
 
 import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
-export { FPolyhedron3 }
+export { FPolyhedron3 };
 
 // Transitions
 
@@ -102,13 +102,13 @@ import FHslData from "./components/data/FHslData.js";
 export { FHslData };
 
 import FSliderData from "./components/data/FSliderData.js";
-export { FSliderData }
+export { FSliderData };
 
 import FFetchData from "./components/data/FFetchData.js";
 export { FFetchData };
 
 import FSheetData from "./components/data/FSheetData.js";
-export { FSheetData }
+export { FSheetData };
 
 import FRotationData from "./components/data/FRotationData.js";
 export { FRotationData };
@@ -116,10 +116,10 @@ export { FRotationData };
 // Content
 
 import FMath from "./components/content/FMath.js";
-export { FMath }
+export { FMath };
 
 import FSidebar from "./components/content/FSidebar.js";
-export { FSidebar }
+export { FSidebar };
 
 // Layout
 
@@ -127,33 +127,33 @@ import FButtons from "./components/layout/FButtons.js";
 export { FButtons };
 
 import FTheme from "./components/layout/FTheme.js";
-export { FTheme }
+export { FTheme };
 
 import FContentDocument from "./components/layout/FContentDocument.js";
-export  { FContentDocument }
+export { FContentDocument };
 
 import FContentSlides from "./components/layout/FContentSlides.js";
-export  { FContentSlides }
+export { FContentSlides };
 
 import FContentCards from "./components/layout/FContentCards.js";
-export  { FContentCards }
+export { FContentCards };
 
 import FTabs from "./components/layout/FTabs.js";
-export  { FTabs }
+export { FTabs };
 
 import FEditor from "./components/layout/FEditor.js";
-export { FEditor }
+export { FEditor };
 
 import FContentEditor from "./components/layout/FContentEditor.js";
-export { FContentEditor }
+export { FContentEditor };
 
 // Internal
 
 import Markdown from "./components/Markdown.js";
-export { Markdown }
+export { Markdown };
 
 import Render from "./components/Render.js";
-export { Render }
+export { Render };
 
 // Experimental
 
@@ -164,16 +164,16 @@ import FDragData from "./components/experimental/FDragData.js";
 export { FDragData };
 
 import FScene3vr from "./components/experimental/FScene3vr.js";
-export { FScene3vr }
+export { FScene3vr };
 
 import FGrid3vr from "./components/experimental/FGrid3vr.js";
-export { FGrid3vr }
+export { FGrid3vr };
 
 import FBox3vr from "./components/experimental/FBox3vr.js";
-export { FBox3vr }
+export { FBox3vr };
 
 import FLine3vr from "./components/experimental/FLine3vr.js";
-export { FLine3vr }
+export { FLine3vr };
 
 import FKeyboardData from "./components/experimental/FKeyboardData.js";
 export { FKeyboardData };
@@ -181,8 +181,10 @@ export { FKeyboardData };
 import FArtboard from "./components/experimental/FArtboard.js";
 export { FArtboard };
 
+import FRepeatGrid from "./components/experimental/FRepeatGrid.js";
+export { FRepeatGrid };
+
 export const sortedComponents = [
-  
   // 2D
 
   { FScene },
@@ -234,5 +236,5 @@ export const sortedComponents = [
   // Experimental
   { FKeyboardData },
   { FArtboard },
-
+  { FRepeatGrid }
 ];
