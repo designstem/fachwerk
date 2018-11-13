@@ -13,20 +13,14 @@ Repeats the contents in 2D grid.
 </f-scene>
   `,
   props: {
-    fromX: { default: -1, type: Number },
-    toX: { default: 1, type: Number },
-    fromY: { default: -1, type: Number },
-    toY: { default: 1, type: Number },
     step: { default: 1, type: Number },
-    stepX: { default: false, type: Number },
-    stepY: { default: false, type: Number },
   },
   methods: utils,
   template: `
   <f-group>
-    <f-group v-for="x in range(fromX, toX, stepX ? stepX : step)" :position="{x,y:0}">
-      <f-group v-for="y in range(fromY, toY, stepY ? stepY : step)" :position="{x:0,y}">
-        <slot :value="[x, y, x * y + y]" />
+    <f-group v-for="(x,i) in range(-2, 2, step)" :position="{x,y:0}">
+      <f-group v-for="(y,j) in range(-2, 2, step)" :position="{x:0,y}">
+        <slot :value="[i, j, (i * j) + i]" />
       </f-group>
     </f-group>
   </f-group>  
