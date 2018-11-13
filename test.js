@@ -1,26 +1,57 @@
 import * as components from "./framework.js";
 import * as utils from "./utils.js";
-
 for (const name in components) {
   Vue.component(name, components[name]);
 }
-
-Vue.config.devtools = true;
-
 new Vue({
   el: "#app",
-  data: () => ({ inverted: false }),
   methods: utils,
   template: `
-  <f-aframe width="800" height="600">
-    <a-entity rotation="0 10 0">
-      <a-sphere :color="color('blue')"></a-box>
-    </a-entity>
+
+  <f-aframe>
+
+     <a-sphere position="0 0 -4" color="red" />
+
   </f-aframe>
+  
   `
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   data: { r1: 0 },
+//   template: `
+//   <div style="padding: 2rem">
+//     <f-slider v-model="r1" to="255" />
+//     <f-aframe width="800" height="600">
+//       <a-light :color="rgb(255,255,255)" position="0 2 0" />
+//       <a-sphere :color="rgb(r1,r1,r1)" />
+//     </f-aframe>
+//   </div>
+//   `
+// });
+
+
+
+
 /*
+
+Vue.config.devtools = true;
 
 // Vue.config.errorHandler = function(err, vm, info) {
 //   console.log(err, vm, info);

@@ -147,6 +147,9 @@ export { FEditor };
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
 
+import FSlider from "./components/layout/FSlider.js";
+export { FSlider };
+
 // Internal
 
 import Markdown from "./components/Markdown.js";

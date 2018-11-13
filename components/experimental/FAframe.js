@@ -15,7 +15,9 @@ A basic [A-Frame](https://aframe.io/) wrapper.
       width: width + 'px',
       height: height + 'px'
     }">
-      <a-entity position="0 0 2.5" camera look-controls />
+      <a-camera>
+        <a-cursor />
+      </a-camera>
       <a-sky :color="color"></a-sky>
       <slot />
     </a-scene>
