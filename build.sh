@@ -18,6 +18,7 @@ curl -L https://unpkg.com/marked/marked.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/animejs/anime.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/d3 >> vendor_aframe.js
 curl -L https://unpkg.com/aframe | npx uglifyjs >> vendor_aframe.js
+curl -L https://unpkg.com/aframe-rounded | npx uglifyjs >> vendor_aframe.js
 cat ./three.js | npx uglifyjs >> vendor_aframe.js
 
 # Offline
