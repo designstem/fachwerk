@@ -22,6 +22,7 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
     to: { default: 360, type: Number },
     duration: { default: 10000, type: Number },
     playing: { default: true, type: Boolean },
+    stop: { default: false, type: Boolean },
     loop: { default: true, type: Boolean },
     alternate: { default: false, type: Boolean },
     easing: { default: "linear", type: String }
@@ -44,6 +45,18 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
         if (playing) {
           a.play();
         } else {
+          a.pause();
+        }
+      },
+      { immediate: true }
+    );
+    this.$watch(
+      "stop",
+      stop => {
+        if (stop) {
+          a.play();
+        } else {
+          a.restart();
           a.pause();
         }
       },
