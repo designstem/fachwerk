@@ -4,9 +4,9 @@ export default {
   description: `
 Creates a code editor, to be used with v-model.
 
-Technically it creates a \`<textarea>\` tag and handles pressing the \`TAB\` key.
+⌨️ Allows to enter two spaces using  <kbd>tab</kbd> key.
 
-📝 Note: it is a low level component, it is usually easier to use \`<f-content-editor>\` instead.
+Technically it creates a \`<textarea>\` tag. It is a low level component, it is usually easier to use \`<f-content-editor>\` instead.
   `,
   example: `
 <f-editor v-model="someVariable" />

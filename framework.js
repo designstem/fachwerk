@@ -135,9 +135,6 @@ export { FContentDocument };
 import FContentSlides from "./components/layout/FContentSlides.js";
 export { FContentSlides };
 
-import FContentCards from "./components/layout/FContentCards.js";
-export { FContentCards };
-
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
 
@@ -159,6 +156,9 @@ import Render from "./components/Render.js";
 export { Render };
 
 // Experimental
+
+import FContentCards from "./components/experimental/FContentCards.js";
+export { FContentCards };
 
 import FSceneData from "./components/experimental/FSceneData.js";
 export { FSceneData };
@@ -239,8 +239,12 @@ export const sortedComponents = [
   { FRepeatGrid },
 
   // Layout
-  { FButtons },
   { FSlider },
+  { FButtons },
+  { FTabs },
+  { FTheme },
   { FEditor },
-  { FContentEditor }
+  { FContentDocument },
+  { FContentSlides },
+  { FContentEditor },
 ];

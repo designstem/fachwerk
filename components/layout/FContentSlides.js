@@ -1,9 +1,18 @@
 import Markdown from "../Markdown.js";
-
 import { parseColumns } from '../../utils.js'
 
 export default {
   tag: 'Layout',
+  description: `
+Shows Markdown content as slides.
+
+⌨️ Allows to navigate between slides using  <kbd>Alt</kbd><kbd>←</kbd> and <kbd>Alt</kbd><kbd>→</kbd>.
+  `,
+  example: `
+<f-content-slides content="## Hello\n---\n## World"
+  style="box-shadow: inset 0 0 10px lightgray"
+/>
+  `,
   components: { Markdown },
   props: {
     content: { default: '', type: String },

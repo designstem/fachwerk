@@ -1,7 +1,13 @@
 export default {
   tag: 'Layout',
   description: `
-Tabs, meant to be used with <code>v-model</code>.
+Tabs, to be used with \`v-model\` and under \`<header>\`.
+  `,
+  example: `
+  <f-tabs
+    v-model="someVariable"
+    :buttons="['First','Second']"
+  />
   `,
   props: ["buttons", "value"],
   template: `
