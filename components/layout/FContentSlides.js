@@ -1,22 +1,28 @@
 import Markdown from "../Markdown.js";
-import { parseColumns } from '../../utils.js'
+import { parseColumns } from "../../utils.js";
 
 export default {
-  tag: 'Layout',
+  tag: "Layout",
   description: `
 Shows Markdown content as slides.
 
-⌨️ Allows to navigate between slides using  <kbd>Alt</kbd><kbd>←</kbd> and <kbd>Alt</kbd><kbd>→</kbd>.
+⌨️ Allows to navigate between slides using  <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>.
   `,
   example: `
-<f-content-slides content="## Hello\n---\n## World"
-  style="box-shadow: inset 0 0 10px lightgray"
-/>
+<f-buttons-data :buttons="['Slide 1','Slide 2']">
+  <f-content-slides
+    slot-scope="data"
+    :index="data.value"
+    content="## Hello\n---\n## World"
+    style="box-shadow: inset 0 0 10px lightgray"
+  />
+</f-buttons-data>
   `,
   components: { Markdown },
   props: {
-    content: { default: '', type: String },
-    base: { default: '12px', type: String },
+    content: { default: "", type: String },
+    index: { default: 0, type: Number },
+    base: { default: "12px", type: String },
     autosaveId: { default: "0", type: String }
   },
   data: () => ({ currentIndex: 0 }),
@@ -26,7 +32,7 @@ Shows Markdown content as slides.
         .replace(/\n--\n/g, "")
         .split(/\n---\n/)
         .map(parseColumns);
-    },
+    }
   },
   methods: {
     prev() {
@@ -42,8 +48,16 @@ Shows Markdown content as slides.
       localStorage.getItem(`f-content-slides-${this.autosaveId}`)
     );
     if (savedContent) {
-      this.currentIndex = savedContent.currentIndex
+      this.currentIndex = savedContent.currentIndex;
     }
+
+    this.$watch(
+      "index",
+      index => {
+        this.currentIndex = index;
+      },
+      { immediate: true }
+    );
 
     this.$watch("currentIndex", currentIndex => {
       localStorage.setItem(
@@ -54,11 +68,11 @@ Shows Markdown content as slides.
 
     document.addEventListener("keydown", e => {
       if (e.altKey && e.keyCode == 37) {
-        e.preventDefault()
+        e.preventDefault();
         this.prev();
       }
       if (e.altKey && e.keyCode == 39) {
-        e.preventDefault()
+        e.preventDefault();
         this.next();
       }
     });
