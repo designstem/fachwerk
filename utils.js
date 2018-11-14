@@ -31,7 +31,7 @@ const color = (name) => {
 d.push(`
 ## rgb
 
-<code>rgb(r, g, b, a = 1)</code>
+<code>rgb(r, g, b, a = false)</code>
 
 Outputs a CSS <code>rgba()</code> string
 
@@ -47,7 +47,7 @@ Outputs a CSS <code>rgba()</code> string
 
 `);
 
-const rgb = (r, g, b, a = 1) => `rgba(${r},${g},${b},${a})`;
+const rgb = (r, g, b, a = false) => a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
 d.push(`
 ## hsl
