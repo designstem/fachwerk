@@ -29,25 +29,49 @@
 
       <h1>Love <i>Ordnung</i>?<br>Here is Fachwerk.</h1>
 
-      <h3>A VueJS-based frontend framework for creating interactive learning materials. Only
-          the <span style="color: var(--red)">latest Chrome</span> for now.</h3>
-      <br>
-      <h5><a href="https://github.com/designstem/template" class="button_primary">Get starter template</a> or play with
-        live examples below.</h5>
-
+      <h4 style="width: 70vw">Web framework for creating interactive learning materials. Only the <span style="color: var(--gray)">latest Chrome</span> for now.</h4>
+      
     </div>
 
     <f-theme>
 
+    <div style="padding: 3rem; background: var(--yellow)">
+        <div class="columns">
+          <div>
+            <h4><big>Play</big></h4></big>
+            <div class="intro">
+            Best way to get the glimpse what the framework offers is just try it out on this page. There are almost 50 components to try out - everything from 2D/3D graphics, user interaction, content creation and more.
+            </div>
+          </div>
+          <div>
+              <h4><big>Edit</big></h4>
+              <div class="intro">
+                  We are building the web editor for easy authoring of documents. You can mix Markdown markup and Fachwerk components. The content is auto-saved to your browser.        
+            </div>
+          </div>
+          <div>
+              <h4><big>Build</big></h4></big>
+            <div class="intro">
+            Fachwerk is built on top of VueJS so to build more complex materials it is recommended to code it in Javascript, using some of the framework's components, utilities or styling.
+            </div>
+          </div>
+          <div>
+            <a href="#components" class="intro button_primary">Play with components</a>
+          </div>
+          <div><a href="https://designstem.github.io/template/editor/" class="intro button_primary">Try the editor</a>
+          </div>
+          <div><a href="https://github.com/designstem/template" class="intro button_primary">Get examples in Github</a>
+          </div>
+        </div>
+      </div>
+    
+    <div style="height: 0;border-bottom: 3px solid var(--primary);">&nbsp;</div>
+
     <div style="padding: 3rem;">
-        <dd>.h1</dd>
         <h1>Typograhphy & Forms</h1>
   
-        <div class="intro">A case full of moving type for laying out documents. Use them like this:</div>
+        <div class="intro">A case full of moving type for laying out documents.</div>
         <br>
-        <pre>
-  &lt;link rel="stylesheet" href="https://designstem.github.io/framework/style.css"&gt; </pre>
-  
         <div class="columns">
   
           <div>
@@ -176,12 +200,8 @@
 
     <div style="margin: 3rem;">
 
-      <h1>Components</h1>
+      <h1 id="components">Components</h1>
 
-      <div class="intro">
-        A set of VueJS-based components for 2D and 3D graphics, visual effects, user input and more.
-        <br>They are all <i>live-editable</i> ✏️✏️✏️, so try them out!
-      </div>
       <!--
       <pre>
 // Import single component to Vue
@@ -199,7 +219,7 @@ new Vue({ el: '#app' })
     -->
 
     <template v-for="tag in ['2D','3D','Content','Data','Transitions','Experimental']">
-      <h1 style="margin: 2rem 0 0 0;">{{ tag == 'Experimental' ? '🔬 ' : ''}} {{ tag }}</h1>
+      <h2 style="margin: 2rem 0 0 0;">{{ tag == 'Experimental' ? '🔬 ' : ''}} {{ tag }}</h2>
       <Components :tag="tag" />
     </template>
     

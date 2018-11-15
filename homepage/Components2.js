@@ -104,11 +104,11 @@ export default {
         >
           <div class="components2">
             <div>
-            <h2><{{ kebabCase(c.name) }}></h2>
+            <h3><{{ kebabCase(c.name) }}></h3>
               <Markdown :content="c.description" />
               <br>
               <template v-if="c.props">
-                <h4>Attributes</h4>
+                <h5>Attributes</h5>
                 <Props :props="c.props" />
               </template>
             </div>
@@ -117,7 +117,7 @@ export default {
             </div>
           </div>
           <div style="margin-top: var(--base4);">
-          <h4>Preview</h4>
+          <h5>Preview</h5>
             <Render :t="'<div>'+c.example+'</div>'" />
           </div>
         </div>
