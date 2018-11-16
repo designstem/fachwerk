@@ -484,6 +484,20 @@ footer, .footer {
   }
 }
 
+.components2 {
+  display: flex;
+}
+.components2 > div:nth-child(1) {
+  flex: 1;
+  margin: 0 1.5rem 0 0;
+}
+.components2 > div:nth-child(2) {
+  flex: 1;
+  margin: 0 1.5rem 0 0;
+  min-height: 20rem;
+}
+
+
 @media (max-width: 900px) {
   .components2 {
     display: block;

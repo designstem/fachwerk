@@ -453,6 +453,15 @@ const parseColumns = slide => {
 const kebabCase = string =>
   string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
+const debounce = (fn, time) => {
+  let timeout;
+  return function() {
+    const functionCall = () => fn.apply(this, arguments);
+    clearTimeout(timeout);
+    timeout = setTimeout(functionCall, time);
+  }
+}
+
 /* Export */
 
 const docs = () => d;

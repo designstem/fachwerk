@@ -219,12 +219,12 @@ export const sortedComponents = [
 
   // Data
   { FAnimationData },
-  { FArrayData },
-  { FButtonsData },
   { FSliderData },
   { FHslData },
   { FRgbData },
   { FRotationData },
+  { FArrayData },
+  { FButtonsData },
   { FFetchData },
   { FSheetData },
 
