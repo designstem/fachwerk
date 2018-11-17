@@ -23,9 +23,9 @@ cat ./three.js | npx uglifyjs >> vendor_aframe.js
 
 # Offline
 
-npx rollup -f es -i framework.js | npx uglifyjs > ../template/offline/framework.js
-npx rollup -f es -i utils.js | npx uglifyjs > ../template/offline/utils.js
-cp vendor.js ../template/offline/.
-cp vendor_aframe.js ../template/offline/.
-cp style.css ../template/offline/.
+npx rollup -f es -i framework.js | npx uglifyjs > ../templates/offline/framework.js
+npx rollup -f es -i utils.js | npx uglifyjs > ../templates/offline/utils.js
+cp vendor.js ../templates/offline/.
+cp vendor_aframe.js ../templates/offline/.
+cp style.css ../templates/offline/.
 
