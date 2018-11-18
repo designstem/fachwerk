@@ -4,43 +4,121 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-const FReceiveData = {
-  props: {
-    channel: { default: 'value', type: [String, Number, Array]}
-  },
-  data: () => ({ value: null }),
-  mounted() {
-    this.$events.$on(this.channel, value => this.value = value )
+const FSceneData2 = {
+  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+  methods: {
+    onMousemove(e) {
+      let svg = this.$children[0].$children[0].$refs.f_svg
+      let container = this.$children[0].$children[0].$refs.f_svg_g
+      
+      let point = svg.createSVGPoint();
+      point.x = e.clientX;
+      point.y = e.clientY;
+      let ctm = container.getScreenCTM();
+      if ((ctm = ctm.inverse())) {
+        point = point.matrixTransform(ctm);
+      }
+
+      this.mouseX = point.x;
+      this.mouseY = point.y;
+    }
   },
   template: `
-    <slot :value="value" /> 
-  `,
-  // render() {
-  //   return this.$scopedSlots.default
-  //     ? this.$scopedSlots.default({
-  //         value: this.value
-  //       })
-  //     : "";
-  // }
-}
+  <div
+    @mousemove="onMousemove"
+    @mousedown="mousePressed = true"
+    @mouseup="mousePressed = false"
+  >
+    <slot :value="[mouseX,mouseY,mousePressed]" />
+  </div>
+  `
+};
 
+// const FSceneData2 = {
+//   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+//   methods: {
+//     onSceneMousemove(e) {
+//       let svg = this.$parent.$refs.f_scene;
+//       let point = svg.createSVGPoint();
+//       point.x = e.clientX;
+//       point.y = e.clientY;
+//       let ctm = this.$refs.container.getScreenCTM();
+//       if ((ctm = ctm.inverse())) {
+//         point = point.matrixTransform(ctm);
+//       }
+//       this.mouseX = point.x;
+//       this.mouseY = point.y;
+//     }
+//   },
+//   template: `
+//   <g ref="container">
+//     <slot />
+//   </g>
+//   `
+// };
 
-Vue.component('FReceiveData',FReceiveData)
+Vue.component("f-scene-data2", FSceneData2);
 
-Vue.prototype.$events = new Vue()
-
-window.v = new Vue({
+Vue.prototype.$events = new Vue();
+new Vue({
   el: "#app",
   methods: utils,
   template: `
-    <div>
-    <header>Scenario is coming up</header>
-    <f-fetch-data url="./README.md">
-      <f-content-slides base="8px" slot-scope="data" :content="data.value" />
-    </f-fetch-data>
-    </div>
-  `,
+  <div style="padding: 2rem;">
+    <f-scene-data2>
+      <f-scene grid slot-scope="data">
+        <f-circle
+          :x="data.value[0]"
+          :y="data.value[1]"
+          :r="data.value[2] ? 1 : 0.5"
+        />
+      </f-scene>
+  </f-scene-data2>
+  </div>
+  `
 });
+
+// Vue.prototype.$events = new Vue();
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//   <div style="padding: 2rem;">
+//     <f-scene-data2>
+//       <f-scene grid><f-circle/></f-scene>
+//     </f-scene-data2>
+//   </div>
+//   `
+// });
+
+// const FReceiveData = {
+//   props: {
+//     channel: { default: 'value', type: [String, Number, Array]}
+//   },
+//   data: () => ({ value: null }),
+//   mounted() {
+//     this.$events.$on(this.channel, value => this.value = value )
+//   },
+//   template: `
+//     <slot :value="value" />
+//   `,
+// }
+
+// Vue.component('FReceiveData',FReceiveData)
+
+// Vue.prototype.$events = new Vue()
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//     <div>
+//     <header>Scenario is coming up</header>
+//     <f-fetch-data url="./README.md">
+//       <f-content-slides base="8px" slot-scope="data" :content="data.value" />
+//     </f-fetch-data>
+//     </div>
+//   `,
+// });
 
 // // new Vue({
 // //   el: "#app",
@@ -61,8 +139,6 @@ window.v = new Vue({
 // //   `
 // // });
 
-
-
 // new Vue({
 //   el: "#app",
 //   data: { r: 0, g: 0, b: 0, scene: 2, rSlider: 0 },
@@ -70,12 +146,12 @@ window.v = new Vue({
 //     prevScene() {
 //       if (this.scene >= 1) {
 //         this.scene--
-//       } 
+//       }
 //     },
 //     nextScene() {
 //       if (this.scene < 2) {
 //         this.scene++
-//       } 
+//       }
 //     }
 //   },
 //   template: `
@@ -83,7 +159,7 @@ window.v = new Vue({
 //   <f-aframe width="600" height="600">
 
 //     <a-entity position="0 0 -4" rotation="-35 0 0" scale="1.5 1.5 1.5">
-    
+
 //       <a-entity v-if="scene != 2">
 //       <a-entity
 //         @click="r = 1 - r"
@@ -240,23 +316,9 @@ window.v = new Vue({
 
 //   </f-aframe>
 //   </div>
-  
+
 //   `
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // new Vue({
 // //   el: "#app",
@@ -272,9 +334,6 @@ window.v = new Vue({
 // //   </div>
 // //   `
 // // });
-
-
-
 
 // /*
 
@@ -362,7 +421,6 @@ window.v = new Vue({
 //   `
 // });
 
-
 // const FGrid4 = {
 //   props: {
 //     opacity: { default: 0.2, type: Number }
@@ -402,7 +460,7 @@ window.v = new Vue({
 // <f-slider-data to="360">
 // <f-scene3 slot-scope="data">
 //     <f-group3 :rotation="{x: data.value, y: data.value / 2}">
-    
+
 //     <f-group3
 //       v-for="(rotation,i) in [{},{x:90},{y:90}]"
 //       :key="i"
@@ -421,8 +479,8 @@ window.v = new Vue({
 //       :opacity="y == 0 ? 0.8 : 0.4"
 //     />
 //     </f-group3>
-//     <f-box3 opacity="0.3"  />  
-    
+//     <f-box3 opacity="0.3"  />
+
 //     </f-group3>
 // </f-scene3>
 //   `,
@@ -534,7 +592,7 @@ window.v = new Vue({
 // //     <div>
 // //       <slot :content="innerContent">
 // //         <f-content-slides :content="innerContent" />
-// //       </slot> 
+// //       </slot>
 // //     </div>
 // //   </div>
 // //   `,
@@ -568,7 +626,6 @@ window.v = new Vue({
 // //     <f-content-editor />
 // //   `
 // // });
-
 
 // // new Vue({
 // //   el: "#app",
@@ -609,7 +666,7 @@ window.v = new Vue({
 // //   <f-repeat-grid>
 // //     <f-circle />
 // //   </f-repeat-grid>
-// // </f-scene>  
+// // </f-scene>
 // //   `,
 // //   props: {
 // //     fromX: { default: -1, type: Number },
@@ -628,7 +685,7 @@ window.v = new Vue({
 // //         <slot :value="[x,y]" />
 // //       </f-group>
 // //     </f-group>
-// //   </f-group>  
+// //   </f-group>
 // //   `,
 // // }
 
@@ -647,7 +704,7 @@ window.v = new Vue({
 // //     >
 // //       <slot :value="1" />
 // //     </f-group>
-// //   </f-group>  
+// //   </f-group>
 // //   `,
 // // }
 
@@ -662,7 +719,7 @@ window.v = new Vue({
 // //     <f-group v-for="({x,y},i) in cpoints(count,r)" :position="{x,y}">
 // //         <slot :value="i" />
 // //       </f-group>
-// //   </f-group>  
+// //   </f-group>
 // //   `,
 // // }
 
@@ -682,7 +739,7 @@ window.v = new Vue({
 // //       step="0.25"
 // //       grid
 // //     >
-// //     <f-repeat-circle>  
+// //     <f-repeat-circle>
 // //         <f-regularpolygon
 // //           slot-scope="cdata"
 // //           count="5"
@@ -691,7 +748,7 @@ window.v = new Vue({
 // //           :fill="hsl(cdata.value * 100)"
 // //           opacity="0.5"
 // //         />
-// //     </f-repeat-circle>  
+// //     </f-repeat-circle>
 // //     </f-scene>
 // //   `
 // // });

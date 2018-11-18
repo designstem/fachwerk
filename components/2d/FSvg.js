@@ -28,8 +28,9 @@ export default {
         :height="height"
         :view-box.camel="viewBox"
         class="f-svg"
+        ref="f_svg"
     >
-      <g :transform="transform">
+      <g :transform="transform" ref="f_svg_g">
         <slot />
       </g>
     </svg>

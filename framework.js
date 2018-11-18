@@ -89,6 +89,9 @@ export { FBounce };
 import FArrayData from "./components/data/FArrayData.js";
 export { FArrayData };
 
+import FBufferData from "./components/data/FBufferData.js";
+export { FBufferData };
+
 import FAnimationData from "./components/data/FAnimationData.js";
 export { FAnimationData };
 
@@ -227,6 +230,7 @@ export const sortedComponents = [
   { FRgbData },
   { FRotationData },
   { FArrayData },
+  { FBufferData },
   { FButtonsData },
   { FFetchData },
   { FSheetData },
