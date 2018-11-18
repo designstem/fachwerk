@@ -113,6 +113,9 @@ export { FSheetData };
 import FRotationData from "./components/data/FRotationData.js";
 export { FRotationData };
 
+import FReceiveData from "./components/data/FReceiveData.js";
+export { FReceiveData };
+
 // Content
 
 import FMath from "./components/content/FMath.js";
@@ -227,6 +230,7 @@ export const sortedComponents = [
   { FButtonsData },
   { FFetchData },
   { FSheetData },
+  { FReceiveData },
 
   // Transitions
 

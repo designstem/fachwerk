@@ -76,12 +76,18 @@ Shows Markdown content as slides.
         this.next();
       }
     });
+
+    if (this.$events) {
+      this.$events.$on('next', () => this.next())
+      this.$events.$on('prev', () => this.prev())
+    }
+
   },
   template: `
   <div>
     <div
       v-for="(slide,i) in preparedContent"
-      v-if="i == currentIndex"
+      v-show="i == currentIndex"
       class="slide"
       :style="{
         '--base': base,

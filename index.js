@@ -13,6 +13,7 @@ for (const name in components) {
 
 Vue.config.devtools = true
 
+Vue.prototype.$events = new Vue()
 new Vue({
   components: { Components, Components2, Utils, Faq },
   el: "#app",

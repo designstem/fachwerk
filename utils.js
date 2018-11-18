@@ -7,7 +7,6 @@ const getCssVariable = (variable, el = document.body) =>
 
 /* Colors */
 
-
 d.push(`
 ## color
 
@@ -19,12 +18,12 @@ Returns a color value. If \`name\` matches one of framework colors, framework co
 
 {{ color('papayawhip')}}
 
-`)
+`);
 
-const color = (name) => {
-    const color = getCssVariable(`--${name}`)
-    return color ? color.trim() : name.trim()
- }
+const color = name => {
+  const color = getCssVariable(`--${name}`);
+  return color ? color.trim() : name.trim();
+};
 
 /* Color functions */
 
@@ -47,7 +46,8 @@ Outputs a CSS <code>rgba()</code> string
 
 `);
 
-const rgb = (r, g, b, a = false) => a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
+const rgb = (r, g, b, a = false) =>
+  a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
 d.push(`
 ## hsl
@@ -344,7 +344,7 @@ const chunk = (arr, length) =>
     arr.slice(n * length, n * length + length)
   );
 
-  d.push(`
+d.push(`
 ## unique
 
 <code>unique(array)</code>
@@ -459,8 +459,20 @@ const debounce = (fn, time) => {
     const functionCall = () => fn.apply(this, arguments);
     clearTimeout(timeout);
     timeout = setTimeout(functionCall, time);
+  };
+};
+
+const send = function(channel, value) {
+  if (this.$events) {
+    this.$events.$emit(channel, value);
   }
-}
+};
+
+const receive = function(channel, callback) {
+  if (this.$events) {
+    this.$events.$on(channel, callback);
+  }
+};
 
 /* Export */
 
@@ -492,4 +504,6 @@ export {
   parseColumns,
   cleanColumns,
   kebabCase,
+  send,
+  receive
 };
