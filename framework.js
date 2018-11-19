@@ -86,6 +86,9 @@ export { FBounce };
 
 // Data
 
+import FDragData from "./components/experimental/FDragData.js";
+export { FDragData };
+
 import FArrayData from "./components/data/FArrayData.js";
 export { FArrayData };
 
@@ -161,16 +164,8 @@ export { Markdown };
 import Render from "./components/Render.js";
 export { Render };
 
-// Experimental
-
 import FContentCards from "./components/experimental/FContentCards.js";
 export { FContentCards };
-
-import FSceneData from "./components/experimental/FSceneData.js";
-export { FSceneData };
-
-import FDragData from "./components/experimental/FDragData.js";
-export { FDragData };
 
 import FAframe from "./components/experimental/FAframe.js";
 export { FAframe };
@@ -224,6 +219,8 @@ export const sortedComponents = [
   { FSidebar },
 
   // Data
+  
+  { FDragData },
   { FAnimationData },
   { FSliderData },
   { FHslData },

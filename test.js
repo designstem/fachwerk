@@ -8,9 +8,39 @@ const FSceneData2 = {
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
     onMousemove(e) {
-      let svg = this.$children[0].$children[0].$refs.f_svg
-      let container = this.$children[0].$children[0].$refs.f_svg_g
-      
+      let svg = this.$children[0].$children[0].$refs.f_svg;
+      let container = this.$children[0].$children[0].$refs.f_svg_g;
+
+      let point = svg.createSVGPoint();
+      point.x = e.clientX;
+      point.y = e.clientY;
+      let ctm = container.getScreenCTM();
+      if ((ctm = ctm.inverse())) {
+        point = point.matrixTransform(ctm);
+      }
+
+      this.mouseX = point.x;
+      this.mouseY = point.y;
+    }
+  },
+  template: `
+  <div
+    @mousemove="onMousemove"
+    @mousedown="mousePressed = true"
+    @mouseup="mousePressed = false"
+  >
+    <slot :value="[mouseX,mouseY,mousePressed]" />
+  </div>
+  `
+};
+
+const FSceneData3 = {
+  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+  methods: {
+    onMousemove(e) {
+      let svg = this.$children[0].$children[0].$refs.f_svg;
+      let container = this.$children[0].$children[0].$refs.f_svg_g;
+
       let point = svg.createSVGPoint();
       point.x = e.clientX;
       point.y = e.clientY;
@@ -58,24 +88,127 @@ const FSceneData2 = {
 // };
 
 Vue.component("f-scene-data2", FSceneData2);
+Vue.component("f-scene-data3", FSceneData3);
+
+// const FDrag2 = {
+//   props: {
+//     points: { default: [], type: Array },
+//     value: { default: [], type: Array },
+//     step: { default : false, type: Number }
+//   },
+//   data: () => ({ currentPoints: [] }),
+//   methods: {
+//     ...utils,
+//     handleDown(i) {
+//       this.$set(this.currentPoints[i],'pressed',true)
+//     },
+//     handleUp(i) {
+//       this.$set(this.currentPoints[i],'pressed',false)
+//     }
+//   },
+//   computed: {
+//     finalPoints() {
+//       return this.currentPoints.map((p,i) => {
+//         if (p.pressed) {
+//           p.x = this.step ? this.snapToGrid(this.value[0], this.step) : this.value[0]
+//           p.y = this.step ? this.snapToGrid(this.value[1], this.step) : this.value[1]
+//         }
+//         return p
+//       })
+//     }
+//   },
+//   mounted() {
+//     this.currentPoints = this.points
+//   },
+//   template: `
+//     <f-group>
+//       <slot :value="finalPoints" />
+//       <f-circle 
+//         v-for="(p,i) in finalPoints"
+//         :x="p.x"
+//         :y="p.y"
+//         :r="p.pressed ? 0.22  : 0.2"
+//         fill="rgba(255,255,255,0.95)"
+//         @mousedown.native="handleDown(i)"
+//         @mouseup.native="handleUp(i)"
+//         style="cursor: move;"
+//       />        
+//     </f-group>
+//   `
+// };
+
+// Vue.component("FDrag2", FDrag2);
+
+// Vue.prototype.$events = new Vue();
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+//   <div style="padding: 2rem;">
+//     <f-scene grid>
+//       <f-drag2
+//         slot-scope="sData"
+//         :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
+//         :value="sData.value"
+//       >
+//         <f-line
+//           slot-scope="dData"
+//           :points="dData.value"
+//           closed
+//         />
+//       </f-drag>
+//     </f-scene>
+//   </div>
+//   `
+// });
 
 Vue.prototype.$events = new Vue();
 new Vue({
   el: "#app",
   methods: utils,
-  template: `
-  <div style="padding: 2rem;">
-    <f-scene-data2>
-      <f-scene grid slot-scope="data">
-        <f-circle
-          :x="data.value[0]"
-          :y="data.value[1]"
-          :r="data.value[2] ? 1 : 0.5"
-        />
-      </f-scene>
-  </f-scene-data2>
-  </div>
-  `
+  template2: `
+<f-scene grid>
+<f-buffer-data slot-scope="sData" :map="() => [1,1]">
+  <f-group slot-scope="bData">
+  {{ log(bData.value) }}
+    <f-circle
+      v-for="p in bData.value"
+      :x="p[0]"
+      :y="p[1]"
+      r="0.5"
+    />
+    <f-box
+      @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
+      fill="rgba(0,0,0,0.1)"
+      width="4"
+      height="4"
+    />
+  </f-group>
+</f-buffer-data>
+</f-scene>
+`,
+template: `
+<f-buffer-data :map="() => [0,0]">
+<f-scene slot-scope="bData" grid>
+  <f-group slot-scope="sData">
+    <f-circle
+      v-for="(p,i) in bData.value"
+      :x="p[0]"
+      :y="p[1]"
+      r="0.25"
+      :fill="color('white')"
+      :opacity="scale(i,0,9,0,1)"
+    />
+    <f-box
+      @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
+      fill="rgba(0,0,0,0)"
+      width="4"
+      height="4"
+    />
+  </f-group>
+</f-scene>
+</f-buffer-data>
+`
 });
 
 // Vue.prototype.$events = new Vue();

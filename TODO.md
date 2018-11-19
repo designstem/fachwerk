@@ -1,8 +1,8 @@
+// circle snap https://math.stackexchange.com/questions/127613/closest-point-on-circle-edge-from-point-outside-inside-the-circle
+
 box3 ⚠️ \`stroke\` and \`stroke-width\` are currently ignored
 
-f-slider -> f-slider-data
-
-farraydata fmatrix fmatrix3
+// farraydata fmatrix fmatrix3
 
 point3 x y z fill!
 
