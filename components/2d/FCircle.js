@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import { color } from "../../utils.js"
+import { color, parseCoords } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -20,7 +20,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
-    r: { default: 1, type: Number },
+    r: { default: 0.5, type: Number },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: 'none', type: String},
@@ -32,13 +32,22 @@ export default {
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
-    }
+    },
+    currentPoints() {
+      if (typeof this.points == 'string') {
+        return parseCoords(this.points)
+      }
+      if (Array.isArray(this.points) && this.points.length) {
+        return this.points.map(c => parseCoords(c))
+      }
+      return this.points
+    },
   },
   template: `
     <f-group>
     <circle
-      v-if="points.length"
-      v-for="p in points"
+      v-if="currentPoints.length"
+      v-for="p in currentPoints"
       :cx="p.x || x"
       :cy="p.y || y"
       :r="p.r || r"
@@ -49,7 +58,7 @@ export default {
       :opacity="p.opacity || opacity"
     />
     <circle
-      v-if="!points.length"
+      v-if="!currentPoints.length"
       :cx="x"
       :cy="y"
       :r="r"

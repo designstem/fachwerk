@@ -1,3 +1,12 @@
+blends
+https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
+https://threejs.org/docs/#api/en/constants/Materials ?
+
+filters
+
+flip
+rotaterepeat
+
 // circle snap https://math.stackexchange.com/questions/127613/closest-point-on-circle-edge-from-point-outside-inside-the-circle
 
 box3 ⚠️ \`stroke\` and \`stroke-width\` are currently ignored

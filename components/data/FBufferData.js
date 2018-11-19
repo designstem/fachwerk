@@ -14,7 +14,7 @@ export default {
       />
       <f-box
         @mousemove.native="
-          bData.update([sData.value[0],sData.value[1]])
+          bData.add([sData.value[0],sData.value[1]])
         "
         fill="rgba(0,0,0,0)"
         width="4"
@@ -30,7 +30,7 @@ export default {
     map: { default: d => 0, type: Function }
   },
   methods: {
-    onUpdate(value) {
+    onAdd(value) {
       this.buffer.shift();
       this.buffer.push(value);
     }
@@ -39,6 +39,6 @@ export default {
     return { buffer: Array.from({ length: this.length }).map(this.map) };
   },
   template: `
-    <slot :value="buffer" :update="onUpdate" /> 
+    <slot :value="buffer" :add="onAdd" /> 
   `
 };

@@ -4,65 +4,230 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-const FSceneData2 = {
-  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
-  methods: {
-    onMousemove(e) {
-      let svg = this.$children[0].$children[0].$refs.f_svg;
-      let container = this.$children[0].$children[0].$refs.f_svg_g;
+/*
 
-      let point = svg.createSVGPoint();
-      point.x = e.clientX;
-      point.y = e.clientY;
-      let ctm = container.getScreenCTM();
-      if ((ctm = ctm.inverse())) {
-        point = point.matrixTransform(ctm);
+import { Object2D } from "./2d.js";
+import { parseCoords } from "../../utils.js";
+
+export default {
+  mixins: [Object2D],
+  tag: '2D',
+  description: `
+  `,
+  example: `
+  <f-scene>
+  <f-grid />
+  <f-line />
+  <f-line
+    :points="[
+      { x: -1.5, y: -1 },
+      { x: -1,   y: -1 },
+      { x: -1.5, y: -0.5 },
+    ]"
+  />
+  <f-line
+    :points="[
+      { x: -0.5, y: -1   },
+      { x: 0,    y: -1   },
+      { x: -0.5, y: -0.5 },
+    ]"
+    :closed="true"
+  />
+  <f-line
+    :points="[
+      { x: 0.5, y: -1   },
+      { x: 1,   y: -1   },
+      { x: 0.5, y: -0.5 },
+    ]"
+    :curved="true"
+  />
+  <f-line
+    :points="[
+      { x: 1.5, y: -1   },
+      { x: 2,   y: -1   },
+      { x: 1.5, y: -0.5 },
+    ]"
+    :closed="true"
+    :curved="true"
+  />
+</f-scene>
+  `,
+  props: {
+    x1: { default: 0, type: Number },
+    y1: { default: 0, type: Number },
+    x2: { default: 2, type: Number },
+    y2: { default: 2, type: Number },
+    points: { default: '', type: [String,Array] },
+    stroke: { default: "var(--primary)", type: String },
+    strokeWidth: { default: 3, type: Number },
+    fill: { default: "none", type: String },
+    closed: { default: false, type: Boolean },
+    curved: { default: false, type: Boolean },
+    tension: { default: false, type: [Number] },
+    opacity: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object },
+  },
+  computed: {
+    currentPoints() {
+      return parseCoords(this.points)
+    },
+    path() {
+      if (this.curved && this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 0))
       }
-
-      this.mouseX = point.x;
-      this.mouseY = point.y;
+      if (this.curved && !this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinal.tension(this.tension || 0))
+      }
+      if (!this.curved && this.closed) {
+        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 1))
+      } 
+      return d3.line().x(d => d.x).y(d => d.y)
     }
   },
   template: `
-  <div
-    @mousemove="onMousemove"
-    @mousedown="mousePressed = true"
-    @mouseup="mousePressed = false"
-  >
-    <slot :value="[mouseX,mouseY,mousePressed]" />
-  </div>
-  `
+    <g :transform="transform">
+      <line
+        v-if="!currentPoints.length"
+        :x1="x1"
+        :y1="y1"
+        :x2="x2"
+        :y2="y2"
+        :stroke="stroke"
+        :stroke-width="strokeWidth"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        :fill="fill"
+        :opacity="opacity"
+      />
+      <path
+        v-if="currentPoints.length"
+        :d="path(currentPoints)"
+        :stroke="stroke"
+        :stroke-width="strokeWidth"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        :fill="fill"
+        :opacity="opacity"
+      />
+    </g>
+    `
 };
 
-const FSceneData3 = {
-  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
-  methods: {
-    onMousemove(e) {
-      let svg = this.$children[0].$children[0].$refs.f_svg;
-      let container = this.$children[0].$children[0].$refs.f_svg_g;
+*/
 
-      let point = svg.createSVGPoint();
-      point.x = e.clientX;
-      point.y = e.clientY;
-      let ctm = container.getScreenCTM();
-      if ((ctm = ctm.inverse())) {
-        point = point.matrixTransform(ctm);
-      }
-
-      this.mouseX = point.x;
-      this.mouseY = point.y;
-    }
-  },
+new Vue({
+  el: "#app",
+  methods: utils,
   template: `
-  <div
-    @mousemove="onMousemove"
-    @mousedown="mousePressed = true"
-    @mouseup="mousePressed = false"
-  >
-    <slot :value="[mouseX,mouseY,mousePressed]" />
-  </div>
+  <f-scene>
+    <f-circle />
+    <f-point points="0 0, 1 1, -1 -2" />
+  </f-scene>
   `
-};
+})
+
+// const a1 = "12,   123 11,    123    2";
+// const a2 = "12   11 31";
+
+// const coordsTextToArray = text => {
+//   return text.split(",").map(t =>
+//     t
+//       .trim()
+//       .replace(/\s+/g, " ")
+//       .split(" ")
+//   );
+// };
+
+// const coordsArrayToObject = array => {
+//   return array.map(a => ({ x: a[0], y: a[1] || 0, z: a[2] || 0 }));
+// };
+
+// const coordsObjectToObject = a => {
+//   return { x: a.x || 0, y: a.y || 0, z: a.z || 0 };
+// };
+
+// const parseCoords = c => {
+//   if (typeof c == "string") {
+//     return coordsObjectToObject(
+//       coordsArrayToObject(coordsTextToArray(c))
+//     );
+//   }
+//   if (Array.isArray(c)) {
+//     return coordsObjectToObject(coordsArrayToObject(c));
+//   }
+//   if (!Array.isArray(c) && typeof c == "object") {
+//     return coordsObjectToObject(c);
+//   }
+//   return null;
+// };
+
+// console.log(JSON.stringify(parseCoords({ x: 10 })));
+
+//console.log(a1);
+//const b = JSON.stringify(array2object(text2array(a1)))
+//console.log(b);
+
+// const FSceneData2 = {
+//   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+//   methods: {
+//     onMousemove(e) {
+//       let svg = this.$children[0].$children[0].$refs.f_svg;
+//       let container = this.$children[0].$children[0].$refs.f_svg_g;
+
+//       let point = svg.createSVGPoint();
+//       point.x = e.clientX;
+//       point.y = e.clientY;
+//       let ctm = container.getScreenCTM();
+//       if ((ctm = ctm.inverse())) {
+//         point = point.matrixTransform(ctm);
+//       }
+
+//       this.mouseX = point.x;
+//       this.mouseY = point.y;
+//     }
+//   },
+//   template: `
+//   <div
+//     @mousemove="onMousemove"
+//     @mousedown="mousePressed = true"
+//     @mouseup="mousePressed = false"
+//   >
+//     <slot :value="[mouseX,mouseY,mousePressed]" />
+//   </div>
+//   `
+// };
+
+// const FSceneData3 = {
+//   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+//   methods: {
+//     onMousemove(e) {
+//       let svg = this.$children[0].$children[0].$refs.f_svg;
+//       let container = this.$children[0].$children[0].$refs.f_svg_g;
+
+//       let point = svg.createSVGPoint();
+//       point.x = e.clientX;
+//       point.y = e.clientY;
+//       let ctm = container.getScreenCTM();
+//       if ((ctm = ctm.inverse())) {
+//         point = point.matrixTransform(ctm);
+//       }
+
+//       this.mouseX = point.x;
+//       this.mouseY = point.y;
+//     }
+//   },
+//   template: `
+//   <div
+//     @mousemove="onMousemove"
+//     @mousedown="mousePressed = true"
+//     @mouseup="mousePressed = false"
+//   >
+//     <slot :value="[mouseX,mouseY,mousePressed]" />
+//   </div>
+//   `
+// };
 
 // const FSceneData2 = {
 //   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
@@ -87,8 +252,8 @@ const FSceneData3 = {
 //   `
 // };
 
-Vue.component("f-scene-data2", FSceneData2);
-Vue.component("f-scene-data3", FSceneData3);
+// Vue.component("f-scene-data2", FSceneData2);
+// Vue.component("f-scene-data3", FSceneData3);
 
 // const FDrag2 = {
 //   props: {
@@ -123,7 +288,7 @@ Vue.component("f-scene-data3", FSceneData3);
 //   template: `
 //     <f-group>
 //       <slot :value="finalPoints" />
-//       <f-circle 
+//       <f-circle
 //         v-for="(p,i) in finalPoints"
 //         :x="p.x"
 //         :y="p.y"
@@ -132,7 +297,7 @@ Vue.component("f-scene-data3", FSceneData3);
 //         @mousedown.native="handleDown(i)"
 //         @mouseup.native="handleUp(i)"
 //         style="cursor: move;"
-//       />        
+//       />
 //     </f-group>
 //   `
 // };
@@ -162,54 +327,54 @@ Vue.component("f-scene-data3", FSceneData3);
 //   `
 // });
 
-Vue.prototype.$events = new Vue();
-new Vue({
-  el: "#app",
-  methods: utils,
-  template2: `
-<f-scene grid>
-<f-buffer-data slot-scope="sData" :map="() => [1,1]">
-  <f-group slot-scope="bData">
-  {{ log(bData.value) }}
-    <f-circle
-      v-for="p in bData.value"
-      :x="p[0]"
-      :y="p[1]"
-      r="0.5"
-    />
-    <f-box
-      @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
-      fill="rgba(0,0,0,0.1)"
-      width="4"
-      height="4"
-    />
-  </f-group>
-</f-buffer-data>
-</f-scene>
-`,
-template: `
-<f-buffer-data :map="() => [0,0]">
-<f-scene slot-scope="bData" grid>
-  <f-group slot-scope="sData">
-    <f-circle
-      v-for="(p,i) in bData.value"
-      :x="p[0]"
-      :y="p[1]"
-      r="0.25"
-      :fill="color('white')"
-      :opacity="scale(i,0,9,0,1)"
-    />
-    <f-box
-      @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
-      fill="rgba(0,0,0,0)"
-      width="4"
-      height="4"
-    />
-  </f-group>
-</f-scene>
-</f-buffer-data>
-`
-});
+// Vue.prototype.$events = new Vue();
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template2: `
+// <f-scene grid>
+// <f-buffer-data slot-scope="sData" :map="() => [1,1]">
+//   <f-group slot-scope="bData">
+//   {{ log(bData.value) }}
+//     <f-circle
+//       v-for="p in bData.value"
+//       :x="p[0]"
+//       :y="p[1]"
+//       r="0.5"
+//     />
+//     <f-box
+//       @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
+//       fill="rgba(0,0,0,0.1)"
+//       width="4"
+//       height="4"
+//     />
+//   </f-group>
+// </f-buffer-data>
+// </f-scene>
+// `,
+// template: `
+// <f-buffer-data length="10" :map="() => [0,0]">
+// <f-scene slot-scope="bData" grid>
+//   <f-group slot-scope="sData">
+//     <f-circle
+//       v-for="(p,i) in bData.value"
+//       :x="p[0]"
+//       :y="p[1]"
+//       r="0.25"
+//       :fill="color('white')"
+//       :opacity="scale(i,0,9,0,1)"
+//     />
+//     <f-box
+//       @mousemove.native="bData.update([sData.value[0],sData.value[1]])"
+//       fill="rgba(0,0,0,0)"
+//       width="4"
+//       height="4"
+//     />
+//   </f-group>
+// </f-scene>
+// </f-buffer-data>
+// `
+// });
 
 // Vue.prototype.$events = new Vue();
 // new Vue({
@@ -300,7 +465,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -316,7 +481,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -332,7 +497,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -352,7 +517,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -379,7 +544,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -398,7 +563,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -425,7 +590,7 @@ template: `
 //       >
 //         <a-rounded
 //           radius="0.06"
-//           material="emissive: #ccc"
+//           material="emissive: #cc"
 //         />
 //         <a-text
 //           position="0.32 0.5 0"
@@ -776,7 +941,7 @@ template: `
 // //     <h2>Header2 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h2>
 // //     <h3>Header3 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h3>
 // //     <h4>Header4 Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header Header </h4>
-// //     <p>Actually ramps hella mixtape pop-up, ennui kickstarter gochujang succulents adaptogen tbh. Organic affogato gastropub air plant pabst swag try-hard echo park</p><p>knausgaard umami PBR&B yuccie seitan mlkshk. Salvia keytar man bun, kickstarter scenester photo booth offal lomo. Butcher brunch vaporware tilde health goth cliche craft beer hell of pinterest YOLO. Adaptogen keytar kickstarter</p>
+// //     <p>Actually ramps hella mixtape pop-up, ennui kickstarter gochujang suculents adaptogen tbh. Organic affogato gastropub air plant pabst swag try-hard echo park</p><p>knausgaard umami PBR&B yucie seitan mlkshk. Salvia keytar man bun, kickstarter scenester photo booth offal lomo. Butcher brunch vaporware tilde health goth cliche craft beer hell of pinterest YOLO. Adaptogen keytar kickstarter</p>
 // //     <h3>Header3 Header Header Header Header Header</h3>
 // //     <p>microdosing tumeric art party truffaut knausgaard hell of tattooed mumblecore kogi. Knausgaard austin poke activated charcoal man bun bespoke distillery chillwave scenester etsy tacos synth tousled</p>
 // //     <h4>Header4 Header Header Header Header Header</h4>

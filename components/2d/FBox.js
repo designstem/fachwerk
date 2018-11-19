@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import { color } from "../../utils.js"
+import { color, parseCoords } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -35,13 +35,22 @@ export default {
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
-    }
+    },
+    currentPoints() {
+      if (typeof this.points == 'string') {
+        return parseCoords(this.points)
+      }
+      if (Array.isArray(this.points) && this.points.length) {
+        return this.points.map(c => parseCoords(c))
+      }
+      return this.points
+    },
   },
   template: `
   <g>
     <rect
-      v-if="points.length"
-      v-for="p in points"
+      v-if="currentPoints.length"
+      v-for="p in currentPoints"
       :x="p.x ? p.x - ((p.width ? p.width : width)  / 2) : x - (width / 2)"
       :y="p.y ? p.y - ((p.width ? p.width : width) / 2) : y - (width / 2)"
       :width="p.width || width"
@@ -55,7 +64,7 @@ export default {
       :opacity="p.opacity || opacity"
     />
     <rect
-      v-if="!points.length"
+      v-if="!currentPoints.length"
       :x="x - (width / 2)"
       :y="y - (width / 2)"
       :width="width"

@@ -474,6 +474,36 @@ const receive = function(channel, callback) {
   }
 };
 
+const coordsTextToArray = text => {
+  return text.split(",").map(t =>
+    t
+      .trim()
+      .replace(/\s+/g, " ")
+      .split(" ")
+  );
+};
+
+const coordsArrayToObject = array => {
+  return array.map(a => ({ x: a[0], y: a[1] || 0, z: a[2] || 0 }));
+};
+
+const coordsObjectToObject = a => {
+  return { x: a.x || 0, y: a.y || 0, z: a.z || 0 };
+};
+
+const parseCoords = c => {
+  if (typeof c == "string") {
+    return coordsArrayToObject(coordsTextToArray(c));
+  }
+  if (Array.isArray(c)) {
+    return coordsArrayToObject(c);
+  }
+  if (!Array.isArray(c) && typeof c == "object") {
+    return c;
+  }
+  return null;
+};
+
 /* Export */
 
 const docs = () => d;
@@ -505,5 +535,6 @@ export {
   cleanColumns,
   kebabCase,
   send,
-  receive
+  receive,
+  parseCoords
 };

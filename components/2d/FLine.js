@@ -1,4 +1,5 @@
 import { Object2D } from "./2d.js";
+import { parseCoords } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
@@ -46,9 +47,9 @@ export default {
   props: {
     x1: { default: 0, type: Number },
     y1: { default: 0, type: Number },
-    x2: { default: 2, type: Number },
-    y2: { default: 2, type: Number },
-    points: { default: [], type: Array },
+    x2: { default: 0, type: Number },
+    y2: { default: 0, type: Number },
+    points: { default: [], type: [Array,String] },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
@@ -61,6 +62,15 @@ export default {
     scale: { default: () => ({}), type: Object },
   },
   computed: {
+    currentPoints() {
+      if (typeof this.points == 'string') {
+        return parseCoords(this.points)
+      }
+      if (Array.isArray(this.points) && this.points.length) {
+        return this.points.map(c => parseCoords(c))
+      }
+      return this.points
+    },
     path() {
       if (this.curved && this.closed) {
         return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 0))
@@ -77,7 +87,7 @@ export default {
   template: `
     <g :transform="transform">
       <line
-        v-if="!points.length"
+        v-if="!currentPoints.length"
         :x1="x1"
         :y1="y1"
         :x2="x2"
@@ -90,8 +100,8 @@ export default {
         :opacity="opacity"
       />
       <path
-        v-if="points.length"
-        :d="path(points)"
+        v-if="currentPoints.length"
+        :d="path(currentPoints)"
         :stroke="stroke"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
