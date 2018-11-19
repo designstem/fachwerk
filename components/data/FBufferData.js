@@ -1,14 +1,28 @@
 export default {
   tag: 'Data',
   example: `
-<f-buffer-data>
-  <div slot-scope="data">
-    <div class="button_tertiary"
-    @click="data.update(Math.random())"
-    >Add random value</div>
-    <p/>
-    <pre>{{ data }}</pre>
-  </div>
+<f-buffer-data length="10" :map="() => [0,0]">
+  <f-scene slot-scope="bData" grid>
+    <f-group slot-scope="sData">
+      <f-circle
+        v-for="(p,i) in bData.value"
+        :x="p[0]"
+        :y="p[1]"
+        r="0.25"
+        :fill="color('white')"
+        :opacity="scale(i,0,9,0,1)"
+      />
+      <f-box
+        @mousemove.native="
+          bData.update([sData.value[0],sData.value[1]])
+        "
+        fill="rgba(0,0,0,0)"
+        width="4"
+        height="4"
+        stroke="none"
+      />
+    </f-group>
+  </f-scene>
 </f-buffer-data>
   `,  
   props: {

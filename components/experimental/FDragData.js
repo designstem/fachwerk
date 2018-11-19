@@ -1,100 +1,63 @@
-import { snapToGrid } from "../../utils.js"
-import FSceneScope from "../2d/FScene.js"
-
-const Drag = {
-  props: ['mouse', 'points', 'snap' ],
-  data: function() {
-    return { draggedPoints: this.points }
-  },
-  methods: {
-    handleMove(p) {
-      if (p.pressed) {
-        p.x = this.snap ? snapToGrid(this.mouse.x, 0.25) : this.mouse.x
-        p.y = this.snap ? snapToGrid(this.mouse.y, 0.25) : this.mouse.y
-      }
-    }
-  },
-  template: `
-    <g>
-      <slot :draggedPoints="draggedPoints" />
-      <g v-for="(p,i) in draggedPoints">
-        <circle
-          :cx="p.x"
-          :cy="p.y"
-          :r="p.active ? 0.22 : 0.2"
-          stroke-width="3"
-          stroke="var(--primary)"
-          :fill="p.pressed ? 'var(--primary)' : 'var(--secondary)'"
-          style="transition: fill r 100ms"
-        />
-        <circle
-          :cx="p.x"
-          :cy="p.y"
-          r="1.25"
-          fill="rgba(0,0,0,0)"
-          @mouseout="p.pressed = false; p.active = false"
-        />
-        <circle
-          :cx="p.x"
-          :cy="p.y"
-          r="0.5"
-          fill="rgba(0,0,0,0)"
-          style="cursor: pointer"
-          @mouseover="p.active = true"
-          @mouseout="p.active = false"
-          @mousedown="p.pressed = true"
-          @mouseup="p.pressed = false; p.active = false"
-          @mousemove="handleMove(p)"
-        />
-      </g>
-    </g>
-  `,
-};
+import { snapToGrid } from '../../utils.js'
 
 export default {
-  tag: 'Experimental',
-  description: `
-  `,
+  tag: 'Data',
   example: `
+<f-scene grid>
   <f-drag-data
-  :points="[
-    { x:  0, y:  0.5 },
-    { x:  1, y: -1 },
-    { x: -1, y: -1 }
-  ]"
-  :snap="true"
->
-  <f-group slot-scope="data">
-    <f-grid />
-    <f-polygon :points="data.points" />
-  </f-group>
-</f-drag-data>
+    slot-scope="sData"
+    :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
+    :value="sData.value"
+  >
+    <f-line
+      slot-scope="dData"
+      :points="dData.value"
+      closed
+    />
+  </f-drag-data>
+</f-scene>  
   `,
-  components: { Drag, FSceneScope },
-  props: ['points', 'snap' ],
-  data: function() {
-    return { draggedPoints: this.points }
+  props: {
+    points: { default: [], type: Array },
+    value: { default: [], type: Array },
+    step: { default : false, type: Number }
   },
+  data: () => ({ currentPoints: [] }),
   methods: {
-    handleMove(p) {
-      if (p.pressed) {
-        p.x = this.snap ? snapToGrid(this.mouse.x, 0.25) : this.mouse.x
-        p.y = this.snap ? snapToGrid(this.mouse.y, 0.25) : this.mouse.y
-      }
+    handleDown(i) {
+      this.$set(this.currentPoints[i],'pressed',true)
+    },
+    handleUp(i) {
+      this.$set(this.currentPoints[i],'pressed',false)
     }
   },
+  computed: {
+    finalPoints() {
+      return this.currentPoints.map((p,i) => {
+        if (p.pressed) {
+          p.x = this.step ? snapToGrid(this.value[0], this.step) : this.value[0]
+          p.y = this.step ? snapToGrid(this.value[1], this.step) : this.value[1]
+        }
+        return p
+      })
+    }
+  },
+  mounted() {
+    this.currentPoints = this.points
+  },
   template: `
-  <f-scene-scope>  
-    <Drag
-      slot-scope="mouseData"
-      :mouse="mouseData.mouse"
-      :points="points"
-      :snap="snap"
-    >
-      <template slot-scope="data">
-        <slot :points="data.draggedPoints" :mouse="mouseData.mouse" />
-      </template>
-    </Drag>
-    </f-scene-scope>
-  `,
+    <f-group>
+      <slot :value="finalPoints" />
+      <f-circle 
+        v-for="(p,i) in finalPoints"
+        :x="p.x"
+        :y="p.y"
+        :r="p.pressed ? 0.22  : 0.2"
+        fill="rgba(255,255,255,0.95)"
+        @mousedown.native="handleDown(i)"
+        @mouseup.native="handleUp(i)"
+        style="cursor: move;"
+      />        
+    </f-group>
+  `
 };
