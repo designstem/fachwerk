@@ -93,7 +93,8 @@ Vue.component("f-scene-data3", FSceneData3);
 const FDrag2 = {
   props: {
     points: { default: [], type: Array },
-    value: { default: [], type: Array }
+    value: { default: [], type: Array },
+    step: { default : false, type: Number }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
@@ -109,8 +110,8 @@ const FDrag2 = {
     finalPoints() {
       return this.currentPoints.map((p,i) => {
         if (p.pressed) {
-          p.x = this.value[0]
-          p.y = this.value[1]
+          p.x = this.step ? this.snapToGrid(this.value[0], this.step) : this.value[0]
+          p.y = this.step ? this.snapToGrid(this.value[1], this.step) : this.value[1]
         }
         return p
       })
@@ -150,7 +151,8 @@ new Vue({
         :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
         :value="sData.value"
       >
-        <f-line slot-scope="dData"
+        <f-line
+          slot-scope="dData"
           :points="dData.value"
           closed
         />
