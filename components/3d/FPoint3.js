@@ -1,5 +1,5 @@
-import { color } from "../../utils.js";
 import { Object3D } from "./3d.js";
+import { color, parseCoords } from "../../utils.js";
 
 export default {
   mixins: [Object3D],
@@ -31,7 +31,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     z: { default: 0, type: Number },
-    points: { default: [], type: Array },
+    points: { default: [], type: [Array,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: Object },
@@ -42,12 +42,21 @@ export default {
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
-    }
+    },
+    currentPoints() {
+      if (typeof this.points == 'string') {
+        return parseCoords(this.points)
+      }
+      if (Array.isArray(this.points) && this.points.length) {
+        return this.points.map(c => parseCoords(c))
+      }
+      return this.points
+    },
   },
   template: `
     <f-group3>
       <f-line3
-        v-if="!points.length"
+        v-if="!currentPoints.length"
         :x1="x"
         :y1="y"
         :z1="z"
@@ -59,8 +68,8 @@ export default {
         :opacity="opacity"
       />
       <f-line3
-        v-if="points.length"
-        v-for="point in points"
+        v-if="currentPoints.length"
+        v-for="point in currentPoints"
         :points="[
           {x: point.x, y: point.y, z: point.z},
           {x: point.x, y: point.y, z: point.z}
