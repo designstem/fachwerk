@@ -97,6 +97,9 @@ const Object3D = {
       obj.name = this.name || obj.name || obj.type;
       if (typeof this.scale == 'string') {
         this.scale = parseCoords(this.scale)[0]
+        this.scale.x = this.scale.x || 1
+        this.scale.y = this.scale.y || 1
+        this.scale.z = this.scale.z || 1
       }
       this.setScale(this.scale);
       if (typeof this.position == 'string') {

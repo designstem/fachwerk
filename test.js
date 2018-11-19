@@ -121,15 +121,15 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-  <f-scene grid>
-    <f-point 
+  <f-scene3 grid>
+    <f-point3 
       position="0.5 -1"
       rotation="45"
       scale="0.25"
       points="-1 1, 0 1, 1 1, -1 0"
       stroke-width="10"
     />
-  </f-scene>
+  </f-scene3>
   `
 })
 
