@@ -480,6 +480,7 @@ const coordsTextToArray = text => {
       .trim()
       .replace(/\s+/g, " ")
       .split(" ")
+      .map(c => parseFloat(c))
   );
 };
 

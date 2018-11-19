@@ -121,13 +121,15 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-  <f-scene3>
-    <f-group3 :rotation="{y: 45}">
-    <f-grid3 />
-    <f-circle3 />
-    <f-point3 points="0 0 0, 0 0 1" />
-    </f-group>
-  </f-scene3>
+  <f-scene grid>
+    <f-point 
+      position="0.5 -1"
+      rotation="45"
+      scale="0.25"
+      points="-1 1, 0 1, 1 1, -1 0"
+      stroke-width="10"
+    />
+  </f-scene>
   `
 })
 

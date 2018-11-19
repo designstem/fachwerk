@@ -1,4 +1,4 @@
-import { cx, cy, deg2rad } from "../../utils.js";
+import { cx, cy, deg2rad, parseCoords } from "../../utils.js";
 
 const Base = {
   inject: ["_baseUrl"],
@@ -42,9 +42,9 @@ const Object3D = {
     name: { type: String },
     type: { type: String, default: "Object3D" },
     obj: { type: Object },
-    scale: { type: [Object, Number] },
-    position: { type: Object },
-    rotation: { type: Object }
+    scale: { type: [Object, Number,Array,String] },
+    position: { type: [Object,Array,String] },
+    rotation: { type: [Object,Array,String] }
   },
   watch: {
     scale: {
@@ -95,9 +95,18 @@ const Object3D = {
   methods: {
     setObj(obj) {
       obj.name = this.name || obj.name || obj.type;
+      if (typeof this.scale == 'string') {
+        this.scale = parseCoords(this.scale)[0]
+      }
       this.setScale(this.scale);
+      if (typeof this.position == 'string') {
+        this.position = parseCoords(this.position)[0]
+      }
       Object.assign(obj.position, this.position);
       if (this.rotation) {
+        if (typeof this.rotation == 'string') {
+          this.rotation = parseCoords(this.rotation)[0]
+        }
         const rotation = {
           x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
           y: this.rotation.y ? deg2rad(this.rotation.y) : 0,

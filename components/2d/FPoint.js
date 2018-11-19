@@ -7,8 +7,11 @@ export default {
   description: `
   `,
   example: `
-<f-scene>
-  <f-grid />
+<f-scene grid>
+  <f-point points="0 0, 0.5 0.5, 1 1" position="1" />
+</f-scene>
+
+<f-scene grid>
   <f-point
     :points="
       range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
@@ -29,9 +32,9 @@ export default {
     points: { default: [], type: Array },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
+    position: { default: () => ({}), type: [Object,String] },
+    rotation: { default: () => ({}), type: [Object,String] },
+    scale: { default: () => ({}), type: [Object,String] },
     opacity: { default: 1, type: Number },
   },
   computed: {
