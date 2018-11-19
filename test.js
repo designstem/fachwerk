@@ -92,7 +92,7 @@ Vue.component("f-scene-data3", FSceneData3);
 
 const FDrag2 = {
   props: {
-    points: { default: [{ x: 0, y: 0 },{ x: 1, y: 1 }], type: Array },
+    points: { default: [], type: Array },
     value: { default: [], type: Array }
   },
   data: () => ({ currentPoints: [] }),
@@ -121,18 +121,12 @@ const FDrag2 = {
   },
   template: `
     <f-group>
-      <slot />
-      <!--f-circle
-        :x="value[0]"
-        :y="value[1]"
-        r="0.2"
-        :fill="color('white')"
-      /--> 
+      <slot :value="finalPoints" />
       <f-circle 
         v-for="(p,i) in finalPoints"
         :x="p.x"
         :y="p.y"
-        :r="p.pressed ? 0.22 : 0.2"
+        :r="p.pressed ? 0.22  : 0.2"
         fill="rgba(255,255,255,0.95)"
         @mousedown.native="handleDown(i)"
         @mouseup.native="handleUp(i)"
@@ -150,11 +144,18 @@ new Vue({
   methods: utils,
   template: `
   <div style="padding: 2rem;">
-      <f-scene grid>
-        <f-group slot-scope="data">
-          <f-drag2 :value="data.value" />
-        </f-group>
-      </f-scene>
+    <f-scene grid>
+      <f-drag2
+        slot-scope="sData"
+        :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
+        :value="sData.value"
+      >
+        <f-line slot-scope="dData"
+          :points="dData.value"
+          closed
+        />
+      </f-drag>
+    </f-scene>
   </div>
   `
 });
