@@ -55,7 +55,9 @@ export default {
         :r="p.pressed ? 0.22  : 0.2"
         fill="rgba(255,255,255,0.95)"
         @mousedown.native="handleDown(i)"
+        @touchstart.native="handleDown(i)"
         @mouseup.native="handleUp(i)"
+        @touchend.native="handleDown(i)"
         style="cursor: move;"
       />        
     </f-group>

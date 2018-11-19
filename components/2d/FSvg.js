@@ -47,8 +47,11 @@ export default {
         class="f-svg"
         ref="f_svg"
         @mousemove="onMousemove"
+        @touchmove="onMousemove"
         @mousedown="mousePressed = true"
+        @touchstart="mousePressed = true"
         @mouseup="mousePressed = false"
+        @touchend="mousePressed = false"
     >
       <g :transform="transform" ref="f_svg_g">
         <slot :value="[mouseX,mouseY,mousePressed]" />
