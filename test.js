@@ -8,9 +8,9 @@ const FSceneData2 = {
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
     onMousemove(e) {
-      let svg = this.$children[0].$children[0].$refs.f_svg
-      let container = this.$children[0].$children[0].$refs.f_svg_g
-      
+      let svg = this.$children[0].$children[0].$refs.f_svg;
+      let container = this.$children[0].$children[0].$refs.f_svg_g;
+
       let point = svg.createSVGPoint();
       point.x = e.clientX;
       point.y = e.clientY;
@@ -38,9 +38,9 @@ const FSceneData3 = {
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
     onMousemove(e) {
-      let svg = this.$children[0].$children[0].$refs.f_svg
-      let container = this.$children[0].$children[0].$refs.f_svg_g
-      
+      let svg = this.$children[0].$children[0].$refs.f_svg;
+      let container = this.$children[0].$children[0].$refs.f_svg_g;
+
       let point = svg.createSVGPoint();
       point.x = e.clientX;
       point.y = e.clientY;
@@ -63,7 +63,6 @@ const FSceneData3 = {
   </div>
   `
 };
-
 
 // const FSceneData2 = {
 //   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
@@ -91,6 +90,60 @@ const FSceneData3 = {
 Vue.component("f-scene-data2", FSceneData2);
 Vue.component("f-scene-data3", FSceneData3);
 
+const FDrag2 = {
+  props: {
+    points: { default: [{ x: 0, y: 0 },{ x: 1, y: 1 }], type: Array },
+    value: { default: [], type: Array }
+  },
+  data: () => ({ currentPoints: [] }),
+  methods: {
+    ...utils,
+    handleDown(i) {
+      this.$set(this.currentPoints[i],'pressed',true)
+    },
+    handleUp(i) {
+      this.$set(this.currentPoints[i],'pressed',false)
+    }
+  },
+  computed: {
+    finalPoints() {
+      return this.currentPoints.map((p,i) => {
+        if (p.pressed) {
+          p.x = this.value[0]
+          p.y = this.value[1]
+        }
+        return p
+      })
+    }
+  },
+  mounted() {
+    this.currentPoints = this.points
+  },
+  template: `
+    <f-group>
+      <slot />
+      <!--f-circle
+        :x="value[0]"
+        :y="value[1]"
+        r="0.2"
+        :fill="color('white')"
+      /--> 
+      <f-circle 
+        v-for="(p,i) in finalPoints"
+        :x="p.x"
+        :y="p.y"
+        :r="p.pressed ? 0.22 : 0.2"
+        fill="rgba(255,255,255,0.95)"
+        @mousedown.native="handleDown(i)"
+        @mouseup.native="handleUp(i)"
+        style="cursor: move;"
+      />        
+    </f-group>
+  `
+};
+
+Vue.component("FDrag2", FDrag2);
+
 Vue.prototype.$events = new Vue();
 new Vue({
   el: "#app",
@@ -98,15 +151,12 @@ new Vue({
   template: `
   <div style="padding: 2rem;">
       <f-scene grid>
-        <f-circle
-          slot-scope="data"
-          :x="data.value[0]"
-          :y="data.value[1]"
-          :r="data.value[2] ? 1 : 0.1"
-        />
+        <f-group slot-scope="data">
+          <f-drag2 :value="data.value" />
+        </f-group>
       </f-scene>
   </div>
-  `,
+  `
 });
 
 // Vue.prototype.$events = new Vue();
