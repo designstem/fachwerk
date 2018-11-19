@@ -1,5 +1,4 @@
 import Css from "../Css.js";
-
 export default {
   mixins: [Css],
   tag: '2D',
@@ -56,15 +55,17 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
     :flip-y="true"
     class="f-scene"
   >
-    <f-basegrid
-      v-if="grid"
-      :inner-x="innerX"
-      :inner-y="innerY"
-      :inner-width="innerWidth"
-      :inner-height="innerHeight"
-      :step="step"
-    />
-    <slot />
+    <f-group slot-scope="data">
+      <f-basegrid
+        v-if="grid"
+        :inner-x="innerX"
+        :inner-y="innerY"
+        :inner-width="innerWidth"
+        :inner-height="innerHeight"
+        :step="step"
+      />
+      <slot :value="data.value" />
+    </f-group>
   </f-svg>
   `,
   css: `

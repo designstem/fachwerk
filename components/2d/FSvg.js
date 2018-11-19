@@ -12,6 +12,23 @@ export default {
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean }
   },
+  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+  methods: {
+    onMousemove(e) {
+      let svg = this.$refs.f_svg
+      let container = this.$refs.f_svg_g
+      
+      let point = svg.createSVGPoint();
+      point.x = e.clientX;
+      point.y = e.clientY;
+      let ctm = container.getScreenCTM();
+      if ((ctm = ctm.inverse())) {
+        point = point.matrixTransform(ctm);
+      }
+      this.mouseX = point.x;
+      this.mouseY = point.y;
+    }
+  },
   computed: {
     viewBox() {
       return `${this.innerX} ${this.innerY} ${this.innerWidth || this.width} ${
@@ -29,9 +46,12 @@ export default {
         :view-box.camel="viewBox"
         class="f-svg"
         ref="f_svg"
+        @mousemove="onMousemove"
+        @mousedown="mousePressed = true"
+        @mouseup="mousePressed = false"
     >
       <g :transform="transform" ref="f_svg_g">
-        <slot />
+        <slot :value="[mouseX,mouseY,mousePressed]" />
       </g>
     </svg>
   `,

@@ -34,6 +34,37 @@ const FSceneData2 = {
   `
 };
 
+const FSceneData3 = {
+  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+  methods: {
+    onMousemove(e) {
+      let svg = this.$children[0].$children[0].$refs.f_svg
+      let container = this.$children[0].$children[0].$refs.f_svg_g
+      
+      let point = svg.createSVGPoint();
+      point.x = e.clientX;
+      point.y = e.clientY;
+      let ctm = container.getScreenCTM();
+      if ((ctm = ctm.inverse())) {
+        point = point.matrixTransform(ctm);
+      }
+
+      this.mouseX = point.x;
+      this.mouseY = point.y;
+    }
+  },
+  template: `
+  <div
+    @mousemove="onMousemove"
+    @mousedown="mousePressed = true"
+    @mouseup="mousePressed = false"
+  >
+    <slot :value="[mouseX,mouseY,mousePressed]" />
+  </div>
+  `
+};
+
+
 // const FSceneData2 = {
 //   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
 //   methods: {
@@ -58,6 +89,7 @@ const FSceneData2 = {
 // };
 
 Vue.component("f-scene-data2", FSceneData2);
+Vue.component("f-scene-data3", FSceneData3);
 
 Vue.prototype.$events = new Vue();
 new Vue({
@@ -65,17 +97,16 @@ new Vue({
   methods: utils,
   template: `
   <div style="padding: 2rem;">
-    <f-scene-data2>
-      <f-scene grid slot-scope="data">
+      <f-scene grid>
         <f-circle
+          slot-scope="data"
           :x="data.value[0]"
           :y="data.value[1]"
-          :r="data.value[2] ? 1 : 0.5"
+          :r="data.value[2] ? 1 : 0.1"
         />
       </f-scene>
-  </f-scene-data2>
   </div>
-  `
+  `,
 });
 
 // Vue.prototype.$events = new Vue();
