@@ -121,7 +121,7 @@ new Vue({
   el: "#app",
   methods: utils,
   template: `
-  <f-scene3 grid>
+  <f-scene3>
     <f-point3 
       position="0.5 -1"
       rotation="45"

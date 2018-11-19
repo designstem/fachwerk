@@ -1,6 +1,6 @@
-fix array coordinates
+3d grid prop
 
-FLine + simpler rotation
+fix array coordinates
 
 blends
 https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
