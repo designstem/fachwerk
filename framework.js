@@ -38,6 +38,15 @@ export { FRegularpolygon };
 import FText from "./components/2d/FText.js";
 export { FText };
 
+import FRepeatGrid from "./components/2d/FRepeatGrid.js";
+export { FRepeatGrid };
+
+import FRepeatShift from "./components/2d/FRepeatShift.js";
+export { FRepeatShift };
+
+import FRepeatHex from "./components/2d/FRepeatHex.js";
+export { FRepeatHex };
+
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
@@ -156,7 +165,7 @@ export { FContentEditor };
 import FSlider from "./components/layout/FSlider.js";
 export { FSlider };
 
-// Internal
+// Internal & Experimental
 
 import Markdown from "./components/Markdown.js";
 export { Markdown };
@@ -182,9 +191,6 @@ export { FKeyboardData };
 import FArtboard from "./components/experimental/FArtboard.js";
 export { FArtboard };
 
-import FRepeatGrid from "./components/experimental/FRepeatGrid.js";
-export { FRepeatGrid };
-
 export const sortedComponents = [
   // 2D
 
@@ -198,6 +204,9 @@ export const sortedComponents = [
   { FPolygon },
   { FRegularpolygon },
   { FText },
+  { FRepeatGrid },
+  { FRepeatShift },
+  { FRepeatHex },
 
   // 3D
 
@@ -241,7 +250,6 @@ export const sortedComponents = [
   // Experimental
   { FKeyboardData },
   { FArtboard },
-  { FRepeatGrid },
 
   // Layout
   { FSlider },

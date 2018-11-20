@@ -121,7 +121,7 @@ import { Object2D } from "./components/2d/2d.js";
 
 const FRepeatShift = {
   mixins: [Object2D],
-  tag: `Experimental`,
+  tag: `2D`,
   description: `
 Repeats the contents in a shifted rectangular grid.
   `,
@@ -145,9 +145,9 @@ Repeats the contents in a shifted rectangular grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,i) in range(-2, 2, step)" :position="{x:0,y}">
-      <f-group v-for="(x,j) in range(-2, 2, step)" :position="{x: i % 2 ? x + step / 2 : x,y:0}">
-        <slot :value="[j, i, (j * i) + j]" />
+    <f-group v-for="(y,j) in range(-2, 2, step)" :position="{x:0,y}">
+      <f-group v-for="(x,i) in range(-2, 2, step)" :position="{x: i % 2 ? x + step / 2 : x,y:0}">
+        <slot :value="[i, j, (i * j) + i]" />
       </f-group>
     </f-group>
   </f-group>  
@@ -170,7 +170,7 @@ Vue.component('f-repeat-shift', FRepeatShift)
 
 const FRepeatHex = {
   mixins: [Object2D],
-  tag: `Experimental`,
+  tag: `2D`,
   description: `
 Repeats the contents in a hexagona grid.
   `,
@@ -194,13 +194,13 @@ Repeats the contents in a hexagona grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,i) in range(-2,2,1)">
-      <f-group v-for="(x,j) in range(-2,2,1)"
+    <f-group v-for="(y,j) in range(-2,2,1)">
+      <f-group v-for="(x,i) in range(-2,2,1)"
         :position="{
           x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
           y: (cpoints(6,0.5)[1].y - 0.5) * y
         }"
-      ><slot :value="[j, i, (j * i) + j]" />
+      ><slot :value="[i, j, (i * j) + i]" />
     </f-group>
   </f-group>
   `
@@ -214,7 +214,7 @@ new Vue({
   template: `
 <f-scene>
   <f-repeat-hex>
-    <f-regularpolygon slot-scope="data" r="0.5" />
+    <f-regularpolygon slot-scope="data" r="1" />
   </f-repeat-hex>
 </f-scene>
   `

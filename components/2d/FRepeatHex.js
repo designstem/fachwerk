@@ -1,17 +1,17 @@
-import { Object2D } from "../2d/2d.js";
+import { Object2D } from "./2d.js";
 import * as utils from "../../utils.js";
 
 export default {
   mixins: [Object2D],
-  tag: `Experimental`,
+  tag: `2D`,
   description: `
-Repeats the contents in a 2D grid.
+Repeats the contents in a hexagonal grid.
   `,
   example: `
 <f-scene>
-  <f-repeat-grid>
-    <f-circle slot-scope="data" r="1" />
-  </f-repeat-grid>
+  <f-repeat-hex>
+    <f-regularpolygon slot-scope="data" r="0.5" />
+  </f-repeat-hex>
 </f-scene>
   `,
   props: {
@@ -27,11 +27,14 @@ Repeats the contents in a 2D grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(x,i) in range(-2, 2, step)" :position="{x,y:0}">
-      <f-group v-for="(y,j) in range(-2, 2, step)" :position="{x:0,y}">
-        <slot :value="[i, j, (i * j) + i]" />
-      </f-group>
+    <f-group v-for="(y,j) in range(-2,2,1)">
+      <f-group v-for="(x,i) in range(-2,2,1)"
+        :position="{
+          x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
+          y: (cpoints(6,0.5)[1].y - 0.5) * y
+        }"
+      ><slot :value="[i, j, (i * j) + i]" />
     </f-group>
-  </f-group>  
-  `,
+  </f-group>
+  `
 }
