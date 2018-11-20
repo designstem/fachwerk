@@ -22,6 +22,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
+    r: { default: null, type: Number },
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
     stroke: { default: "color('primary')", type: String},
@@ -53,8 +54,8 @@ export default {
       v-for="p in currentPoints"
       :x="p.x ? p.x - ((p.width ? p.width : width)  / 2) : x - (width / 2)"
       :y="p.y ? p.y - ((p.width ? p.width : width) / 2) : y - (width / 2)"
-      :width="p.width || width"
-      :height="p.height || height"
+      :width="p.r || p.width || r || width"
+      :height="p.r || p.height || r || height"
       :stroke="p.stroke || strokeColor"
       :stroke-width="p.strokeWidth || strokeWidth"
       stroke-linecap="round"
@@ -67,8 +68,8 @@ export default {
       v-if="!currentPoints.length"
       :x="x - (width / 2)"
       :y="y - (width / 2)"
-      :width="width"
-      :height="height"
+      :width="r || width"
+      :height="r || height"
       :stroke="strokeColor"
       :stroke-width="strokeWidth"
       stroke-linecap="round"

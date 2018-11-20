@@ -19,7 +19,7 @@ export default {
 </f-scene3>
   `,
   props: {
-    r: { default: 0.5, type: Number },
+    r: { default: 1, type: Number },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "", type: String },

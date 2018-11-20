@@ -207,7 +207,7 @@ Based on <code>cx</code> and <code>cy</code> functions above calculates and <cod
 
     {{ cpoints(4,10) }}
 `);
-const cpoints = (count, radius) => {
+const cpoints = (count = 6, radius = 1) => {
   return Array.from({
     length: count
   }).map((p, i) => ({

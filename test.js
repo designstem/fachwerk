@@ -117,21 +117,129 @@ export default {
 
 */
 
+import { Object2D } from "./components/2d/2d.js";
+
+const FRepeatShift = {
+  mixins: [Object2D],
+  tag: `Experimental`,
+  description: `
+Repeats the contents in a shifted rectangular grid.
+  `,
+  example: `
+<f-scene>
+  <f-repeat-shift>
+    <f-circle slot-scope="data" r="0.5" />
+  </f-repeat-shift>
+</f-scene>
+  `,
+  props: {
+    step: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number }
+  },
+  methods: utils,
+  template: `
+  <f-group
+    :transform="transform"
+    :opacity="opacity"
+  >
+    <f-group v-for="(y,i) in range(-2, 2, step)" :position="{x:0,y}">
+      <f-group v-for="(x,j) in range(-2, 2, step)" :position="{x: i % 2 ? x + step / 2 : x,y:0}">
+        <slot :value="[j, i, (j * i) + j]" />
+      </f-group>
+    </f-group>
+  </f-group>  
+  `,
+}
+
+Vue.component('f-repeat-shift', FRepeatShift)
+
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+// <f-scene>
+//   <f-repeat-shift>
+//     <f-box slot-scope="data" r="2" rotation="45" />
+//   </f-repeat-shift>
+// </f-scene>
+//   `
+// })
+
 new Vue({
   el: "#app",
   methods: utils,
   template: `
-  <f-scene3>
-    <f-point3 
-      position="0.5 -1"
-      rotation="45"
-      scale="0.25"
-      points="-1 1, 0 1, 1 1, -1 0"
-      stroke-width="10"
+<f-scene grid>
+  <f-group v-for="y in range(-2,2,1)">
+    <f-line :points="cpoints(6,0.5)" opacity="0.2" closed
+      v-for="x in range(-2,2,1)"
+      :position="{
+        x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
+        y: (cpoints(6,0.5)[1].y - 0.5) * y
+      }"
     />
-  </f-scene3>
+  </f-group>
+</f-scene>
   `
 })
+
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+// <f-scene grid>
+//   <f-group v-for="y in range(-2,2)">
+//   <f-line :points="cpoints()" opacity="0.2" closed
+//     v-for="x in range(-2,2)"
+//     :position="{x: cpoints()[1].x * 2 * x - (y % 2 ? cpoints()[1].x : 0), y: (cpoints()[1].y - 1) * y}"
+//   />
+//   <!--f-line :points="cpoints()" opacity="0.2" closed
+//      v-for="x in range(-2,2)"
+//     :position="{x: (cpoints()[1].x * 2 * x) - cpoints()[1].x, y: cpoints()[1].y - 1}"
+//   /-->
+//   </f-group>
+// </f-scene>
+//   `
+// })
+
+// new Vue({
+//   el: "#app",
+//   methods: utils,
+//   template: `
+// <f-scene grid>
+//   <f-line :points="cpoints()" opacity="0.2" closed
+//     v-for="x in range(-2,2)"
+//     :position="{x: cpoints()[1].x * 2 * x, y: 0}"
+//   />
+//   <f-line :points="cpoints()" opacity="0.2" closed
+//      v-for="x in range(-2,2)"
+//     :position="{x: (cpoints()[1].x * 2 * x) - cpoints()[1].x, y: cpoints()[1].y - 1}"
+//   />
+//   <f-circle opacity="0.2" r="1" />
+//   <f-line :points="[{x: 0, y: cpoints()[1].y},{x: cpoints()[1].x, y: cpoints()[1].y}]" />
+//   <f-line :points="[{x: 0, y: 0},{x: 1, y: 0}]" />
+//   <f-point :points="cpoints()" />
+// </f-scene>
+//   `
+// })
+
+/*
+
+  <f-group
+    :transform="transform"
+    :opacity="opacity"
+  >
+    <f-group v-for="(y,i) in range(-2, 2, step)" :position="{x:0,y}">
+      <f-group v-for="(x,j) in range(-2, 2, step)" :position="{x,y:0}">
+        <slot :value="[j, i, (j * i) + j]" />
+      </f-group>
+    </f-group>
+  </f-group>  
+
+*/
 
 // const a1 = "12,   123 11,    123    2";
 // const a2 = "12   11 31";

@@ -20,7 +20,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     points: { default: [], type: Array },
-    r: { default: 0.5, type: Number },
+    r: { default: 1, type: Number },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: 'none', type: String},
