@@ -168,20 +168,54 @@ Vue.component('f-repeat-shift', FRepeatShift)
 //   `
 // })
 
+const FRepeatHex = {
+  mixins: [Object2D],
+  tag: `Experimental`,
+  description: `
+Repeats the contents in a hexagona grid.
+  `,
+  example: `
+<f-scene>
+  <f-repeat-hex>
+    <f-regularpolygon slot-scope="data" r="0.5" />
+  </f-repeat-hex>
+</f-scene>
+  `,
+  props: {
+    step: { default: 1, type: Number },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: Number }
+  },
+  methods: utils,
+  template: `
+  <f-group
+    :transform="transform"
+    :opacity="opacity"
+  >
+    <f-group v-for="(y,i) in range(-2,2,1)">
+      <f-group v-for="(x,j) in range(-2,2,1)"
+        :position="{
+          x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
+          y: (cpoints(6,0.5)[1].y - 0.5) * y
+        }"
+      ><slot :value="[j, i, (j * i) + j]" />
+    </f-group>
+  </f-group>
+  `
+}
+
+Vue.component('f-repeat-hex', FRepeatHex)
+
 new Vue({
   el: "#app",
   methods: utils,
   template: `
-<f-scene grid>
-  <f-group v-for="y in range(-2,2,1)">
-    <f-line :points="cpoints(6,0.5)" opacity="0.2" closed
-      v-for="x in range(-2,2,1)"
-      :position="{
-        x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
-        y: (cpoints(6,0.5)[1].y - 0.5) * y
-      }"
-    />
-  </f-group>
+<f-scene>
+  <f-repeat-hex>
+    <f-regularpolygon slot-scope="data" r="0.5" />
+  </f-repeat-hex>
 </f-scene>
   `
 })
