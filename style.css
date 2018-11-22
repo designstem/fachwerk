@@ -438,13 +438,13 @@ footer, .footer {
 /* --- */
 
 :root {
-  --columns: 1fr 1fr;
-  --row: none;
-  --gap: var(--base4);
+  --cols: 1fr 1fr;
+  --rows: none;
+  --gap: var(--base3);
 }
 .grid {
   display: grid;
-  grid-template-columns: var(--columns);
+  grid-template-columns: var(--cols);
   grid-template-rows: var(--rows);
   grid-gap: var(--gap);
 }

@@ -1,3 +1,22 @@
+coming out the components
+
+- < next >
+- --emphasis: var(--primary)
+- * ** ** * 
+- cite ``?
+- mark
+- " "
+- 0 1 1 0 ?
+- slider primary / slider secondary 
+
+<f-content-slides style="--em: var(--blue)">
+
+<div class="grid" style="--col: 1fr 3fr; --row: 1fr 3fr">
+  <div>A</div>
+  <div>B</div>
+</div>
+
+FMarkdown FRender
 hex grid step?
 2d simple transforms
 3d grid prop

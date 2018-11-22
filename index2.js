@@ -6,6 +6,34 @@ for (const name in components) {
 }
 import { sortedComponents } from "./framework.js";
 
+const FCard = {
+  props: {
+    title: { default: "", type: String },
+    subtitle: { default: "", type: String },
+    fill: { default: "var(--secondary)", type: String },
+    width: { default: "", type: String },
+    height: { default: "", type: String }
+  },
+  template: `
+    <div
+      style="
+        border-radius: var(--border-radius);
+        padding: calc(var(--base) * 1);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+      "
+      :style="{
+        background: fill,
+        width,
+        height
+      }"
+    >
+      <h5 style="margin: 0; font-size: calc(var(--base) * 1.75);" v-html="title">{{}}</h5>
+      <p><small>{{ subtitle }}</small></p>
+    `
+};
+
 const FTable = {
   props: { rows: { default: [], type: Array } },
   template: `
@@ -33,6 +61,7 @@ const FTable = {
 `
 };
 
+Vue.component("FCard", FCard);
 Vue.component("FTable", FTable);
 
 const PropsTable = {
@@ -63,7 +92,7 @@ const ComponentRow = {
   template: `
     <div>
       <h3>&lt;{{ kebabCase(component.name) }}&gt;</h3>
-      <div class="grid" style="--columns: 1fr 2fr">
+      <div class="grid" style="--cols: 1fr 2fr">
         <div>
           <markdown v-if="component.description" :content="component.description" />
           <div style="max-height: calc(var(--base) * 50); overflow: auto;">
@@ -90,13 +119,20 @@ const ComponentRow = {
   `
 };
 
-const FSeparator = {
+const FHr = {
   template: `
     <div style="height: 0; border-bottom: 3px solid var(--primary)">&nbsp;</div>
   `
 };
 
-Vue.component("FSeparator", FSeparator);
+const FVr = {
+  template: `
+    <div style="display: flex; width: 0; border-right: 3px solid var(--primary)">&nbsp;</div>
+  `
+};
+
+Vue.component("FHr", FHr);
+Vue.component("FVr", FVr);
 
 new Vue({
   el: "#app",
@@ -111,6 +147,17 @@ new Vue({
       <header>
         <div>Fachwerk is a part of <a href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</div>
       </header>
+      <div style="padding: var(--base4);">
+        <h1>Grid</h1>
+        <f-fetch-data url="./contents/grid.md">
+          <f-content-editor
+            slot-scope="data"
+            :content="data.value"
+            autosave-id="grid"
+          ><f-content-document slot-scope="{content}" :content="content" /></f-content-editor> 
+        </f-fetch-data>
+      </div>
+      <f-separator />
       <div style="padding: var(--base4);">
         <h1 style="margin: 0;">Components</h1>
       </div>
