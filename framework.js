@@ -156,6 +156,9 @@ export { FContentSlides };
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
 
+import FMenu from "./components/layout/FMenu.js";
+export { FMenu };
+
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
 
@@ -255,6 +258,7 @@ export const sortedComponents = [
   { FSlider },
   { FButtons },
   { FTabs },
+  { FMenu },
   { FTheme },
   { FEditor },
   { FContentDocument },

@@ -104,7 +104,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
     min-height: 100vh;
   }
   .f-content-editor--editor {
-    width: 500px;
+    flex: 1;
   }
   .f-content-editor--preview {
     flex: 1;

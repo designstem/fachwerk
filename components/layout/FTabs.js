@@ -11,11 +11,12 @@ Tabs, to be used with \`v-model\` and under \`<header>\`.
   `,
   props: ["buttons", "value"],
   template: `
-    <div :style="{
-      display: 'flex',
-      height: '3rem',
-      borderBottom: '3px solid var(--darkgray)'
-    }">
+    <div style="
+      display: flex;
+      height: 3rem;
+      borderBottom: 3px solid var(--darkgray);
+      overflow: auto;
+    ">
       <div
         v-for="(button,i) in buttons"
         :key="i"

@@ -424,7 +424,7 @@ footer, .footer {
 
 .columns2 {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; 
 }
 
@@ -434,6 +434,29 @@ footer, .footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- */
+
+:root {
+  --columns: 1fr 1fr;
+  --row: none;
+  --gap: var(--base4);
+}
+.grid {
+  display: grid;
+  grid-template-columns: var(--columns);
+  grid-template-rows: var(--rows);
+  grid-gap: var(--gap);
+}
+@media (max-width: 800px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-row: none;
+  }
+}
+
+/* --- */
 
 .colors {
   display: grid;
