@@ -12,13 +12,6 @@
   <f-card title="B"/>
 </div>
 
-<dd>Custom gap</dd>
-
-<div class="grid" style="--gap: 1px;">
-  <f-card title="A"/>
-  <f-card title="B"/>
-</div>
-
 <dd>Custom rows<dd>
 
 <div class="grid" style="--rows: 1fr 2fr;">
@@ -27,6 +20,13 @@
   <f-card title="C"/>
   <f-card title="D"/>
 </div>
+
+<dd>Custom gap</dd>
+
+<div class="grid" style="--gap: 1px;">
+  <f-card title="A"/>
+  <f-card title="B"/>
+</div> 
 
 <dd>Horizontal Rules</dd>
 

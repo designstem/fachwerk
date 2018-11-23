@@ -38,8 +38,12 @@
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
+  --base5: calc(var(--base) * 5);
 
-  --grid-gap: calc(var(--base) * 3);
+  --cols: 1fr 1fr;
+  --rows: none;
+  --gap: var(--base3);
+
 }
 
 /* All */
@@ -407,6 +411,25 @@ footer, .footer {
   color: var(--yellow);
 }
 
+/* Grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--cols);
+  grid-template-rows: var(--rows);
+  grid-gap: var(--gap);
+}
+@media (max-width: 800px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-row: none;
+  }
+}
+
+
+
+
 /* Internal use */
 
 .columns {
@@ -435,41 +458,6 @@ footer, .footer {
   }
 }
 
-/* --- */
-
-:root {
-  --cols: 1fr 1fr;
-  --rows: none;
-  --gap: var(--base3);
-}
-.grid {
-  display: grid;
-  grid-template-columns: var(--cols);
-  grid-template-rows: var(--rows);
-  grid-gap: var(--gap);
-}
-@media (max-width: 800px) {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-row: none;
-  }
-}
-
-/* --- */
-
-.colors {
-  display: grid;
-  grid-template-columns: 4rem 5fr 4rem 5fr 4rem 5fr;
-  grid-template-rows: repeat(4, 4rem);
-  grid-gap: 0.5rem;
-}
-@media (max-width: 900px) {
-  .colors {
-    grid-template-columns: 4rem 1fr;
-    grid-template-rows: repeat(12, 4rem);
-  }
-}
 
 .components {
   display: flex;

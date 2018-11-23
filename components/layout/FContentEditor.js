@@ -71,7 +71,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
   },
   template: `
   <div class="f-content-editor">
-    <div v-if="!fullscreen" class="f-content-editor--editor" style="position: relative;">
+    <div v-if="!fullscreen" style="position: relative;">
       <f-editor
         v-model="innerContent"
         style="position: absolute; top: 0, right: 0, bottom: 0, left: 0"
@@ -91,7 +91,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
         {{ changed ? '↺' : ''}}
       </div>
     </div>
-    <div class="f-content-editor--preview">
+    <div>
       <slot :content="innerContent">
         <f-content-slides :content="innerContent" :autosave-id="autosaveId" />
       </slot> 
@@ -99,24 +99,20 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
   </div>
   `,
   css: `
+  :root {
+    --f-content-editor-cols: 1fr 1fr;
+    --f-content-editor-gap: var(--base3);
+  }
   .f-content-editor {
-    display: flex;
-    min-height: 100vh;
-  }
-  .f-content-editor--editor {
-    flex: 1;
-  }
-  .f-content-editor--preview {
-    flex: 1;
+    display: grid;
+    grid-template-columns: var(--f-content-editor-cols);
+    grid-gap: var(--f-content-editor-gap);
   }
   @media (max-width: 800px) {
     .f-content-editor {
-      display: block;
-      min-height: inherit;
-    }
-    .f-content-editor--editor {
-      width: inherit;
-      min-height: 20rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-row: none;
     }
   }
   `

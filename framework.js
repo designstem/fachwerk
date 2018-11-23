@@ -139,7 +139,24 @@ export { FMath };
 import FSidebar from "./components/content/FSidebar.js";
 export { FSidebar };
 
+// Icons
+
+import FIconGithub from "./components/layout/FIconGithub.js";
+export { FIconGithub };
+
 // Layout
+
+import FCard from "./components/layout/FCard.js";
+export { FCard };
+
+import FHr from "./components/layout/FHr.js";
+export { FHr };
+
+import FVr from "./components/layout/FVr.js";
+export { FVr };
+
+import FTable from "./components/layout/FTable.js";
+export { FTable };
 
 import FButtons from "./components/layout/FButtons.js";
 export { FButtons };
@@ -255,6 +272,10 @@ export const sortedComponents = [
   { FArtboard },
 
   // Layout
+  { FCard },
+  { FTable },
+  { FHr },
+  { FVr },
   { FSlider },
   { FButtons },
   { FTabs },
@@ -264,4 +285,5 @@ export const sortedComponents = [
   { FContentDocument },
   { FContentSlides },
   { FContentEditor },
+  { FIconGithub },
 ];
