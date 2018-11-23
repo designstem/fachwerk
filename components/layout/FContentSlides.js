@@ -1,7 +1,9 @@
 import Markdown from "../Markdown.js";
 import { parseColumns } from "../../utils.js";
+import Css from "../Css.js";
 
 export default {
+  mixins: [Css],
   tag: "Layout",
   description: `
 Shows Markdown content as slides.
@@ -99,7 +101,7 @@ Shows Markdown content as slides.
         gridAutoRows: '',
         gridAutoColumns: '',
         overflow: 'hidden',
-        padding: 'var(--base4)'
+        padding: 'var(--f-content-slides-padding)'
       }"
     >
       <Markdown
@@ -110,5 +112,10 @@ Shows Markdown content as slides.
       />
     </div>
   </div>
+  `,
+  css: `
+    :root {
+      --f-content-slides-padding: var(--base5);
+    }
   `
 };
