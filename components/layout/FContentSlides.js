@@ -94,7 +94,7 @@ Shows Markdown content as slides.
       :style="{
         '--base': base,
         display: 'grid',
-        gridGap: 'var(--grid-gap)',
+        gridGap: 'var(--gap)',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
         gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
         gridTemplateAreas: slide.areas,
