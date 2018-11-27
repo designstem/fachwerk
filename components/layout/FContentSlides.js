@@ -118,7 +118,7 @@ Shows Markdown content as slides.
     :root {
       --f-content-slides-padding: var(--base5);
     }
-    .cell > p {
+    .cell > div > p {
       margin: 0;
     }
   `
