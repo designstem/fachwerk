@@ -109,6 +109,7 @@ Shows Markdown content as slides.
         :style="{ gridArea: 'a' + (i + 1) }"
         :key="i"
         :content="col"
+        class="cell"
       />
     </div>
   </div>
@@ -116,6 +117,9 @@ Shows Markdown content as slides.
   css: `
     :root {
       --f-content-slides-padding: var(--base5);
+    }
+    .cell > p {
+      margin: 0;
     }
   `
 };
