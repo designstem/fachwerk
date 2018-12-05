@@ -22,7 +22,7 @@ export default {
           <f-content-editor
             v-if="component.example"
             :content="component.example.trim()"
-            :autosave-id="component.name"
+            :autosave="false"
             style="min-height: calc(var(--base) * 15)"
           ><f-content-document slot-scope="{content}" :content="content" /></f-content-editor> 
         </div>

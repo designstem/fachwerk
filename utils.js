@@ -167,23 +167,30 @@ const range = (from, to, step = 1) => {
 // Trigonometry
 
 d.push(`
-## cx cy
+## polarx polary
 
-<code>cx(angle, radius)</code>
-<code>cy(angle, radius)</code>
+<code>polarx(angle, radius = 1)</code>
+<code>polary(angle, radius = 1)</code>
 
-Return 2D x and y coordinates on point on the circle (_polar coordinates_) based on <code>angle</code> in degrees and circle's <code>radius</code>.
+Given the polar coordinates <code>angle radius</code>, return cartesian coordinates <code>x y</code>.
 
 #### Example
 
-    cx(90, 10) cy(90, 10)
+    polarx(90, 10) polary(90, 10)
 
 #### Output
 
-    {{ cx(90, 10) }} {{ cy(90, 10) }}
+    {{ polarx(90, 10) }} {{ polary(90, 10) }}
 
 
 `);
+const polarx = (deg = 0, radius = 1) => {
+  return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
+};
+
+const polary = (deg = 0, radius = 1) => {
+  return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
+};
 const cx = (deg, radius) => {
   return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
 };
@@ -193,20 +200,28 @@ const cy = (deg, radius) => {
 };
 
 d.push(`
-## cpoints
+## polarpoints
 
-<code>cpoints(count, radius)</code>
+<code>polarpoints(count, radius)</code>
 
-Based on <code>cx</code> and <code>cy</code> functions above calculates and <code>count</code> of <code>{ x, y }</code> points on the circle.
+Calculates <code>count</code> of <code>{ x, y }</code> points on the circle.
 
 #### Example
 
-    cpoints(4,10)
+    polarpoints(4,10)
 
 #### Output
 
-    {{ cpoints(4,10) }}
+    {{ polarpoints(4,10) }}
 `);
+const polarpoints = (count = 6, radius = 1) => {
+  return Array.from({
+    length: count
+  }).map((p, i) => ({
+    x: cx((360 / count) * i, radius),
+    y: cy((360 / count) * i, radius)
+  }));
+};
 const cpoints = (count = 6, radius = 1) => {
   return Array.from({
     length: count
@@ -518,6 +533,9 @@ export {
   round,
   random,
   range,
+  polarx,
+  polary,
+  polarpoints,
   cx,
   cy,
   cpoints,
