@@ -1,4 +1,6 @@
+import Css from "../Css.js";
 export default {
+  mixins: [Css],
   tag: 'Experimental',
   description: `
   `,
@@ -31,6 +33,7 @@ export default {
   <f-svg 
     :width="width"
     :height="height"
+    class="f-artboard"
   >
     <f-group slot-scope="data">
       <f-basegrid 
@@ -48,5 +51,13 @@ export default {
       <slot :value="data.value" />
     </f-group>
   </f-svg>
-  `
+  `,
+  css: `
+    .f-artboard text {
+      font-family: var(--font-mono);
+      font-size: 1.4%;
+      transform: scale(1, -1);
+      pointer-events: none;
+    }
+    `
 };
