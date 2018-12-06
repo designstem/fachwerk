@@ -10,9 +10,11 @@ new Vue({
   methods: utils,
   template: `
 <div>
-<f-artboard grid>
-  <f-regularpolygon r="20" rotation="0" scale="10" />
-
+<f-animation-data>
+<f-artboard grid slot-scope="{value}">
+  <f-repeat-grid position="300 300" step="50" width="400" height="400">
+    <f-regularpolygon count="3" slot-scope="r" :rotation="{x:value}" r="100" />
+  </f-repeat-grid>
 </f-artboard>
 </div>
   `
