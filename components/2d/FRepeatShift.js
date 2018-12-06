@@ -16,6 +16,8 @@ Repeats the contents in a shifted rectangular grid.
   `,
   props: {
     step: { default: 1, type: Number },
+    width: { default: 4, type: Number },
+    height: { default: 4, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
@@ -27,8 +29,8 @@ Repeats the contents in a shifted rectangular grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,j) in range(-2, 2, step)" :position="{x:0,y}">
-      <f-group v-for="(x,i) in range(-2, 2, step)" :position="{x: j % 2 ? x + step / 2 : x,y:0}">
+    <f-group v-for="(y,j) in range(width / -2, width / 2, step)" :position="{x:0,y}">
+      <f-group v-for="(x,i) in range(height / -2, height / 2, step)" :position="{x: j % 2 ? x + step / 2 : x,y:0}">
         <slot :value="[i, j, (i * j) + i]" />
       </f-group>
     </f-group>
