@@ -24,3 +24,18 @@ Inspired by https://kottke.org/17/11/classical-music-scores-as-colorful-data-vis
     />
   </template>
 </f-scene>
+
+### Hexagon
+
+<f-scene grid>
+  <f-regularpolygon :fill="hsl(0,100,50,0.5)" />
+  <f-regularpolygon count="3" :fill="hsl(25,100,50,0.5)" />
+  <f-regularpolygon count="3" rotation="180" :fill="hsl(50,100,50,0.5)" />
+  <f-line  
+     v-for="a in range(0,360,60)"
+     rotation=""
+     :x2="polarx(a)"
+     :y2="polary(a)"
+    
+  />
+    
