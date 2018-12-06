@@ -1,6 +1,4 @@
-import Css from "../Css.js";
 export default {
-  mixins: [Css],
   tag: 'Experimental',
   description: `
   `,
@@ -24,8 +22,8 @@ export default {
 </f-artboard>
   `,
   props: {
-    width: { default: 1000, type: Number },
-    height: { default: 1000, type: Number },
+    width: { default: 600, type: Number },
+    height: { default: 600, type: Number },
     grid: { default: false, type: Boolean },
     step: { default: 25, type: Number }
   }, 
@@ -52,12 +50,4 @@ export default {
     </f-group>
   </f-svg>
   `,
-  css: `
-    .f-artboard text {
-      font-family: var(--font-mono);
-      font-size: 1.4%;
-      transform: scale(1, -1);
-      pointer-events: none;
-    }
-    `
 };

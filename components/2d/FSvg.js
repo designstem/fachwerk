@@ -64,6 +64,11 @@ export default {
     }
     .f-svg text {
       fill: var(--primary);
+      font-family: var(--font-mono);
+      font-size: var(--text-size);
+      transform: var(--text-transform);
+      pointer-events: none;
     }
+    
   `
 }

@@ -12,6 +12,8 @@ import ComponentRow from "./homepage/ComponentRow.js";
 import Utils from "./homepage/Utils.js";
 import Faq from "./homepage/Faq.js";
 
+
+Vue.config.devtools = true
 new Vue({
   el: "#app",
   data: {

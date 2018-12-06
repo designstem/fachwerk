@@ -1,6 +1,4 @@
-import Css from "../Css.js";
 export default {
-  mixins: [Css],
   tag: '2D',
   description: `
 A 2D vector graphics scene.
@@ -53,7 +51,10 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
     :inner-width="innerWidth"
     :inner-height="innerHeight"
     :flip-y="true"
-    class="f-scene"
+    style="
+      --text-size: 1.4%;
+      --text-transform: scale(1,-1);
+    "
   >
     <f-group slot-scope="data">
       <f-basegrid
@@ -68,12 +69,4 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
     </f-group>
   </f-svg>
   `,
-  css: `
-  .f-scene text {
-    font-family: var(--font-mono);
-    font-size: 1.4%;
-    transform: scale(1, -1);
-    pointer-events: none;
-  }
-  `
 };
