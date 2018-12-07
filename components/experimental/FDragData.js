@@ -20,7 +20,7 @@ export default {
   props: {
     points: { default: [], type: Array },
     value: { default: [], type: Array },
-    step: { default : false, type: Number }
+    step: { default : false, type: Boolean }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
