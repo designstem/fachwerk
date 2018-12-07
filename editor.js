@@ -4,16 +4,26 @@ import * as utils from "./utils.js";
 for (const name in components) {
   Vue.component(name, components[name]);
 }
-
+const Init = {
+  beforeCreate() {
+    Vue.prototype.$global = new Vue({ data: { state: {} } });
+    Vue.config.errorHandler = (err, vm, info) => {
+      console.log(err);
+    };
+    Vue.config.warningHandler = (err, vm, info) => {
+      console.log(err);
+    };
+  }
+};
 new Vue({
+  mixins: [Init],
   el: "#app",
   data: () => ({
     contentFiles: [
-      { title: "Empty playground", file: "./contents/playground.md", preview: 0 },
-      { title: "What is Markdown?", file: "./contents/markdown.md", preview: 0 },
-      //{ title: "How to make slides?", file: "./contents/slides.md", preview: 1 },
-      { title: "Spirals tutorial", file: "./contents/spirals.md", preview: 1 },
-      { title: "Misc experiments", file: "./contents/experiments.md", preview: 0 }
+      { title: "Empty", file: "./content/empty.md", preview: 0 },
+      { title: "What is Markdown?", file: "./content/markdown.md", preview: 0 },
+      { title: "Spirals tutorial", file: "./content/spirals.md", preview: 1 },
+      { title: "Misc experiments", file: "./content/experiments.md", preview: 0 }
     ],
     content: "",
     activeContent: 0,
@@ -52,6 +62,7 @@ new Vue({
       <f-content-editor
       :content="content"
       :autosave="false"
+      style="height: calc(100vh - calc(var(--base) * 5))"
     >
       <component slot-scope="data"
         :is="previews[activePreview]"
