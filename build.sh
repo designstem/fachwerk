@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npx rollup -f iife -i index.js | npx uglifyjs > build.js
+npx rollup --silent -f iife -i index.js | npx uglifyjs > build.js
 
 rm -f vendor.js
 curl -L https://unpkg.com/vue/dist/vue.js | npx uglifyjs >> vendor.js

@@ -10,6 +10,9 @@ const Init = {
     Vue.config.errorHandler = (err, vm, info) => {
       console.log(err);
     };
+    Vue.config.warningHandler = (err, vm, info) => {
+      console.log(err);
+    };
   }
 };
 
@@ -17,13 +20,16 @@ new Vue({
   mixins: [Init],
   el: "#app",
   methods: { ...utils },
+  data: { b: 0 },
   template: `
 <div>
-  <button @click="set('a',1)">a</button>
+  <f-slider :value="b" @input="send('b',$event)" />
+  <f-slider :value="get('a')" @input="set('a',$event)" />
   {{ get('a') }}
+  {{ b }}
 </div>
   `,
   mounted() {
-    utils.receive('a', () => console.log('aaa'))
+    this.receive('b', b => this.b = parseInt(b))
   }
 });

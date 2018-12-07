@@ -484,7 +484,7 @@ const send = function(channel, value) {
       channel = "value";
       value = arr[0];
     }
-    this.$global.$emit(channel, value);
+    this.$global.$emit(channel, parseFloat(value));
   }
 };
 
@@ -501,7 +501,7 @@ const set = function(key, value) {
       key = "value";
       value = arr[0];
     }
-    this.$global.$data.state = {...this.$global.$data.state, [key]: value }
+    Vue.set(this.$global.$data.state, key, parseFloat(value))
   }
 };
 
@@ -511,7 +511,7 @@ const get = function(key) {
     if (arr.length == 0) {
       key = "value";
     }
-    return this.$global.$data.state[key];
+    return this.$global.$data.state[key]
   }
 };
 
