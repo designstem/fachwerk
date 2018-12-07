@@ -33,7 +33,40 @@ In addition to Markdown markup and HTML we also support Fachwerk custom componen
 
 Let's start with simple `f-scene` and dash of `f-math`:
 
-<f-scene grid>
+<f-scene grid step="1">
+  <f-circle
+    opacity="0.8"
+    :stroke="color('red')"
+  />
+  <f-line
+    :x1="Math.PI/-2"
+    y1="1"
+    :x2="Math.PI/2"
+    y2="1"
+    :stroke="color('red')"
+    opacity="0.3"
+  />
+  <f-line
+    :x1="Math.PI/-2"
+    y1="-1"
+    :x2="Math.PI/2"
+    y2="-1"
+    :stroke="color('red')"
+    opacity="0.3"
+  />
+
+  <f-line x2="1" :stroke="color('blue')" />
+</f-scene>
+
+<f-math>
+  \colorbox{red}{ d } = 2 \cdot \pi \cdot \colorbox{blue}{ r }
+</f-math>
+
+<f-math>
+  \colorbox{red}{ d } = 2 \cdot {{ String(Math.PI).slice(0,6) }} \cdot 1 = {{ String(2 * Math.PI * 1).slice(0,6) }}
+</f-math>
+
+<f-scene grid step="1">
   <f-circle
     :fill="color('orange')"
     stroke-width="0"
