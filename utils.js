@@ -479,10 +479,10 @@ const debounce = (fn, time) => {
 
 const send = function(channel, value) {
   if (this.$global) {
-    const arr = Array.from(arguments)
+    const arr = Array.from(arguments);
     if (arr.length == 1) {
-      channel = 'value'
-      value = arr[0]
+      channel = "value";
+      value = arr[0];
     }
     this.$global.$emit(channel, value);
   }
@@ -491,6 +491,27 @@ const send = function(channel, value) {
 const receive = function(channel, callback) {
   if (this.$global) {
     this.$global.$on(channel, callback);
+  }
+};
+
+const set = function(key, value) {
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 1) {
+      key = "value";
+      value = arr[0];
+    }
+    this.$global.$data.state = {...this.$global.$data.state, [key]: value }
+  }
+};
+
+const get = function(key) {
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 0) {
+      key = "value";
+    }
+    return this.$global.$data.state[key];
   }
 };
 
@@ -560,5 +581,7 @@ export {
   kebabCase,
   send,
   receive,
+  set,
+  get,
   parseCoords
 };

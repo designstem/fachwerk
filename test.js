@@ -19,13 +19,8 @@ new Vue({
   methods: { ...utils },
   template: `
 <div>
-  <button @click="send('a',1)">a</button>
-  <f-receive-data channel="a">
-  <pre
-    slot-scope="data"
-    v-html="data"
-  />
-</f-receive-data>
+  <button @click="set('a',1)">a</button>
+  {{ get('a') }}
 </div>
   `,
   mounted() {
