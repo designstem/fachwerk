@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import * as utils from "../../utils.js";
+import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
@@ -23,7 +23,7 @@ Repeats the contents in a shifted rectangular grid.
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number }
   },
-  methods: utils,
+  methods: { range },
   template: `
   <f-group
     :transform="transform"

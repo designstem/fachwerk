@@ -28,11 +28,13 @@ Set to 50
   },
   data: () => ({ value: null }),
   mounted() {
-    if (this.$events) {
-      this.$events.$on(this.channel, value => this.value = value)
+    if (this.$global) {
+      this.$global.$on(this.channel, value => this.value = value)
     }
   },
   template: `
-    <slot :value="value" />
+    <div>
+      <slot :value="value" />
+    </div>
   `
 }

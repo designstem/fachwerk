@@ -7,7 +7,6 @@ for (const name in components) {
 
 new Vue({
   el: "#app",
-  methods: utils,
   data: () => ({
     contentFiles: [
       { title: "Empty playground", file: "./contents/playground.md", preview: 0 },

@@ -478,14 +478,19 @@ const debounce = (fn, time) => {
 };
 
 const send = function(channel, value) {
-  if (this.$events) {
-    this.$events.$emit(channel, value);
+  if (this.$global) {
+    const arr = Array.from(arguments)
+    if (arr.length == 1) {
+      channel = 'value'
+      value = arr[0]
+    }
+    this.$global.$emit(channel, value);
   }
 };
 
 const receive = function(channel, callback) {
-  if (this.$events) {
-    this.$events.$on(channel, callback);
+  if (this.$global) {
+    this.$global.$on(channel, callback);
   }
 };
 

@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import * as utils from "../../utils.js";
+import { range, polarpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
@@ -16,22 +16,24 @@ Repeats the contents in a hexagonal grid.
   `,
   props: {
     step: { default: 1, type: Number },
+    width: { default: 4, type: Number },
+    height: { default: 4, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number }
   },
-  methods: utils,
+  methods: { range, polarpoints },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,j) in range(-2,2,1)">
-      <f-group v-for="(x,i) in range(-2,2,1)"
+    <f-group v-for="(y,j) in range(width / -2,width / 2, step)">
+      <f-group v-for="(x,i) in range(height / -2,height / 2, step)"
         :position="{
-          x: cpoints(6,0.5)[1].x * 2 * x - (y % 2 ? cpoints()[1].x * 0.5 : 0),
-          y: (cpoints(6,0.5)[1].y - 0.5) * y
+          x: polarpoints(6,0.5)[1].x * 2 * x - (y % 2 ? polarpoints()[1].x * 0.5 : 0),
+          y: (polarpoints(6,0.5)[1].y - 0.5) * y
         }"
       ><slot :value="[i, j, (i * j) + i]" />
     </f-group>

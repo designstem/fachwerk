@@ -4,18 +4,31 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-Vue.config.devtools = true
+const Init = {
+  beforeCreate() {
+    Vue.prototype.$global = new Vue({ data: { state: {} } });
+    Vue.config.errorHandler = (err, vm, info) => {
+      console.log(err);
+    };
+  }
+};
+
 new Vue({
+  mixins: [Init],
   el: "#app",
-  methods: utils,
+  methods: { ...utils },
   template: `
 <div>
-<f-animation-data>
-<f-artboard grid slot-scope="{value}">
-  <f-repeat-shift position="300 300" step="75" width="400" height="400">
-    <f-regularpolygon opacity="0.5" :fill="color('yellow')" count="6" slot-scope="r" :rotation="{x:value}" r="100" />
-  </f-repeat-grid>
-</f-artboard>
+  <button @click="send('a',1)">a</button>
+  <f-receive-data channel="a">
+  <pre
+    slot-scope="data"
+    v-html="data"
+  />
+</f-receive-data>
 </div>
-  `
-})
+  `,
+  mounted() {
+    utils.receive('a', () => console.log('aaa'))
+  }
+});
