@@ -14,7 +14,7 @@ Adds a text to the \`f-scene\`.
   props: {
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
-    fill: { default: "color('primary')", type: 'String'}
+    fill: { default: "color('primary')", type: String }
   },
   computed: {
     fillColor() {
