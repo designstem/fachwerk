@@ -21,21 +21,31 @@ and
   2. Lists
 
 For codings there are markup for `shorter` and
-
 ```
 longer
 blocks
 of code
 ```
-
 Also, all <sub>all</sub> HTML <sup>tags</sup> are supported.
 
-In addition to Markdown markup and HTML we also support Fachwerk custom components. Let's start with simple `f-scene` and dash of `f-math`:
+
+In addition to Markdown markup and HTML we also support Fachwerk custom components.
+
+Let's start with simple `f-scene` and dash of `f-math`:
 
 <f-scene grid>
-  <f-circle />
+  <f-circle
+    :fill="color('orange')"
+    stroke-width="0"
+    opacity="0.8"
+  />
+  <f-line x2="1" :stroke="color('blue')" />
 </f-scene>
 
 <f-math>
-  area = \pi \cdot r^2
+  \colorbox{orange}{ a } = \pi \cdot \colorbox{blue}{ r }^2
+</f-math>
+
+<f-math>
+  \colorbox{orange}{ a } = {{ String(Math.PI).slice(0,6) }} \cdot 1^2 = {{ String(Math.PI * Math.pow(1,2)).slice(0,6) }}
 </f-math>

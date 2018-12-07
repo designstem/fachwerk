@@ -45,10 +45,10 @@ export default {
 </f-scene>
   `,
   props: {
-    x1: { default: 0, type: Number },
-    y1: { default: 0, type: Number },
-    x2: { default: 0, type: Number },
-    y2: { default: 0, type: Number },
+    x1: { default: 0, type: [Number,String] },
+    y1: { default: 0, type: [Number,String] },
+    x2: { default: 0, type: [Number,String] },
+    y2: { default: 0, type: [Number,String] },
     points: { default: () => [], type: [Array,String] },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
