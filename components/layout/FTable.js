@@ -16,7 +16,7 @@ A \`<table>\`, accepting array of objects as \`:rows\`.
     <thead>
       <th
         v-for="(k,i) in Object.keys(rows[0])"
-        :key={i}
+        :key="i"
       >
         {{ k }}
       </th>

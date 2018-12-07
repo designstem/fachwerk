@@ -1,5 +1,5 @@
 export default {
-  props: { props: { default: {}, type: Number } },
+  props: { props: { default: {}, type: Object } },
   computed: {
     propRows() {
       return Object.entries(this.props).map(p => ({

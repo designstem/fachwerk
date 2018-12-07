@@ -1,4 +1,5 @@
 import * as components from "./framework.js";
+import Init from "./components/Init.js"
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -13,13 +14,13 @@ import Utils from "./homepage/Utils.js";
 import Faq from "./homepage/Faq.js";
 
 
-Vue.config.devtools = true
 new Vue({
+  mixins: [Init],
   el: "#app",
   data: {
     sortedComponents,
     tags: ["2D", "3D", "Data", "Transitions", "Content", "Layout"],
-    activeTag: 0
+    activeTag: 1
   },
   components: { ComponentRow, Colors, Styles, Utils, Faq },
   template: `
@@ -83,7 +84,7 @@ new Vue({
           A <a href="https://learncssgrid.com/" target="_blank">CSS grid</a> and CSS variables based grid system. The code below is editable ✏️ so try it out!
         </div>
         <br/>
-        <f-fetch-data url="./contents/grid.md">
+        <f-fetch-data url="./content/grid.md">
           <f-content-editor
             slot-scope="data"
             :content="data.value"

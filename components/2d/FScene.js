@@ -25,7 +25,7 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
   props: {
     width: { default: 250, type: Number },
     height: { default: 250, type: Number },
-    grid: { default: false, type: Boolean },
+    grid: { default: false, type: [Boolean,String] },
     step: { default: 0.5, type: Number }
   }, 
   computed: {

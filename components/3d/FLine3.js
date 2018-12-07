@@ -30,7 +30,7 @@ export default {
     x2: { default: 0, type: Number },
     y2: { default: 0, type: Number },
     z2: { default: 0, type: Number },
-    points: { default: [], type: Array },
+    points: { default: () => [], type: Array },
     stroke: { default: "color('secondary')", type: String },
     strokeWidth: { default: 3, type: Number },
     scale: { default: () => ({}), type: [Object, Number] },

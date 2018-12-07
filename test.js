@@ -4,17 +4,7 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-const Init = {
-  beforeCreate() {
-    Vue.prototype.$global = new Vue({ data: { state: {} } });
-    Vue.config.errorHandler = (err, vm, info) => {
-      console.log(err);
-    };
-    Vue.config.warningHandler = (err, vm, info) => {
-      console.log(err);
-    };
-  }
-};
+import Init from './components/Init.js'
 
 new Vue({
   mixins: [Init],
