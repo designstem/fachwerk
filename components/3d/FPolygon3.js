@@ -58,7 +58,7 @@ export default {
   props: {
     points: { default: [], type: Array },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: "3", type: Number },
+    strokeWidth: { default: "3", type: [Number,String] },
     fill: { default: "", type: String },
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },

@@ -30,7 +30,7 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
     scale: { default: () => ({}), type: [Object, Number] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
     shading: { default: false, type: Boolean },
   },
   data() {
