@@ -47,7 +47,8 @@ export default {
     <f-group>
     <circle
       v-if="currentPoints.length"
-      v-for="p in currentPoints"
+      v-for="p,i in currentPoints"
+      :key="i"
       :cx="p.x || x"
       :cy="p.y || y"
       :r="p.r || r"

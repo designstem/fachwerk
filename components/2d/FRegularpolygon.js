@@ -16,7 +16,7 @@ export default {
     x: { default: false, type: [Number, Boolean] },
     y: { default: false, type: [Number, Boolean] },
     count: { default: 6, type: Number },
-    r: { default: 1, type: Number },
+    r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },

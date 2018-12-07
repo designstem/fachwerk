@@ -20,7 +20,7 @@ new Vue({
   data: {
     sortedComponents,
     tags: ["2D", "3D", "Data", "Transitions", "Content", "Layout"],
-    activeTag: 3
+    activeTag: 0
   },
   components: { ComponentRow, Colors, Styles, Utils, Faq },
   template: `

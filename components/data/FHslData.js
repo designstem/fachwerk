@@ -11,9 +11,9 @@ Sliders for <code>h s l</code> color values.
 </f-hsl-data>
   `,
   props: {
-    h: { default: 0, type: Number },
-    s: { default: 100, type: Number },
-    l: { default: 50, type: Number }
+    h: { default: 0, type: [Number,String] },
+    s: { default: 100, type: [Number,String] },
+    l: { default: 50, type: [Number,String] }
   },
   template: `
 <f-slider-data :sliders="[

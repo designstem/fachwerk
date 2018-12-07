@@ -29,7 +29,7 @@ export default {
   props: {
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
-    points: { default: () => [], type: Array },
+    points: { default: () => [], type: [Array,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: [Object,String] },

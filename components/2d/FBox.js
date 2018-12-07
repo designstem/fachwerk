@@ -19,12 +19,12 @@ export default {
 </f-scene>
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
-    points: { default: [], type: Array },
+    x: { default: 0, type: [Number,String] },
+    y: { default: 0, type: [Number,String] },
+    points: { default: () => [], type: Array },
     r: { default: null, type: Number },
-    width: { default: 1, type: Number },
-    height: { default: 1, type: Number },
+    width: { default: 1, type: [Number,String] },
+    height: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },

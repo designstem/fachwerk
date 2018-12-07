@@ -29,13 +29,15 @@ Repeats the contents in a hexagonal grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,j) in range(width / -2,width / 2, step)">
+    <f-group v-for="(y,j) in range(width / -2,width / 2, step)" :key="j">
       <f-group v-for="(x,i) in range(height / -2,height / 2, step)"
+        :key="i"
         :position="{
           x: polarpoints(6,0.5)[1].x * 2 * x - (y % 2 ? polarpoints()[1].x * 0.5 : 0),
           y: (polarpoints(6,0.5)[1].y - 0.5) * y
         }"
       ><slot :value="[i, j, (i * j) + i]" />
+      </f-group>
     </f-group>
   </f-group>
   `

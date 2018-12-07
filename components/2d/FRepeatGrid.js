@@ -29,8 +29,8 @@ Repeats the contents in a 2D grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(x,i) in range(width / -2, width / 2, step)" :position="{x,y:0}">
-      <f-group v-for="(y,j) in range(height / -2, height / 2, step)" :position="{x:0,y}">
+    <f-group v-for="(x,i) in range(width / -2, width / 2, step)" :key="i" :position="{x,y:0}">
+      <f-group v-for="(y,j) in range(height / -2, height / 2, step)" :key="j" :position="{x:0,y}">
         <slot :value="[i, j, (i * range(height / -2, height / 2, step).length) + j]" />
       </f-group>
     </f-group>
