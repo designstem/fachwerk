@@ -49,13 +49,13 @@ export default {
     y1: { default: 0, type: Number },
     x2: { default: 0, type: Number },
     y2: { default: 0, type: Number },
-    points: { default: [], type: [Array,String] },
+    points: { default: () => [], type: [Array,String] },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
     closed: { default: false, type: Boolean },
     curved: { default: false, type: Boolean },
-    tension: { default: false, type: [Number] },
+    tension: { default: false, type: [Boolean, Number] },
     opacity: { default: 1, type: Number },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
@@ -67,7 +67,10 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        if (Array.isArray(this.points[0])) {
+          return this.points.map(p => ({x: p[0],y: p[1]}))
+        }
+        return this.points
       }
       return this.points
     },

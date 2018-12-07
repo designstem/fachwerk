@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import { color, parseCoords } from "../../utils.js"
+import { color, parseCoords, log } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -29,7 +29,7 @@ export default {
   props: {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
-    points: { default: [], type: Array },
+    points: { default: () => [], type: Array },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: [Object,String] },
@@ -46,10 +46,13 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        return parseCoords(this.points)
       }
       return this.points
     },
+  },
+  methods: {
+    log
   },
   template: `
     <g :transform="transform">
@@ -64,7 +67,8 @@ export default {
       />
       <f-line
         v-if="currentPoints.length"
-        v-for="point in currentPoints"
+        v-for="point,i in currentPoints"
+        :key="i"
         :points="[{x: point.x, y: point.y},{x: point.x, y: point.y}]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"

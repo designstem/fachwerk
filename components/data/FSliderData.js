@@ -24,11 +24,11 @@ Adds a slider next to the content and passing the slider value as <code>data.val
 </f-slider-data>
   `,
   props: {
-    value: { default: 0, type: Number },
+    value: { default: 0, type: [Number,String] },
     title: { default: "Value", type: String },
-    from: { default: 0, type: Number },
-    to: { default: 360, type: Number },
-    step: { default: 1, type: Number },
+    from: { default: 0, type: [Number,String] },
+    to: { default: 360, type: [Number,String] },
+    step: { default: 1, type: [Number,String] },
     float: { default: false, type: Boolean },
     sliders: { default: () => [], type: [Array] },
   },

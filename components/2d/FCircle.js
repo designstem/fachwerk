@@ -19,15 +19,15 @@ export default {
   props: {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
-    points: { default: [], type: Array },
-    r: { default: 1, type: Number },
+    points: { default: () => [], type: Array },
+    r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {
@@ -38,7 +38,7 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        return parseCoords(this.points)
       }
       return this.points
     },

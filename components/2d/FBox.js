@@ -42,7 +42,7 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        return parseCoords(this.points)
       }
       return this.points
     },

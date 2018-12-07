@@ -21,7 +21,8 @@ new Vue({
   data: () => ({
     contentFiles: [
       { title: "Empty", file: "./content/empty.md", preview: 0 },
-      { title: "What is Markdown?", file: "./content/markdown.md", preview: 0 },
+      { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
+      { title: "Component communication", file: "./content/communication.md", preview: 0 },
       { title: "Spirals tutorial", file: "./content/spirals.md", preview: 1 },
       { title: "Misc experiments", file: "./content/experiments.md", preview: 0 }
     ],
@@ -56,13 +57,13 @@ new Vue({
       </div>
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
-    <f-tabs :buttons="contentFiles.map(c => c.title)" v-model="activeContent" />
-    
-    <f-theme>
-      <f-content-editor
+    <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr;">
+    <f-menu :items="contentFiles.map(c => c.title)" v-model="activeContent" />
+    <f-vr />
+    <f-content-editor
       :content="content"
       :autosave="false"
-      style="height: calc(100vh - calc(var(--base) * 5))"
+      style="height: 100vh;"
     >
       <component slot-scope="data"
         :is="previews[activePreview]"
@@ -70,7 +71,7 @@ new Vue({
         base="8px"
       />
     </f-content-editor>
-</f-theme>
+    </f-theme>
 </div>
   `
 });

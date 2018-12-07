@@ -32,6 +32,7 @@ export default {
       />
       <f-line
         v-for="(x,i) in range(innerX,innerX + innerWidth,step)"
+        :key="'x' + i"
         :x1="x"
         :y1="innerY"
         :x2="x"
@@ -42,6 +43,7 @@ export default {
       />
       <f-line
         v-for="(y,i) in range(innerY,innerY + innerHeight,step)"
+        :key="'y' + i"
         :x1="innerX"
         :y1="y"
         :x2="innerX + innerWidth"

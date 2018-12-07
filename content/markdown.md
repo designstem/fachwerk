@@ -1,9 +1,16 @@
-## This is a Markdown document
+# Big header
+
+## Medium header
+
+### Small header
+
+#### Smaller header
 
 It supports **simple** *formatting*, ~striking~ text, links like https://help.github.com/articles/basic-writing-and-formatting-syntax/ and also [named](https://help.github.com/articles/basic-writing-and-formatting-syntax/) links.
 
-Adding images is currently tricky, we have to rely on either a  complex Markdown sytanx like `![]\(image_link_here.jpg\)` but we are working on a simple
-and also  
+Adding images is currently tricky, we have to rely on either a  complex Markdown sytanx like `![]\(image_link_here.jpg\)` but we are working on a simpler alternative.
+
+For bulletpoints one can use
 
   * Simple
   * Unordered
