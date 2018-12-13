@@ -23,7 +23,7 @@ new Vue({
       { title: "Empty", file: "./content/empty.md", preview: 0 },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       { title: "Component communication", file: "./content/communication.md", preview: 0 },
-      { title: "Spirals tutorial", file: "./content/spirals.md", preview: 1 },
+      { title: "Spirals tutorial", file: "./content/spirals2.md", preview: 1 },
       { title: "Misc experiments", file: "./content/experiments.md", preview: 0 }
     ],
     content: "",

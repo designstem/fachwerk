@@ -1,27 +1,23 @@
 export default {
   tag: 'Data',
   example: `
-<p>Any component can send...</p>
+Any component can send...
 
-<f-slider
-  @input.native="e => send('value',e.target.value)"
-/>
-
-<div
-  class="button_tertiary"
-  @click="send('value',50)"
->
-Set to 50
-</div>
-
-<p><br>...and receive data</p>
-
-<f-receive-data>
-  <pre
-    slot-scope="data"
-    v-html="data.value || 0"
-  />
-</f-receive-data>
+  <div
+    class="button_tertiary"
+    v-on:click="send(1)"
+  >
+  Send 1
+  </div>
+  
+...and receive data
+  
+  <f-receive-data>
+    <pre
+      slot-scope="data"
+      v-html="data.value"
+    />
+  </f-receive-data>
   `,
   props: {
     channel: { default: 'value', type: String}

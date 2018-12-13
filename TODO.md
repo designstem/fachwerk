@@ -1,3 +1,26 @@
+- Theme example does not work
+
+vendor.js:1 [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "position"
+
+found in
+
+---> <FPoint>
+       <FGroup>
+         <FSvg>
+           <FScene>
+             <Render>
+               <Markdown>
+                 <FContentDocument>
+                   <FContentEditor>
+                     <ComponentRow>
+                       <FTheme>
+                         <Root>
+3vendor.js:1 [Vue warn]: Duplicate presence of slot "default" found in the same render tree - this will likely cause render errors.
+
+found in
+
+---> <FScene>
+
 coming out the components
 
 - < next >
