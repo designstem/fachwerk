@@ -31,7 +31,7 @@ export default {
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     z: { default: 0, type: Number },
-    points: { default: [], type: [Array,String] },
+    points: { default: () => [], type: [Array,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: Object },
@@ -48,7 +48,7 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        return parseCoords(this.points)
       }
       return this.points
     },
@@ -69,7 +69,8 @@ export default {
       />
       <f-line3
         v-if="currentPoints.length"
-        v-for="point in currentPoints"
+        v-for="point,i in currentPoints"
+        :key="i"
         :points="[
           {x: point.x, y: point.y, z: point.z},
           {x: point.x, y: point.y, z: point.z}

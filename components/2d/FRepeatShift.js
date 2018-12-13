@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import * as utils from "../../utils.js";
+import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
@@ -23,14 +23,14 @@ Repeats the contents in a shifted rectangular grid.
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: Number }
   },
-  methods: utils,
+  methods: { range },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(y,j) in range(width / -2, width / 2, step)" :position="{x:0,y}">
-      <f-group v-for="(x,i) in range(height / -2, height / 2, step)" :position="{x: j % 2 ? x + step / 2 : x,y:0}">
+    <f-group v-for="(y,j) in range(width / -2, width / 2, step)" :key="j" :position="{x:0,y}">
+      <f-group v-for="(x,i) in range(height / -2, height / 2, step)" :key="i" :position="{x: j % 2 ? x + step / 2 : x,y:0}">
         <slot :value="[i, j, (i * j) + i]" />
       </f-group>
     </f-group>

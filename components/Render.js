@@ -7,7 +7,7 @@ export default {
     render: null,
     someVariable: 0
   }),
-  methods: utils,
+  methods: Object.assign({},utils),
   mounted() {
     this.$watch(
       "t",

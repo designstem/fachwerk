@@ -4,17 +4,27 @@ import * as utils from "./utils.js";
 for (const name in components) {
   Vue.component(name, components[name]);
 }
-
+const Init = {
+  beforeCreate() {
+    Vue.prototype.$global = new Vue({ data: { state: {} } });
+    Vue.config.errorHandler = (err, vm, info) => {
+      console.log(err);
+    };
+    Vue.config.warningHandler = (err, vm, info) => {
+      console.log(err);
+    };
+  }
+};
 new Vue({
+  mixins: [Init],
   el: "#app",
-  methods: utils,
   data: () => ({
     contentFiles: [
-      { title: "Empty playground", file: "./contents/playground.md", preview: 0 },
-      { title: "What is Markdown?", file: "./contents/markdown.md", preview: 0 },
-      //{ title: "How to make slides?", file: "./contents/slides.md", preview: 1 },
-      { title: "Spirals tutorial", file: "./contents/spirals.md", preview: 1 },
-      { title: "Misc experiments", file: "./contents/experiments.md", preview: 0 }
+      { title: "Empty", file: "./content/empty.md", preview: 0 },
+      { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
+      { title: "Component communication", file: "./content/communication.md", preview: 0 },
+      { title: "Spirals tutorial", file: "./content/spirals2.md", preview: 1 },
+      { title: "Misc experiments", file: "./content/experiments.md", preview: 0 }
     ],
     content: "",
     activeContent: 0,
@@ -42,17 +52,18 @@ new Vue({
   <div>
     <header style="background: var(--yellow);">
       <div>
-        <a href="https://designstem.github.io/framework">Fachwek</a>
+        <a href="https://designstem.github.io/framework">Fachwerk</a>
         → Editor
       </div>
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
-    <f-tabs :buttons="contentFiles.map(c => c.title)" v-model="activeContent" />
-    
-    <f-theme>
-      <f-content-editor
+    <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr;">
+    <f-menu :items="contentFiles.map(c => c.title)" v-model="activeContent" />
+    <f-vr />
+    <f-content-editor
       :content="content"
       :autosave="false"
+      style="height: 100vh;"
     >
       <component slot-scope="data"
         :is="previews[activePreview]"
@@ -60,7 +71,7 @@ new Vue({
         base="8px"
       />
     </f-content-editor>
-</f-theme>
+    </f-theme>
 </div>
   `
 });

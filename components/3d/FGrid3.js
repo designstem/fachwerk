@@ -29,13 +29,15 @@ export default {
       :rotation="rotation"
     >
     <f-line3
-      v-for="x in range(-2,2,1)"
+      v-for="x,i in range(-2,2,1)"
+      :key="'x' + i"
       :points="[{ x, y: -2},{ x, y: 2}]"
       :stroke-width="1"
       :opacity="x == 0 ? opacity * 2 : opacity"
     />
     <f-line3
-      v-for="y in range(-2,2,1)"
+      v-for="y,j in range(-2,2,1)"
+      :key="'y' + j"
       :points="[{ x: -2, y },{ x: 2, y }]"
       :stroke-width="1"
       :opacity="y == 0 ? opacity * 2 : opacity"

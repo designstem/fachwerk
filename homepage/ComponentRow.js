@@ -13,7 +13,7 @@ export default {
       <div class="grid" style="--cols: 1fr 3fr">
         <div>
           <markdown v-if="component.description" :content="component.description" />
-          <div style="max-height: calc(var(--base) * 50); overflow: auto;">
+          <div style="max-width: 350px; max-height: calc(var(--base) * 50); overflow: auto;">
             <h5>Props</h5>
             <PropsTable :props="component.props" />
           </div>

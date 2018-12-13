@@ -23,10 +23,10 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
 </f-scene>
   `,
   props: {
-    width: { default: 250, type: Number },
-    height: { default: 250, type: Number },
-    grid: { default: false, type: Boolean },
-    step: { default: 0.5, type: Number }
+    width: { default: 250, type: [Number,String] },
+    height: { default: 250, type: [Number,String] },
+    grid: { default: false, type: [Boolean,String] },
+    step: { default: 0.5, type: [Number,String] }
   }, 
   computed: {
     innerWidth() {

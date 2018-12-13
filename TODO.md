@@ -1,3 +1,26 @@
+- Theme example does not work
+
+vendor.js:1 [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "position"
+
+found in
+
+---> <FPoint>
+       <FGroup>
+         <FSvg>
+           <FScene>
+             <Render>
+               <Markdown>
+                 <FContentDocument>
+                   <FContentEditor>
+                     <ComponentRow>
+                       <FTheme>
+                         <Root>
+3vendor.js:1 [Vue warn]: Duplicate presence of slot "default" found in the same render tree - this will likely cause render errors.
+
+found in
+
+---> <FScene>
+
 coming out the components
 
 - < next >
@@ -144,3 +167,20 @@ npx rollup -f iife -i index.js | npx uglifyjs > build.js
 https://github.com/faisalhakim47/vscode-vue-inline-template
 
 ### Todo
+
+<!--
+<f-scene grid>
+  <f-point
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
+    "
+    :stroke="color('red')"
+  />
+  <f-point
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
+    "
+    :stroke="color('blue')"
+  />
+</f-scene>
+-->

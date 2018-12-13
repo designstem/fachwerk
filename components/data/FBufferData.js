@@ -6,6 +6,7 @@ export default {
     <f-group slot-scope="sData">
       <f-circle
         v-for="(p,i) in bData.value"
+        :key="i"
         :x="p[0]"
         :y="p[1]"
         r="0.25"
@@ -26,7 +27,7 @@ export default {
 </f-buffer-data>
   `,  
   props: {
-    length: { default: 3, type: Number },
+    length: { default: 3, type: [Number,String] },
     map: { default: d => 0, type: Function }
   },
   methods: {
@@ -39,6 +40,8 @@ export default {
     return { buffer: Array.from({ length: this.length }).map(this.map) };
   },
   template: `
+  <div>
     <slot :value="buffer" :add="onAdd" /> 
+  </div>
   `
 };

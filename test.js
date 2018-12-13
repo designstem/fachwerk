@@ -4,18 +4,22 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-Vue.config.devtools = true
+import Init from './components/Init.js'
+
 new Vue({
+  mixins: [Init],
   el: "#app",
-  methods: utils,
+  methods: { ...utils },
+  data: { b: 0 },
   template: `
 <div>
-<f-animation-data>
-<f-artboard grid slot-scope="{value}">
-  <f-repeat-shift position="300 300" step="75" width="400" height="400">
-    <f-regularpolygon opacity="0.5" :fill="color('yellow')" count="6" slot-scope="r" :rotation="{x:value}" r="100" />
-  </f-repeat-grid>
-</f-artboard>
+  <f-slider :value="b" @input="send('b',$event)" />
+  <f-slider :value="get('a')" @input="set('a',$event)" />
+  {{ get('a') }}
+  {{ b }}
 </div>
-  `
-})
+  `,
+  mounted() {
+    this.receive('b', b => this.b = parseInt(b))
+  }
+});

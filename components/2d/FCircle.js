@@ -17,17 +17,17 @@ export default {
 </f-scene>  
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
-    points: { default: [], type: Array },
-    r: { default: 1, type: Number },
+    x: { default: 0, type: [Number,String] },
+    y: { default: 0, type: [Number,String] },
+    points: { default: () => [], type: Array },
+    r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {
@@ -38,7 +38,7 @@ export default {
         return parseCoords(this.points)
       }
       if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+        return parseCoords(this.points)
       }
       return this.points
     },
@@ -47,7 +47,8 @@ export default {
     <f-group>
     <circle
       v-if="currentPoints.length"
-      v-for="p in currentPoints"
+      v-for="p,i in currentPoints"
+      :key="i"
       :cx="p.x || x"
       :cy="p.y || y"
       :r="p.r || r"

@@ -478,14 +478,40 @@ const debounce = (fn, time) => {
 };
 
 const send = function(channel, value) {
-  if (this.$events) {
-    this.$events.$emit(channel, value);
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 1) {
+      channel = "value";
+      value = arr[0];
+    }
+    this.$global.$emit(channel, parseFloat(value));
   }
 };
 
 const receive = function(channel, callback) {
-  if (this.$events) {
-    this.$events.$on(channel, callback);
+  if (this.$global) {
+    this.$global.$on(channel, callback);
+  }
+};
+
+const set = function(key, value) {
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 1) {
+      key = "value";
+      value = arr[0];
+    }
+    Vue.set(this.$global.$data.state, key, parseFloat(value))
+  }
+};
+
+const get = function(key) {
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 0) {
+      key = "value";
+    }
+    return this.$global.$data.state[key]
   }
 };
 
@@ -555,5 +581,7 @@ export {
   kebabCase,
   send,
   receive,
+  set,
+  get,
   parseCoords
 };

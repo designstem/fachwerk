@@ -1,6 +1,6 @@
 export default {
   tag: "Layout",
-  props: { value: { default: "", type: String } },
+  props: { value: { default: "", type: [String,Number] } },
   description: `
 Creates a code editor, to be used with v-model.
 

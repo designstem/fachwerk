@@ -20,7 +20,7 @@ export default {
   props: {
     points: { default: [], type: Array },
     value: { default: [], type: Array },
-    step: { default : false, type: Number }
+    step: { default : false, type: Boolean }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
@@ -50,6 +50,7 @@ export default {
       <slot :value="finalPoints" />
       <f-circle 
         v-for="(p,i) in finalPoints"
+        :key="i"
         :x="p.x"
         :y="p.y"
         :r="p.pressed ? 0.22  : 0.2"

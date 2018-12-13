@@ -12,9 +12,9 @@ Adds a text to the \`f-scene\`.
 </f-scene>
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
-    fill: { default: "color('primary')", type: 'String'}
+    x: { default: 0, type: [Number,String] },
+    y: { default: 0, type: [Number,String] },
+    fill: { default: "color('primary')", type: String }
   },
   computed: {
     fillColor() {

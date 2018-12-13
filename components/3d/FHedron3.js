@@ -38,7 +38,7 @@ export default {
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
     shading: { default: false, type: Boolean },
   },
   computed: {
@@ -50,7 +50,7 @@ export default {
     <f-group3>
       <f-triangle3
         v-for="(p,i) in points"
-        :key="i"
+        :key="'a' + i"
         :points="[
           {x: p.x, y: p.y, z: 0},
           {
@@ -66,7 +66,7 @@ export default {
       />   
       <f-triangle3
         v-for="(p,i) in points"
-        :key="i"
+        :key="'b' + i"
         :points="[
           {x: p.x, y: p.y, z: 0},
           {
@@ -88,7 +88,8 @@ export default {
       />
       <f-line3
         v-if="heightStrokeWidth"
-        v-for="p in points"
+        v-for="p,i in points"
+        :key="i"
         :points="[
           {x: p.x, y: p.y, z: 0},
           {x: 0, y: 0, z: height}

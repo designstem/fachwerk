@@ -27,7 +27,7 @@ export default {
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
     shading: { default: false, type: Boolean },
   },
   computed: {

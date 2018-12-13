@@ -1,5 +1,5 @@
 import { Object2D } from "./2d.js";
-import { color, parseCoords } from "../../utils.js"
+import { color, parseCoords, log } from "../../utils.js"
 
 export default {
   mixins: [Object2D],
@@ -8,7 +8,7 @@ export default {
   `,
   example: `
 <f-scene grid>
-  <f-point points="0 0, 0.5 0.5, 1 1" position="1" />
+  <f-point points="0 0, 0.5 0.5, 1 1" />
 </f-scene>
 
 <f-scene grid>
@@ -27,9 +27,9 @@ export default {
 </f-scene>
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
-    points: { default: [], type: Array },
+    x: { default: 0, type: [Number,String] },
+    y: { default: 0, type: [Number,String] },
+    points: { default: () => [], type: [Array,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
     position: { default: () => ({}), type: [Object,String] },
@@ -44,12 +44,15 @@ export default {
     currentPoints() {
       if (typeof this.points == 'string') {
         return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
-        return this.points.map(c => parseCoords(c))
+      } else
+      if (Array.isArray(this.points) && this.points.length && Array.isArray(this.points[0])) {
+        return parseCoords(this.points)
       }
       return this.points
     },
+  },
+  methods: {
+    log
   },
   template: `
     <g :transform="transform">
@@ -64,7 +67,8 @@ export default {
       />
       <f-line
         v-if="currentPoints.length"
-        v-for="point in currentPoints"
+        v-for="point,i in currentPoints"
+        :key="i"
         :points="[{x: point.x, y: point.y},{x: point.x, y: point.y}]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"

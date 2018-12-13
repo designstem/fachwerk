@@ -16,10 +16,10 @@ export default {
 
 <f-array-data :length="7" :dimensions="2">
   <f-scene slot-scope="data">
-  <template v-for="(col, x) in data.value">
+  <f-group v-for="(col, x) in data.value" :key="x">
   <f-box
     v-for="(value, y) in col"
-    :key="x * y"
+    :key="y"
     :x="x / 2 - 1.2"
     :y="y / 2 - 1.2"
     width="0.49"
@@ -27,7 +27,7 @@ export default {
     :fill="value ? 'var(--red)' : 'var(--primary)'"
     @click.native="data.update(1 - value, x, y)"
   />
-  </template>
+  </f-group>
   </f-scene>
 </f-array-data>
 
@@ -92,6 +92,8 @@ export default {
   },
   data: () => ({ maxValue: [] }),
   template: `
+  <div>
     <slot :value="value" :update="onUpdate" /> 
+  </div>
   `
 };

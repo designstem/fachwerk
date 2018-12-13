@@ -11,9 +11,9 @@ export default {
 </f-rgb-data>
   `,
   props: {
-    r: { default: 128, type: Number },
-    g: { default: 128, type: Number },
-    b: { default: 128, type: Number }
+    r: { default: 128, type: [Number,String] },
+    g: { default: 128, type: [Number,String] },
+    b: { default: 128, type: [Number,String] }
   },
   template: `
 <f-slider-data :sliders="[
