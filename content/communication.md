@@ -1,4 +1,4 @@
-## Communication between components
+## Global state
 
 ### Get and set values
 
@@ -30,4 +30,35 @@ Lets set up a slider to control value `c`. We need to set `:value` parameter to 
 c is currently: {{ get('c') }}
 ```
 
+## Global events
 
+### Sending event
+
+You can send events from any part of the code to any part of the code using `send(name, value)` helper:
+
+<div
+  class="button_tertiary"
+  v-on:click="send('d', 1)"
+>
+Send d = 1 message
+</div>
+
+<br><br>
+
+### Receiving event
+
+Inside the Markdown components, use `<f-receive-data>`:
+
+<f-receive-data name="d">
+  <pre slot-scope="data">{{ data.value }}</pre>
+</f-receive-data>
+
+Alternative you can listen to the event in `mounted()` hook in your Javascript component:
+
+<pre>
+...
+mounted() {
+  receive('d', value => console.log(value))
+}
+...
+</pre>
