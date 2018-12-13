@@ -52,7 +52,7 @@ new Vue({
   <div>
     <header style="background: var(--yellow);">
       <div>
-        <a href="https://designstem.github.io/framework">Fachwek</a>
+        <a href="https://designstem.github.io/framework">Fachwerk</a>
         → Editor
       </div>
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
