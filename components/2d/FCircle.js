@@ -17,12 +17,12 @@ export default {
 </f-scene>  
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
+    x: { default: 0, type: [Number,String] },
+    y: { default: 0, type: [Number,String] },
     points: { default: () => [], type: Array },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: 'none', type: String},
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },

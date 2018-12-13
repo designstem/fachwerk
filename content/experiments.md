@@ -3,9 +3,9 @@
 Inspired by https://kottke.org/17/11/classical-music-scores-as-colorful-data-visualizations
 
 <f-scene width="500" height="500">
-  <template v-for="d in 20">
+  <f-group v-for="(d,i) in 20" :key="i">
     <f-circle
-      v-for="r in 20"
+      v-for="(r,j) in 20" :key="j"
       :x="cx(
         scale(d,0,20,0,360),
         scale(r,0,20,0.5,1.5)
@@ -22,20 +22,5 @@ Inspired by https://kottke.org/17/11/classical-music-scores-as-colorful-data-vis
       :fill="hsl(random(160,360),100,50,0.25)"
       stroke="none"
     />
-  </template>
+  </f-group>
 </f-scene>
-
-### Hexagon
-
-<f-scene grid>
-  <f-regularpolygon :fill="hsl(0,100,50,0.5)" />
-  <f-regularpolygon count="3" :fill="hsl(25,100,50,0.5)" />
-  <f-regularpolygon count="3" rotation="180" :fill="hsl(50,100,50,0.5)" />
-  <f-line  
-     v-for="a in range(0,360,60)"
-     rotation=""
-     :x2="polarx(a)"
-     :y2="polary(a)"
-    
-  />
-    

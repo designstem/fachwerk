@@ -3,12 +3,12 @@ import Css from "../Css.js";
 export default {
   mixins: [Css],
   props: {
-    width: { default: 250, type: Number },
-    height: { default: 250, type: Number },
-    innerX: { default: 0, type: Number },
-    innerY: { default: 0, type: Number },
-    innerWidth: { default: null, type: Number },
-    innerHeight: { default: null, type: Number },
+    width: { default: 250, type: [Number,String] },
+    height: { default: 250, type: [Number,String] },
+    innerX: { default: 0, type: [Number,String] },
+    innerY: { default: 0, type: [Number,String] },
+    innerWidth: { default: null, type: [Number,String] },
+    innerHeight: { default: null, type: [Number,String] },
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean }
   },
@@ -41,6 +41,7 @@ export default {
   },
   template: `
     <svg
+        xmlns="http://www.w3.org/2000/svg"
         :width="width"
         :height="height"
         :view-box.camel="viewBox"

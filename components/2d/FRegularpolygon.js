@@ -15,15 +15,15 @@ export default {
   props: {
     x: { default: false, type: [Number, Boolean] },
     y: { default: false, type: [Number, Boolean] },
-    count: { default: 6, type: Number },
+    count: { default: 6, type: [Number,String] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: "none", type: String },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number }
+    position: { default: () => ({}), type: [Object,String] },
+    rotation: { default: () => ({}), type: [Object,String] },
+    scale: { default: () => ({}), type: [Object,String] },
+    opacity: { default: 1, type: [Number,String] }
   },
   methods: { cpoints },
   computed: {
