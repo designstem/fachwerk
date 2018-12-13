@@ -167,3 +167,20 @@ npx rollup -f iife -i index.js | npx uglifyjs > build.js
 https://github.com/faisalhakim47/vscode-vue-inline-template
 
 ### Todo
+
+<!--
+<f-scene grid>
+  <f-point
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
+    "
+    :stroke="color('red')"
+  />
+  <f-point
+    :points="
+      range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
+    "
+    :stroke="color('blue')"
+  />
+</f-scene>
+-->

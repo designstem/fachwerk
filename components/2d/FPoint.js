@@ -8,7 +8,7 @@ export default {
   `,
   example: `
 <f-scene grid>
-  <f-point points="0 0, 0.5 0.5, 1 1" position="1" />
+  <f-point points="0 0, 0.5 0.5, 1 1" />
 </f-scene>
 
 <f-scene grid>
@@ -44,8 +44,8 @@ export default {
     currentPoints() {
       if (typeof this.points == 'string') {
         return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
+      } else
+      if (Array.isArray(this.points) && this.points.length && Array.isArray(this.points[0])) {
         return parseCoords(this.points)
       }
       return this.points
