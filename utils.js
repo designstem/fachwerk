@@ -511,9 +511,12 @@ const get = function(key, def = null) {
 };
 
 const toggle = function(key) {
-  const state = get(key, false)
-  if (state) {
-    return !state
+  if (this.$global) {
+    const state = this.$global.$data.state[key]
+    if (state) {
+      return !Boolean(state)
+    }
+    return null
   }
   return null
 }
