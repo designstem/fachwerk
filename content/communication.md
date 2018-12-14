@@ -18,18 +18,20 @@ Lets set up a button to set value `b` to `20`. We need to set `v-on:click` param
 
 <button v-on:click="set('b',20)">Set b to 20</button>
 
+Note that initially `b` is not set. To overcome this, we can pass the default parameter for `get('b',0)`:
+
 ```
-b is currently {{ get('b') }}
+b is currently {{ get('b', 0) }}
 ```
 
 ### Using the slider
 
-Lets set up a slider to control value `c`. `:value` will be `get('c')` and `v-on:input` will be`set('c', $event)`. The framework will pick the actual slider value from `$event` variable.
+Lets set up a slider to control value `c`. `:value` will be `get('c', 0)` and `v-on:input` will be`set('c', $event)`. The framework will pick the actual slider value from `$event` variable.
 
-<f-slider :value="get('c')" v-on:input="set('c',$event)" />
+<f-slider :value="get('c', 0)" v-on:input="set('c',$event)" />
 
 ```
-c is currently: {{ get('c') }}
+c is currently: {{ get('c', 0) }}
 ```
 
 ## Global events
