@@ -6,9 +6,9 @@ A Github icon.
   example: `
 <f-icon-github />
   `,
-  props: { url: { default: "https://github.com/designstem/framework" } },
+  props: { src: { default: "https://github.com/designstem/framework" } },
   template: `
-  <a :href="url" style="border: none;">
+  <a :href="src" style="border: none;">
     <svg
       width="24"
       height="24"
