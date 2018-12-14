@@ -405,12 +405,42 @@ const snapToGrid = (value, gridsize) => {
 d.push(`
 ## log
 
-<code>log(message) = console.log(message) </code>
+<code>log(message)</code>
 
+Logs a value from a template to the console
 
 `);
 
 const log = value => console.log(value);
+
+d.push(`
+## join
+
+<code>join(value1, value2, value3)</code>
+
+Joins a set of values to a space-separated string, useful for A-Frame integration.
+
+#### Input
+
+<pre>
+join([1,2,3])
+join(4,5,6)
+</pre>
+
+#### Output
+
+<pre>
+{{ join([1,2,3]) }}
+{{ join(4,5,6) }}
+</pre>
+
+`);
+
+const join = function(arr) {
+  return arr instanceof Array
+    ? arr.join(' ')
+    : Array.from(arguments).join(' ')
+};
 
 // For internal use
 
@@ -510,16 +540,6 @@ const get = function(key, def = null) {
   return null
 };
 
-const toggle = function(key) {
-  if (this.$global) {
-    const state = this.$global.$data.state[key]
-    if (state) {
-      return !Boolean(state)
-    }
-    return null
-  }
-  return null
-}
 
 const coordsTextToArray = text => {
   return text.split(",").map(t =>
@@ -580,6 +600,7 @@ export {
   flatten,
   snapToGrid,
   log,
+  join,
   parseSheet,
   docs,
   parseColumns,
@@ -589,6 +610,5 @@ export {
   receive,
   set,
   get,
-  toggle,
   parseCoords
 };

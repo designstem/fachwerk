@@ -28,4 +28,6 @@ npx rollup -f es -i utils.js | npx uglifyjs > ../templates/offline/utils.js
 cp vendor.js ../templates/offline/.
 cp vendor_aframe.js ../templates/offline/.
 cp style.css ../templates/offline/.
+cp components/Css.js ../templates/offline/.
+cp components/Init.js ../templates/offline/.
 
