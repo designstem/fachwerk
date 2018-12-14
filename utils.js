@@ -499,17 +499,27 @@ const set = function(key, value) {
     }
     Vue.set(this.$global.$data.state, key, parseFloat(value))
   }
+  return null
 };
 
-const get = function(key) {
+const get = function(key, def = null) {
   if (this.$global) {
-    const arr = Array.from(arguments);
-    if (arr.length == 0) {
-      key = "value";
-    }
-    return this.$global.$data.state[key]
+    const state = this.$global.$data.state[key]
+    return state !== undefined ? state : def
   }
+  return null
 };
+
+const toggle = key => {
+  if (this.$global) {
+    const state = this.$global.$data.state[key]
+    if (state) {
+      return !state
+    }
+    return null
+  }
+  return null
+}
 
 const coordsTextToArray = text => {
   return text.split(",").map(t =>
@@ -579,5 +589,6 @@ export {
   receive,
   set,
   get,
+  toggle,
   parseCoords
 };
