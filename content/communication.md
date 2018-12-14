@@ -14,19 +14,19 @@ a is currently {{ get('a') }}
 
 ### Using the button
 
-Lets set up a button to set value `b` to `20`. We need to set `v-on:click` parameter to be `set('b',20)`:
-
-<button v-on:click="set('b',20)">Set b to 20</button>
-
-Note that initially `b` is not set. To overcome this, we can pass the default parameter for `get('b',0)`:
+Lets set up a button to set value `b`
 
 ```
 b is currently {{ get('b', 0) }}
 ```
 
+Note that initially `b` is not set. To overcome this, we passed the default parameter for `get('b',0)`:
+
+<button v-on:click="set('b',20)">Set b to 20</button>
+
 ### Using the slider
 
-Lets set up a slider to control value `c`. `:value` will be `get('c', 0)` and `v-on:input` will be`set('c', $event)`. The framework will pick the actual slider value from `$event` variable.
+Lets set up a slider to control value `c`:
 
 <f-slider :value="get('c', 0)" v-on:input="set('c',$event)" />
 
