@@ -22,10 +22,10 @@ export default {
 </f-artboard>
   `,
   props: {
-    width: { default: 600, type: Number },
-    height: { default: 600, type: Number },
+    width: { default: 600, type: [Number,String] },
+    height: { default: 600, type: [Number,String] },
     grid: { default: false, type: Boolean },
-    step: { default: 25, type: Number }
+    step: { default: 25, type: [Number,String] }
   }, 
   template: `
   <f-svg 
