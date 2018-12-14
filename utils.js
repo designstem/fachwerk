@@ -510,13 +510,10 @@ const get = function(key, def = null) {
   return null
 };
 
-const toggle = key => {
-  if (this.$global) {
-    const state = this.$global.$data.state[key]
-    if (state) {
-      return !state
-    }
-    return null
+const toggle = function(key) {
+  const state = get(key, false)
+  if (state) {
+    return !state
   }
   return null
 }
