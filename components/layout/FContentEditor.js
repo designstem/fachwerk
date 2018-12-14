@@ -17,7 +17,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
   `,
   props: {
     content: { default: '', type: String },
-    autosave: { default: true, type: Boolean },
+    autosave: { default: false, type: Boolean },
     autosaveId: { default: "0", type: String },
   },
   data: function() {
