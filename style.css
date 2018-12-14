@@ -235,6 +235,7 @@ kbd {
 }
 
 mark {
+  border-radius: 2px;
   font-family: var(--font-mono);
   border-radius: var(--border-radius-small);
   background: var(--yellow);
@@ -243,6 +244,11 @@ mark {
   font-size: calc(var(--base) * 1.75);
   white-space: nowrap;
 }
+var {
+  font-family: var(--font-sansserif);
+  font-weight: normal;
+}
+
 
 /* Components */
 
@@ -313,6 +319,7 @@ td {
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
+  border: none;
 }
 
 .button_secondary {
@@ -323,8 +330,10 @@ td {
   color: var(--darkgray);
   font-weight: bold;
   cursor: pointer;
+  border: none;
 }
 
+button,
 .button_tertiary {
   padding: calc(var(--base) * 0.5) calc(var(--base) * 1);
   display: inline-flex;
@@ -334,6 +343,8 @@ td {
   font-weight: bold;
   font-size: calc(var(--base) * 1.75);
   cursor: pointer;
+  outline: none;
+  background: none;
 }
 
 .buttons {

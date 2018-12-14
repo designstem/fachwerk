@@ -37,6 +37,9 @@ Shows Markdown content as slides.
     }
   },
   methods: {
+    first() {
+      this.currentIndex = 0
+    },
     prev() {
       this.currentIndex > 0 && this.currentIndex--;
     },
@@ -79,9 +82,10 @@ Shows Markdown content as slides.
       }
     });
 
-    if (this.$events) {
-      this.$events.$on('next', () => this.next())
-      this.$events.$on('prev', () => this.prev())
+    if (this.$global) {
+      this.$global.$on('next', () => this.next())
+      this.$global.$on('prev', () => this.prev())
+      this.$global.$on('first', () => this.first())
     }
 
   },
@@ -118,8 +122,10 @@ Shows Markdown content as slides.
     :root {
       --f-content-slides-padding: var(--base5);
     }
+    /*
     .cell > div > p {
       margin: 0;
     }
+    */
   `
 };

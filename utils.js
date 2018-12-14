@@ -479,12 +479,8 @@ const debounce = (fn, time) => {
 
 const send = function(channel, value) {
   if (this.$global) {
-    const arr = Array.from(arguments);
-    if (arr.length == 1) {
-      channel = "value";
-      value = arr[0];
-    }
-    this.$global.$emit(channel, parseFloat(value));
+    const v = parseFloat(value)
+    this.$global.$emit(channel, value == NaN ? value : v);
   }
 };
 

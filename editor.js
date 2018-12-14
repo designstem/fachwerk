@@ -22,12 +22,14 @@ new Vue({
     contentFiles: [
       { title: "Empty", file: "./content/empty.md", preview: 0 },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
+      { title: "Explorative slides", file: "./content/explorative.md", preview: 1 },
       { title: "Component communication", file: "./content/communication.md", preview: 0 },
+      { title: "Math basics", file: "./content/math.md", preview: 0 },
       { title: "Spirals tutorial", file: "./content/spirals2.md", preview: 1 },
       { title: "Misc experiments", file: "./content/experiments.md", preview: 0 }
     ],
     content: "",
-    activeContent: 0,
+    activeContent: 2,
     previews: [
       components.FContentDocument,
       components.FContentSlides
@@ -55,20 +57,21 @@ new Vue({
         <a href="https://designstem.github.io/framework">Fachwerk</a>
         → Editor
       </div>
+      <p style="margin: 0;"><kbd>Alt</kbd> + <kbd>F</kbd> for fullscreen, <kbd>Alt</kbd> + <kbd>T</kbd> for dark theme</p>
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
-    <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr;">
+    <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr; --rows:400vh;">
     <f-menu :items="contentFiles.map(c => c.title)" v-model="activeContent" />
     <f-vr />
     <f-content-editor
       :content="content"
       :autosave="false"
-      style="height: 100vh;"
     >
       <component slot-scope="data"
         :is="previews[activePreview]"
         :content="data.content"
         base="8px"
+        style="--gap: var(--base4);"
       />
     </f-content-editor>
     </f-theme>

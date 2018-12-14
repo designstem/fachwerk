@@ -1,14 +1,20 @@
-# Big header
+# Markdown tutorial
 
-## Medium header
+Markdown is a simple text format that is converted to HTML automatically.
 
-### Small header
+It supports **simple** *formatting*, ~striking~ text.
 
-#### Smaller header
+Links in text are automatically clickable https://help.github.com/articles/basic-writing-and-formatting-syntax/ and on can also use links with [custom text](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
 
-It supports **simple** *formatting*, ~striking~ text, links like https://help.github.com/articles/basic-writing-and-formatting-syntax/ and also [named](https://help.github.com/articles/basic-writing-and-formatting-syntax/) links.
+For headers use this format:
 
-Adding images is currently tricky, we have to rely on either a  complex Markdown sytanx like `![]\(image_link_here.jpg\)` but we are working on a simpler alternative.
+# h1
+## h2
+### h3
+#### h4
+##### h5
+
+Adding images is currently tricky, we rely on complex syntanx like `![](image_link_here.jpg)` but we are working on a simpler alternative.
 
 For bulletpoints one can use
 

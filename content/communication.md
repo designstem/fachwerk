@@ -1,3 +1,5 @@
+# Component communication
+
 ## Global state
 
 ### Get and set values
@@ -22,7 +24,7 @@ b is currently {{ get('b') }}
 
 ### Using the slider
 
-Lets set up a slider to control value `c`. We need to set `:value` parameter to `get('c')` and set `v-on:input` parameter to `set('c')`, Note that we get the current value using `$event` variable so setting the value becomes `set('c', $event)`
+Lets set up a slider to control value `c`. `:value` will be `get('c')` and `v-on:input` will be`set('c', $event)`. The framework will pick the actual slider value from `$event` variable.
 
 <f-slider :value="get('c')" v-on:input="set('c',$event)" />
 
@@ -32,20 +34,19 @@ c is currently: {{ get('c') }}
 
 ## Global events
 
-### Sending event
+### Sending events
 
 You can send events from any part of the code to any part of the code using `send(name, value)` helper:
 
-<div
-  class="button_tertiary"
-  v-on:click="send('d', 1)"
->
+<button v-on:click="send('d', 1)">
 Send d = 1 message
-</div>
+</button>
 
-<br><br>
+<p />
 
-### Receiving event
+Events are most useful as one-off commands, for example there are several events for navigation: `send('next')`,  `send('prev')` etc. For setting a global state its more useful to use `get()` and `set()` instead.
+
+### Receiving events
 
 Inside the Markdown components, use `<f-receive-data>`:
 
@@ -53,12 +54,10 @@ Inside the Markdown components, use `<f-receive-data>`:
   <pre slot-scope="data">{{ data.value }}</pre>
 </f-receive-data>
 
-Alternative you can listen to the event in `mounted()` hook in your Javascript component:
+Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
 
 <pre>
-...
 mounted() {
   receive('d', value => console.log(value))
 }
-...
 </pre>
