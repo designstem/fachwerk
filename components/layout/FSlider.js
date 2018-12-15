@@ -13,10 +13,10 @@ Technically it is a combination of  \`label\` and \`<input type="range" />\` tag
   `,
   props: {
     title: { default: "Value", type: String },
-    value: { default: 0, type: Number },
-    from: { default: 0, type: Number },
-    to: { default: 100, type: Number },
-    step: { default: 1, type: Number },
+    value: { default: 0, type: [Number,String] },
+    from: { default: 0, type: [Number,String] },
+    to: { default: 100, type: [Number,String] },
+    step: { default: 1, type: [Number,String] },
   },
   template: `
   <div>

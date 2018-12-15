@@ -2,7 +2,7 @@
 
 For graphs and equations we use `<f-scene>` and `<f-math>` components:
 
-#### Circle radius <var>r</var> and diameter <var>d</var>
+#### Circle diameter <var>d</var> and radius <var>r</var> 
 
 <f-scene grid step="1">
   <f-circle

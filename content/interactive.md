@@ -10,7 +10,7 @@ The user can now navigate between slides using <kbd><</kbd>  and <kbd>></kbd> ke
 
 We create a button and send an event `send('next')` when it is clicked. Try it!
 
-<button class="button_primary" v-on:click="send('next')">
+<button class="primary" v-on:click="send('next')">
 Next step
 </button>
 
@@ -22,9 +22,16 @@ Great, we landed to next slide!
 
 You can skip this part if you are eager to see how the interactivity works. Stay around if you want to learn about the layouts first.
 
-<button class="button_primary" v-on:click="send('next')">
-Next step
-</button>
+<f-inline>
+  <button
+    class="secondary"
+    v-on:click="send('prev')"
+  >Prev step</button>
+  <button
+    class="primary"
+    v-on:click="send('next')"
+  >Next step</button>
+</f-inline>
 
 <p />
 
@@ -67,35 +74,47 @@ To organize content into different layout one can try the following:
 ### Slide 3
 
 Now try to set the value higher than `1.5` to move to the next step.
+
 -
+
 #### Controls
 
 <f-slider
   from="1"
   to="2"
   step="0.001"
-  :value="get('r')"
+  :value="get('r', 0)"
   v-on:input="set('r', $event)"
 />
-<div
-  v-if="get('r') > 1.5"
-  class="button_primary"
-  v-on:click="send('next')"
->
-Next
-</div>
+
+<f-inline>
+  <button
+    class="secondary"
+    v-on:click="send('prev')"
+  >Prev step</button>
+  <button
+    v-if="get('r', 0) > 1.5"
+    class="primary"
+    v-on:click="send('next')"
+  >Next step</button>
+</f-inline>
 -
-##### Scene
+
+#### Scene
+
 <f-scene grid>
-  <f-circle :r="get('r')" />
+  <f-circle :r="get('r', 0)" />
 </f-scene>
+
 ---
+
 ## Slide 3
-We are done here, let's reset the global state,`set('r',0)` and send the user back to the first page, `send('first')`.
+
+We are done here, let's reset the global state,`set('r', 0)` and send the user back to the first page, `send('first')`.
 
 <button
-  class="button_primary"
-  v-on:click="set('r',0); send('first')"
+  class="secondary"
+  v-on:click="set('r', 0); send('first')"
 >
 Back to start
 </button>

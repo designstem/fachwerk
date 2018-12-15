@@ -146,6 +146,9 @@ export { FIconGithub };
 
 // Layout
 
+import FInline from "./components/layout/FInline.js";
+export { FInline };
+
 import FCard from "./components/layout/FCard.js";
 export { FCard };
 
@@ -272,6 +275,7 @@ export const sortedComponents = [
   { FArtboard },
 
   // Layout
+  { FInline },
   { FCard },
   { FTable },
   { FHr },
