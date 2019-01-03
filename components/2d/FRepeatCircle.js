@@ -9,8 +9,13 @@ Repeats elements along the circle.
   `,
   example: `
 <f-scene>
+  <f-box />
   <f-repeat-circle>
-    <f-box slot-scope="data" />
+    <f-box
+      slot-scope="data"
+      opacity="0.25"
+      :stroke="color('red')"
+    />
   </f-repeat-circle>
 </f-scene>
   `,

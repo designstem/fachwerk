@@ -10,17 +10,17 @@ import { Object2D } from "./components/2d/2d.js";
 import { range } from "./utils.js";
 import { polarpoints } from "./utils.js";
 
-const FRepeatFlip = {
+const FMirrorY = {
   mixins: [Object2D],
   tag: `2D`,
   description: `
-Repeats clipped elements along the circle, rotating each towards the center of the circle.
+Mirrors children element around vertical y axis.
   `,
   example: `
-<f-scene grid>
-  <f-repeat-slice>
-    <f-box slot-scope="data" />
-  </f-repeat-spin>
+<f-scene>
+  <f-mirror-y>
+    <f-box rotation="{z:10}" />
+  </f-mirror-y>
 </f-scene>
   `,
   props: {
@@ -59,38 +59,99 @@ Repeats clipped elements along the circle, rotating each towards the center of t
     >
       <slot :value="1" />
     </f-group>
-    
+
   </f-group>  
   `
 };
 
-Vue.component("FRepeatFlip", FRepeatFlip);
+const FMirrorX = {
+  mixins: [Object2D],
+  tag: `2D`,
+  description: `
+Mirrors children element around horizontal x axis.
+  `,
+  example: `
+<f-scene>
+  <f-mirror-x>
+    <f-box rotation="{z:10}" />
+  </f-mirror-x>
+</f-scene>
+  `,
+  props: {
+    r: { default: 1, type: [Number, String] },
+    position: { default: () => ({}), type: Object },
+    rotation: { default: () => ({}), type: Object },
+    scale: { default: () => ({}), type: Object },
+    opacity: { default: 1, type: [Number, String] }
+  },
+  methods: { polarpoints, range },
+  computed: {
+    id() { return 'id' + Math.random() }
+  },
+  template: `
+  <f-group
+    :transform="transform"
+    :opacity="opacity"
+  >
+    <defs>
+      <clipPath :id="id">
+      <rect
+          :x="-r"
+          :y="0"
+          :width="r * 2"
+          :height="r"
+        />
+      </clipPath>
+    </defs>
+
+    <f-group :clip-path="'url(#' + id + ')'">
+      <slot :value="0" />
+    </f-group>
+    <f-group
+      :clip-path="'url(#' + id + ')'"
+      transform="scale(1,-1)"
+    >
+      <slot :value="1" />
+    </f-group>
+
+  </f-group>  
+  `
+};
+
+Vue.component("FMirrorX", FMirrorX);
+Vue.component("FMirrorY", FMirrorY);
 
 new Vue({
   mixins: [Init],
   el: "#app",
   methods: { ...utils },
-  data: { r: 1, count: 6 },
+  data: { r: 1, r2: 0.5, count: 6 },
   template: `
-<f-scene grid>
-  <f-repeat-flip>
-  <f-group slot-scope="data2">
+<div>
+  <f-scene grid>
+
+
+  <f-mirror-y>
         <f-circle
-          x="0.1"
-          y="0.25"
-          :r="0.3"
+          r="0.75"
+          y="0.4"
           :fill="color('orange')"
         />
-        <f-circle
-          x="0.5"
-          y="-0.25"
-          :r="0.2"
+</f-mirror-y>
+<f-circle
+          r="0.75"
+          y="0.4"
           :fill="color('red')"
         />
-      </f-group>
-
-  </f-repeat-flip>
+        
+<rrect
+          :x="-r"
+          y="0.4"
+          :width="r * 2"
+          :height="r"
+        />
 </f-scene>
+</div>
   `
 });
 

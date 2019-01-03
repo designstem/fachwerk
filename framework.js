@@ -56,6 +56,12 @@ export { FRepeatSpin };
 import FRepeatSlice from "./components/2d/FRepeatSlice.js";
 export { FRepeatSlice };
 
+import FMirrorX from "./components/2d/FMirrorX.js";
+export { FMirrorX };
+
+import FMirrorY from "./components/2d/FMirrorY.js";
+export { FMirrorY };
+
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
@@ -243,6 +249,8 @@ export const sortedComponents = [
   { FRepeatCircle },
   { FRepeatSpin },
   { FRepeatSlice },
+  { FMirrorX },
+  { FMirrorY },
 
   // 3D
 

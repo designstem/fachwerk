@@ -5,12 +5,22 @@ export default {
   mixins: [Object2D],
   tag: `2D`,
   description: `
-Repeats clipped elements along the circle, rotating each towards the center of the circle.
+Clips the children element and rotating each towards the center of the circle.
+
+When \`:count="2"\`, the children element is horizontally mirrored around x axis, similar to \`<f-mirror-x>\`
   `,
   example: `
 <f-scene>
+  <f-box
+    :rotation="{z:10}"
+    opacity="0.25"
+  />
   <f-repeat-slice>
-    <f-box slot-scope="data" />
+    <f-box
+      :rotation="{z:10}"
+      opacity="0.75"
+      :stroke="color('red')"/>
+    />
   </f-repeat-slice>
 </f-scene>
   `,
@@ -24,7 +34,8 @@ Repeats clipped elements along the circle, rotating each towards the center of t
   },
   methods: { polarpoints, range },
   computed: {
-    id() { return Math.random() }
+    id1() { return `id1${Math.random()}` },
+    id2() { return `id2${Math.random()}` }
   },
   template: `
   <f-group
@@ -32,7 +43,7 @@ Repeats clipped elements along the circle, rotating each towards the center of t
     :opacity="opacity"
   >
     <defs>
-      <clipPath :id="id">
+      <clipPath :id="id1">
         <polygon
           :points="[
             {x: 0, y: 0},
@@ -41,14 +52,34 @@ Repeats clipped elements along the circle, rotating each towards the center of t
           ].map(p => p.x + ',' + p.y).join(' ')"
         />
       </clipPath>
+      <clipPath :id="id2">
+        <rect
+          x="0"
+          :y="-r"
+          :width="r"
+          :height="r * 2"
+        />
+      </clipPath>
     </defs>
     <f-group
+      v-if="count > 2"
       v-for="(a,i) in range(0,360,360 / count)"
       :key="i"
       :rotation="{z: a}"
-      :clip-path="'url(#' + id + ')'"
+      :clip-path="'url(#' + id1 + ')'"
     >
       <slot :value="i" />
+    </f-group>
+    <f-group v-if="count == 2">
+      <f-group :clip-path="'url(#' + id2 + ')'">
+        <slot :value="0" />
+      </f-group>
+      <f-group
+        :clip-path="'url(#' + id2 + ')'"
+        transform="scale(-1,1)"
+      >
+        <slot :value="1" />
+      </f-group>
     </f-group>
   </f-group>  
   `

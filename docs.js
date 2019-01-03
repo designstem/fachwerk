@@ -20,6 +20,7 @@ new Vue({
   el: "#app",
   data: () => ({
     contentFiles: [
+      { title: "Building patterns", file: "./content/patterns.md", preview: 0 },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       { title: "Interactive slides", file: "./content/interactive.md", preview: 1 },
       { title: "Component communication", file: "./content/communication.md", preview: 0 },
@@ -29,7 +30,7 @@ new Vue({
       { title: "Now it is your turn!", file: "./content/empty.md", preview: 0 },
     ],
     content: "",
-    activeContent: 2,
+    activeContent: 0,
     previews: [
       components.FContentDocument,
       components.FContentSlides

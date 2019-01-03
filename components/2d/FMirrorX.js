@@ -1,47 +1,62 @@
 import { Object2D } from "./2d.js";
-import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
   tag: `2D`,
   description: `
-Repeats elements along the circle, rotating each towards the center of the circle.
+Mirrors children element around horizontal x axis.
   `,
   example: `
 <f-scene>
-  <f-box />
-  <f-repeat-spin>
+  <f-box
+    :rotation="{z:10}"
+    opacity="0.25"
+  />
+  <f-mirror-x>
     <f-box
-      slot-scope="data"
+      :rotation="{z:10}"
       opacity="0.75"
       :stroke="color('red')"
     />
-  </f-repeat-spin>
+  </f-mirror-x>
 </f-scene>
   `,
   props: {
-    count: { default: 6, type: [Number, String] },
     r: { default: 1, type: [Number, String] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: [Number, String] }
   },
-  methods: { range },
+  computed: {
+    id() { return 'id' + Math.random() }
+  },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group
-      v-for="(a,i) in range(0,360,360 / count)"
-      :key="i"
-      :rotation="{z: a}"
-    >
-      <f-group :position="{x: r}">
-        <slot :value="i" />
-      </f-group>
+    <defs>
+      <clipPath :id="id">
+      <rect
+          :x="-r"
+          :y="0"
+          :width="r * 2"
+          :height="r"
+        />
+      </clipPath>
+    </defs>
+
+    <f-group :clip-path="'url(#' + id + ')'">
+      <slot :value="0" />
     </f-group>
+    <f-group
+      :clip-path="'url(#' + id + ')'"
+      transform="scale(1,-1)"
+    >
+      <slot :value="1" />
+    </f-group>
+
   </f-group>  
   `
-};
+}

@@ -9,8 +9,13 @@ Repeats the contents in a shifted rectangular grid.
   `,
   example: `
 <f-scene>
+  <f-box />
   <f-repeat-shift>
-    <f-box slot-scope="data" />
+    <f-box
+      slot-scope="data"
+      opacity="0.5"
+      :stroke="color('red')"
+    />
   </f-repeat-shift>
 </f-scene>
   `,

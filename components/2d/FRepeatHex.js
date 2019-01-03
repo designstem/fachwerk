@@ -9,8 +9,14 @@ Repeats the contents in a hexagonal grid.
   `,
   example: `
 <f-scene>
+  <f-regularpolygon r="0.5" />
   <f-repeat-hex>
-    <f-regularpolygon slot-scope="data" r="0.5" />
+    <f-regularpolygon
+      slot-scope="data"
+      r="0.5"
+      opacity="0.25"
+      :stroke="color('red')"
+    />
   </f-repeat-hex>
 </f-scene>
   `,

@@ -9,8 +9,14 @@ Repeats the contents in a 2D grid.
   `,
   example: `
 <f-scene>
+  <f-circle r="0.5" />  
   <f-repeat-grid>
-    <f-circle slot-scope="data" />
+    <f-circle
+      slot-scope="data"
+      r="0.5"
+      opacity="0.25"
+      :stroke="color('red')"
+    />
   </f-repeat-grid>
 </f-scene>
   `,
