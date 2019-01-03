@@ -10,21 +10,20 @@ import { Object2D } from "./components/2d/2d.js";
 import { range } from "./utils.js";
 import { polarpoints } from "./utils.js";
 
-const FRepeatSlice = {
+const FRepeatFlip = {
   mixins: [Object2D],
   tag: `2D`,
   description: `
 Repeats clipped elements along the circle, rotating each towards the center of the circle.
   `,
   example: `
-  <f-scene grid>
+<f-scene grid>
   <f-repeat-slice>
     <f-box slot-scope="data" />
   </f-repeat-spin>
 </f-scene>
   `,
   props: {
-    count: { default: 6, type: [Number, String] },
     r: { default: 1, type: [Number, String] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
@@ -33,7 +32,7 @@ Repeats clipped elements along the circle, rotating each towards the center of t
   },
   methods: { polarpoints, range },
   computed: {
-    id() { return Math.random() }
+    id() { return 'id' + Math.random() }
   },
   template: `
   <f-group
@@ -42,28 +41,30 @@ Repeats clipped elements along the circle, rotating each towards the center of t
   >
     <defs>
       <clipPath :id="id">
-        <polygon
-          :points="[
-            {x: 0, y: 0},
-            {x: polarpoints(count,r)[0].x, y: polarpoints(count,r)[0].y },
-            {x: polarpoints(count,r)[1].x, y: polarpoints(count,r)[1].y }
-          ].map(p => p.x + ',' + p.y).join(' ')"
+        <rect
+          x="0"
+          :y="-r"
+          :width="r"
+          :height="r * 2"
         />
       </clipPath>
     </defs>
     <f-group
-      v-for="(a,i) in range(0,360,360 / count)"
-      :key="i"
-      :rotation="{z: a}"
       :clip-path="'url(#' + id + ')'"
     >
-      <slot :value="i" stroke="red" />
+      <slot :value="0" />
+    </f-group>
+    <f-group
+      :clip-path="'url(#' + id + ')'"
+      transform="scale(-1,1)"
+    >
+      <slot :value="1" />
     </f-group>
   </f-group>  
   `
 };
 
-Vue.component("FRepeatSlice", FRepeatSlice);
+Vue.component("FRepeatFlip", FRepeatFlip);
 
 new Vue({
   mixins: [Init],
@@ -72,9 +73,23 @@ new Vue({
   data: { r: 1, count: 6 },
   template: `
 <f-scene grid>
-  <f-repeat-slice>
-    <f-box slot-scope="data" />
-  </f-repeat-spin>
+  <f-repeat-flip>
+  <f-group slot-scope="data2">
+        <f-circle
+          x="0.1"
+          y="0.25"
+          :r="0.3"
+          :fill="color('orange')"
+        />
+        <f-circle
+          x="0.5"
+          y="-0.25"
+          :r="0.2"
+          :fill="color('red')"
+        />
+      </f-group>
+
+  </f-repeat-flip>
 </f-scene>
   `
 });

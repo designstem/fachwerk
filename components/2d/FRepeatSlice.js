@@ -48,7 +48,7 @@ Repeats clipped elements along the circle, rotating each towards the center of t
       :rotation="{z: a}"
       :clip-path="'url(#' + id + ')'"
     >
-      <slot :value="i" stroke="red" />
+      <slot :value="i" />
     </f-group>
   </f-group>  
   `
