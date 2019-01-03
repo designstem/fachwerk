@@ -15,9 +15,9 @@ Repeats the contents in a hexagonal grid.
 </f-scene>
   `,
   props: {
-    step: { default: 1, type: Number },
-    width: { default: 4, type: Number },
-    height: { default: 4, type: Number },
+    step: { default: 1, type: [Number,String] },
+    width: { default: 4, type: [Number,String] },
+    height: { default: 4, type: [Number,String] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },

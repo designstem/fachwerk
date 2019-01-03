@@ -13,8 +13,8 @@ export default {
 </f-scene>
   `,
   props: {
-    x: { default: false, type: [Number, Boolean] },
-    y: { default: false, type: [Number, Boolean] },
+    x: { default: false, type: [Number, String, Boolean] },
+    y: { default: false, type: [Number, String, Boolean] },
     count: { default: 6, type: [Number,String] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },

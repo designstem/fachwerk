@@ -10,11 +10,11 @@ import { Object2D } from "./components/2d/2d.js";
 import { range } from "./utils.js";
 import { polarpoints } from "./utils.js";
 
-const FRepeatSpin = {
+const FRepeatSlice = {
   mixins: [Object2D],
   tag: `2D`,
   description: `
-Repeats elements along the circle, rotating each towards the center of the circle.
+Repeats clipped elements along the circle, rotating each towards the center of the circle.
   `,
   example: `
 <f-scene>
@@ -31,80 +31,126 @@ Repeats elements along the circle, rotating each towards the center of the circl
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: [Number, String] }
   },
-  methods: { range },
+  methods: { polarpoints, range },
+  computed: {
+    id() { return Math.random() }
+  },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
+    <defs>
+      <clipPath :id="id">
+        <polygon
+          :points="[
+            {x: 0, y: 0},
+            {x: polarpoints(count,r)[0].x, y: polarpoints(count,r)[0].y },
+            {x: polarpoints(count,r)[1].x, y: polarpoints(count,r)[1].y }
+          ].map(p => p.x + ',' + p.y).join(' ')"
+        />
+      </clipPath>
+    </defs>
     <f-group
       v-for="(a,i) in range(0,360,360 / count)"
       :key="i"
       :rotation="{z: a}"
+      :clip-path="'url(#' + id + ')'"
     >
-      <f-group :position="{x: r}">
-        <slot :value="i" />
-      </f-group>
+      <slot :value="i" stroke="red" />
     </f-group>
   </f-group>  
   `
 };
 
-const FRepeatCircle = {
-  mixins: [Object2D],
-  tag: `2D`,
-  description: `
-Repeats elements along the circle.
-  `,
-  example: `
-<f-scene>
-  <f-repeat-circle>
-    <f-box slot-scope="data" />
-  </f-repeat-circle>
-</f-scene>
-  `,
-  props: {
-    count: { default: 6, type: [Number, String] },
-    r: { default: 1, type: [Number, String] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: [Number, String] }
-  },
-  methods: { polarpoints },
-  template: `
-  <f-group
-    :transform="transform"
-    :opacity="opacity"
-  >
-    <f-group
-      v-for="(p,i) in polarpoints(count,r)"
-      :key="i"
-      :position="p"
-    >
-      <slot :value="i" />
-    </f-group>
-  </f-group>  
-  `
-};
-
-Vue.component("FRepeatSpin", FRepeatSpin);
-Vue.component("FRepeatCircle", FRepeatCircle);
+Vue.component("FRepeatSlice", FRepeatSlice);
 
 new Vue({
   mixins: [Init],
   el: "#app",
   methods: { ...utils },
+  data: { r: 1, count: 6 },
   template: `
-<f-theme theme="dark">
-<f-scene grid width="1000" height="1000">
-  <f-repeat-hex step="1">
-    <f-repeat-spin slot-scope="data" count="36" r="0.1">
-      <f-regularpolygon stroke="white" :stroke-width="0.5" slot-scope="data" opacity="0.5" />
-    </f-repeat-spin>
-  </f-repeat-grid>
+<div>
+<f-scene grid> 
+  <f-group slot-scope="data2">
+    <f-circle
+      x="0.1"
+      y="0.25"
+      :r="0.46"
+      :fill="color('orange')"
+    />
+    <f-circle
+      x="-0.1"
+      y="-0.25"
+      :r="0.2"
+      :fill="color('red')"
+    />
+  </f-group>
 </f-scene>
-</f-theme>
+<f-scene grid> 
+    <f-repeat-hex step="1">
+    <f-repeat-slice :count="3" r="3">
+      <f-group slot-scope="data2">
+        <f-circle
+          x="0.1"
+          y="0.25"
+          :r="0.46"
+          :fill="color('orange')"
+        />
+        <f-circle
+          x="-0.1"
+          y="-0.25"
+          :r="0.2"
+          :fill="color('red')"
+        />
+      </f-group>
+    </f-repeat-slice>
+  </f-repeat-hex>
+</f-scene>
+<f-scene grid> 
+    <f-repeat-hex step="1">
+    <f-repeat-slice :count="6" r="5">
+      <f-group slot-scope="data2">
+        <f-circle
+          x="0.1"
+          y="0.25"
+          :r="0.46"
+          :fill="color('orange')"
+        />
+        <f-circle
+          x="-0.1"
+          y="-0.25"
+          :r="0.2"
+          :fill="color('red')"
+        />
+      </f-group>
+    </f-repeat-slice>
+  </f-repeat-hex>
+</f-scene>
+<f-scene grid> 
+    <f-repeat-hex step="1" :scale="{x: 1.5,y: 1.5}">
+    <f-repeat-circle count="12" :scale="{x: 0.55,y: 0.55}">
+    <f-repeat-slice :count="6" r="5">
+      <f-group slot-scope="data2">
+        <f-circle
+          x="0.1"
+          y="0.25"
+          :r="0.46"
+          :fill="color('orange')"
+        />
+        <f-circle
+          x="-0.1"
+          y="-0.25"
+          :r="0.2"
+          :fill="color('red')"
+        />
+      </f-group>
+    </f-repeat-slice>
+</f-repeat-circle>
+  </f-repeat-hex>
+</f-scene>
+</div>
   `
 });
 
