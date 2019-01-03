@@ -23,7 +23,7 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
 </f-scene>
   `,
   props: {
-    width: { default: 250, type: [Number,String] },
+    width: { default: 250, type: [Number,String], description: 'Scene width in pixels' },
     height: { default: 250, type: [Number,String] },
     grid: { default: false, type: [Boolean,String] },
     step: { default: 0.5, type: [Number,String] }

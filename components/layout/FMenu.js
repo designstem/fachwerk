@@ -24,7 +24,7 @@ Vertical menu, to be used with \`v-model\`.
           fontWeight: 'bold',
           borderBottom: '3px solid var(--primary)',
           cursor: 'pointer',
-          color: i === value ? 'var(--primary)' : 'var(--secondary)',
+          color: i === value ? 'var(--primary)' : 'var(--primary)',
           background: i === value ? 'var(--tertiary)' : 'none',
           height: 'calc(var(--base) * 8)'
         }"

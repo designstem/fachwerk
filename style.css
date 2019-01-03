@@ -116,6 +116,7 @@ small {
   --font-size: calc(var(--base) * 2);
   color: var(--primary);
   font-size: 0.8em;
+  line-height: 0.5em;
 }
 img {
   width: 100%;
@@ -275,7 +276,7 @@ var {
 /* Text */
 
 blockquote, .text {
-  font-family: var(--font-sansserif);
+  font-family: var(--font-serif);
   font-size: calc(var(--base) * 2.75);
   line-height: calc(var(--base) * 3);
   color: var(--primary);

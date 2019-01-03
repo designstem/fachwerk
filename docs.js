@@ -1,6 +1,6 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
-import { kebabCase } from "./utils.js"
+import { kebabCase } from "./utils.js";
 
 import Init from "./components/Init.js";
 
@@ -12,8 +12,7 @@ new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
-    contentFiles: [
-      { title: "<f-scene>", name: "f-grid" },
+    contentPages: [
       { title: "Building patterns", file: "./content/patterns.md", preview: 0 },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       {
@@ -44,24 +43,43 @@ new Vue({
     previews: [components.FContentDocument, components.FContentSlides],
     activePreview: 0
   }),
+  computed: {
+    contentFiles() {
+      return this.contentPages.concat(
+        ...sortedComponents
+          .map(c => Object.keys(c)[0])
+          .map(c => ({ title: `<${kebabCase(c)}>`, name: c }))
+      );
+    }
+  },
   methods: {
     propRows(props) {
+      console.log(props)
       return Object.entries(props).map(p => ({
         Name: `<code>${p[0]}</code>`,
         Default: `<code>${p[1].default}</code>`,
         Type: `<code>${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
-        }</code>`
-      }))
+        }</code>`,
+        Description: p[1].description ? `${p[1].description}` : p[1].description
+      }));
     },
     generateContent(name, c) {
-      return `## &lt;${name}>
-${c.description.trim()}
+      return `## &lt;${kebabCase(name)}>
+${c.description ? c.description : ''}
+${c.example ? c.example.trim() : ''}
 
-${c.example.trim()}
+${c.props ? `<p />
 
-${c.props && `<f-table :rows='${JSON.stringify(this.propRows(c.props))}' style="--lightblue: transparent" />`}
-      `
+##### Props` : ''}
+
+${c.props ?
+        `<f-table :rows='${JSON.stringify(
+          this.propRows(c.props),
+          null,
+          2
+        ).replace(/'/g,'\\"')}' style="--lightblue: transparent" />` : ''}
+      ` 
     }
   },
   mounted() {
@@ -77,8 +95,12 @@ ${c.props && `<f-table :rows='${JSON.stringify(this.propRows(c.props))}' style="
             });
         }
         if (this.contentFiles[activeContent].name) {
-          this.content = this.generateContent(this.contentFiles[activeContent].name,
-            sortedComponents.map(c => Object.entries(c)[0]).filter(c => kebabCase(c[0]) == this.contentFiles[activeContent].name).map(c => c[1])[0]
+          this.content = this.generateContent(
+            this.contentFiles[activeContent].name,
+            sortedComponents
+              .map(c => Object.entries(c)[0])
+              .filter(c => c[0] == this.contentFiles[activeContent].name)
+              .map(c => c[1])[0]
           );
           this.activePreview = 0;
         }
@@ -97,7 +119,7 @@ ${c.props && `<f-table :rows='${JSON.stringify(this.propRows(c.props))}' style="
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
     <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr; --rows:400vh;">
-    <f-menu :items="contentFiles.map(c => c.title)" v-model="activeContent" />
+    <f-menu style="overflow-y: auto" :items="contentFiles.map(c => c.title)" v-model="activeContent" />
     <f-vr />
     <f-content-editor
       :content="content"

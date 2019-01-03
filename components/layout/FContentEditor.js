@@ -16,13 +16,13 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
 </f-theme>
   `,
   props: {
-    content: { default: '', type: String },
+    content: { default: "", type: String },
     autosave: { default: false, type: Boolean },
-    autosaveId: { default: "0", type: String },
+    autosaveId: { default: "0", type: String }
   },
   data: function() {
     return {
-      innerContent: '',
+      innerContent: "",
       changed: true,
       fullscreen: false
     };
@@ -67,10 +67,9 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
         this.fullscreen = !this.fullscreen;
       }
     });
-
   },
   template: `
-  <div class="f-content-editor">
+  <div class="f-content-editor" :style="{'--f-content-editor-cols': fullscreen ? '6fr 1fr' : '1fr 1fr'}">
     <div v-if="!fullscreen" style="position: relative;">
       <f-editor
         v-model="innerContent"
