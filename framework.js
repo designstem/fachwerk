@@ -47,6 +47,12 @@ export { FRepeatShift };
 import FRepeatHex from "./components/2d/FRepeatHex.js";
 export { FRepeatHex };
 
+import FRepeatCircle from "./components/2d/FRepeatCircle.js";
+export { FRepeatCircle };
+
+import FRepeatSpin from "./components/2d/FRepeatSpin.js";
+export { FRepeatSpin };
+
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
@@ -230,6 +236,8 @@ export const sortedComponents = [
   { FRepeatGrid },
   { FRepeatShift },
   { FRepeatHex },
+  { FRepeatCircle },
+  { FRepeatSpin },
 
   // 3D
 
