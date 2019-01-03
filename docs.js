@@ -1,52 +1,87 @@
 import * as components from "./framework.js";
-import * as utils from "./utils.js";
+import { sortedComponents } from "./framework.js";
+import { kebabCase } from "./utils.js"
+
+import Init from "./components/Init.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
 }
-const Init = {
-  beforeCreate() {
-    Vue.prototype.$global = new Vue({ data: { state: {} } });
-    Vue.config.errorHandler = (err, vm, info) => {
-      console.log(err);
-    };
-    Vue.config.warningHandler = (err, vm, info) => {
-      console.log(err);
-    };
-  }
-};
+
 new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
     contentFiles: [
+      { title: "<f-scene>", name: "f-grid" },
       { title: "Building patterns", file: "./content/patterns.md", preview: 0 },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
-      { title: "Interactive slides", file: "./content/interactive.md", preview: 1 },
-      { title: "Component communication", file: "./content/communication.md", preview: 0 },
+      {
+        title: "Interactive slides",
+        file: "./content/interactive.md",
+        preview: 1
+      },
+      {
+        title: "Component communication",
+        file: "./content/communication.md",
+        preview: 0
+      },
       { title: "Math basics", file: "./content/math.md", preview: 0 },
-      { title: "Drawing the spirals", file: "./content/spirals2.md", preview: 1 },
-      { title: "Various experiments", file: "./content/experiments.md", preview: 0 },
-      { title: "Now it is your turn!", file: "./content/empty.md", preview: 0 },
+      {
+        title: "Drawing the spirals",
+        file: "./content/spirals2.md",
+        preview: 1
+      },
+      {
+        title: "Various experiments",
+        file: "./content/experiments.md",
+        preview: 0
+      },
+      { title: "Now it is your turn!", file: "./content/empty.md", preview: 0 }
     ],
     content: "",
     activeContent: 0,
-    previews: [
-      components.FContentDocument,
-      components.FContentSlides
-    ],
-    activePreview: 0,
+    previews: [components.FContentDocument, components.FContentSlides],
+    activePreview: 0
   }),
+  methods: {
+    propRows(props) {
+      return Object.entries(props).map(p => ({
+        Name: `<code>${p[0]}</code>`,
+        Default: `<code>${p[1].default}</code>`,
+        Type: `<code>${
+          Array.isArray(p[1].default) ? "array" : typeof p[1].default
+        }</code>`
+      }))
+    },
+    generateContent(name, c) {
+      return `## &lt;${name}>
+${c.description.trim()}
+
+${c.example.trim()}
+
+${c.props && `<f-table :rows='${JSON.stringify(this.propRows(c.props))}' style="--lightblue: transparent" />`}
+      `
+    }
+  },
   mounted() {
     this.$watch(
       "activeContent",
       activeContent => {
-        fetch(this.contentFiles[activeContent].file)
-          .then(res => res.text())
-          .then(content => {
-            this.content = content;
-            this.activePreview = this.contentFiles[activeContent].preview
-          });
+        if (this.contentFiles[activeContent].file) {
+          fetch(this.contentFiles[activeContent].file)
+            .then(res => res.text())
+            .then(content => {
+              this.content = content;
+              this.activePreview = this.contentFiles[activeContent].preview;
+            });
+        }
+        if (this.contentFiles[activeContent].name) {
+          this.content = this.generateContent(this.contentFiles[activeContent].name,
+            sortedComponents.map(c => Object.entries(c)[0]).filter(c => kebabCase(c[0]) == this.contentFiles[activeContent].name).map(c => c[1])[0]
+          );
+          this.activePreview = 0;
+        }
       },
       { immediate: true }
     );
@@ -79,3 +114,21 @@ new Vue({
 </div>
   `
 });
+
+//     // propRows(props) {
+//     //   return Object.entries(props).map(p => ({
+//     //     Name: `<code>${p[0]}</code>`,
+//     //     Default: `<code>${p[1].default}</code>`,
+//     //     Type: `<code>${
+//     //       Array.isArray(p[1].default) ? "array" : typeof p[1].default
+//     //     }</code>`
+//     //   }))
+//     // },
+//     generateContent(name, c) {
+//       return `## &lt;${name}>
+// ${c.description.trim()}
+
+// ${c.example.trim()}
+
+// <f-table :rows="[]" style="--lightblue: transparent" />
+//       `
