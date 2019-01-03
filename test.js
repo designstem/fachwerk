@@ -49,9 +49,8 @@ Repeats clipped elements along the circle, rotating each towards the center of t
         />
       </clipPath>
     </defs>
-    <f-group
-      :clip-path="'url(#' + id + ')'"
-    >
+
+    <f-group :clip-path="'url(#' + id + ')'">
       <slot :value="0" />
     </f-group>
     <f-group
@@ -60,6 +59,7 @@ Repeats clipped elements along the circle, rotating each towards the center of t
     >
       <slot :value="1" />
     </f-group>
+    
   </f-group>  
   `
 };
