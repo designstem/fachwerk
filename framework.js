@@ -53,6 +53,9 @@ export { FRepeatCircle };
 import FRepeatSpin from "./components/2d/FRepeatSpin.js";
 export { FRepeatSpin };
 
+import FRepeatSlice from "./components/2d/FRepeatSlice.js";
+export { FRepeatSlice };
+
 // 3D
 
 import FScene3 from "./components/3d/FScene3.js";
@@ -221,6 +224,7 @@ import FArtboard from "./components/experimental/FArtboard.js";
 export { FArtboard };
 
 export const sortedComponents = [
+
   // 2D
 
   { FScene },
@@ -238,6 +242,7 @@ export const sortedComponents = [
   { FRepeatHex },
   { FRepeatCircle },
   { FRepeatSpin },
+  { FRepeatSlice },
 
   // 3D
 

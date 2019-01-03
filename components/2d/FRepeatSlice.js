@@ -1,26 +1,17 @@
-import * as components from "./framework.js";
-import * as utils from "./utils.js";
-import Init from "./components/Init.js";
+import { Object2D } from "./2d.js";
+import { range, polarpoints } from "../../utils.js";
 
-for (const name in components) {
-  Vue.component(name, components[name]);
-}
-
-import { Object2D } from "./components/2d/2d.js";
-import { range } from "./utils.js";
-import { polarpoints } from "./utils.js";
-
-const FRepeatSlice = {
+export default {
   mixins: [Object2D],
   tag: `2D`,
   description: `
 Repeats clipped elements along the circle, rotating each towards the center of the circle.
   `,
   example: `
-  <f-scene grid>
+<f-scene>
   <f-repeat-slice>
     <f-box slot-scope="data" />
-  </f-repeat-spin>
+  </f-repeat-slice>
 </f-scene>
   `,
   props: {
@@ -62,54 +53,3 @@ Repeats clipped elements along the circle, rotating each towards the center of t
   </f-group>  
   `
 };
-
-Vue.component("FRepeatSlice", FRepeatSlice);
-
-new Vue({
-  mixins: [Init],
-  el: "#app",
-  methods: { ...utils },
-  data: { r: 1, count: 6 },
-  template: `
-<f-scene grid>
-  <f-repeat-slice>
-    <f-box slot-scope="data" />
-  </f-repeat-spin>
-</f-scene>
-  `
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import Init from './components/Init.js'
-
-new Vue({
-  mixins: [Init],
-  el: "#app",
-  methods: { ...utils },
-  data: { b: 0 },
-  template: `
-<div>
-  <f-slider :value="b" @input="send('b',$event)" />
-  <f-slider :value="get('a')" @input="set('a',$event)" />
-  {{ get('a') }}
-  {{ b }}
-</div>
-  `,
-  mounted() {
-    this.receive('b', b => this.b = parseInt(b))
-  }
-});
-
-*/
