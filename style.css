@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,500i,700,700i|Cousine:400,700|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,500,500i,700,700i|Cousine:400,700|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
 
 :root {
-  --font-serif: IBM Plex Sans, sans-serif;
-  --font-sansserif: IBM Plex Serif, sans-serif;
-  --font-mono: Cousine, sans-serif;
+  --font-sansserif: IBM Plex Sans, sans-serif;
+  --font-serif: IBM Plex Serif, serif;
+  --font-mono: Cousine, monospace;
 
   --white: #ffffff;
   --darkestgray: #222222; 
@@ -57,7 +57,7 @@
 /* Body */
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sansserif);
   font-size: calc(var(--base) * 2);
   margin: 0;
   /*color: var(--primary);*/

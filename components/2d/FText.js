@@ -24,8 +24,8 @@ Adds a text to the \`f-scene\`.
   template: `
   <f-group :position="{x: x, y: y}">
     <text
-      dy="-0.2"
       text-anchor="middle"
+      alignment-baseline="middle"
       transform="scale(1,-1)"
       :style="{
         fontFamily: 'var(--font-mono)',
