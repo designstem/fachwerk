@@ -1,6 +1,6 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
-import { kebabCase, utilsDocs } from "./utils.js";
+import { kebabCase, titleCase, utilsDocs, utilsDocs3 } from "./utils.js";
 
 import Init from "./components/Init.js";
 
@@ -84,11 +84,19 @@ new Vue({
   }),
   computed: {
     menuItems() {
+      let a = Object.entries(utilsDocs3()).map(u => {
+        return {
+          title: `${u[0]} utilities`,
+          utils: true,
+          items: Object.keys(u[1]).map(i => ({ title: i }))
+        }
+      })
       return this.files.concat(
         ["2D", "2D repeat", "3D", "Data", "Transitions", "Content", "Layout"]
           .map(tag => {
             return {
               title: `${tag} components`,
+              component: true,
               tag,
               items: sortedComponents
                 .map(c => Object.entries(c)[0])
@@ -96,13 +104,22 @@ new Vue({
                 .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
             };
           })
-          .concat([
-            {
-              title: "JS utils",
+          // .concat([
+          //   {
+          //     title: "JS utils",
+          //     utils: true,
+          //     items: Object.entries(utilsDocs()).map(d => ({ title: d[0] }))
+          //   }
+          // ])
+          .concat(Object.entries(utilsDocs3()).map(u => {
+            return {
+              title: `${titleCase(u[0])} utilities`,
               utils: true,
-              items: Object.entries(utilsDocs()).map(d => ({ title: d[0] }))
+              tag: u[0],
+              items: Object.keys(u[1]).map(i => ({ title: i }))
             }
-          ])
+          }))
+
       );
     }
   },
@@ -171,7 +188,7 @@ ${content}
         }
 
         // Compoments
-        if (this.menuItems[activeItem[0]].tag) {
+        if (this.menuItems[activeItem[0]].component) {
           this.content = this.generateContent(
             this.menuItems[activeItem[0]].items[activeItem[1]].title,
             sortedComponents
@@ -190,7 +207,7 @@ ${content}
         if (this.menuItems[activeItem[0]].utils) {
           this.content = this.generateUtils(
             this.menuItems[activeItem[0]].items[activeItem[1]].title,
-            utilsDocs()[
+            utilsDocs3()[this.menuItems[activeItem[0]].tag][
               this.menuItems[activeItem[0]].items[activeItem[1]].title
             ].trim()
           );

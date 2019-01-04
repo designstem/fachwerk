@@ -4,12 +4,16 @@ let d = [];
 
 let d2 = {};
 
+let d3 = {
+  color: {}
+};
+
 const getCssVariable = (variable, el = document.body) =>
   getComputedStyle(document.body).getPropertyValue(variable);
 
 /* Colors */
 
-d2.color = `
+d3.color.color = `
 
 \`color('name')\`
 
@@ -24,8 +28,6 @@ Returns a color value. If \`name\` matches one of framework colors, framework co
 
     {{ color('red') }}
     {{ color('rebeccapurple')}}
-
-
 
 `;
 
@@ -502,6 +504,11 @@ const parseColumns = slide => {
 const kebabCase = string =>
   string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
+const titleCase = string =>
+  string
+    .split(" ")
+    .map(([h, ...t]) => h.toUpperCase() + t.join("").toLowerCase());
+
 const debounce = (fn, time) => {
   let timeout;
   return function() {
@@ -579,6 +586,7 @@ const parseCoords = c => {
 
 const docs = () => d;
 const utilsDocs = () => d2;
+const utilsDocs3 = () => d3;
 
 export {
   getCssVariable,
@@ -609,6 +617,7 @@ export {
   parseColumns,
   cleanColumns,
   kebabCase,
+  titleCase,
   debounce,
   send,
   receive,
@@ -616,5 +625,6 @@ export {
   get,
   parseCoords,
   docs,
-  utilsDocs
+  utilsDocs,
+  utilsDocs3
 };
