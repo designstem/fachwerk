@@ -1,15 +1,6 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
 import { kebabCase } from "./utils.js";
-import { docs } from '../utils.js'
-
-// export default {
-//   components: { Markdown },
-//   data: () => ({ docs: docs() }),
-//   template: `
-//       <Markdown :content="docs.join('<br><p />')" />
-//   `
-// }
 
 import Init from "./components/Init.js";
 
