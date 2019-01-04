@@ -146,13 +146,12 @@ ${
       <p style="margin: 0;"><kbd>Alt</kbd> + <kbd>F</kbd> for fullscreen, <kbd>Alt</kbd> + <kbd>T</kbd> for dark theme</p>
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
-    <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr; --rows:400vh;">
+    <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
     <f-menu
       style="overflow-y: auto"
       :items="menuItems"
       v-model="activeItem"
     />
-    <f-vr />
     <f-content-editor
       :content="content"
       :autosave="false"
