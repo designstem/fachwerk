@@ -4,8 +4,13 @@ let d = [];
 
 let d2 = {};
 
-let d3 = {
-  color: {}
+let u = {
+  color: {},
+  math: {},
+  array: {},
+  string: {},
+  state: {},
+  other: {}
 };
 
 const getCssVariable = (variable, el = document.body) =>
@@ -13,13 +18,13 @@ const getCssVariable = (variable, el = document.body) =>
 
 /* Colors */
 
-d3.color.color = `
+u.color.color = `
 
 \`color('name')\`
 
 Returns a color value. If \`name\` matches one of framework colors, framework color value is returned. If not, a standard CSS color name is returned.
 
-#### Example:
+#### Example
 
     color('red')
     color('rebeccapurple')
@@ -38,18 +43,18 @@ const color = name => {
 
 /* Color functions */
 
-d2.rgb = `
+u.color.rgb = `
 
 \`rgb(r, g, b, a = false)\`
 
 Outputs a CSS \`rgba()\` string
 
-#### Example:
+#### Example
 
     rgb(50,100,50,0.5)
     rgb(50,100,50)
 
-#### Output:
+#### Output
 
     {{ rgb(50,100,50,0.5) }}
     {{ rgb(50,100,50) }}
@@ -59,7 +64,8 @@ Outputs a CSS \`rgba()\` string
 const rgb = (r, g, b, a = false) =>
   a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
-d2.hsl = `
+
+u.color.hsl = `
 
 \`hsl(h, s = 100, l = 50, a = 1)\`
 
@@ -81,7 +87,7 @@ Outputs a CSS \`hsla()\` string
 
 const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
 
-d2.scale = `
+u.math.scale = `
 
 \`scale(value, start1, stop1, start2 = -2, stop2 = 2)\`
 
@@ -89,11 +95,11 @@ Scales linearily the input \`value\`
 from the input range between \`start1\` and \`stop1\`
 to the output range  \`start2\` and \`stop2\`.
 
-#### Example:
+#### Example
 
     scale(50, 0, 100, 0, 1)
 
-#### Output:
+#### Output
 
     {{ scale(50, 0, 100, 0, 1) }}
 
@@ -103,18 +109,18 @@ const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
   return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 };
 
-d2.round = `
+u.math.round = `
 
 \`round(value, decimals = 0)\`
 
 Rounds a number \`value\` to optional \`decimals\`.
 
-Example:
+Example
     
     round(0.1234)
     round(0.1234, 2)
 
-Output:
+Output
   
     {{ round(0.1234) }}
     {{ round(0.1234, 2) }}
@@ -125,19 +131,19 @@ const round = (value, decimals = 0) => {
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 };
 
-d2.random = `
+u.math.random = `
 
 \`random(from, to, float = false)\`
 
 Generates a random integer number between \`from\` and \`to\`. 
 If \`float = true\`, the output value will be floating point number.
 
-Example:
+Example
     
     random(0, 2)
     random(0, 2, true)
 
-Output:
+Output
   
     {{ random(0, 2) }}
     {{ random(0, 2, true) }}
@@ -148,7 +154,7 @@ const random = (from, to, float = false) => {
   return float ? r : Math.floor(r, 2);
 };
 
-d2.range = `
+u.math.range = `
 
 \`range(from, to, step = 1)\`
 
@@ -171,7 +177,7 @@ const range = (from, to, step = 1) => {
 
 // Trigonometry
 
-d2.polarx = `
+u.math.polarx = `
 
 \`polarx(angle, radius = 1)\`
 
@@ -191,7 +197,7 @@ const polarx = (deg = 0, radius = 1) => {
   return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
 };
 
-d2.polarx = `
+u.math.polarx = `
 
 \`polary(angle, radius = 1)\`
 
@@ -219,7 +225,7 @@ const cy = (deg, radius) => {
   return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
 };
 
-d2.polarpoints = `
+u.math.polarpoints = `
 
 \`polarpoints(count = 6, radius = 1)\`
 
@@ -252,7 +258,7 @@ const cpoints = (count = 6, radius = 1) => {
   }));
 };
 
-d2.deg2rad = `
+u.math.deg2rad = `
 
 \`deg2rad(angle)\`
 
@@ -273,7 +279,7 @@ radians = \\frac{degrees \\cdot \\pi}{180} = \\frac{180 \\cdot \\pi}{180} = \\pi
 
 const deg2rad = deg => (deg * Math.PI) / 180;
 
-d2.rad2deg = `
+u.math.rad2deg = `
 
 \`rad2deg(angle)\`
 
@@ -292,7 +298,7 @@ const rad2deg = rad => (rad * 180) / Math.PI;
 
 // Array
 
-d2.shuffle = `
+u.array.shuffle = `
 
 \`shuffle(array)\`
 
@@ -310,7 +316,7 @@ Sorts the array in random order.
 
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
-d2.any = `
+u.array.any = `
 
 \`any(array)\`
 
@@ -335,7 +341,7 @@ const any = function(arr) {
     : shuffle(Array.from(arguments))[0];
 };
 
-d2.flatten = `
+u.array.flatten = `
 
 \`flatten(array)\`
 
@@ -354,11 +360,11 @@ Flattens multidimensional array
 const flatten = list =>
   list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-d2.chunk = `
+u.array.chunk = `
 
 \`chunk(array, length)\`
 
-Chunks array into smaller \`length\`-sized arrays
+Chunks array into smaller \`length\`-sizeu.arrays
 
 #### Example
 
@@ -375,7 +381,7 @@ const chunk = (arr, length) =>
     arr.slice(n * length, n * length + length)
   );
 
-d2.unique = `
+u.array.unique = `
 
 \`unique(array)\`
 
@@ -393,40 +399,50 @@ Removes duplicates from the array
 
 const unique = arr => [...new Set(arr)];
 
-// Other utils
+u.string.titleCase = `
 
-d2.snapToGrid = `
+\`titleCase(string)\`
 
-\`snapToGrid(value, gridsize)\`
+Converts string to **Title Case**
 
-Returns the value in the closest point of 2D grid.
+#### Example
 
-#### Input
-
-    snapToGrid(0.51,0.5)
+    titleCase('das ist wunderbar')
 
 #### Output
 
-    {{ snapToGrid(0.51,0.5) }}
-`;
-
-const snapToGrid = (value, gridsize) => {
-  return value % gridsize < gridsize / 2
-    ? value - (value % gridsize)
-    : value + gridsize - (value % gridsize);
-};
-
-d2.log = `
-
-\`log(message)\`
-
-Logs a value from a template to the console
+    {{ titleCase('das ist wunderbar') }}
 
 `;
 
-const log = value => console.log(value);
+const titleCase = string =>
+  string
+    .split(" ")
+    .map(([h, ...t]) => h.toUpperCase() + t.join("").toLowerCase())
+    .join(' ')
 
-d2.join = `
+
+u.string.kebabCase = `
+
+\`kebabCase(string)\`
+
+Converts string to **kebab-case**
+
+#### Example
+
+    kebabCase('DonnerWetter')
+
+#### Output
+
+    {{ kebabCase('DonnerWetter') }}
+
+`;
+
+const kebabCase = string =>
+  string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
+
+
+u.string.join = `
 
 \`join(value1, value2, value3)\`
 
@@ -447,6 +463,122 @@ Joins a set of values to a space-separated string, useful for A-Frame integratio
 const join = function(arr) {
   return arr instanceof Array ? arr.join(" ") : Array.from(arguments).join(" ");
 };
+
+// State
+
+u.state.send = `
+
+\`send(name, value)\`
+
+TBD
+
+`
+
+const send = function(channel, value) {
+  if (this.$global) {
+    const v = parseFloat(value);
+    this.$global.$emit(channel, value == NaN ? value : v);
+  }
+};
+
+u.state.receive = `
+
+\`receive(name, callback)\`
+
+TBD
+
+`
+
+const receive = function(channel, callback) {
+  if (this.$global) {
+    this.$global.$on(channel, callback);
+  }
+};
+
+u.state.get = `
+
+\`get(key, default = null)\`
+
+TBD
+
+`
+const get = function(key, def = null) {
+  if (this.$global) {
+    const state = this.$global.$data.state[key];
+    return state !== undefined ? state : def;
+  }
+  return null;
+};
+
+u.state.set = `
+
+\`set(key, value)\`
+
+TBD
+
+`
+
+const set = function(key, value) {
+  if (this.$global) {
+    const arr = Array.from(arguments);
+    if (arr.length == 1) {
+      key = "value";
+      value = arr[0];
+    }
+    Vue.set(this.$global.$data.state, key, parseFloat(value));
+  }
+  return null;
+};
+
+// Other utils
+
+u.other.debounce = `
+
+\`debounce = (fn, time)\`
+
+TBD
+
+`
+
+const debounce = (fn, time) => {
+  let timeout;
+  return function() {
+    const functionCall = () => fn.apply(this, arguments);
+    clearTimeout(timeout);
+    timeout = setTimeout(functionCall, time);
+  };
+};
+
+u.other.snapToGrid = `
+
+\`snapToGrid(value, gridsize)\`
+
+Returns the value in the closest point of 2D grid.
+
+#### Input
+
+    snapToGrid(0.51,0.5)
+
+#### Output
+
+    {{ snapToGrid(0.51,0.5) }}
+`;
+
+const snapToGrid = (value, gridsize) => {
+  return value % gridsize < gridsize / 2
+    ? value - (value % gridsize)
+    : value + gridsize - (value % gridsize);
+};
+
+u.other.log = `
+
+\`log(message)\`
+
+Logs a value from a template to the console
+
+`;
+
+const log = value => console.log(value);
 
 // For internal use
 
@@ -501,56 +633,6 @@ const parseColumns = slide => {
   }
 };
 
-const kebabCase = string =>
-  string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
-
-const titleCase = string =>
-  string
-    .split(" ")
-    .map(([h, ...t]) => h.toUpperCase() + t.join("").toLowerCase());
-
-const debounce = (fn, time) => {
-  let timeout;
-  return function() {
-    const functionCall = () => fn.apply(this, arguments);
-    clearTimeout(timeout);
-    timeout = setTimeout(functionCall, time);
-  };
-};
-
-const send = function(channel, value) {
-  if (this.$global) {
-    const v = parseFloat(value);
-    this.$global.$emit(channel, value == NaN ? value : v);
-  }
-};
-
-const receive = function(channel, callback) {
-  if (this.$global) {
-    this.$global.$on(channel, callback);
-  }
-};
-
-const set = function(key, value) {
-  if (this.$global) {
-    const arr = Array.from(arguments);
-    if (arr.length == 1) {
-      key = "value";
-      value = arr[0];
-    }
-    Vue.set(this.$global.$data.state, key, parseFloat(value));
-  }
-  return null;
-};
-
-const get = function(key, def = null) {
-  if (this.$global) {
-    const state = this.$global.$data.state[key];
-    return state !== undefined ? state : def;
-  }
-  return null;
-};
-
 const coordsTextToArray = text => {
   return text.split(",").map(t =>
     t
@@ -561,7 +643,7 @@ const coordsTextToArray = text => {
   );
 };
 
-const coordsArrayToObject = array => {
+const coordsarrayToObject = array => {
   return array.map(a => ({ x: a[0], y: a[1] || 0, z: a[2] || 0 }));
 };
 
@@ -571,10 +653,10 @@ const coordsObjectToObject = a => {
 
 const parseCoords = c => {
   if (typeof c == "string") {
-    return coordsArrayToObject(coordsTextToArray(c));
+    return cooru.arrayToObject(coordsTextToArray(c));
   }
   if (Array.isArray(c)) {
-    return coordsArrayToObject(c);
+    return cooru.arrayToObject(c);
   }
   if (!Array.isArray(c) && typeof c == "object") {
     return c;
@@ -585,8 +667,7 @@ const parseCoords = c => {
 /* Export */
 
 const docs = () => d;
-const utilsDocs = () => d2;
-const utilsDocs3 = () => d3;
+const utilsDocs = () => u;
 
 export {
   getCssVariable,
@@ -624,7 +705,5 @@ export {
   set,
   get,
   parseCoords,
-  docs,
-  utilsDocs,
-  utilsDocs3
+  utilsDocs
 };
