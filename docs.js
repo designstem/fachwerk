@@ -12,7 +12,7 @@ new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
-    guides: [
+    files: [{ title: 'Guides', items: [
       {
         title: "Building patterns",
         file: "./content/patterns.md",
@@ -40,7 +40,7 @@ new Vue({
         file: "./content/experiments.md",
         preview: 0
       }
-    ],
+    ]}],
     content: "",
     activeItem: [0, 0],
     previews: [components.FContentDocument, components.FContentSlides],
@@ -48,7 +48,7 @@ new Vue({
   }),
   computed: {
     menuItems() {
-      return [{ title: "Guides", items: this.guides }].concat(
+      return this.files.concat(
         ["2D", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
           return {
             title: `${tag} components`,
@@ -104,11 +104,11 @@ ${
       "activeItem",
       activeItem => {
         if (!this.menuItems[activeItem[0]].tag) {
-          fetch(this.guides[activeItem[1]].file)
+          fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
             .then(res => res.text())
             .then(content => {
               this.content = content;
-              this.activePreview = this.guides[activeItem[1]].preview;
+              this.activePreview = this.menuItems[activeItem[0]].items[activeItem[1]].preview;
             });
         } else {
           this.content = this.generateContent(
