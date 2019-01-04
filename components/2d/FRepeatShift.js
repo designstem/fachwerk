@@ -3,20 +3,19 @@ import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
-  tag: `2D`,
+  tag: `2D repeat`,
   description: `
 Repeats the contents in a shifted rectangular grid.
   `,
   example: `
-<f-scene>
-  <f-box />
+<f-scene grid>
   <f-repeat-shift>
     <f-box
       slot-scope="data"
-      opacity="0.5"
       :stroke="color('red')"
     />
   </f-repeat-shift>
+  <f-box />
 </f-scene>
   `,
   props: {

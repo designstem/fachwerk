@@ -70,7 +70,7 @@ new Vue({
   computed: {
     menuItems() {
       return this.files.concat(
-        ["2D", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
+        ["2D", "2D repeat", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
           return {
             title: `${tag} components`,
             tag,
@@ -92,7 +92,7 @@ new Vue({
         Type: `<code>${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
         }</code>`,
-        Description: p[1].description ? `${p[1].description}` : p[1].description
+        Description: p[1].description ? `${p[1].description}` : ''
       }));
     },
     generateContent(name, c) {

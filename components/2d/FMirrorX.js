@@ -2,12 +2,12 @@ import { Object2D } from "./2d.js";
 
 export default {
   mixins: [Object2D],
-  tag: `2D`,
+  tag: `2D repeat`,
   description: `
 Mirrors children element around horizontal x axis.
   `,
   example: `
-<f-scene>
+<f-scene grid>
   <f-box
     :rotation="{z:10}"
     opacity="0.25"
@@ -15,7 +15,6 @@ Mirrors children element around horizontal x axis.
   <f-mirror-x>
     <f-box
       :rotation="{z:10}"
-      opacity="0.75"
       :stroke="color('red')"
     />
   </f-mirror-x>

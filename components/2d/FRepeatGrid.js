@@ -3,21 +3,20 @@ import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
-  tag: `2D`,
+  tag: `2D repeat`,
   description: `
 Repeats the contents in a 2D grid.
   `,
   example: `
-<f-scene>
-  <f-circle r="0.5" />  
+<f-scene grid>
   <f-repeat-grid>
     <f-circle
       slot-scope="data"
       r="0.5"
-      opacity="0.25"
       :stroke="color('red')"
     />
   </f-repeat-grid>
+  <f-circle r="0.5" />  
 </f-scene>
   `,
   props: {
