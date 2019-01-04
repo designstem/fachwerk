@@ -29,10 +29,10 @@ Vertical menu, to be used with \`v-model\`.
         <div :style="{
           display: 'flex',
           alignItems: 'center',
-          padding: 'var(--base2) var(--base2)',
+          padding: 'var(--base2) var(--base2) var(--base) var(--base2)',
           fontWeight: 'bold',
           color: 'var(--primary)',
-          ttransform: 'translate(0,calc(var(--base) * -1))',
+          transform: 'translate(0,calc(var(--base) * 0))',
         }"
         @click="activeItem = i; top()"
         >

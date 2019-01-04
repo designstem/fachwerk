@@ -99,6 +99,7 @@ new Vue({
           .concat([
             {
               title: "JS utils",
+              utils: true,
               items: Object.entries(utilsDocs()).map(d => ({ title: d[0] }))
             }
           ])
@@ -145,7 +146,9 @@ ${
     this.$watch(
       "activeItem",
       activeItem => {
-        if (this.menuItems[activeItem[0]].files = true) {
+       
+        // Markdown files
+        if (this.menuItems[activeItem[0]].files) {
           fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
             .then(res => res.text())
             .then(content => {
@@ -154,7 +157,10 @@ ${
                 activeItem[1]
               ].preview;
             });
-        } else {
+        }
+      
+        // Compoments
+        if (this.menuItems[activeItem[0]].tag) {
           this.content = this.generateContent(
             this.menuItems[activeItem[0]].items[activeItem[1]].title,
             sortedComponents
@@ -166,6 +172,14 @@ ${
               )
               .map(c => c[1])[0]
           );
+          this.activePreview = 0;
+        }
+     
+        // Utils
+        if (this.menuItems[activeItem[0]].utils) {
+          this.content = utilsDocs()[
+            this.menuItems[activeItem[0]].items[activeItem[1]].title
+          ].trim();
           this.activePreview = 0;
         }
       },

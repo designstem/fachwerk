@@ -229,6 +229,11 @@ code {
   white-space: nowrap;
 }
 
+pre code {
+  white-space: pre-wrap;
+  padding: 0;
+}
+
 kbd {
   font-family: var(--font-mono);
   border-radius: 2px;

@@ -13,13 +13,21 @@ d2.color = `
 
 ## color
 
-<code>color('name')</i></code>
+    color('name')
 
 Returns a color value. If \`name\` matches one of framework colors, framework color value is returned. If not, a standard CSS color name is returned.
 
-{{ color('red') }}
+#### Example:
 
-{{ color('papayawhip')}}
+    color('red')
+    color('rebeccapurple')
+
+#### Output
+
+    {{ color('red') }}
+    {{ color('rebeccapurple')}}
+
+
 
 `;
 
@@ -30,7 +38,7 @@ const color = name => {
 
 /* Color functions */
 
-d.push(`
+d2.rgb = `
 ## rgb
 
 <code>rgb(r, g, b, a = false)</code>
@@ -47,12 +55,12 @@ Outputs a CSS <code>rgba()</code> string
     {{ rgb(50,100,50,0.5) }}
     {{ rgb(50,100,50) }}
 
-`);
+`;
 
 const rgb = (r, g, b, a = false) =>
   a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
-d.push(`
+d2.hsl = `
 ## hsl
 
 <code>hsl(h, s = 100, l = 50, a = 1)</code>
@@ -71,11 +79,12 @@ Outputs a CSS <code>hsla()</code> string
     {{ hsl(50,100,50) }}
     {{ hsl(50) }}
 
-`);
+`;
 
 const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
 
-d.push(`
+d2.scale = `
+
 ## scale
 
 <code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>
@@ -92,13 +101,14 @@ to the output range  <code>start2</code> and <code>stop2</code>.
 
     {{ scale(50, 0, 100, 0, 1) }}
 
-  `);
+`;
 
 const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
   return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 };
 
-d.push(`
+d2.round = `
+
 ## round
 
 <code>round(value, decimals = 0)</code>
@@ -115,13 +125,14 @@ Output:
     {{ round(0.1234) }}
     {{ round(0.1234, 2) }}
 
-`);
+`;
 
 const round = (value, decimals = 0) => {
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 };
 
-d.push(`
+d2.random = `
+
 ## random
 
 <code>random(from, to, float = false)</code>
@@ -138,14 +149,15 @@ Output:
   
     {{ random(0, 2) }}
     {{ random(0, 2, true) }}
-`);
+`;
 
 const random = (from, to, float = false) => {
   const r = from + Math.random() * (to - from);
   return float ? r : Math.floor(r, 2);
 };
 
-d.push(`
+d2.range = `
+
 ## range
 
 <code>range(from, to, step = 1)</code>
@@ -160,7 +172,7 @@ Output
 
     {{ range(-1, 1, 0.5) }}
 
-`);
+`;
 
 const range = (from, to, step = 1) => {
   const length = Math.floor((to - from) / step) + 1;
@@ -169,31 +181,50 @@ const range = (from, to, step = 1) => {
 
 // Trigonometry
 
-d.push(`
+d2.polarx = `
+
 ## polarx polary
 
 <code>polarx(angle, radius = 1)</code>
+
+Given the polar coordinates <code>angle radius</code>, return cartesian coordinates <code>x y</code>.
+
+#### Example
+
+    polarx(90, 10)
+
+#### Output
+
+    {{ polarx(90, 10) }}
+
+`;
+
+const polarx = (deg = 0, radius = 1) => {
+  return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
+};
+
+d2.polarx = `
+
+## polary
+
 <code>polary(angle, radius = 1)</code>
 
 Given the polar coordinates <code>angle radius</code>, return cartesian coordinates <code>x y</code>.
 
 #### Example
 
-    polarx(90, 10) polary(90, 10)
+    polary(90, 10)
 
 #### Output
 
-    {{ polarx(90, 10) }} {{ polary(90, 10) }}
+    {{ polary(90, 10) }}
 
-
-`);
-const polarx = (deg = 0, radius = 1) => {
-  return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
-};
+`;
 
 const polary = (deg = 0, radius = 1) => {
   return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
 };
+
 const cx = (deg, radius) => {
   return Math.cos((deg - 90) * (Math.PI / 180)) * radius;
 };
@@ -202,7 +233,8 @@ const cy = (deg, radius) => {
   return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
 };
 
-d.push(`
+d2.polarpoints = `
+
 ## polarpoints
 
 <code>polarpoints(count, radius)</code>
@@ -216,7 +248,8 @@ Calculates <code>count</code> of <code>{ x, y }</code> points on the circle.
 #### Output
 
     {{ polarpoints(4,10) }}
-`);
+`;
+
 const polarpoints = (count = 6, radius = 1) => {
   return Array.from({
     length: count
@@ -225,6 +258,7 @@ const polarpoints = (count = 6, radius = 1) => {
     y: cy((360 / count) * i, radius)
   }));
 };
+
 const cpoints = (count = 6, radius = 1) => {
   return Array.from({
     length: count
@@ -234,7 +268,8 @@ const cpoints = (count = 6, radius = 1) => {
   }));
 };
 
-d.push(`
+d2.deg2rad = `
+
 ## deg2rad
 
 <code>deg2rad(angle)</code>
@@ -252,11 +287,12 @@ radians = \\frac{degrees \\cdot \\pi}{180} = \\frac{180 \\cdot \\pi}{180} = \\pi
 #### Output
 
     {{ deg2rad(180) }}
-`);
+`;
 
 const deg2rad = deg => (deg * Math.PI) / 180;
 
-d.push(`
+d2.rad2deg = `
+
 ## rad2deg
 
 <code>rad2deg(angle)</code>
@@ -270,13 +306,14 @@ Converts angle in radians to degrees.
 #### Output
 
     {{ rad2deg(Math.PI) }}
-`);
+`;
 
 const rad2deg = rad => (rad * 180) / Math.PI;
 
 // Array
 
-d.push(`
+d2.shuffle = `
+
 ## shuffle
 
 <code>shuffle(array)</code>
@@ -291,11 +328,12 @@ Sorts the array in random order.
 
     {{ shuffle(range(0,3)) }}
 
-`);
+`;
 
 const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
-d.push(`
+d2.any = `
+
 ## any
 
 <code>any(array)</code>
@@ -313,7 +351,7 @@ Supports both array and function argument syntax.
     {{ any([0,1,2]) }}
     {{ any(0,1,2) }}
 
-`);
+`;
 
 const any = function(arr) {
   return arr instanceof Array
@@ -321,7 +359,8 @@ const any = function(arr) {
     : shuffle(Array.from(arguments))[0];
 };
 
-d.push(`
+d2.flatten = `
+
 ## flatten
 
 <code>flatten(array)</code>
@@ -336,11 +375,13 @@ Flattens multidimensional array
 
     {{ flatten([0,1,[2,[3,4]]]) }}
 
-`);
+`;
+
 const flatten = list =>
   list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-d.push(`
+d2.chunk = `
+
 ## chunk
 
 <code>chunk(array, length)</code>
@@ -355,14 +396,15 @@ Chunks array into smaller <code>length</code>-sized arrays
 
     {{ chunk([0,1,2,3],2) }}
 
-`);
+`;
 
 const chunk = (arr, length) =>
   Array.from({ length: Math.ceil(arr.length / length) }).map((_, n) =>
     arr.slice(n * length, n * length + length)
   );
 
-d.push(`
+d2.unique = `
+
 ## unique
 
 <code>unique(array)</code>
@@ -377,13 +419,14 @@ Removes duplicates from the array
 
     {{ unique([0,0,1,2]) }}
 
-`);
+`;
 
 const unique = arr => [...new Set(arr)];
 
 // Other utils
 
-d.push(`
+d2.snapToGrid = `
+
 ## snapToGrid
 
 <code>snapToGrid(value, gridsize)</code>
@@ -397,7 +440,7 @@ Returns the value in the closest point of 2D grid.
 #### Output
 
     {{ snapToGrid(0.51,0.5) }}
-`);
+`;
 
 const snapToGrid = (value, gridsize) => {
   return value % gridsize < gridsize / 2
@@ -405,18 +448,20 @@ const snapToGrid = (value, gridsize) => {
     : value + gridsize - (value % gridsize);
 };
 
-d.push(`
+d2.log = `
+
 ## log
 
 <code>log(message)</code>
 
 Logs a value from a template to the console
 
-`);
+`;
 
 const log = value => console.log(value);
 
-d.push(`
+d2.join = `
+
 ## join
 
 <code>join(value1, value2, value3)</code>
@@ -425,19 +470,15 @@ Joins a set of values to a space-separated string, useful for A-Frame integratio
 
 #### Input
 
-<pre>
-join([1,2,3])
-join(4,5,6)
-</pre>
+    join([1,2,3])
+    join(4,5,6)
 
 #### Output
 
-<pre>
-{{ join([1,2,3]) }}
-{{ join(4,5,6) }}
-</pre>
+    {{ join([1,2,3]) }}
+    {{ join(4,5,6) }}
 
-`);
+`;
 
 const join = function(arr) {
   return arr instanceof Array ? arr.join(" ") : Array.from(arguments).join(" ");
