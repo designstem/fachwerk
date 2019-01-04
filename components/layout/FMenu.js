@@ -16,24 +16,33 @@ Vertical menu, to be used with \`v-model\`.
       <div
         v-for="(item,i) in items"
         :key="i"
-        @click="$emit('input',i)"
         :style="{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 1.25rem',
-          fontWeight: 'bold',
-          borderBottom: '3px solid var(--primary)',
           cursor: 'pointer',
-          color: i === value ? 'var(--primary)' : 'var(--primary)',
-          background: i === value ? 'var(--tertiary)' : 'none',
-          height: 'calc(var(--base) * 8)'
         }"
       >
+        <div :style="{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 var(--base2)',
+          fontWeight: 'bold',
+          minHeight: 'calc(var(--base) * 8)',
+          color: 'var(--primary)',
+        }">
         {{ item.title || item }}
+        </div>
         <div
-          v-if="item.items"
-          v-for="(item,j) in item.items"
+          v-for="(item,j) in (item.items || [])"
           :key="j"
+          :style="{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 var(--base) 0 var(--base4)',
+            minHeight: 'calc(var(--base) * 4)',
+            color: j === value ? 'var(--primary)' : 'var(--secondary)',
+            background: j === value ? 'var(--lightblue)' : '',
+            transform: 'translate(0,calc(var(--base) * -1))',
+          }"
+          @click="$emit('input',j)"
         > 
           {{ item }}
         </div>

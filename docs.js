@@ -13,7 +13,12 @@ new Vue({
   el: "#app",
   data: () => ({
     contentItems: [
-      { title: "Building patterns", file: "./content/patterns.md", preview: 0, },
+      {
+        title: "Building patterns",
+        file: "./content/patterns.md",
+        preview: 0,
+        items: ["Markdown basics", "Interactive slides"]
+      },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       {
         title: "Interactive slides",
@@ -54,7 +59,7 @@ new Vue({
   },
   methods: {
     propRows(props) {
-      console.log(props)
+      console.log(props);
       return Object.entries(props).map(p => ({
         Name: `<code>${p[0]}</code>`,
         Default: `<code>${p[1].default}</code>`,
@@ -66,20 +71,27 @@ new Vue({
     },
     generateContent(name, c) {
       return `## &lt;${kebabCase(name)}>
-${c.description ? c.description : ''}
-${c.example ? c.example.trim() : ''}
+${c.description ? c.description : ""}
+${c.example ? c.example.trim() : ""}
 
-${c.props ? `<p />
+${
+        c.props
+          ? `<p />
 
-##### Props` : ''}
+##### Props`
+          : ""
+      }
 
-${c.props ?
-        `<f-table :rows='${JSON.stringify(
-          this.propRows(c.props),
-          null,
-          2
-        ).replace(/'/g,'\\"')}' style="--lightblue: transparent" />` : ''}
-      ` 
+${
+        c.props
+          ? `<f-table :rows='${JSON.stringify(
+              this.propRows(c.props),
+              null,
+              2
+            ).replace(/'/g, '\\"')}' style="--lightblue: transparent" />`
+          : ""
+      }
+      `;
     }
   },
   mounted() {
@@ -121,7 +133,7 @@ ${c.props ?
     <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr; --rows:400vh;">
     <f-menu
       style="overflow-y: auto"
-      :items="menuItems.map(c => c.title)"
+      :items="menuItems"
       v-model="activeItem"
     />
     <f-vr />
