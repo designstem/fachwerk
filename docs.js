@@ -48,20 +48,15 @@ new Vue({
   }),
   computed: {
     menuItems() {
-      // const a = sortedComponents
-      // .map(c => Object.entries(c)[0])
-      // .filter(c => c[1].tag == '2D')
-      // .map(c => ({ title: kebabCase(c[0])}))
-      // //.map(c => c[1])[0]
-
       return [{ title: "Guides", items: this.guides }].concat(
         ["2D", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
           return {
             title: `${tag} components`,
+            tag,
             items: sortedComponents
               .map(c => Object.entries(c)[0])
               .filter(c => c[1].tag == tag)
-              .map(c => ({ title: kebabCase(c[0])}))
+              .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
           };
         })
       );
@@ -75,7 +70,6 @@ new Vue({
   },
   methods: {
     propRows(props) {
-      console.log(props);
       return Object.entries(props).map(p => ({
         Name: `<code>${p[0]}</code>`,
         Default: `<code>${p[1].default}</code>`,
@@ -114,24 +108,27 @@ ${
     this.$watch(
       "activeItem",
       activeItem => {
-        if (this.menuItems[activeItem[0]].title == 'Guides') {
+        if (!this.menuItems[activeItem[0]].tag) {
           fetch(this.guides[activeItem[1]].file)
             .then(res => res.text())
             .then(content => {
               this.content = content;
               this.activePreview = this.guides[activeItem[1]].preview;
             });
+        } else {
+          this.content = this.generateContent(
+            this.menuItems[activeItem[0]].items[activeItem[1]].title,
+            sortedComponents
+              .map(c => Object.entries(c)[0])
+              .filter(
+                c =>
+                  c[0] ==
+                  this.menuItems[activeItem[0]].items[activeItem[1]].name
+              )
+              .map(c => c[1])[0]
+          );
+          this.activePreview = 0;
         }
-        // if (this.activeItem[0] > 0) {
-        //   this.content = this.generateContent(
-        //     'aaa',
-        //     sortedComponents
-        //       .map(c => Object.entries(c)[0])
-        //       .filter(c => c[0] == this.menuItems[activeItem[1]].name)
-        //       .map(c => c[1])[0]
-        //   );
-        //   this.activePreview = 0;
-        // }
       },
       { immediate: true }
     );
