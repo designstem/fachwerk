@@ -13,31 +13,47 @@ new Vue({
   el: "#app",
   data: () => ({
     files: [{ title: 'Guides', items: [
-      {
-        title: "Building patterns",
-        file: "./content/patterns.md",
-        preview: 0
-      },
-      { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
+      { title: "Markdown basics", file: "./content/guides/markdown.md", preview: 0 },
       {
         title: "Interactive slides",
-        file: "./content/interactive.md",
+        file: "./content/guides/interactive.md",
         preview: 1
       },
       {
         title: "Component communication",
-        file: "./content/communication.md",
+        file: "./content/guides/communication.md",
         preview: 0
       },
       { title: "Math basics", file: "./content/math.md", preview: 0 },
       {
         title: "Drawing the spirals",
-        file: "./content/spirals2.md",
+        file: "./content/guides/spirals2.md",
         preview: 1
       },
       {
         title: "Various experiments",
-        file: "./content/experiments.md",
+        file: "./content/guides/experiments.md",
+        preview: 0
+      },
+      {
+        title: "Building patterns",
+        file: "./content/guides/patterns.md",
+        preview: 0
+      },
+    ]},{title: 'Styles', items: [
+      {
+        title: "Typography",
+        file: "./content/styles/typography.md",
+        preview: 0
+      },
+      {
+        title: "Colors",
+        file: "./content/styles/colors.md",
+        preview: 0
+      },
+      {
+        title: "Controls",
+        file: "./content/styles/controls.md",
         preview: 0
       }
     ]}],
