@@ -11,25 +11,48 @@ Vertical menu, to be used with \`v-model\`.
   />
   `,
   props: ["items", "value"],
+  data: () => ({ activeItem: 0 }),
+  methods: {
+    top() {
+      window.scrollTo(0,0);
+    }
+  },
   template: `
     <div>
       <div
         v-for="(item,i) in items"
         :key="i"
-        @click="$emit('input',i)"
         :style="{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 1.25rem',
-          fontWeight: 'bold',
-          borderBottom: '3px solid var(--primary)',
           cursor: 'pointer',
-          color: i === value ? 'var(--primary)' : 'var(--primary)',
-          background: i === value ? 'var(--tertiary)' : 'none',
-          height: 'calc(var(--base) * 8)'
         }"
       >
-        {{ item }}
+        <div :style="{
+          display: 'flex',
+          alignItems: 'center',
+          padding: 'var(--base2) var(--base2)',
+          fontWeight: 'bold',
+          color: 'var(--primary)',
+          ttransform: 'translate(0,calc(var(--base) * -1))',
+        }"
+        @click="activeItem = i; top()"
+        >
+          {{ item.title }}
+        </div>
+        <div
+          v-if="i == activeItem"
+          v-for="(item,j) in item.items"
+          :key="j"
+          :style="{
+            display: 'flex',
+            alignItems: 'center',
+            padding: 'var(--base) var(--base) var(--base) var(--base4)',
+            color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--secondary)',
+            background: i === value[0] && j === value[1] ? 'var(--lightblue)' : '',
+          }"
+          @click="$emit('input',[i,j]); top()"
+        > 
+          {{ item.title }}
+        </div>
       </div>
     </div>
   `

@@ -17,7 +17,7 @@
   --purple: #663399;        /* rebeccapurple; */
   --red: #ff595e;           /* tomato */
   --yellow: #ffca3a;        /* gold */
-  --lightblue: #f0f5fa;     /* ghostwhite */
+  --lightblue: #d8e6f3;     /* ghostwhite */
   --blue: rgb(25, 130, 196);          /* steelblue */
   --darkblue: #162E3D;
   --black: #000000;
@@ -54,6 +54,9 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /* Body */
 
 body {
