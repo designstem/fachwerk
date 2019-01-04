@@ -36,8 +36,8 @@ Vertical menu, to be used with \`v-model\`.
             display: 'flex',
             alignItems: 'center',
             padding: 'var(--base) var(--base) var(--base) var(--base4)',
-            color: j === value[1] ? 'var(--primary)' : 'var(--secondary)',
-            background: j === value[1] ? 'var(--lightblue)' : '',
+            color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--secondary)',
+            background: i === value[0] && j === value[1] ? 'var(--lightblue)' : '',
             transform: 'translate(0,calc(var(--base) * -1))',
           }"
           @click="$emit('input',[i,j])"

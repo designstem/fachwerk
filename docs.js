@@ -12,11 +12,11 @@ new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
-    contentItems: [
+    guides: [
       {
         title: "Building patterns",
         file: "./content/patterns.md",
-        preview: 0,
+        preview: 0
       },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       {
@@ -42,15 +42,30 @@ new Vue({
       }
     ],
     content: "",
-    activeItem: [0,0],
+    activeItem: [0, 0],
     previews: [components.FContentDocument, components.FContentSlides],
     activePreview: 0
   }),
   computed: {
     menuItems() {
-      return [
-        { title: 'Guides', items: this.contentItems }
-      ]
+      // const a = sortedComponents
+      // .map(c => Object.entries(c)[0])
+      // .filter(c => c[1].tag == '2D')
+      // .map(c => ({ title: kebabCase(c[0])}))
+      // //.map(c => c[1])[0]
+
+      return [{ title: "Guides", items: this.guides }].concat(
+        ["2D", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
+          return {
+            title: `${tag} components`,
+            items: sortedComponents
+              .map(c => Object.entries(c)[0])
+              .filter(c => c[1].tag == tag)
+              .map(c => ({ title: kebabCase(c[0])}))
+          };
+        })
+      );
+
       // return this.contentItems.concat(
       //   ...sortedComponents
       //     .map(c => Object.keys(c)[0])
@@ -96,30 +111,30 @@ ${
     }
   },
   mounted() {
-    // this.$watch(
-    //   "activeItem",
-    //   activeItem => {
-    //     if (this.activeItem[0] == 0) {
-    //       fetch(this.contentItems[activeItem[1]].file)
-    //         .then(res => res.text())
-    //         .then(content => {
-    //           this.content = content;
-    //           this.activePreview = this.contentItems[activeItem[1]].preview;
-    //         });
-    //     }
-    //     if (this.activeItem[0] > 0) {
-    //       this.content = this.generateContent(
-    //         'aaa',
-    //         sortedComponents
-    //           .map(c => Object.entries(c)[0])
-    //           .filter(c => c[0] == this.menuItems[activeItem[1]].name)
-    //           .map(c => c[1])[0]
-    //       );
-    //       this.activePreview = 0;
-    //     }
-    //   },
-    //   { immediate: true }
-    // );
+    this.$watch(
+      "activeItem",
+      activeItem => {
+        if (this.menuItems[activeItem[0]].title == 'Guides') {
+          fetch(this.guides[activeItem[1]].file)
+            .then(res => res.text())
+            .then(content => {
+              this.content = content;
+              this.activePreview = this.guides[activeItem[1]].preview;
+            });
+        }
+        // if (this.activeItem[0] > 0) {
+        //   this.content = this.generateContent(
+        //     'aaa',
+        //     sortedComponents
+        //       .map(c => Object.entries(c)[0])
+        //       .filter(c => c[0] == this.menuItems[activeItem[1]].name)
+        //       .map(c => c[1])[0]
+        //   );
+        //   this.activePreview = 0;
+        // }
+      },
+      { immediate: true }
+    );
   },
   template: `
   <div>
@@ -138,7 +153,7 @@ ${
       v-model="activeItem"
     />
     <f-vr />
-    <!--f-content-editor
+    <f-content-editor
       :content="content"
       :autosave="false"
     >
@@ -148,7 +163,7 @@ ${
         base="8px"
         style="--gap: var(--base4);"
       />
-    </f-content-editor-->
+      </f-content-editor>
     </f-theme>
 </div>
   `
