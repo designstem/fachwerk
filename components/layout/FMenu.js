@@ -11,6 +11,12 @@ Vertical menu, to be used with \`v-model\`.
   />
   `,
   props: ["items", "value"],
+  data: () => ({ activeItem: 0 }),
+  methods: {
+    top() {
+      window.scrollTo(0,0);
+    }
+  },
   template: `
     <div>
       <div
@@ -26,10 +32,14 @@ Vertical menu, to be used with \`v-model\`.
           padding: 'var(--base2) var(--base2)',
           fontWeight: 'bold',
           color: 'var(--primary)',
-        }">
-        {{ item.title }}
+          ttransform: 'translate(0,calc(var(--base) * -1))',
+        }"
+        @click="activeItem = i; top()"
+        >
+          {{ item.title }}
         </div>
         <div
+          v-if="i == activeItem"
           v-for="(item,j) in item.items"
           :key="j"
           :style="{
@@ -38,9 +48,8 @@ Vertical menu, to be used with \`v-model\`.
             padding: 'var(--base) var(--base) var(--base) var(--base4)',
             color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--secondary)',
             background: i === value[0] && j === value[1] ? 'var(--lightblue)' : '',
-            transform: 'translate(0,calc(var(--base) * -1))',
           }"
-          @click="$emit('input',[i,j])"
+          @click="$emit('input',[i,j]); top()"
         > 
           {{ item.title }}
         </div>

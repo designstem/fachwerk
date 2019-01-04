@@ -61,11 +61,6 @@ new Vue({
         })
       );
 
-      // return this.contentItems.concat(
-      //   ...sortedComponents
-      //     .map(c => Object.keys(c)[0])
-      //     .map(c => ({ title: `<${kebabCase(c)}>`, name: c }))
-      // );
     }
   },
   methods: {
@@ -80,7 +75,7 @@ new Vue({
       }));
     },
     generateContent(name, c) {
-      return `## &lt;${kebabCase(name)}>
+      return `## ${kebabCase(name)}
 ${c.description ? c.description : ""}
 ${c.example ? c.example.trim() : ""}
 
@@ -164,21 +159,3 @@ ${
 </div>
   `
 });
-
-//     // propRows(props) {
-//     //   return Object.entries(props).map(p => ({
-//     //     Name: `<code>${p[0]}</code>`,
-//     //     Default: `<code>${p[1].default}</code>`,
-//     //     Type: `<code>${
-//     //       Array.isArray(p[1].default) ? "array" : typeof p[1].default
-//     //     }</code>`
-//     //   }))
-//     // },
-//     generateContent(name, c) {
-//       return `## &lt;${name}>
-// ${c.description.trim()}
-
-// ${c.example.trim()}
-
-// <f-table :rows="[]" style="--lightblue: transparent" />
-//       `
