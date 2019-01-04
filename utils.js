@@ -2,12 +2,15 @@
 
 let d = [];
 
+let d2 = {};
+
 const getCssVariable = (variable, el = document.body) =>
   getComputedStyle(document.body).getPropertyValue(variable);
 
 /* Colors */
 
-d.push(`
+d2.color = `
+
 ## color
 
 <code>color('name')</i></code>
@@ -18,7 +21,7 @@ Returns a color value. If \`name\` matches one of framework colors, framework co
 
 {{ color('papayawhip')}}
 
-`);
+`;
 
 const color = name => {
   const color = getCssVariable(`--${name}`);
@@ -437,9 +440,7 @@ join(4,5,6)
 `);
 
 const join = function(arr) {
-  return arr instanceof Array
-    ? arr.join(' ')
-    : Array.from(arguments).join(' ')
+  return arr instanceof Array ? arr.join(" ") : Array.from(arguments).join(" ");
 };
 
 // For internal use
@@ -509,7 +510,7 @@ const debounce = (fn, time) => {
 
 const send = function(channel, value) {
   if (this.$global) {
-    const v = parseFloat(value)
+    const v = parseFloat(value);
     this.$global.$emit(channel, value == NaN ? value : v);
   }
 };
@@ -527,19 +528,18 @@ const set = function(key, value) {
       key = "value";
       value = arr[0];
     }
-    Vue.set(this.$global.$data.state, key, parseFloat(value))
+    Vue.set(this.$global.$data.state, key, parseFloat(value));
   }
-  return null
+  return null;
 };
 
 const get = function(key, def = null) {
   if (this.$global) {
-    const state = this.$global.$data.state[key]
-    return state !== undefined ? state : def
+    const state = this.$global.$data.state[key];
+    return state !== undefined ? state : def;
   }
-  return null
+  return null;
 };
-
 
 const coordsTextToArray = text => {
   return text.split(",").map(t =>
@@ -575,6 +575,7 @@ const parseCoords = c => {
 /* Export */
 
 const docs = () => d;
+const utilsDocs = () => d2;
 
 export {
   getCssVariable,
@@ -602,7 +603,6 @@ export {
   log,
   join,
   parseSheet,
-  docs,
   parseColumns,
   cleanColumns,
   kebabCase,
@@ -611,5 +611,7 @@ export {
   receive,
   set,
   get,
-  parseCoords
+  parseCoords,
+  docs,
+  utilsDocs
 };

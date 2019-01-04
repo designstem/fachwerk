@@ -1,6 +1,6 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
-import { kebabCase } from "./utils.js";
+import { kebabCase, utilsDocs } from "./utils.js";
 
 import Init from "./components/Init.js";
 
@@ -12,56 +12,71 @@ new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
-    files: [{ title: 'Guides', items: [
-      { title: "Markdown basics", file: "./content/guides/markdown.md", preview: 0 },
+    files: [
       {
-        title: "Interactive slides",
-        file: "./content/guides/interactive.md",
-        preview: 1
+        title: "Guides",
+        files: true,
+        items: [
+          {
+            title: "Markdown basics",
+            file: "./content/guides/markdown.md",
+            preview: 0
+          },
+          {
+            title: "Interactive slides",
+            file: "./content/guides/interactive.md",
+            preview: 1
+          },
+          {
+            title: "Component communication",
+            file: "./content/guides/communication.md",
+            preview: 0
+          },
+          { title: "Math basics", file: "./content/math.md", preview: 0 },
+          {
+            title: "Drawing the spirals",
+            file: "./content/guides/spirals2.md",
+            preview: 1
+          },
+          {
+            title: "Various experiments",
+            file: "./content/guides/experiments.md",
+            preview: 0
+          },
+          {
+            title: "Building patterns",
+            file: "./content/guides/patterns.md",
+            preview: 0
+          }
+        ]
       },
       {
-        title: "Component communication",
-        file: "./content/guides/communication.md",
-        preview: 0
-      },
-      { title: "Math basics", file: "./content/math.md", preview: 0 },
-      {
-        title: "Drawing the spirals",
-        file: "./content/guides/spirals2.md",
-        preview: 1
-      },
-      {
-        title: "Various experiments",
-        file: "./content/guides/experiments.md",
-        preview: 0
-      },
-      {
-        title: "Building patterns",
-        file: "./content/guides/patterns.md",
-        preview: 0
-      },
-    ]},{title: 'Styles', items: [
-      {
-        title: "Typography",
-        file: "./content/styles/typography.md",
-        preview: 0
-      },
-      {
-        title: "Grid",
-        file: "./content/styles/grid.md",
-        preview: 0
-      },
-      {
-        title: "Colors",
-        file: "./content/styles/colors.md",
-        preview: 0
-      },
-      {
-        title: "Controls",
-        file: "./content/styles/controls.md",
-        preview: 0
+        title: "Styles",
+        files: true,
+        items: [
+          {
+            title: "Typography",
+            file: "./content/styles/typography.md",
+            preview: 0
+          },
+          {
+            title: "Grid",
+            file: "./content/styles/grid.md",
+            preview: 0
+          },
+          {
+            title: "Colors",
+            file: "./content/styles/colors.md",
+            preview: 0
+          },
+          {
+            title: "Controls",
+            file: "./content/styles/controls.md",
+            preview: 0
+          }
+        ]
       }
-    ]}],
+    ],
     content: "",
     activeItem: [0, 0],
     previews: [components.FContentDocument, components.FContentSlides],
@@ -70,18 +85,24 @@ new Vue({
   computed: {
     menuItems() {
       return this.files.concat(
-        ["2D", "2D repeat", "3D", "Data", "Transitions", "Content", "Layout"].map(tag => {
-          return {
-            title: `${tag} components`,
-            tag,
-            items: sortedComponents
-              .map(c => Object.entries(c)[0])
-              .filter(c => c[1].tag == tag)
-              .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
-          };
-        })
-      )
-
+        ["2D", "2D repeat", "3D", "Data", "Transitions", "Content", "Layout"]
+          .map(tag => {
+            return {
+              title: `${tag} components`,
+              tag,
+              items: sortedComponents
+                .map(c => Object.entries(c)[0])
+                .filter(c => c[1].tag == tag)
+                .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
+            };
+          })
+          .concat([
+            {
+              title: "JS utils",
+              items: Object.entries(utilsDocs()).map(d => ({ title: d[0] }))
+            }
+          ])
+      );
     }
   },
   methods: {
@@ -92,7 +113,7 @@ new Vue({
         Type: `<code>${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
         }</code>`,
-        Description: p[1].description ? `${p[1].description}` : ''
+        Description: p[1].description ? `${p[1].description}` : ""
       }));
     },
     generateContent(name, c) {
@@ -124,12 +145,14 @@ ${
     this.$watch(
       "activeItem",
       activeItem => {
-        if (!this.menuItems[activeItem[0]].tag) {
+        if (this.menuItems[activeItem[0]].files = true) {
           fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
             .then(res => res.text())
             .then(content => {
               this.content = content;
-              this.activePreview = this.menuItems[activeItem[0]].items[activeItem[1]].preview;
+              this.activePreview = this.menuItems[activeItem[0]].items[
+                activeItem[1]
+              ].preview;
             });
         } else {
           this.content = this.generateContent(
