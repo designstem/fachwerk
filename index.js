@@ -1,5 +1,5 @@
 import * as components from "./framework.js";
-import Init from "./components/Init.js"
+import Init from "./components/Init.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -12,7 +12,6 @@ import Styles from "./homepage/Styles.js";
 import ComponentRow from "./homepage/ComponentRow.js";
 import Utils from "./homepage/Utils.js";
 import Faq from "./homepage/Faq.js";
-
 
 new Vue({
   mixins: [Init],
@@ -91,29 +90,6 @@ new Vue({
             autosave-id="grid"
           ><f-content-document slot-scope="{content}" :content="content" /></f-content-editor> 
         </f-fetch-data>
-      </div>
-
-      <f-hr />
-      
-      <div style="padding: var(--base5);">
-        <h1>Utils</h1>
-        <div class="intro">A set of Javascript helper functions. Use them like this:</div>
-        <br/>
-
-        <pre>
-// Import just a single function
-import { random } from 'https://designstem.github.io/framework/utils.js'
-
-// Import all under utils namespace
-import * as utils from 'https://designstem.github.io/framework/utils.js'
-
-// Make all utils available for Vue templates
-new Vue({
-  methods: { ...utils }
-})
-        </pre>
-
-        <Utils />
       </div>
 
       <f-hr />

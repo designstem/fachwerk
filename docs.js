@@ -1,6 +1,6 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
-import { kebabCase, utilsDocs } from "./utils.js";
+import { kebabCase, titleCase, utilsDocs } from "./utils.js";
 
 import Init from "./components/Init.js";
 
@@ -89,6 +89,7 @@ new Vue({
           .map(tag => {
             return {
               title: `${tag} components`,
+              component: true,
               tag,
               items: sortedComponents
                 .map(c => Object.entries(c)[0])
@@ -96,13 +97,15 @@ new Vue({
                 .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
             };
           })
-          .concat([
-            {
-              title: "JS utils",
+          .concat(Object.entries(utilsDocs()).map(u => {
+            return {
+              title: `${titleCase(u[0])} utilities`,
               utils: true,
-              items: Object.entries(utilsDocs()).map(d => ({ title: d[0] }))
+              tag: u[0],
+              items: Object.keys(u[1]).map(i => ({ title: i }))
             }
-          ])
+          }))
+
       );
     }
   },
@@ -140,14 +143,30 @@ ${
           : ""
       }
       `;
+    },
+    generateUtils(name, content) {
+      return `## ${name}
+
+${content}
+
+#### Import
+
+Function can be imported using Javascript imports:
+
+    <script type="module">
+      import { ${name} } from 'https://designstem.github.io/framework/utils.js'
+    </script>
+
+`;
     }
   },
   mounted() {
     this.$watch(
       "activeItem",
       activeItem => {
-       
+        
         // Markdown files
+
         if (this.menuItems[activeItem[0]].files) {
           fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
             .then(res => res.text())
@@ -158,9 +177,10 @@ ${
               ].preview;
             });
         }
-      
-        // Compoments
-        if (this.menuItems[activeItem[0]].tag) {
+
+        // Components
+
+        if (this.menuItems[activeItem[0]].component) {
           this.content = this.generateContent(
             this.menuItems[activeItem[0]].items[activeItem[1]].title,
             sortedComponents
@@ -174,12 +194,16 @@ ${
           );
           this.activePreview = 0;
         }
-     
+
         // Utils
+
         if (this.menuItems[activeItem[0]].utils) {
-          this.content = utilsDocs()[
-            this.menuItems[activeItem[0]].items[activeItem[1]].title
-          ].trim();
+          this.content = this.generateUtils(
+            this.menuItems[activeItem[0]].items[activeItem[1]].title,
+            utilsDocs()[this.menuItems[activeItem[0]].tag][
+              this.menuItems[activeItem[0]].items[activeItem[1]].title
+            ].trim()
+          );
           this.activePreview = 0;
         }
       },

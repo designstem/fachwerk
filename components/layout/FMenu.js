@@ -34,7 +34,7 @@ Vertical menu, to be used with \`v-model\`.
           color: 'var(--primary)',
           transform: 'translate(0,calc(var(--base) * 0))',
         }"
-        @click="activeItem = i; top()"
+        @click="activeItem = i;"
         >
           {{ item.title }}
         </div>
