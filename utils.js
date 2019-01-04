@@ -11,9 +11,7 @@ const getCssVariable = (variable, el = document.body) =>
 
 d2.color = `
 
-## color
-
-    color('name')
+\`color('name')\`
 
 Returns a color value. If \`name\` matches one of framework colors, framework color value is returned. If not, a standard CSS color name is returned.
 
@@ -39,11 +37,10 @@ const color = name => {
 /* Color functions */
 
 d2.rgb = `
-## rgb
 
-<code>rgb(r, g, b, a = false)</code>
+\`rgb(r, g, b, a = false)\`
 
-Outputs a CSS <code>rgba()</code> string
+Outputs a CSS \`rgba()\` string
 
 #### Example:
 
@@ -61,11 +58,10 @@ const rgb = (r, g, b, a = false) =>
   a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
 d2.hsl = `
-## hsl
 
-<code>hsl(h, s = 100, l = 50, a = 1)</code>
+\`hsl(h, s = 100, l = 50, a = 1)\`
 
-Outputs a CSS <code>hsla()</code> string
+Outputs a CSS \`hsla()\` string
 
 #### Example
 
@@ -85,13 +81,11 @@ const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
 
 d2.scale = `
 
-## scale
+\`scale(value, start1, stop1, start2 = -2, stop2 = 2)\`
 
-<code>scale(value, start1, stop1, start2 = -2, stop2 = 2)</code>
-
-Scales linearily the input <code>value</code>
-from the input range between <code>start1</code> and <code>stop1</code>
-to the output range  <code>start2</code> and <code>stop2</code>.
+Scales linearily the input \`value\`
+from the input range between \`start1\` and \`stop1\`
+to the output range  \`start2\` and \`stop2\`.
 
 #### Example:
 
@@ -109,11 +103,9 @@ const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
 
 d2.round = `
 
-## round
+\`round(value, decimals = 0)\`
 
-<code>round(value, decimals = 0)</code>
-
-Rounds a number <code>value</code> to optional <code>decimals</code>.
+Rounds a number \`value\` to optional \`decimals\`.
 
 Example:
     
@@ -133,12 +125,10 @@ const round = (value, decimals = 0) => {
 
 d2.random = `
 
-## random
+\`random(from, to, float = false)\`
 
-<code>random(from, to, float = false)</code>
-
-Generates a random integer number between <code>from</code> and <code>to</code>. 
-If <code>float = true</code>, the output value will be floating point number.
+Generates a random integer number between \`from\` and \`to\`. 
+If \`float = true\`, the output value will be floating point number.
 
 Example:
     
@@ -158,11 +148,9 @@ const random = (from, to, float = false) => {
 
 d2.range = `
 
-## range
+\`range(from, to, step = 1)\`
 
-<code>range(from, to, step = 1)</code>
-
-Generates an array of integer numbers in between <code>from</code> and <code>to</code> with optional <code>step</code> parameter.
+Generates an array of integer numbers in between \`from\` and \`to\` with optional \`step\` parameter.
 
 Example
 
@@ -183,11 +171,9 @@ const range = (from, to, step = 1) => {
 
 d2.polarx = `
 
-## polarx polary
+\`polarx(angle, radius = 1)\`
 
-<code>polarx(angle, radius = 1)</code>
-
-Given the polar coordinates <code>angle radius</code>, return cartesian coordinates <code>x y</code>.
+Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y\`.
 
 #### Example
 
@@ -205,11 +191,9 @@ const polarx = (deg = 0, radius = 1) => {
 
 d2.polarx = `
 
-## polary
+\`polary(angle, radius = 1)\`
 
-<code>polary(angle, radius = 1)</code>
-
-Given the polar coordinates <code>angle radius</code>, return cartesian coordinates <code>x y</code>.
+Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y\`.
 
 #### Example
 
@@ -235,11 +219,9 @@ const cy = (deg, radius) => {
 
 d2.polarpoints = `
 
-## polarpoints
+\`polarpoints(count = 6, radius = 1)\`
 
-<code>polarpoints(count, radius)</code>
-
-Calculates <code>count</code> of <code>{ x, y }</code> points on the circle.
+Calculates \`count\` of \`{ x, y }\` points on the circle.
 
 #### Example
 
@@ -270,9 +252,7 @@ const cpoints = (count = 6, radius = 1) => {
 
 d2.deg2rad = `
 
-## deg2rad
-
-<code>deg2rad(angle)</code>
+\`deg2rad(angle)\`
 
 Converts angle in degrees to radians.
 
@@ -293,9 +273,7 @@ const deg2rad = deg => (deg * Math.PI) / 180;
 
 d2.rad2deg = `
 
-## rad2deg
-
-<code>rad2deg(angle)</code>
+\`rad2deg(angle)\`
 
 Converts angle in radians to degrees.
 
@@ -314,9 +292,7 @@ const rad2deg = rad => (rad * 180) / Math.PI;
 
 d2.shuffle = `
 
-## shuffle
-
-<code>shuffle(array)</code>
+\`shuffle(array)\`
 
 Sorts the array in random order.
 
@@ -334,9 +310,7 @@ const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
 d2.any = `
 
-## any
-
-<code>any(array)</code>
+\`any(array)\`
 
 Picks a random element from the array.
 Supports both array and function argument syntax.
@@ -361,9 +335,7 @@ const any = function(arr) {
 
 d2.flatten = `
 
-## flatten
-
-<code>flatten(array)</code>
+\`flatten(array)\`
 
 Flattens multidimensional array
 
@@ -382,11 +354,9 @@ const flatten = list =>
 
 d2.chunk = `
 
-## chunk
+\`chunk(array, length)\`
 
-<code>chunk(array, length)</code>
-
-Chunks array into smaller <code>length</code>-sized arrays
+Chunks array into smaller \`length\`-sized arrays
 
 #### Example
 
@@ -405,9 +375,7 @@ const chunk = (arr, length) =>
 
 d2.unique = `
 
-## unique
-
-<code>unique(array)</code>
+\`unique(array)\`
 
 Removes duplicates from the array
 
@@ -427,9 +395,7 @@ const unique = arr => [...new Set(arr)];
 
 d2.snapToGrid = `
 
-## snapToGrid
-
-<code>snapToGrid(value, gridsize)</code>
+\`snapToGrid(value, gridsize)\`
 
 Returns the value in the closest point of 2D grid.
 
@@ -450,9 +416,7 @@ const snapToGrid = (value, gridsize) => {
 
 d2.log = `
 
-## log
-
-<code>log(message)</code>
+\`log(message)\`
 
 Logs a value from a template to the console
 
@@ -462,9 +426,7 @@ const log = value => console.log(value);
 
 d2.join = `
 
-## join
-
-<code>join(value1, value2, value3)</code>
+\`join(value1, value2, value3)\`
 
 Joins a set of values to a space-separated string, useful for A-Frame integration.
 

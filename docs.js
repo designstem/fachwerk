@@ -140,13 +140,24 @@ ${
           : ""
       }
       `;
+    },
+    generateUtils(name, content) {
+      return `## ${name}
+
+#### Import
+
+    import { ${name} } from 'https://designstem.github.io/framework/utils.js'
+
+#### Description
+
+${content}
+      `;
     }
   },
   mounted() {
     this.$watch(
       "activeItem",
       activeItem => {
-       
         // Markdown files
         if (this.menuItems[activeItem[0]].files) {
           fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
@@ -158,7 +169,7 @@ ${
               ].preview;
             });
         }
-      
+
         // Compoments
         if (this.menuItems[activeItem[0]].tag) {
           this.content = this.generateContent(
@@ -174,12 +185,15 @@ ${
           );
           this.activePreview = 0;
         }
-     
+
         // Utils
         if (this.menuItems[activeItem[0]].utils) {
-          this.content = utilsDocs()[
-            this.menuItems[activeItem[0]].items[activeItem[1]].title
-          ].trim();
+          this.content = this.generateUtils(
+            this.menuItems[activeItem[0]].items[activeItem[1]].title,
+            utilsDocs()[
+              this.menuItems[activeItem[0]].items[activeItem[1]].title
+            ].trim()
+          );
           this.activePreview = 0;
         }
       },
