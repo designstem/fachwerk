@@ -12,8 +12,8 @@ new Vue({
   mixins: [Init],
   el: "#app",
   data: () => ({
-    contentPages: [
-      { title: "Building patterns", file: "./content/patterns.md", preview: 0 },
+    contentItems: [
+      { title: "Building patterns", file: "./content/patterns.md", preview: 0, },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       {
         title: "Interactive slides",
@@ -39,13 +39,13 @@ new Vue({
       { title: "Now it is your turn!", file: "./content/empty.md", preview: 0 }
     ],
     content: "",
-    activeContent: 0,
+    activeItem: 0,
     previews: [components.FContentDocument, components.FContentSlides],
     activePreview: 0
   }),
   computed: {
-    contentFiles() {
-      return this.contentPages.concat(
+    menuItems() {
+      return this.contentItems.concat(
         ...sortedComponents
           .map(c => Object.keys(c)[0])
           .map(c => ({ title: `<${kebabCase(c)}>`, name: c }))
@@ -84,22 +84,22 @@ ${c.props ?
   },
   mounted() {
     this.$watch(
-      "activeContent",
-      activeContent => {
-        if (this.contentFiles[activeContent].file) {
-          fetch(this.contentFiles[activeContent].file)
+      "activeItem",
+      activeItem => {
+        if (this.menuItems[activeItem].file) {
+          fetch(this.menuItems[activeItem].file)
             .then(res => res.text())
             .then(content => {
               this.content = content;
-              this.activePreview = this.contentFiles[activeContent].preview;
+              this.activePreview = this.menuItems[activeItem].preview;
             });
         }
-        if (this.contentFiles[activeContent].name) {
+        if (this.menuItems[activeItem].name) {
           this.content = this.generateContent(
-            this.contentFiles[activeContent].name,
+            this.menuItems[activeItem].name,
             sortedComponents
               .map(c => Object.entries(c)[0])
-              .filter(c => c[0] == this.contentFiles[activeContent].name)
+              .filter(c => c[0] == this.menuItems[activeItem].name)
               .map(c => c[1])[0]
           );
           this.activePreview = 0;
@@ -119,7 +119,11 @@ ${c.props ?
       <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
     </header>
     <f-theme class="grid" style="--gap: 0; --cols: 200px 3px 1fr; --rows:400vh;">
-    <f-menu style="overflow-y: auto" :items="contentFiles.map(c => c.title)" v-model="activeContent" />
+    <f-menu
+      style="overflow-y: auto"
+      :items="menuItems.map(c => c.title)"
+      v-model="activeItem"
+    />
     <f-vr />
     <f-content-editor
       :content="content"

@@ -29,7 +29,14 @@ Vertical menu, to be used with \`v-model\`.
           height: 'calc(var(--base) * 8)'
         }"
       >
-        {{ item }}
+        {{ item.title || item }}
+        <div
+          v-if="item.items"
+          v-for="(item,j) in item.items"
+          :key="j"
+        > 
+          {{ item }}
+        </div>
       </div>
     </div>
   `
