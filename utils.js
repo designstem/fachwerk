@@ -643,7 +643,7 @@ const coordsTextToArray = text => {
   );
 };
 
-const coordsarrayToObject = array => {
+const coordsArrayToObject = array => {
   return array.map(a => ({ x: a[0], y: a[1] || 0, z: a[2] || 0 }));
 };
 
@@ -653,10 +653,10 @@ const coordsObjectToObject = a => {
 
 const parseCoords = c => {
   if (typeof c == "string") {
-    return cooru.arrayToObject(coordsTextToArray(c));
+    return coordsArrayToObject(coordsTextToArray(c));
   }
   if (Array.isArray(c)) {
-    return cooru.arrayToObject(c);
+    return coordsArrayToObject(c);
   }
   if (!Array.isArray(c) && typeof c == "object") {
     return c;

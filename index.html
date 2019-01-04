@@ -7,14 +7,23 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div id="app">
+
     <header>
-      <div>Fachwerk is a part of <a href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</div>
-      <f-icon-github />
+      <div>
+        <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://designstem.github.io/templates">Templates</a>
+      </div>
+      <div>
+        <a href="https://github.com/designstem/templates">Github</a>&nbsp;&nbsp;
+        <f-icon-github />
+      </div>
     </header>
 
     <div class="hero">
       <h1>Love <i>Ordnung</i>?<br>Here is Fachwerk.</h1>
-      <h4 style="width: 70vw">Web framework for creating interactive learning materials. Only the <span style="color: var(--gray)">latest Chrome</span> for now.</h4>
+      <h5 style="width: 70vw">Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a style="color: var(--gray)" href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</h5>
     </div>
 
     <div style="padding: var(--base5); background: var(--yellow)">
@@ -41,7 +50,7 @@
           </div>
         </div>
         <div>
-          <a href="#components" class="intro button_primary">Play with components</a>
+          <a href="#play" class="intro button_primary">Play with components</a>
         </div>
         <div><a href="./docs.html" class="intro button_primary">Explore the documentation</a>
         </div>
@@ -50,8 +59,17 @@
       </div>
     </div>
     
-    <div id="app">
-    </div>
+    <f-hr></f-hr>
+
+    <f-fetch-data id="play" url="./content/index/demo.md">
+      <f-content-editor slot-scope="data" :content="data.value"></f-content-editor>
+    </f-fetch-data>
+
+    <f-hr></f-hr>
+    
+    <f-fetch-data url="./content/index/faq.md">
+      <f-content-document slot-scope="data" :content="data.value"></f-content-document>
+    </f-fetch-data>
 
     <div class="footer">
       <div>
@@ -69,7 +87,7 @@
       </div>
       <img src="./images/erasmus_logo.svg" style="width:240px" />
     </div>
-  
+  </div>
   <script src="./vendor.js"></script>
   <script src="./index.js" type="module"></script>
   <script src="./build.js" defer nomodule></script>

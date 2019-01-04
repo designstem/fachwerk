@@ -18,6 +18,11 @@ new Vue({
         files: true,
         items: [
           {
+            title: "Getting started",
+            file: "./content/guides/gettingstarted.md",
+            preview: 0
+          },
+          {
             title: "Markdown basics",
             file: "./content/guides/markdown.md",
             preview: 0
@@ -32,7 +37,7 @@ new Vue({
             file: "./content/guides/communication.md",
             preview: 0
           },
-          { title: "Math basics", file: "./content/math.md", preview: 0 },
+          { title: "Math basics", file: "./content/guides/math.md", preview: 0 },
           {
             title: "Drawing the spirals",
             file: "./content/guides/spirals2.md",
@@ -60,11 +65,6 @@ new Vue({
             preview: 0
           },
           {
-            title: "Grid",
-            file: "./content/styles/grid.md",
-            preview: 0
-          },
-          {
             title: "Colors",
             file: "./content/styles/colors.md",
             preview: 0
@@ -73,7 +73,12 @@ new Vue({
             title: "Controls",
             file: "./content/styles/controls.md",
             preview: 0
-          }
+          },
+          {
+            title: "Grid",
+            file: "./content/styles/grid.md",
+            preview: 0
+          },
         ]
       }
     ],
@@ -212,14 +217,19 @@ Function can be imported using Javascript imports:
   },
   template: `
   <div>
-    <header style="background: var(--yellow);">
+
+    <header>
       <div>
-        <a href="https://designstem.github.io/framework">Fachwerk</a>
-        → Documentation
+        <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://designstem.github.io/templates">Templates</a>
       </div>
-      <p style="margin: 0;"><kbd>Alt</kbd> + <kbd>F</kbd> for fullscreen, <kbd>Alt</kbd> + <kbd>T</kbd> for dark theme</p>
-      <f-buttons :buttons="['As Document','As Slides']" v-model="activePreview" />
+      <div>
+        <a href="https://github.com/designstem/framework">Github</a>&nbsp;&nbsp;
+        <f-icon-github />
+      </div>
     </header>
+
     <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
     <f-menu
       style="overflow-y: auto"
