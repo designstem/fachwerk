@@ -1,6 +1,15 @@
 import * as components from "./framework.js";
 import { sortedComponents } from "./framework.js";
 import { kebabCase } from "./utils.js";
+import { docs } from '../utils.js'
+
+// export default {
+//   components: { Markdown },
+//   data: () => ({ docs: docs() }),
+//   template: `
+//       <Markdown :content="docs.join('<br><p />')" />
+//   `
+// }
 
 import Init from "./components/Init.js";
 
@@ -47,6 +56,11 @@ new Vue({
         preview: 0
       },
       {
+        title: "Grid",
+        file: "./content/styles/grid.md",
+        preview: 0
+      },
+      {
         title: "Colors",
         file: "./content/styles/colors.md",
         preview: 0
@@ -75,7 +89,7 @@ new Vue({
               .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
           };
         })
-      );
+      )
 
     }
   },
