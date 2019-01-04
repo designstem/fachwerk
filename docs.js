@@ -17,7 +17,6 @@ new Vue({
         title: "Building patterns",
         file: "./content/patterns.md",
         preview: 0,
-        items: ["Markdown basics", "Interactive slides"]
       },
       { title: "Markdown basics", file: "./content/markdown.md", preview: 0 },
       {
@@ -40,21 +39,23 @@ new Vue({
         title: "Various experiments",
         file: "./content/experiments.md",
         preview: 0
-      },
-      { title: "Now it is your turn!", file: "./content/empty.md", preview: 0 }
+      }
     ],
     content: "",
-    activeItem: 0,
+    activeItem: [0,0],
     previews: [components.FContentDocument, components.FContentSlides],
     activePreview: 0
   }),
   computed: {
     menuItems() {
-      return this.contentItems.concat(
-        ...sortedComponents
-          .map(c => Object.keys(c)[0])
-          .map(c => ({ title: `<${kebabCase(c)}>`, name: c }))
-      );
+      return [
+        { title: 'Guides', items: this.contentItems }
+      ]
+      // return this.contentItems.concat(
+      //   ...sortedComponents
+      //     .map(c => Object.keys(c)[0])
+      //     .map(c => ({ title: `<${kebabCase(c)}>`, name: c }))
+      // );
     }
   },
   methods: {
@@ -95,30 +96,30 @@ ${
     }
   },
   mounted() {
-    this.$watch(
-      "activeItem",
-      activeItem => {
-        if (this.menuItems[activeItem].file) {
-          fetch(this.menuItems[activeItem].file)
-            .then(res => res.text())
-            .then(content => {
-              this.content = content;
-              this.activePreview = this.menuItems[activeItem].preview;
-            });
-        }
-        if (this.menuItems[activeItem].name) {
-          this.content = this.generateContent(
-            this.menuItems[activeItem].name,
-            sortedComponents
-              .map(c => Object.entries(c)[0])
-              .filter(c => c[0] == this.menuItems[activeItem].name)
-              .map(c => c[1])[0]
-          );
-          this.activePreview = 0;
-        }
-      },
-      { immediate: true }
-    );
+    // this.$watch(
+    //   "activeItem",
+    //   activeItem => {
+    //     if (this.activeItem[0] == 0) {
+    //       fetch(this.contentItems[activeItem[1]].file)
+    //         .then(res => res.text())
+    //         .then(content => {
+    //           this.content = content;
+    //           this.activePreview = this.contentItems[activeItem[1]].preview;
+    //         });
+    //     }
+    //     if (this.activeItem[0] > 0) {
+    //       this.content = this.generateContent(
+    //         'aaa',
+    //         sortedComponents
+    //           .map(c => Object.entries(c)[0])
+    //           .filter(c => c[0] == this.menuItems[activeItem[1]].name)
+    //           .map(c => c[1])[0]
+    //       );
+    //       this.activePreview = 0;
+    //     }
+    //   },
+    //   { immediate: true }
+    // );
   },
   template: `
   <div>
@@ -137,7 +138,7 @@ ${
       v-model="activeItem"
     />
     <f-vr />
-    <f-content-editor
+    <!--f-content-editor
       :content="content"
       :autosave="false"
     >
@@ -147,7 +148,7 @@ ${
         base="8px"
         style="--gap: var(--base4);"
       />
-    </f-content-editor>
+    </f-content-editor-->
     </f-theme>
 </div>
   `
