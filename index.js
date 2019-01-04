@@ -5,24 +5,23 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import { sortedComponents } from "./framework.js";
+// import { sortedComponents } from "./framework.js";
 
-import Colors from "./homepage/Colors.js";
-import Styles from "./homepage/Styles.js";
-import ComponentRow from "./homepage/ComponentRow.js";
-import Utils from "./homepage/Utils.js";
-import Faq from "./homepage/Faq.js";
+// import Colors from "./homepage/Colors.js";
+// import Styles from "./homepage/Styles.js";
+// import ComponentRow from "./homepage/ComponentRow.js";
+// import Faq from "./homepage/Faq.js";
 
 new Vue({
   mixins: [Init],
   el: "#app",
-  data: {
-    sortedComponents,
-    tags: ["2D", "3D", "Data", "Transitions", "Content", "Layout"],
-    activeTag: 0
-  },
-  components: { ComponentRow, Colors, Styles, Utils, Faq },
-  template: `
+  // data: {
+  //   sortedComponents,
+  //   tags: ["2D", "3D", "Data", "Transitions", "Content", "Layout"],
+  //   activeTag: 0
+  // },
+  // components: { ComponentRow, Colors, Styles, Faq },
+ /*template2: `
     <f-theme>
 
       <f-hr />
@@ -76,29 +75,14 @@ new Vue({
       </div>
 
       <f-hr />
-      
+    
       <div style="padding: var(--base5);">
-        <h1>Grid</h1>
-        <div class="intro">
-          A <a href="https://learncssgrid.com/" target="_blank">CSS grid</a> and CSS variables based grid system. The code below is editable ✏️ so try it out!
-        </div>
-        <br/>
-        <f-fetch-data url="./content/grid.md">
-          <f-content-editor
-            slot-scope="data"
-            :content="data.value"
-            autosave-id="grid"
-          ><f-content-document slot-scope="{content}" :content="content" /></f-content-editor> 
+        <h1>FAQ</h1>
+        <f-fetch-data url="./content/index/faq.md">
+          <f-content-document slot-scope="data" :content="data.value" /> 
         </f-fetch-data>
       </div>
 
-      <f-hr />
-  
-      <div style="padding: var(--base5);">
-        <h1>FAQ</h1>
-        <Faq />
-      </div>
-
     </f-theme>
-  `
+  `*/
 });
