@@ -6,4 +6,4 @@ export default {
       document.querySelector("head").appendChild(el);
     }
   }
-};
+}

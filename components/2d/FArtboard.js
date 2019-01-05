@@ -1,6 +1,7 @@
 export default {
-  tag: 'Experimental',
+  tag: '2D',
   description: `
+TBD
   `,
   example: `
 <f-artboard grid="true">

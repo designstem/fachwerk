@@ -1,10 +1,10 @@
-import { Object2D } from "./2d.js";
+import { Object2d } from "../../mixins.js";
 
 export default {
-  mixins: [Object2D],
+  mixins: [Object2d],
   tag: `2D repeat`,
   description: `
-Mirrors children element around horizontal x axis.
+Mirrors children element around vertical y axis.
   `,
   example: `
 <f-scene grid>
@@ -12,12 +12,11 @@ Mirrors children element around horizontal x axis.
     :rotation="{z:10}"
     opacity="0.25"
   />
-  <f-mirror-x>
+  <f-mirror-y>
     <f-box
       :rotation="{z:10}"
-      :stroke="color('red')"
-    />
-  </f-mirror-x>
+      :stroke="color('red')"/>
+  </f-mirror-y>
 </f-scene>
   `,
   props: {
@@ -37,11 +36,11 @@ Mirrors children element around horizontal x axis.
   >
     <defs>
       <clipPath :id="id">
-      <rect
-          :x="-r"
-          :y="0"
-          :width="r * 2"
-          :height="r"
+        <rect
+          x="0"
+          :y="-r"
+          :width="r"
+          :height="r * 2"
         />
       </clipPath>
     </defs>
@@ -51,11 +50,11 @@ Mirrors children element around horizontal x axis.
     </f-group>
     <f-group
       :clip-path="'url(#' + id + ')'"
-      transform="scale(1,-1)"
+      transform="scale(-1,1)"
     >
       <slot :value="1" />
     </f-group>
 
   </f-group>  
   `
-}
+};

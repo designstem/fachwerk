@@ -1,4 +1,4 @@
-import Css from "../Css.js";
+import { Css } from '../../mixins.js'
 import { color } from "../../utils.js";
 
 export default {

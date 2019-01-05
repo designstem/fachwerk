@@ -1,14 +1,14 @@
-import * as components from "./framework.js";
-import * as utils from "./utils.js";
-import Init from "./components/Init.js";
+import * as components from "../framework.js";
+import * as utils from "../utils.js";
+import Init from "../components/Init.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import { Object2D } from "./components/2d/2d.js";
-import { range } from "./utils.js";
-import { polarpoints } from "./utils.js";
+import { Object2D } from "../components/2d/2d.js";
+import { range } from "../utils.js";
+import { polarpoints } from "../utils.js";
 
 const FMirrorY = {
   mixins: [Object2D],

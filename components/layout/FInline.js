@@ -1,4 +1,4 @@
-import Css from "../Css.js";
+import { Css } from '../../mixins.js'
 
 export default {
   mixins: [Css],
@@ -20,6 +20,7 @@ Inline layout component.
   css: `
   .f-inline {
     display: flex;
+    margin-bottom: var(--base2);
   }
   .f-inline > * {
     margin: 0 var(--base) 0 0;

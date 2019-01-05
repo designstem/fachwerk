@@ -1,7 +1,7 @@
-import { Object2D } from "./2d.js";
+import { Object2d } from "../../mixins.js";
 
 export default {
-  mixins: [Object2D],
+  mixins: [Object2d],
   tag: '2D',
   description: `
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.

@@ -1,21 +1,22 @@
-import { Object2D } from "./2d.js";
-import { range } from "../../utils.js";
+import { Object2d } from "../../mixins.js";
+import { polarpoints } from "../../utils.js";
 
 export default {
-  mixins: [Object2D],
+  mixins: [Object2d],
   tag: `2D repeat`,
   description: `
-Repeats elements along the circle, rotating each towards the center of the circle.
+Repeats elements along the circle.
   `,
   example: `
-<f-scene grid>
+<f-scene>
   <f-box />
-  <f-repeat-spin>
+  <f-repeat-circle>
     <f-box
       slot-scope="data"
+      opacity="0.25"
       :stroke="color('red')"
     />
-  </f-repeat-spin>
+  </f-repeat-circle>
 </f-scene>
   `,
   props: {
@@ -26,20 +27,18 @@ Repeats elements along the circle, rotating each towards the center of the circl
     scale: { default: () => ({}), type: Object },
     opacity: { default: 1, type: [Number, String] }
   },
-  methods: { range },
+  methods: { polarpoints },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
     <f-group
-      v-for="(a,i) in range(0,360,360 / count)"
+      v-for="(p,i) in polarpoints(count,r)"
       :key="i"
-      :rotation="{z: a}"
+      :position="p"
     >
-      <f-group :position="{x: r}">
-        <slot :value="i" />
-      </f-group>
+      <slot :value="i" />
     </f-group>
   </f-group>  
   `

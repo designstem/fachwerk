@@ -1,6 +1,6 @@
-import { parseCoords } from "../../utils.js"
+import { parseCoords } from "../utils.js"
 
-const Object2D = {
+export default {
   methods: {
     parseTransform(transform) {
       if (typeof transform == 'string') {
@@ -41,5 +41,3 @@ const Object2D = {
     }
   }
 };
-
-export { Object2D };

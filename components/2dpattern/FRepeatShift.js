@@ -1,22 +1,21 @@
-import { Object2D } from "./2d.js";
+import { Object2d } from "../../mixins.js";
 import { range } from "../../utils.js";
 
 export default {
-  mixins: [Object2D],
+  mixins: [Object2d],
   tag: `2D repeat`,
   description: `
-Repeats the contents in a 2D grid.
+Repeats the contents in a shifted rectangular grid.
   `,
   example: `
 <f-scene grid>
-  <f-repeat-grid>
-    <f-circle
+  <f-repeat-shift>
+    <f-box
       slot-scope="data"
-      r="0.5"
       :stroke="color('red')"
     />
-  </f-repeat-grid>
-  <f-circle r="0.5" />  
+  </f-repeat-shift>
+  <f-box />
 </f-scene>
   `,
   props: {
@@ -34,9 +33,9 @@ Repeats the contents in a 2D grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group v-for="(x,i) in range(width / -2, width / 2, step)" :key="i" :position="{x,y:0}">
-      <f-group v-for="(y,j) in range(height / -2, height / 2, step)" :key="j" :position="{x:0,y}">
-        <slot :value="[i, j, (i * range(height / -2, height / 2, step).length) + j]" />
+    <f-group v-for="(y,j) in range(width / -2, width / 2, step)" :key="j" :position="{x:0,y}">
+      <f-group v-for="(x,i) in range(height / -2, height / 2, step)" :key="i" :position="{x: j % 2 ? x + step / 2 : x,y:0}">
+        <slot :value="[i, j, (i * j) + i]" />
       </f-group>
     </f-group>
   </f-group>  

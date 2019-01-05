@@ -1,8 +1,7 @@
-import * as utils from "../utils.js";
+import * as utils from "../../utils.js";
 
 export default {
-  name: 'Render',
-  props: { t: String },
+  props: { content: String },
   data: () => ({
     render: null,
     someVariable: 0
@@ -10,7 +9,7 @@ export default {
   methods: Object.assign({},utils),
   mounted() {
     this.$watch(
-      "t",
+      "content",
       value => {
         const template = Vue.compile(value);
         this.render = template.render;

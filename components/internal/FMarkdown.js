@@ -1,7 +1,7 @@
-import Render from "./Render.js";
+import FRender from "./FRender.js";
 
 export default {
-  components: { Render },
+  components: { FRender },
   props: ["content"],
   methods: { marked },
   computed: {
@@ -13,7 +13,7 @@ export default {
   },
   template: `
   <div>
-    <Render :t="'<div>' + marked(processedContent, { breaks: true }) + '</div>'" />
+    <FRender :content="'<div>' + marked(processedContent, { breaks: true }) + '</div>'" />
   </div>
   `
 };
