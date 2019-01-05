@@ -24,23 +24,23 @@ new Vue({
               preview: 0
             },
             {
-              title: "Markdown basics",
-              file: "./content/guides/markdown.md",
+              title: "Writing content",
+              file: "./content/guides/writing.md",
               preview: 0
             },
             {
-              title: "Interactive slides",
+              title: "Math and graphs",
+              file: "./content/guides/math.md",
+              preview: 0
+            },
+            {
+              title: "Adding interactivity",
               file: "./content/guides/interactive.md",
               preview: 1
             },
             {
               title: "Component communication",
               file: "./content/guides/communication.md",
-              preview: 0
-            },
-            {
-              title: "Math basics",
-              file: "./content/guides/math.md",
               preview: 0
             },
             {
@@ -187,14 +187,6 @@ ${
             ).replace(/'/g, '\\"')}' style="--lightblue: transparent" />`
           : ""
       }
-      
-#### Slots
-
-TBD
-
-#### CSS variables
-
-TDB
 
 #### Import
 
