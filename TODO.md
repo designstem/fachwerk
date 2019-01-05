@@ -1,7 +1,19 @@
-- content -> docs
-- f-repeat-hex -> /pattern/f-hex-pattern
 - VR components!
+- fix small big
+- fix pattern examples
 
+### Example 1
+
+<div v-for="c in ['f-mirror-x','f-mirror-y','f-repeat-grid','f-repeat-shift','f-repeat-hex','f-repeat-circle','f-repeat-spin','f-repeat-slice']">
+<br>
+<h4>{{ c }}</h4>
+<f-scene grid width="150" height="150"> 
+  <component :is="c">
+    <f-text style="font-size: 6rem;" opacity="0.5" x="0.5" y="0">a</f-text>
+  </component>
+  <f-text style="font-size: 6rem;"   :fill="color('red')" opacity="0.5" x="0.5" y="-0">a</f-text>
+</f-scene>
+</div>
 
 ---
 

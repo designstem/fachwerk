@@ -14,7 +14,7 @@ new Vue({
     return {
       content: "",
       wide: false,
-      activeItem: [0, 0],
+      activeItem: [0, 6],
       previews: [components.FContentDocument, components.FContentSlides],
       activePreview: 0,
       files: [
@@ -39,6 +39,11 @@ new Vue({
               preview: 0
             },
             {
+              title: "Drawing the spirals",
+              file: "./docs/guides/spirals2.md",
+              preview: 0
+            },
+            {
               title: "Adding interactivity",
               file: "./docs/guides/interactive.md",
               preview: 1
@@ -46,28 +51,33 @@ new Vue({
             {
               title: "Using colors",
               file: "./docs/guides/colors.md",
-              preview: 1
+              preview: 0
+            },
+            {
+              title: "Visualizing data",
+              file: "./docs/guides/dataviz.md",
+              preview: 0
+            },
+            {
+              title: "Making patterns",
+              file: "./docs/guides/patterns.md",
+              preview: 0
+            },
+            {
+              title: "Working with grid",
+              file: "./docs/guides/grid.md",
+              preview: 0,
+            },
+            {
+              title: "Forms and controls",
+              file: "./docs/guides/controls.md",
+              preview: 0,
             },
             {
               title: "Component communication",
               file: "./docs/guides/communication.md",
               preview: 0
             },
-            {
-              title: "Drawing the spirals",
-              file: "./docs/guides/spirals2.md",
-              preview: 1
-            },
-            {
-              title: "Data visualization",
-              file: "./docs/guides/dataviz.md",
-              preview: 0
-            },
-            {
-              title: "Building patterns",
-              file: "./docs/guides/patterns.md",
-              preview: 0
-            }
           ]
         },
         {
@@ -111,22 +121,6 @@ new Vue({
           component: true,
           tag: "Layout",
           items: this.getComponents("Layout")
-        },
-        {
-          title: "💄Styles",
-          files: true,
-          items: [
-            {
-              title: "Controls",
-              file: "./docs/styles/controls.md",
-              preview: 0
-            },
-            {
-              title: "Grid",
-              file: "./docs/styles/grid.md",
-              preview: 0
-            }
-          ]
         }
       ],
     };

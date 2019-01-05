@@ -80,6 +80,14 @@ Adding images is currently tricky, we rely on complex syntanx like `![](image_li
 
 <br>
 
+### Big and small
+
+Content can be sized up and down using `<big>` and `<small>` tags:
+
+<big>Big text</big>
+
+<small>Small text</small>
+
 ### Lists
 
 Unordered list:
@@ -110,6 +118,25 @@ For longer block of code, one can use following format:
 
 ```
 longer
-blocks
-of code
+  code
+    blocks
 ```
+
+### Tables
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Born</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Klaus</td>
+      <td>1926</td>
+    </tr>
+    <tr>
+      <td>Werner</td>
+      <td>1942</td>
+    </tr>
+  </tbody>
+</table>
