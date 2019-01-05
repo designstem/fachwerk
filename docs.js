@@ -11,110 +11,151 @@ for (const name in components) {
 new Vue({
   mixins: [Init],
   el: "#app",
-  data: () => ({
-    files: [
-      {
-        title: "Guides",
-        files: true,
-        items: [
-          {
-            title: "Getting started",
-            file: "./content/guides/gettingstarted.md",
-            preview: 0
-          },
-          {
-            title: "Markdown basics",
-            file: "./content/guides/markdown.md",
-            preview: 0
-          },
-          {
-            title: "Interactive slides",
-            file: "./content/guides/interactive.md",
-            preview: 1
-          },
-          {
-            title: "Component communication",
-            file: "./content/guides/communication.md",
-            preview: 0
-          },
-          { title: "Math basics", file: "./content/guides/math.md", preview: 0 },
-          {
-            title: "Drawing the spirals",
-            file: "./content/guides/spirals2.md",
-            preview: 1
-          },
-          {
-            title: "Various experiments",
-            file: "./content/guides/experiments.md",
-            preview: 0
-          },
-          {
-            title: "Building patterns",
-            file: "./content/guides/patterns.md",
-            preview: 0
-          }
-        ]
-      },
-      {
-        title: "Styles",
-        files: true,
-        items: [
-          {
-            title: "Typography",
-            file: "./content/styles/typography.md",
-            preview: 0
-          },
-          {
-            title: "Colors",
-            file: "./content/styles/colors.md",
-            preview: 0
-          },
-          {
-            title: "Controls",
-            file: "./content/styles/controls.md",
-            preview: 0
-          },
-          {
-            title: "Grid",
-            file: "./content/styles/grid.md",
-            preview: 0
-          },
-        ]
-      }
-    ],
-    content: "",
-    activeItem: [0, 0],
-    previews: [components.FContentDocument, components.FContentSlides],
-    activePreview: 0
-  }),
+  data: function() {
+    return {
+      files: [
+        {
+          title: "⛰️Guides",
+          files: true,
+          items: [
+            {
+              title: "Getting started",
+              file: "./content/guides/gettingstarted.md",
+              preview: 0
+            },
+            {
+              title: "Markdown basics",
+              file: "./content/guides/markdown.md",
+              preview: 0
+            },
+            {
+              title: "Interactive slides",
+              file: "./content/guides/interactive.md",
+              preview: 1
+            },
+            {
+              title: "Component communication",
+              file: "./content/guides/communication.md",
+              preview: 0
+            },
+            {
+              title: "Math basics",
+              file: "./content/guides/math.md",
+              preview: 0
+            },
+            {
+              title: "Drawing the spirals",
+              file: "./content/guides/spirals2.md",
+              preview: 1
+            },
+            {
+              title: "Various experiments",
+              file: "./content/guides/experiments.md",
+              preview: 0
+            },
+            {
+              title: "Building patterns",
+              file: "./content/guides/patterns.md",
+              preview: 0
+            }
+          ]
+        },
+        {
+          title: "📦2D graphics",
+          component: true,
+          tag: "2D",
+          items: this.getComponents("2D")
+        },
+        {
+          title: "📦2D patterns",
+          component: true,
+          tag: "2D repeat",
+          items: this.getComponents("2D repeat")
+        },
+        {
+          title: "📦3D graphics",
+          component: true,
+          tag: "3D",
+          items: this.getComponents("3D")
+        },
+        {
+          title: "📦Dynamic data",
+          component: true,
+          tag: "Data",
+          items: this.getComponents("Data")
+        },
+        {
+          title: "📦Transitions",
+          component: true,
+          tag: "Transitions",
+          items: this.getComponents("Transitions")
+        },
+        {
+          title: "📦Content writing",
+          component: true,
+          tag: "Content",
+          items: this.getComponents("Content")
+        },
+        {
+          title: "📦Layout building",
+          component: true,
+          tag: "Layout",
+          items: this.getComponents("Layout")
+        },
+        {
+          title: "💄Styles",
+          files: true,
+          items: [
+            {
+              title: "Typography",
+              file: "./content/styles/typography.md",
+              preview: 0
+            },
+            {
+              title: "Colors",
+              file: "./content/styles/colors.md",
+              preview: 0
+            },
+            {
+              title: "Controls",
+              file: "./content/styles/controls.md",
+              preview: 0
+            },
+            {
+              title: "Grid",
+              file: "./content/styles/grid.md",
+              preview: 0
+            }
+          ]
+        }
+      ],
+      content: "",
+      activeItem: [0, 0],
+      previews: [components.FContentDocument, components.FContentSlides],
+      activePreview: 0
+    };
+  },
   computed: {
     menuItems() {
       return this.files.concat(
-        ["2D", "2D repeat", "3D", "Data", "Transitions", "Content", "Layout"]
-          .map(tag => {
-            return {
-              title: `${tag} components`,
-              component: true,
-              tag,
-              items: sortedComponents
-                .map(c => Object.entries(c)[0])
-                .filter(c => c[1].tag == tag)
-                .map(c => ({ title: kebabCase(c[0]), name: c[0] }))
-            };
-          })
-          .concat(Object.entries(utilsDocs()).map(u => {
-            return {
-              title: `${titleCase(u[0])} utilities`,
-              utils: true,
-              tag: u[0],
-              items: Object.keys(u[1]).map(i => ({ title: i }))
-            }
-          }))
-
+        Object.entries(utilsDocs()).map(u => {
+          return {
+            title: `⚒️${titleCase(u[0])} utilities`,
+            utils: true,
+            tag: u[0],
+            items: Object.keys(u[1]).map(i => ({ title: i }))
+          };
+        })
       );
     }
   },
   methods: {
+    getComponents(tag) {
+      return sortedComponents
+        .map(c => Object.entries(c)[0])
+        .filter(c => c[1].tag == tag)
+        .map(c => ({ title: kebabCase(c[0]), name: c[0] }));
+    },
     propRows(props) {
       return Object.entries(props).map(p => ({
         Name: `<code>${p[0]}</code>`,
@@ -169,7 +210,6 @@ Function can be imported using Javascript imports:
     this.$watch(
       "activeItem",
       activeItem => {
-        
         // Markdown files
 
         if (this.menuItems[activeItem[0]].files) {
