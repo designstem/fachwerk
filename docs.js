@@ -218,17 +218,16 @@ Function can be imported using Javascript imports:
   template: `
   <div>
 
-    <header>
+  <header>
       <div>
         <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
         <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/templates">Templates</a>
+        <a href="https://designstem.github.io/templates">Templates</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://designstem.github.io/homepage">Demos</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/framework">Github</a>
       </div>
-      <div>
-        <a href="https://github.com/designstem/framework">Github</a>&nbsp;&nbsp;
-        <f-icon-github />
-      </div>
-    </header>
+      <f-icon-github />
+  </header>
 
     <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
     <f-menu
