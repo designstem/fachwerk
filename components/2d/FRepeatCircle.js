@@ -3,7 +3,7 @@ import { polarpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2D],
-  tag: `2D`,
+  tag: `2D repeat`,
   description: `
 Repeats elements along the circle.
   `,
