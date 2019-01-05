@@ -15,7 +15,7 @@ new Vue({
     return {
       files: [
         {
-          title: "🗺️Guides",
+          title: "🔮Guides",
           files: true,
           items: [
             {
@@ -158,11 +158,11 @@ new Vue({
     },
     propRows(props) {
       return Object.entries(props).map(p => ({
-        Name: `<code>${p[0]}</code>`,
-        Default: `<code>${p[1].default}</code>`,
-        Type: `<code>${
+        Name: `\`${p[0]}\``,
+        Default: p[1].default ? `\`${p[1].default}\`` : "",
+        Type: `\`${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
-        }</code>`,
+        }\``,
         Description: p[1].description ? `${p[1].description}` : ""
       }));
     },
@@ -175,10 +175,9 @@ ${
         c.props
           ? `<p />
 
-##### Props`
+#### Props`
           : ""
       }
-
 ${
         c.props
           ? `<f-table :rows='${JSON.stringify(
@@ -188,6 +187,31 @@ ${
             ).replace(/'/g, '\\"')}' style="--lightblue: transparent" />`
           : ""
       }
+      
+#### Slots
+
+TBD
+
+#### CSS variables
+
+TDB
+
+#### Import
+
+Component can be imported using Javascript import:
+  
+    import { ${name} } from 'https://designstem.github.io/framework/framework.js'
+    
+    Vue.component('${name}', ${name})
+
+Alternatively you can import all components in one go:
+
+    import * as components from "https://designstem.github.io/framework/framework.js";
+    
+    for (const name in components) {
+      Vue.component(name, components[name])
+    }
+
       `;
     },
     generateUtils(name, content) {
@@ -197,11 +221,9 @@ ${content}
 
 #### Import
 
-Function can be imported using Javascript imports:
+Function can be imported using Javascript import:
 
-    <script type="module">
-      import { ${name} } from 'https://designstem.github.io/framework/utils.js'
-    </script>
+    import { ${name} } from 'https://designstem.github.io/framework/utils.js'
 
 `;
     }
@@ -210,6 +232,7 @@ Function can be imported using Javascript imports:
     this.$watch(
       "activeItem",
       activeItem => {
+
         // Markdown files
 
         if (this.menuItems[activeItem[0]].files) {
@@ -227,7 +250,7 @@ Function can be imported using Javascript imports:
 
         if (this.menuItems[activeItem[0]].component) {
           this.content = this.generateContent(
-            this.menuItems[activeItem[0]].items[activeItem[1]].title,
+            this.menuItems[activeItem[0]].items[activeItem[1]].name,
             sortedComponents
               .map(c => Object.entries(c)[0])
               .filter(

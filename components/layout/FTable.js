@@ -1,4 +1,7 @@
+import Markdown from "../Markdown.js";
+
 export default {
+  components: { Markdown },
   tag: 'Layout',
   description: `
 A \`<table>\`, accepting array of objects as \`:rows\`.
@@ -15,10 +18,10 @@ A \`<table>\`, accepting array of objects as \`:rows\`.
   <table>
     <thead>
       <th
-        v-for="(k,i) in Object.keys(rows[0])"
+        v-for="(h,i) in Object.keys(rows[0])"
         :key="i"
       >
-        {{ k }}
+        <Markdown :content="h.trim()" />
       </th>
     </thead>
     <tbody>
@@ -26,8 +29,9 @@ A \`<table>\`, accepting array of objects as \`:rows\`.
         <td
           v-for="(r,j) in Object.values(row)"
           :key="j"
-          v-html="r"
-        />
+        >
+          <Markdown :content="r.trim()" />
+        </td>
       </tr>
     </tbody>
   </table>

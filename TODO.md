@@ -1,3 +1,25 @@
+- content -> docs
+- f-repeat-hex -> /pattern/f-hex-pattern
+- VR components!
+
+
+---
+
+# Getting started
+
+Hey, we are prototyping in Markdown! This should become `<f-blockquote>` or `<f-factbox>`.
+
+This is how it looks in closed mode:
+
+> ##### ▶ Technical explanation
+
+... and in open mode:
+
+> ##### ▼ Technical explanation
+The user can now navigate between slides using <kbd><</kbd>  and <kbd>></kbd> keys, but it is helpful to also create navigational controls.
+
+---
+
 - math props
 
 - Theme example does not work
