@@ -15,7 +15,7 @@ new Vue({
     return {
       files: [
         {
-          title: "⛰️Guides",
+          title: "🗺️Guides",
           files: true,
           items: [
             {
@@ -140,7 +140,7 @@ new Vue({
       return this.files.concat(
         Object.entries(utilsDocs()).map(u => {
           return {
-            title: `⚒️${titleCase(u[0])} utilities`,
+            title: `🍴${titleCase(u[0])} utilities`,
             utils: true,
             tag: u[0],
             items: Object.keys(u[1]).map(i => ({ title: i }))
