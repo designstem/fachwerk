@@ -13,6 +13,11 @@ new Vue({
   el: "#app",
   data: function() {
     return {
+      content: "",
+      wide: false,
+      activeItem: [0, 0],
+      previews: [components.FContentDocument, components.FContentSlides],
+      activePreview: 0,
       files: [
         {
           title: "🔮Guides",
@@ -20,7 +25,8 @@ new Vue({
           items: [
             {
               title: "Getting started",
-              file: "./content/guides/gettingstarted.md",
+              file: "./README.md",
+              wide: true,
               preview: 0
             },
             {
@@ -129,10 +135,6 @@ new Vue({
           ]
         }
       ],
-      content: "",
-      activeItem: [0, 0],
-      previews: [components.FContentDocument, components.FContentSlides],
-      activePreview: 0
     };
   },
   computed: {
@@ -168,14 +170,16 @@ new Vue({
     },
     generateContent(name, c) {
       return `## ${kebabCase(name)}
-${c.description ? c.description : ""}
+${c.description ? c.description : "TBD"}
 ${c.example ? c.example.trim() : ""}
 
 ${
         c.props
-          ? `<p />
+          ? `<br>
 
-#### Props`
+#### Props
+
+`
           : ""
       }
 ${
@@ -235,6 +239,9 @@ Function can be imported using Javascript import:
               this.activePreview = this.menuItems[activeItem[0]].items[
                 activeItem[1]
               ].preview;
+              this.wide = this.menuItems[activeItem[0]].items[
+                activeItem[1]
+              ].wide;
             });
         }
 
@@ -278,7 +285,6 @@ Function can be imported using Javascript import:
         <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
         <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
         <a href="https://designstem.github.io/templates">Templates</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/homepage">Demos</a>&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/designstem/framework">Github</a>
       </div>
       <f-icon-github />
@@ -290,9 +296,10 @@ Function can be imported using Javascript import:
       :items="menuItems"
       v-model="activeItem"
     />
+
     <f-content-editor
+      v-if="!wide"
       :content="content"
-      :autosave="false"
     >
       <component slot-scope="data"
         :is="previews[activePreview]"
@@ -300,8 +307,18 @@ Function can be imported using Javascript import:
         base="8px"
         style="--gap: var(--base4);"
       />
-      </f-content-editor>
+    </f-content-editor>
+
+    <component
+      v-if="wide"
+      :is="previews[activePreview]"
+      :content="content"
+      base="8px"
+      style="--gap: var(--base4);"
+    />
+
     </f-theme>
+
 </div>
   `
 });

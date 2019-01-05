@@ -101,6 +101,9 @@ p {
   margin: 0 0 var(--base2) 0;
   color: var(--primary);
 }
+br {
+  margin: 0 0 var(--base2) 0;
+}
 a {
   text-decoration: none;
   color: var(--primary);
@@ -236,13 +239,15 @@ pre code {
   padding: 0;
 }
 
+/* Extra */
+
 kbd {
   font-family: var(--font-mono);
-  border-radius: 2px;
   background: var(--gray);
   color: var(--lightergray);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
+  border-radius: 2px;
 }
 
 mark {
@@ -254,11 +259,21 @@ mark {
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
   white-space: nowrap;
+  border-radius: 2px;
 }
+
 var {
-  font-family: var(--font-sansserif);
   font-weight: normal;
   font-style: normal;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  border-radius: var(--border-radius-small);
+  background: var(--red);
+  color: var(--white);
+  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
+  font-size: calc(var(--base) * 1.75);
+  white-space: nowrap;
+  border-radius: 2px;
 }
 
 /* Components */
