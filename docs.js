@@ -44,6 +44,11 @@ new Vue({
               preview: 1
             },
             {
+              title: "Using colors",
+              file: "./docs/guides/colors.md",
+              preview: 1
+            },
+            {
               title: "Component communication",
               file: "./docs/guides/communication.md",
               preview: 0
@@ -54,8 +59,8 @@ new Vue({
               preview: 1
             },
             {
-              title: "Various experiments",
-              file: "./docs/guides/experiments.md",
+              title: "Data visualization",
+              file: "./docs/guides/dataviz.md",
               preview: 0
             },
             {
@@ -111,16 +116,6 @@ new Vue({
           title: "💄Styles",
           files: true,
           items: [
-            {
-              title: "Typography",
-              file: "./docs/styles/typography.md",
-              preview: 0
-            },
-            {
-              title: "Colors",
-              file: "./docs/styles/colors.md",
-              preview: 0
-            },
             {
               title: "Controls",
               file: "./docs/styles/controls.md",
