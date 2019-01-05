@@ -48,19 +48,29 @@ export { FGridPattern };
 import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FRepeatShift from "./components/2dpattern/FRepeatShift.js";
+import FShiftPattern from "./components/2dpattern/FShiftPattern.js";
+export { FShiftPattern };
+import FRepeatShift from "./components/2dpattern/FShiftPattern.js";
 export { FRepeatShift };
 
-import FRepeatHex from "./components/2dpattern/FRepeatHex.js";
+import FHexPattern from "./components/2dpattern/FHexPattern.js";
+export { FHexPattern };
+import FRepeatHex from "./components/2dpattern/FHexPattern.js";
 export { FRepeatHex };
 
-import FRepeatCircle from "./components/2dpattern/FRepeatCircle.js";
+import FCirclePattern from "./components/2dpattern/FCirclePattern.js";
+export { FCirclePattern };
+import FRepeatCircle from "./components/2dpattern/FCirclePattern.js";
 export { FRepeatCircle };
 
-import FRepeatSpin from "./components/2dpattern/FRepeatSpin.js";
+import FSpinPattern from "./components/2dpattern/FSpinPattern.js";
+export { FSpinPattern };
+import FRepeatSpin from "./components/2dpattern/FSpinPattern.js";
 export { FRepeatSpin };
 
-import FRepeatSlice from "./components/2dpattern/FRepeatSlice.js";
+import FSlicePattern from "./components/2dpattern/FSlicePattern.js";
+export { FSlicePattern };
+import FRepeatSlice from "./components/2dpattern/FSlicePattern.js";
 export { FRepeatSlice };
 
 import FMirrorX from "./components/2dpattern/FMirrorX.js";
@@ -238,11 +248,11 @@ export const sortedComponents = [
   // Patterns
 
   { FGridPattern },
-  { FRepeatShift },
-  { FRepeatHex },
-  { FRepeatCircle },
-  { FRepeatSpin },
-  { FRepeatSlice },
+  { FShiftPattern },
+  { FHexPattern },
+  { FCirclePattern },
+  { FSpinPattern },
+  { FSlicePattern },
   { FMirrorX },
   { FMirrorY },
 

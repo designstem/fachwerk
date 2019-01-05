@@ -8,7 +8,7 @@ export default {
 Repeats elements along the circle.
   `,
   example: `
-<f-scene>
+<f-scene grid>
   <f-box />
   <f-repeat-circle>
     <f-box
