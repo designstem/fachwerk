@@ -14,7 +14,7 @@ new Vue({
     return {
       content: "",
       wide: false,
-      activeItem: [0, 6],
+      activeItem: [0, 0],
       previews: [components.FContentDocument, components.FContentSlides],
       activePreview: 0,
       files: [
@@ -25,7 +25,7 @@ new Vue({
             {
               title: "Getting started",
               file: "./README.md",
-              wide: true,
+              wide: false,
               preview: 0
             },
             {

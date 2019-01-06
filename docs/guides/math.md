@@ -1,4 +1,4 @@
-# Math basics
+# Math and graphs
 
 For graphs and equations we use `<f-scene>` and `<f-math>` components:
 

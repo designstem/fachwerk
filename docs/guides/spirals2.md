@@ -1,4 +1,4 @@
-## Spirals tutorial
+# Drawing spirals
 
 First, lets draw a reference circle:
 

@@ -114,11 +114,18 @@ b,
 strong {
   color: var(--emphasis);
 }
+
 big {
-  font-size: 3em;
-  line-height: 1em;
-  letter-spacing: -0.03em;
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
+big big {
+  letter-spacing: -0.02em;
+}
+big big big {
+  letter-spacing: -0.04em;
+}
+
 small {
   --font-size: calc(var(--base) * 2);
   color: var(--primary);

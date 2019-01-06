@@ -24,42 +24,13 @@
       <h5 style="width: 70vw">Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a style="color: var(--gray)" href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</h5>
     </div>
 
-    <div style="padding: var(--base5); background: var(--yellow)">
-      <div class="grid" style="
-        --cols: 1fr 1fr 1fr;
-        --gap: 1rem 2rem;
-      ">
-        <div>
-          <h4><big>Play</big></h4>
-          <div class="intro">
-          Best way to get the glimpse what the framework offers is just try them out on this page. There are almost 50 components to try out - everything from 2D/3D graphics, user interaction, content creation and more.
-          </div>
-        </div>
-        <div>
-          <h4><big>Learn</big></h4>
-          <div class="intro">
-          Documentation has still a long way to go but here are initial tutorials and code samples. They are all live-editable so you can make instant changes and explorations in code.
-          </div>
-        </div>
-        <div>
-            <h4><big>Build</big></h4>
-          <div class="intro">
-          Fachwerk is built on top of VueJS so to build more complex materials it is recommended to code it in Javascript, using some of the frameworks components, utilities and styling.
-          </div>
-        </div>
-        <div>
-          <a href="#play" class="intro button_primary">Play with components</a>
-        </div>
-        <div><a href="./docs.html" class="intro button_primary">Explore the documentation</a>
-        </div>
-        <div><a href="https://designstem.github.io/templates" class="intro button_primary">Get examples in Github</a>
-        </div>
-      </div>
-    </div>
+    <f-fetch-data url="./docs/index/about.md" style="background: var(--yellow); --gap: 0 var(--base3);">
+      <f-content-slides base="8px" slot-scope="data" :content="data.value"></f-content-document>
+    </f-fetch-data>
     
     <f-hr></f-hr>
 
-    <f-fetch-data id="play" url="./content/index/demo.md">
+    <f-fetch-data id="play" url="./docs/index/demo.md">
       <f-content-editor style="height: 80vh" slot-scope="data" :content="data.value">
           <f-content-slides style="height: 80vh; overflow: auto" base="8px" slot-scope="data2" :content="data2.content"></f-content-document>
       </f-content-editor>
@@ -67,11 +38,11 @@
 
     <f-hr></f-hr>
     
-    <f-fetch-data url="./content/index/faq.md" style="background: var(--yellow)">
-      <f-content-document slot-scope="data" :content="data.value"></f-content-document>
+    <f-fetch-data url="./docs/index/faq.md" style="background: var(--yellow)">
+      <f-content-slides base="8px" slot-scope="data" :content="data.value"></f-content-document>
     </f-fetch-data>
 
-    <div class="footer">
+    <div class="footer" style="--yellow: var(--white)">
       <div>
         <p>
           All code is licenced under

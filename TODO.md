@@ -1,6 +1,8 @@
+- remove scale defaults
 - VR components!
 - fix small big
 - fix pattern examples
+- strong em -> mark
 
 ### Example 1
 

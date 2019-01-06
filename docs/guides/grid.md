@@ -5,8 +5,8 @@ Here is a simple grid system using <a href="https://learncssgrid.com/" target="_
 ### Default grid
 
 <div class="grid" style="height: 50vh; overflow: auto">
-  <code>Column 1</code>
-  <code>Column 2</code>
+  <f-card>Column 1</f-card>
+  <f-card>Column 2</f-card>
 </div>
 
 <br>
@@ -16,8 +16,8 @@ Here is a simple grid system using <a href="https://learncssgrid.com/" target="_
 <div
   class="grid"
   style="--cols: 1fr 3fr; height: 50vh; overflow: auto">
-  <code>Column 1</code>
-  <code>Column 2</code>
+  <f-card>Column 1</f-card>
+  <f-card>Column 2</f-card>
 </div>
 
 <br>
@@ -28,19 +28,19 @@ Here is a simple grid system using <a href="https://learncssgrid.com/" target="_
   class="grid"
   style="--rows: 1fr 2fr;"
 >
-  <code>Column 1</code>
-  <code>Column 2</code>
-  <code>Column 3</code>
-  <code>Column 4</code>
+  <f-card>Column 1</f-card>
+  <f-card>Column 2</f-card>
+  <f-card>Column 3</f-card>
+  <f-card>Column 4</f-card>
 </div>
 
 <br>
 
 ### Custom gap / gutter
 
-<div class="grid" style="--gap: 1px;">
-  <code>Column 1</code>
-  <code>Column 2</code>
+<div class="grid" style="--gap: 1px; height: 50vh; overflow: auto"">
+  <f-card>Column 1</f-card>
+  <f-card>Column 2</f-card>
 </div> 
 
 <br>
@@ -48,17 +48,17 @@ Here is a simple grid system using <a href="https://learncssgrid.com/" target="_
 ### Horizontal rules
 
 <div class="grid" style="--cols: 1fr; --rows: 1fr 3px 1fr">
-  <code>Column 1</code>
+  <f-card>Column 1</f-card>
   <f-hr />
-  <code>Column 2</code>
+  <f-card>Column 2</f-card>
 </div>
 
 <br>
 
 ### Vertical rules
 
-<div class="grid" style="--cols: 1fr 3px 1fr">
-  <code>Column 1</code>
+<div class="grid" style="--cols: 1fr 3px 1fr; height: 50vh; overflow: auto"">
+  <f-card>Column 1</f-card>
   <f-vr />
-  <code>Column 2</code>
+  <f-card>Column 2</f-card>
 </div>

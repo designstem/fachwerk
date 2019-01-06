@@ -82,11 +82,15 @@ Adding images is currently tricky, we rely on complex syntanx like `![](image_li
 
 ### Big and small
 
-Content can be sized up and down using `<big>` and `<small>` tags:
+Content can be made bigger and smaller using `<big>` and `<small>` tags:
 
 <big>Big text</big>
 
 <small>Small text</small>
+
+Other content can be made bigger and smaller as well and you also go `<big><big><big>` and beyond:
+
+# <big><big><big>Big text</big></big></big>
 
 ### Lists
 

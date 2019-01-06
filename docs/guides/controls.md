@@ -1,24 +1,26 @@
-## Controls
+# Forms and controls
 
-<mark>Range field</mark>
+### Range slider
 
 <label>Here is the label</label>
 
-<div class="sublabel">Here is a longer description what does this widget actually do</div>
+<div class="sublabel">Here is a sublabel describing what does this widget actually do</div>
 
 <input type="range" />
 
-<br /><br />
+<br>
 
-<mark>Text field</mark>
+### Textfield
 
 <label>Here is the label</label>
 
+<div class="sublabel">Here is a sublabel describing what does this widget actually do</div>
+
 <input type="text" />
 
-<br /><br />
+<br>
 
-<mark>Button</mark>
+### Buttons
 
 <button class="primary">I am a primary button</button>
 
@@ -26,11 +28,7 @@
 
 <button class="tertiary">I am a tertiary button</button>
 
-<br /><br />
-
-<mark>Buttons</mark>
-
 <div class="buttons">
-  <div class="button_tertiary">First</div>
-  <div class="button_tertiary">Second</div>
+  <div class="button_tertiary">First button</div>
+  <div class="button_tertiary">Second button</div>
 </div>
