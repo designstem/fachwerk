@@ -14,7 +14,7 @@ new Vue({
     return {
       content: "",
       wide: false,
-      activeItem: [0, 0],
+      activeItem: [1, 0],
       previews: [components.FContentDocument, components.FContentSlides],
       activePreview: 0,
       files: [
@@ -66,18 +66,18 @@ new Vue({
             {
               title: "Working with grid",
               file: "./docs/guides/grid.md",
-              preview: 0,
+              preview: 0
             },
             {
               title: "Forms and controls",
               file: "./docs/guides/controls.md",
-              preview: 0,
+              preview: 0
             },
             {
               title: "Component communication",
               file: "./docs/guides/communication.md",
               preview: 0
-            },
+            }
           ]
         },
         {
@@ -122,7 +122,7 @@ new Vue({
           tag: "Layout",
           items: this.getComponents("Layout")
         }
-      ],
+      ]
     };
   },
   computed: {
@@ -146,7 +146,7 @@ new Vue({
         .filter(c => c[1].tag == tag)
         .map(c => ({ title: kebabCase(c[0]), name: c[0] }));
     },
-    propRows(props) {
+    propsTable(props) {
       return Object.entries(props).map(p => ({
         Name: `\`${p[0]}\``,
         Default: p[1].default ? `\`${p[1].default}\`` : "",
@@ -156,29 +156,45 @@ new Vue({
         Description: p[1].description ? `${p[1].description}` : ""
       }));
     },
+    cssTable(props) {
+      return Object.entries(props).map(([key, value]) => ({
+        Name: `\`${key}\``,
+        Value: `\`${value.default}\``,
+        Description: value.description ? `${value.description}` : ""
+      }));
+    },
     generateContent(name, c) {
       return `## ${kebabCase(name)}
 ${c.description ? c.description : ""}
 ${c.example ? c.example.trim() : ""}
 
-${
-        c.props
-          ? `<br>
+${c.props ? `<br><br>\n\n#### Props` : ""}
 
-#### Props
-
-`
-          : ""
-      }
 ${
         c.props
           ? `<f-table :rows='${JSON.stringify(
-              this.propRows(c.props),
+              this.propsTable(c.props),
               null,
               2
-            ).replace(/'/g, '\\"')}' style="--lightblue: transparent" />`
+            ).replace(/'/g, '\\"')}'
+              style="--lightblue: transparent;"
+            />`
           : ""
       }
+
+${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
+
+${
+        c.cssprops
+          ? `<f-table :rows='${JSON.stringify(
+              this.cssTable(c.cssprops),
+              null,
+              2
+            )}' style="--lightblue: transparent" />`
+          : ""
+      }
+
+<br>
 
 #### Import
 
@@ -216,7 +232,6 @@ Function can be imported using Javascript import:
     this.$watch(
       "activeItem",
       activeItem => {
-
         // Markdown files
 
         if (this.menuItems[activeItem[0]].files) {

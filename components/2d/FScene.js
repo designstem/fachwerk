@@ -1,5 +1,5 @@
 export default {
-  tag: '2D',
+  tag: "2D",
   description: `
 A 2D vector graphics scene.
 
@@ -23,24 +23,28 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
 </f-scene>
   `,
   props: {
-    width: { default: 250, type: [Number,String], description: 'Scene width in pixels' },
-    height: { default: 250, type: [Number,String] },
-    grid: { default: false, type: [Boolean,String] },
-    step: { default: 0.5, type: [Number,String] }
-  }, 
+    width: {
+      default: 250,
+      type: [Number, String],
+      description: "Scene width in pixels"
+    },
+    height: { default: 250, type: [Number, String] },
+    grid: { default: false, type: [Boolean, String] },
+    step: { default: 0.5, type: [Number, String] }
+  },
   computed: {
     innerWidth() {
-      return this.width >= this.height ? (4 * this.width) / this.height : 4
+      return this.width >= this.height ? (4 * this.width) / this.height : 4;
     },
     innerHeight() {
-      return this.width >= this.height ? 4 : (4 * this.height) / this.width
+      return this.width >= this.height ? 4 : (4 * this.height) / this.width;
     },
     innerX() {
-      return this.innerWidth / -2
+      return this.innerWidth / -2;
     },
     innerY() {
-      return this.innerHeight / -2
-    },
+      return this.innerHeight / -2;
+    }
   },
   template: `
   <f-svg 
@@ -68,5 +72,5 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
       <slot :value="data.value" />
     </f-group>
   </f-svg>
-  `,
+  `
 };

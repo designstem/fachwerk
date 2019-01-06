@@ -127,10 +127,8 @@ big big big {
 }
 
 small {
-  --font-size: calc(var(--base) * 2);
-  color: var(--primary);
-  font-size: 0.8em;
-  line-height: 0.5em;
+  font-size: 0.9em;
+  line-height: 0.5em !important;
 }
 img {
   width: 100%;

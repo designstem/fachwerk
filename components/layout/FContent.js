@@ -1,4 +1,4 @@
-import { Css } from '../../mixins.js'
+import { Css } from "../../mixins.js";
 import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../utils.js";
 
@@ -38,7 +38,7 @@ Shows Markdown content.
   },
   methods: {
     first() {
-      this.currentIndex = 0
+      this.currentIndex = 0;
     },
     prev() {
       this.currentIndex > 0 && this.currentIndex--;
@@ -83,11 +83,10 @@ Shows Markdown content.
     });
 
     if (this.$global) {
-      this.$global.$on('next', () => this.next())
-      this.$global.$on('prev', () => this.prev())
-      this.$global.$on('first', () => this.first())
+      this.$global.$on("next", () => this.next());
+      this.$global.$on("prev", () => this.prev());
+      this.$global.$on("first", () => this.first());
     }
-
   },
   template: `
   <div>
@@ -118,7 +117,13 @@ Shows Markdown content.
   </div>
   `,
   cssprops: {
-    '--content-padding': { default: 'var(--base3)', description: 'Content padding'},
-    '--content-gap': { default: 'var(--base2)', description: 'Gap between content columns'}
+    "--content-padding": {
+      default: "var(--base3)",
+      description: "Content padding"
+    },
+    "--content-gap": {
+      default: "var(--base2)",
+      description: "Gap between content columns"
+    }
   }
 };
