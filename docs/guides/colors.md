@@ -19,7 +19,9 @@ A compact set of useful colors are available as CSS variables, `var(--purple)` a
     'gray',
     'lightgray', 
     'lightergray', 
-]">
+]"
+:key="c"
+>
   <f-circle
     :fill="color(c)"
     stroke="none"
