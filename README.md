@@ -6,7 +6,7 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser. (Github / Gist saving is in the works).
+> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser.
 
 ### For developers
 
@@ -81,3 +81,10 @@ new Vue({
 #### Running the project
 
 To display run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder.
+
+<details>
+  <summary>test</summary>
+```js
+sample code
+```
+</details>

@@ -4,13 +4,7 @@
 
 Let's start with a simple paragraph. Fachwerk's content is based on **Markdown**, a simple text format that is converted to HTML.
 
-It supports **bold**, *italic* and ~strikeout~ text. One can also add HTML tags inside content such as <sub>sup</sub> HTML <sup>sup</sup> etc.
-
-<br>
-
-### Highlights
-
-You can use <kbd>kbd</kbd> keyboard reference, <mark>mark</mark> for highlighted text and <var>var</var> for variables.
+It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> or  for text highlights, <kbd>kbd</kbd> keyboard reference and <var>var</var> for variables.
 
 <br>
 

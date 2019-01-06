@@ -1,7 +1,6 @@
 export default [
   {
     title: "🔮Guides",
-    files: true,
     items: [
       {
         title: "Getting started",
@@ -62,8 +61,6 @@ export default [
   },
   {
     title: "📦2D graphics",
-    component: true,
-    tag: "2D",
     items: [
       { component: "FScene" },
       { component: "FGrid" },
@@ -80,8 +77,6 @@ export default [
   },
   {
     title: "📦2D patterns",
-    component: true,
-    tag: "2D repeat",
     items: [
       { component: "FGridPattern" },
       { component: "FShiftPattern" },
@@ -95,8 +90,6 @@ export default [
   },
   {
     title: "📦3D graphics",
-    component: true,
-    tag: "3D",
     items: [
       { component: "FScene3" },
       { component: "FGrid3" },
@@ -114,8 +107,6 @@ export default [
   },
   {
     title: "📦Dynamic data",
-    component: true,
-    tag: "Data",
     items: [
       { component: "FAnimationData" },
       { component: "FSliderData" },
@@ -134,14 +125,10 @@ export default [
   },
   {
     title: "📦Content writing",
-    component: true,
-    tag: "Content",
     items: [{ component: "FMath" }, { component: "FSidebar" }]
   },
   {
     title: "📦Layout building",
-    component: true,
-    tag: "Layout",
     items: [
       { component: "FInline" },
       { component: "FCard" },

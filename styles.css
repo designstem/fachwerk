@@ -119,9 +119,6 @@ big {
   font-size: 1.3em !important;
   line-height: 1.5em;
 }
-big big {
-  letter-spacing: -0.02em;
-}
 big big big {
   letter-spacing: -0.04em;
 }
@@ -255,16 +252,16 @@ kbd {
   border-radius: 2px;
 }
 
+strong em,
 mark {
   border-radius: 2px;
-  font-family: var(--font-mono);
   border-radius: var(--border-radius-small);
   background: var(--yellow);
   color: var(--primary);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  padding: 0 calc(var(--base) / 2);
   border-radius: 2px;
+  font-weight: normal;
+  font-style: normal;
 }
 
 var {
@@ -313,14 +310,21 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
+
+del {
+  font-family: var(--font-serif);
+  text-decoration: none;
+  font-size: 1.1em !important;
+}
+
 /* Text */
+/* TODO: remove? */
 
 .text {
   font-family: var(--font-serif);
   font-size: calc(var(--base) * 2.75);
   line-height: calc(var(--base) * 3);
   color: var(--primary);
-  margin: 0;
 }
 
 .text a {

@@ -1,5 +1,4 @@
 export default {
-  tag: "2D",
   description: `
 A 2D vector graphics scene.
 

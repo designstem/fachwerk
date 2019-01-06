@@ -1,6 +1,8 @@
-- remove scale defaults
+- http://jsfiddle.net/thechrisjordan/3Fc7D/23/
+
+- remove scale defaults??
 - VR components!
-- fix small big
+- fix small lineheight
 - fix pattern examples
 - strong em -> mark
 
