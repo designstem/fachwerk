@@ -38,28 +38,35 @@ export { FRegularpolygon };
 import FText from "./components/2d/FText.js";
 export { FText };
 
-import FRepeatGrid from "./components/2d/FRepeatGrid.js";
+import FArtboard from "./components/2d/FArtboard.js";
+export { FArtboard };
+
+// Patterns
+
+import FGridPattern from "./components/2dpattern/FGridPattern.js";
+export { FGridPattern };
+import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FRepeatShift from "./components/2d/FRepeatShift.js";
+import FRepeatShift from "./components/2dpattern/FRepeatShift.js";
 export { FRepeatShift };
 
-import FRepeatHex from "./components/2d/FRepeatHex.js";
+import FRepeatHex from "./components/2dpattern/FRepeatHex.js";
 export { FRepeatHex };
 
-import FRepeatCircle from "./components/2d/FRepeatCircle.js";
+import FRepeatCircle from "./components/2dpattern/FRepeatCircle.js";
 export { FRepeatCircle };
 
-import FRepeatSpin from "./components/2d/FRepeatSpin.js";
+import FRepeatSpin from "./components/2dpattern/FRepeatSpin.js";
 export { FRepeatSpin };
 
-import FRepeatSlice from "./components/2d/FRepeatSlice.js";
+import FRepeatSlice from "./components/2dpattern/FRepeatSlice.js";
 export { FRepeatSlice };
 
-import FMirrorX from "./components/2d/FMirrorX.js";
+import FMirrorX from "./components/2dpattern/FMirrorX.js";
 export { FMirrorX };
 
-import FMirrorY from "./components/2d/FMirrorY.js";
+import FMirrorY from "./components/2dpattern/FMirrorY.js";
 export { FMirrorY };
 
 // 3D
@@ -110,9 +117,6 @@ export { FBounce };
 
 // Data
 
-import FDragData from "./components/experimental/FDragData.js";
-export { FDragData };
-
 import FArrayData from "./components/data/FArrayData.js";
 export { FArrayData };
 
@@ -134,6 +138,9 @@ export { FHslData };
 import FSliderData from "./components/data/FSliderData.js";
 export { FSliderData };
 
+import FDragData from "./components/data/FDragData.js";
+export { FDragData };
+
 import FFetchData from "./components/data/FFetchData.js";
 export { FFetchData };
 
@@ -146,6 +153,9 @@ export { FRotationData };
 import FReceiveData from "./components/data/FReceiveData.js";
 export { FReceiveData };
 
+import FKeyboardData from "./components/data/FKeyboardData.js";
+export { FKeyboardData };
+
 // Content
 
 import FMath from "./components/content/FMath.js";
@@ -153,11 +163,6 @@ export { FMath };
 
 import FSidebar from "./components/content/FSidebar.js";
 export { FSidebar };
-
-// Icons
-
-import FIconGithub from "./components/layout/FIconGithub.js";
-export { FIconGithub };
 
 // Layout
 
@@ -203,31 +208,16 @@ export { FContentEditor };
 import FSlider from "./components/layout/FSlider.js";
 export { FSlider };
 
-// Internal & Experimental
+import FIconGithub from "./components/layout/FIconGithub.js";
+export { FIconGithub };
 
-import Markdown from "./components/Markdown.js";
-export { Markdown };
+// Internal
 
-import Render from "./components/Render.js";
-export { Render };
+import FMarkdown from "./components/internal/FMarkdown.js";
+export { FMarkdown };
 
-import FContentCards from "./components/experimental/FContentCards.js";
-export { FContentCards };
-
-import FAframe from "./components/experimental/FAframe.js";
-export { FAframe };
-
-import FAframeGrid from "./components/experimental/FAframeGrid.js";
-export { FAframeGrid };
-
-import FLine3vr from "./components/experimental/FLine3vr.js";
-export { FLine3vr };
-
-import FKeyboardData from "./components/experimental/FKeyboardData.js";
-export { FKeyboardData };
-
-import FArtboard from "./components/experimental/FArtboard.js";
-export { FArtboard };
+import FRender from "./components/internal/FRender.js";
+export { FRender };
 
 export const sortedComponents = [
 
@@ -243,7 +233,11 @@ export const sortedComponents = [
   { FPolygon },
   { FRegularpolygon },
   { FText },
-  { FRepeatGrid },
+  { FArtboard },
+
+  // Patterns
+
+  { FGridPattern },
   { FRepeatShift },
   { FRepeatHex },
   { FRepeatCircle },
@@ -273,27 +267,24 @@ export const sortedComponents = [
 
   // Data
   
-  { FDragData },
   { FAnimationData },
   { FSliderData },
   { FHslData },
   { FRgbData },
   { FRotationData },
+  { FButtonsData },
+  { FDragData },
   { FArrayData },
   { FBufferData },
-  { FButtonsData },
   { FFetchData },
   { FSheetData },
   { FReceiveData },
+  { FKeyboardData },
 
   // Transitions
 
   { FFade },
   { FBounce },
-
-  // Experimental
-  { FKeyboardData },
-  { FArtboard },
 
   // Layout
   { FInline },

@@ -1,5 +1,5 @@
-import * as components from "./framework.js";
-import Init from "./components/Init.js";
+import * as components from "./components.js";
+import { Init } from "./mixins.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);

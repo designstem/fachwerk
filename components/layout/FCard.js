@@ -1,9 +1,10 @@
 export default {
   tag: 'Layout',
   description: `
-Eine *Carte Blanche* Bitte!
 `,
   example: `
+<f-card>Some content here</f-carc>
+
 <f-card
   title="Title"
   subtitle="Subtitle"

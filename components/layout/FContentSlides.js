@@ -1,6 +1,6 @@
-import Markdown from "../Markdown.js";
+import { Css } from '../../mixins.js'
+import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../utils.js";
-import Css from "../Css.js";
 
 export default {
   mixins: [Css],
@@ -20,7 +20,7 @@ Shows Markdown content as slides.
   />
 </f-buttons-data>
   `,
-  components: { Markdown },
+  components: { FMarkdown },
   props: {
     content: { default: "", type: String },
     index: { default: 0, type: Number },
@@ -108,7 +108,7 @@ Shows Markdown content as slides.
         padding: 'var(--f-content-slides-padding)'
       }"
     >
-      <Markdown
+      <FMarkdown
         v-for="(col,i) in slide.content"
         :style="{ gridArea: 'a' + (i + 1) }"
         :key="i"

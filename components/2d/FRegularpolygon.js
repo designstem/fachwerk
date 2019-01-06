@@ -1,8 +1,8 @@
+import { Object2d } from "../../mixins.js";
 import { color, cpoints } from "../../utils.js";
-import { Object2D } from "./2d.js";
 
 export default {
-  mixins: [Object2D],
+  mixins: [Object2d],
   tag: "2D",
   description: `
   `,

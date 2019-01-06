@@ -1,8 +1,7 @@
-import * as components from "./framework.js";
-import { sortedComponents } from "./framework.js";
+import { Init } from "./mixins.js";
+import * as components from "./components.js";
+import { sortedComponents } from "./components.js";
 import { kebabCase, titleCase, utilsDocs } from "./utils.js";
-
-import Init from "./components/Init.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -26,44 +25,59 @@ new Vue({
             {
               title: "Getting started",
               file: "./README.md",
-              wide: true,
+              wide: false,
               preview: 0
             },
             {
               title: "Writing content",
-              file: "./content/guides/writing.md",
+              file: "./docs/guides/writing.md",
               preview: 0
             },
             {
               title: "Math and graphs",
-              file: "./content/guides/math.md",
-              preview: 0
-            },
-            {
-              title: "Adding interactivity",
-              file: "./content/guides/interactive.md",
-              preview: 1
-            },
-            {
-              title: "Component communication",
-              file: "./content/guides/communication.md",
+              file: "./docs/guides/math.md",
               preview: 0
             },
             {
               title: "Drawing the spirals",
-              file: "./content/guides/spirals2.md",
+              file: "./docs/guides/spirals2.md",
+              preview: 0
+            },
+            {
+              title: "Adding interactivity",
+              file: "./docs/guides/interactive.md",
               preview: 1
             },
             {
-              title: "Various experiments",
-              file: "./content/guides/experiments.md",
+              title: "Using colors",
+              file: "./docs/guides/colors.md",
               preview: 0
             },
             {
-              title: "Building patterns",
-              file: "./content/guides/patterns.md",
+              title: "Visualizing data",
+              file: "./docs/guides/dataviz.md",
               preview: 0
-            }
+            },
+            {
+              title: "Making patterns",
+              file: "./docs/guides/patterns.md",
+              preview: 0
+            },
+            {
+              title: "Working with grid",
+              file: "./docs/guides/grid.md",
+              preview: 0,
+            },
+            {
+              title: "Forms and controls",
+              file: "./docs/guides/controls.md",
+              preview: 0,
+            },
+            {
+              title: "Component communication",
+              file: "./docs/guides/communication.md",
+              preview: 0
+            },
           ]
         },
         {
@@ -107,32 +121,6 @@ new Vue({
           component: true,
           tag: "Layout",
           items: this.getComponents("Layout")
-        },
-        {
-          title: "💄Styles",
-          files: true,
-          items: [
-            {
-              title: "Typography",
-              file: "./content/styles/typography.md",
-              preview: 0
-            },
-            {
-              title: "Colors",
-              file: "./content/styles/colors.md",
-              preview: 0
-            },
-            {
-              title: "Controls",
-              file: "./content/styles/controls.md",
-              preview: 0
-            },
-            {
-              title: "Grid",
-              file: "./content/styles/grid.md",
-              preview: 0
-            }
-          ]
         }
       ],
     };
@@ -170,7 +158,7 @@ new Vue({
     },
     generateContent(name, c) {
       return `## ${kebabCase(name)}
-${c.description ? c.description : "TBD"}
+${c.description ? c.description : ""}
 ${c.example ? c.example.trim() : ""}
 
 ${
@@ -260,6 +248,7 @@ Function can be imported using Javascript import:
               .map(c => c[1])[0]
           );
           this.activePreview = 0;
+          this.wide = false;
         }
 
         // Utils
@@ -272,6 +261,7 @@ Function can be imported using Javascript import:
             ].trim()
           );
           this.activePreview = 0;
+          this.wide = false;
         }
       },
       { immediate: true }

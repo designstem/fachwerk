@@ -1,47 +1,39 @@
 # Fachwerk
 
-Web framework for creating interactive learning materials.
+Fachwerk is a Javascript framework for creating interactive learning materials in the browser.
 
-There are thee main ways to getting started:
+### For content authors
 
-### **A** Write the content and play around with the content online
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-Just click around :)
+> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser. Github / Gist saving is in the works.
 
-### **B** Write and host locally
+### For developers
 
-Set up three local files:
+Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means <mark>there is no build step🕴️</mark>.
 
-> 💾 You can [download the project]() from Fachwerk templates page.
+> 💾 Quickest way to get started is to  [download the sample project]() from Github.
+
+To get started, create three files:
 
 ##### index.html
 
 ```html
 <html>
 <head>
-
   <!-- Load CSS styles -->
-  
   <link rel="stylesheet" href="https://designstem.github.io/framework/style.css">
-
 </head>
 
 <body>
-
-  <!-- Load CSS styles -->
- 
+  <!-- Load vendor Javascript -->
   <script src="https://designstem.github.io/framework/vendor.js"></script>
-
-  <!-- Load index.js Javascript file. Note: type="module" is required! -->
-
+  
+  <!-- Load main Javascript file index.js. Note: type="module" is required! -->
   <script src="./index.js" type="module"></script>
   
   <!-- Set up a placholder where framework can display its content -->
-  
-  <div id="app"></div>
-
-  <!-- Here could be a regular HTML content -->
-  
+  <div id="app"></div>  
 </body>
 
 </html>
@@ -70,9 +62,9 @@ new Vue({
   // Making utilities accessible to templates
   methods: { ...utils },
 
-  // Fetching the README.md and rendering it
+  // Fetching the index.md and rendering it
   template: `                         
-  <f-fetch-data url="./README.md">
+  <f-fetch-data url="./index.md">
     <f-content-document
       slot-scope="data"
       :content="data.value"
@@ -82,5 +74,10 @@ new Vue({
 });
 ```
 
-> ⚠️ To display run the project in your local browser, you have to host the files in your local server.
-Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder.
+##### index.md
+```md
+# Hello world
+```
+#### Running the project
+
+To display run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder.

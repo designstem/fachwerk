@@ -1,7 +1,7 @@
-import Markdown from "../Markdown.js";
+import FMarkdown from "../internal/FMarkdown.js";
 
 export default {
-  components: { Markdown },
+  components: { FMarkdown },
   tag: 'Layout',
   description: `
 A \`<table>\`, accepting array of objects as \`:rows\`.
@@ -21,7 +21,7 @@ A \`<table>\`, accepting array of objects as \`:rows\`.
         v-for="(h,i) in Object.keys(rows[0])"
         :key="i"
       >
-        <Markdown :content="h.trim()" />
+        <FMarkdown :content="h.trim()" />
       </th>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@ A \`<table>\`, accepting array of objects as \`:rows\`.
           v-for="(r,j) in Object.values(row)"
           :key="j"
         >
-          <Markdown :content="r.trim()" />
+          <FMarkdown :content="r.trim()" />
         </td>
       </tr>
     </tbody>
