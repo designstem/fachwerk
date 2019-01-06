@@ -116,7 +116,7 @@ strong {
 }
 
 big {
-  font-size: 1.3em;
+  font-size: 1.3em !important;
   line-height: 1.5em;
 }
 big big {
@@ -127,7 +127,7 @@ big big big {
 }
 
 small {
-  font-size: 0.9em;
+  font-size: 0.9em !important;
   line-height: 0.5em !important;
 }
 img {

@@ -35,8 +35,8 @@ Vertical menu, to be used with \`v-model\`.
           transform: 'translate(0,calc(var(--base) * 0))',
         }"
         @click="activeItem = i;"
+        v-html="item.title"
         >
-          {{ item.title }}
         </div>
         <div
           v-if="i == activeItem"
@@ -50,8 +50,8 @@ Vertical menu, to be used with \`v-model\`.
             background: i === value[0] && j === value[1] ? 'var(--lightblue)' : '',
           }"
           @click="$emit('input',[i,j]); top()"
+          v-html="item.title"
         > 
-          {{ item.title }}
         </div>
       </div>
     </div>

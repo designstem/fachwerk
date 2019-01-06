@@ -85,54 +85,101 @@ new Vue({
           component: true,
           tag: "2D",
           items: [
-            { component: 'FScene' },
-            { component: 'FGrid' },
-            { component: 'FGroup' },
-            { component: 'FPoint' },
-            { component: 'FLine' },
-            { component: 'FCircle' },
-            { component: 'FBox' },
-            { component: 'FPolygon' },
-            { component: 'FRegularpolygon' },
-            { component: 'FText' },
-            { component: 'FArtboard' }
+            { component: "FScene" },
+            { component: "FGrid" },
+            { component: "FGroup" },
+            { component: "FPoint" },
+            { component: "FLine" },
+            { component: "FCircle" },
+            { component: "FBox" },
+            { component: "FPolygon" },
+            { component: "FRegularpolygon" },
+            { component: "FText" },
+            { component: "FArtboard" }
           ]
         },
         {
           title: "📦2D patterns",
           component: true,
           tag: "2D repeat",
-          items: this.getComponents("2D repeat")
+          items: [
+            { component: "FGridPattern" },
+            { component: "FShiftPattern" },
+            { component: "FHexPattern" },
+            { component: "FCirclePattern" },
+            { component: "FSpinPattern" },
+            { component: "FSlicePattern" },
+            { component: "FMirrorX" },
+            { component: "FMirrorY" }
+          ]
         },
         {
           title: "📦3D graphics",
           component: true,
           tag: "3D",
-          items: this.getComponents("3D")
+          items: [
+            { component: "FScene3" },
+            { component: "FGrid3" },
+            { component: "FPoint3" },
+            { component: "FGroup3" },
+            { component: "FLine3" },
+            { component: "FTriangle3" },
+            { component: "FCircle3" },
+            { component: "FBox3" },
+            { component: "FPolygon3" },
+            { component: "FRegularpolygon3" },
+            { component: "FHedron3" },
+            { component: "FPolyhedron3" }
+          ]
         },
         {
           title: "📦Dynamic data",
           component: true,
           tag: "Data",
-          items: this.getComponents("Data")
-        },
-        {
-          title: "📦Transitions",
-          component: true,
-          tag: "Transitions",
-          items: this.getComponents("Transitions")
+          items: [
+            { component: "FAnimationData" },
+            { component: "FSliderData" },
+            { component: "FHslData" },
+            { component: "FRgbData" },
+            { component: "FRotationData " },
+            { component: "FButtonsData" },
+            { component: "FDragData" },
+            { component: "FArrayData" },
+            { component: "FBufferData" },
+            { component: "FFetchData" },
+            { component: "FSheetData" },
+            { component: "FReceiveData" },
+            { component: "FKeyboardData" }
+          ]
         },
         {
           title: "📦Content writing",
           component: true,
           tag: "Content",
-          items: this.getComponents("Content")
+          items: [{ component: "FMath" }, { component: "FSidebar" }]
         },
         {
           title: "📦Layout building",
           component: true,
           tag: "Layout",
-          items: this.getComponents("Layout")
+          items: [
+            { component: "FInline" },
+            { component: "FCard" },
+            { component: "FTable" },
+            { component: "FHr" },
+            { component: "FVr" },
+            { component: "FSlider" },
+            { component: "FButtons" },
+            { component: "FTabs" },
+            { component: "FMenu" },
+            { component: "FTheme" },
+            { component: "FEditor" },
+            { component: "FContent" },
+            { component: "FContentEditor" },
+            { component: "FIconGithub" },
+            { component: "FFade" },
+            { component: "FBounce" }
+          ]
         }
       ]
     };
@@ -142,7 +189,7 @@ new Vue({
       return this.index
         .map(m => {
           m.items = m.items.map(i => {
-            i.title = i.component ? kebabCase(i.component) : i.title;
+            i.title = i.component ? `${kebabCase(i.component)}` : i.title;
             return i;
           });
           return m;
