@@ -28,7 +28,6 @@ new Vue({
               wide: false,
               preview: 0
             },
-            { component: 'FScene'},
             {
               title: "Writing content",
               file: "./docs/guides/writing.md",
@@ -85,7 +84,19 @@ new Vue({
           title: "📦2D graphics",
           component: true,
           tag: "2D",
-          items: this.getComponents("2D")
+          items: [
+            { component: 'FScene' },
+            { component: 'FGrid' },
+            { component: 'FGroup' },
+            { component: 'FPoint' },
+            { component: 'FLine' },
+            { component: 'FCircle' },
+            { component: 'FBox' },
+            { component: 'FPolygon' },
+            { component: 'FRegularpolygon' },
+            { component: 'FText' },
+            { component: 'FArtboard' }
+          ]
         },
         {
           title: "📦2D patterns",
