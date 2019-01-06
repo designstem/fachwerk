@@ -14,10 +14,10 @@ new Vue({
     return {
       content: "",
       wide: false,
-      activeItem: [1, 0],
+      activeIndex: [0, 0],
       previews: [components.FContentDocument, components.FContentSlides],
       activePreview: 0,
-      files: [
+      index: [
         {
           title: "🔮Guides",
           files: true,
@@ -28,6 +28,7 @@ new Vue({
               wide: false,
               preview: 0
             },
+            { component: 'FScene'},
             {
               title: "Writing content",
               file: "./docs/guides/writing.md",
@@ -127,16 +128,27 @@ new Vue({
   },
   computed: {
     menuItems() {
-      return this.files.concat(
-        Object.entries(utilsDocs()).map(u => {
-          return {
-            title: `🍴${titleCase(u[0])} utilities`,
-            utils: true,
-            tag: u[0],
-            items: Object.keys(u[1]).map(i => ({ title: i }))
-          };
+      return this.index
+        .map(m => {
+          m.items = m.items.map(i => {
+            i.title = i.component ? kebabCase(i.component) : i.title;
+            return i;
+          });
+          return m;
         })
-      );
+        .concat(
+          Object.entries(utilsDocs()).map(([tag, items]) => {
+            return {
+              title: `🍴${titleCase(tag)} utilities`,
+              utils: true,
+              tag,
+              items: Object.keys(items).map(i => ({ title: i }))
+            };
+          })
+        );
+    },
+    activeMenu() {
+      return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
     }
   },
   methods: {
@@ -230,54 +242,84 @@ Function can be imported using Javascript import:
   },
   mounted() {
     this.$watch(
-      "activeItem",
-      activeItem => {
-        // Markdown files
-
-        if (this.menuItems[activeItem[0]].files) {
-          fetch(this.menuItems[activeItem[0]].items[activeItem[1]].file)
+      "activeMenu",
+      activeMenu => {
+        if (activeMenu.file) {
+          fetch(activeMenu.file)
             .then(res => res.text())
             .then(content => {
               this.content = content;
-              this.activePreview = this.menuItems[activeItem[0]].items[
-                activeItem[1]
-              ].preview;
-              this.wide = this.menuItems[activeItem[0]].items[
-                activeItem[1]
-              ].wide;
+              this.activePreview = activeMenu.preview;
+              this.wide = activeMenu.wide;
             });
         }
 
-        // Components
-
-        if (this.menuItems[activeItem[0]].component) {
+        if (activeMenu.component) {
           this.content = this.generateContent(
-            this.menuItems[activeItem[0]].items[activeItem[1]].name,
-            sortedComponents
-              .map(c => Object.entries(c)[0])
-              .filter(
-                c =>
-                  c[0] ==
-                  this.menuItems[activeItem[0]].items[activeItem[1]].name
-              )
-              .map(c => c[1])[0]
+            activeMenu.component,
+            components[activeMenu.component]
           );
-          this.activePreview = 0;
-          this.wide = false;
+          this.activePreview = activeMenu.preview;
+          this.wide = activeMenu.wide;
         }
 
-        // Utils
-
-        if (this.menuItems[activeItem[0]].utils) {
+        if (this.menuItems[this.activeIndex[0]].utils) {
           this.content = this.generateUtils(
-            this.menuItems[activeItem[0]].items[activeItem[1]].title,
-            utilsDocs()[this.menuItems[activeItem[0]].tag][
-              this.menuItems[activeItem[0]].items[activeItem[1]].title
+            activeMenu.title,
+            utilsDocs()[this.menuItems[this.activeIndex[0]].tag][
+              activeMenu.title
             ].trim()
           );
           this.activePreview = 0;
           this.wide = false;
         }
+
+        // Components
+
+        // if (this.menuItems[activeIndex[0]].component) {
+        //   this.content = this.generateContent(
+        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].name,
+        //     sortedComponents
+        //       .map(c => Object.entries(c)[0])
+        //       .filter(
+        //         c =>
+        //           c[0] ==
+        //           this.menuItems[activeIndex[0]].items[activeIndex[1]].name
+        //       )
+        //       .map(c => c[1])[0]
+        //   );
+        //   this.activePreview = 0;
+        //   this.wide = false;
+        // }
+
+        // if (this.menuItems[activeIndex[0]].component) {
+        //   this.content = this.generateContent(
+        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].name,
+        //     sortedComponents
+        //       .map(c => Object.entries(c)[0])
+        //       .filter(
+        //         c =>
+        //           c[0] ==
+        //           this.menuItems[activeIndex[0]].items[activeIndex[1]].name
+        //       )
+        //       .map(c => c[1])[0]
+        //   );
+        //   this.activePreview = 0;
+        //   this.wide = false;
+        // }
+
+        // Utils
+
+        // if (this.menuItems[activeIndex[0]].utils) {
+        //   this.content = this.generateUtils(
+        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].title,
+        //     utilsDocs()[this.menuItems[activeIndex[0]].tag][
+        //       this.menuItems[activeIndex[0]].items[activeIndex[1]].title
+        //     ].trim()
+        //   );
+        //   this.activePreview = 0;
+        //   this.wide = false;
+        // }
       },
       { immediate: true }
     );
@@ -295,11 +337,12 @@ Function can be imported using Javascript import:
       <f-icon-github />
   </header>
 
-    <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
+  <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
+
     <f-menu
       style="overflow-y: auto"
       :items="menuItems"
-      v-model="activeItem"
+      v-model="activeIndex"
     />
 
     <f-content-editor
@@ -314,7 +357,7 @@ Function can be imported using Javascript import:
       :content="content"
     />
 
-    </f-theme>
+  </f-theme>
 
 </div>
   `

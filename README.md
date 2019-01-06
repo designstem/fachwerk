@@ -6,7 +6,7 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser. Github / Gist saving is in the works.
+> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser. (Github / Gist saving is in the works).
 
 ### For developers
 

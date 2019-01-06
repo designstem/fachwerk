@@ -8,24 +8,20 @@ export default {
   description: `
 Shows Markdown content.
 
-⌨️ Allows to navigate between slides using  <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>.
+The component allows to navigate between slides using  <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>.
   `,
   example: `
-<f-buttons-data :buttons="['Slide 1','Slide 2']">
-  <f-content-slides
-    slot-scope="data"
-    :index="data.value"
-    content="## Hello\n---\n## World"
-    style="box-shadow: inset 0 0 10px lightgray"
-  />
-</f-buttons-data>
+<f-content
+  content="## Hello world"
+  style="box-shadow: inset 0 0 10px lightgray"
+/>
   `,
   components: { FMarkdown },
   props: {
     content: { default: "", type: String },
     index: { default: 0, type: Number },
     autosaveId: { default: "0", type: String },
-    type: { default: 'document', type: Boolean }
+    type: { default: 'document', type: String }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {

@@ -19,7 +19,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
     content: { default: "", type: String },
     autosave: { default: false, type: Boolean },
     autosaveId: { default: "0", type: String },
-    type: { default: 'document', type: Boolean }
+    type: { default: 'document', type: String }
   },
   data: function() {
     return {
