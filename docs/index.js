@@ -71,9 +71,9 @@ new Vue({
     },
     generateContent(name, c) {
       return `## ${kebabCase(name)}
-${c.description ? c.description : ""}
-${c.example ? c.example.trim() : ""}
 
+${c.description ? c.description.trim() : ""}
+${c.example ? c.example.trim() : ""}
 ${c.props ? `<br><br>\n\n#### Props` : ""}
 
 ${
@@ -83,13 +83,11 @@ ${
               null,
               2
             ).replace(/'/g, '\\"')}'
-              style="--lightblue: transparent;"
-            />`
+style="--lightblue: transparent;"
+/>`
           : ""
       }
-
 ${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
-
 ${
         c.cssprops
           ? `<f-table :rows='${JSON.stringify(
@@ -98,9 +96,7 @@ ${
               2
             )}' style="--lightblue: transparent" />`
           : ""
-      }
-
-<br>
+      }<br>
 
 #### Import
 
