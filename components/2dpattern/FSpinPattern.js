@@ -3,19 +3,17 @@ import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Repeats elements along the circle, rotating each towards the center of the circle.
-  `,
-  example: `
+
 <f-scene grid>
   <f-box />
-  <f-repeat-spin>
+  <f-spin-pattern>
     <f-box
       slot-scope="data"
       :stroke="color('red')"
     />
-  </f-repeat-spin>
+  </f-spin-pattern>
 </f-scene>
   `,
   props: {

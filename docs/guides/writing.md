@@ -4,9 +4,13 @@
 
 Let's start with a simple paragraph. Fachwerk's content is based on **Markdown**, a simple text format that is converted to HTML.
 
-It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> or  for text highlights, <kbd>kbd</kbd> keyboard reference and <var>var</var> for variables.
+It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> or  for text highlights, <kbd>kbd</kbd> keyboard reference, <var>var</var> for variables and `code` for code snippets.
 
-<br>
+### Alternative text
+
+~Alternatively, texts can also be formatted to have a **different**, a more *Nobel* look.~
+
+~This format is meant for longer texts but note that you have to will have to mark each paragraph separately with a tilde character.~
 
 ### Links
 
@@ -24,33 +28,33 @@ Here is the link about [Markdown](https://help.github.com/articles/basic-writing
 
 <br>
 
-### Headers
+### Headings
 
-For headers use the following syntax:
+For headings use the following syntax:
 
 ```
-# Header 1
+# Heading 1
 ```
 
 It is the same as to write it in HTML:
 
 ```
-<h1>Header 1</h1>
+<h1>Heading 1</h1>
 ```
 
-We support up to five levels of headers:
+We support up to five levels of headings:
 
-# Header 1
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
 
 <br>
 
 ### Bullets
 
-Headers can also have bullets:
+Hadings can also have bullets:
 
 ```
 ### **B**Bullets
@@ -59,16 +63,16 @@ Headers can also have bullets:
 Is the same as to write it in HTML:
 
 ```
-<h1><span class="bullet">1</span>Header</h1>
+<h1><span class="bullet">1</span>Heading</h1>
 ```
 
 Lets get down to it:
 
-# **1**Header 1
-## **2**Header 2
-### **3**Header 3
-#### **4**Header 4
-##### **5**Header 5
+# **1**Heading 1
+## **2**Heading 2
+### **3**Heading 3
+#### **4**Heading 4
+##### **5**Heading 5
 
 Adding images is currently tricky, we rely on complex syntanx like `![](image_link_here.jpg)` but we are working on a simpler alternative.
 
@@ -82,9 +86,9 @@ Content can be made bigger and smaller using `<big>` and `<small>` tags:
 
 <small>Small text</small>
 
-Other content can be made bigger and smaller as well and you also go `<big><big><big>` and beyond:
+All textual content can be made bigger and smaller. You also go `<big><big><big>` and beyond:
 
-# <big><big><big>Big text</big></big></big>
+# <big><big><big>Heading<sup>3</sup></big></big></big>
 
 ### Lists
 

@@ -32,11 +32,9 @@ const InternalPolygon = {
 
 export default {
   mixins: [Object3D],
-  tag: "3D",
-//   description: `
-// Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
-//   `,
-  example: `
+  description: `
+Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
+
 <f-scene3>
   <f-group3
     :rotation="{ y: 45, x: 45 }"

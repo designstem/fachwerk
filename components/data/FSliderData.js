@@ -1,9 +1,7 @@
 export default {
-  tag: 'Data',
   description: `
 Adds a slider next to the content and passing the slider value as <code>data.value</code> 
-  `,
-  example: `
+
 <f-slider-data>
   <h1 class="bullet" slot-scope="data">
     {{ data.value }}

@@ -1,6 +1,5 @@
 export default {
-  tag: 'Data',
-  example: `
+  description: `
 <f-array-data :length="3">
   <f-scene slot-scope="data">
   <circle

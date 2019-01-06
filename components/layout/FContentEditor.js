@@ -2,15 +2,13 @@ import { Css } from '../../mixins.js'
 
 export default {
   mixins: [Css],
-  tag: "Layout",
   description: `
 Creates a code editor with live preview and optionallt auto-saves the content to users browser.
 
 ⌨️ Allows to display and hide the code editor using  <kbd>Alt</kbd><kbd>F</kbd>.
 
 Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the saved data do not go to conflict with other code editor instances on the page.
-`,
-  example: `
+
 <f-theme theme="blue">
   <f-content-editor content="## Hello\n---\n## World" />
 </f-theme>

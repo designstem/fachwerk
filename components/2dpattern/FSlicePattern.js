@@ -3,24 +3,22 @@ import { range, polarpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Clips the children element and rotating each towards the center of the circle.
 
 When \`:count="2"\`, the children element is horizontally mirrored around x axis, similar to \`<f-mirror-x>\`
-  `,
-  example: `
+
 <f-scene grid>
   <f-box
     :rotation="{z:10}"
     opacity="0.25"
   />
-  <f-repeat-slice>
+  <f-slice-pattern>
     <f-box
       :rotation="{z:10}"
       :stroke="color('red')"/>
     />
-  </f-repeat-slice>
+  </f-slice-pattern>
 </f-scene>
   `,
   props: {

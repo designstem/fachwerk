@@ -1,11 +1,9 @@
 import { parseSheet } from "../../utils.js";
 
 export default {
-  tag: 'Data',
   description: `
 Fetches data from Google Sheets.
-  `,
-  example: `
+
 <f-sheet-data id="110RcQmdpOkFcS2KIlahEh8QezwH2cwnihDiV__ZiYqk">
 <f-scene slot-scope="data">
   <rect 

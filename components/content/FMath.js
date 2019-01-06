@@ -3,14 +3,12 @@ import { color } from "../../utils.js";
 
 export default {
   mixins: [Css],
-  tag: "Content",
   description: `
 Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://katex.org/docs/supported.html">LaTeX math syntax</a>.
 <small>
 It also supports dynamic content with inline variables but due to the technical limitations you will need to pass the <code>:update</code> prop of any type to the component to indicate the contents need to update.
 </small>
-  `,
-  example: `
+
 <p>Does not update</p>
 <f-math>
   a = 10

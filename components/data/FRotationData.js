@@ -1,11 +1,9 @@
 import { deg2rad } from '../../utils.js'
 
 export default {
-  tag: 'Data',
   description: `
 Sliders for <code>x y z</code> coordinate data in degrees from \`0\` to \`180\`.
-  `,
-  example: `
+
 <f-rotation-data>
   <f-scene3 slot-scope="data">
     <f-box3 :rotation="{

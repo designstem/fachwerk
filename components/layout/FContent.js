@@ -9,8 +9,7 @@ export default {
 Shows Markdown content.
 
 The component allows to navigate between slides using  <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>.
-  `,
-  example: `
+
 <f-content
   content="## Hello world"
   style="box-shadow: inset 0 0 10px lightgray"

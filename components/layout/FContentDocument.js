@@ -4,8 +4,7 @@ export default {
   tag: 'Layout',
   description: `
 Shows a Markdown content as a linear document.
-  `,
-  example: `
+
 <f-content-document
   content="## Hello\n---\n\n## World"
   style="box-shadow: inset 0 0 10px lightgray"

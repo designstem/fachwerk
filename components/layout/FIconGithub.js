@@ -1,9 +1,7 @@
 export default {
-  tag: "Layout",
   description: `
 A Github icon.
-  `,
-  example: `
+
 <f-icon-github />
   `,
   props: { url: { default: "https://github.com/designstem/framework" } },

@@ -74,7 +74,7 @@ new Vue({
 
 ${c.description ? c.description.trim() : ""}
 ${c.example ? c.example.trim() : ""}
-${c.props ? `<br><br>\n\n#### Props` : ""}
+${c.props ? `<br>\n\n#### Props` : ""}
 
 ${
         c.props

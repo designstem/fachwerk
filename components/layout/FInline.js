@@ -2,11 +2,9 @@ import { Css } from '../../mixins.js'
 
 export default {
   mixins: [Css],
-  tag: "Layout",
   description: `
 Inline layout component.
-`,
-  example: `
+
 <f-inline>
   <button>Button 1</button>
   <button>Button 2</button>

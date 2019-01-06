@@ -3,8 +3,7 @@ import { color } from "../../utils.js";
 
 export default {
   mixins: [Object3D],
-  tag: "3D",
-  example: `
+  description: `
 <f-scene3>
   <f-group3
     :rotation="{ y: 45, x: 45 }"

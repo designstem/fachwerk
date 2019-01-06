@@ -315,6 +315,7 @@ del {
   font-family: var(--font-serif);
   text-decoration: none;
   font-size: 1.1em !important;
+  line-height: 1.6em !important;
 }
 
 /* Text */

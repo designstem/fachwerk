@@ -1,9 +1,7 @@
 export default {
-  tag: 'Layout',
   description: `
 A button group, to be used with \`v-model\`.
-  `,
-  example: `
+
 <f-buttons
   v-model="someVariable"
   :buttons="['First','Second']"

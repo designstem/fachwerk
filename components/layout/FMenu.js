@@ -1,10 +1,8 @@
 
 export default {
-  tag: 'Layout',
   description: `
 Vertical menu, to be used with \`v-model\`.
-  `,
-  example: `
+
   <f-menu
     v-model="someVariable"
     :items="['First','Second']"

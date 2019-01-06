@@ -1,13 +1,11 @@
 export default {
-  tag: "Layout",
   description: `
 Themes the content.
 
 ⌨️ Allows to toggle between light and dark theme using <kbd>Alt</kbd> <kbd>t</kbd>.
 
 Technically it adjust CSS custom properties and redefines the color constants for the child elements.
-  `,
-  example: `
+
 <f-buttons-data
   :value="1"
   :buttons="['Light', 'Dark', 'Blue','Yellow']

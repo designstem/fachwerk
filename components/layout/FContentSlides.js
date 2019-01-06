@@ -4,13 +4,11 @@ import { parseColumns } from "../../utils.js";
 
 export default {
   mixins: [Css],
-  tag: "Layout",
   description: `
 Shows Markdown content as slides.
 
 ⌨️ Allows to navigate between slides using  <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>.
-  `,
-  example: `
+
 <f-buttons-data :buttons="['Slide 1','Slide 2']">
   <f-content-slides
     slot-scope="data"

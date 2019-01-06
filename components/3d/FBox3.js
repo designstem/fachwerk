@@ -2,10 +2,7 @@ import { Object3D } from "./3d.js";
 import { color } from '../../utils.js'
 
 export default {
-  tag: '3D',
   description: `
-  `,
-  example: `
 <f-scene3>
   <f-box3
     :rotation="{ y: 45, x: 45 }"
