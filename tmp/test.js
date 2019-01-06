@@ -19,7 +19,7 @@ new Vue({
   // Fetching the index.md and rendering it
   template: `                         
   <f-fetch-data url="./test.md">
-    <f-content slot-scope="data" :content="data.value" :slides="true" />
+    <f-content slot-scope="data" :content="data.value" type="slides" />
   </f-fetch-data>
 `
 });

@@ -25,7 +25,7 @@ Shows Markdown content.
     content: { default: "", type: String },
     index: { default: 0, type: Number },
     autosaveId: { default: "0", type: String },
-    slides: { default: false, type: Boolean }
+    type: { default: 'document', type: Boolean }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
@@ -92,7 +92,7 @@ Shows Markdown content.
   <div>
     <div
       v-for="(slide,i) in preparedContent"
-      v-show="slides ? i == currentIndex : true"
+      v-show="type == 'slides' ? i == currentIndex : true"
       class="slide"
       :style="{
         display: 'grid',

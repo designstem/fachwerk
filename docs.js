@@ -305,21 +305,13 @@ Function can be imported using Javascript import:
     <f-content-editor
       v-if="!wide"
       :content="content"
-    >
-      <component slot-scope="data"
-        :is="previews[activePreview]"
-        :content="data.content"
-        base="8px"
-        style="--gap: var(--base4);"
-      />
-    </f-content-editor>
+      :type="['document','slides'][activePreview]"
+    />
 
-    <component
+    <f-content
       v-if="wide"
-      :is="previews[activePreview]"
+      :type="['document','slides'][activePreview]"
       :content="content"
-      base="8px"
-      style="--gap: var(--base4);"
     />
 
     </f-theme>
