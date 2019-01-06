@@ -22,7 +22,7 @@ To get started, create three files:
 <html>
 <head>
   <!-- Load CSS styles -->
-  <link rel="stylesheet" href="https://designstem.github.io/framework/style.css">
+  <link rel="stylesheet" href="https://designstem.github.io/framework/styles.css">
 </head>
 
 <body>
@@ -44,8 +44,8 @@ To get started, create three files:
 ```js
 // Use Javascript module import to get initialization mixin, Vue components and utility functions
 
-import Init from "https://designstem.github.io/framework/components/Init.js";
-import * as components from "https://designstem.github.io/framework/framework.js";
+import { Init } from "https://designstem.github.io/framework/mixins.js";
+import * as components from "https://designstem.github.io/framework/components.js";
 import * as utils from "https://designstem.github.io/framework/utils.js";
 
 for (const name in components) {

@@ -197,6 +197,9 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
+import FContent from "./components/layout/FContent.js";
+export { FContent };
+
 import FContentDocument from "./components/layout/FContentDocument.js";
 export { FContentDocument };
 
