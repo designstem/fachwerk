@@ -40,6 +40,9 @@ Shows Markdown content.
     first() {
       this.currentIndex = 0;
     },
+    last() {
+      this.currentIndex =  this.preparedContent.length - 1;
+    },
     prev() {
       this.currentIndex > 0 && this.currentIndex--;
     },
@@ -86,6 +89,7 @@ Shows Markdown content.
       this.$global.$on("next", () => this.next());
       this.$global.$on("prev", () => this.prev());
       this.$global.$on("first", () => this.first());
+      this.$global.$on("last", () => this.last());
     }
   },
   template: `

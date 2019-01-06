@@ -18,7 +18,8 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
   props: {
     content: { default: "", type: String },
     autosave: { default: false, type: Boolean },
-    autosaveId: { default: "0", type: String }
+    autosaveId: { default: "0", type: String },
+    type: { default: 'document', type: Boolean }
   },
   data: function() {
     return {
@@ -69,7 +70,7 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
     });
   },
   template: `
-  <div class="f-content-editor" :style="{'--f-content-editor-cols': fullscreen ? '6fr 1fr' : '1fr 1fr'}">
+  <div class="grid" :style="{'--cols': fullscreen ? '6fr 1fr' : '1fr 1fr'}">
     <div v-if="!fullscreen" style="position: relative;">
       <f-editor
         v-model="innerContent"
@@ -92,27 +93,9 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
     </div>
     <div>
       <slot :content="innerContent">
-        <f-content-slides :content="innerContent" :autosave-id="autosaveId" />
+        <f-content :content="innerContent" :type="type" :autosave-id="autosaveId" />
       </slot> 
     </div>
   </div>
   `,
-  css: `
-  :root {
-    --f-content-editor-cols: 1fr 1fr;
-    --f-content-editor-gap: var(--base3);
-  }
-  .f-content-editor {
-    display: grid;
-    grid-template-columns: var(--f-content-editor-cols);
-    grid-gap: var(--f-content-editor-gap);
-  }
-  @media (max-width: 800px) {
-    .f-content-editor {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-row: none;
-    }
-  }
-  `
 };
