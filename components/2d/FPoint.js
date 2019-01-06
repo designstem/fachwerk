@@ -3,10 +3,7 @@ import { color, parseCoords, log } from "../../utils.js"
 
 export default {
   mixins: [Object2d],
-  tag: "2D",
   description: `
-  `,
-  example: `
 <f-scene grid>
   <f-point points="0 0, 0.5 0.5, 1 1" />
 </f-scene>

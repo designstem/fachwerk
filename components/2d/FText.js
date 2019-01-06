@@ -1,11 +1,9 @@
 import { color } from "../../utils.js"
 
 export default {
-  tag: '2D',
   description: `
 Adds a text to the \`f-scene\`.  
-  `,
-  example: `
+
 <f-scene>
   <f-text :fill="color('red')">x:0, y:0</f-text>
   <f-point :stroke="color('red')" />

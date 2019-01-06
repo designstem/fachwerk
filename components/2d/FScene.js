@@ -3,9 +3,8 @@ export default {
 A 2D vector graphics scene.
 
 Technically it draws a \`svg\` element and sets it coordinate system suitable for graph drawing and allows easy migration to 3D, just replace it with \`<f-scene3>\`.
-`,
-  example: `
-  <f-scene grid="true">
+
+<f-scene grid="true">
   
   <!-- Coordinates increase towards top right -->
   <f-point r="0.1" x="1" y="1" :stroke="color('blue')" />

@@ -3,7 +3,6 @@ import { color } from "../../utils.js"
 
 export default {
   mixins: [Object2d],
-  tag: '2D',
   example: `
 <f-scene>
   <f-grid />
