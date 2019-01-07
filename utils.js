@@ -475,8 +475,6 @@ u.state.send = `
 
 \`send(name, value)\`
 
-TBD
-
 `
 
 const send = function(channel, value) {
@@ -490,8 +488,6 @@ u.state.receive = `
 
 \`receive(name, callback)\`
 
-TBD
-
 `
 
 const receive = function(channel, callback) {
@@ -503,8 +499,6 @@ const receive = function(channel, callback) {
 u.state.get = `
 
 \`get(key, default = null)\`
-
-TBD
 
 `
 const get = function(key, def = null) {
@@ -518,8 +512,6 @@ const get = function(key, def = null) {
 u.state.set = `
 
 \`set(key, value)\`
-
-TBD
 
 `
 
@@ -540,8 +532,6 @@ const set = function(key, value) {
 u.other.debounce = `
 
 \`debounce = (fn, time)\`
-
-TBD
 
 `
 

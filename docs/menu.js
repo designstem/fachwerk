@@ -11,41 +11,65 @@ export default [
         file: "./guides/writing.md"
       },
       {
-        title: "Math and graphs",
+        title: "Images and video",
+        tbd: true
+      },
+      {
+        title: "2D scenes",
+        tbd: true
+      },
+      {
+        title: "3D scenes",
+        tbd: true
+      },
+      {
+        title: "VR scenes",
+        tbd: true
+      },
+      {
+        title: "Adding interaction",
+        tbd: true
+      },
+      {
+        title: "Global state",
+        file: "./guides/state.md"
+      },
+      {
+        title: "Global events",
+        file: "./guides/events.md"
+      },
+      {
+        title: "Bringing math alive",
         file: "./guides/math.md"
       },
+      // {
+      //   title: "Drawing the spirals",
+      //   file: "./guides/spirals2.md"
+      // },
       {
-        title: "Drawing the spirals",
-        file: "./guides/spirals2.md"
-      },
-      {
-        title: "Working with slides",
+        title: "Slides and navigation",
         file: "./guides/slides.md"
       },
       {
         title: "Using colors",
         file: "./guides/colors.md"
       },
+      // {
+      //   title: "Visualizing data",
+      //   file: "./guides/dataviz.md"
+      // },
+      // {
+      //   title: "Making patterns",
+      //   file: "./guides/patterns.md"
+      // },
       {
-        title: "Visualizing data",
-        file: "./guides/dataviz.md"
-      },
-      {
-        title: "Making patterns",
-        file: "./guides/patterns.md"
-      },
-      {
-        title: "Working with grid",
+        title: "Grid and layout",
         file: "./guides/grid.md"
       },
-      {
-        title: "Forms and controls",
-        file: "./guides/controls.md"
-      },
-      {
-        title: "Component communication",
-        file: "./guides/communication.md"
-      }
+      // {
+      //   title: "Forms and controls",
+      //   file: "./guides/controls.md"
+      // },
     ]
   },
   {

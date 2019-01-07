@@ -11,9 +11,9 @@ export default {
 Listens keypresses and emits \`@keydown\` and \`@keyup\` events.
 
 <f-keyboard
-  code="a"
   ctrl
   alt
+  code="a"
   v-on:keydown="set('keyboard', 1 - get('keyboard', 0))"
 />
 

@@ -46,6 +46,7 @@ Vertical menu, to be used with \`v-model\`.
             padding: 'var(--base) var(--base) var(--base) var(--base4)',
             color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--primary)',
             background: i === value[0] && j === value[1] ? 'var(--tertiary)' : '',
+            opacity: item.disabled ? 0.3 : 1
           }"
           @click="$emit('input',[i,j]); top()"
           v-html="item.title"

@@ -27,6 +27,7 @@ new Vue({
         .map(m => {
           m.items = m.items.map(i => {
             i.title = i.component ? `${kebabCase(i.component)}` : i.title;
+            i.disabled = !!i.tbd
             return i;
           });
           return m;
@@ -165,6 +166,10 @@ Function can be imported using Javascript import:
           this.wide = false;
         }
 
+        if (activeMenu.tbd) {
+          this.content = '# To be written' + Array(100).join('\n')
+        }
+
       },
       { immediate: true }
     );
@@ -182,7 +187,7 @@ Function can be imported using Javascript import:
       <div>
         <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
         <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/framework" target="_blank">Github</a>
+        <a href="https://github.com/designstem/framework"  target="_blank">Github</a>
       </div>
       <div>
         <f-inline>
