@@ -4,17 +4,17 @@
 
 Let's start with a simple paragraph. Fachwerk's content is based on **Markdown**, a simple text format that is converted to HTML.
 
-It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> or  for text highlights, <kbd>kbd</kbd> keyboard reference, <var>var</var> for variables and `code` for code snippets.
+It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> for text highlights, <kbd>kbd</kbd> keyboard reference, <var>var</var> for variables and `code` for code snippets.
 
 ### Alternative text
 
-~Alternatively, texts can also be formatted to have a **different**, a more *Nobel* look.~
+~Alternatively, texts can also be formatted to have a **different**, a more *classy* look.~
 
-~This format is meant for longer texts but note that you have to will have to mark each paragraph separately with a tilde character.~
+~This format is meant for longer texts, but note that you have to will have to mark each paragraph separately with a tilde character.~
 
 ### Links
 
-Links in text are automatically clickable:
+Links in the text are automatically clickable:
 
 https://help.github.com/articles/basic-writing-and-formatting-syntax/ 
 
@@ -54,7 +54,7 @@ We support up to five levels of headings:
 
 ### Bullets
 
-Hadings can also have bullets:
+Headings can also have bullets:
 
 ```
 ### **B**Bullets
@@ -74,8 +74,6 @@ Lets get down to it:
 #### **4**Heading 4
 ##### **5**Heading 5
 
-Adding images is currently tricky, we rely on complex syntanx like `![](image_link_here.jpg)` but we are working on a simpler alternative.
-
 <br>
 
 ### Big and small
@@ -88,7 +86,7 @@ Content can be made bigger and smaller using `<big>` and `<small>` tags:
 
 All textual content can be made bigger and smaller. You also go `<big><big><big>` and beyond:
 
-# <big><big><big>Heading<sup>3</sup></big></big></big>
+# <big><big><big>Heading</big></big></big>
 
 ### Lists
 
@@ -126,6 +124,33 @@ longer
 
 ### Tables
 
+Tables can be created with several methods:
+  
+#### Text format
+
+For simple tables, a following syntax can be used. Note that the table cells can contain additional formatting.
+
+Name        | Born
+----------- | -----------
+Klaus       | `1926`
+Werner      | `1942`  
+
+<br>
+  
+#### Component format
+
+When table data is coming from another datasorce, it makes sense to use a dedicated `<f-table>` component that accepts data as a Javascript collection `:rows`:
+
+<f-table :rows="[
+  { name: 'Klaus', born: '`1926`' },
+  { name: 'Werner', born: '`1942`' }
+]"/>
+
+<br>
+  
+#### HTML format
+
+There is also a classic HTML table format available:
 <table>
   <thead>
     <th>Name</th>
@@ -134,11 +159,11 @@ longer
   <tbody>
     <tr>
       <td>Klaus</td>
-      <td>1926</td>
+      <td><code>1926</code></td>
     </tr>
     <tr>
       <td>Werner</td>
-      <td>1942</td>
+      <td><code>1942</code></td>
     </tr>
   </tbody>
 </table>

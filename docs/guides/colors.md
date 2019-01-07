@@ -19,6 +19,8 @@ A compact set of useful colors are available as CSS variables, `var(--purple)` a
     'gray',
     'lightgray', 
     'lightergray', 
+    'orange',
+    'green',
 ]"
 :key="c"
 >

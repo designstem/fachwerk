@@ -1,4 +1,4 @@
-import { Css } from '../../mixins.js'
+import { Css } from "../../mixins.js";
 import { color } from "../../utils.js";
 
 export default {
@@ -39,6 +39,18 @@ It also supports dynamic content with inline variables but due to the technical 
         )
         .replace(/background\-color\:red/g, "background-color:" + color("red"))
         .replace(
+          /background\-color\:orange/g,
+          "background-color:" + color("orange")
+        )
+        .replace(
+          /background\-color\:yellow/g,
+          "background-color:" + color("yellow")
+        )
+        .replace(
+          /background\-color\:purple/g,
+          "background-color:" + color("purple")
+        )
+        .replace(
           /background\-color\:blue/g,
           "background-color:" + color("blue")
         )
@@ -47,26 +59,18 @@ It also supports dynamic content with inline variables but due to the technical 
           "background-color:" + color("green")
         )
         .replace(
-          /background\-color\:yellow/g,
-          "background-color:" + color("yellow")
-        )
-        .replace(
-          /background\-color\:orange/g,
-          "background-color:" + color("orange")
-        )
-        .replace(
           /background\-color\:gray/g,
           "background-color:" + color("gray")
-        );
+        )
     }
   },
   mounted() {
-    this.renderMath()
-    this.timer = setInterval(() =>  this.renderMath(),500)
+    this.renderMath();
+    this.timer = setInterval(() => this.renderMath(), 500);
     this.$watch("update", value => this.renderMath());
   },
   unmounted() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
   },
   template: `
     <div v-html="math" />
@@ -79,7 +83,7 @@ It also supports dynamic content with inline variables but due to the technical 
     display: block;
   }
   .katex .colorbox {
-    border-radius: var(--border-radius);
+    border-radius: 3px;
     color: var(--white);
   }
   .katex .boxpad {
@@ -87,8 +91,8 @@ It also supports dynamic content with inline variables but due to the technical 
   }
   .katex .boxpad .mord {
     color: var(--white);
-    font-size: calc(var(--base) * 2.5);
-    /*font-family: var(--font-mono) !important;*/
+    font-size: calc(var(--base) * 2);
+    font-family: var(--font-sansserif);
   }
   `
 };

@@ -19,7 +19,9 @@
   --yellow: #ffca3a; /* gold */
   --lightblue: #d8e6f3; /* ghostwhite */
   --blue: #1982c4; /* steelblue */
+  --green: #59CD90; /*Alt: #1C7C54;*/
   --darkblue: #162e3d;
+  --orange: #FF9849;
   --black: #000000;
 
   --primary: var(--darkgray);
@@ -280,14 +282,32 @@ var {
   font-weight: normal;
   font-style: normal;
   border-radius: 2px;
-  font-family: var(--font-mono);
   border-radius: var(--border-radius-small);
   background: var(--red);
   color: var(--white);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
+  padding: 0 calc(var(--base) / 2);
+  font-size: 0.9em;
+  font-family: var(--font-sansserif);
   white-space: pre-wrap;
   border-radius: 2px;
+}
+var.gray {
+  background: var(--gray);
+}
+var.purple {
+  background: var(--purple);
+}
+var.orange {
+  background: var(--orange);
+}
+var.blue {
+  background: var(--blue);
+}
+var.yellow {
+  background: var(--orange);
+}
+var.green {
+  background: var(--green);
 }
 
 /* Components */
