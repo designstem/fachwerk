@@ -82,7 +82,5 @@ To display run the project in your browser, you have to host the files in your l
 
 <details>
   <summary>test</summary>
-```js
-sample code
-```
+  <pre>sample code<pre>
 </details>
