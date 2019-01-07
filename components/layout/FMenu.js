@@ -44,7 +44,7 @@ Vertical menu, to be used with \`v-model\`.
             display: 'flex',
             alignItems: 'center',
             padding: 'var(--base) var(--base) var(--base) var(--base4)',
-            color: i === value[0] && j === value[1] ? 'var(--darkgray)' : 'var(--primary)',
+            color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--primary)',
             background: i === value[0] && j === value[1] ? 'var(--tertiary)' : '',
           }"
           @click="$emit('input',[i,j]); top()"

@@ -52,11 +52,10 @@ Technically it adjust CSS custom properties and redefines the color constants fo
         },
         yellow: {
           background: "var(--yellow)",
-          "--emphasis": "var(--orange)",
+          "--emphasis": "var(--red)",
           "--primary": "var(--darkgray)",
           "--lightblue": "var(--darkblue)",
           "--gray": "var(--darkgray)",
-          //"--lightgray": "var(--gray)",
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--lightgray)",
         }

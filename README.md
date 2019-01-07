@@ -12,7 +12,7 @@ Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technolog
 
 #### **A** Quickstart
 
-> 💾 Get the [get the sample project]() from Github.
+> 💾 Get the <a href="https://github.com/designstem/templates/tree/master/basic" target="_blank:">sample project from Github</a>. 
 
 #### **B** Manual start
 
@@ -79,6 +79,10 @@ new Vue({
 ##### index.md
 ```md
 # Hello world
+
+<f-scene grid>
+  <f-circle />
+</f-scene>
 ```
 #### Running the project
 
