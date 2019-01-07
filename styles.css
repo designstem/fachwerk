@@ -13,7 +13,7 @@
   --darkgray: #555555; /* darkgray */
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
-  --lightergray: #eee; /* ? */
+  --lightergray: #eee; 
   --purple: #663399; /* rebeccapurple; */
   --red: #ff595e; /* tomato */
   --yellow: #ffca3a; /* gold */
@@ -27,8 +27,9 @@
   --primary: var(--darkgray);
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
+  --quaternary: var(--lightergray);
 
-  --emphasis: var(--primary);
+  --emphasis: var(--yellow);
 
   --border-width: 3px;
   --border-radius: 6px;
@@ -114,7 +115,7 @@ a {
 }
 b,
 strong {
-  color: var(--emphasis);
+  color: var(--primary);
 }
 
 big {
@@ -145,6 +146,7 @@ big big big {
 small {
   font-size: 0.9em !important;
 }
+
 img {
   width: 100%;
   display: block;
@@ -274,8 +276,8 @@ strong em,
 mark {
   border-radius: 2px;
   border-radius: var(--border-radius-small);
-  background: var(--yellow);
-  color: var(--primary);
+  background: var(--emphasis);
+  color: var(--darkgray);
   padding: 0 calc(var(--base) / 2);
   border-radius: 2px;
   font-weight: normal;
@@ -338,11 +340,10 @@ var.green {
 blockquote {
   margin: 0;
   padding: var(--base2) var(--base2) var(--base2) var(--base3);
-  background: var(--lightergray);
-  border-left: 4px solid var(--yellow);
+  background: var(--quaternary);
+  border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
-
 blockquote p:last-child {
   margin-bottom: 0;
 }

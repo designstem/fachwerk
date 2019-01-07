@@ -3,7 +3,7 @@ export default {
   description: `
 <p>Press <b>a</b> on the keyboard:</p>
 <f-keyboard-data :keys="['a']">
-  <f-buttons slot-scope="data" :buttons="['a']" :value="1 - data.value[0]">
+  <f-buttons slot-scope="data" :buttons="['a']" :value="1 - data.value[0]"/>
 </f-keyboard-data>
   `,
   data: () => ({ values: [] }),

@@ -173,6 +173,12 @@ Function can be imported using Javascript import:
   template: `
   <div>
 
+  <f-keyboard
+      code="p"
+      alt
+      v-on:keydown="set('preview', 1 - get('preview', 0))"
+    ></f-keyboard>
+
   <header>
       <div>
         <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
@@ -182,23 +188,23 @@ Function can be imported using Javascript import:
       <div>
         <f-inline>
           <f-buttons
-            :buttons="['Light','Dark','Yellow']"
-            :value="get('themeIndex', 0)"
-            v-on:input="i => set('themeIndex', i)"
+            :buttons="['Edit','Preview']"
+            :value="get('preview', 0)"
+            v-on:input="i => set('preview', i)"
           />
           <f-buttons
-            :buttons="['View','Edit']"
-            :value="get('viewIndex', 1)"
-            v-on:input="i => set('viewIndex', i)"
+            :buttons="['Light','Dark','Yellow']"
+            :value="get('theme', 0)"
+            v-on:input="i => set('theme', i)"
           />
         </f-inline>
       </div>
   </header>
 
   <f-theme
-    :theme="['light','dark','yellow'][get('themeIndex',0)]"
+    :theme="['light','dark','yellow'][get('theme',0)]"
     class="grid"
-    style="--gap: 0; --cols: 200px 1fr; --rows:400vh;"
+    style="--gap: 0; --cols: 200px 1fr; height: 800vh;"
   >
     <f-menu
       style="overflow-y: auto"
@@ -207,14 +213,14 @@ Function can be imported using Javascript import:
     />
 
     <f-content-editor
-      v-if="get('viewIndex', 1) == 1"
+      v-if="!get('preview', 0)"
       :content="content"
-      :type="['document','slides'][activePreview]"
+      type="slides"
     />
 
     <f-content
-      v-if="get('viewIndex', 1) == 0"
-      :type="['document','slides'][activePreview]"
+      v-if="get('preview', 0)"
+      type="slides"
       :content="content"
     />
 

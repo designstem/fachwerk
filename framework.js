@@ -166,6 +166,9 @@ export { FReceiveData };
 import FKeyboardData from "./components/data/FKeyboardData.js";
 export { FKeyboardData };
 
+import FKeyboard from "./components/data/FKeyboard.js";
+export { FKeyboard };
+
 // Content
 
 import FMath from "./components/content/FMath.js";

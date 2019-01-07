@@ -38,16 +38,21 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--gray)",
           "--lightblue": "var(--darkblue)",
+          "--quaternary": "var(--darkergray)",
           "--blue": "var(--lightgray)"
         },
         blue: {
           background: "var(--darkblue)",
           "--primary": "var(--lightergray)",
           "--secondary": "var(--lightgray)",
+          "--tertiary": "var(--gray)",
           "--lightblue": "var(--darkblue)",
+          "--quaternary": "var(--darkergray)",
+          "--emphasis": "var(--blue)",
         },
         yellow: {
           background: "var(--yellow)",
+          "--emphasis": "var(--orange)",
           "--primary": "var(--darkgray)",
           "--lightblue": "var(--darkblue)",
           "--blue": "var(--lightgray)"
