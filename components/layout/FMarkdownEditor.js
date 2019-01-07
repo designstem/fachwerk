@@ -54,7 +54,7 @@ export default {
       mode: "gfm",
       theme: "material",
       lineWrapping: true,
-      //viewportMargin: Infinity,
+      viewportMargin: Infinity,
       tabSize: 2,
       lineNumbers: false
     });
@@ -88,7 +88,10 @@ export default {
     padding: var(--base2);
     font-size: calc(var(--base) * 1.85);
     line-height: 1.55em;
-    height: inherit;
+    height: auto;
+  }
+  .CodeMirror-linenumbers {
+    margin-right: var(--base);
   }
   .CodeMirror-linenumber {
     opacity: 0.25;

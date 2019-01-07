@@ -55,18 +55,8 @@ Technically it adjust CSS custom properties and redefines the color constants fo
       }
     };
   },
-  mounted() {
-    document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode === 84) {
-        e.preventDefault()
-        if (this.theme == 'light' || this.theme == 'dark') {
-          this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
-        }
-      }
-    });
-  },
   template: `
-    <div :style="themes[currentTheme]">
+    <div :style="themes[theme]">
       <slot />
     </div>
   `

@@ -1,6 +1,7 @@
 import { Init } from "../mixins.js";
 import * as components from "../components.js";
 import { kebabCase, titleCase, utilsDocs } from "../utils.js";
+import * as utils from "../utils.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -46,6 +47,7 @@ new Vue({
     }
   },
   methods: {
+    ...utils,
     getComponents(tag) {
       return sortedComponents
         .map(c => Object.entries(c)[0])
@@ -164,52 +166,6 @@ Function can be imported using Javascript import:
           this.wide = false;
         }
 
-        // Components
-
-        // if (this.menuItems[activeIndex[0]].component) {
-        //   this.content = this.generateContent(
-        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].name,
-        //     sortedComponents
-        //       .map(c => Object.entries(c)[0])
-        //       .filter(
-        //         c =>
-        //           c[0] ==
-        //           this.menuItems[activeIndex[0]].items[activeIndex[1]].name
-        //       )
-        //       .map(c => c[1])[0]
-        //   );
-        //   this.activePreview = 0;
-        //   this.wide = false;
-        // }
-
-        // if (this.menuItems[activeIndex[0]].component) {
-        //   this.content = this.generateContent(
-        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].name,
-        //     sortedComponents
-        //       .map(c => Object.entries(c)[0])
-        //       .filter(
-        //         c =>
-        //           c[0] ==
-        //           this.menuItems[activeIndex[0]].items[activeIndex[1]].name
-        //       )
-        //       .map(c => c[1])[0]
-        //   );
-        //   this.activePreview = 0;
-        //   this.wide = false;
-        // }
-
-        // Utils
-
-        // if (this.menuItems[activeIndex[0]].utils) {
-        //   this.content = this.generateUtils(
-        //     this.menuItems[activeIndex[0]].items[activeIndex[1]].title,
-        //     utilsDocs()[this.menuItems[activeIndex[0]].tag][
-        //       this.menuItems[activeIndex[0]].items[activeIndex[1]].title
-        //     ].trim()
-        //   );
-        //   this.activePreview = 0;
-        //   this.wide = false;
-        // }
       },
       { immediate: true }
     );
@@ -223,11 +179,27 @@ Function can be imported using Javascript import:
         <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/designstem/framework">Github</a>
       </div>
-      <f-icon-github />
+      <div>
+        <f-inline>
+          <f-buttons
+            :buttons="['Light','Dark','Yellow']"
+            :value="get('themeIndex', 0)"
+            v-on:input="i => set('themeIndex', i)"
+          />
+          <f-buttons
+            :buttons="['View','Edit']"
+            :value="get('viewIndex', 1)"
+            v-on:input="i => set('viewIndex', i)"
+          />
+        </f-inline>
+      </div>
   </header>
 
-  <f-theme class="grid" style="--gap: 0; --cols: 200px 1fr; --rows:400vh;">
-
+  <f-theme
+    :theme="['light','dark','yellow'][get('themeIndex',0)]"
+    class="grid"
+    style="--gap: 0; --cols: 200px 1fr; --rows:400vh;"
+  >
     <f-menu
       style="overflow-y: auto"
       :items="menuItems"
@@ -235,13 +207,13 @@ Function can be imported using Javascript import:
     />
 
     <f-content-editor
-      v-if="!wide"
+      v-if="get('viewIndex', 1) == 1"
       :content="content"
       :type="['document','slides'][activePreview]"
     />
 
     <f-content
-      v-if="wide"
+      v-if="get('viewIndex', 1) == 0"
       :type="['document','slides'][activePreview]"
       :content="content"
     />

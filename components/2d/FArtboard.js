@@ -3,7 +3,6 @@ export default {
   
 A playground for generative vector graphics. Compared to the \`<f-scene\`> it is a standard \`svg\` document so the coordinate system and sizing is working in the expected way.
 
-> When using Fachwerk's 2d components you might need to adjust their radius / dimensions since by default they will appear in the artboard as very small.
 
 <f-artboard width="400" height="400" grid>
   <f-circle

@@ -29,11 +29,10 @@ A button group, to be used with \`v-model\`.
           fontSize: '0.9rem',
           marginLeft: '-3px',
           cursor: 'pointer',
-          background: i === value ? 'var(--tertiary)' : 'none'
+          background: i === value ? 'var(--tertiary)' : 'none',
         }"
-      >
-        {{ button }}
-      </div>
+        v-html="button"
+      />
     </div>
   `
 };

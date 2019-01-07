@@ -15,12 +15,38 @@
         <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/designstem/framework">Github</a>
       </div>
-      <f-icon-github />
+      <div>
+        <f-inline>
+          <f-buttons
+            :buttons="['View','Edit']"
+            :value="get('viewIndex', 1)"
+            v-on:input="i => set('viewIndex', i)"
+          ></f-buttons>
+          <f-buttons
+            :buttons="['Light','Dark','Yellow']"
+            :value="get('themeIndex', 0)"
+            v-on:input="i => set('themeIndex', i)"
+          ></f-buttons>
+        </f-inline>
+      </div>
     </header>
 
-    <f-fetch-data url="./index.md">
-      <f-content-editor slot-scope="data" :content="data.value" />
-    </f-fetch-data>
+    <f-theme :theme="['light','dark','yellow'][get('themeIndex',0)]">
+
+      <f-fetch-data url="./index.md">
+        <div slot-scope="data">
+          <f-content
+            v-if="get('viewIndex', 1) == 0"
+            :content="data.value"
+          ></f-content>
+          <f-content-editor
+            v-if="get('viewIndex', 1) == 1"
+            :content="data.value"
+          ></f-content-editor>
+        </div>
+      </f-fetch-data>
+
+    </f-theme>
 
     <div class="footer" style="--yellow: var(--white)">
       <div>

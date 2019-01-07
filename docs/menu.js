@@ -23,8 +23,8 @@ export default [
         preview: 0
       },
       {
-        title: "Adding interactivity",
-        file: "./guides/interactive.md",
+        title: "Working with slides",
+        file: "./guides/slides.md",
         preview: 1
       },
       {

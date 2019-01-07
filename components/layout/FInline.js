@@ -18,10 +18,15 @@ Inline layout component.
   css: `
   .f-inline {
     display: flex;
-    margin-bottom: var(--base2);
   }
   .f-inline > * {
     margin: 0 var(--base) 0 0;
+  }
+  .f-inline > *:last-child {
+    margin: 0;
+  }
+  p .f-inline {
+    margin-bottom: var(--base2);
   }
   @media (max-width: 800px) {
     .f-inline {

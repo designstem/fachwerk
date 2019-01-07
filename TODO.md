@@ -8,6 +8,21 @@
 - fix pattern examples
 - strong em -> mark
 
+----
+
+  // mounted() {
+  //   document.addEventListener("keydown", e => {
+  //     if (e.altKey && e.keyCode === 84) {
+  //       e.preventDefault()
+  //       if (this.theme == 'light' || this.theme == 'dark') {
+  //         this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
+  //       }
+  //     }
+  //   });
+  // },
+
+---
+
 ### Example 1
 
 <div v-for="c in ['f-mirror-x','f-mirror-y','f-repeat-grid','f-repeat-shift','f-repeat-hex','f-repeat-circle','f-repeat-spin','f-repeat-slice']">
