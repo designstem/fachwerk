@@ -117,15 +117,27 @@ strong {
 
 big {
   font-size: 1.3em !important;
-  line-height: 1.5em;
+  line-height: 1.5em !important;
 }
+big h1,
+h1 big
+big h2,
+h1 big,
+big h3,
+h1 big,
+big h4,
+h4 big,
+big h5,
+h5 big {
+  line-height: 95% !important;
+}
+
 big big big {
   letter-spacing: -0.04em;
 }
 
 small {
   font-size: 0.9em !important;
-  line-height: 0.5em !important;
 }
 img {
   width: 100%;
@@ -217,13 +229,13 @@ pre {
   font-family: var(--font-mono);
   font-size: calc(var(--base) * 1.75);
   line-height: calc(var(--base) * 2.5);
-  overflow: auto;
   border-radius: var(--border);
   background: var(--lightblue);
   color: var(--blue);
   padding: var(--base2);
   white-space: pre;
   margin: 0 0 var(--base2) 0;
+  overflow: auto;
 }
 
 code {
@@ -233,7 +245,7 @@ code {
   color: var(--blue);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  overflow: auto;
 }
 
 pre code {
@@ -274,7 +286,7 @@ var {
   color: var(--white);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  white-space: pre-wrap;
   border-radius: 2px;
 }
 

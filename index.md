@@ -25,17 +25,19 @@
 
 ### Inspiration?
 
-**Nadieh Bremer**'s work all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
+***Lea Verou*** and her [Mavo](https://www.smashingmagazine.com/2017/05/introducing-mavo/) framework with just-write-HTML promise.
 
-**Lea Verou** and her [Mavo](https://www.smashingmagazine.com/2017/05/introducing-mavo/) framework with just-write-HTML promise.
+***Sara Vieira*** and her unstoppable drive to do [useful](https://fiddly.netlify.com/) and [fun](https://makefrontendshitagain.party/) things on the Web.
 
-**Alan Kay** ahd his [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) lecture and its [spiritual following](https://www.youtube.com/watch?v=8pTEmbeENF4).
+***Nadieh Bremer***'s work all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
 
-**Rune Madsen** and his [Programming Design Systems](https://programmingdesignsystems.com/) book and [rune.js](http://runemadsen.github.io/rune.js/) framework.
+***Alan Kay*** ahd his [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) lecture and its [spiritual following](https://www.youtube.com/watch?v=8pTEmbeENF4).
 
-**John Gold** and his [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
+***John Gold*** and his [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
 
-**Steven Wittens** and his [interactive math explorations](http://acko.net).
+***Rune Madsen*** and his [Programming Design Systems](https://programmingdesignsystems.com/) book and [rune.js](http://runemadsen.github.io/rune.js/) framework.
+
+***Steven Wittens*** and his [interactive math explorations](http://acko.net).
 
 -
 

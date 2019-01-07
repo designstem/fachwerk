@@ -112,6 +112,7 @@ export default {
   }
   .CodeMirror .cm-strong.cm-em {
     font-weight: normal;
+    font-style: normal;
     color: var(--yellow);
   }
   `

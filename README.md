@@ -6,11 +6,9 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser.
+> Press <kbd>Alt</kbd> <kbd>f</kbd> to switch between viewing and edit mode.
 
-### For developers
-
-Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means <mark>there is no build step🕴️</mark>.
+Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🕴️
 
 > 💾 Quickest way to get started is to  [download the sample project]() from Github.
 
