@@ -1,4 +1,4 @@
-# <big><big>Love *Ordnung*?<br>Here is Fachwerk.</big></big>
+# <big><big>Love *Ordnung*? Here is Fachwerk.</big></big>
 
 <big><big>Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</big></big>
 

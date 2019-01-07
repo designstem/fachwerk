@@ -54,7 +54,7 @@ export default {
       mode: "gfm",
       theme: "material",
       lineWrapping: true,
-      viewportMargin: Infinity,
+      //viewportMargin: Infinity,
       tabSize: 2,
       lineNumbers: false
     });

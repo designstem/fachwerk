@@ -134,6 +134,10 @@ h5 big {
   line-height: 95% !important;
 }
 
+big big {
+  letter-spacing: -0.02em;
+}
+
 big big big {
   letter-spacing: -0.04em;
 }
