@@ -228,7 +228,8 @@ Function can be imported using Javascript import:
       :content="content"
       :style="{
         '--content-padding': get('preview', 0) ? 'calc(var(--base) * 10) 10vw' : '',
-        '--base': get('preview', 0) ? '10px' : ''
+        '--base': get('preview', 0) ? '10px' : '',
+        '--gap': 'var(--base2)'
       }"
     />
 

@@ -13,14 +13,15 @@ A compact set of useful colors are available as CSS variables, `var(--purple)` a
     'darkblue',
     'blue',
     'lightblue',
+    'paleblue',
+    'orange',
+    'green',
     'darkestgray',
     'darkergray',
     'darkgray',
     'gray',
     'lightgray', 
     'lightergray', 
-    'orange',
-    'green',
 ]"
 :key="c"
 >

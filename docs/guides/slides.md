@@ -1,8 +1,8 @@
-# Explorative slides
+# Slides and navigation
 
 ## Slide 1
 
-To create multiple slides, we separate the slides with separator:
+To create multiple slides, we separate the content with a separator:
 
 `---`
 
@@ -16,62 +16,10 @@ Next step
 
 ---
 
-## Slide 2
-
-Great, we landed to next slide!
-
-You can skip this part if you are eager to see how the interactivity works. Stay around if you want to learn about the layouts first.
-
-<f-inline>
-  <button
-    class="secondary"
-    v-on:click="send('prev')"
-  >Prev step</button>
-  <button
-    class="primary"
-    v-on:click="send('next')"
-  >Next step</button>
-</f-inline>
-
-<p />
-
-### Layout
-
-If you separate the content using
-`-`
-separator, the parts will be arranged into columns. Columns can be arranged using following code, this the default setting:
-
-```
-❘ 1 2 3 4
-```
-To organize content into different layout one can try the following:
-
-<pre>
-❘ 1 1 1
-❘ 2 3 4
-❘ 5 5 5
-</pre>
-
-| 1 1 1
-| 2 3 4
-| 5 5 5
-
-**I am cell 1 and I extend over three columns**
--
-**I am cell 2**
--
-**I am cell 3**
--
-**I am cell 4**
--
-**I am cell 5 and I extend over three columns**
-
----
-
 | 1 1
 | 2 3
 
-### Slide 3
+### Slide 2
 
 Now try to set the value higher than `1.5` to move to the next step.
 

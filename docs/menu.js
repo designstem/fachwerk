@@ -42,10 +42,6 @@ export default [
         title: "Bringing math alive",
         file: "./guides/math.md"
       },
-      // {
-      //   title: "Drawing the spirals",
-      //   file: "./guides/spirals2.md"
-      // },
       {
         title: "Slides and navigation",
         file: "./guides/slides.md"
@@ -63,7 +59,7 @@ export default [
       //   file: "./guides/patterns.md"
       // },
       {
-        title: "Grid and layout",
+        title: "Layout and grid",
         file: "./guides/grid.md"
       },
       // {
