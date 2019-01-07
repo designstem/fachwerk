@@ -217,13 +217,13 @@ pre {
   font-family: var(--font-mono);
   font-size: calc(var(--base) * 1.75);
   line-height: calc(var(--base) * 2.5);
-  overflow: auto;
   border-radius: var(--border);
   background: var(--lightblue);
   color: var(--blue);
   padding: var(--base2);
   white-space: pre;
   margin: 0 0 var(--base2) 0;
+  overflow: auto;
 }
 
 code {
@@ -233,7 +233,7 @@ code {
   color: var(--blue);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  overflow: auto;
 }
 
 pre code {
@@ -274,7 +274,7 @@ var {
   color: var(--white);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  white-space: pre-wrap;
   border-radius: 2px;
 }
 

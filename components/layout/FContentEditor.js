@@ -68,30 +68,23 @@ Technically it uses \`localStorage\` and uses \`:autosave-id\` to make sure the 
     });
   },
   template: `
-  <div class="grid" :style="{'--cols': fullscreen ? '6fr 1fr' : '1fr 1fr'}">
-    <div v-if="!fullscreen" style="position: relative;">
-      <f-editor
+  <div
+    class="grid"
+    :style="{
+      '--cols': fullscreen ? '6fr 1fr' : '1fr 1fr',
+      '--rows': '1fr'
+    }">
+      <f-markdown-editor
+        v-if="!fullscreen"
         v-model="innerContent"
-        style="position: absolute; top: 0, right: 0, bottom: 0, left: 0"
       />
-      <div
-        v-if="autosave"
-        style="
-          cursor: pointer;
-          position: absolute;
-          top: calc(var(--base) * 1.5);
-          right: calc(var(--base) * 1.5);
-          font-size: 0.8rem;
-          color: var(--primary);
-        "
-        @click="handleReset"
-      >
-        {{ changed ? '↺' : ''}}
-      </div>
-    </div>
     <div>
       <slot :content="innerContent">
-        <f-content :content="innerContent" :type="type" :autosave-id="autosaveId" />
+        <f-content
+          :content="innerContent"
+          :type="type"
+          :autosave-id="autosaveId"
+        />
       </slot> 
     </div>
   </div>
