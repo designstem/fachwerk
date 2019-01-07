@@ -6,15 +6,17 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-> ✍️Try the edtiting this very site, all content can be altered and optionally saved to your browser. Github / Gist saving is in the works.
-
 ### For developers
 
-Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means <mark>there is no build step🕴️</mark>.
+Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🦄
 
-> 💾 Quickest way to get started is to  [download the sample project]() from Github.
+#### **A** Quickstart
 
-To get started, create three files:
+> 💾 Get the [get the sample project]() from Github.
+
+#### **B** Manual start
+
+Create three files in the folder of you local machine:
 
 ##### index.html
 
@@ -22,7 +24,7 @@ To get started, create three files:
 <html>
 <head>
   <!-- Load CSS styles -->
-  <link rel="stylesheet" href="https://designstem.github.io/framework/style.css">
+  <link rel="stylesheet" href="https://designstem.github.io/framework/styles.css">
 </head>
 
 <body>
@@ -44,8 +46,8 @@ To get started, create three files:
 ```js
 // Use Javascript module import to get initialization mixin, Vue components and utility functions
 
-import Init from "https://designstem.github.io/framework/components/Init.js";
-import * as components from "https://designstem.github.io/framework/framework.js";
+import { Init } from "https://designstem.github.io/framework/mixins.js";
+import * as components from "https://designstem.github.io/framework/components.js";
 import * as utils from "https://designstem.github.io/framework/utils.js";
 
 for (const name in components) {
@@ -80,4 +82,6 @@ new Vue({
 ```
 #### Running the project
 
-To display run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder.
+To run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder. You can also use the commandline tools of your choice.
+
+> Note that the framework is tested only in the latest Chrome browser, it *might* work also on other evergreen browsers.

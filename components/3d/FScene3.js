@@ -1,13 +1,11 @@
 import { Renderer, Scene, Camera } from './3d.js'
 
 export default {
-  tag: '3D',
   description: `
 3D scene with \`x y z\` coordinates ranging from \`-2 to 2\`.
 
 Techically it a [ThreeJS](https://threejs.org/) wrapper with custom SVG renderer.
-`,
-  example: `
+
 <f-animation-data>
   <f-scene3 slot-scope="data">
     <f-grid3

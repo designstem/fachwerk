@@ -1,13 +1,11 @@
 export default {
-  tag: "Layout",
   description: `
 Themes the content.
 
 ⌨️ Allows to toggle between light and dark theme using <kbd>Alt</kbd> <kbd>t</kbd>.
 
 Technically it adjust CSS custom properties and redefines the color constants for the child elements.
-  `,
-  example: `
+
 <f-buttons-data
   :value="1"
   :buttons="['Light', 'Dark', 'Blue','Yellow']
@@ -40,35 +38,33 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--gray)",
           "--lightblue": "var(--darkblue)",
+          "--quaternary": "var(--darkergray)",
           "--blue": "var(--lightgray)"
         },
         blue: {
           background: "var(--darkblue)",
           "--primary": "var(--lightergray)",
           "--secondary": "var(--lightgray)",
+          "--tertiary": "var(--gray)",
           "--lightblue": "var(--darkblue)",
+          "--quaternary": "var(--darkergray)",
+          "--emphasis": "var(--blue)",
         },
         yellow: {
           background: "var(--yellow)",
+          "--emphasis": "var(--orange)",
           "--primary": "var(--darkgray)",
           "--lightblue": "var(--darkblue)",
-          "--blue": "var(--lightgray)"
+          "--gray": "var(--darkgray)",
+          //"--lightgray": "var(--gray)",
+          "--secondary": "var(--lightgray)",
+          "--tertiary": "var(--lightgray)",
         }
       }
     };
   },
-  mounted() {
-    document.addEventListener("keydown", e => {
-      if (e.altKey && e.keyCode === 84) {
-        e.preventDefault()
-        if (this.theme == 'light' || this.theme == 'dark') {
-          this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
-        }
-      }
-    });
-  },
   template: `
-    <div :style="themes[currentTheme]">
+    <div :style="themes[theme]">
       <slot />
     </div>
   `

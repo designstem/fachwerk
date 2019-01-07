@@ -1,25 +1,17 @@
 export default {
-  tag: '2D',
   description: `
-TBD
-  `,
-  example: `
-<f-artboard grid="true">
-  <f-group slot-scope="data">
+  
+A playground for generative vector graphics. Compared to the \`<f-scene>\` it is a standard \`svg\` document so the coordinate system and sizing is working in the expected way.
+
+
+<f-artboard width="400" height="400" grid>
   <f-circle
-    v-for="y in range(100, 200, 25)"
-    :x="100"
-    :y="y"
-    :r="50"
-    :fill="hsl(y)"
-    :opacity="0.25"
+    v-for="r in range(0,300,10).reverse()"
+    x="200"
+    y="200"
+    :r="r"
+    :fill="hsl(r)"
   />
-  <f-circle
-    :x="data.value[0]"
-    :y="data.value[1]"
-    r="50"
-  />
-  </f-group>
 </f-artboard>
   `,
   props: {

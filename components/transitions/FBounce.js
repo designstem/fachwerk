@@ -2,11 +2,9 @@ import { Css } from '../../mixins.js'
 
 export default {
   mixins: [Css],
-  tag: 'Transitions',
   description: `
 Bounce transition
-  `,
-  example: `
+
 <f-buttons-data :buttons="['On', 'Off']">
   <h3 slot-scope="data">
     <f-bounce v-if="!data.value">Bounce like a butterfly</f-bounce>

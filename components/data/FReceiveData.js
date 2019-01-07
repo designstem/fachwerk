@@ -1,5 +1,4 @@
 export default {
-  tag: 'Data',
   props: {
     name: { default: 'value', type: String}
   },

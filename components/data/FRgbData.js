@@ -1,10 +1,8 @@
 export default {
-  tag: 'Data',
   description: `
   Sliders for <code>r g b</code> color values.
-  `,
-  example: `
-<f-rgb-data r="102" g="51" b="153">
+
+  <f-rgb-data r="102" g="51" b="153">
   <f-scene slot-scope="data">
     <f-circle :fill="rgb(...data.value)" />
   </f-scene>

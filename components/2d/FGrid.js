@@ -2,13 +2,11 @@ import { Object2d } from "../../mixins.js";
 
 export default {
   mixins: [Object2d],
-  tag: '2D',
   description: `
 As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
 
 \`<f-grid\`> generates a regular 2D grid with optional \`step\` parameter and allows greater freedom to generate custom grid using transformation parameters.
-`,
-  example: `
+
 <f-scene>
   <f-grid />
   <f-grid :step="0.25" />

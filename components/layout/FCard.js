@@ -1,8 +1,6 @@
 export default {
-  tag: 'Layout',
   description: `
-`,
-  example: `
+
 <f-card>Some content here</f-carc>
 
 <f-card

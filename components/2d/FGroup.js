@@ -2,13 +2,11 @@ import { Object2d } from "../../mixins.js";
 
 export default {
   mixins: [Object2d],
-  tag: '2D',
   description: `
 Groups child elements and a applies geometric transformations to the group.
 
- Technically it generates a \`g\` tag and adds custom transformation parameters.
-  `,
-  example: `
+Technically it generates a \`g\` tag and adds custom transformation parameters.
+
 <f-scene>
   <f-grid />
   <f-group

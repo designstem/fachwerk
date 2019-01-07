@@ -3,10 +3,7 @@ import { color, cpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: "2D",
   description: `
-  `,
-  example: `
 <f-scene>
   <f-regularpolygon />
   <f-regularpolygon :count="3" />

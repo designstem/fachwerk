@@ -3,20 +3,18 @@ import { polarpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Repeats elements along the circle.
-  `,
-  example: `
+
 <f-scene grid>
   <f-box />
-  <f-repeat-circle>
+  <f-circle-pattern>
     <f-box
       slot-scope="data"
       opacity="0.25"
       :stroke="color('red')"
     />
-  </f-repeat-circle>
+  </f-circle-pattern>
 </f-scene>
   `,
   props: {

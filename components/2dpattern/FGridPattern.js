@@ -3,19 +3,17 @@ import { range } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Repeats the contents in a 2D grid.
-  `,
-  example: `
+
 <f-scene grid>
-  <f-repeat-grid>
+  <f-grid-pattern>
     <f-circle
       slot-scope="data"
       r="0.5"
       :stroke="color('red')"
     />
-  </f-repeat-grid>
+  </f-grid-pattern>
   <f-circle r="0.5" />  
 </f-scene>
   `,

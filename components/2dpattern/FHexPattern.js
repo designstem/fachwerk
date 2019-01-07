@@ -3,19 +3,17 @@ import { range, polarpoints } from "../../utils.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Repeats the contents in a hexagonal grid.
-  `,
-  example: `
+
 <f-scene grid>
-  <f-repeat-hex>
+  <f-hex-pattern>
     <f-regularpolygon
       slot-scope="data"
       r="0.5"
       :stroke="color('red')"
     />
-  </f-repeat-hex>
+  </f-hex-pattern>
   <f-regularpolygon r="0.5" />
 </f-scene>
   `,

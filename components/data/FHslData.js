@@ -2,8 +2,7 @@ export default {
   tag: 'Data',
   description: `
 Sliders for <code>h s l</code> color values.
-  `,
-  example: `
+
 <f-hsl-data h="270" s="50" l="40">
   <f-scene slot-scope="data">
     <f-circle :fill="hsl(...data.value)" />

@@ -48,19 +48,29 @@ export { FGridPattern };
 import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FRepeatShift from "./components/2dpattern/FRepeatShift.js";
+import FShiftPattern from "./components/2dpattern/FShiftPattern.js";
+export { FShiftPattern };
+import FRepeatShift from "./components/2dpattern/FShiftPattern.js";
 export { FRepeatShift };
 
-import FRepeatHex from "./components/2dpattern/FRepeatHex.js";
+import FHexPattern from "./components/2dpattern/FHexPattern.js";
+export { FHexPattern };
+import FRepeatHex from "./components/2dpattern/FHexPattern.js";
 export { FRepeatHex };
 
-import FRepeatCircle from "./components/2dpattern/FRepeatCircle.js";
+import FCirclePattern from "./components/2dpattern/FCirclePattern.js";
+export { FCirclePattern };
+import FRepeatCircle from "./components/2dpattern/FCirclePattern.js";
 export { FRepeatCircle };
 
-import FRepeatSpin from "./components/2dpattern/FRepeatSpin.js";
+import FSpinPattern from "./components/2dpattern/FSpinPattern.js";
+export { FSpinPattern };
+import FRepeatSpin from "./components/2dpattern/FSpinPattern.js";
 export { FRepeatSpin };
 
-import FRepeatSlice from "./components/2dpattern/FRepeatSlice.js";
+import FSlicePattern from "./components/2dpattern/FSlicePattern.js";
+export { FSlicePattern };
+import FRepeatSlice from "./components/2dpattern/FSlicePattern.js";
 export { FRepeatSlice };
 
 import FMirrorX from "./components/2dpattern/FMirrorX.js";
@@ -156,6 +166,9 @@ export { FReceiveData };
 import FKeyboardData from "./components/data/FKeyboardData.js";
 export { FKeyboardData };
 
+import FKeyboard from "./components/data/FKeyboard.js";
+export { FKeyboard };
+
 // Content
 
 import FMath from "./components/content/FMath.js";
@@ -187,6 +200,9 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
+import FContent from "./components/layout/FContent.js";
+export { FContent };
+
 import FContentDocument from "./components/layout/FContentDocument.js";
 export { FContentDocument };
 
@@ -201,6 +217,9 @@ export { FMenu };
 
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
+
+import FMarkdownEditor from "./components/layout/FMarkdownEditor.js";
+export { FMarkdownEditor };
 
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
@@ -219,87 +238,3 @@ export { FMarkdown };
 import FRender from "./components/internal/FRender.js";
 export { FRender };
 
-export const sortedComponents = [
-
-  // 2D
-
-  { FScene },
-  { FGrid },
-  { FGroup },
-  { FPoint },
-  { FLine },
-  { FCircle },
-  { FBox },
-  { FPolygon },
-  { FRegularpolygon },
-  { FText },
-  { FArtboard },
-
-  // Patterns
-
-  { FGridPattern },
-  { FRepeatShift },
-  { FRepeatHex },
-  { FRepeatCircle },
-  { FRepeatSpin },
-  { FRepeatSlice },
-  { FMirrorX },
-  { FMirrorY },
-
-  // 3D
-
-  { FScene3 },
-  { FGrid3 },
-  { FPoint3 },
-  { FGroup3 },
-  { FLine3 },
-  { FTriangle3 },
-  { FCircle3 },
-  { FBox3 },
-  { FPolygon3 },
-  { FRegularpolygon3 },
-  { FHedron3 },
-  { FPolyhedron3 },
-
-  // Content
-  { FMath },
-  { FSidebar },
-
-  // Data
-  
-  { FAnimationData },
-  { FSliderData },
-  { FHslData },
-  { FRgbData },
-  { FRotationData },
-  { FButtonsData },
-  { FDragData },
-  { FArrayData },
-  { FBufferData },
-  { FFetchData },
-  { FSheetData },
-  { FReceiveData },
-  { FKeyboardData },
-
-  // Transitions
-
-  { FFade },
-  { FBounce },
-
-  // Layout
-  { FInline },
-  { FCard },
-  { FTable },
-  { FHr },
-  { FVr },
-  { FSlider },
-  { FButtons },
-  { FTabs },
-  { FMenu },
-  { FTheme },
-  { FEditor },
-  { FContentDocument },
-  { FContentSlides },
-  { FContentEditor },
-  { FIconGithub },
-];

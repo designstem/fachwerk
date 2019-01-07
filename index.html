@@ -9,38 +9,56 @@
 <body>
   <div id="app">
 
+    <f-keyboard
+      code="p"
+      alt
+      v-on:keydown="set('preview', 1 - get('preview', 0))"
+    ></f-keyboard>
+    
     <header>
       <div>
         <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
         <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/templates">Templates</a>&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/designstem/framework">Github</a>
       </div>
-      <f-icon-github />
+      <div>
+        <f-inline>
+          <f-buttons
+            :buttons="['Edit','Preview']"
+            :value="get('preview', 0)"
+            v-on:input="i => set('preview', i)"
+          ></f-buttons>
+          <f-buttons
+            :buttons="['Light','Dark','Yellow']"
+            :value="get('theme', 0)"
+            v-on:input="i => set('theme', i)"
+          ></f-buttons>
+        </f-inline>
+      </div>
     </header>
 
-    <div class="hero">
-      <h1>Love <i>Ordnung</i>?<br>Here is Fachwerk.</h1>
-      <h5 style="width: 70vw">Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a style="color: var(--gray)" href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</h5>
-    </div>
+    <f-theme :theme="['light','dark','yellow'][get('theme',0)]">
 
-    <f-fetch-data url="./docs/index/about.md" style="background: var(--yellow); --gap: 0 var(--base3);">
-      <f-content-slides base="8px" slot-scope="data" :content="data.value"></f-content-document>
-    </f-fetch-data>
-    
-    <f-hr></f-hr>
+      <f-fetch-data url="./index.md">
+        <div slot-scope="data">
+          <f-content
+            v-if="get('preview', 0)"
+            :content="data.value"
+            :style="{
+              '--content-padding': get('preview', 0) ? 'calc(var(--base) * 8) 10vw' : '',
+              '--base': get('preview', 0) ? '8px' : ''
+            }"
+            type="document"
+          ></f-content>
+          <f-content-editor
+            v-if="!get('preview', 0)"
+            :content="data.value"
+            type="document"
+          ></f-content-editor>
+        </div>
+      </f-fetch-data>
 
-    <f-fetch-data id="play" url="./docs/index/demo.md">
-      <f-content-editor style="height: 80vh" slot-scope="data" :content="data.value">
-          <f-content-slides style="height: 80vh; overflow: auto" base="8px" slot-scope="data2" :content="data2.content"></f-content-document>
-      </f-content-editor>
-    </f-fetch-data>
-
-    <f-hr></f-hr>
-    
-    <f-fetch-data url="./docs/index/faq.md" style="background: var(--yellow)">
-      <f-content-slides base="8px" slot-scope="data" :content="data.value"></f-content-document>
-    </f-fetch-data>
+    </f-theme>
 
     <div class="footer" style="--yellow: var(--white)">
       <div>

@@ -166,6 +166,9 @@ export { FReceiveData };
 import FKeyboardData from "./components/data/FKeyboardData.js";
 export { FKeyboardData };
 
+import FKeyboard from "./components/data/FKeyboard.js";
+export { FKeyboard };
+
 // Content
 
 import FMath from "./components/content/FMath.js";
@@ -197,6 +200,9 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
+import FContent from "./components/layout/FContent.js";
+export { FContent };
+
 import FContentDocument from "./components/layout/FContentDocument.js";
 export { FContentDocument };
 
@@ -211,6 +217,9 @@ export { FMenu };
 
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
+
+import FMarkdownEditor from "./components/layout/FMarkdownEditor.js";
+export { FMarkdownEditor };
 
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
@@ -229,87 +238,3 @@ export { FMarkdown };
 import FRender from "./components/internal/FRender.js";
 export { FRender };
 
-export const sortedComponents = [
-
-  // 2D
-
-  { FScene },
-  { FGrid },
-  { FGroup },
-  { FPoint },
-  { FLine },
-  { FCircle },
-  { FBox },
-  { FPolygon },
-  { FRegularpolygon },
-  { FText },
-  { FArtboard },
-
-  // Patterns
-
-  { FGridPattern },
-  { FShiftPattern },
-  { FHexPattern },
-  { FCirclePattern },
-  { FSpinPattern },
-  { FSlicePattern },
-  { FMirrorX },
-  { FMirrorY },
-
-  // 3D
-
-  { FScene3 },
-  { FGrid3 },
-  { FPoint3 },
-  { FGroup3 },
-  { FLine3 },
-  { FTriangle3 },
-  { FCircle3 },
-  { FBox3 },
-  { FPolygon3 },
-  { FRegularpolygon3 },
-  { FHedron3 },
-  { FPolyhedron3 },
-
-  // Content
-  { FMath },
-  { FSidebar },
-
-  // Data
-  
-  { FAnimationData },
-  { FSliderData },
-  { FHslData },
-  { FRgbData },
-  { FRotationData },
-  { FButtonsData },
-  { FDragData },
-  { FArrayData },
-  { FBufferData },
-  { FFetchData },
-  { FSheetData },
-  { FReceiveData },
-  { FKeyboardData },
-
-  // Transitions
-
-  { FFade },
-  { FBounce },
-
-  // Layout
-  { FInline },
-  { FCard },
-  { FTable },
-  { FHr },
-  { FVr },
-  { FSlider },
-  { FButtons },
-  { FTabs },
-  { FMenu },
-  { FTheme },
-  { FEditor },
-  { FContentDocument },
-  { FContentSlides },
-  { FContentEditor },
-  { FIconGithub },
-];

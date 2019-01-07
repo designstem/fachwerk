@@ -1,13 +1,11 @@
 export default {
-  tag: 'Data',
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library.
 
 Supports most of the animation options AnimeJS provides.
 
 See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
-  `,
-  example: `
+
 <f-animation-data :to="99">
   <h1
     slot-scope="data"

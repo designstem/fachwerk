@@ -1,8 +1,7 @@
 import { Object3D } from "./3d.js";
 
 export default {
-  tag: '3D',
-  example: `
+  description: `
 <f-scene3>
   <f-polyhedron3
     v-for="(hedron,i) in [

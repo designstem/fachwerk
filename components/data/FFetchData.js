@@ -1,9 +1,7 @@
 export default {
-  tag: 'Data',
   description: `
 Fetches data via AJAX.
-  `,
-  example: `
+
 <f-fetch-data
   url="https://sofetch.glitch.me/https://samples.openweathermap.org/data/2.5/weather?q=Berlin,de&appid=b6907d289e10d714a6e88b30761fae22"
   type="json"

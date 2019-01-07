@@ -2,11 +2,9 @@ import { Css } from '../../mixins.js'
 
 export default {
   mixins: [Css],
-  tag: 'Transitions',
   description: `
 Fading transition
-  `,
-  example: `
+
 <f-buttons-data :buttons="['On', 'Off']">
   <h3 slot-scope="data">
     <f-fade v-if="!data.value">Fading like a flower</f-fade>

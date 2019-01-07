@@ -1,24 +1,21 @@
-import { Css } from '../../mixins.js'
+import { Css } from "../../mixins.js";
 import { color } from "../../utils.js";
 
 export default {
   mixins: [Css],
-  tag: "Content",
   description: `
-Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://katex.org/docs/supported.html">LaTeX math syntax</a>.
-<small>
-It also supports dynamic content with inline variables but due to the technical limitations you will need to pass the <code>:update</code> prop of any type to the component to indicate the contents need to update.
-</small>
-  `,
-  example: `
-<p>Does not update</p>
+Typesetting math equations in classic [LaTeX](https://katex.org/docs/supported.html) format.
+
+Tecnically the framework uses [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and simple multiline support.
+
 <f-math>
   a = 10
   b = a^2 + 100
   c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
 </f-math>
 
-<p>Updates when edited and slider changed</p>
+When using live variables, it is recommended to set a \`:update\` prop that triggers instant re-rendering of the equation:
+
 <f-slider-data>
   <f-math slot-scope="data" :update="data.value">
     a = 10
@@ -41,6 +38,18 @@ It also supports dynamic content with inline variables but due to the technical 
         )
         .replace(/background\-color\:red/g, "background-color:" + color("red"))
         .replace(
+          /background\-color\:orange/g,
+          "background-color:" + color("orange")
+        )
+        .replace(
+          /background\-color\:yellow/g,
+          "background-color:" + color("yellow")
+        )
+        .replace(
+          /background\-color\:purple/g,
+          "background-color:" + color("purple")
+        )
+        .replace(
           /background\-color\:blue/g,
           "background-color:" + color("blue")
         )
@@ -49,26 +58,18 @@ It also supports dynamic content with inline variables but due to the technical 
           "background-color:" + color("green")
         )
         .replace(
-          /background\-color\:yellow/g,
-          "background-color:" + color("yellow")
-        )
-        .replace(
-          /background\-color\:orange/g,
-          "background-color:" + color("orange")
-        )
-        .replace(
           /background\-color\:gray/g,
           "background-color:" + color("gray")
-        );
+        )
     }
   },
   mounted() {
-    this.renderMath()
-    this.timer = setInterval(() =>  this.renderMath(),500)
+    this.renderMath();
+    this.timer = setInterval(() => this.renderMath(), 500);
     this.$watch("update", value => this.renderMath());
   },
   unmounted() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
   },
   template: `
     <div v-html="math" />
@@ -81,7 +82,7 @@ It also supports dynamic content with inline variables but due to the technical 
     display: block;
   }
   .katex .colorbox {
-    border-radius: var(--border-radius);
+    border-radius: 3px;
     color: var(--white);
   }
   .katex .boxpad {
@@ -89,8 +90,8 @@ It also supports dynamic content with inline variables but due to the technical 
   }
   .katex .boxpad .mord {
     color: var(--white);
-    font-size: calc(var(--base) * 2.5);
-    /*font-family: var(--font-mono) !important;*/
+    font-size: calc(var(--base) * 2);
+    font-family: var(--font-sansserif);
   }
   `
 };

@@ -2,11 +2,9 @@ import { Object3D } from "./3d.js";
 import { color } from '../../utils.js'
 
 export default {
-  tag: "3D",
   description: `
 The key building block of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
-  `,
-  example: `
+
 <f-scene3>
   <f-group3
     :rotation="{ y: 45, x: 45 }"

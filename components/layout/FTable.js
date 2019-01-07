@@ -2,11 +2,9 @@ import FMarkdown from "../internal/FMarkdown.js";
 
 export default {
   components: { FMarkdown },
-  tag: 'Layout',
   description: `
 A \`<table>\`, accepting array of objects as \`:rows\`.
-`,
-  example: `
+
 <f-table :rows="[
   { name: 'Klaus', born: 1926 },
   { name: 'Werner', born: 1942 }

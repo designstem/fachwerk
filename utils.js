@@ -13,8 +13,13 @@ let u = {
   other: {}
 };
 
-const getCssVariable = (variable, el = document.body) =>
-  getComputedStyle(document.body).getPropertyValue(variable);
+/* Internal */
+
+const getCssVariable = (value, el = document.body) =>
+  getComputedStyle(el).getPropertyValue(value);
+
+const setCssVariable = (key, value, el = document.body.style) =>
+  el.setProperty(key, value);
 
 /* Colors */
 
@@ -671,6 +676,7 @@ const utilsDocs = () => u;
 
 export {
   getCssVariable,
+  setCssVariable,
   color,
   rgb,
   hsl,

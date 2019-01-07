@@ -1,6 +1,5 @@
 export default {
-  tag: 'Data',
-  example: `
+  description: `
 <f-buffer-data length="10" :map="() => [0,0]">
   <f-scene slot-scope="bData" grid>
     <f-group slot-scope="sData">

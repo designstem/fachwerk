@@ -2,10 +2,7 @@ import { Object3D } from './3d.js'
 
 export default {
   mixins: [Object3D],
-  tag: '3D',
   description: `
-  `,
-  example: `
 <f-scene3>
   <f-grid3 />
   <f-group3

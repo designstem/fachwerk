@@ -1,8 +1,27 @@
-- remove scale defaults
+- f-receive data surfae
+
+- http://jsfiddle.net/thechrisjordan/3Fc7D/23/
+
+- remove scale defaults??
 - VR components!
-- fix small big
+- fix small lineheight
 - fix pattern examples
 - strong em -> mark
+
+----
+
+  // mounted() {
+  //   document.addEventListener("keydown", e => {
+  //     if (e.altKey && e.keyCode === 84) {
+  //       e.preventDefault()
+  //       if (this.theme == 'light' || this.theme == 'dark') {
+  //         this.currentTheme = this.currentTheme == 'light' ? 'dark' : 'light'
+  //       }
+  //     }
+  //   });
+  // },
+
+---
 
 ### Example 1
 

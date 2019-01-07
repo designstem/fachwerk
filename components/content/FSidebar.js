@@ -1,12 +1,9 @@
 export default {
-  tag: 'Content',
   description: `
-  `,
-  example: `
-Want so see what this project <f-sidebar src="./README.md">is all about</f-sidebar>?  
-<br><br>
-<f-sidebar width="100vw" src="./README.md"><div class="button_primary">See About page</div></f-sidebar>
-  `,
+<f-sidebar src="../README.md"><div class="button_primary">Want to get started?</div></f-sidebar>
+
+Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?  
+`,
   props: {
     src: { default: '', type: String },
     width: { default: '50vw', type: String },

@@ -2,11 +2,9 @@ import { Object2d } from "../../mixins.js";
 
 export default {
   mixins: [Object2d],
-  tag: `2D repeat`,
   description: `
 Mirrors children element around horizontal x axis.
-  `,
-  example: `
+
 <f-scene grid>
   <f-box
     :rotation="{z:10}"

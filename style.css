@@ -18,7 +18,7 @@
   --red: #ff595e; /* tomato */
   --yellow: #ffca3a; /* gold */
   --lightblue: #d8e6f3; /* ghostwhite */
-  --blue: rgb(25, 130, 196); /* steelblue */
+  --blue: #1982c4; /* steelblue */
   --darkblue: #162e3d;
   --black: #000000;
 
@@ -114,16 +114,30 @@ b,
 strong {
   color: var(--emphasis);
 }
+
 big {
-  font-size: 3em;
-  line-height: 1em;
-  letter-spacing: -0.03em;
+  font-size: 1.3em !important;
+  line-height: 1.5em !important;
 }
+big h1,
+h1 big
+big h2,
+h1 big,
+big h3,
+h1 big,
+big h4,
+h4 big,
+big h5,
+h5 big {
+  line-height: 95% !important;
+}
+
+big big big {
+  letter-spacing: -0.04em;
+}
+
 small {
-  --font-size: calc(var(--base) * 2);
-  color: var(--primary);
-  font-size: 0.8em;
-  line-height: 0.5em;
+  font-size: 0.9em !important;
 }
 img {
   width: 100%;
@@ -215,13 +229,13 @@ pre {
   font-family: var(--font-mono);
   font-size: calc(var(--base) * 1.75);
   line-height: calc(var(--base) * 2.5);
-  overflow: auto;
   border-radius: var(--border);
   background: var(--lightblue);
   color: var(--blue);
   padding: var(--base2);
   white-space: pre;
   margin: 0 0 var(--base2) 0;
+  overflow: auto;
 }
 
 code {
@@ -231,7 +245,7 @@ code {
   color: var(--blue);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  overflow: auto;
 }
 
 pre code {
@@ -250,16 +264,16 @@ kbd {
   border-radius: 2px;
 }
 
+strong em,
 mark {
   border-radius: 2px;
-  font-family: var(--font-mono);
   border-radius: var(--border-radius-small);
   background: var(--yellow);
   color: var(--primary);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  padding: 0 calc(var(--base) / 2);
   border-radius: 2px;
+  font-weight: normal;
+  font-style: normal;
 }
 
 var {
@@ -272,7 +286,7 @@ var {
   color: var(--white);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
-  white-space: nowrap;
+  white-space: pre-wrap;
   border-radius: 2px;
 }
 
@@ -308,14 +322,22 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
+
+del {
+  font-family: var(--font-serif);
+  text-decoration: none;
+  font-size: 1.1em !important;
+  line-height: 1.6em !important;
+}
+
 /* Text */
+/* TODO: remove? */
 
 .text {
   font-family: var(--font-serif);
   font-size: calc(var(--base) * 2.75);
   line-height: calc(var(--base) * 3);
   color: var(--primary);
-  margin: 0;
 }
 
 .text a {
