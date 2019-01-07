@@ -46,8 +46,7 @@ new Vue({
       return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
     }
   },
-  methods: {
-    ...utils,
+  methods: Object.assign({}, utils, {
     getComponents(tag) {
       return sortedComponents
         .map(c => Object.entries(c)[0])
@@ -131,7 +130,7 @@ Function can be imported using Javascript import:
 
 `;
     }
-  },
+  }),
   mounted() {
     this.$watch(
       "activeMenu",
@@ -181,9 +180,9 @@ Function can be imported using Javascript import:
 
   <header>
       <div>
-        <a href="https://designstem.github.io/framework">Home</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/framework/docs.html">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/framework">Github</a>
+        <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
+        <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/framework" target="_blank">Github</a>
       </div>
       <div>
         <f-inline>

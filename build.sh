@@ -6,6 +6,7 @@ cp components.js framework.js
 cp styles.css style.css
 
 npx rollup --silent -f iife -i index.js | npx uglifyjs > build.js
+npx rollup --silent -f iife -i docs/index.js | npx uglifyjs > docs/build.js
 
 rm -f vendor.js
 curl -L https://unpkg.com/vue/dist/vue.js | npx uglifyjs >> vendor.js

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,500,500i,700,700i|Cousine:400,700|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
 
@@ -13,26 +13,29 @@
   --darkgray: #555555; /* darkgray */
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
-  --lightergray: #eee; /* ? */
+  --lightergray: #eee; 
   --purple: #663399; /* rebeccapurple; */
   --red: #ff595e; /* tomato */
   --yellow: #ffca3a; /* gold */
   --lightblue: #d8e6f3; /* ghostwhite */
   --blue: #1982c4; /* steelblue */
+  --green: #59CD90; /*Alt: #1C7C54;*/
   --darkblue: #162e3d;
+  --orange: #FF9849;
   --black: #000000;
 
   --primary: var(--darkgray);
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
+  --quaternary: var(--lightergray);
 
-  --emphasis: var(--primary);
+  --emphasis: var(--yellow);
 
   --border-width: 3px;
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: 20px;
+  --slider-size: calc(40px - 1vw);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);
@@ -112,7 +115,7 @@ a {
 }
 b,
 strong {
-  color: var(--emphasis);
+  color: var(--primary);
 }
 
 big {
@@ -132,6 +135,10 @@ h5 big {
   line-height: 95% !important;
 }
 
+big big {
+  letter-spacing: -0.02em;
+}
+
 big big big {
   letter-spacing: -0.04em;
 }
@@ -139,6 +146,7 @@ big big big {
 small {
   font-size: 0.9em !important;
 }
+
 img {
   width: 100%;
   display: block;
@@ -268,8 +276,8 @@ strong em,
 mark {
   border-radius: 2px;
   border-radius: var(--border-radius-small);
-  background: var(--yellow);
-  color: var(--primary);
+  background: var(--emphasis);
+  color: var(--darkgray);
   padding: 0 calc(var(--base) / 2);
   border-radius: 2px;
   font-weight: normal;
@@ -280,14 +288,32 @@ var {
   font-weight: normal;
   font-style: normal;
   border-radius: 2px;
-  font-family: var(--font-mono);
   border-radius: var(--border-radius-small);
   background: var(--red);
   color: var(--white);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
+  padding: 0 calc(var(--base) / 2);
+  font-size: 0.9em;
+  font-family: var(--font-sansserif);
   white-space: pre-wrap;
   border-radius: 2px;
+}
+var.gray {
+  background: var(--gray);
+}
+var.purple {
+  background: var(--purple);
+}
+var.orange {
+  background: var(--orange);
+}
+var.blue {
+  background: var(--blue);
+}
+var.yellow {
+  background: var(--orange);
+}
+var.green {
+  background: var(--green);
 }
 
 /* Components */
@@ -314,11 +340,10 @@ var {
 blockquote {
   margin: 0;
   padding: var(--base2) var(--base2) var(--base2) var(--base3);
-  background: var(--lightergray);
-  border-left: 4px solid var(--yellow);
+  background: var(--quaternary);
+  border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
-
 blockquote p:last-child {
   margin-bottom: 0;
 }
