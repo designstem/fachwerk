@@ -55,7 +55,10 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--emphasis": "var(--orange)",
           "--primary": "var(--darkgray)",
           "--lightblue": "var(--darkblue)",
-          "--blue": "var(--lightgray)"
+          "--gray": "var(--darkgray)",
+          //"--lightgray": "var(--gray)",
+          "--secondary": "var(--lightgray)",
+          "--tertiary": "var(--lightgray)",
         }
       }
     };

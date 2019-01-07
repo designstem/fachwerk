@@ -35,7 +35,7 @@
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: 20px;
+  --slider-size: calc(40px - 1vw);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);

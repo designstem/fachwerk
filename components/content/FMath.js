@@ -4,19 +4,18 @@ import { color } from "../../utils.js";
 export default {
   mixins: [Css],
   description: `
-Typesetting math equations using <a href="https://github.com/Khan/KaTeX">KaTeX</a> library which supports most of the classic <a href="https://katex.org/docs/supported.html">LaTeX math syntax</a>.
-<small>
-It also supports dynamic content with inline variables but due to the technical limitations you will need to pass the <code>:update</code> prop of any type to the component to indicate the contents need to update.
-</small>
+Typesetting math equations in classic [LaTeX](https://katex.org/docs/supported.html) format.
 
-<p>Does not update</p>
+Tecnically the framework uses [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and simple multiline support.
+
 <f-math>
   a = 10
   b = a^2 + 100
   c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
 </f-math>
 
-<p>Updates when edited and slider changed</p>
+When using live variables, it is recommended to set a \`:update\` prop that triggers instant re-rendering of the equation:
+
 <f-slider-data>
   <f-math slot-scope="data" :update="data.value">
     a = 10

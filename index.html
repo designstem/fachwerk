@@ -24,7 +24,7 @@
       <div>
         <f-inline>
           <f-buttons
-            :buttons="['View','Edit']"
+            :buttons="['Edit','Preview']"
             :value="get('preview', 0)"
             v-on:input="i => set('preview', i)"
           ></f-buttons>
@@ -44,12 +44,14 @@
           <f-content
             v-if="get('preview', 0)"
             :content="data.value"
-            type="slides"
+            :style="{
+              '--content-padding': get('preview', 0) ? 'calc(var(--base) * 8) 10vw' : '',
+              '--base': get('preview', 0) ? '8px' : ''
+            }"
           ></f-content>
           <f-content-editor
             v-if="!get('preview', 0)"
             :content="data.value"
-            type="slides"
           ></f-content-editor>
         </div>
       </f-fetch-data>

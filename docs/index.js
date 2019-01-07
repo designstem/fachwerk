@@ -204,7 +204,7 @@ Function can be imported using Javascript import:
   <f-theme
     :theme="['light','dark','yellow'][get('theme',0)]"
     class="grid"
-    style="--gap: 0; --cols: 200px 1fr; height: 800vh;"
+    style="--cols: 200px 1fr; --gap: 0; height: 800vh;"
   >
     <f-menu
       style="overflow-y: auto"
@@ -222,6 +222,10 @@ Function can be imported using Javascript import:
       v-if="get('preview', 0)"
       type="slides"
       :content="content"
+      :style="{
+        '--content-padding': get('preview', 0) ? 'calc(var(--base) * 10) 10vw' : '',
+        '--base': get('preview', 0) ? '10px' : ''
+      }"
     />
 
   </f-theme>

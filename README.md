@@ -6,13 +6,17 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-> Press <kbd>Alt</kbd> <kbd>f</kbd> to switch between viewing and edit mode.
+### For developers
 
-Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🕴️
+Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🦄
 
-> 💾 Quickest way to get started is to  [download the sample project]() from Github.
+#### **A** Quickstart
 
-To get started, create three files:
+> 💾 Get the [get the sample project]() from Github.
+
+#### **B** Manual start
+
+Create three files in the folder of you local machine:
 
 ##### index.html
 
@@ -78,13 +82,6 @@ new Vue({
 ```
 #### Running the project
 
-To display run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder.
+To run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder. You can also use the commandline tools of your choice.
 
-<details>
-  <summary>test</summary>
-  
-  ```js
-  // sample code
-  ```
-  
-</details>
+> Note that the framework is tested only in the latest Chrome browser, it *might* work also on other evergreen browsers.

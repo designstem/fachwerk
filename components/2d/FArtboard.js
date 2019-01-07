@@ -1,7 +1,7 @@
 export default {
   description: `
   
-A playground for generative vector graphics. Compared to the \`<f-scene\`> it is a standard \`svg\` document so the coordinate system and sizing is working in the expected way.
+A playground for generative vector graphics. Compared to the \`<f-scene>\` it is a standard \`svg\` document so the coordinate system and sizing is working in the expected way.
 
 
 <f-artboard width="400" height="400" grid>
