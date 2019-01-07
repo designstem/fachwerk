@@ -1,7 +1,19 @@
 # <big><big>Love *Ordnung*?<br>Here is Fachwerk.</big></big>
 
-<big>Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</big>
-  
+<big><big>Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</big></big>
+
+# **1** Play
+
+<big>Best way to get the glimpse what the framework offers is just try them out on this page. There are almost 50 components to try out - everything from 2D/3D graphics, user interaction, content creation and more</big>
+
+# **2** Learn
+
+<big>[Documentation](./docs) has still a long way to go but here are initial tutorials and code samples. They are all live-editable so you can make instant changes and explorations in code.</big>
+
+# **3** Build
+
+<big>Fachwerk is built on top of VueJS so to build more complex materials it is recommended to code it in Javascript, using some of the frameworks components, utilities and styling.</big>
+
 ---
   
 | 1 1
