@@ -18,7 +18,7 @@
       </div>
       <f-icon-github />
     </header>
-
+    <!--
     <div class="hero">
       <h1>Love <i>Ordnung</i>?<br>Here is Fachwerk.</h1>
       <h5 style="width: 70vw">Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a style="color: var(--gray)" href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</h5>
@@ -37,10 +37,13 @@
     </f-fetch-data>
 
     <f-hr></f-hr>
-    
-    <f-fetch-data url="./docs/index/faq.md" style="background: var(--yellow)">
-      <f-content-slides base="8px" slot-scope="data" :content="data.value"></f-content-document>
+    -->
+
+    <f-theme theme="yellow">
+    <f-fetch-data url="./index.md">
+      <f-content-editor slot-scope="data" :content="data.value" />
     </f-fetch-data>
+    </f-theme>
 
     <div class="footer" style="--yellow: var(--white)">
       <div>

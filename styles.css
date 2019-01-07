@@ -117,15 +117,27 @@ strong {
 
 big {
   font-size: 1.3em !important;
-  line-height: 1.5em;
+  line-height: 1.5em !important;
 }
+big h1,
+h1 big
+big h2,
+h1 big,
+big h3,
+h1 big,
+big h4,
+h4 big,
+big h5,
+h5 big {
+  line-height: 95% !important;
+}
+
 big big big {
   letter-spacing: -0.04em;
 }
 
 small {
   font-size: 0.9em !important;
-  line-height: 0.5em !important;
 }
 img {
   width: 100%;

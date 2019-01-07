@@ -1,5 +1,11 @@
-| 1 1 1
-| 2 3 4
+# <big><big>Love *Ordnung*?<br>Here is Fachwerk.</big></big>
+
+<big>Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a href="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</big>
+  
+---
+  
+| 1 1
+| 2 3
 
 # FAQ
 
@@ -28,9 +34,3 @@ While development the framework we wondered about it many times. We are big fans
 It is all about DesignSTEM's target audience, the primary use case we have. Main goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. Educators and hobbyist are just about to graduate from jQuery, so build steps and other heavy Javascript tooling is not an option.
 
 VueJS offers this easy migration path, so it was a natural choice for Fachwerk.
-
--
-
-### What the font?
-
-It is [IBM Plex](https://www.ibm.com/plex). We just love the latest design work from _Internationale Mensch-Maschine_.
