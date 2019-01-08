@@ -104,17 +104,9 @@ ${
 
 Component can be imported using Javascript import:
   
-    import { ${name} } from 'https://designstem.github.io/framework/framework.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/components.js'
     
     Vue.component('${name}', ${name})
-
-Alternatively you can import all components in one go:
-
-    import * as components from "https://designstem.github.io/framework/framework.js";
-    
-    for (const name in components) {
-      Vue.component(name, components[name])
-    }
 
       `;
     },
@@ -127,7 +119,7 @@ ${content}
 
 Function can be imported using Javascript import:
 
-    import { ${name} } from 'https://designstem.github.io/framework/utils.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/utils.js'
 
 `;
     }
@@ -178,16 +170,16 @@ Function can be imported using Javascript import:
   <div>
 
   <f-keyboard
-      code="p"
       alt
+      character="p"
       v-on:keydown="set('preview', 1 - get('preview', 0))"
-    ></f-keyboard>
+  ></f-keyboard>
 
   <header>
       <div>
         <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
         <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/framework"  target="_blank">Github</a>
+        <a href="https://github.com/designstem/fachwerk"  target="_blank">Github</a>
       </div>
       <div>
         <f-inline>

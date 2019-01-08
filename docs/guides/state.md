@@ -43,7 +43,7 @@ c is currently: {{ get('c', 0) }}
 <f-keyboard
   ctrl
   alt
-  code="d"
+  character="d"
   v-on:keydown="set('d', 1)"
 />
 

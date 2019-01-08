@@ -21,15 +21,16 @@ Create three files in the folder of you local machine:
 ##### index.html
 
 ```html
+<!DOCTYPE html>
 <html>
 <head>
   <!-- Load CSS styles -->
-  <link rel="stylesheet" href="https://designstem.github.io/framework/styles.css">
+  <link rel="stylesheet" href="https://designstem.github.io/fachwerk/styles.css">
 </head>
 
 <body>
   <!-- Load vendor Javascript -->
-  <script src="https://designstem.github.io/framework/vendor.js"></script>
+  <script src="https://designstem.github.io/fachwerk/vendor.js"></script>
   
   <!-- Load main Javascript file index.js. Note: type="module" is required! -->
   <script src="./index.js" type="module"></script>
@@ -46,9 +47,9 @@ Create three files in the folder of you local machine:
 ```js
 // Use Javascript module import to get initialization mixin, Vue components and utility functions
 
-import { Init } from "https://designstem.github.io/framework/mixins.js";
-import * as components from "https://designstem.github.io/framework/components.js";
-import * as utils from "https://designstem.github.io/framework/utils.js";
+import { Init } from "https://designstem.github.io/fachwerk/mixins.js";
+import * as components from "https://designstem.github.io/fachwerk/components.js";
+import * as utils from "https://designstem.github.io/fachwerk/utils.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);

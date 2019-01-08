@@ -4,7 +4,7 @@ A Github icon.
 
 <f-icon-github />
   `,
-  props: { url: { default: "https://github.com/designstem/framework" } },
+  props: { url: { default: "https://github.com/designstem/fachwerk" } },
   template: `
   <a :href="url" style="border: none;">
     <svg

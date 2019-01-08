@@ -55,7 +55,7 @@ cat ./three_svg.js | npx uglifyjs >> vendor_aframe.js
 
 # Offline
 
-npx rollup -f es -i framework.js | npx uglifyjs > ../templates/offline/framework.js
+npx rollup -f es -i framework.js | npx uglifyjs > ../templates/offline/components.js
 npx rollup -f es -i utils.js | npx uglifyjs > ../templates/offline/utils.js
 npx rollup -f es -i mixins.js | npx uglifyjs > ../templates/offline/mixins.js
 cp vendor.js ../templates/offline/.
