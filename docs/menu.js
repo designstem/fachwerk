@@ -2,7 +2,7 @@ export default [
   {
     title: "🔮Guides",
     items: [
-      //{ component: 'FHslData' },
+      // { component: 'FEditor' },
       {
         title: "Getting started",
         file: "../README.md"

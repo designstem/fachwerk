@@ -39,16 +39,16 @@ Technically it creates a \`<textarea>\` tag. For richer code editing experience,
       @input="$emit('input', content)"
       style="
         border: none;
-        color: var(--blue);
+        color: var(--lightergray);
+        background: var(--paleblue);
         font-family: var(--font-mono);
         font-size: calc(var(--base) * 1.75);
         line-height: calc(var(--base) * 2.75);
-        height: 100%;
         outline: none;
         resize: none;
         width: 100%;
-        background: var(--lightblue);
         padding: var(--base2);
+        min-height: 50vh;
       "
     />
   `
