@@ -2,6 +2,7 @@ export default [
   {
     title: "🔮Guides",
     items: [
+      { component: 'FAnimation' },
       { component: 'FSlider' },
       {
         title: "Getting started",

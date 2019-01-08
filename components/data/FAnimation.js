@@ -6,24 +6,27 @@ Supports most of the animation options AnimeJS provides.
 
 See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
 
-### Local data
+#### Local data
 
-<f-animation :to="99">
-  <h1 slot-scope="{ value }" class="bullet">
-      {{ Math.floor(value) }}
-  </h1>
+<f-animation>
+  <h1 slot-scope="{ value }">{{ value }}</h1>
 </f-animation>
 
-### Global data
+#### Local data, integer value
 
-<f-animation :to="99" v-on:value="value => set('animation', value)" />
+<f-animation integer>
+  <h1 slot-scope="{ value }">{{ value }}</h1>
+</f-animation>
 
-<h1 class="bullet">
-  {{ Math.floor(get('animation', 0)) }}
-</h1>
+#### Global data
+
+<f-animation v-on:value="value => set('animation', value)" />
+
+<h1>{{ get('animation', 0) }}</h1>
 
   `,
   props: {
+    value: { default: 0, type: [Number,String] },
     from: { default: 0, type: [Number,String] },
     to: { default: 360, type: [Number,String] },
     duration: { default: 10000, type: [Number,String] },
@@ -34,13 +37,17 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
     easing: { default: "linear", type: String },
     integer: { default: false, type: Boolean },
   },
-  data: () => ({ value: 0 }),
+  data: function() {
+    return {
+      innerValue: this.value || this.from,
+    };
+  },
   mounted() {
-    this.value = this.from;
+    this.innerValue = this.from;
     const a = anime({
       targets: this,
       duration: this.duration,
-      value: this.to,
+      innerValue: this.to,
       loop: this.loop,
       direction: this.alternate ? "alternate" : null,
       easing: this.easing,
@@ -61,9 +68,9 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
       { immediate: true }
     );
     this.$watch(
-      "value",
-      value => {
-        this.$emit('value', value)
+      "innerValue",
+      innerValue => {
+        this.$emit('value', this.integer ? Math.floor(this.innerValue) : this.innerValue)
       },
       { immediate: true }
     );
@@ -71,7 +78,7 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
   render() {
     return this.$scopedSlots.default
       ? this.$scopedSlots.default({
-          value: this.value
+          value: this.integer ? Math.floor(this.innerValue) : this.innerValue
         })
       : "";
   }

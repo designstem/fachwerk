@@ -8,15 +8,15 @@ Numeric slider.
   <h1 slot-scope="{ value }">{{ value }}</h1>
 </f-slider>
 
-### Local data, integer value
+#### Local data, integer value
 
-Setting \`interger\` prop is the same as setting \`step="1"\`.
+> Setting \`interger\` prop is the same as setting \`step="1"\`.
 
 <f-slider integer>
   <h1 slot-scope="{ value }">{{ value }}</h1>
 </f-slider>
 
-### Global data
+#### Global data
 
 <f-slider v-on:value="value => set('slider', value)" />
 
