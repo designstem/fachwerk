@@ -50,6 +50,10 @@ export default [
         title: "Using colors",
         file: "./guides/colors.md"
       },
+      {
+        title: "Adding emojis",
+        file: "./guides/emoji.md"
+      },
       // {
       //   title: "Visualizing data",
       //   file: "./guides/dataviz.md"
