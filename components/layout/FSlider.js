@@ -18,7 +18,9 @@ Technically it is a combination of  \`label\` and \`<input type="range" />\` tag
   },
   template: `
   <div>
-    <label>{{ title }} <code>{{ value }}</code></label>
+    <slot :value="value">
+      <label>{{ title }} <code>{{ value }}</code></label>
+    </slot>
     <input
       type="range"
       :value="value"

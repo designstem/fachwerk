@@ -7,7 +7,7 @@ export default {
     innerWidth: { default: 250, type: [Number,String] },
     innerHeight: { default: 250, type:[Number,String] },
     step: { default: 25, type: [Number,String] },
-    opacity: { default: 0.2, type: [Number,String] }
+    opacity: { default: 0.25, type: [Number,String] }
   },
   methods: { range, color },
   template: `

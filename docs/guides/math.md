@@ -6,7 +6,7 @@ For graphs and equations we use `<f-scene>` and `<f-math>` components.
 
 ~Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var>, <var class="green">π</var> and radius <var class="blue">r</var>~
 
-<f-scene grid step="1">
+<f-scene grid >
   <f-line
     :x1="Math.PI/-2"
     y1="1"
@@ -40,23 +40,34 @@ For graphs and equations we use `<f-scene>` and `<f-math>` components.
 
 ### Area and radius, brought alive
 
-~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make r<var class="blue">r</var> an adjustable parameter:~
+~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:~
 
 <f-slider
   title="r"
   from="0.5"
   to="2"
   step="0.01"
-  :value="get('r')"
+  :value="get('r',1)"
   v-on:input="i => set('r', i)"
 />
   
-<f-scene grid step="1">
+<f-scene grid>
   <f-circle
     :fill="color('orange')"
     stroke-width="0"
     opacity="0.8"
     :r="get('r',1)"
+  />
+  <f-line :x2="get('r',1)" :stroke="color('blue')" />
+</f-scene>
+
+<f-scene grid>
+  <f-box
+    :fill="color('orange')"
+    stroke-width="0"
+    opacity="0.8"
+    :width="Math.sqrt(Math.PI * Math.pow(get('r',1),2))"
+    :height="Math.sqrt(Math.PI * Math.pow(get('r',1),2))"
   />
   <f-line :x2="get('r',1)" :stroke="color('blue')" />
 </f-scene>
@@ -71,12 +82,13 @@ For graphs and equations we use `<f-scene>` and `<f-math>` components.
 
 #### Variable colors
 
-There is a range of `<var>` colors available such as <var>red</var> <var class="orange">orange</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var>.
+There is a range of colors available, both for `<var>` tags, <var>red</var> <var class="orange">orange</var> <var class="yellow">yellow</var> <var class="blue">blue</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var> and also for `<f-math>` coloring:
 
 <f-math>
-	color = \colorbox{red}{ red }
-  color = \colorbox{orange}{ orange }
-  color = \colorbox{purple}{ purple }
-  color = \colorbox{green}{ green }
-  color = \colorbox{gray}{ gray }
+	color = \color{red} red \color{black}
+  color = \color{orange} orange \color{black}
+  color = \color{blue} purple \color{black}
+  color = \color{purple} purple \color{black}
+  color = \color{green} green \color{black}
+  color = \color{gray} gray  \color{black}
 </f-math>

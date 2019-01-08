@@ -310,9 +310,6 @@ var.orange {
 var.blue {
   color: var(--blue);
 }
-var.yellow {
-  color: var(--orange);
-}
 var.green {
   color: var(--green);
 }

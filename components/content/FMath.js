@@ -44,10 +44,6 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
           "color:" + color("orange")
         )
         .replace(
-          /color\:yellow/g,
-          "color:" + color("yellow")
-        )
-        .replace(
           /color\:purple/g,
           "color:" + color("purple")
         )
