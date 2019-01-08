@@ -1,5 +1,7 @@
 export default {
   description: `
+Description to be written.
+
 <f-sidebar src="../README.md"><div class="button_primary">Want to get started?</div></f-sidebar>
 
 Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?  

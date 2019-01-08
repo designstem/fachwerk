@@ -32,9 +32,8 @@ Now try to set the value higher than `1.5` to move to the next step.
 <f-slider
   from="0.5"
   to="2"
-  step="0.001"
   :value="get('r', 0.5)"
-  v-on:input="set('r', $event)"
+  v-on:value="value => set('r', value)"
 />
 
 <f-inline>

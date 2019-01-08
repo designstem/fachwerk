@@ -2,6 +2,8 @@ import { deg2rad } from '../../utils.js'
 
 export default {
   description: `
+> This component will be renamed so that \`data\` suffix will be removed.
+
 Sliders for <code>x y z</code> coordinate data in degrees from \`0\` to \`180\`.
 
 <f-rotation-data>

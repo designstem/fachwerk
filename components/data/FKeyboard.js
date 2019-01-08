@@ -7,7 +7,6 @@ export default {
     ctrl: { default: false, type: [Boolean, String] }
   },
   description: `
-
 Listens keypresses and emits \`@keydown\` and \`@keyup\` events.
 
 <f-keyboard
@@ -17,7 +16,9 @@ Listens keypresses and emits \`@keydown\` and \`@keyup\` events.
   v-on:keydown="set('keyboard', 1 - get('keyboard', 0))"
 />
 
-Press <var :class="['gray','red'][get('keyboard',0)]">Ctrl + Alt + a</var>
+Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
+
+<h1 v-if="get('keyboard',0)"><big>💥</big></h1>
 
   `,
   computed: {

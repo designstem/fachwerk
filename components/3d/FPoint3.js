@@ -4,12 +4,11 @@ import { color, parseCoords } from "../../utils.js";
 export default {
   mixins: [Object3D],
   description: `
+Description to be written.
+
 <f-scene3>
   <f-point3 />
-  <f-group3
-    :rotation="{ y: 45, x: 45 }"
-    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
-  >
+  <f-group3 :rotation="{ y: 45, x: 45 }">
   <f-grid3 />
   <f-point3
     :points="range(-4,4,0.05)

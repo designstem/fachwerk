@@ -1,7 +1,7 @@
 
 export default {
   description: `
-> Will be renamed to FButtons
+  > This component will be renamed so that \`data\` suffix will be removed.
 
 Wrapper component, adding a set of buttons on below the content and passing the current button index as <code>data.value</code>.
 

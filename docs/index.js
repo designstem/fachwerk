@@ -179,7 +179,8 @@ Function can be imported using Javascript import:
       <div>
         <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
         <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/fachwerk"  target="_blank">Github</a>
+        <a href="https://github.com/designstem/templates" target="_blank">Examples</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
       </div>
       <div>
         <f-inline>

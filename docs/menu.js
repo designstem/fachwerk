@@ -2,8 +2,7 @@ export default [
   {
     title: "🔮Guides",
     items: [
-      { component: 'FAnimation' },
-      { component: 'FSlider' },
+      //{ component: 'FHslData' },
       {
         title: "Getting started",
         file: "../README.md"
@@ -79,13 +78,13 @@ export default [
     items: [
       { component: "FScene" },
       { component: "FGrid" },
-      { component: "FGroup" },
       { component: "FPoint" },
       { component: "FLine" },
       { component: "FCircle" },
       { component: "FBox" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },
+      { component: "FGroup" },
       { component: "FText" },
       { component: "FArtboard" }
     ]
@@ -109,15 +108,15 @@ export default [
       { component: "FScene3" },
       { component: "FGrid3" },
       { component: "FPoint3" },
-      { component: "FGroup3" },
-      { component: "FLine3" },
       { component: "FTriangle3" },
+      { component: "FLine3" },
       { component: "FCircle3" },
       { component: "FBox3" },
       { component: "FPolygon3" },
       { component: "FRegularpolygon3" },
       { component: "FHedron3" },
-      { component: "FPolyhedron3" }
+      { component: "FPolyhedron3" },
+      { component: "FGroup3" },
     ]
   },
   {
@@ -125,17 +124,12 @@ export default [
     items: [
       { component: "FAnimation" },
       { component: "FSlider" },
-      { component: "FHslData" },
-      { component: "FRgbData" },
-      { component: "FRotationData " },
-      { component: "FButtonsData" },
       { component: "FDragData" },
       { component: "FArrayData" },
       { component: "FBufferData" },
       { component: "FFetchData" },
       { component: "FSheetData" },
       { component: "FReceiveData" },
-      { component: "FKeyboardData" },
       { component: "FKeyboard" }
     ]
   },
@@ -149,12 +143,12 @@ export default [
       { component: "FTable" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FSlider" },
+      // { component: "FSlider" },
       { component: "FButtons" },
       { component: 'FNextButton' },
       { component: 'FPrevButton' },
       { component: "FTabs" },
-      { component: "FMenu" },
+      //{ component: "FMenu" },
       { component: "FTheme" },
       { component: "FEditor" },
       { component: "FContent" },

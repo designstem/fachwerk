@@ -4,9 +4,8 @@ export default {
   description: `
 Adds a text to the \`f-scene\`.  
 
-<f-scene>
-  <f-text :fill="color('red')">x:0, y:0</f-text>
-  <f-point :stroke="color('red')" />
+<f-scene grid>
+  <f-text>x:0 y:0</f-text>
 </f-scene>
   `,
   props: {

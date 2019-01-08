@@ -1,4 +1,3 @@
-// Internal 2D
 
 import FSvg from "./components/2d/FSvg.js";
 export { FSvg };
@@ -143,16 +142,6 @@ export { FArrayData };
 import FBufferData from "./components/data/FBufferData.js";
 export { FBufferData };
 
-import FButtonsData from "./components/data/FButtonsData.js";
-export { FButtonsData };
-
-import FRgbData from "./components/data/FRgbData.js";
-export { FRgbData };
-
-import FHslData from "./components/data/FHslData.js";
-export { FHslData };
-
-
 import FDragData from "./components/data/FDragData.js";
 export { FDragData };
 
@@ -162,24 +151,35 @@ export { FFetchData };
 import FSheetData from "./components/data/FSheetData.js";
 export { FSheetData };
 
-import FRotationData from "./components/data/FRotationData.js";
-export { FRotationData };
-
 import FReceiveData from "./components/data/FReceiveData.js";
 export { FReceiveData };
-
-import FKeyboardData from "./components/data/FKeyboardData.js";
-export { FKeyboardData };
 
 import FKeyboard from "./components/data/FKeyboard.js";
 export { FKeyboard };
 
+// Depreciated
+
+import FButtonsData from "./components/depreciated/FButtonsData.js";
+export { FButtonsData };
+
+import FKeyboardData from "./components/depreciated/FKeyboardData.js";
+export { FKeyboardData };
+
+// import FRgbData from "./components/depreciated/FRgbData.js";
+// export { FRgbData };
+
+// import FHslData from "./components/depreciated/FHslData.js";
+// export { FHslData };
+
+// import FRotationData from "./components/depreciated/FRotationData.js";
+// export { FRotationData };
+
 // Content
 
-import FMath from "./components/content/FMath.js";
+import FMath from "./components/layout/FMath.js";
 export { FMath };
 
-import FSidebar from "./components/content/FSidebar.js";
+import FSidebar from "./components/layout/FSidebar.js";
 export { FSidebar };
 
 // Layout

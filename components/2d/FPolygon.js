@@ -4,6 +4,8 @@ import { color } from "../../utils.js"
 export default {
   mixins: [Object2d],
   example: `
+Description to be written.
+
 <f-scene>
   <f-grid />
   <f-polygon

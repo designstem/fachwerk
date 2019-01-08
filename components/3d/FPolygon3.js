@@ -36,10 +36,7 @@ export default {
 Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
 
 <f-scene3>
-  <f-group3
-    :rotation="{ y: 45, x: 45 }"
-    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
-  >
+  <f-group3 :rotation="{ y: 45, x: 45 }">
     <f-grid3 />
     <f-polygon3
       :points="[

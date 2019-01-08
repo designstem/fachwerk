@@ -1,6 +1,8 @@
 export default {
   description: `
-  Sliders for <code>r g b</code> color values.
+> This component will be renamed so that \`data\` suffix will be removed.
+
+Sliders for <code>r g b</code> color values.
 
   <f-rgb-data r="102" g="51" b="153">
   <f-scene slot-scope="data">

@@ -3,22 +3,22 @@ import { Object2d } from "../../mixins.js";
 export default {
   mixins: [Object2d],
   description: `
-As the classic once [wrote](http://printingcode.runemadsen.com/lecture-grid/), there is nothing worse for an artist than a blank canvas.
+Generates a rectangular grid.
 
-\`<f-grid\`> generates a regular 2D grid with optional \`step\` parameter and allows greater freedom to generate custom grid using transformation parameters.
+Compared to \`<f-scene grid>\` it allows allows greater freedom to generate custom grids using transformation parameters.
 
 <f-scene>
   <f-grid />
-  <f-grid :step="0.25" />
-  <f-grid :step="0.125" />
+  <f-grid step="0.25" />
+  <f-grid step="0.125" />
 </f-scene>
   `,
   props: {
-    step: { default: 0.5, type: Number },
+    step: { default: 0.5, type: [Number,String] },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: Object },
-    opacity: { default: 0.15, type: Number },
+    opacity: { default: 0.15, type: [Number,String] },
   },
   template: `
   <f-group :transform="transform">

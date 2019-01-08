@@ -5,9 +5,7 @@ export default {
   description: `
 Creates a code editor with a live preview.
 
-<f-theme theme="yellow">
-  <f-content-editor content="### Hello World" />
-</f-theme>
+<f-content-editor content="### Hello World" />
   `,
   props: {
     content: { default: "", type: String },

@@ -2,7 +2,9 @@ import { snapToGrid } from '../../utils.js'
 
 export default {
   description: `
-> Will be renamed to FDrag
+  > This component will be renamed so that \`data\` suffix will be removed.
+
+  Description to be written.
 
 <f-scene grid>
   <f-drag-data

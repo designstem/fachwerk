@@ -1,26 +1,26 @@
 export default {
   description: `
+> This component will be renamed so that \`-data\` suffix will be removed.
+
 Numeric slider.
 
-### Local data
+#### Local data
 
 <f-slider>
-  <h1 slot-scope="{ value }">{{ value }}</h1>
+  <pre slot-scope="{ value }">{{ value }}</pre>
 </f-slider>
 
 #### Local data, integer value
 
-> Setting \`interger\` prop is the same as setting \`step="1"\`.
-
 <f-slider integer>
-  <h1 slot-scope="{ value }">{{ value }}</h1>
+  <pre slot-scope="{ value }">{{ value }}</pre>
 </f-slider>
 
 #### Global data
 
 <f-slider v-on:value="value => set('slider', value)" />
 
-<h1>{{ get('slider', 0) }}</h1>
+<pre>{{ get('slider', 0) }}</pre>
   `,
   props: {
     value: { default: 0, type: [Number,String] },

@@ -497,6 +497,8 @@ u.state.send = `
 
 \`send(name, value)\`
 
+Description to be written.
+
 `
 
 const send = function(channel, value) {
@@ -510,6 +512,8 @@ u.state.receive = `
 
 \`receive(name, callback)\`
 
+Description to be written.
+
 `
 
 const receive = function(channel, callback) {
@@ -521,6 +525,8 @@ const receive = function(channel, callback) {
 u.state.get = `
 
 \`get(key, default = null)\`
+
+Description to be written.
 
 `
 const get = function(key, def = null) {
@@ -534,6 +540,8 @@ const get = function(key, def = null) {
 u.state.set = `
 
 \`set(key, value)\`
+
+Description to be written.
 
 `
 
@@ -554,6 +562,8 @@ const set = function(key, value) {
 u.other.debounce = `
 
 \`debounce = (fn, time)\`
+
+Description to be written.
 
 `
 

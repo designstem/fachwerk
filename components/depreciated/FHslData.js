@@ -1,6 +1,8 @@
 export default {
   tag: 'Data',
   description: `
+> This component will be renamed so that \`data\` suffix will be removed.
+
 Sliders for <code>h s l</code> color values.
 
 <f-hsl-data h="270" s="50" l="40">

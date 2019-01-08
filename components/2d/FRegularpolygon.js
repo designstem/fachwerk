@@ -4,9 +4,11 @@ import { color, cpoints } from "../../utils.js";
 export default {
   mixins: [Object2d],
   description: `
-<f-scene>
+Description to be written.
+
+<f-scene grid>
   <f-regularpolygon />
-  <f-regularpolygon :count="3" />
+  <f-regularpolygon count="3" />
 </f-scene>
   `,
   props: {

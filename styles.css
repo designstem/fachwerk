@@ -184,7 +184,7 @@ input[type="range"] {
   position: relative;
   outline: none;
   width: 100%;
-  margin-bottom: var(--base2);
+  margin-bottom: var(--base4);
 }
 
 input[type="range"]::-webkit-slider-thumb {

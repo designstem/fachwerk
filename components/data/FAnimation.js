@@ -1,28 +1,26 @@
 export default {
   description: `
-An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library.
+An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library. Supports most of the animation options AnimeJS provides.
 
-Supports most of the animation options AnimeJS provides.
-
-See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
+> See also available [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
 
 #### Local data
 
 <f-animation>
-  <h1 slot-scope="{ value }">{{ value }}</h1>
+  <pre slot-scope="{ value }">{{ value }}</pre>
 </f-animation>
 
 #### Local data, integer value
 
 <f-animation integer>
-  <h1 slot-scope="{ value }">{{ value }}</h1>
+  <pre slot-scope="{ value }">{{ value }}</pre>
 </f-animation>
 
 #### Global data
 
 <f-animation v-on:value="value => set('animation', value)" />
 
-<h1>{{ get('animation', 0) }}</h1>
+<pre>{{ get('animation', 0) }}</pre>
 
   `,
   props: {

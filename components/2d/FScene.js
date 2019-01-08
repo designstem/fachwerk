@@ -1,23 +1,19 @@
 export default {
   description: `
-A 2D vector graphics scene.
-
-Technically it draws a \`svg\` element and sets it coordinate system suitable for graph drawing and allows easy migration to 3D, just replace it with \`<f-scene3>\`.
+2D vector graphics scene with a coordinate system optimized for graph drawing. For more general vector graphics see \`<f-artboard>\`.
 
 <f-scene grid="true">
   
-  <!-- Coordinates increase towards top right -->
-  <f-point r="0.1" x="1" y="1" :stroke="color('blue')" />
-  <f-text x="1" y="1" :fill="color('blue')">
+  <f-point x="1" y="1" />
+  <f-text x="1" y="1.5">
     x:1 y:1
   </f-text>
   
-  <!-- Regular SVG elements are OK as well here -->
-  <circle cx="-1" cy="-1" r="0.02" fill="rebeccapurple" />
-
-  <f-text x="-1" y="-1" :fill="color('purple')">
+  <f-point x="-1" y="-1" />
+  <f-text x="-1" y="-0.5">
     x:-1 y:-1
   </f-text>
+
 </f-scene>
   `,
   props: {
@@ -26,9 +22,12 @@ Technically it draws a \`svg\` element and sets it coordinate system suitable fo
       type: [Number, String],
       description: "Scene width in pixels"
     },
-    height: { default: 250, type: [Number, String] },
-    grid: { default: false, type: [Boolean, String] },
-    step: { default: 0.5, type: [Number, String] }
+    height: { default: 250, type: [Number, String],
+      description: "Scene height in pixels" },
+    grid: { default: false, type: [Boolean, String],
+      description: "Show background grid?" },
+    step: { default: 0.5, type: [Number, String],
+      description: "Background grid step" }
   },
   computed: {
     innerWidth() {
