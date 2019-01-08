@@ -1,6 +1,6 @@
-# Math and graphs
+# Bringing math alive
 
-For graphs and equations we use `<f-scene>` and `<f-math>` components.
+For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components.
 
 ### Diameter and radius
 
@@ -92,3 +92,18 @@ There is a range of colors available, both for `<var>` tags, <var>red</var> <var
   color = \color{green} green \color{black}
   color = \color{gray} gray  \color{black}
 </f-math>
+
+Note that `\color{red}` symbol acts as a trigger: if you set it, it will populate through the rest of the equation. To stop the population, you will have to add another symbol `\color{black}` to the point where coloring should be ending.
+
+Compare this
+
+<f-math>
+	\color{red} a \cdot b \cdot c
+</f-math>
+
+to this
+
+<f-math>
+	\color{red} a \color{black} \cdot b \cdot c
+</f-math>
+

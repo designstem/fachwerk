@@ -1,25 +1,3 @@
-~Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var> and radius <var class="blue">r</var>~
-
-Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var> and radius <var class="blue">r</var>
-
-<f-math>
-  \color{red} d \color{black} = 2 \cdot \pi \cdot \color{blue} { r }
-</f-math>
-
-
-#### Variable colors
-
-There is a range of `<var>` colors available such as <var>red</var> <var class="orange">orange</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var>.
-
-<f-math>
-	color = \color{red}{ red } \color{black}
-  color = \color{orange}{ orange } \color{black}
-  color = \color{purple}{ purple } \color{black}
-  color = \color{green}{ green } \color{black}
-  color = \color{gray}{ gray } \color{black}
-</f-math>
-
-
 # Fachwerk
 
 Fachwerk is a Javascript framework for creating interactive learning materials in the browser.
