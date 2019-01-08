@@ -2,50 +2,45 @@
 
 For graphs and equations we use `<f-scene>` and `<f-math>` components.
 
-## Diameter and radius
+### Diameter and radius
 
-~Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var> and radius <var class="blue">r</var>~
+~Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var>, <var class="green">π</var> and radius <var class="blue">r</var>~
 
 <f-scene grid step="1">
-  <f-circle
-    opacity="0.8"
-    :stroke="color('red')"
-  />
   <f-line
     :x1="Math.PI/-2"
     y1="1"
     :x2="Math.PI/2"
     y2="1"
-    :stroke="color('red')"
-    opacity="0.3"
+    :stroke="color('green')"
   />
   <f-line
     :x1="Math.PI/-2"
     y1="-1"
     :x2="Math.PI/2"
     y2="-1"
-    :stroke="color('red')"
-    opacity="0.3"
+    :stroke="color('green')"
   />
-
-  <f-line y2="-1" :stroke="color('blue')" />
+  <f-circle
+    opacity="0.8"
+    :stroke="color('red')"
+  />
+  <f-line x2="1" :stroke="color('blue')" />
 </f-scene>
 
 <f-math>
-  \colorbox{red}{ d } = 2 \cdot \pi \cdot \colorbox{blue}{ r }
+  \color{red}{ d } \color{black} = 2 \cdot \color{green} \pi \color{black} \cdot \color{blue}{ r }
 </f-math>
 
 <f-math>
-  \colorbox{red}{ d } = 2 \cdot {{ String(Math.PI).slice(0,6) }} \cdot 1 = {{ String(2 * Math.PI * 1).slice(0,6) }}
+  \color{red}{ d } \color {black} = 2 \cdot \color{green} {{ Math.PI }} \color{black} \cdot \color{blue} 1 \color{black} = \color{red} {{ 2 * Math.PI * 1 }}
 </f-math>
 
 <br><br>
 
 ### Area and radius, brought alive
 
-~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make r an adjustable parameter:~
-
-{{ set('r',1) }}
+~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make r<var class="blue">r</var> an adjustable parameter:~
 
 <f-slider
   title="r"
@@ -61,17 +56,17 @@ For graphs and equations we use `<f-scene>` and `<f-math>` components.
     :fill="color('orange')"
     stroke-width="0"
     opacity="0.8"
-    :r="get('r')"
+    :r="get('r',1)"
   />
-  <f-line :x2="get('r')" :stroke="color('blue')" />
+  <f-line :x2="get('r',1)" :stroke="color('blue')" />
 </f-scene>
 
 <f-math>
-  \colorbox{orange}{ a } = \pi \cdot \colorbox{blue}{ r }^2
+  \color{orange} a \color{black} = \pi \cdot \color{blue} r \color{black} ^2
 </f-math>
 
 <f-math :update="get('r')">
-  \colorbox{orange}{ a } = {{ String(Math.PI).slice(0,6) }} \cdot {{ get('r',1) }} ^2 = {{ String(Math.PI * Math.pow(get('r'),2)).slice(0,6) }}
+  \color{orange} a \color{black} = {{ Math.PI }} \cdot \color{blue} {{ get('r',1) }} \color{black} ^2 = \color{orange} {{ Math.PI * Math.pow(get('r',1),2) }}
 </f-math>
 
 #### Variable colors

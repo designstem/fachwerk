@@ -36,30 +36,32 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
             throwOnError: false
           }
         )
-        .replace(/background\-color\:red/g, "background-color:" + color("red"))
+        .replace(/color\:black/g, "color:" + color("primary"))
+        .replace(/color\:primary/g, "color:" + color("primary"))
+        .replace(/color\:red/g, "color:" + color("red"))
         .replace(
-          /background\-color\:orange/g,
-          "background-color:" + color("orange")
+          /color\:orange/g,
+          "color:" + color("orange")
         )
         .replace(
-          /background\-color\:yellow/g,
-          "background-color:" + color("yellow")
+          /color\:yellow/g,
+          "color:" + color("yellow")
         )
         .replace(
-          /background\-color\:purple/g,
-          "background-color:" + color("purple")
+          /color\:purple/g,
+          "color:" + color("purple")
         )
         .replace(
-          /background\-color\:blue/g,
-          "background-color:" + color("blue")
+          /color\:blue/g,
+          "color:" + color("blue")
         )
         .replace(
-          /background\-color\:green/g,
-          "background-color:" + color("green")
+          /color\:green/g,
+          "color:" + color("green")
         )
         .replace(
-          /background\-color\:gray/g,
-          "background-color:" + color("gray")
+          /color\:gray/g,
+          "color:" + color("gray")
         )
     }
   },
@@ -89,9 +91,7 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
     padding: 0;
   }
   .katex .boxpad .mord {
-    color: var(--white);
-    font-size: calc(var(--base) * 2);
-    font-family: var(--font-sansserif);
+    !!!font-size: calc(var(--base) * 2);
   }
   `
 };
