@@ -1,5 +1,7 @@
 export default {
   description: `
+> Will be renamed to FArray
+
 <f-array-data :length="3">
   <f-scene slot-scope="data">
   <circle

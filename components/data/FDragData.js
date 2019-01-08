@@ -2,6 +2,8 @@ import { snapToGrid } from '../../utils.js'
 
 export default {
   description: `
+> Will be renamed to FDrag
+
 <f-scene grid>
   <f-drag-data
     slot-scope="sData"

@@ -127,14 +127,21 @@ export { FBounce };
 
 // Data
 
+import FAnimation from "./components/data/FAnimation.js";
+export { FAnimation };
+import FAnimationData from "./components/data/FAnimation.js";
+export { FAnimationData };
+
+import FSlider from "./components/data/FSlider.js";
+export { FSlider };
+import FSliderData from "./components/data/FSlider.js";
+export { FSliderData };
+
 import FArrayData from "./components/data/FArrayData.js";
 export { FArrayData };
 
 import FBufferData from "./components/data/FBufferData.js";
 export { FBufferData };
-
-import FAnimationData from "./components/data/FAnimationData.js";
-export { FAnimationData };
 
 import FButtonsData from "./components/data/FButtonsData.js";
 export { FButtonsData };
@@ -145,8 +152,6 @@ export { FRgbData };
 import FHslData from "./components/data/FHslData.js";
 export { FHslData };
 
-import FSliderData from "./components/data/FSliderData.js";
-export { FSliderData };
 
 import FDragData from "./components/data/FDragData.js";
 export { FDragData };
@@ -224,11 +229,14 @@ export { FMarkdownEditor };
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
 
-import FSlider from "./components/layout/FSlider.js";
-export { FSlider };
-
 import FIconGithub from "./components/layout/FIconGithub.js";
 export { FIconGithub };
+
+import FNextButton from "./components/layout/FNextButton.js";
+export { FNextButton };
+
+import FPrevButton from "./components/layout/FPrevButton.js";
+export { FPrevButton };
 
 // Internal
 

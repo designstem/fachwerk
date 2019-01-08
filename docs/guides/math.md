@@ -38,7 +38,7 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 
 <br><br>
 
-### Area and radius, brought alive
+### Area and radius
 
 ~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:~
 

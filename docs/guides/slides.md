@@ -8,10 +8,12 @@ To create multiple slides, we separate the content with a separator:
 
 The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
 
-We create a button and send an event `send('next')` when it is clicked. Try it!
+<f-next-button /><br>
+
+`<f-next-button>` is a simple wrapper around `<button>` element that emits an event `send('next')` when it is clicked. The button above can also be written as:
 
 <button class="primary" v-on:click="send('next')">
-Next step
+Next step →
 </button>
 
 ---
@@ -28,23 +30,16 @@ Now try to set the value higher than `1.5` to move to the next step.
 #### Controls
 
 <f-slider
-  from="1"
+  from="0.5"
   to="2"
   step="0.001"
-  :value="get('r', 0)"
+  :value="get('r', 0.5)"
   v-on:input="set('r', $event)"
 />
 
 <f-inline>
-  <button
-    class="secondary"
-    v-on:click="send('prev')"
-  >Prev step</button>
-  <button
-    v-if="get('r', 0) > 1.5"
-    class="primary"
-    v-on:click="send('next')"
-  >Next step</button>
+  <f-prev-button />
+  <f-next-button v-if="get('r',0.5) > 1.5" />
 </f-inline>
 -
 
@@ -64,5 +59,5 @@ We are done here, let's reset the global state,`set('r', 0)` and send the user b
   class="secondary"
   v-on:click="set('r', 0); send('first')"
 >
-Back to start
+← Back to start
 </button>

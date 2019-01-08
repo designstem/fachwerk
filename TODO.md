@@ -1,3 +1,5 @@
+f-box r
+- exportSTL
 - f-receive data surfae
 
 - http://jsfiddle.net/thechrisjordan/3Fc7D/23/
@@ -241,3 +243,13 @@ https://github.com/faisalhakim47/vscode-vue-inline-template
   />
 </f-scene>
 -->
+
+
+<f-fetch-data
+  url="https://unpkg.com/unicode-11.0.0@0.7.8/General_Category/Math_Symbol/symbols.js"
+>
+  <code slot-scope="{value}">
+    {{ log(value.trim().replace('module.exports=','').replace(/'/g,'"').replace(/\\/g,'\\')) }}
+  </code>
+</f-fetch-data>
+

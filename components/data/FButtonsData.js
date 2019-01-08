@@ -1,6 +1,8 @@
 
 export default {
   description: `
+> Will be renamed to FButtons
+
 Wrapper component, adding a set of buttons on below the content and passing the current button index as <code>data.value</code>.
 
 <f-buttons-data :buttons="['Eins', 'Zwei', 'Polizei']">

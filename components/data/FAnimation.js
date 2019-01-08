@@ -6,24 +6,33 @@ Supports most of the animation options AnimeJS provides.
 
 See also avabilable [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
 
-<f-animation-data :to="99">
-  <h1
-    slot-scope="data"
-    class="bullet"
-  >
-      {{ Math.floor(data.value) }}
+### Local data
+
+<f-animation :to="99">
+  <h1 slot-scope="{ value }" class="bullet">
+      {{ Math.floor(value) }}
   </h1>
-</f-animation-data>
+</f-animation>
+
+### Global data
+
+<f-animation :to="99" v-on:value="value => set('animation', value)" />
+
+<h1 class="bullet">
+  {{ Math.floor(get('animation', 0)) }}
+</h1>
+
   `,
   props: {
-    from: { default: 0, type: Number },
-    to: { default: 360, type: Number },
-    duration: { default: 10000, type: Number },
+    from: { default: 0, type: [Number,String] },
+    to: { default: 360, type: [Number,String] },
+    duration: { default: 10000, type: [Number,String] },
     playing: { default: true, type: Boolean },
     reset: { default: false, type: Boolean },
     loop: { default: true, type: Boolean },
     alternate: { default: false, type: Boolean },
-    easing: { default: "linear", type: String }
+    easing: { default: "linear", type: String },
+    integer: { default: false, type: Boolean },
   },
   data: () => ({ value: 0 }),
   mounted() {
@@ -48,6 +57,13 @@ See also avabilable [easing functions](https://github.com/juliangarnier/anime#bu
           }
           a.pause();
         }
+      },
+      { immediate: true }
+    );
+    this.$watch(
+      "value",
+      value => {
+        this.$emit('value', value)
       },
       { immediate: true }
     );

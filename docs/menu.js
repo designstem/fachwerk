@@ -2,6 +2,7 @@ export default [
   {
     title: "🔮Guides",
     items: [
+      { component: 'FSlider' },
       {
         title: "Getting started",
         file: "../README.md"
@@ -121,8 +122,8 @@ export default [
   {
     title: "📦Dynamic data",
     items: [
-      { component: "FAnimationData" },
-      { component: "FSliderData" },
+      { component: "FAnimation" },
+      { component: "FSlider" },
       { component: "FHslData" },
       { component: "FRgbData" },
       { component: "FRotationData " },
@@ -149,6 +150,8 @@ export default [
       { component: "FVr" },
       { component: "FSlider" },
       { component: "FButtons" },
+      { component: 'FNextButton' },
+      { component: 'FPrevButton' },
       { component: "FTabs" },
       { component: "FMenu" },
       { component: "FTheme" },
