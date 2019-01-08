@@ -1,5 +1,5 @@
 # TODO
-
+- 1 2 3 mobile support
 - color("primary") in props
 - f-box r
 - exportSTL

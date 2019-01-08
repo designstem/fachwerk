@@ -1,7 +1,8 @@
-import { Init } from "../mixins.js";
+import { Init, Css } from "../mixins.js";
 import * as components from "../components.js";
-import { kebabCase, titleCase, utilsDocs } from "../utils.js";
 import * as utils from "../utils.js";
+
+const { kebabCase, titleCase, utilsDocs } = utils
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -10,7 +11,7 @@ for (const name in components) {
 import menu from "./menu.js";
 
 new Vue({
-  mixins: [Init],
+  mixins: [Init, Css],
   el: "#app",
   data: function() {
     return {
@@ -27,7 +28,7 @@ new Vue({
         .map(m => {
           m.items = m.items.map(i => {
             i.title = i.component ? `${kebabCase(i.component)}` : i.title;
-            i.disabled = !!i.tbd
+            i.disabled = !!i.tbd;
             return i;
           });
           return m;
@@ -159,9 +160,8 @@ Function can be imported using Javascript import:
         }
 
         if (activeMenu.tbd) {
-          this.content = '# To be written' + Array(100).join('\n')
+          this.content = "# To be written" + Array(100).join("\n");
         }
-
       },
       { immediate: true }
     );
@@ -177,9 +177,9 @@ Function can be imported using Javascript import:
 
   <header>
       <div>
-        <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
-        <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/templates" target="_blank">Examples</a>&nbsp;&nbsp;&nbsp;
+        <a href="..">Fachwerk</a>&nbsp;&nbsp; 
+        <a href=".">Docs</a>&nbsp;&nbsp; 
+        <a href="https://github.com/designstem/templates" target="_blank">Templates</a>&nbsp;&nbsp; 
         <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
       </div>
       <div>
@@ -200,34 +200,66 @@ Function can be imported using Javascript import:
 
   <f-theme
     :theme="['light','dark','yellow'][get('theme',0)]"
-    class="grid"
-    style="--cols: 200px 1fr; --gap: 0; height: 800vh;"
+    class="docs"
   >
     <f-menu
-      style="overflow-y: auto"
       :items="menuItems"
       v-model="activeIndex"
+      class="menu"
     />
 
     <f-content-editor
       v-if="!get('preview', 0)"
       :content="content"
       type="slides"
+      class="editor"
     />
 
     <f-content
       v-if="get('preview', 0)"
       type="slides"
       :content="content"
-      :style="{
-        '--content-padding': get('preview', 0) ? 'calc(var(--base) * 10) 10vw' : '',
-        '--base': get('preview', 0) ? '10px' : '',
-        '--gap': 'var(--base2)'
-      }"
+      class="editor"
     />
 
   </f-theme>
 
+  <div class="footer">
+    <div>
+      <p>
+        All code is licenced under
+        <a href="https://choosealicense.com/licenses/mit/" rel="licence">
+          MIT licence
+        </a>.
+        All content is licenced under
+        <br>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+          Creative Commons Attribution 4.0 International License
+        </a>.
+      </p>
+    </div>
+    <img src="../images/erasmus_logo.svg" style="width:240px" />
+  </div>
+    
 </div>
+  `,
+  css: `
+  .docs {
+    display: flex;
+  }
+  .docs .menu {
+    width: 200px;
+  }
+  .docs .editor {
+    flex: 1;
+  }
+  @media (max-width: 800px) {
+    .docs .menu {
+      width: 100%;
+    }
+    .docs {
+      flex-direction: column-reverse;
+    }
+  }
   `
 });

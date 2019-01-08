@@ -6,11 +6,8 @@ export default {
 Description to be written.
 
 <f-scene3>
-  <f-grid3 />
-  <f-box3
-    :rotation="{ y: 45, x: 45 }"
-    :opacity="0.8"
-  />
+  <f-grid3 :rotation="{ y: 45, x: 45 }" />
+  <f-box3 :rotation="{ y: 45, x: 45 }" />
 </f-scene3>  
   `,
   mixins: [Object3D],

@@ -9,5 +9,8 @@ for (const name in components) {
 new Vue({
   mixins: [Init],
   el: "#app",
-  methods: Object.assign({}, utils)
+  methods: Object.assign({}, utils),
+  mounted() {
+    this.set('componentCount', Object.keys(components).length)
+  }
 });

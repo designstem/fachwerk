@@ -65,14 +65,15 @@ to this
             throwOnError: false
           }
         )
-        .replace(/color\:black/g, "color:" + color("primary"))
-        .replace(/color\:primary/g, "color:" + color("primary"))
-        .replace(/color\:red/g, "color:" + color("red"))
-        .replace(/color\:orange/g, "color:" + color("orange"))
-        .replace(/color\:purple/g, "color:" + color("purple"))
-        .replace(/color\:blue/g, "color:" + color("blue"))
-        .replace(/color\:green/g, "color:" + color("green"))
-        .replace(/color\:gray/g, "color:" + color("gray"));
+        .replace(/color:black/g, "color:" + color("primary"))
+        .replace(/color:primary/g, "color:" + color("primary"))
+        .replace(/color:red/g, "color:" + color("red"))
+        .replace(/color:orange/g, "color:" + color("orange"))
+        .replace(/color:purple/g, "color:" + color("purple"))
+        .replace(/color:blue/g, "color:" + color("blue"))
+        .replace(/color:green/g, "color:" + color("green"))
+        .replace(/color:gray/g, "color:" + color("gray"))
+        .replace(/color\:\#555555/g, "color:" + color("primary"));
     }
   },
   mounted() {
@@ -93,15 +94,8 @@ to this
     padding: 1rem 2rem;
     display: block;
   }
-  .katex .colorbox {
-    border-radius: 3px;
-    color: var(--white);
-  }
   .katex .boxpad {
     padding: 0;
-  }
-  .katex .boxpad .mord {
-    !!!font-size: calc(var(--base) * 2);
   }
   `
 };
