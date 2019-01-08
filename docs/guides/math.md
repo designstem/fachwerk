@@ -48,7 +48,7 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
   to="2"
   step="0.01"
   :value="get('r',1)"
-  v-on:input="i => set('r', i)"
+  v-on:value="i => set('r', i)"
 />
   
 <f-scene grid>

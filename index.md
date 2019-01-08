@@ -1,18 +1,60 @@
-# <big><big>Love *Ordnung*? Here is Fachwerk.</big></big>
+<center>
+<f-scene>
+  <f-circle-pattern :count="get('c',8)" scale="0.75">
+    <f-circle-pattern r="0.5" :count="get('c',8) * 2">
+      <f-circle
+        :r="get('r', 1)"
+        stroke-width="1"
+        :stroke="color('purple')" 
+      />
+    </f-circle-pattern>
+  </f-circle-pattern>
+</f-scene>
+</center>
 
-<big><big>Web framework for creating interactive learning materials. Only the latest Chrome for now. Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative.</big></big>
+<f-animation
+  to="1"
+  alternate
+  v-on:value="r => set('r', r)"
+/>
 
-# **1** Play
+# <big><big><big>Fachwerk</big></big></big>
 
-<big>Best way to get the glimpse what the framework offers is just try them out on this page. There are almost 50 components to try out - everything from 2D/3D graphics, user interaction, content creation and more</big>
+<big><big>Love *Ordnung*? Here is [VueJS](https://vuejs.org/) and [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) based framework for creating interactive learning materials.
 
-# **2** Learn
+<br>
 
-<big>[Documentation](./docs) has still a long way to go but here are initial tutorials and code samples. They are all live-editable so you can make instant changes and explorations in code.</big>
+# **1**Play
 
-# **3** Build
+<f-slider
+  title="Kreisqualität"
+  from="3"
+  to="10"
+  integer
+  :value="get('c', 8)"
+  v-on:value="c => set('c', c)"
+/>
 
-<big>Fachwerk is built on top of VueJS so to build more complex materials it is recommended to code it in Javascript, using some of the frameworks components, utilities and styling.</big>
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is **✍🏾editable** so you can make instant changes and explorations in code. </big>
+
+<br>
+
+# **2**Learn
+
+<big>Our [documentation](./docs) contains helpful **🔮guides</mark>** to get started and references to more than **📦{{ get('componentCount') }} components**, everything from 2D/3D graphics, user interaction, beautiful math and more. Again, edit away!</big>
+
+<big><a href="./docs" class="primary">Explore the docs</a></big>
+
+<br>
+
+# **3**Build
+
+<big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
+
+<big><a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp; <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a></big>
+
+> <big>Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning.</big>
+
 
 ---
   

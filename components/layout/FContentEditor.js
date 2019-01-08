@@ -27,12 +27,7 @@ Creates a code editor with a live preview.
     );
   },
   template: `
-  <div
-    class="grid"
-    :style="{
-      '--cols': '1fr 1fr',
-      '--rows': '1fr'
-    }">
+  <div class="content-editor">
     <f-editor
       v-model="innerContent"
     />
@@ -54,12 +49,14 @@ Creates a code editor with a live preview.
   },
   css: `
   .content-editor {
-    display: grid;
-    grid-template-columns: var(--content-editor-cols);
+    display: flex;
+  }
+  .content-editor > * {
+    flex: 1;
   }
   @media (max-width: 800px) {
     .content-editor {
-      display: block;
+      flex-direction: column-reverse;
     }
   }
   `
