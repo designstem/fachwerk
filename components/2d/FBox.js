@@ -23,7 +23,7 @@ export default {
     width: { default: 1, type: [Number,String] },
     height: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: "none", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },

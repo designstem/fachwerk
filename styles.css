@@ -290,31 +290,28 @@ var {
   font-style: normal;
   border-radius: 2px;
   border-radius: var(--border-radius-small);
-  background: var(--red);
-  color: var(--white);
-  padding: 0 calc(var(--base) / 2);
-  font-size: 0.9em;
-  font-family: var(--font-sansserif);
+  color: var(--red);
+  padding: 0 calc(var(--base) / 3);
+  font-family: KaTeX_Math, var(--font-serif) !important;
+  font-style: italic;
+  font-size: 1.25em;
   white-space: pre-wrap;
   border-radius: 2px;
 }
 var.gray {
-  background: var(--gray);
+  color: var(--gray);
 }
 var.purple {
-  background: var(--purple);
+  color: var(--purple);
 }
 var.orange {
-  background: var(--orange);
+  color: var(--orange);
 }
 var.blue {
-  background: var(--blue);
-}
-var.yellow {
-  background: var(--orange);
+  color: var(--blue);
 }
 var.green {
-  background: var(--green);
+  color: var(--green);
 }
 
 /* Components */

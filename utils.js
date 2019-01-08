@@ -136,6 +136,28 @@ const round = (value, decimals = 0) => {
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 };
 
+u.string.trunc = `
+
+\`trunc(value, count)\`
+
+Truncates a \`value\` to \`count\` characters.
+
+Example
+    
+    trunc('Hello', 4)
+    trunc(Math.PI, 4)
+
+Output
+  
+    {{ trunc('Hello', 4) }}
+    {{ trunc(Math.PI, 4) }}
+
+`;
+
+const trunc = (value, count) => {
+  return String(value).slice(0, count)
+}
+
 u.math.random = `
 
 \`random(from, to, float = false)\`
@@ -693,6 +715,7 @@ export {
   parseSheet,
   parseColumns,
   cleanColumns,
+  trunc,
   kebabCase,
   titleCase,
   debounce,
