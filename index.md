@@ -24,7 +24,7 @@
 
 <br>
 
-# **1**Play
+## **1**Play
 
 <f-slider
   title="Kreisqualität"
@@ -39,7 +39,7 @@
 
 <br>
 
-# **2**Learn
+## **2**Learn
 
 <big>Our [documentation](./docs) contains helpful **🔮guides</mark>** to get started and references to more than **📦{{ get('componentCount') }} components**, everything from 2D/3D graphics, user interaction, beautiful math and more. Again, edit away!</big>
 
@@ -47,19 +47,17 @@
 
 <br>
 
-# **3**Build
+## **3**Build
 
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
 
 <big><a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp; <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a></big>
 
-> <big>Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning.</big>
-
-
 ---
   
 | 1 1
 | 2 3
+| 2 4
 
 # FAQ
 
@@ -83,10 +81,14 @@
 
 -
 
-### Why Vue? Why not React?
+### Who are making this?
 
-While development the framework we wondered about it many times. We are big fans on React [MDX](https://github.com/mdx-js) ecosystem and tools like [Docz](https://www.docz.site) and [MDX-deck](https://jxnblk.com/mdx-deck/#0) have been a great inspiration for us.
+Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning.
 
-It is all about DesignSTEM's target audience, the primary use case we have. Main goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. Educators and hobbyist are just about to graduate from jQuery, so build steps and other heavy Javascript tooling is not an option.
+-
 
-VueJS offers this easy migration path, so it was a natural choice for Fachwerk.
+### Why not React?
+
+We keep wondering as well. As big fans on React [MDX](https://github.com/mdx-js) ecosystem and tools like [Observable](observablehq.com) those ideas have been a great inspiration for us.
+
+Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS offers this and mixed with latest Javascript features it was a *Natürliche* choice for Fachwerk.
