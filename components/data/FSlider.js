@@ -1,7 +1,5 @@
 export default {
   description: `
-> This component will be renamed so that \`-data\` suffix will be removed.
-
 Numeric slider.
 
 #### Local data
