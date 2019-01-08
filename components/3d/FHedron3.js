@@ -4,7 +4,14 @@ import { Object3D } from "./3d.js";
 export default {
   mixins: [Object3D],
   description: `
-  <f-animation-data
+Description to be written.
+
+<f-scene3>
+  <f-grid3 />
+  <f-hedron3 shading />
+</f-scene3>
+
+  <f-animation
     :duration="1000 * 20"
   >
   <f-scene3 slot-scope="data">
@@ -14,14 +21,15 @@ export default {
         y: data.value
       }"
     >
+      <f-grid3 />
       <f-hedron3
         :count="6"
         :height="1"
-        :shading="true"
+        shading
       />
     </f-group3>
   </f-scene3>
-  </f-animation-data>
+  </f-animation>
   `,
   methods: { cpoints },
   props: {

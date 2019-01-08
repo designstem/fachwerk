@@ -11,7 +11,7 @@ When \`:count="2"\`, the children element is horizontally mirrored around x axis
 <f-scene grid>
   <f-box
     :rotation="{z:10}"
-    opacity="0.25"
+    opacity="0.5"
   />
   <f-slice-pattern>
     <f-box

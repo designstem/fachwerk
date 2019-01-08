@@ -3,7 +3,10 @@ import { color } from '../../utils.js'
 
 export default {
   description: `
+Description to be written.
+
 <f-scene3>
+  <f-grid3 />
   <f-box3
     :rotation="{ y: 45, x: 45 }"
     :opacity="0.8"

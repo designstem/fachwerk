@@ -184,7 +184,7 @@ input[type="range"] {
   position: relative;
   outline: none;
   width: 100%;
-  margin-bottom: var(--base2);
+  margin-bottom: var(--base4);
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -396,7 +396,7 @@ td p:last-child {
 .button_primary,
 .primary {
   background: var(--purple);
-  padding: calc(var(--base) * 1.25) calc(var(--base) * 2);
+  padding: calc(var(--base) * 1.5) calc(var(--base) * 2);
   display: inline-flex;
   border-radius: var(--border-radius);
   color: var(--white);

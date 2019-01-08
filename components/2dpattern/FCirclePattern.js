@@ -11,7 +11,6 @@ Repeats elements along the circle.
   <f-circle-pattern>
     <f-box
       slot-scope="data"
-      opacity="0.25"
       :stroke="color('red')"
     />
   </f-circle-pattern>

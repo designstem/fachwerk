@@ -76,7 +76,7 @@ new Vue({
 
 ${c.description ? c.description.trim() : ""}
 ${c.example ? c.example.trim() : ""}
-${c.props ? `<br>\n\n#### Props` : ""}
+${c.props ? `<br><br>\n\n#### Props` : ""}
 
 ${
         c.props
@@ -98,7 +98,7 @@ ${
               2
             )}' style="--lightblue: transparent" />`
           : ""
-      }<br>
+      }<br><br>
 
 #### Import
 
@@ -179,7 +179,8 @@ Function can be imported using Javascript import:
       <div>
         <a href="..">Home</a>&nbsp;&nbsp;&nbsp;
         <a href=".">Docs</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/fachwerk"  target="_blank">Github</a>
+        <a href="https://github.com/designstem/templates" target="_blank">Examples</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
       </div>
       <div>
         <f-inline>

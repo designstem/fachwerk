@@ -4,9 +4,22 @@ import { color, parseCoords, log } from "../../utils.js"
 export default {
   mixins: [Object2d],
   description: `
+
+Description to be written.
+
+#### A single point
+
 <f-scene grid>
-  <f-point points="0 0, 0.5 0.5, 1 1" />
+  <f-point x="1" y="1" />
 </f-scene>
+
+#### Multiple points as a comma-separated string
+
+<f-scene grid>
+  <f-point points="1 1, 1 -1, -1 -1, -1 1" />
+</f-scene>
+
+#### Multiple points calculated by a function
 
 <f-scene grid>
   <f-point

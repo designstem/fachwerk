@@ -4,11 +4,10 @@ import { Object3D } from "./3d.js";
 export default {
   mixins: [Object3D],
   description: `
+Description to be written.
+
 <f-scene3>
-  <f-grid3
-    :rotation="{ y: 45, x: 45 }"
-    :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
-  />
+  <f-grid3 :rotation="{ y: 45, x: 45 }" />
 </f-scene3>
   `,
   props: {

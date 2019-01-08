@@ -8,7 +8,7 @@ Mirrors children element around vertical y axis.
 <f-scene grid>
   <f-box
     :rotation="{z:10}"
-    opacity="0.25"
+    opacity="0.5"
   />
   <f-mirror-y>
     <f-box

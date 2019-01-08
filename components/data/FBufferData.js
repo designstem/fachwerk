@@ -1,5 +1,9 @@
 export default {
   description: `
+> This component will be renamed so that \`data\` suffix will be removed.
+
+Description to be written.
+
 <f-buffer-data length="10" :map="() => [0,0]">
   <f-scene slot-scope="bData" grid>
     <f-group slot-scope="sData">

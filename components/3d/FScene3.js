@@ -4,7 +4,7 @@ export default {
   description: `
 3D scene with \`x y z\` coordinates ranging from \`-2 to 2\`.
 
-Techically it a [ThreeJS](https://threejs.org/) wrapper with custom SVG renderer.
+We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
 
 <f-animation-data>
   <f-scene3 slot-scope="data">

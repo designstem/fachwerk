@@ -3,12 +3,9 @@ import { Object2d } from "../../mixins.js";
 export default {
   mixins: [Object2d],
   description: `
-Groups child elements and a applies geometric transformations to the group.
+Groups child elements and applies geometric transformations to the group.
 
-Technically it generates a \`g\` tag and adds custom transformation parameters.
-
-<f-scene>
-  <f-grid />
+<f-scene grid>
   <f-group
     :position="{ x: 1, y: 1 }"
     :rotation="{ z: 45 }"

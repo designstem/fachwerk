@@ -2,7 +2,10 @@ import { Object3D } from "./3d.js";
 
 export default {
   description: `
+Description to be written.
+
 <f-scene3>
+  <f-grid3 />
   <f-polyhedron3
     v-for="(hedron,i) in [
       'Tetrahedron',

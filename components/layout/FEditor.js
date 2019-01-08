@@ -6,7 +6,7 @@ Creates a code editor, to be used with v-model.
 
 ⌨️ Allows to enter two spaces using  <kbd>tab</kbd> key.
 
-Technically it creates a \`<textarea>\` tag. It is a low level component, it is usually easier to use \`<f-content-editor>\` instead.
+Technically it creates a \`<textarea>\` tag. For richer code editing experience, use \`<f-markdown-editor>\` instead.
 
 <f-editor v-model="someVariable" />
   `,

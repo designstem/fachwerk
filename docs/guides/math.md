@@ -38,7 +38,7 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 
 <br><br>
 
-### Area and radius, brought alive
+### Area and radius
 
 ~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:~
 
@@ -79,31 +79,3 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 <f-math :update="get('r')">
   \color{orange} a \color{black} = {{ Math.PI }} \cdot \color{blue} {{ get('r',1) }} \color{black} ^2 = \color{orange} {{ Math.PI * Math.pow(get('r',1),2) }}
 </f-math>
-
-#### Variable colors
-
-There is a range of colors available, both for `<var>` tags, <var>red</var> <var class="orange">orange</var> <var class="yellow">yellow</var> <var class="blue">blue</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var> and also for `<f-math>` coloring:
-
-<f-math>
-	color = \color{red} red \color{black}
-  color = \color{orange} orange \color{black}
-  color = \color{blue} purple \color{black}
-  color = \color{purple} purple \color{black}
-  color = \color{green} green \color{black}
-  color = \color{gray} gray  \color{black}
-</f-math>
-
-Note that `\color{red}` symbol acts as a trigger: if you set it, it will populate through the rest of the equation. To stop the population, you will have to add another symbol `\color{black}` to the point where coloring should be ending.
-
-Compare this
-
-<f-math>
-	\color{red} a \cdot b \cdot c
-</f-math>
-
-to this
-
-<f-math>
-	\color{red} a \color{black} \cdot b \cdot c
-</f-math>
-
