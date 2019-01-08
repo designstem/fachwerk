@@ -1,6 +1,6 @@
 <center>
 <f-scene>
-  <f-circle-pattern :count="get('c',8)" scale="0.75">
+  <f-circle-pattern :count="get('c',8)">
     <f-circle-pattern r="0.5" :count="get('c',8) * 2">
       <f-circle
         :r="get('r', 1)"
@@ -13,14 +13,16 @@
 </center>
 
 <f-animation
-  to="1"
+  from="0.1"
+  to="0.5"
   alternate
+  easing="easeInQuad"
   v-on:value="r => set('r', r)"
 />
 
 # <big><big><big>Fachwerk</big></big></big>
 
-<big><big>Love *Ordnung*? Here is [VueJS](https://vuejs.org/) and [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) based framework for creating interactive learning materials.
+<big><big>Love *Ordnung*? Here is [VueJS](https://vuejs.org/) and [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) based framework for creating interactive learning materials.</big></big>
 
 <br>
 
@@ -49,7 +51,7 @@
 
 ## **3**Build
 
-<big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
+<big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
 <big><a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp; <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a></big>
 
