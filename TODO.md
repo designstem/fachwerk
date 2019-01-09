@@ -1,5 +1,14 @@
 # TODO
 
+f-fetch src
+        <f-github-icon src="https://designstem.github.io/fachwerk"></f-github-icon>
+
+"can navigate with < > keys"
+repeat to blue
+hexagon <> circle
+f-sidebar in dark mode?
+
+ajax to sample content
 
 Unsure about <f-scene v-for="c in ['red','blue']" :key="c" v-on:click="log('a')" width="20" height="20" ><f-circle r="1.8" stroke :fill="color(c)"/></f-scene> ? 
 

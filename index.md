@@ -25,7 +25,7 @@
 
 {{ get('c') }}
 
-<big><big>Prefer <button v-on:click="set('type',0)">Hexagons</button> over <button v-on:click="set('type',1)">Circles</button> ? Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
+<big><big>Prefer <button v-on:click="set('type',1)">Circles</button> over <button v-on:click="set('type',0)">Hexagons</button>? Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 <br>
 
@@ -84,7 +84,7 @@
 
 ### Who are making this?
 
-Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning. We are educators, teachers, designers and engineers from 10 countries around Europe, in particular 🇬🇧 🇩🇪 🇬🇷 🇮🇹 🇳🇱 🇵🇹 🇸🇮 🇫🇮 🇪🇪.
+Fachwerk is a part of [DesignSTEM](https://designstem.github.io/homepage) education initiative that creates immersive experiences for future learning. We are educators, teachers, designers and engineers from 10 countries around Europe, 🇬🇧 🇩🇪 🇬🇷 🇮🇹 🇳🇱 🇵🇹 🇸🇮 🇫🇮 🇪🇪  in particular.
 
 -
 
