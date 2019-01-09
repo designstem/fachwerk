@@ -25,19 +25,19 @@
 
 {{ get('c') }}
 
-<big><big>Prefer <button v-on:click="set('type',0)">Hexagons</button> over <button v-on:click="set('type',1)">Circles</button> ? Here is **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
+<big><big>Prefer <button v-on:click="set('type',0)">Hexagons</button> over <button v-on:click="set('type',1)">Circles</button> ? Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 <br>
 
 ## **1**Play
 
-<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is **✍🏾editable** so you can make instant changes and explorations in code. </big>
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is **✍🏾 editable** so you can make instant changes and explorations in code. </big>
 
 <br>
 
 ## **2**Learn
 
-<big>Our [documentation](./docs) contains helpful **🔮guides</mark>** to get started and references to more than **📦{{ get('componentCount') }} components**, everything from 2D/3D graphics, user interaction, beautiful math and more. Again, edit away!</big>
+<big>Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!</big>
 
 <big><a href="./docs" class="primary">Explore the docs</a></big>
 
@@ -68,15 +68,17 @@
 
 ***Sara Vieira*** and her unstoppable drive to do [useful](https://fiddly.netlify.com/) and [fun](https://makefrontendshitagain.party/) things on the Web.
 
-***Nadieh Bremer*** and her work all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
+***Nadieh Bremer*** and [her work ](https://www.visualcinnamon.com/) all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
 
-***Alan Kay*** ahd his lecture [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) and its [spiritual following](https://www.youtube.com/watch?v=8pTEmbeENF4).
+***Saskia Freeke*** and her stamina to create visual delight [every day](https://twitter.com/sasj_nl).
+
+***Alan Kay*** and his lecture [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) and [the future that never came to be](https://www.youtube.com/watch?v=8pTEmbeENF4).
 
 ***John Gold*** and his articles [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
 
-***Rune Madsen*** and his book [Programming Design Systems](https://programmingdesignsystems.com/) book.
+***Rune Madsen*** and his book [Programming Design Systems](https://programmingdesignsystems.com/).
 
-***Steven Wittens*** and his [eternal love for math](http://acko.net).
+***Steven Wittens*** and his [love letters to math](http://acko.net).
 
 -
 

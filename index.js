@@ -12,5 +12,6 @@ new Vue({
   methods: Object.assign({}, utils),
   mounted() {
     this.set('componentCount', Object.keys(components).length)
+    this.set('utilsCount', Object.keys(utils).length)
   }
 });

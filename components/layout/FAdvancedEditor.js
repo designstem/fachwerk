@@ -95,6 +95,7 @@ export default {
   }
   .CodeMirror pre {
     padding: 0;
+    margin: 0;
   }
   .CodeMirror-linenumbers {
     margin-right: var(--base);
