@@ -185,14 +185,9 @@ Function can be imported using Javascript import:
       <div>
         <f-inline>
           <f-buttons
-            :buttons="['Regular editor','Pro editor | BETA']"
-            :value="get('advanced', 0)"
-            v-on:input="i => set('advanced', i)"
-          />
-          <f-buttons
-            :buttons="['Edit','Preview']"
-            :value="get('preview', 0)"
-            v-on:input="i => set('preview', i)"
+            :buttons="['Regular editor','Pro editor | BETA','Preview']"
+            :value="get('mode', 0)"
+            v-on:input="i => set('mode', i)"
           />
           <f-buttons
             :buttons="['Light','Dark','Yellow']"
@@ -214,18 +209,23 @@ Function can be imported using Javascript import:
     />
 
     <f-content-editor
-      v-if="!get('preview', 0)"
+      v-show="get('mode', 0) !== 2"
       :content="content"
+      @input="content => this.content = content"
       type="slides"
       class="editor"
-      :advanced="get('advanced', 0)"
+      :advanced="get('mode', 0)"
     />
 
     <f-content
-      v-if="get('preview', 0)"
+      v-show="get('mode', 0) == 2"
       type="slides"
       :content="content"
       class="editor"
+      :style="{
+        '--content-padding': get('mode', 0) == 2 ? 'calc(var(--base) * 8) 10vw' : '',
+        '--base': get('mode', 0) == 2 ? '6px + 0.5vw' : ''
+      }"
     />
 
   </f-theme>

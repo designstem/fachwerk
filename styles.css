@@ -84,7 +84,7 @@ h5 {
 }
 
 h1 {
-  font-size: calc(var(--base) * 3 + 3vw);
+  font-size: calc(var(--base) * 3 + 2vw);
   line-height: 1em;
 }
 h2 {

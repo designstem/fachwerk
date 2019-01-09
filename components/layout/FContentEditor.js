@@ -28,6 +28,13 @@ Creates a code editor with a live preview.
       },
       { immediate: true }
     );
+    this.$watch(
+      "innerContent",
+      content => {
+        this.$emit('input', content)
+      },
+      { immediate: true }
+    );
   },
   template: `
   <div class="content-editor">
