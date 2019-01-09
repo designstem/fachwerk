@@ -6,7 +6,7 @@ export default {
   description: `
 Typesetting math equations in classic [LaTeX format](https://katex.org/docs/supported.html).
 
-Tecnically the framework uses [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and multiline support.
+It uses uses a [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and multiline support.
 
 <f-math>
   a = 10

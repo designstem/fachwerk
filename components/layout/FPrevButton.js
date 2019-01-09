@@ -2,7 +2,7 @@ import { send } from "../../utils.js";
 
 export default {
   description: `
-Button that goes to the previous slide.
+  Button that navigates to the previous slide.
 
 <f-prev-button />
 `,

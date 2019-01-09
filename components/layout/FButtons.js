@@ -1,6 +1,6 @@
 export default {
   description: `
-A button group, to be used with \`v-model\`.
+Description to be written.
 
 <f-buttons
   v-model="someVariable"

@@ -1,7 +1,8 @@
 export default {
   tag: 'Layout',
   description: `
-Tabs, to be used with \`v-model\` and under \`<header>\`.
+Description to be written.
+
 
 <f-tabs
   v-model="someVariable"

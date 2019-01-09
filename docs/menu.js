@@ -32,20 +32,16 @@ export default [
         tbd: true
       },
       {
-        title: "Global state",
-        file: "./guides/state.md"
-      },
-      {
-        title: "Global events",
-        file: "./guides/events.md"
-      },
-      {
         title: "Bringing math alive",
         file: "./guides/math.md"
       },
       {
         title: "Slides and navigation",
         file: "./guides/slides.md"
+      },
+      {
+        title: "Layout and grid",
+        file: "./guides/grid.md"
       },
       {
         title: "Using colors",
@@ -64,8 +60,12 @@ export default [
       //   file: "./guides/patterns.md"
       // },
       {
-        title: "Layout and grid",
-        file: "./guides/grid.md"
+        title: "Global state",
+        file: "./guides/state.md"
+      },
+      {
+        title: "Global events",
+        file: "./guides/events.md"
       },
       // {
       //   title: "Forms and controls",
@@ -77,6 +77,7 @@ export default [
     title: "📦2D graphics",
     items: [
       { component: "FScene" },
+      { component: "FArtboard" },
       { component: "FGrid" },
       { component: "FPoint" },
       { component: "FLine" },
@@ -86,7 +87,6 @@ export default [
       { component: "FRegularpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FArtboard" }
     ]
   },
   {

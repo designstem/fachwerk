@@ -2,7 +2,7 @@ import { send } from '../../utils.js'
 
 export default {
   description: `
-Button that goes to the next slide.
+Button that navigates to the next slide.
 
 <f-next-button />
 
