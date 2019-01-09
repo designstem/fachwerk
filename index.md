@@ -82,12 +82,12 @@
 
 ### Who are making this?
 
-Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning.
+Fachwerk is a part of <a ref="https://designstem.github.io/homepage">DesignSTEM</a> education initiative that creates immersive experiences for future learning. We are educators, teachers, designers and engineers from 10 countries around Europe, in particular 🇬🇧 🇩🇪 🇬🇷 🇮🇹 🇳🇱 🇵🇹 🇸🇮 🇫🇮 🇪🇪.
 
 -
 
 ### Why not React?
 
-We keep wondering as well. As big fans on React [MDX](https://github.com/mdx-js) ecosystem and tools like [Observable](observablehq.com) those ideas have been a great inspiration for us.
+We keep wondering as well. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
 
 Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS offers this and mixed with latest Javascript features it was a *Natürliche* choice for Fachwerk.
