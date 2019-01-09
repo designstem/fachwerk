@@ -1,10 +1,10 @@
 <center>
 <f-scene>
-  <f-circle-pattern :count="get('c',8)">
-    <f-circle-pattern r="0.5" :count="get('c',8) * 2">
-      <f-circle
+  <f-circle-pattern :r="0.5 - (get('r', 1) / 2)" count="6">
+    <f-circle-pattern :r="get('r', 1)" count="6">
+      <component
+        :is="['f-regularpolygon','f-circle','f-text'][get('type',0)]"
         :r="get('r', 1)"
-        stroke-width="1"
         :stroke="color('purple')" 
       />
     </f-circle-pattern>
@@ -13,29 +13,23 @@
 </center>
 
 <f-animation
-  from="0.1"
-  to="0.5"
+  from="0"
+  to="1"
   alternate
   easing="easeInQuad"
   v-on:value="r => set('r', r)"
 />
 
+
 # <big><big><big>Fachwerk</big></big></big>
 
-<big><big>Love *Ordnung*? Here is [VueJS](https://vuejs.org/) and [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) based framework for creating interactive learning materials.</big></big>
+{{ get('c') }}
+
+<big><big>Prefer <button v-on:click="set('type',0)">Hexagons</button> over <button v-on:click="set('type',1)">Circles</button> ? Here is **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 <br>
 
 ## **1**Play
-
-<f-slider
-  title="Kreisqualität"
-  from="3"
-  to="10"
-  integer
-  :value="get('c', 8)"
-  v-on:value="c => set('c', c)"
-/>
 
 <big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is **✍🏾editable** so you can make instant changes and explorations in code. </big>
 
@@ -53,7 +47,11 @@
 
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
-<big><a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp; <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a></big>
+<big>
+  <a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp;
+  <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a>
+  </>
+</big>
 
 ---
   

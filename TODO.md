@@ -1,4 +1,9 @@
 # TODO
+
+
+Unsure about <f-scene v-for="c in ['red','blue']" :key="c" v-on:click="log('a')" width="20" height="20" ><f-circle r="1.8" stroke :fill="color(c)"/></f-scene> ? 
+
+- polary??
 - 1 2 3 mobile support
 - color("primary") in props
 - f-box r
