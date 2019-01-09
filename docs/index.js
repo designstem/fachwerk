@@ -185,6 +185,11 @@ Function can be imported using Javascript import:
       <div>
         <f-inline>
           <f-buttons
+            :buttons="['Regular editor','Pro editor | BETA']"
+            :value="get('advanced', 0)"
+            v-on:input="i => set('advanced', i)"
+          />
+          <f-buttons
             :buttons="['Edit','Preview']"
             :value="get('preview', 0)"
             v-on:input="i => set('preview', i)"
@@ -213,6 +218,7 @@ Function can be imported using Javascript import:
       :content="content"
       type="slides"
       class="editor"
+      :advanced="get('advanced', 0)"
     />
 
     <f-content

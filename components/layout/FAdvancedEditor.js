@@ -75,6 +75,9 @@ export default {
     });
   },
   template: `
+  <div ref="editor" />
+  `,
+  template2: `
   <div style="position: relative;">
     <div style="position: absolute; inset: 0;" ref="editor" />
   </div>
@@ -85,10 +88,13 @@ export default {
   
   .CodeMirror {
     font-family: var(--font-mono);
-    padding: var(--base2);
+    padding: calc(var(--base2) * 0.8);
     font-size: calc(var(--base) * 1.85);
-    line-height: 1.55em;
+    line-height: calc(var(--base) * 2.75);
     height: auto;
+  }
+  .CodeMirror pre {
+    padding: 0;
   }
   .CodeMirror-linenumbers {
     margin-right: var(--base);

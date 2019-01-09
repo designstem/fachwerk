@@ -218,8 +218,8 @@ export { FMenu };
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
 
-import FMarkdownEditor from "./components/layout/FMarkdownEditor.js";
-export { FMarkdownEditor };
+import FAdvancedEditor from "./components/layout/FAdvancedEditor.js";
+export { FAdvancedEditor };
 
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };

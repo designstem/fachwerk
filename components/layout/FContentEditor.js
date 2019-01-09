@@ -14,6 +14,9 @@ Creates a code editor with a live preview.
       type: String,
       description:
         "Content type, can be a linear `document` or a paginated `slides`"
+    },
+    advanced: {
+      default: false, type: [Boolean,Number,String]
     }
   },
   data: () => ({ innerContent: "" }),
@@ -29,6 +32,11 @@ Creates a code editor with a live preview.
   template: `
   <div class="content-editor">
     <f-editor
+      v-if="!advanced"
+      v-model="innerContent"
+    />
+    <f-advanced-editor
+      v-if="advanced"
       v-model="innerContent"
     />
     <div>
