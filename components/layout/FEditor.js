@@ -42,7 +42,7 @@ Technically it creates a \`<textarea>\` tag. For richer code editing experience,
         color: var(--lightergray);
         background: var(--paleblue);
         font-family: var(--font-mono);
-        font-size: calc(var(--base) * 1.75);
+        font-size: calc(var(--base) * 1.85);
         line-height: calc(var(--base) * 2.75);
         outline: none;
         resize: none;
