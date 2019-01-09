@@ -56,7 +56,7 @@ export default {
       lineWrapping: true,
       viewportMargin: Infinity,
       tabSize: 2,
-      lineNumbers: false
+      lineNumbers: true,
     });
     const doc = this.editor.getDoc();
     this.$watch(
@@ -77,15 +77,7 @@ export default {
   template: `
   <div ref="editor" />
   `,
-  template2: `
-  <div style="position: relative;">
-    <div style="position: absolute; inset: 0;" ref="editor" />
-  </div>
-  `,
   css: `
-  @import url("https://unpkg.com/codemirror/lib/codemirror.css");
-  @import url("https://unpkg.com/codemirror/theme/material.css");
-  
   .CodeMirror {
     font-family: var(--font-mono);
     padding: calc(var(--base2) * 0.8);
@@ -93,15 +85,9 @@ export default {
     line-height: calc(var(--base) * 2.75);
     height: auto;
   }
-  .CodeMirror pre {
-    padding: 0;
-    margin: 0;
-  }
-  .CodeMirror-linenumbers {
-    margin-right: var(--base);
-  }
   .CodeMirror-linenumber {
-    opacity: 0.25;
+    opacity: 0.2;
+    padding-right: var(--base);
   }
   .CodeMirror-line {
     color: #87a0ab !important;
