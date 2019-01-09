@@ -224,7 +224,7 @@ Function can be imported using Javascript import:
       class="editor"
       :style="{
         '--content-padding': get('mode', 0) == 2 ? 'calc(var(--base) * 8) 10vw' : '',
-        '--base': get('mode', 0) == 2 ? '6px + 0.5vw' : ''
+        '--base': get('mode', 0) == 2 ? 'calc(7px + 0.2vw)' : ''
       }"
     />
 
