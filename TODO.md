@@ -2,6 +2,9 @@
 
 ## Fixes
 
+- FDragData:
+-- @touchend.native="handleDown(i)"
+-- larger touchpoint
 - clean f-content
 - <f-next-button :title="back" />
 - f-buttons v=on:input
