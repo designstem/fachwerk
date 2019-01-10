@@ -3,7 +3,7 @@
   <f-circle-pattern :r="0.5 - (get('r', 1) / 2)" count="6">
     <f-circle-pattern :r="get('r', 1)" count="6">
       <component
-        :is="['f-regularpolygon','f-circle','f-text'][get('type',0)]"
+        :is="['f-regularpolygon','f-circle'][get('type',0)]"
         :r="get('r', 1)"
         :stroke="color('purple')" 
       />
