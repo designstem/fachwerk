@@ -1,8 +1,47 @@
 # TODO
 
+## Fixes
+
+- clean f-content
+- <f-next-button :title="back" />
+- f-buttons v=on:input
+- <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
+- fix
+```
+## f-table
+
+A `<table>`, accepting array of objects as `:rows`.
+
+<f-table :rows="[
+  { name: 'Klaus', born: 1926 },
+  { name: 'Werner', born: 1942 }
+]"/>
+```
+- event goto(1)
+- responsive f-inline
+
+| Name        | Born  |
+| ----------- | ----- |
+| Klaus       | 1926  |
+| Werner      | 1942  |  
+
+- html \s{4}
+- get / set with strings!
+- index.html -> model!!!
+- d3 -> d3-shape
+- src
+```
+src/components/2d.js
+src/components/3d.js
+...
+src/mixins/Css.js
+...
+src/utils/color.js
+src/utils/math.js
+```
+- menu top() fix
+- src everywhere
 - f-hexagon
-- f-triangle?
-- f-box
 - <f-math inline />
 - <f-slider inline />
 - https://en.wikibooks.org/wiki/LaTeX/Mathematics
@@ -29,6 +68,9 @@
 - ThreeLine  / closed
 - ThreeBox / :x / :y?
 - docs https://github.com/faisalhakim47/vscode-vue-inline-template
+- || vs | / | table |
+- fix -pattern steps (hex!)
+
 - FIX THIS
 ```
 vendor.js:1 [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "position"
@@ -41,11 +83,68 @@ found in
            <FScene>
 ```
 
-NEXT
+# Features
+
+- set(key, value, localstore = true) // del // preserve() // save() // remember()
+- <f-mirror set="a">
+- x="0.5"
+- slide ids / metadata
+- css
+```
+...
+src/css/variables.js?
+src/css/html.js?
+src/css/grid.js?
+```
+- real build
+
+- f-iframe :scale -> presentations / preview | http://jsfiddle.net/AwokeKnowing/yy8yb/
+- embed?
+- transform fix >>> f-rotation-slider3
+- f-position-slider3
+- f-scale-slider3
+- f-image(s)
+
+<f-image>
+  http://sasa
+</f-image>
+
+<f-images layout="
+1 1 1
+2 3 3
+">
+  http://sasa
+  http://sasa
+  http://sasa
+  http://sasa
+</f-images>
 
 
+---
+
+1 1 1
+2 3 3
+
+-
+
+<f-image></f-image>
+
+-
+
+- f-arc
+- f-triangle?
+- f-hexagon?
+- f-youtube / f-vimeo
+- f-aframe-slider
+- set(key,value,remember = true)
+- f-slide-transition / f-fade-transition?
+- f-leftarrow-icon / f-rightarrow-icon
+- f-toggle (o )
+- add() / reduce() ?
+- f-compare-image / f-split-image
+- f-colorblind-image
 - Pager for slider < o o o o o * o >
-- FMarkdown2 (remark / rehype)
+- FMarkdown2 (remark / rehype)?
 
 ```
 var unified = require("unified");
@@ -97,6 +196,7 @@ unified()
 - filters
 - svg patterns?
 - circle snap https://math.stackexchange.com/questions/127613/closest-point-on-circle-edge-from-point-outside-inside-the-circle
+- f-knob
 - distance(x1 y1 x2 y2)
 - f-array api ? f-array2 f-array3 / f-array fmatrix fmatrix3
 - FetchData = SheetData / update / update-frequency
@@ -129,3 +229,6 @@ unified()
   </code>
 </f-fetch-data>
 ```
+- 
+`Object.getOwnPropertyNames(Math)`
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/Sin
