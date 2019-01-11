@@ -56,7 +56,7 @@ export default {
         :key="i"
         :x="p.x"
         :y="p.y"
-        :r="p.pressed ? 0.22  : 0.2"
+        :r="p.pressed ? 0.32  : 0.3"
         fill="rgba(255,255,255,0.95)"
         @mousedown.native="handleDown(i)"
         @touchstart.native="handleDown(i)"
