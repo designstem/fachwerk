@@ -235,3 +235,58 @@ unified()
 - 
 `Object.getOwnPropertyNames(Math)`
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/Sin
+
+# Testing
+
+```
+		position="1 1"
+		position="1" ?
+    position="[1,1]"
+    position="{x: 1, y: 1}"
+    position="{x: 1}"
+    position="1 1"
+                    
+    rotation="10"
+    rotation="[10]" ?
+    rotation="{z: 0}"
+    rotation="{x: 0}"?
+    rotation="{y: 0}"?
+    
+    scale="2"
+    scale="[2]"
+    scale="[2,2]"
+    scale="{x:2, y:2}"
+    scale="{x:2}"
+
+		position="1 1 1"
+		position="1 1"?
+		position="1"?
+    position="[1,1,1]"
+    position="[1,1]"?
+    position="[1]"?
+    position="{x: 1, y: 1, z: 1}"
+    position="{x: 1, y: 1}"
+    position="{x: 1}"
+                    
+    rotation="10 0 0"
+    rotation="10 0"?
+    rotation="10"?
+    rotation="[10, 0, 0]" ?
+    rotation="[10, 0]" ?
+    rotation="[10]" ?
+    position="{x: 1, y: 0, z: 0}"
+    
+    scale="2"
+    scale="[2]"?
+    scale="[2,2]"?
+    scale="[2,2,2]"
+    scale="{x:2, y:2, z:2}"
+    scale="{x:2}"
+   
+    points="[{x:2, y:2, z:2},{x:2, y:2, z:2}]"
+    points="[[0,0,0],[0,0,0]]"
+    points="0 0 0, 0 0 0"
+    points="0,0,0 0,0,0"?
+ ```
+
+https://github.com/denoland/deno_std/tree/master/testing
