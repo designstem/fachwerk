@@ -61,7 +61,7 @@ export default {
         @mousedown.native="handleDown(i)"
         @touchstart.native="handleDown(i)"
         @mouseup.native="handleUp(i)"
-        @touchend.native="handleDown(i)"
+        @touchend.native="handleUp(i)"
         style="cursor: move;"
       />        
     </f-group>
