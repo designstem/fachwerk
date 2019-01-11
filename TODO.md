@@ -88,6 +88,7 @@ found in
 
 # Features
 
+- f-qrcode
 - set(key, value, localstore = true) // del // preserve() // save() // remember()
 - <f-mirror set="a">
 - x="0.5"
