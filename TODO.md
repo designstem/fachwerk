@@ -133,8 +133,7 @@ src/css/grid.js?
 
 <f-image></f-image>
 
--
-
+- f-slice-repeat debugger
 - f-arc
 - f-triangle?
 - f-hexagon?
@@ -291,3 +290,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
  ```
 
 https://github.com/denoland/deno_std/tree/master/testing
+
+
+- vendor loader
+```
+
+import { require } from "https://unpkg.com/d3-require?module";
+import Vue from "https://unpkg.com/vue/dist/vue.esm.browser.js";
+import anime from "https://unpkg.com/animejs?module";
+
+const vue = () => Promise.resolve(Vue);
+
+
+  // const marked = await require("https://unpkg.com/marked/lib/marked.js");
+  // const katex = await require("https://unpkg.com/katex/dist/katex.min.js");
+  // const THREE = window.THREE = await require('https://unpkg.com/three/build/three.min.js');
+  // await require('https://unpkg.com/three/examples/js/controls/OrbitControls.js').catch(() => {});
+  // const codemirror = await require("https://unpkg.com/codemirror");
+  // await require('https://unpkg.com/codemirror/mode/markdown/markdown.js').catch(() => {});
+  // await require('https://unpkg.com/codemirror/mode/gfm/gfm.js').catch(() => {});
+
+  const aframe = () => require('https://unpkg.com/aframe');
+  const marked = () => require("https://unpkg.com/marked/lib/marked.js");
+  const katex = () => require("https://unpkg.com/katex/dist/katex.min.js");
+  //const THREE = window.THREE = await require('https://unpkg.com/three/build/three.min.js');
+  //await require('https://unpkg.com/three/examples/js/controls/OrbitControls.js').catch(() => {});
+  //const codemirror = await require("https://unpkg.com/codemirror");
+  //await require('https://unpkg.com/codemirror/mode/markdown/markdown.js').catch(() => {});
+  //await require('https://unpkg.com/codemirror/mode/gfm/gfm.js').catch(() => {});
+
+  // const aframe = await require('https://unpkg.com/aframe');
+
+export { require, vue, anime, marked, katex }
+```
