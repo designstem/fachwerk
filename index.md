@@ -23,8 +23,6 @@
 
 # <big><big><big>Fachwerk</big></big></big>
 
-{{ get('c') }}
-
 <big><big>Prefer <button v-on:click="set('type',1)">Circles</button> over <button v-on:click="set('type',0)">Hexagons</button>? Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 <br>
