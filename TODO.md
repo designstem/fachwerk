@@ -2,9 +2,8 @@
 
 ## Fixes
 
-- FDragData:
--- @touchend.native="handleDown(i)"
--- larger touchpoint
+
+- fix FDragData:
 - clean f-content
 - <f-next-button :title="back" />
 - f-buttons v=on:input
@@ -30,9 +29,21 @@ A `<table>`, accepting array of objects as `:rows`.
 
 - html \s{4}
 - get / set with strings!
+
+```html
+<!-- Set up controls -->
+
+<f-animation set="a" />
+<f-slider set="r" />
+
+<!-- Write a scene -->
+<f-scene>
+  <f-hexagon rotation="a" :r="r" />
+</f-scene>
+```
 - index.html -> model!!!
 - d3 -> d3-shape
-- src
+- src everywhere
 ```
 src/components/2d.js
 src/components/3d.js
@@ -88,6 +99,8 @@ found in
 
 # Features
 
+- github api https://github.com/octokit/rest.js#browser
+- f-socketio
 - f-qrcode
 - set(key, value, localstore = true) // del // preserve() // save() // remember()
 - <f-mirror set="a">
