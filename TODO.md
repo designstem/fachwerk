@@ -3,6 +3,7 @@
 ## Fixes
 
 
+- min-height to <main>
 - fix FDragData:
 - clean f-content
 - <f-next-button :title="back" />
