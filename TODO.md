@@ -99,6 +99,7 @@ found in
 
 # Features
 
+- bigger scene size? width="300" innerWidth="8" / -4 to 4
 - github api https://github.com/octokit/rest.js#browser
 - f-socketio
 - f-qrcode
