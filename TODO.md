@@ -2,7 +2,7 @@
 
 ## Fixes
 
-
+- fix link https://animejs.com/documentation/#linearEasing
 - min-height to <main>
 - fix FDragData:
 - clean f-content
