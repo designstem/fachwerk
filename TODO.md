@@ -1,6 +1,13 @@
 # TODO
 
 ## Fixes
+
+- syntax hilight
+
+-- https://prismjs.com/
+-- https://craig.is/making/rainbows
+-- https://highlightjs.org/
+
 - r for f-drag
 - dowload
 - copy to clipboard
