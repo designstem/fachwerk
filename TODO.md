@@ -1,6 +1,7 @@
 # TODO
 
 ## Fixes
+- r for f-drag
 - dowload
 - copy to clipboard
 - fix link https://animejs.com/documentation/#linearEasing
