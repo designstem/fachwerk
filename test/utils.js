@@ -55,7 +55,7 @@ export const coordsNumberToArray = (number, normalizer) => {
 
 export const coordsArrayToArray = (arr,normalizer) => {
 
- const coords = arr.map(a => {
+  const coords = arr.map(a => {
   if (Array.isArray(a)) {
      return normalizer(a)
    }
