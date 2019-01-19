@@ -2,6 +2,7 @@
 
 ## Fixes
 
+- text input height = button
 - syntax hilight
 
 -- https://prismjs.com/
