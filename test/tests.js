@@ -1,7 +1,10 @@
 import {
   positionTransform,
+  positionTransform3,
   rotationTransform,
+  rotationTransform3,
   scaleTransform,
+  scaleTransform3,
   makeNumber,
   parseCoords,
   normalizeDefault,
@@ -15,9 +18,33 @@ export const position_transform_string_0 = () => {
   return [output, expected];
 };
 
+export const position_transform2_string_0 = () => {
+  const output = positionTransform3("0");
+  const expected = { x: 0, y: 0, z: 0 };
+  return [output, expected];
+};
+
 export const position_transform_string_1 = () => {
   const output = positionTransform("1");
   const expected = "translate(1 0)";
+  return [output, expected];
+};
+
+export const position_transform3_string_1 = () => {
+  const output = positionTransform3("1");
+  const expected = { x: 1, y: 0, z: 0 };
+  return [output, expected];
+};
+
+export const position_transform_string_1_2 = () => {
+  const output = positionTransform("1 2");
+  const expected = "translate(1 2)";
+  return [output, expected];
+};
+
+export const position_transform3_string_1_2 = () => {
+  const output = positionTransform3("1 2");
+  const expected = { x: 1, y: 2, z: 0 };
   return [output, expected];
 };
 
@@ -27,9 +54,34 @@ export const position_transform_string_1_2_3 = () => {
   return [output, expected];
 };
 
+export const position_transform3_string_1_2_3 = () => {
+  const output = positionTransform3("1 2 3");
+  const expected = { x: 1, y: 2, z: 3 };
+  return [output, expected];
+};
+
+
+export const position_transform_string_1_2_3_4 = () => {
+  const output = positionTransform("1 2 3");
+  const expected = "translate(1 2)";
+  return [output, expected];
+};
+
+export const position_transform3_string_1_2_3_4 = () => {
+  const output = positionTransform3("1 2 3 4");
+  const expected = { x: 1, y: 2, z: 3 };
+  return [output, expected];
+};
+
 export const position_transform_number_0 = () => {
   const output = positionTransform(0);
   const expected = "translate(0 0)";
+  return [output, expected];
+};
+
+export const position_transform3_number_0 = () => {
+  const output = positionTransform3(0);
+  const expected = { x: 0, y: 0, z: 0 };
   return [output, expected];
 };
 
@@ -39,6 +91,26 @@ export const position_transform_number_1 = () => {
   return [output, expected];
 };
 
+export const position_transform3_number_1 = () => {
+  const output = positionTransform3(1);
+  const expected = { x: 1, y: 0, z: 0 };
+  return [output, expected];
+};
+
+// translate(1 0)
+// export const position_transform_array_1_2 = () => {
+//   const output = positionTransform([1,2]);
+//   const expected = 'translate(1 2)';
+//   return [output, expected];
+// };
+
+// {"x":1,"y":0,"z":0}
+// export const position_transform3_array_1_2 = () => {
+//   const output = positionTransform3([1,2]);
+//   const expected = { x: 1, y: 2, z: 0 };
+//   return [output, expected];
+// };
+
 // translate(1 0)
 // export const position_transform_array_1_2_3 = () => {
 //   const output = positionTransform([1,2,3]);
@@ -46,9 +118,23 @@ export const position_transform_number_1 = () => {
 //   return [output, expected];
 // };
 
+// {"x":1,"y":0,"z":0}
+// export const position_transform3_array_1_2_3 = () => {
+//   const output = positionTransform3([1,2,3]);
+//   const expected = { x: 1, y: 2, z: 3 };
+//   return [output, expected];
+// };
+
+
 export const position_transform_object_x_1 = () => {
   const output = positionTransform({ x: 1 });
   const expected = "translate(1 0)";
+  return [output, expected];
+};
+
+export const position_transform3_object_x_1 = () => {
+  const output = positionTransform3({ x: 1 });
+  const expected = { x: 1, y: 0, z: 0 };
   return [output, expected];
 };
 
@@ -59,12 +145,25 @@ export const position_transform_object_x_1 = () => {
 //   return [output, expected];
 // };
 
-// translate(0 0)
+// {"x":0,"y":0,"z":0}
+// export const position_transform3_object_y_1 = () => {
+//   const output = positionTransform3({y: 1});
+//   const expected = { x: 0, y: 1, z: 0 };
+//   return [output, expected];
+// };
+
 export const position_transform_object_z_1 = () => {
   const output = positionTransform({ z: 1 });
   const expected = "translate(0 0)";
   return [output, expected];
 };
+
+// {"x":0,"y":0,"z":0}
+// export const position_transform3object_z_1 = () => {
+//   const output = positionTransform3({ z: 1 });
+//   const expected = { x: 0, y: 0, z: 1 };
+//   return [output, expected];
+// };
 
 export const position_transform_object_x_y_z_a_1_2_3_3 = () => {
   const output = positionTransform({ x: 1, y: 2, z: 3, a: 4 });
@@ -72,18 +171,13 @@ export const position_transform_object_x_y_z_a_1_2_3_3 = () => {
   return [output, expected];
 };
 
-// "translate(1 0)"
-// export const position_transform_array_1_2_3 = () => {
-//   const output = positionTransform([1,2,3]);
-//   const expected = 'translate(1 2)';
-//   return [output, expected];
-// };
+export const position_transform3_object_x_y_z_a_1_2_3_3 = () => {
+  const output = positionTransform3({ x: 1, y: 2, z: 3, a: 4 });
+  const expected = { x: 1, y: 2, z: 3 };
+  return [output, expected];
+};
 
-// export const position_transform_array_1_1_1 = () => {
-//   const output = positionTransform([1,1,1]);
-//   const expected = 'translate(1 1)';
-//   return [output, expected];
-// };
+// Rotation
 
 export const rotation_transform_string_1 = () => {
   const output = rotationTransform("1");
@@ -91,9 +185,22 @@ export const rotation_transform_string_1 = () => {
   return [output, expected];
 };
 
+// {"x":1,"y":0,"z":0}
+// export const rotation_transform3_string_1 = () => {
+//   const output = rotationTransform3("1");
+//   const expected = { x:0, y: 0, z: 1 };
+//   return [output, expected];
+// };
+
 export const rotation_transform_string_1_1_1 = () => {
   const output = rotationTransform("1 1 1");
   const expected = "rotate(1deg)";
+  return [output, expected];
+};
+
+export const rotation_transform3_string_1_1_1 = () => {
+  const output = rotationTransform3("1 1 1");
+  const expected = { x: 1, y: 1, z: 1 };
   return [output, expected];
 };
 
@@ -103,15 +210,34 @@ export const rotation_transform_number_0 = () => {
   return [output, expected];
 };
 
+export const rotation_transform3_number_0 = () => {
+  const output = rotationTransform3(0);
+  const expected = { x: 0, y: 0, z: 0 };
+  return [output, expected];
+};
+
 export const rotation_transform_number_1 = () => {
   const output = rotationTransform(1);
   const expected = "rotate(1deg)";
   return [output, expected];
 };
 
+// {"x":1,"y":0,"z":0}
+// export const rotation_transform3_number_1 = () => {
+//   const output = rotationTransform3(1);
+//   const expected = { x: 0, y: 0, z: 1 };
+//   return [output, expected];
+// };
+
 export const rotation_transform_array_1 = () => {
   const output = rotationTransform([1]);
   const expected = "rotate(1deg)";
+  return [output, expected];
+};
+
+export const rotation_transform3_array_1 = () => {
+  const output = rotationTransform3([1]);
+  const expected = { x: 1, y: 0, z: 0 };
   return [output, expected];
 };
 
@@ -121,9 +247,22 @@ export const rotation_transform_array_1_2 = () => {
   return [output, expected];
 };
 
+// {"x":1,"y":0,"z":0}
+// export const rotation_transform3_array_1_2 = () => {
+//   const output = rotationTransform3([1, 2]);
+//   const expected = { x: 1, y: 2, z: 0 };
+//   return [output, expected];
+// };
+
 export const rotation_transform_object_x_1 = () => {
   const output = rotationTransform({ x: 1 });
   const expected = "rotate(1deg)";
+  return [output, expected];
+};
+
+export const rotation_transform3_object_x_1 = () => {
+  const output = rotationTransform3({ x: 1 });
+  const expected = { x: 1, y: 0, z: 0 };
   return [output, expected];
 };
 
@@ -134,6 +273,13 @@ export const rotation_transform_object_x_1 = () => {
 //   return [output, expected];
 // };
 
+// {"x":0,"y":0,"z":0}
+// export const rotation_transform3_object_y_1 = () => {
+//   const output = rotationTransform3({y: 1});
+//   const expected = { x: 0, y: 1, z: 0 };
+//   return [output, expected];
+// };
+
 // rotate(0deg)
 // export const rotation_transform_object_z_1 = () => {
 //   const output = rotationTransform({z: 1});
@@ -141,9 +287,36 @@ export const rotation_transform_object_x_1 = () => {
 //   return [output, expected];
 // };
 
+// {"x":0,"y":0,"z":0}
+// export const rotation_transform3_object_z_1 = () => {
+//   const output = rotationTransform3({z: 1});
+//   const expected = { x: 0, y: 0, z: 1 };
+//   return [output, expected];
+// };
+
+export const rotation_transform_object_a_1 = () => {
+  const output = rotationTransform({a: 1});
+  const expected = 'rotate(0deg)';
+  return [output, expected];
+};
+
+export const rotation_transform3_object_a_1 = () => {
+  const output = rotationTransform3({a: 1});
+  const expected = { x: 0, y: 0, z: 0 };
+  return [output, expected];
+};
+
+// Scale
+
 export const scale_transform_string_1 = () => {
   const output = scaleTransform("1");
   const expected = "scale(1 1)";
+  return [output, expected];
+};
+
+export const scale_transform3_string_1 = () => {
+  const output = scaleTransform3("1");
+  const expected = { x: 1, y: 1, z: 1 };
   return [output, expected];
 };
 
@@ -153,9 +326,22 @@ export const scale_transform_string_2 = () => {
   return [output, expected];
 };
 
+export const scale_transform3_string_2 = () => {
+  const output = scaleTransform3("2");
+  const expected = { x: 2, y: 2, z: 2 };
+  return [output, expected];
+};
+
+// TODO: Really?
 export const scale_transform_array_2 = () => {
   const output = scaleTransform([2]);
   const expected = "scale(2 2)";
+  return [output, expected];
+};
+
+export const scale_transform3_array_2 = () => {
+  const output = scaleTransform3([2]);
+  const expected = { x: 2, y: 2, z: 2 };
   return [output, expected];
 };
 
@@ -166,16 +352,38 @@ export const scale_transform_array_2 = () => {
 //   return [output, expected];
 // };
 
-export const scale_transform_object_x_2 = () => {
-  const output = scaleTransform({ x: 2 });
-  const expected = "scale(2 2)";
-  return [output, expected];
-};
+// {"x":1,"y":1,"z":1}
+// export const scale_transform3_array_1_2_3 = () => {
+//   const output = scaleTransform3([1,2,3]);
+//   const expected = { x: 1, y: 2, z: 3 };
+//   return [output, expected];
+// };
+
+// scale(2 2)
+// export const scale_transform_object_x_2 = () => {
+//   const output = scaleTransform({ x: 2 });
+//   const expected = "scale(2 1)";
+//   return [output, expected];
+// };
+
+// {"x":2,"y":2,"z":2}
+// export const scale_transform3_object_x_2 = () => {
+//   const output = scaleTransform3({ x: 2 });
+//   const expected = { x: 2, y: 1, z: 2 };
+//   return [output, expected];
+// };
 
 // scale(0 0)
 // export const scale_transform_object_y_2 = () => {
 //   const output = scaleTransform({y: 2});
-//   const expected = 'scale(2 2)';
+//   const expected = 'scale(1 2)';
+//   return [output, expected];
+// };
+
+// {"x":0,"y":0,"z":0}
+// export const scale_transform3_object_y_2 = () => {
+//   const output = scaleTransform3({ y: 2 });
+//   const expected = { x: 1, y: 2, z: 1 };
 //   return [output, expected];
 // };
 
@@ -183,6 +391,27 @@ export const scale_transform_object_x_2 = () => {
 // export const scale_transform_object_z_2 = () => {
 //   const output = scaleTransform({z: 2});
 //   const expected = 'scale(1 1)';
+//   return [output, expected];
+// };
+
+// {"x":0,"y":0,"z":0}
+// export const scale_transform3_object_z_2 = () => {
+//   const output = scaleTransform3({z: 2});
+//   const expected = { x: 1, y: 1, z: 2 };
+//   return [output, expected];
+// };
+
+//scale(0 0)
+// export const scale_transform_object_a_2 = () => {
+//   const output = scaleTransform({a: 2});
+//   const expected = 'scale(1 1)';
+//   return [output, expected];
+// };
+
+// {"x":0,"y":0,"z":0}
+// export const scale_transform3_object_a_2 = () => {
+//   const output = scaleTransform3({a: 2});
+//   const expected = { x: 1, y: 1, z: 1 };
 //   return [output, expected];
 // };
 

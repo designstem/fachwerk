@@ -3,6 +3,33 @@ export const positionTransform = coords => {
   return `translate(${c[0][0]} ${c[0][1]})`
 }
 
+export const positionTransform3 = coords => {
+  const c = parseCoords(coords)
+  return {
+    x: c[0][0],
+    y: c[0][1],
+    z: c[0][2]
+  }
+}
+
+export const rotationTransform3 = coords => {
+  const c = parseCoords(coords)
+  return {
+    x: c[0][0],
+    y: c[0][1],
+    z: c[0][2]
+  }
+}
+
+export const scaleTransform3 = coords => {
+  const c = parseCoords(coords, normalizeScale)
+  return {
+    x: c[0][0],
+    y: c[0][1],
+    z: c[0][2]
+  }
+}
+
 export const rotationTransform = coords => {
   const c = parseCoords(coords)
   return `rotate(${c[0][0]}deg)`;
