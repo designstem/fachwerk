@@ -19,23 +19,26 @@ const padArrayRight = (arr,length,fill) => {
 
 const isObject = object => typeof object == "object" && !Array.isArray(object)
 
-export const normalizeDefault = arr => 
-  padArrayRight(arr, 3, 0).map(value => makeNumber(value))
-
+export const normalizeDefault = arr => {
+  if (arr === null) {
+    return [[0,0,0]]
+  }
+  return padArrayRight(arr, 3, 0).map(value => makeNumber(value))
+}
 
 export const normalizeScale = arr => {
+  if (arr === null) {
+    return [[1,1,1]]
+  }
   if (arr.length == 1) {
     return [arr[0],arr[0],arr[0]]
   }
   return normalizeDefault(arr)  
-
-
-
 }
 
 export const coordsTextToArray = (text,normalizer) => {
-  if (text.length == 0) {
-    return coordsTextToArray('0', normalizer)
+  if (text.trim().length == 0) {
+    return normalizer(null)
   }
   return text.split(",").map(t =>
     t
