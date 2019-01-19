@@ -2,6 +2,7 @@
 
 ## Fixes
 
+- remove style.css / other legacy
 - text input height = button
 - syntax hilight
 
