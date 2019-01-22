@@ -11,9 +11,9 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `                         
-  <f-scene>
+  <f-scene grid>
     <f-box opacity="0.2" />
-    <f-box position="1" rotation="45" scale="2 2" />
+    <f-box position="1" rotation="45" :scale="2" />
   </f-scene>
 `
 });

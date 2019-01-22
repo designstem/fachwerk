@@ -48,7 +48,6 @@ const isObject = object => typeof object == "object" && !Array.isArray(object);
 
 export const normalizeDefault = arr => {
   if (arr == null) {
-    console.log(arr == null)
     return [0, 0, 0];
   }
   return padArrayRight(arr, 3, 0).map(value => makeNumber(value));
@@ -58,7 +57,7 @@ export const normalizeScale = arr => {
   if (arr === null || arr.length === 0) {
     return [1, 1, 1];
   }
-  if (arr.length == 1 ) {
+  if (arr.length == 1) {
     return [arr[0], arr[0], arr[0]];
   }
   return normalizeDefault(arr);
@@ -171,7 +170,7 @@ export const coordsObjectToArray = (obj, normalizer = normalizeDefault) => {
   ) {
     return [normalizer([null, null, obj.z])];
   }
-  return [normalizer([0])];
+  return [normalizer([])];
 };
 
 export const makeNumber = value => {

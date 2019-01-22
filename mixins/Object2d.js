@@ -6,9 +6,9 @@ import {
 } from "../test/utils.js";
 
 export default {
-  // mounted() {
-  //   console.log(scaleTransform(JSON.stringify(this.scale)))
-  // },
+  mounted() {
+    console.log(scaleTransform(JSON.stringify(this.scale)))
+  },
   computed: {
     transform() {
       return `${positionTransform(this.position)} ${rotationTransform(

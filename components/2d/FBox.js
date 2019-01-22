@@ -29,7 +29,7 @@ Description to be written.
     fill: { default: "none", type: String },
     position: { default: '', type: [String, Number, Object, Array] },
     rotation: { default: '', type: [String, Number, Object, Array] },
-    scale: { default: '', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
