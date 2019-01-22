@@ -13,7 +13,7 @@ export const positionTransform3 = coords => {
 };
 
 export const rotationTransform3 = coords => {
-  const c = parseCoords(coords);
+  const c = parseCoords(coords, normalizeRotation3);
   return {
     x: c[0][0],
     y: c[0][1],
@@ -59,6 +59,16 @@ export const normalizeScale = arr => {
   }
   if (arr.length == 1) {
     return [arr[0], arr[0], arr[0]];
+  }
+  return normalizeDefault(arr);
+};
+
+export const normalizeRotation3 = arr => {
+  if (arr === null) {
+    return [[1, 1, 1]];
+  }
+  if (arr.length == 1) {
+    return [0, 0, arr[0]];
   }
   return normalizeDefault(arr);
 };
@@ -130,35 +140,35 @@ export const coordsObjectToArray = (obj, normalizer = normalizeDefault) => {
     !obj.hasOwnProperty("y") &&
     obj.hasOwnProperty("z")
   ) {
-    return [normalizer([obj.x, null,obj.z])];
+    return [normalizer([obj.x, null, obj.z])];
   }
   if (
     !obj.hasOwnProperty("x") &&
     obj.hasOwnProperty("y") &&
     obj.hasOwnProperty("z")
   ) {
-    return [normalizer([obj.x,null,obj.z])];
+    return [normalizer([obj.x, null, obj.z])];
   }
   if (
     obj.hasOwnProperty("x") &&
     !obj.hasOwnProperty("y") &&
     !obj.hasOwnProperty("z")
   ) {
-    return [normalizer([obj.x,null,null])];
+    return [normalizer([obj.x, null, null])];
   }
   if (
     !obj.hasOwnProperty("x") &&
     obj.hasOwnProperty("y") &&
     !obj.hasOwnProperty("z")
   ) {
-    return [normalizer([null,obj.y,null])];
+    return [normalizer([null, obj.y, null])];
   }
   if (
     !obj.hasOwnProperty("x") &&
     !obj.hasOwnProperty("y") &&
     obj.hasOwnProperty("z")
   ) {
-    return [normalizer([null,null,obj.z])];
+    return [normalizer([null, null, obj.z])];
   }
   return [normalizer([])];
 };
