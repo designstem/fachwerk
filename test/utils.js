@@ -47,17 +47,18 @@ const padArrayRight = (arr, length, fill) => {
 const isObject = object => typeof object == "object" && !Array.isArray(object);
 
 export const normalizeDefault = arr => {
-  if (arr === null) {
-    return [[0, 0, 0]];
+  if (arr == null) {
+    console.log(arr == null)
+    return [0, 0, 0];
   }
   return padArrayRight(arr, 3, 0).map(value => makeNumber(value));
 };
 
 export const normalizeScale = arr => {
-  if (arr === null) {
-    return [[1, 1, 1]];
+  if (arr === null || arr.length === 0) {
+    return [1, 1, 1];
   }
-  if (arr.length == 1) {
+  if (arr.length == 1 ) {
     return [arr[0], arr[0], arr[0]];
   }
   return normalizeDefault(arr);
@@ -74,8 +75,8 @@ export const normalizeRotation3 = arr => {
 };
 
 export const coordsTextToArray = (text, normalizer) => {
-  if (text.trim().length == 0) {
-    return normalizer(null);
+  if (text.trim().length === 0) {
+    return [normalizer(null)]
   }
   return text
     .split(",")
@@ -170,7 +171,7 @@ export const coordsObjectToArray = (obj, normalizer = normalizeDefault) => {
   ) {
     return [normalizer([null, null, obj.z])];
   }
-  return [normalizer([])];
+  return [normalizer([0])];
 };
 
 export const makeNumber = value => {

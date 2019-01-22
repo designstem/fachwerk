@@ -133,7 +133,6 @@ export const position_transform3_object_x_1 = () => {
   return [output, expected];
 };
 
-// translate(0 0)
 export const position_transform_object_y_1 = () => {
   const output = positionTransform({y: 1});
   const expected = 'translate(0 1)';
@@ -174,7 +173,7 @@ export const position_transform3_object_x_y_z_a_1_2_3_3 = () => {
 
 export const rotation_transform_string_1 = () => {
   const output = rotationTransform("1");
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -187,7 +186,7 @@ export const rotation_transform_string_1 = () => {
 
 export const rotation_transform_string_1_1_1 = () => {
   const output = rotationTransform("1 1 1");
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -199,7 +198,7 @@ export const rotation_transform3_string_1_1_1 = () => {
 
 export const rotation_transform_number_0 = () => {
   const output = rotationTransform(0);
-  const expected = "rotate(0deg)";
+  const expected = "rotate(0)";
   return [output, expected];
 };
 
@@ -211,7 +210,7 @@ export const rotation_transform3_number_0 = () => {
 
 export const rotation_transform_number_1 = () => {
   const output = rotationTransform(1);
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -223,7 +222,7 @@ export const rotation_transform3_number_1 = () => {
 
 export const rotation_transform_array_1 = () => {
   const output = rotationTransform([1]);
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -235,7 +234,7 @@ export const rotation_transform3_array_1 = () => {
 
 export const rotation_transform_array_1_2 = () => {
   const output = rotationTransform([1, 2]);
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -247,7 +246,7 @@ export const rotation_transform3_array_1_2 = () => {
 
 export const rotation_transform_object_x_1 = () => {
   const output = rotationTransform({ x: 1 });
-  const expected = "rotate(1deg)";
+  const expected = "rotate(1)";
   return [output, expected];
 };
 
@@ -257,10 +256,10 @@ export const rotation_transform3_object_x_1 = () => {
   return [output, expected];
 };
 
-// "rotate(0deg)"
+// "rotate(0)"
 // export const rotation_transform_object_y_1 = () => {
 //   const output = rotationTransform({y: 1});
-//   const expected = 'rotate(1deg)';
+//   const expected = 'rotate(1)';
 //   return [output, expected];
 // };
 
@@ -270,10 +269,10 @@ export const rotation_transform3_object_y_1 = () => {
   return [output, expected];
 };
 
-// rotate(0deg)
+// rotate(0)
 // export const rotation_transform_object_z_1 = () => {
 //   const output = rotationTransform({z: 1});
-//   const expected = 'rotate(1deg)';
+//   const expected = 'rotate(1)';
 //   return [output, expected];
 // };
 
@@ -285,7 +284,7 @@ export const rotation_transform3_object_z_1 = () => {
 
 export const rotation_transform_object_a_1 = () => {
   const output = rotationTransform({a: 1});
-  const expected = 'rotate(0deg)';
+  const expected = 'rotate(0)';
   return [output, expected];
 };
 
@@ -296,6 +295,21 @@ export const rotation_transform3_object_a_1 = () => {
 };
 
 // Scale
+
+export const scale_transform_string_empty = () => {
+  const output = scaleTransform("");
+  const expected = "scale(1 1)";
+  return [output, expected];
+};
+
+export const scale_transform_object_empty = () => {
+  const output = scaleTransform({});
+  const expected = "scale(1 1)";
+  return [output, expected];
+};
+
+
+
 
 export const scale_transform_string_1 = () => {
   const output = scaleTransform("1");
