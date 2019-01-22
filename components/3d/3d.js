@@ -97,7 +97,6 @@ const Object3D = {
     setObj(obj) {
       obj.name = this.name || obj.name || obj.type;
       Object.assign(obj.position, positionTransform3(this.position));
-      console.log(JSON.stringify(this.position))
       this.setScale(scaleTransform3(this.scale));
       // if (typeof this.scale == 'string') {
       //   this.scale = parseCoords(this.scale)[0]
@@ -111,19 +110,21 @@ const Object3D = {
       // }
       // Object.assign(obj.position, this.position);
       Object.assign(obj.position, positionTransform3(this.position));
-      if (this.rotation) {
-        if (typeof this.rotation == 'string') {
-          this.rotation = parseCoords(this.rotation)[0]
-        }
-        const rotation = {
-          x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
-          y: this.rotation.y ? deg2rad(this.rotation.y) : 0,
-          z: this.rotation.z ? deg2rad(this.rotation.z) : 0
-        }
-        Object.assign(obj.rotation, rotation);
-      } else {
-        Object.assign(obj.rotation, this.rotation);
-      }
+      Object.assign(obj.rotation, rotationTransform3(this.rotation));
+     
+      // if (this.rotation) {
+      //   if (typeof this.rotation == 'string') {
+      //     this.rotation = parseCoords(this.rotation)[0]
+      //   }
+      //   const rotation = {
+      //     x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
+      //     y: this.rotation.y ? deg2rad(this.rotation.y) : 0,
+      //     z: this.rotation.z ? deg2rad(this.rotation.z) : 0
+      //   }
+      //   Object.assign(obj.rotation, rotation);
+      // } else {
+      //   Object.assign(obj.rotation, this.rotation);
+      // }
       //Object.assign(obj.rotation, this.rotation)
       if (this.parentObj) {
         this.parentObj.add(obj);

@@ -1,9 +1,12 @@
+import { deg2rad } from '../utils.js'
+
 export const positionTransform = coords => {
   const c = parseCoords(coords);
   return `translate(${c[0][0]} ${c[0][1]})`;
 };
 
 export const positionTransform3 = coords => {
+  
   const c = parseCoords(coords);
   return {
     x: c[0][0],
@@ -15,9 +18,9 @@ export const positionTransform3 = coords => {
 export const rotationTransform3 = coords => {
   const c = parseCoords(coords, normalizeRotation3);
   return {
-    x: c[0][0],
-    y: c[0][1],
-    z: c[0][2]
+    x: deg2rad(c[0][0]),
+    y: deg2rad(c[0][1]),
+    z: deg2rad(c[0][2])
   };
 };
 

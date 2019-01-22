@@ -11,16 +11,16 @@ Description to be written.
 </f-scene3>
   `,
   props: {
-    scale: { default: () => ({}), type: [Object, Number] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    opacity: { default: 0.2, type: Number }
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    opacity: { default: 0.2, type: [Number,String] },
   },
   methods: { range },
   template: `
     <f-group3>
     <f-group3
-      v-for="(rotation,i) in [{},{x:90},{y:90}]"
+      v-for="(rotation,i) in [[0,0,0],[90,0,0],[0,90,0]]"
       :key="i"
       :rotation="rotation"
     >
