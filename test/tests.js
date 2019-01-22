@@ -121,6 +121,18 @@ export const position_transform3_array_1_2_3 = () => {
 };
 
 
+export const position_transform_object_empty = () => {
+  const output = positionTransform({});
+  const expected = 'translate(0 0)';
+  return [output, expected];
+};
+
+export const position_transform3_object_empty = () => {
+  const output = positionTransform3({});
+  const expected = { x: 0, y: 0, z: 0 };
+  return [output, expected];
+};
+
 export const position_transform_object_x_1 = () => {
   const output = positionTransform({ x: 1 });
   const expected = "translate(1 0)";
