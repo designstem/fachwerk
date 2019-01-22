@@ -1,4 +1,5 @@
-import { cx, cy, deg2rad, parseCoords } from "../../utils.js";
+import { deg2rad, parseCoords } from "../../utils.js";
+import { positionTransform3 } from '../../test/utils.js';
 
 const Base = {
   inject: ["_baseUrl"],
@@ -102,10 +103,11 @@ const Object3D = {
         this.scale.z = this.scale.z || 1
       }
       this.setScale(this.scale);
-      if (typeof this.position == 'string') {
-        this.position = parseCoords(this.position)[0]
-      }
-      Object.assign(obj.position, this.position);
+      // if (typeof this.position == 'string') {
+      //   this.position = parseCoords(this.position)[0]
+      // }
+      // Object.assign(obj.position, this.position);
+      Object.assign(obj.position, positionTransform3(this.position));
       if (this.rotation) {
         if (typeof this.rotation == 'string') {
           this.rotation = parseCoords(this.rotation)[0]
