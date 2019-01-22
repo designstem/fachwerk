@@ -60,7 +60,6 @@ export const position_transform3_string_1_2_3 = () => {
   return [output, expected];
 };
 
-
 export const position_transform_string_1_2_3_4 = () => {
   const output = positionTransform("1 2 3");
   const expected = "translate(1 2)";
@@ -97,33 +96,29 @@ export const position_transform3_number_1 = () => {
   return [output, expected];
 };
 
-// translate(1 0)
-// export const position_transform_array_1_2 = () => {
-//   const output = positionTransform([1,2]);
-//   const expected = 'translate(1 2)';
-//   return [output, expected];
-// };
+export const position_transform_array_1_2 = () => {
+  const output = positionTransform([1,2]);
+  const expected = 'translate(1 2)';
+  return [output, expected];
+};
 
-// {"x":1,"y":0,"z":0}
-// export const position_transform3_array_1_2 = () => {
-//   const output = positionTransform3([1,2]);
-//   const expected = { x: 1, y: 2, z: 0 };
-//   return [output, expected];
-// };
+export const position_transform3_array_1_2 = () => {
+  const output = positionTransform3([1,2]);
+  const expected = { x: 1, y: 2, z: 0 };
+  return [output, expected];
+};
 
-// translate(1 0)
-// export const position_transform_array_1_2_3 = () => {
-//   const output = positionTransform([1,2,3]);
-//   const expected = 'translate(1 2)';
-//   return [output, expected];
-// };
+export const position_transform_array_1_2_3 = () => {
+  const output = positionTransform([1,2,3]);
+  const expected = 'translate(1 2)';
+  return [output, expected];
+};
 
-// {"x":1,"y":0,"z":0}
-// export const position_transform3_array_1_2_3 = () => {
-//   const output = positionTransform3([1,2,3]);
-//   const expected = { x: 1, y: 2, z: 3 };
-//   return [output, expected];
-// };
+export const position_transform3_array_1_2_3 = () => {
+  const output = positionTransform3([1,2,3]);
+  const expected = { x: 1, y: 2, z: 3 };
+  return [output, expected];
+};
 
 
 export const position_transform_object_x_1 = () => {
@@ -139,11 +134,11 @@ export const position_transform3_object_x_1 = () => {
 };
 
 // translate(0 0)
-// export const position_transform_object_y_1 = () => {
-//   const output = positionTransform({y: 1});
-//   const expected = 'translate(0 1)';
-//   return [output, expected];
-// };
+export const position_transform_object_y_1 = () => {
+  const output = positionTransform({y: 1});
+  const expected = 'translate(0 1)';
+  return [output, expected];
+};
 
 // {"x":0,"y":0,"z":0}
 // export const position_transform3_object_y_1 = () => {

@@ -84,7 +84,7 @@ export const coordsNumberToArray = (number, normalizer) => {
 };
 
 export const coordsArrayToArray = (arr, normalizer) => {
-  const containsArrays = arr.length && arr.filter(a => Array.isArray(a)).length
+  const containsArrays = arr.length && arr.filter(a => Array.isArray(a)).length;
   const coords = arr.map(a => {
     if (Array.isArray(a)) {
       return normalizer(a);
@@ -93,10 +93,10 @@ export const coordsArrayToArray = (arr, normalizer) => {
       if (a.split(/\s+/g).length > 1) {
         return coordsTextToArray(a, normalizer)[0];
       }
-      return containsArrays ? normalizer([a]) : makeNumber(a)
+      return containsArrays ? normalizer([a]) : makeNumber(a);
     }
     if (typeof a == "number") {
-      return containsArrays ? normalizer([a]) : a
+      return containsArrays ? normalizer([a]) : a;
     }
     if (isObject(a)) {
       return coordsObjectToArray(a, normalizer)[0];
@@ -123,14 +123,42 @@ export const coordsObjectToArray = (obj, normalizer = normalizeDefault) => {
     obj.hasOwnProperty("y") &&
     !obj.hasOwnProperty("z")
   ) {
-    return [normalizer([obj.x, obj.y])];
+    return [normalizer([obj.x, obj.y, null])];
+  }
+  if (
+    obj.hasOwnProperty("x") &&
+    !obj.hasOwnProperty("y") &&
+    obj.hasOwnProperty("z")
+  ) {
+    return [normalizer([obj.x, null,obj.z])];
+  }
+  if (
+    !obj.hasOwnProperty("x") &&
+    obj.hasOwnProperty("y") &&
+    obj.hasOwnProperty("z")
+  ) {
+    return [normalizer([obj.x,null,obj.z])];
   }
   if (
     obj.hasOwnProperty("x") &&
     !obj.hasOwnProperty("y") &&
     !obj.hasOwnProperty("z")
   ) {
-    return [normalizer([obj.x])];
+    return [normalizer([obj.x,null,null])];
+  }
+  if (
+    !obj.hasOwnProperty("x") &&
+    obj.hasOwnProperty("y") &&
+    !obj.hasOwnProperty("z")
+  ) {
+    return [normalizer([null,obj.y,null])];
+  }
+  if (
+    !obj.hasOwnProperty("x") &&
+    !obj.hasOwnProperty("y") &&
+    obj.hasOwnProperty("z")
+  ) {
+    return [normalizer([null,null,obj.z])];
   }
   return [normalizer([])];
 };
