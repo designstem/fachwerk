@@ -613,13 +613,13 @@ export const empty_array_number_0_empty_array_to_coordinates = () => {
 
 export const array_number_0_0_to_coordinates = () => {
   const output = parseCoords([0, 0]);
-  const expected = [[0, 0, 0], [0, 0, 0]];
+  const expected = [[0,0,0]];
   return [output, expected];
 };
 
 export const array_number_0_string_0_to_coordinates = () => {
   const output = parseCoords([0, "0"]);
-  const expected = [[0, 0, 0], [0, 0, 0]];
+  const expected = [[0, 0, 0]];
   return [output, expected];
 };
 
@@ -705,7 +705,7 @@ export const string_1_and_1_to_coordinates = () => {
 
 export const string_1_and_1_in_array_to_coordinates = () => {
   const output = parseCoords(["1", "1"]);
-  const expected = [[1, 0, 0], [1, 0, 0]];
+  const expected = [[1, 1, 0]];
   return [output, expected];
 };
 
@@ -802,11 +802,11 @@ export const number_1_in_array_array_to_coordinates = () => {
 };
 
 // [[1,0,0],[1,0,0]]
-// export const number_1_1_in_array_to_coordinates = () => {
-//   const output = parseCoords([1,1]);
-//   const expected = [[1, 1, 0]];
-//   return [output, expected];
-// };
+export const number_1_1_in_array_to_coordinates = () => {
+  const output = parseCoords([1,1]);
+  const expected = [[1, 1, 0]];
+  return [output, expected];
+};
 
 export const number_1_1_in_array_array_to_coordinates = () => {
   const output = parseCoords([[1, 1]]);
