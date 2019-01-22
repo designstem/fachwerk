@@ -24,9 +24,10 @@ Description to be written.
   props: {
     hedron: { default: "Icosahedron", type: String },
     r: { default: 1, type: Number },
-    scale: { default: () => ({}), type: [Object, Number] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object }
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 1, type: [Number,String] },
   },
   data() {
     let curObj = this.obj;

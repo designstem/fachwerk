@@ -12,9 +12,9 @@ new Vue({
   methods: { ...utils },
   template: `                         
   <f-scene3 grid>
-  <f-grid3 :rotation="{ y: 10, x: 10 }" />
+  <f-grid3 />
     <f-box3 opacity="0.2" />
-    <f-box3 position="1" rotation="3" scale="0.2" />
+    <f-box3 position="1" rotation="13" scale="0.2" />
   </f-scene3>
 `
 });

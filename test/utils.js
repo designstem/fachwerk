@@ -6,8 +6,10 @@ export const positionTransform = coords => {
 };
 
 export const positionTransform3 = coords => {
-  
   const c = parseCoords(coords);
+  if (c === null) {
+    return {x: 1, y: 1, z: 1}
+  }
   return {
     x: c[0][0],
     y: c[0][1],
@@ -17,6 +19,9 @@ export const positionTransform3 = coords => {
 
 export const rotationTransform3 = coords => {
   const c = parseCoords(coords, normalizeRotation3);
+  if (c === null) {
+    return {x: 0, y: 0, z: 0}
+  }
   return {
     x: deg2rad(c[0][0]),
     y: deg2rad(c[0][1]),
@@ -26,6 +31,9 @@ export const rotationTransform3 = coords => {
 
 export const scaleTransform3 = coords => {
   const c = parseCoords(coords, normalizeScale);
+  if (c === null) {
+    return {x: 1, y: 1, z: 1}
+  }
   return {
     x: c[0][0],
     y: c[0][1],

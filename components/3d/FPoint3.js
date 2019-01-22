@@ -30,10 +30,10 @@ Description to be written.
     points: { default: () => [], type: [Array,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {

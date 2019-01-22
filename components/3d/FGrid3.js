@@ -11,10 +11,10 @@ Description to be written.
 </f-scene3>
   `,
   props: {
-    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
-    opacity: { default: 0.2, type: [Number,String] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 0.2, type: [Number, String] }
   },
   methods: { range },
   template: `
