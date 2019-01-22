@@ -264,12 +264,11 @@ export const rotation_transform3_object_x_1 = () => {
 //   return [output, expected];
 // };
 
-// {"x":0,"y":0,"z":0}
-// export const rotation_transform3_object_y_1 = () => {
-//   const output = rotationTransform3({y: 1});
-//   const expected = { x: 0, y: 1, z: 0 };
-//   return [output, expected];
-// };
+export const rotation_transform3_object_y_1 = () => {
+  const output = rotationTransform3({y: 1});
+  const expected = { x: 0, y: 1, z: 0 };
+  return [output, expected];
+};
 
 // rotate(0deg)
 // export const rotation_transform_object_z_1 = () => {
@@ -278,12 +277,11 @@ export const rotation_transform3_object_x_1 = () => {
 //   return [output, expected];
 // };
 
-// {"x":0,"y":0,"z":0}
-// export const rotation_transform3_object_z_1 = () => {
-//   const output = rotationTransform3({z: 1});
-//   const expected = { x: 0, y: 0, z: 1 };
-//   return [output, expected];
-// };
+export const rotation_transform3_object_z_1 = () => {
+  const output = rotationTransform3({z: 1});
+  const expected = { x: 0, y: 0, z: 1 };
+  return [output, expected];
+};
 
 export const rotation_transform_object_a_1 = () => {
   const output = rotationTransform({a: 1});
@@ -323,7 +321,6 @@ export const scale_transform3_string_2 = () => {
   return [output, expected];
 };
 
-// TODO: Really?
 export const scale_transform_array_2 = () => {
   const output = scaleTransform([2]);
   const expected = "scale(2 2)";
@@ -336,42 +333,40 @@ export const scale_transform3_array_2 = () => {
   return [output, expected];
 };
 
-//scale(1 1)
-// export const scale_transform_array_1_2_3 = () => {
-//   const output = scaleTransform([1,2,3]);
-//   const expected = 'scale(1 2)';
-//   return [output, expected];
-// };
+export const scale_transform_array_1_2_3 = () => {
+  const output = scaleTransform([1,2,3]);
+  const expected = 'scale(1 2)';
+  return [output, expected];
+};
 
-// {"x":1,"y":1,"z":1}
-// export const scale_transform3_array_1_2_3 = () => {
-//   const output = scaleTransform3([1,2,3]);
-//   const expected = { x: 1, y: 2, z: 3 };
-//   return [output, expected];
-// };
+export const scale_transform3_array_1_2_3 = () => {
+  const output = scaleTransform3([1,2,3]);
+  const expected = { x: 1, y: 2, z: 3 };
+  return [output, expected];
+};
 
-// scale(2 2)
+// scale(2 0)
 // export const scale_transform_object_x_2 = () => {
 //   const output = scaleTransform({ x: 2 });
 //   const expected = "scale(2 1)";
 //   return [output, expected];
 // };
 
-// {"x":2,"y":2,"z":2}
+//{"x":2,"y":0,"z":0}
 // export const scale_transform3_object_x_2 = () => {
 //   const output = scaleTransform3({ x: 2 });
-//   const expected = { x: 2, y: 1, z: 2 };
+//   const expected = { x: 2, y: 1, z: 1 };
 //   return [output, expected];
 // };
 
-// scale(0 0)
+// scale(0 2)
 // export const scale_transform_object_y_2 = () => {
 //   const output = scaleTransform({y: 2});
 //   const expected = 'scale(1 2)';
 //   return [output, expected];
 // };
 
-// {"x":0,"y":0,"z":0}
+// {"x":0,"y":2,"z":0}
 // export const scale_transform3_object_y_2 = () => {
 //   const output = scaleTransform3({ y: 2 });
 //   const expected = { x: 1, y: 2, z: 1 };
@@ -806,11 +801,11 @@ export const number_1_1_in_array_array_to_coordinates = () => {
 };
 
 // array_number_1_1_1_in_array_to_coordinates
-// export const array_number_1_1_1_in_array_to_coordinates = () => {
-//   const output = parseCoords([1,1,1]);
-//   const expected = [[1, 1, 1]];
-//   return [output, expected];
-// };
+export const array_number_1_1_1_in_array_to_coordinates = () => {
+  const output = parseCoords([1,1,1]);
+  const expected = [[1, 1, 1]];
+  return [output, expected];
+};
 
 export const number_1_1_1_in_array_array_to_coordinates = () => {
   const output = parseCoords([[1, 1, 1]]);
@@ -824,21 +819,17 @@ export const number_1_1_1_1_in_array_array_to_coordinates = () => {
   return [output, expected];
 };
 
-// [[1,0,0],[1,0,0],[1,0,0]]
+export const array_number_1_1_1_to_coordinates = () => {
+  const output = parseCoords([1,1,1]);
+  const expected = [[1, 1, 1]];
+  return [output, expected];
+};
 
-// export const array_number_1_1_1_to_coordinates = () => {
-//   const output = parseCoords([1,1,1]);
-//   const expected = [[1, 1, 1]];
-//   return [output, expected];
-// };
-
-// [[1,0,0],[1,0,0],[1,0,0],[1,0,0]]
-
-// export const array_number_1_1_1_1_to_coordinates = () => {
-//   const output = parseCoords([1,1,1,1]);
-//   const expected = [[1, 1, 1]];
-//   return [output, expected];
-// };
+export const array_number_1_1_1_1_to_coordinates = () => {
+  const output = parseCoords([1,1,1,1]);
+  const expected = [[1, 1, 1]];
+  return [output, expected];
+};
 
 // Objects
 
