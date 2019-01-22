@@ -19,10 +19,10 @@ Description to be written.
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: "none", type: String },
-    position: { default: () => ({}), type: [Object,String] },
-    rotation: { default: () => ({}), type: [Object,String] },
-    scale: { default: () => ({}), type: [Object,String] },
-    opacity: { default: 1, type: [Number,String] }
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number,String] },
   },
   methods: { cpoints },
   computed: {

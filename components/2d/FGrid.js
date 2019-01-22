@@ -15,10 +15,10 @@ Compared to \`<f-scene grid>\` it allows allows greater freedom to generate cust
   `,
   props: {
     step: { default: 0.5, type: [Number,String] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 0.15, type: [Number,String] },
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number,String] },
   },
   template: `
   <f-group :transform="transform">
