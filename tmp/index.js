@@ -11,25 +11,19 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `                         
-  <f-fetch-data url="./index.md">
-    <f-content slot-scope="data" :content="data.value" type="slides" />
-  </f-fetch-data>
+  <f-scene>
+    <f-box opacity="0.2" />
+    <f-box position="1" rotation="45" />
+  </f-scene>
 `
 });
 
 // new Vue({
-//   // Attaching Vue to <div id="app"></div>
 //   el: "#app",
-
-//   // Adding a mixin
 //   mixins: [Init],
-
-//   // Making utilities accessible to templates
 //   methods: { ...utils },
-
-//   // Fetching the index.md and rendering it
-//   template: `
-//   <f-fetch-data url="./test.md">
+//   template: `                         
+//   <f-fetch-data url="./index.md">
 //     <f-content slot-scope="data" :content="data.value" type="slides" />
 //   </f-fetch-data>
 // `

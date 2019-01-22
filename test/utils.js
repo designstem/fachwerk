@@ -32,7 +32,7 @@ export const scaleTransform3 = coords => {
 
 export const rotationTransform = coords => {
   const c = parseCoords(coords);
-  return `rotate(${c[0][0]}deg)`;
+  return `rotate(${c[0][0]})`;
 };
 
 export const scaleTransform = coords => {
