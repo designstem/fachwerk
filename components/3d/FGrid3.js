@@ -14,7 +14,7 @@ Description to be written.
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 0.2, type: [Number, String] }
+    opacity: { default: 0.25, type: [Number, String] }
   },
   methods: { range },
   template: `
