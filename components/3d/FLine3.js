@@ -1,5 +1,6 @@
 import { Object3D } from "./3d.js";
 import { color } from "../../utils.js";
+import { parseCoords } from "../../test/utils.js";
 
 export default {
   mixins: [Object3D],
@@ -28,7 +29,7 @@ Description to be written.
     x2: { default: 0, type: Number },
     y2: { default: 0, type: Number },
     z2: { default: 0, type: Number },
-    points: { default: () => [], type: Array },
+    points: { default: '', type: [String, Number, Array] },
     stroke: { default: "color('secondary')", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
@@ -40,9 +41,10 @@ Description to be written.
     let curObj = this.obj;
     if (!curObj) {
       const geometry = new THREE.Geometry();
-      if (this.points.length) {
-        this.points.forEach(p => {
-          geometry.vertices.push(new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0));
+      if (this.points) {
+        const points = parseCoords(this.points)
+        points.forEach(p => {
+          geometry.vertices.push(new THREE.Vector3(...p))
         })
       } else {
         geometry.vertices.push(new THREE.Vector3(this.x1, this.y1, this.z1));

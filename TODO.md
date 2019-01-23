@@ -2,7 +2,11 @@
 
 ## Fixes
 
-- r for box / box3
+- box3 stroke
+- unify 3 shading
+- box3 points?
+- circle3 points?
+- r for box3
 - scene3 grid
 - tests for . . ; . .
 - replace , with ' ' ?

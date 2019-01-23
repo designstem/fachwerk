@@ -1,4 +1,4 @@
-import { cpoints } from "../../utils.js";
+import { polarpoints } from "../../utils.js";
 import { Object3D } from "./3d.js";
 
 export default {
@@ -31,7 +31,7 @@ Description to be written.
   </f-scene3>
   </f-animation>
   `,
-  methods: { cpoints },
+  methods: { polarpoints },
   props: {
     count: { default: 6, type: Number },
     r: { default: 1, type: Number },
@@ -48,7 +48,7 @@ Description to be written.
   },
   computed: {
     points() {
-      return cpoints(this.count, this.r)
+      return polarpoints(this.count, this.r)
     }
   },
   template: `

@@ -18,9 +18,9 @@ Description to be written.
   `,
   props: {
     type: { type: String, default: "Mesh" },
-    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
   },
   provide() {
     return { meshVm: this };
