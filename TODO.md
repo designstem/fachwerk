@@ -12,6 +12,8 @@
 - scene3 grid
 - tests for . . ; . .
 - replace , with ' ' ?
+- remove style.css / other legacy
+- text input height = button
 - syntax hilight
 
 -- https://prismjs.com/
