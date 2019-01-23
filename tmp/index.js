@@ -13,10 +13,10 @@ new Vue({
   template: `                         
   <f-scene grid>
   <f-grid />
-    <f-line
-      closed
+    <f-circle
       :points="polarpoints()"
     />
+    <f-point x="1" />
    
   </f-scene>
 `

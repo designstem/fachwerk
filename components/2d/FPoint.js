@@ -1,5 +1,6 @@
 import { Object2d } from "../../mixins.js";
-import { color, parseCoords, log } from "../../utils.js"
+import { color, log } from "../../utils.js"
+import { parseCoords } from "../../test/utils.js";
 
 export default {
   mixins: [Object2d],
@@ -52,14 +53,8 @@ Description to be written.
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      } else
-      if (Array.isArray(this.points) && this.points.length && Array.isArray(this.points[0])) {
-        return parseCoords(this.points)
-      }
-      return this.points
-    },
+      return this.points ? parseCoords(this.points) : null;
+    }
   },
   methods: {
     log
@@ -67,8 +62,10 @@ Description to be written.
   template: `
     <g :transform="transform">
       <f-line
-        v-if="!currentPoints.length"
-        :points="[{x, y},{x, y}]"
+        v-if="currentPoints"
+        v-for="(point,i) in currentPoints"
+        :key="i"
+        :points="[point,point]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
@@ -76,10 +73,8 @@ Description to be written.
         :opacity="opacity"
       />
       <f-line
-        v-if="currentPoints.length"
-        v-for="point,i in currentPoints"
-        :key="i"
-        :points="[{x: point.x, y: point.y},{x: point.x, y: point.y}]"
+        v-if="!currentPoints"
+        :points="[[x, y],[x, y]]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
