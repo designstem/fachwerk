@@ -13,8 +13,8 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    x: { default: '', type: [Number, String, Boolean] },
-    y: { default: '', type: [Number, String, Boolean] },
+    x: { default: '', type: [Number, String] },
+    y: { default: '', type: [Number, String] },
     count: { default: 6, type: [Number,String] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },

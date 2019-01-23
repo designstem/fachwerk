@@ -12,8 +12,8 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    x: { default: false, type: [Number, String, Boolean] },
-    y: { default: false, type: [Number, String, Boolean] },
+    x: { default: '', type: [Number, String] },
+    y: { default: '', type: [Number, String] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
