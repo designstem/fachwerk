@@ -1,3 +1,5 @@
+import { deg2rad } from '../utils.js'
+
 import {
   positionTransform,
   positionTransform3,
@@ -204,7 +206,7 @@ export const rotation_transform_string_1_1_1 = () => {
 
 export const rotation_transform3_string_1_1_1 = () => {
   const output = rotationTransform3("1 1 1");
-  const expected = { x: 1, y: 1, z: 1 };
+  const expected = { x: deg2rad(1), y: deg2rad(1), z: deg2rad(1) };
   return [output, expected];
 };
 
@@ -228,7 +230,7 @@ export const rotation_transform_number_1 = () => {
 
 export const rotation_transform3_number_1 = () => {
   const output = rotationTransform3(1);
-  const expected = { x: 0, y: 0, z: 1 };
+  const expected = { x: 0, y: 0, z: deg2rad(1) };
   return [output, expected];
 };
 
@@ -240,7 +242,7 @@ export const rotation_transform_array_1 = () => {
 
 export const rotation_transform3_array_1 = () => {
   const output = rotationTransform3([1]);
-  const expected = { x: 0, y: 0, z: 1 };
+  const expected = { x: 0, y: 0, z: deg2rad(1) };
   return [output, expected];
 };
 
@@ -252,7 +254,7 @@ export const rotation_transform_array_1_2 = () => {
 
 export const rotation_transform3_array_1_2 = () => {
   const output = rotationTransform3([1, 2]);
-  const expected = { x: 1, y: 2, z: 0 };
+  const expected = { x: deg2rad(1), y: deg2rad(2), z: 0 };
   return [output, expected];
 };
 
@@ -264,7 +266,7 @@ export const rotation_transform_object_x_1 = () => {
 
 export const rotation_transform3_object_x_1 = () => {
   const output = rotationTransform3({ x: 1 });
-  const expected = { x: 1, y: 0, z: 0 };
+  const expected = { x: deg2rad(1), y: 0, z: 0 };
   return [output, expected];
 };
 
@@ -277,7 +279,7 @@ export const rotation_transform3_object_x_1 = () => {
 
 export const rotation_transform3_object_y_1 = () => {
   const output = rotationTransform3({y: 1});
-  const expected = { x: 0, y: 1, z: 0 };
+  const expected = { x: 0, y: deg2rad(1), z: 0 };
   return [output, expected];
 };
 
@@ -290,18 +292,18 @@ export const rotation_transform3_object_y_1 = () => {
 
 export const rotation_transform3_object_z_1 = () => {
   const output = rotationTransform3({z: 1});
-  const expected = { x: 0, y: 0, z: 1 };
+  const expected = { x: 0, y: 0, z: deg2rad(1) };
   return [output, expected];
 };
 
 export const rotation_transform_object_a_1 = () => {
-  const output = rotationTransform({a: 1});
+  const output = rotationTransform({a: deg2rad(1)});
   const expected = 'rotate(0)';
   return [output, expected];
 };
 
 export const rotation_transform3_object_a_1 = () => {
-  const output = rotationTransform3({a: 1});
+  const output = rotationTransform3({a: deg2rad(1)});
   const expected = { x: 0, y: 0, z: 0 };
   return [output, expected];
 };
@@ -710,7 +712,7 @@ export const string_1_1_a_1_spaced_to_coordinates = () => {
 };
 
 export const string_1_and_1_to_coordinates = () => {
-  const output = parseCoords("1,1");
+  const output = parseCoords("1;1");
   const expected = [[1, 0, 0], [1, 0, 0]];
   return [output, expected];
 };
@@ -728,13 +730,13 @@ export const string_1_1_and_1_1_in_array_to_coordinates = () => {
 };
 
 export const string_1_and_1_spaced_to_coordinates = () => {
-  const output = parseCoords("1 ,   1");
+  const output = parseCoords("1 ;   1");
   const expected = [[1, 0, 0], [1, 0, 0]];
   return [output, expected];
 };
 
 export const string_1_1_and_1_1_to_coordinates = () => {
-  const output = parseCoords("1 1, 1 1");
+  const output = parseCoords("1 1; 1 1");
   const expected = [[1, 1, 0], [1, 1, 0]];
   return [output, expected];
 };
@@ -752,13 +754,13 @@ export const string_1_1_1_1_to_coordinates = () => {
 };
 
 export const string_1_1_1_and_1_1_1_to_coordinates = () => {
-  const output = parseCoords("1 1 1, 1 1 1");
+  const output = parseCoords("1 1 1; 1 1 1");
   const expected = [[1, 1, 1], [1, 1, 1]];
   return [output, expected];
 };
 
 export const string_1_1_1_1_and_1_1_1_1_to_coordinates = () => {
-  const output = parseCoords("1 1 1 1, 1 1 1 1");
+  const output = parseCoords("1 1 1 1; 1 1 1 1");
   const expected = [[1, 1, 1], [1, 1, 1]];
   return [output, expected];
 };
