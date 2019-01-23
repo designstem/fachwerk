@@ -1,5 +1,6 @@
 import { Object2d } from "../../mixins.js";
 import { color, polarpoints } from "../../utils.js";
+import { positionTransform } from '../../test/utils.js';
 
 export default {
   mixins: [Object2d],
@@ -12,8 +13,8 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    x: { default: false, type: [Number, String, Boolean] },
-    y: { default: false, type: [Number, String, Boolean] },
+    x: { default: '', type: [Number, String, Boolean] },
+    y: { default: '', type: [Number, String, Boolean] },
     count: { default: 6, type: [Number,String] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String },
@@ -24,24 +25,14 @@ Description to be written.
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
   },
-  methods: { polarpoints },
+  methods: { polarpoints, positionTransform },
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color("primary") : this.stroke;
-    },
-    // currentTransform() {
-    //   const position =
-    //     typeof this.position == "string"
-    //       ? this.parseTransform(this.position)[0]
-    //       : this.position;
-    //   return `${
-    //     this.x || this.y
-    //       ? `translate(${this.x || 0} ${this.y || 0})`
-    //       : `translate(${position.x || 0} ${position.y || 0})`
-    //   } ${this.rotationTransform} ${this.scaleTransform}`;
-    // }
+    }
   },
   template: `
+    <f-group :transform="transform">
     <f-polygon
       :points="polarpoints(count,r)"
       :stroke="strokeColor"
@@ -49,8 +40,9 @@ Description to be written.
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"
-      :transform="transform"
+      :transform="positionTransform([[x || 0, y || 0]])"
       :opacity="opacity"
     />
+    </f-group>
   `
 };
