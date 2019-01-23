@@ -15,8 +15,8 @@ new Vue({
   <f-scene3>
     <f-group3 rotation="10 10">
       <f-grid3 />
-      <f-line3
-        :points="polarpoints()"
+      <f-point3
+        points="0 0; 1 1"
       />
     </f-group3>
   </f-scene3>

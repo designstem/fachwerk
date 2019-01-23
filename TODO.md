@@ -2,6 +2,7 @@
 
 ## Fixes
 
+- polarpoints => [0,0,0] ?
 - box3 stroke
 - unify 3 shading
 - box3 points?
