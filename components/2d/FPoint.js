@@ -14,10 +14,10 @@ Description to be written.
   <f-point x="1" y="1" />
 </f-scene>
 
-#### Multiple points as a comma-separated string
+#### Multiple points as a string
 
 <f-scene grid>
-  <f-point points="1 1, 1 -1, -1 -1, -1 1" />
+  <f-point points="1 1, 1 -1; -1 -1; -1 1" />
 </f-scene>
 
 #### Multiple points calculated by a function
