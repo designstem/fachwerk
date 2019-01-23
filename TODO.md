@@ -2,6 +2,10 @@
 
 ## Fixes
 
+- r for box / box3
+- scene3 grid
+- tests for . . ; . .
+- replace , with ' ' ?
 - syntax hilight
 
 -- https://prismjs.com/

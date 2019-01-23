@@ -89,7 +89,7 @@ export const coordsTextToArray = (text, normalizer) => {
     return [normalizer(null)]
   }
   return text
-    .split(",")
+    .split(";")
     .map(t =>
       t
         .trim()

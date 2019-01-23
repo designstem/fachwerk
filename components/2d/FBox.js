@@ -1,5 +1,6 @@
 import { Object2d } from "../../mixins.js";
-import { color, parseCoords } from "../../utils.js"
+import { color } from "../../utils.js";
+import { parseCoords } from "../../test/utils.js";
 
 export default {
   mixins: [Object2d],
@@ -18,55 +19,49 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    x: { default: 0, type: [Number,String] },
-    y: { default: 0, type: [Number,String] },
-    points: { default: () => [], type: Array },
-    r: { default: null, type: Number },
-    width: { default: 1, type: [Number,String] },
-    height: { default: 1, type: [Number,String] },
-    stroke: { default: "color('primary')", type: String},
-    strokeWidth: { default: 3, type: [Number,String] },
+    x: { default: 0, type: [Number, String] },
+    y: { default: 0, type: [Number, String] },
+    points: { default: "", type: [String, Number, Array] },
+    width: { default: 1, type: [Number, String] },
+    height: { default: 1, type: [Number, String] },
+    r: { default: '', type: [Number,String] },
+    stroke: { default: "color('primary')", type: String },
+    strokeWidth: { default: 3, type: [Number, String] },
     fill: { default: "none", type: String },
-    position: { default: '', type: [String, Number, Object, Array] },
-    rotation: { default: '', type: [String, Number, Object, Array] },
-    scale: { default: '1', type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: [Number,String] },
+    position: { default: "", type: [String, Number, Object, Array] },
+    rotation: { default: "", type: [String, Number, Object, Array] },
+    scale: { default: "1", type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number, String] }
   },
   computed: {
     strokeColor() {
-      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+      return this.stroke == "color('primary')" ? color("primary") : this.stroke;
     },
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
-        return parseCoords(this.points)
-      }
-      return this.points
-    },
+      return this.points ? parseCoords(this.points) : null;
+    }
   },
   template: `
   <g>
     <rect
-      v-if="currentPoints.length"
+      v-if="currentPoints"
       v-for="p in currentPoints"
-      :x="p.x ? p.x - ((p.width ? p.width : width)  / 2) : x - (width / 2)"
-      :y="p.y ? p.y - ((p.width ? p.width : width) / 2) : y - (width / 2)"
-      :width="p.r || p.width || r || width"
-      :height="p.r || p.height || r || height"
-      :stroke="p.stroke || strokeColor"
-      :stroke-width="p.strokeWidth || strokeWidth"
+      :x="p[0] - ((r || width) / 2)"
+      :y="p[1] - ((r || height) / 2)"
+      :width="r || width"
+      :height="r || height"
+      :stroke="strokeColor"
+      :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
-      :fill="p.fill || fill"
+      :fill="fill"
       :transform="transform"
-      :opacity="p.opacity || opacity"
+      :opacity="opacity"
     />
     <rect
-      v-if="!currentPoints.length"
-      :x="x - (width / 2)"
-      :y="y - (width / 2)"
+      v-if="!currentPoints"
+      :x="x - ((r || width) / 2)"
+      :y="y - ((r || height) / 2)"
       :width="r || width"
       :height="r || height"
       :stroke="strokeColor"
