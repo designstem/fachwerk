@@ -34,6 +34,9 @@ export { FPolygon };
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
+import FHexagon from "./components/2d/FHexagon.js";
+export { FHexagon };
+
 import FText from "./components/2d/FText.js";
 export { FText };
 

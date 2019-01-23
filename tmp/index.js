@@ -12,11 +12,9 @@ new Vue({
   methods: { ...utils },
   template: `                         
   <f-scene grid>
-  <f-grid />
-    <f-circle
-      :points="polarpoints()"
-    />
-    <f-point x="1" />
+
+
+    <f-hexagon r="2" />
    
   </f-scene>
 `

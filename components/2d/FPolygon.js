@@ -28,7 +28,7 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    points: { default: [], type: Array },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
