@@ -3,7 +3,6 @@ import { color, parseCoords } from "../../utils.js"
 
 export default {
   mixins: [Object2d],
-  methods: { log },
   description: `
 Description to be written.
 

@@ -1,6 +1,5 @@
 import { Object3D } from "./3d.js";
-import { color } from "../../utils.js";
-import { parseCoords } from "../../test/utils.js";
+import { color, parseCoords } from "../../utils.js";
 
 export default {
   mixins: [Object3D],
@@ -29,23 +28,23 @@ Description to be written.
     x2: { default: 0, type: [Number, String] },
     y2: { default: 0, type: [Number, String] },
     z2: { default: 0, type: [Number, String] },
-    points: { default: '', type: [String, Number, Array] },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('secondary')", type: String },
-    strokeWidth: { default: 3, type: [Number,String] },
+    strokeWidth: { default: 3, type: [Number, String] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 1, type: [Number,String] },
+    opacity: { default: 1, type: [Number, String] }
   },
   data() {
     let curObj = this.obj;
     if (!curObj) {
       const geometry = new THREE.Geometry();
       if (this.points) {
-        const points = parseCoords(this.points)
+        const points = parseCoords(this.points);
         points.forEach(p => {
-          geometry.vertices.push(new THREE.Vector3(...p))
-        })
+          geometry.vertices.push(new THREE.Vector3(...p));
+        });
       } else {
         geometry.vertices.push(new THREE.Vector3(this.x1, this.y1, this.z1));
         geometry.vertices.push(new THREE.Vector3(this.x2, this.y2, this.z2));
@@ -55,7 +54,7 @@ Description to be written.
           this.stroke == "color('secondary')" ? color("secondary") : this.stroke
         ),
         linewidth: this.strokeWidth,
-        opacity: this.opacity,
+        opacity: this.opacity
       });
       curObj = new THREE.Line(geometry, material);
     }

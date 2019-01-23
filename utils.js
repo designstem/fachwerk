@@ -944,6 +944,5 @@ export {
   receive,
   set,
   get,
-  parseCoords,
   utilsDocs
 };
