@@ -19,7 +19,7 @@ export default {
         :y2="innerY + innerHeight"
         :stroke="color('primary')"
         :stroke-width="1"
-        :opacity="opacity * 1.5"
+        :opacity="opacity * 1.25"
       />
       <f-line
         :x1="innerX"
@@ -28,7 +28,7 @@ export default {
         :y2="0"
         :stroke="color('primary')"
         :stroke-width="1"
-        :opacity="opacity * 1.5"
+        :opacity="opacity * 1.25"
       />
       <f-line
         v-for="(x,i) in range(innerX,innerX + innerWidth,step)"

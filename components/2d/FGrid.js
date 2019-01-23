@@ -18,7 +18,7 @@ Compared to \`<f-scene grid>\` it allows allows greater freedom to generate cust
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: [Number,String] },
+    opacity: { default: 0.2, type: [Number,String] },
   },
   template: `
   <f-group :transform="transform">
