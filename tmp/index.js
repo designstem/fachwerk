@@ -13,12 +13,11 @@ new Vue({
   template: `                         
   <f-scene grid>
   <f-grid />
-    <f-circle
+    <f-line
+      closed
       :points="polarpoints()"
     />
-    <f-circle
-      stroke="red"
-    />
+   
   </f-scene>
 `
 });

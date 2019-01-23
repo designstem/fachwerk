@@ -1,5 +1,5 @@
 import { Object2d } from "../../mixins.js";
-import { parseCoords } from "../../utils.js";
+import { parseCoords } from "../../test/utils.js";
 
 export default {
   mixins: [Object2d],
@@ -49,7 +49,7 @@ Description to be written.
     y1: { default: 0, type: [Number,String] },
     x2: { default: 0, type: [Number,String] },
     y2: { default: 0, type: [Number,String] },
-    points: { default: () => [], type: [Array,String] },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: "none", type: String },
@@ -63,38 +63,26 @@ Description to be written.
   },
   computed: {
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
-        if (Array.isArray(this.points[0])) {
-          return this.points.map(p => ({x: p[0],y: p[1]}))
-        }
-        return this.points
-      }
-      return this.points
+      return this.points ? parseCoords(this.points) : null;
     },
     path() {
       if (this.curved && this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 0))
+        return d3.line().curve(d3.curveCardinalClosed.tension(this.tension || 0))
       }
       if (this.curved && !this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinal.tension(this.tension || 0))
+        return d3.line().curve(d3.curveCardinal.tension(this.tension || 0))
       }
       if (!this.curved && this.closed) {
-        return d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(this.tension || 1))
+        return d3.line().curve(d3.curveCardinalClosed.tension(this.tension || 1))
       } 
-      return d3.line().x(d => d.x).y(d => d.y)
+      return d3.line()
     }
   },
   template: `
     <g :transform="transform">
-      <line
-        v-if="!currentPoints.length"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
+      <path
+        v-if="currentPoints"
+        :d="path(currentPoints)"
         :stroke="stroke"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
@@ -102,9 +90,12 @@ Description to be written.
         :fill="fill"
         :opacity="opacity"
       />
-      <path
-        v-if="currentPoints.length"
-        :d="path(currentPoints)"
+      <line
+        v-if="!currentPoints"
+        :x1="x1"
+        :y1="y1"
+        :x2="x2"
+        :y2="y2"
         :stroke="stroke"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
