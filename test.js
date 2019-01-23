@@ -2,8 +2,11 @@
 // node -r esm test.js
 // node -r esm test.js test_name_here
 
-import * as tests from "./test/tests.js";
-import { equal } from './utils.js'
+import * as coordinates from "./test/coordinates.js";
+const tests = {...coordinates}
+
+
+import { equal, shorten } from './utils.js'
 
 const reset = "\x1b[0m";
 const red = "\x1b[31m";
@@ -14,8 +17,6 @@ const dim = "\x1b[2m";
 
 console.log(`\n  ${dim}Running Fachwerk tests${reset}\n`);
 
-const shorten = (str,length = 50, suffix = '...') => 
-  `${str.slice(0, length)}${str.length - 1 > length ? suffix : '' }`
 
 const filteredKey = process.argv[2]
 

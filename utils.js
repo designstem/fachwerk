@@ -491,6 +491,11 @@ const join = function(arr) {
   return arr instanceof Array ? arr.join(" ") : Array.from(arguments).join(" ");
 };
 
+// TODO: document this
+
+export const shorten = (str,length = 50, suffix = '...') => 
+  `${str.slice(0, length)}${str.length - 1 > length ? suffix : '' }`
+
 // State
 
 u.state.send = `
