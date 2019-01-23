@@ -1,5 +1,4 @@
-import { deg2rad, parseCoords } from "../../utils.js";
-import { positionTransform3,rotationTransform3, scaleTransform3 } from '../../test/utils.js';
+import { deg2rad, positionTransform3,rotationTransform3, scaleTransform3 } from "../../utils.js";
 
 const Base = {
   inject: ["_baseUrl"],

@@ -1,6 +1,5 @@
 import { Object2d } from "../../mixins.js";
-import { color, log } from "../../utils.js"
-import { parseCoords } from '../../test/utils.js';
+import { color, parseCoords } from "../../utils.js"
 
 export default {
   mixins: [Object2d],

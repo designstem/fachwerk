@@ -3,7 +3,7 @@
 // node -r esm test.js test_name_here
 
 import * as tests from "./test/tests.js";
-import { equal } from './test/utils.js'
+import { equal } from './utils.js'
 
 const reset = "\x1b[0m";
 const red = "\x1b[31m";

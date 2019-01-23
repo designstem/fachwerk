@@ -1,5 +1,4 @@
-import { Object2d } from "../../mixins.js";
-import { parseCoords } from "../../test/utils.js";
+import { Object2d, parseCoords } from "../../mixins.js";
 
 export default {
   mixins: [Object2d],
