@@ -22,7 +22,7 @@ Description to be written.
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number,String] },
-    shading: { default: true, type: Boolean },
+    shading: { default: false, type: Boolean },
   },
   data() {
     let curObj = this.obj;

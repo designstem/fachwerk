@@ -36,7 +36,7 @@ The key building block of 3D graphics, this component draws a triangle in 3D spa
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number, String] },
-    shading: { default: false, type: Boolean }
+    shading: { default: true, type: Boolean }
   },
   data() {
     let curObj = this.obj;
