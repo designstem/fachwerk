@@ -28,14 +28,14 @@ Description to be written.
 </f-scene>
   `,
   props: {
-    points: { default: [], type: Array },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: Number },
     fill: { default: "none", type: String },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: [Number, String] },
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {

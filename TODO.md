@@ -2,6 +2,16 @@
 
 ## Fixes
 
+- utils shorten documentation
+- polarpoints => [0,0,0] ?
+- box3 stroke
+- unify 3 shading
+- box3 points?
+- circle3 points?
+- r for box3
+- scene3 grid
+- tests for . . ; . .
+- replace , with ' ' ?
 - remove style.css / other legacy
 - text input height = button
 - syntax hilight

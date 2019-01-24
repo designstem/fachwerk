@@ -1,5 +1,5 @@
 import { Object2d } from "../../mixins.js";
-import { color, parseCoords, log } from "../../utils.js"
+import { color, parseCoords } from "../../utils.js"
 
 export default {
   mixins: [Object2d],
@@ -13,10 +13,10 @@ Description to be written.
   <f-point x="1" y="1" />
 </f-scene>
 
-#### Multiple points as a comma-separated string
+#### Multiple points as a string
 
 <f-scene grid>
-  <f-point points="1 1, 1 -1, -1 -1, -1 1" />
+  <f-point points="1 1, 1 -1; -1 -1; -1 1" />
 </f-scene>
 
 #### Multiple points calculated by a function
@@ -39,36 +39,29 @@ Description to be written.
   props: {
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
-    points: { default: () => [], type: [Array,String] },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
-    position: { default: () => ({}), type: [Object,String] },
-    rotation: { default: () => ({}), type: [Object,String] },
-    scale: { default: () => ({}), type: [Object,String] },
-    opacity: { default: 1, type: Number },
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      } else
-      if (Array.isArray(this.points) && this.points.length && Array.isArray(this.points[0])) {
-        return parseCoords(this.points)
-      }
-      return this.points
-    },
-  },
-  methods: {
-    log
+      return this.points ? parseCoords(this.points) : null;
+    }
   },
   template: `
     <g :transform="transform">
       <f-line
-        v-if="!currentPoints.length"
-        :points="[{x, y},{x, y}]"
+        v-if="currentPoints"
+        v-for="(point,i) in currentPoints"
+        :key="i"
+        :points="[point,point]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"
         stroke-linecap="round"
@@ -76,10 +69,8 @@ Description to be written.
         :opacity="opacity"
       />
       <f-line
-        v-if="currentPoints.length"
-        v-for="point,i in currentPoints"
-        :key="i"
-        :points="[{x: point.x, y: point.y},{x: point.x, y: point.y}]"
+        v-if="!currentPoints"
+        :points="[[x, y],[x, y]]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"
         stroke-linecap="round"

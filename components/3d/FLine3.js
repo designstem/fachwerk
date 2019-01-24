@@ -1,5 +1,5 @@
 import { Object3D } from "./3d.js";
-import { color } from "../../utils.js";
+import { color, parseCoords } from "../../utils.js";
 
 export default {
   mixins: [Object3D],
@@ -22,28 +22,29 @@ Description to be written.
   `,
   mixins: [Object3D],
   props: {
-    x1: { default: 0, type: Number },
-    y1: { default: 0, type: Number },
-    z1: { default: 0, type: Number },
-    x2: { default: 0, type: Number },
-    y2: { default: 0, type: Number },
-    z2: { default: 0, type: Number },
-    points: { default: () => [], type: Array },
+    x1: { default: 0, type: [Number, String] },
+    y1: { default: 0, type: [Number, String] },
+    z1: { default: 0, type: [Number, String] },
+    x2: { default: 0, type: [Number, String] },
+    y2: { default: 0, type: [Number, String] },
+    z2: { default: 0, type: [Number, String] },
+    points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('secondary')", type: String },
-    strokeWidth: { default: 3, type: [Number,String] },
-    scale: { default: () => ({}), type: [Object, Number] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    opacity: { default: 3, type: [Number,String] }
+    strokeWidth: { default: 3, type: [Number, String] },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 1, type: [Number, String] }
   },
   data() {
     let curObj = this.obj;
     if (!curObj) {
       const geometry = new THREE.Geometry();
-      if (this.points.length) {
-        this.points.forEach(p => {
-          geometry.vertices.push(new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0));
-        })
+      if (this.points) {
+        const points = parseCoords(this.points);
+        points.forEach(p => {
+          geometry.vertices.push(new THREE.Vector3(...p));
+        });
       } else {
         geometry.vertices.push(new THREE.Vector3(this.x1, this.y1, this.z1));
         geometry.vertices.push(new THREE.Vector3(this.x2, this.y2, this.z2));
@@ -53,7 +54,7 @@ Description to be written.
           this.stroke == "color('secondary')" ? color("secondary") : this.stroke
         ),
         linewidth: this.strokeWidth,
-        opacity: this.opacity,
+        opacity: this.opacity
       });
       curObj = new THREE.Line(geometry, material);
     }

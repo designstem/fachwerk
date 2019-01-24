@@ -1,4 +1,4 @@
-import { cpoints } from "../../utils.js";
+import { polarpoints } from "../../utils.js";
 import { Object3D } from "./3d.js";
 
 export default {
@@ -31,7 +31,7 @@ Description to be written.
   </f-scene3>
   </f-animation>
   `,
-  methods: { cpoints },
+  methods: { polarpoints },
   props: {
     count: { default: 6, type: Number },
     r: { default: 1, type: Number },
@@ -40,15 +40,15 @@ Description to be written.
     stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "color('primary')", type: String },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: [Object, Number] },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number,String] },
     shading: { default: false, type: Boolean },
   },
   computed: {
     points() {
-      return cpoints(this.count, this.r)
+      return polarpoints(this.count, this.r)
     }
   },
   template: `

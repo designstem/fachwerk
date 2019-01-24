@@ -18,14 +18,14 @@ Description to be written.
   props: {
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
-    points: { default: () => [], type: Array },
+    points: { default: '', type: [String, Number, Array] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: 'none', type: String},
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
@@ -33,32 +33,26 @@ Description to be written.
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
-        return parseCoords(this.points)
-      }
-      return this.points
+     return this.points ? parseCoords(this.points) : null;
     },
   },
   template: `
     <f-group>
     <circle
-      v-if="currentPoints.length"
+      v-if="currentPoints"
       v-for="p,i in currentPoints"
       :key="i"
-      :cx="p.x || x"
-      :cy="p.y || y"
-      :r="p.r || r"
-      :stroke="p.stroke || strokeColor"
-      :stroke-width="p.strokeWidth || strokeWidth"
-      :fill="p.fill || fill"
+      :cx="p[0]"
+      :cy="p[1]"
+      :r="r"
+      :stroke="strokeColor"
+      :stroke-width="strokeWidth"
+      :fill="fill"
       :transform="transform"
-      :opacity="p.opacity || opacity"
+      :opacity="opacity"
     />
     <circle
-      v-if="!currentPoints.length"
+      v-if="!currentPoints"
       :cx="x"
       :cy="y"
       :r="r"

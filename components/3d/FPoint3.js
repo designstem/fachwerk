@@ -27,50 +27,41 @@ Description to be written.
     x: { default: 0, type: Number },
     y: { default: 0, type: Number },
     z: { default: 0, type: Number },
-    points: { default: () => [], type: [Array,String] },
+    points: { default: '', type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: Number },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
-    opacity: { default: 1, type: Number },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 1, type: [Number,String] },
   },
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
     currentPoints() {
-      if (typeof this.points == 'string') {
-        return parseCoords(this.points)
-      }
-      if (Array.isArray(this.points) && this.points.length) {
-        return parseCoords(this.points)
-      }
-      return this.points
-    },
+      return this.points ? parseCoords(this.points) : null;
+    }
   },
   template: `
     <f-group3>
       <f-line3
-        v-if="!currentPoints.length"
+        v-if="currentPoints"
+        v-for="(point,i) in currentPoints"
+        :key="i"
+        :points="[point,point]"
+        :stroke="strokeColor"
+        :stroke-width="strokeWidth"
+        :opacity="opacity"
+      />
+      <f-line3
+        v-if="!currentPoints"
         :x1="x"
         :y1="y"
         :z1="z"
         :x2="x"
         :y2="y"
         :z2="z"
-        :stroke="strokeColor"
-        :stroke-width="strokeWidth"
-        :opacity="opacity"
-      />
-      <f-line3
-        v-if="currentPoints.length"
-        v-for="point,i in currentPoints"
-        :key="i"
-        :points="[
-          {x: point.x, y: point.y, z: point.z},
-          {x: point.x, y: point.y, z: point.z}
-        ]"
         :stroke="strokeColor"
         :stroke-width="strokeWidth"
         :opacity="opacity"

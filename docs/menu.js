@@ -83,6 +83,7 @@ export default [
       { component: "FLine" },
       { component: "FCircle" },
       { component: "FBox" },
+      { component: "FHexagon" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },
       { component: "FGroup" },

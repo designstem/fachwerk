@@ -1,4 +1,4 @@
-import { cx, cy, deg2rad, parseCoords } from "../../utils.js";
+import { deg2rad, positionTransform3,rotationTransform3, scaleTransform3 } from "../../utils.js";
 
 const Base = {
   inject: ["_baseUrl"],
@@ -95,31 +95,10 @@ const Object3D = {
   methods: {
     setObj(obj) {
       obj.name = this.name || obj.name || obj.type;
-      if (typeof this.scale == 'string') {
-        this.scale = parseCoords(this.scale)[0]
-        this.scale.x = this.scale.x || 1
-        this.scale.y = this.scale.y || 1
-        this.scale.z = this.scale.z || 1
-      }
-      this.setScale(this.scale);
-      if (typeof this.position == 'string') {
-        this.position = parseCoords(this.position)[0]
-      }
-      Object.assign(obj.position, this.position);
-      if (this.rotation) {
-        if (typeof this.rotation == 'string') {
-          this.rotation = parseCoords(this.rotation)[0]
-        }
-        const rotation = {
-          x: this.rotation.x ? deg2rad(this.rotation.x) : 0,
-          y: this.rotation.y ? deg2rad(this.rotation.y) : 0,
-          z: this.rotation.z ? deg2rad(this.rotation.z) : 0
-        }
-        Object.assign(obj.rotation, rotation);
-      } else {
-        Object.assign(obj.rotation, this.rotation);
-      }
-      //Object.assign(obj.rotation, this.rotation)
+      Object.assign(obj.position, positionTransform3(this.position));
+      this.setScale(scaleTransform3(this.scale));
+      Object.assign(obj.position, positionTransform3(this.position));
+      Object.assign(obj.rotation, rotationTransform3(this.rotation));
       if (this.parentObj) {
         this.parentObj.add(obj);
       }

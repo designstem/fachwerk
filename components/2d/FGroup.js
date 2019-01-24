@@ -16,9 +16,10 @@ Groups child elements and applies geometric transformations to the group.
 </f-scene>
   `,
   props: {
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object }
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number,String] },
   },
   template: `
     <g :transform="transform">
