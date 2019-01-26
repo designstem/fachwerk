@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="app">
-
+    
     <f-keyboard
       alt
       character="p"
@@ -40,25 +40,22 @@
 
     <f-theme :theme="['light','dark','yellow'][get('theme',0)]">
 
-      <f-fetch-data url="./index.md">
-        <div slot-scope="data">
-          <f-content
-            v-if="get('mode', 0) == 2"
-            :content="data.value"
-            :style="{
-              '--content-padding': get('mode', 0) == 2 ? '4vw 6vw' : '',
-              '--base': get('mode', 0) == 2 ? 'calc(7px + 0.2vw)' : ''
-            }"
-            type="document"
-          ></f-content>
-          <f-content-editor
-            v-if="get('mode', 0) !== 2"
-            :content="data.value"
-            type="document"
-            :advanced="get('mode', 0)"
-          ></f-content-editor>
-        </div>
-      </f-fetch-data>
+      <f-content
+        v-if="get('mode', 0) == 2"
+        :content="content"
+        :style="{
+          '--content-padding': get('mode', 0) == 2 ? '4vw 6vw' : '',
+          '--base': get('mode', 0) == 2 ? 'calc(7px + 0.2vw)' : ''
+        }"
+        type="document"
+      ></f-content>
+
+      <f-content-editor
+        v-if="get('mode', 0) !== 2"
+        v-model="content"
+        type="document"
+        :advanced="get('mode', 0)"
+      ></f-content-editor>
 
     </f-theme>
 

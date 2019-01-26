@@ -10,7 +10,11 @@ new Vue({
   mixins: [Init],
   el: "#app",
   methods: Object.assign({}, utils),
+  data: { content: '' },
   mounted() {
+    fetch('./index.md')
+      .then(res => res.text())
+      .then(content => this.content = content)
     this.set('componentCount', Object.keys(components).length)
     this.set('utilsCount', Object.keys(utils).length)
   }

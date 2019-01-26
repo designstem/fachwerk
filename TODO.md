@@ -1,7 +1,67 @@
 # TODO
 
+- f-lathe3 
+ <f-scene dragpoints="0 0" grid v-on:input="dp => set('dragpoints, dp)">
+	
+  <f-circle slot="draggable" stroke="" />
+  
+  <f-line :points="get('points')" closed />
+  
+</f-scene>
+
+
+
+<f-scene>
+	
+  <f-box r="3" :points="get('points')" />
+  
+</f-scene>
+
+
+
+
+
+
+<f-scene
+  dragpoints="0 0"
+  grid
+  @update="{ mouse } => set('mouse', mouse)"
+>
+	
+  <f-circle slot="draggable" stroke="" />
+  
+  <f-line :points="get('points')" closed />
+  
+</f-scene>
+
+
+
+<f-scene>
+	
+  <f-box r="3" :points="get('points')" />
+  
+</f-scene>
+
+
+<f-artboard>
+	
+  <f-circle :position="get('mouse').map(({x, y}) => [scale(x,-2,2,0,1000),scale(y,-2,2,0,1000)]" 
+  :x="scale(get('mouse').x,-2,2,0,1000)"
+            
+            />
+  
+</f-artboard>
+
+
+
+
+
+
+
+
 ## Fixes
 
+- f-line3 closed
 - utils shorten documentation
 - polarpoints => [0,0,0] ?
 - box3 stroke
@@ -10,7 +70,9 @@
 - circle3 points?
 - r for box3
 - scene3 grid
+
 - tests for . . ; . .
+
 - replace , with ' ' ?
 - remove style.css / other legacy
 - text input height = button
@@ -360,3 +422,24 @@ const vue = () => Promise.resolve(Vue);
 
 export { require, vue, anime, marked, katex }
 ```
+- axis
+<f-scene3>
+  <f-group3 rotation="20 -10" scale="0.8">
+    <f-grid3 />
+  	<f-line3
+    	points="0 0 0; 2 0 0"
+     	:stroke="color('red')"
+      stroke-width="1"
+    />
+    <f-line3
+    	points="0 0; 0 2 0"
+     	:stroke="color('green')"
+      stroke-width="1"
+    />
+    <f-line3
+    	points="0 0; 0 0 2"
+     :stroke="color('blue')"
+      stroke-width="1"
+    />
+  </f-group3>
+</f-scene3>

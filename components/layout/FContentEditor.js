@@ -9,6 +9,7 @@ Creates a code editor with a live preview.
   `,
   props: {
     content: { default: "", type: String },
+    value: { default: "", type: String },
     type: {
       default: "slides",
       type: String,
@@ -25,6 +26,13 @@ Creates a code editor with a live preview.
       "content",
       content => {
         this.innerContent = content;
+      },
+      { immediate: true }
+    );
+    this.$watch(
+      "value",
+      value => {
+        this.innerContent = value;
       },
       { immediate: true }
     );
