@@ -1,3 +1,5 @@
+import { get as getValue, set as setValue, makeNumber } from '../../utils.js';
+
 export default {
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library. Supports most of the animation options AnimeJS provides.
@@ -34,6 +36,7 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
     alternate: { default: false, type: Boolean },
     easing: { default: "linear", type: String },
     integer: { default: false, type: Boolean },
+    set: { default: '', type: [String], description: 'Key for setting a global value' },
   },
   data: function() {
     return {
@@ -67,10 +70,14 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
     );
     this.$watch(
       "innerValue",
-      innerValue => {
-        this.$emit('value', this.integer ? Math.floor(this.innerValue) : this.innerValue)
+      function(innerValue) {
+        const value = this.integer ? Math.floor(innerValue) : innerValue
+        this.$emit('value', value)
+        if (this.set && this.$global) {
+          Vue.set(this.$global.$data.state, this.set, makeNumber(value));
+        }
       },
-      { immediate: true }
+      { immediate: false }
     );
   },
   render() {
