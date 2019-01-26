@@ -19,14 +19,14 @@ Description to be written.
     }
   },
   methods: {
-    handleClick(i) {
-      this.$emit('input',i);
-      this.$emit('value',i);
-      // if (this.set) {
-      //   setValue(this.set, i)
-      // }
-    },
-    setValue
+    setValue,
+    isActive(i) {
+      if (this.set) {
+        const index = this.$global.$data.state[this.set]
+        return index == undefined ? i == 0 : i == index
+      }
+      return i == this.value
+    }
   },
   template: `
     <div :style="{display: 'flex', marginLeft: '3px'}">
@@ -46,7 +46,7 @@ Description to be written.
           fontSize: '0.9rem',
           marginLeft: '-3px',
           cursor: 'pointer',
-          background: i === value ? 'var(--tertiary)' : 'none',
+          background: isActive(i) ? 'var(--tertiary)' : 'none',
         }"
         v-html="button"
       />
