@@ -48,6 +48,7 @@ Numeric slider.
       "innerValue",
       innerValue => {
         this.$emit('value', innerValue)
+        this.$emit('input', innerValue)
       },
       { immediate: true }
     );

@@ -72,6 +72,7 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
       "innerValue",
       function(innerValue) {
         const value = this.integer ? Math.floor(innerValue) : innerValue
+        this.$emit('input', value)
         this.$emit('value', value)
         if (this.set && this.$global) {
           Vue.set(this.$global.$data.state, this.set, makeNumber(value));
