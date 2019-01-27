@@ -18,7 +18,7 @@ Description to be written.
   props: {
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
-    points: { default: '', type: [String, Number, Array] },
+    points: { default: '', type: [String, Number, Array, Object] },
     r: { default: 1, type: [Number,String] },
     stroke: { default: "color('primary')", type: String},
     strokeWidth: { default: 3, type: [Number,String] },

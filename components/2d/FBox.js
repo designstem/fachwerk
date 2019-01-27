@@ -20,7 +20,7 @@ Description to be written.
   props: {
     x: { default: 0, type: [Number, String] },
     y: { default: 0, type: [Number, String] },
-    points: { default: "", type: [String, Number, Array] },
+    points: { default: '', type: [String, Number, Array, Object] },
     width: { default: 1, type: [Number, String] },
     height: { default: 1, type: [Number, String] },
     r: { default: '', type: [Number,String] },

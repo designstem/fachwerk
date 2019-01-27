@@ -49,7 +49,7 @@ Description to be written.
     y1: { default: 0, type: [Number,String] },
     x2: { default: 0, type: [Number,String] },
     y2: { default: 0, type: [Number,String] },
-    points: { default: "", type: [String, Number, Array] },
+    points: { default: '', type: [String, Number, Array, Object] },
     stroke: { default: "var(--primary)", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
     fill: { default: "none", type: String },
