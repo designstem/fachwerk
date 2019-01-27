@@ -11,11 +11,22 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `    
-<div>                     
-  <f-scene grid :points="[[1,1],[2,2]]">
-    <f-group slot-scope="{ mouse, points }">
-      <f-circle :points="mouse" />
-    </f-group>
+<div>      
+
+  <f-scene grid :points="[[-1,-1],[0,0],[1,1]]" @input="({ points }) => set('p', points)">
+    <f-line slot-scope="{ points }" :points="points" closed />
+  </f-scene>
+
+  <f-scene grid>
+    <f-grid-pattern>
+      <f-line
+        slot-scope="s"
+        :points="get('p',[])"
+        :fill="color('yellow')"
+        closed
+        opacity="0.5"
+      />
+    </f-grid-pattern>
   </f-scene>
 
 </div>

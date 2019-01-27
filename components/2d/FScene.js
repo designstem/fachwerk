@@ -1,4 +1,4 @@
-import { parseCoords, snapToGrid } from '../../utils.js'
+import { parseCoords, snapToGrid } from "../../utils.js";
 
 export default {
   description: `
@@ -24,34 +24,47 @@ export default {
       type: [Number, String],
       description: "Scene width in pixels"
     },
-    height: { default: 250, type: [Number, String],
-      description: "Scene height in pixels" },
-    grid: { default: false, type: [Boolean, String],
-      description: "Show background grid?" },
-    step: { default: 0.5, type: [Number, String],
-      description: "Background grid step" },
-      points: { default: '', type: [String, Number, Array, Object] },
-      snap: { default : false, type: Boolean }
+    height: {
+      default: 250,
+      type: [Number, String],
+      description: "Scene height in pixels"
+    },
+    grid: {
+      default: false,
+      type: [Boolean, String],
+      description: "Show background grid?"
+    },
+    step: {
+      default: 0.5,
+      type: [Number, String],
+      description: "Background grid step"
+    },
+    points: { default: "", type: [String, Number, Array, Object] },
+    snap: { default: false, type: Boolean },
+    set: { default: "", type: String }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
     handleDown(i) {
-      this.$set(this.currentPoints[i],'pressed',true)
+      this.$set(this.currentPoints[i], "pressed", true);
     },
     handleUp(i) {
-      this.$set(this.currentPoints[i],'pressed',false)
+      this.$set(this.currentPoints[i], "pressed", false);
     },
     finalPoints(mouse) {
-      const newPoints = this.currentPoints.map((p,i) => {
+      const newPoints = this.currentPoints.map((p, i) => {
         if (p.pressed) {
-          p.x = this.snap ? snapToGrid(points.x, this.step) : mouse.x
-          p.y = this.snap ? snapToGrid(mouse.y, this.step) : mouse.y
+          p.x = this.snap ? snapToGrid(mouse.x, this.step) : mouse.x;
+          p.y = this.snap ? snapToGrid(mouse.y, this.step) : mouse.y;
         }
-        return p
-      })
-      this.$emit('value', newPoints)
-      this.$emit('input', newPoints)
-      return newPoints
+        return p;
+      });
+      this.$emit("value", { mouse, points: newPoints || [] });
+      this.$emit("input", { mouse, points: newPoints || [] });
+      if (this.set) {
+        Vue.set(this.$global.$data.state, this.set, JSON.parse(JSON.stringify(newPoints)));
+      }
+      return newPoints;
     }
   },
   computed: {
@@ -66,14 +79,16 @@ export default {
     },
     innerY() {
       return this.innerHeight / -2;
-    },
+    }
   },
   mounted() {
-    const points = parseCoords(this.points).map(p => ({
-      x: p[0], y: p[1]
-    }))
-    console.log(points)
-    this.currentPoints = points
+    if (this.points) {
+      const points = parseCoords(this.points).map(p => ({
+        x: p[0],
+        y: p[1]
+      }));
+      this.currentPoints = points;
+    }
   },
   template: `
   <f-svg 
