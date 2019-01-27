@@ -69,7 +69,11 @@ export default {
     },
   },
   mounted() {
-    this.currentPoints = parseCoords(this.points)
+    const points = parseCoords(this.points).map(p => ({
+      x: p[0], y: p[1]
+    }))
+    console.log(points)
+    this.currentPoints = points
   },
   template: `
   <f-svg 
