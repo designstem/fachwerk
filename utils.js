@@ -888,7 +888,7 @@ export const equal = (c, d) => {
       if (Object.keys(a || {}).length !== Object.keys(b || {}).length) {
         return false;
       }
-      const merged = { ...a, ...b };
+      const merged = Object.assign(a,b);
       for (const key in merged) {
         if (!compare(a && a[key], b && b[key])) {
           return false;

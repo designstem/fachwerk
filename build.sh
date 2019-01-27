@@ -3,16 +3,15 @@
 # Temporary duplicates
 
 cp components.js framework.js
-cp styles.css style.css
 
 npx rollup --silent -f iife -i index.js | npx uglifyjs > build.js
 npx rollup --silent -f iife -i docs/index.js | npx uglifyjs > docs/build.js
 
 rm -f vendor.js
-curl -L https://unpkg.com/vue/dist/vue.js | npx uglifyjs >> vendor.js
+curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor.js
+curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor.js
-curl -L https://unpkg.com/animejs/anime.min.js >> vendor.js
 curl -L https://unpkg.com/d3 >> vendor.js
 curl -L https://unpkg.com/three/build/three.min.js >> vendor.js
 curl -L https://unpkg.com/codemirror | npx uglifyjs >> vendor.js
@@ -31,10 +30,10 @@ curl -L https://unpkg.com/codemirror/mode/gfm/gfm.js | npx uglifyjs >> vendor.js
 cat ./three_svg.js | npx uglifyjs >> vendor.js
 
 rm -f vendor_aframe.js
-curl -L https://unpkg.com/vue/dist/vue.js | npx uglifyjs >> vendor_aframe.js
+curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor.js
+curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor_aframe.js
-curl -L https://unpkg.com/animejs/anime.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/d3 >> vendor_aframe.js
 curl -L https://unpkg.com/aframe | npx uglifyjs >> vendor_aframe.js
 curl -L https://unpkg.com/aframe-rounded | npx uglifyjs >> vendor_aframe.js
