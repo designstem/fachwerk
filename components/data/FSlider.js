@@ -70,7 +70,7 @@ Numeric slider.
           v-if="set"
           style="margin-bottom: 1rem;"
           type="range"
-          value="getValue(set, 0)"
+          :value="getValue(set, 0)"
           @input="innerValue = makeNumber($event.target.value); setValue(set, makeNumber($event.target.value))"
           :min="from"
           :max="to"
