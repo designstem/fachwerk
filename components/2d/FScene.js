@@ -18,11 +18,11 @@ export default {
   `,
   props: {
     width: {
-      default: 250,
+      default: 300,
       type: [Number, String],
       description: "Scene width in pixels"
     },
-    height: { default: 250, type: [Number, String],
+    height: { default: 300, type: [Number, String],
       description: "Scene height in pixels" },
     grid: { default: false, type: [Boolean, String],
       description: "Show background grid?" },

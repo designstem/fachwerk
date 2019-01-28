@@ -117,6 +117,7 @@ export default [
       { component: "FRegularpolygon3" },
       { component: "FHedron3" },
       { component: "FPolyhedron3" },
+      { component: "FLathe3" },
       { component: "FGroup3" },
     ]
   },

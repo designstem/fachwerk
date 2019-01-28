@@ -1,5 +1,6 @@
 # TODO
 
+- scene3 renderer type
 - f-lathe3 
  <f-scene dragpoints="0 0" grid v-on:input="dp => set('dragpoints, dp)">
 	
