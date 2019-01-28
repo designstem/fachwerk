@@ -557,7 +557,7 @@ const set = function(key, value) {
       key = "value";
       value = arr[0];
     }
-    Vue.set(this.$global.$data.state, key, parseFloat(value));
+    Vue.set(this.$global.$data.state, key, JSON.parse(JSON.stringify(value)));
   }
   return null;
 };

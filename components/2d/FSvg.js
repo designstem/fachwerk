@@ -55,7 +55,7 @@ export default {
         @touchend="mousePressed = false"
     >
       <g :transform="transform" ref="f_svg_g">
-        <slot :value="[mouseX,mouseY,mousePressed]" />
+        <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
       </g>
     </svg>
   `,
