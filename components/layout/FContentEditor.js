@@ -18,42 +18,48 @@ Creates a code editor with a live preview.
     },
     advanced: {
       default: false, type: [Boolean,Number,String]
+    },
+    saveId: {
+      default: '1', type: String 
     }
   },
-  data: () => ({ innerContent: "" }),
+  data: () => ({ innerContent: "", saved: false }),
+  methods: {
+    handleSave() {
+      store.set(`content-editor-${this.saveId}`, this.innerContent)
+      this.saved = true
+    },
+    handleReset() {
+      store.remove(`content-editor-${this.saveId}`)
+      this.innerContent = this.content
+      this.saved = false
+    }
+  },
   mounted() {
     this.$watch(
       "content",
       content => {
-        this.innerContent = content;
-      },
-      { immediate: true }
-    );
-    this.$watch(
-      "value",
-      value => {
-        this.innerContent = value;
-      },
-      { immediate: true }
-    );
-    this.$watch(
-      "innerContent",
-      content => {
-        this.$emit('input', content)
+        const stored = store.get(`content-editor-${this.saveId}`)
+        this.innerContent = stored ? stored : content;
+        this.saved = !!stored 
       },
       { immediate: true }
     );
   },
   template: `
   <div class="content-editor">
-    <f-editor
-      v-if="!advanced"
-      v-model="innerContent"
-    />
-    <f-advanced-editor
-      v-if="advanced"
-      v-model="innerContent"
-    />
+    <div>
+      <button @click="handleSave">Local save</button>
+      <button v-if="saved" @click="handleReset">Reset to original</button>
+      <f-editor
+        v-if="!advanced"
+        v-model="innerContent"
+      />
+      <f-advanced-editor
+        v-if="advanced"
+        v-model="innerContent"
+      />
+    </div>
     <div>
       <slot :content="innerContent">
         <f-content

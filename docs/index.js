@@ -215,6 +215,7 @@ Function can be imported using Javascript import:
       type="slides"
       class="editor"
       :advanced="get('mode', 0)"
+      :save-id="activeIndex.join('-')"
     />
 
     <f-content
