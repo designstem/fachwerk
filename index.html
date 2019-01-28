@@ -53,6 +53,7 @@
       <f-content-editor
         v-if="get('mode', 0) !== 2"
         v-model="content"
+        :content="content"
         type="document"
         :advanced="get('mode', 0)"
       ></f-content-editor>

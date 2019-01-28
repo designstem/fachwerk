@@ -120,8 +120,6 @@ import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
 export { FPolyhedron3 };
 
 import FLathe3 from "./components/3d/FLathe3.js";
-console.log(FLathe3)
-
 export { FLathe3 };
 
 // Transitions
