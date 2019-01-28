@@ -9,7 +9,6 @@ Fetches data via AJAX.
   type="json"
 >
   <pre
-    style="width: 250px"
     slot-scope="data"
     v-html="'Berlin weather: ' + data.value.weather[0].main"
   />
