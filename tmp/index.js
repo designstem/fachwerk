@@ -11,26 +11,19 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `    
-  <div>                     
-  <f-scene3>
-    <f-group3 rotation="10 10">
-      <f-grid3 />
-      <f-triangle3
-        x1="1"
-        y1="1"
-        z1="0"
-        x2="1"
-        y2="0"
-        z2="1"
-        x3="1"
-        y3="-1"
-        z3="0"
-    /> 
-    </f-group3>
+  <div>            
+  <f-slider :value="get('x1')" @value="x => set('x1',x)" />
+  {{ parseFloat(get('x1', 1)) }}
+         
+  <f-scene3 :width="400" :height="500">
+    <f-group rotation="0 20 40">
+    <f-grid3 />
+    <f-lathe3
+      scale="0.5"
+      :points="range(-4,4,0.1).map(y => [Math.sin(y),y])"
+    />
+    </f-group>
   </f-scene3>
-  <f-scene grid>
-    <f-box />
-  </f-scene>
 </div>
 `
 });
