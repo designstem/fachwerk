@@ -4,8 +4,8 @@ export default {
   props: {
     innerX: { default: 0, type: [Number,String] },
     innerY: { default: 0, type: [Number,String] },
-    innerWidth: { default: 250, type: [Number,String] },
-    innerHeight: { default: 250, type:[Number,String] },
+    innerWidth: { default: 300, type: [Number,String] },
+    innerHeight: { default: 300, type:[Number,String] },
     step: { default: 25, type: [Number,String] },
     opacity: { default: 0.25, type: [Number,String] }
   },
