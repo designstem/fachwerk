@@ -1,5 +1,5 @@
 import { Object3D } from "./3d.js";
-import { parseCoords } from "../../utils.js"
+import { parseCoords } from "../../utils.js";
 
 export default {
   description: `
@@ -8,31 +8,42 @@ Description to be written.
 <f-scene3>
   <f-grid3 />
   <f-lathe3
+    renderer="webgl"
     scale="0.5"
+    count="12"
     :points="range(-4,4,0.1).map(y => [Math.sin(y),y])"
   />
 </f-scene3>
   `,
   mixins: [Object3D],
   props: {
-    points: { default: '', type: [String, Number, Array, Object] },
+    count: { default: 12, type: [String, Number] },
+    points: { default: "", type: [String, Number, Array, Object] },
+    fill: { default: "color('primary')", type: String },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 1, type: [Number,String] },
+    opacity: { default: 1, type: [Number, String] },
+    shading: { default: true, type: Boolean },
   },
   data() {
     let curObj = this.obj;
     if (!curObj) {
       const points = parseCoords(this.points).map(p => {
-        return new THREE.Vector2(...p)
-      })
-      var geometry = new THREE.LatheGeometry( points );
+        return new THREE.Vector2(...p);
+      });
+      // phiStart 0 (radians)
+      // phiLength 2PI (radians)
+      var geometry = new THREE.LatheGeometry(points, this.count);
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({
-          flatShading: true,
-          opacity: 0.8,
+        this.shading ? new THREE.MeshNormalMaterial({
+          opacity: this.opacity,
+          side: THREE.DoubleSide
+        })
+        : new THREE.MeshBasicMaterial({
+          color: this.fill == "color('primary')" ? color('primary') : this.fill,
+          opacity: this.opacity,
           side: THREE.DoubleSide
         })
       );

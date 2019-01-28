@@ -149,6 +149,7 @@ const Renderer = {
     };
   },
   props: {
+    renderer: { default: 'svg', type: String },
     size: {
       type: Object,
       required: true
@@ -159,8 +160,12 @@ const Renderer = {
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      curObj = new THREE.SVGRenderer({ antialias: true });
-      //curObj = new THREE.WebGLRenderer({ antialias: true });
+      if (this.renderer == 'svg') {
+        curObj = new THREE.SVGRenderer({ antialias: true });
+      }
+      if (this.renderer == 'webgl') {
+        curObj = new THREE.WebGLRenderer({ antialias: true });
+      }
       curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
