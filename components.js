@@ -119,6 +119,9 @@ export { FHedron3 };
 import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
 export { FPolyhedron3 };
 
+import FLathe3 from "./components/3d/FLathe3.js";
+export { FLathe3 };
+
 // Transitions
 
 import FFade from "./components/transitions/FFade.js";

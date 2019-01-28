@@ -34,6 +34,9 @@ export { FPolygon };
 import FRegularpolygon from "./components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
+import FHexagon from "./components/2d/FHexagon.js";
+export { FHexagon };
+
 import FText from "./components/2d/FText.js";
 export { FText };
 
@@ -115,6 +118,11 @@ export { FHedron3 };
 
 import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
 export { FPolyhedron3 };
+
+import FLathe3 from "./components/3d/FLathe3.js";
+console.log(FLathe3)
+
+export { FLathe3 };
 
 // Transitions
 

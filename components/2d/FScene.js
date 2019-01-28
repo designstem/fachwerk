@@ -20,7 +20,7 @@ export default {
   `,
   props: {
     width: {
-      default: 250,
+      default: 300,
       type: [Number, String],
       description: "Scene width in pixels"
     },

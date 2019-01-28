@@ -11,34 +11,6 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `    
-<div>      
-
-  <f-scene
-    grid
-    points="-1 -1; 1 -1; 1 1"
-    @input="({ points }) => set('p', points)"
-  >
-    <f-line
-      slot-scope="{ points }"
-      :points="points"
-      :fill="color('yellow')"
-      closed
-    />
-  </f-scene>
-
-  <f-scene grid>
-    <f-grid-pattern>
-      <f-line
-        slot-scope="p"
-        :points="get('p')"
-        :fill="color('yellow')"
-        closed
-        opacity="0.5"
-      />
-    </f-grid-pattern>
-  </f-scene>
-
-</div>
 `
 });
 
