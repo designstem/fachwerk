@@ -222,8 +222,9 @@ Function can be imported using Javascript import:
   </f-theme>
 
   <f-keyboard alt character="p" @keydown="preview = 1 - preview" />
-  <f-keyboard alt character="left" @keyup="send('prev')" />
-  <f-keyboard alt character="right" @keyup="send('next')" />
+  <f-keyboard alt character="s" @keydown="send('save')" />
+  <f-keyboard alt character="left" @keydown="send('prev')" />
+  <f-keyboard alt character="right" @keydown="send('next')" />
 
   <div class="footer">
     <div>
