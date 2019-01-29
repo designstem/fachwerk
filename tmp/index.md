@@ -12,17 +12,16 @@
 
 ### Adjust the wheel speed so it stops
 
-Rotation `speed` is 800 *milliseconds* per rotation. This is 0.8 *seconds*.
+Rotation `speed` is {{ get('speed') }} milliseconds per rotation. This is roughly {{ round(get('speed',0) / 1000,2) }} seconds.
 
-<f-slider set="speed" title="Speed" to="120" integer />
+<f-slider set="speed" title="Speed" to="2000" step="10" integer />
 
 <f-animation
 	:duration="1000 * 5"
-  title="Speed"
-  set="s" to="120"
+  set="s"
 />
 
-<div v-if="get('speed',0) == 60">
+<div v-if="get('speed',0) == 1000">
  
 Great! So it takes exactly 1 second to make the wheel stop. But why?
 
@@ -30,7 +29,7 @@ Great! So it takes exactly 1 second to make the wheel stop. But why?
 
 <f-inline>
   <f-prev-button/>
-	<f-next-button v-if="get('speed',0) == 60"/>
+	<f-next-button v-if="get('speed',0) == 1000"/>
 </f-inline>
 
 -
@@ -55,8 +54,7 @@ Great! So it takes exactly 1 second to make the wheel stop. But why?
 
 <f-animation
 	:duration="1000 * 5"
-  title="Speed"
-  set="s" to="120"
+  set="s"
 />
 
 <div v-if="get('count',22) == 60">
