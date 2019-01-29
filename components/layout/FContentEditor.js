@@ -38,7 +38,7 @@ Creates a code editor with a live preview.
     handleSave() {
       store.set(`content-editor-${this.saveId}`, this.innerContent);
       this.state = "saving";
-      this.timeout = setTimeout(() => (this.state = "saved"), 300);
+      this.timeout = setTimeout(() => (this.state = "saved"), 500);
     },
     handleReset() {
       store.remove(`content-editor-${this.saveId}`);
@@ -56,6 +56,10 @@ Creates a code editor with a live preview.
       },
       { immediate: true }
     );
+    if (this.$global) {
+      this.$global.$on("save", () => this.handleSave());
+      this.$global.$on("reset", () => this.handleReset());
+    }
   },
   unmounted() {
     clearTimeout(this.timeout);
