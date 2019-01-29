@@ -58,6 +58,7 @@ export default {
       tabSize: 2,
       lineNumbers: true,
       smartIndent: false,
+      undoLevels: 0
       //inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();
@@ -77,7 +78,9 @@ export default {
     });
   },
   template: `
-  <div ref="editor" />
+  <div style="position: relative;">
+    <div ref="editor" style="position: absolute; height: 100%; width: 100%;" />
+  </div>
   `,
   css: `
   .CodeMirror {
