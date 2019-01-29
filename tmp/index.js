@@ -11,7 +11,9 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-    <f-content-editor style="height: 100vh" />
+  <div>
+    <f-buttons :buttons="['A','B']" set="b" />
+    <f-content-editor :preview="get(b)" style="height: 100vh" />
 `
 });
 
