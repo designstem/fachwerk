@@ -10,6 +10,7 @@ npx rollup --silent -f iife -i docs/index.js | npx uglifyjs > docs/build.js
 rm -f vendor.js
 curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor.js
+curl -L https://unpkg.com/store@2.0.12/dist/store.modern.min.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor.js
 curl -L https://unpkg.com/d3 >> vendor.js
@@ -30,8 +31,9 @@ curl -L https://unpkg.com/codemirror/mode/gfm/gfm.js | npx uglifyjs >> vendor.js
 cat ./three_svg.js | npx uglifyjs >> vendor.js
 
 rm -f vendor_aframe.js
-curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor.js
-curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor.js
+curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor_aframe.js
+curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor_aframe.js
+curl -L https://unpkg.com/store@2.0.12/dist/store.modern.min.js | npx uglifyjs >> vendor_aframe.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/d3 >> vendor_aframe.js
@@ -49,7 +51,6 @@ curl -L https://unpkg.com/codemirror/mode/gfm/gfm.js | npx uglifyjs >> vendor_af
 #curl -L https://unpkg.com/prettier/parser-babylon.js | npx uglifyjs >> vendor_aframe.js
 #curl -L https://unpkg.com/prettier/parser-postcss.js | npx uglifyjs >> vendor_aframe.js
 #curl -L https://unpkg.com/prettier/parser-markdown.js | npx uglifyjs >> vendor_aframe.js
-
 cat ./three_svg.js | npx uglifyjs >> vendor_aframe.js
 
 # Offline
