@@ -17,6 +17,7 @@ new Vue({
     return {
       content: "",
       activeIndex: [0, 0],
+      menu: 0,
       preview: 0,
       theme: 0
     };
@@ -184,6 +185,10 @@ Function can be imported using Javascript import:
     <div>
     <f-inline>
         <f-buttons
+          :buttons="['Menu','No Menu']"
+          v-model="menu"
+        ></f-buttons>
+        <f-buttons
           :buttons="['Edit','Preview']"
           v-model="preview"
         ></f-buttons>
@@ -195,22 +200,25 @@ Function can be imported using Javascript import:
     </div>
   </header>
 
+
   <f-theme
     :theme="['light','dark','yellow'][theme]"
     class="docs"
   >
     <f-menu
+      v-if="!menu"
       :items="menuItems"
       v-model="activeIndex"
       class="menu"
     />
 
     <f-content-editor
+      class="editor"
       :content="content"
       :preview="preview"
       :save-id="activeIndex.join('-')"
     />
-
+    
   </f-theme>
 
   <div class="footer">

@@ -33,11 +33,13 @@ Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
     document.addEventListener("keydown", e => {
       if ((e.altKey || !this.alt) && (e.ctrlKey || !this.ctrl) && e.code == this.code) {
         this.$emit("keydown");
+        e.preventDefault();
       }
     });
     document.addEventListener("keyup", e => {
       if ((e.altKey || !this.alt) && (e.ctrlKey || !this.ctrl) && e.code == this.code) {
         this.$emit("keyup");
+        e.preventDefault();
       }
     });
   },

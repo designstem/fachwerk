@@ -105,7 +105,7 @@ Creates a code editor with a live preview.
   `,
   cssprops: {
     "--content-editor-min-height": {
-      default: "100vh",
+      default: "auto",
       description: "Editor minimum height"
     }
   },

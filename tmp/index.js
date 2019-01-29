@@ -10,28 +10,25 @@ new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
-  data: { preview: 0 },
+  data: { preview: 0, header: 1 },
   template: `
   <div>
-    <f-keyboard
-      alt
-      character="p"
-      @keydown="preview = 1 - preview"
-    />
-    <f-content-editor
-      :preview="preview"
-    />
+    <header v-if="header">
+      Sample content
+    </header>
+    <f-fetch-data url="./index.md">
+      <f-content-editor
+        slot-scope="{ value }"
+        :content="value"
+        :preview="preview"
+        style="--content-editor-min-height: 100vh"
+        save-id="playground"
+      />
+    </f-fetch-data>
+    <f-keyboard alt character="p" @keydown="preview = 1 - preview" />
+    <f-keyboard alt character="h" @keydown="header = 1 - header" />
+    <f-keyboard alt character="left" @keyup="send('prev')" />
+    <f-keyboard alt character="right" @keyup="send('next')" />
   </div>
 `
 });
-
-// new Vue({
-//   el: "#app",
-//   mixins: [Init],
-//   methods: { ...utils },
-//   template: `
-//   <f-fetch-data url="./index.md">
-//     <f-content slot-scope="data" :content="data.value" type="slides" />
-//   </f-fetch-data>
-// `
-// });
