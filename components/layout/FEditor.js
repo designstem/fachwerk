@@ -48,7 +48,6 @@ Technically it creates a \`<textarea>\` tag. For richer code editing experience,
         resize: none;
         width: 100%;
         padding: var(--base2);
-        min-height: 50vh;
       "
     />
   `

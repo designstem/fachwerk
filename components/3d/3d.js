@@ -56,19 +56,13 @@ const Object3D = {
     position: {
       deep: true,
       handler(v) {
-        Object.assign(this.curObj.position, v);
+        Object.assign(this.curObj.position, positionTransform3(v));
       }
     },
     rotation: {
       deep: true,
       handler(v) {
-        const degV = {
-          x: v.x ? deg2rad(v.x) : 0,
-          y: v.y ? deg2rad(v.y) : 0,
-          z: v.z ? deg2rad(v.z) : 0
-        }
-        Object.assign(this.curObj.rotation, degV);
-        //Object.assign(this.curObj.rotation, v)
+        Object.assign(this.curObj.rotation, rotationTransform3(v));
       }
     },
     obj(obj) {
@@ -95,10 +89,9 @@ const Object3D = {
   methods: {
     setObj(obj) {
       obj.name = this.name || obj.name || obj.type;
-      Object.assign(obj.position, positionTransform3(this.position));
+      Object.assign(this.curObj.position, positionTransform3(this.position));
+      Object.assign(this.curObj.rotation, rotationTransform3(this.rotation));
       this.setScale(scaleTransform3(this.scale));
-      Object.assign(obj.position, positionTransform3(this.position));
-      Object.assign(obj.rotation, rotationTransform3(this.rotation));
       if (this.parentObj) {
         this.parentObj.add(obj);
       }

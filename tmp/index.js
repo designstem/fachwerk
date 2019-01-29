@@ -10,7 +10,7 @@ new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
-  data: { preview: 0, header: 1 },
+  data: { preview: 0, header: 1, advanced: 1 },
   template: `
   <div>
     <header v-if="header">
@@ -21,6 +21,7 @@ new Vue({
         slot-scope="{ value }"
         :content="value"
         :preview="preview"
+        :advanced="advanced"
         style="--content-editor-min-height: 100vh"
         save-id="playground"
       />
@@ -28,7 +29,7 @@ new Vue({
     <f-keyboard alt character="p" @keyup="preview = 1 - preview" />
     <f-keyboard alt character="h" @keyup="header = 1 - header" />
     <f-keyboard alt character="s" @keydown="send('save')" />
-    <f-keyboard alt character="r" @keyup="send('reset')" />
+    <f-keyboard alt character="a" @keydown="advanced = 1 - advanced" />
     <f-keyboard alt character="left" @keydown="send('prev')" />
     <f-keyboard alt character="right" @keydown="send('next')" />
   </div>

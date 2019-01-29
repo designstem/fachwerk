@@ -82,6 +82,7 @@ Creates a code editor with a live preview.
         >{{ labels[state] }}</div>
       </div>
       <f-editor
+        class="basic"
         v-if="!advanced"
         v-model="innerContent"
       />
@@ -120,8 +121,11 @@ Creates a code editor with a live preview.
   .content-editor > .editor {
     flex: 1;
   }
+  .content-editor > .editor .basic {
+    min-height: var(--content-editor-min-height);
+  }
   .content-editor > .editor .CodeMirror {
-    height: var(--content-editor-min-height);
+    min-height: var(--content-editor-min-height);
   }
   .content-editor > .preview {
     flex: 1;
