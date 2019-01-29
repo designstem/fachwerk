@@ -28,7 +28,7 @@ Numeric slider.
     from: { default: 0, type: [Number,String] },
     to: { default: 360, type: [Number,String] },
     integer: { default: false, type: Boolean },
-    step: { default: 0.01, type: [Number,String] },
+    step: { default: '', type: [Number,String] },
     set: { default: '', type: [String], description: 'Key for setting a global value' },
   },
   data: function() {
@@ -64,7 +64,7 @@ Numeric slider.
           v-model="innerValue"
           :min="from"
           :max="to"
-          :step="!integer ? step : 1"
+          :step="step ? step : (integer ? 1 : 0.001)"
         />
         <input
           v-if="set"
@@ -74,7 +74,7 @@ Numeric slider.
           @input="innerValue = makeNumber($event.target.value); setValue(set, makeNumber($event.target.value))"
           :min="from"
           :max="to"
-          :step="!integer ? step : 1"
+          :step="step ? step : (integer ? 1 : 0.001)"
         />
       </div>
       <slot :value="innerValue" />

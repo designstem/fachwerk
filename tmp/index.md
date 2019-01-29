@@ -1,17 +1,87 @@
-# <big><big>Sample scenario</big></big>
+# <big><big>Frequency<br>& Movement</big></big>
 
-## This is the subheader
+### Learn about the beginnings of moving pictures, the art and the science behind it and why we are still so mesmerized watching those moving GIFs
 
-> #### Shortcuts
-> Press <kbd>Alt</kbd> <kbd>p</kbd> to switch between editing and preview modes.
-> Press <kbd>Alt</kbd> <kbd>s</kbd> to store a local copy of slides.
-> Press  <kbd>Alt</kbd> <kbd>h</kbd> to hide and show the header.
-> Press <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd> to navigate between slides.
-
-<f-next-button />
+# <f-next-button />
 
 ---
 
-# Second slide
+| 1 2 2
 
-<f-prev-button />
+## **1** Make is stop
+
+### Adjust the wheel speed so it stops
+
+Rotation `speed` is 800 *milliseconds* per rotation. This is 0.8 *seconds*.
+
+<f-slider set="speed" title="Speed" to="120" integer />
+
+<f-animation
+	:duration="1000 * 5"
+  title="Speed"
+  set="s" to="120"
+/>
+
+<div v-if="get('speed',0) == 60">
+ 
+Great! So it takes exactly 1 second to make the wheel stop. But why?
+
+</div>
+
+<f-inline>
+  <f-prev-button/>
+	<f-next-button v-if="get('speed',0) == 60"/>
+</f-inline>
+
+-
+
+<f-scene width="400" height="400">
+  <f-circle-pattern
+    :rotation="get('s',0)"
+    count="60"
+   	r="1.8"
+  >
+  <f-circle slot-scope="s" r="0.05" />
+ </f-circle-pattern>
+</f-scene>
+
+---
+
+## **2** Make is stop, again
+
+### Adjust the number of lines so the wheel stops
+
+<f-slider set="count" title="Number of elements" value="22" from="1" to="120" integer />
+
+<f-animation
+	:duration="1000 * 5"
+  title="Speed"
+  set="s" to="120"
+/>
+
+<div v-if="get('count',22) == 60">
+ 
+Wow! It stopped exactly at `60 lines`. <i>Why</i>? Let's figure it out in the next step.
+
+Lets move to the next step to figure it out.
+
+</div>
+
+<f-inline>
+  <f-prev-button/>
+	<f-next-button v-if="get('speed',0) == 60"/>
+</f-inline>
+
+-
+
+<f-scene width="400" height="400">
+  <f-circle-pattern
+    :rotation="get('s',0)"
+    count="60"
+   	r="1.8"
+  >
+  <f-circle slot-scope="s" r="0.05" />
+ </f-circle-pattern>
+</f-scene>
+
+			

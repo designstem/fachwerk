@@ -57,6 +57,8 @@ export default {
       viewportMargin: Infinity,
       tabSize: 2,
       lineNumbers: true,
+      smartIndent: false,
+      //inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();
     this.$watch(

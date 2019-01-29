@@ -20,9 +20,9 @@ Repeats the contents in a shifted rectangular grid.
     step: { default: 1, type: [Number,String] },
     width: { default: 4, type: [Number,String] },
     height: { default: 4, type: [Number,String] },
-    position: { default: () => ({}), type: Object },
-    rotation: { default: () => ({}), type: Object },
-    scale: { default: () => ({}), type: Object },
+    position: { default: '0 0', type: [String, Number, Object, Array] },
+    rotation: { default: '0', type: [String, Number, Object, Array] },
+    scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: Number }
   },
   methods: { range },
