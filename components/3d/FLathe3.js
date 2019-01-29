@@ -5,13 +5,12 @@ export default {
   description: `
 Description to be written.
 
-<f-scene3>
+<f-scene3 renderer="webgl">
   <f-grid3 />
   <f-lathe3
-    renderer="webgl"
     scale="0.5"
     count="12"
-    :points="range(-4,4,0.1).map(y => [Math.sin(y),y])"
+    :points="range(-Math.PI,Math.PI,0.25).map(y => [Math.sin(y),y])"
   />
 </f-scene3>
   `,

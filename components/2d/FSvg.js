@@ -3,8 +3,8 @@ import { Css } from '../../mixins.js'
 export default {
   mixins: [Css],
   props: {
-    width: { default: 250, type: [Number,String] },
-    height: { default: 250, type: [Number,String] },
+    width: { default: 300, type: [Number,String] },
+    height: { default: 300, type: [Number,String] },
     innerX: { default: 0, type: [Number,String] },
     innerY: { default: 0, type: [Number,String] },
     innerWidth: { default: null, type: [Number,String] },
