@@ -53,31 +53,6 @@ Shows Markdown content.
       { immediate: true }
     );
 
-    // const savedContent = JSON.parse(
-    //   localStorage.getItem(`f-content-slides-${this.autosaveId}`)
-    // );
-    // if (savedContent) {
-    //   this.currentIndex = savedContent.currentIndex;
-    // }
-
-    // this.$watch("currentIndex", currentIndex => {
-    //   localStorage.setItem(
-    //     `f-content-slides-${this.autosaveId}`,
-    //     JSON.stringify({ currentIndex })
-    //   );
-    // });
-
-    // document.addEventListener("keydown", e => {
-    //   if (e.altKey && e.keyCode == 37) {
-    //     e.preventDefault();
-    //     this.prev();
-    //   }
-    //   if (e.altKey && e.keyCode == 39) {
-    //     e.preventDefault();
-    //     this.next();
-    //   }
-    // });
-
     if (this.$global) {
       this.$global.$on("next", () => this.next());
       this.$global.$on("prev", () => this.prev());
