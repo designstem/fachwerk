@@ -48,9 +48,12 @@ Creates a code editor with a live preview.
   },
   template: `
   <div class="content-editor">
-    <div>
-      <button @click="handleSave">Local save</button>
-      <button v-if="saved" @click="handleReset">Reset to original</button>
+    <div class="editor">
+      <div class="toolbar">
+        <button v-if="saved" style="opacity: 0.3" @click="handleReset">Reset to original</button>
+        <span v-if="!saved" />
+        <button @click="handleSave" :style="{ opacity: saved ? 1 : 0.5}">Local save</button>
+      </div>
       <f-editor
         v-if="!advanced"
         v-model="innerContent"
@@ -80,8 +83,20 @@ Creates a code editor with a live preview.
   .content-editor {
     display: flex;
   }
-  .content-editor > * {
-    flex: 1;
+  .content-editor .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--paleblue);
+  }
+  .content-editor button {
+    border: none;
+    background: none;
+    font-size: calc(var(--base) * 1.75);
+    font-family: var(--font-sansserif);
+    font-weight: normal;
+    color: var(--white);
+    padding: var(--base) calc(var(--base) * 1.75) 0 calc(var(--base) * 1.75);
   }
   @media (max-width: 800px) {
     .content-editor {

@@ -10,7 +10,8 @@ new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
-  template: `    
+  template: `
+    <f-content-editor style="height: 100vh" />
 `
 });
 
