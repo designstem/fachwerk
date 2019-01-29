@@ -10,10 +10,18 @@ new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
+  data: { preview: 0 },
   template: `
   <div>
-    <f-buttons :buttons="['A','B']" set="b" />
-    <f-content-editor :preview="get(b)" style="height: 100vh" />
+    <f-keyboard
+      alt
+      character="p"
+      @keydown="preview = 1 - preview"
+    />
+    <f-content-editor
+      :preview="preview"
+    />
+  </div>
 `
 });
 

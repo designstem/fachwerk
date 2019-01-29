@@ -10,7 +10,7 @@ new Vue({
   mixins: [Init],
   el: "#app",
   methods: Object.assign({}, utils),
-  data: { content: '' },
+  data: { content: '', preview: 0 },
   mounted() {
     fetch('./index.md')
       .then(res => res.text())

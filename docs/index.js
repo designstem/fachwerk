@@ -16,10 +16,9 @@ new Vue({
   data: function() {
     return {
       content: "",
-      wide: false,
       activeIndex: [0, 0],
-      previews: [components.FContentDocument, components.FContentSlides],
-      activePreview: 0
+      preview: 0,
+      theme: 0
     };
   },
   computed: {
@@ -172,34 +171,32 @@ Function can be imported using Javascript import:
   <f-keyboard
       alt
       character="p"
-      v-on:keydown="set('preview', 1 - get('preview', 0))"
+      v-on:keydown="preview = 1 - preview"
   ></f-keyboard>
 
   <header>
-      <div>
-        <a href="..">Fachwerk</a>&nbsp;&nbsp; 
-        <a href=".">Docs</a>&nbsp;&nbsp; 
-        <a href="https://github.com/designstem/templates" target="_blank">Templates</a>&nbsp;&nbsp; 
-        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
-      </div>
-      <div>
-        <f-inline>
-          <f-buttons
-            :buttons="['Regular editor','Pro editor | BETA','Preview']"
-            :value="get('mode', 0)"
-            v-on:input="i => set('mode', i)"
-          />
-          <f-buttons
-            :buttons="['Light','Dark','Yellow']"
-            :value="get('theme', 0)"
-            v-on:input="i => set('theme', i)"
-          />
-        </f-inline>
-      </div>
+    <div>
+      <a href="..">Fachwerk</a>&nbsp;&nbsp; 
+      <a href=".">Docs</a>&nbsp;&nbsp; 
+      <a href="https://github.com/designstem/templates" target="_blank">Templates</a>&nbsp;&nbsp; 
+      <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
+    </div>
+    <div>
+    <f-inline>
+        <f-buttons
+          :buttons="['Edit','Preview']"
+          v-model="preview"
+        ></f-buttons>
+        <f-buttons
+          :buttons="['Light','Dark','Yellow']"
+          v-model="theme"
+        ></f-buttons>
+      </f-inline>
+    </div>
   </header>
 
   <f-theme
-    :theme="['light','dark','yellow'][get('theme',0)]"
+    :theme="['light','dark','yellow'][theme]"
     class="docs"
   >
     <f-menu
@@ -209,24 +206,9 @@ Function can be imported using Javascript import:
     />
 
     <f-content-editor
-      v-show="get('mode', 0) !== 2"
       :content="content"
-      @input="content => this.content = content"
-      type="slides"
-      class="editor"
-      :advanced="get('mode', 0)"
+      :preview="preview"
       :save-id="activeIndex.join('-')"
-    />
-
-    <f-content
-      v-show="get('mode', 0) == 2"
-      type="slides"
-      :content="content"
-      class="editor"
-      :style="{
-        '--content-padding': get('mode', 0) == 2 ? 'calc(var(--base) * 8) 10vw' : '',
-        '--base': get('mode', 0) == 2 ? 'calc(7px + 0.2vw)' : ''
-      }"
     />
 
   </f-theme>

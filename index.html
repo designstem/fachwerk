@@ -25,9 +25,8 @@
       <div>
         <f-inline>
           <f-buttons
-            :buttons="['Regular editor','Pro editor | BETA','Preview']"
-            :value="get('mode', 0)"
-            v-on:input="i => set('mode', i)"
+            :buttons="['Edit','Preview']"
+            v-model="preview"
           ></f-buttons>
           <f-buttons
             :buttons="['Light','Dark','Yellow']"
@@ -40,22 +39,11 @@
 
     <f-theme :theme="['light','dark','yellow'][get('theme',0)]">
 
-      <f-content
-        v-if="get('mode', 0) == 2"
-        :content="content"
-        :style="{
-          '--content-padding': get('mode', 0) == 2 ? '4vw 6vw' : '',
-          '--base': get('mode', 0) == 2 ? 'calc(7px + 0.2vw)' : ''
-        }"
-        type="document"
-      ></f-content>
-
       <f-content-editor
-        v-if="get('mode', 0) !== 2"
-        v-model="content"
         :content="content"
         type="document"
-        :advanced="get('mode', 0)"
+        :preview="preview"
+        save-id="frontpage"
       ></f-content-editor>
 
     </f-theme>
