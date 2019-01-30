@@ -14,9 +14,6 @@ found in
                <FTheme>
                  <Root>
 
-## CSS
-
-- details styling
 
 ## Reorg fixes
 
@@ -40,10 +37,12 @@ src/css/variables.js?
 src/css/html.js?
 src/css/grid.js?
 ```
+- move stlExport from 3d to utils
+- polary??
+- utils shorten documentation
 
 ## Content
 
-- props innerWidth
 - https://en.wikibooks.org/wiki/LaTeX/Mathematics
 - VR components
 <f-image>
@@ -61,11 +60,6 @@ src/css/grid.js?
 </f-images>
 - f-youtube / f-vimeo?
 
-## Utils
-
-- polary??
-- move stlEsport from 3d to utils
-- utils shorten documentation
 
 ## 2D
 
@@ -75,7 +69,6 @@ src/css/grid.js?
 - f-slide-transition / f-fade-transition?
 - f-compare-image / f-split-image
 - f-colorblind-image
-
 - Pager for slider < o o o o o * o >
 
 ## 3D
