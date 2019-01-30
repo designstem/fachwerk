@@ -96,7 +96,7 @@ export default [
     title: "📦2D patterns",
     items: [
       { component: "FGridPattern" },
-      { component: "FShiftPattern" },
+      { component: "FBrickPattern" },
       { component: "FHexPattern" },
       { component: "FCirclePattern" },
       { component: "FSpinPattern" },

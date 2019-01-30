@@ -56,9 +56,9 @@ export { FGridPattern };
 import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FShiftPattern from "./components/2dpattern/FShiftPattern.js";
-export { FShiftPattern };
-import FRepeatShift from "./components/2dpattern/FShiftPattern.js";
+import FBrickPattern from "./components/2dpattern/FBrickPattern.js";
+export { FBrickPattern };
+import FRepeatShift from "./components/2dpattern/FBrickPattern.js";
 export { FRepeatShift };
 
 import FHexPattern from "./components/2dpattern/FHexPattern.js";

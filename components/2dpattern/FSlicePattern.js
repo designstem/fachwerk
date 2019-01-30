@@ -9,15 +9,19 @@ Clips the children element and rotating each towards the center of the circle.
 When \`:count="2"\`, the children element is horizontally mirrored around x axis, similar to \`<f-mirror-x>\`
 
 <f-scene grid>
-  <f-box
-    :rotation="{z:10}"
-    opacity="0.5"
+	<f-line
+  	v-for="p in polarpoints()"
+    :y2="p.y"
+    :x2="p.x"
+    opacity="0.25"
   />
   <f-slice-pattern>
-    <f-box
-      :rotation="{z:10}"
-      :stroke="color('red')"/>
-    />
+    <f-rotation>
+      <f-box
+        :rotation="10"
+        :stroke="color('red')"/>
+      />
+    </f-rotation>
   </f-slice-pattern>
 </f-scene>
   `,
@@ -43,10 +47,10 @@ When \`:count="2"\`, the children element is horizontally mirrored around x axis
       <clipPath :id="id1">
         <polygon
           :points="[
-            {x: 0, y: 0},
-            {x: polarpoints(count,r)[0].x, y: polarpoints(count,r)[0].y },
-            {x: polarpoints(count,r)[1].x, y: polarpoints(count,r)[1].y }
-          ].map(p => p.x + ',' + p.y).join(' ')"
+            [0,0],
+            [polarpoints(count,r)[0].x, polarpoints(count,r)[0].y],
+            [polarpoints(count,r)[1].x, polarpoints(count,r)[1].y]
+          ]"
         />
       </clipPath>
       <clipPath :id="id2">
@@ -62,7 +66,7 @@ When \`:count="2"\`, the children element is horizontally mirrored around x axis
       v-if="count > 2"
       v-for="(a,i) in range(0,360,360 / count)"
       :key="i"
-      :rotation="{z: a}"
+      :rotation="a"
       :clip-path="'url(#' + id1 + ')'"
     >
       <slot :value="i" />

@@ -2,9 +2,8 @@
 
 ## Now
 
+- spin slice are broken
 - Decide ; / ,
-- menu top() fix
-- f-brick-pattern
 - event goto(1)
 - text input height = button
 - input text styling
@@ -75,7 +74,6 @@ src/css/grid.js?
 
 ## 2D
 
-- dashed lines?
 - f-axis transforms
 - f-arc
 - f-triangle
@@ -171,6 +169,7 @@ export const downloadJson = (json, filename) => {
 
 ## Maybe
 
+- dashed lines?
 - FMarkdown2 (remark / rehype)?
 - f-leftarrow-icon / f-rightarrow-icon?
 - f-toggle (o )

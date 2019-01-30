@@ -7,13 +7,14 @@ export default {
 Repeats elements along the circle, rotating each towards the center of the circle.
 
 <f-scene grid>
-  <f-box />
   <f-spin-pattern>
     <f-box
       slot-scope="data"
       :stroke="color('red')"
     />
+    <f-box />
   </f-spin-pattern>
+  <f-box />
 </f-scene>
   `,
   props: {
@@ -33,9 +34,9 @@ Repeats elements along the circle, rotating each towards the center of the circl
     <f-group
       v-for="(a,i) in range(0,360,360 / count)"
       :key="i"
-      :rotation="{z: a}"
+      :rotation="a"
     >
-      <f-group :position="{x: r}">
+      <f-group :position="[r,0]">
         <slot :value="i" />
       </f-group>
     </f-group>
