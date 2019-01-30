@@ -43,6 +43,9 @@ export { FText };
 import FArtboard from "./components/2d/FArtboard.js";
 export { FArtboard };
 
+import FRotation from "./components/2d/FRotation.js";
+export { FRotation };
+
 // Patterns
 
 import FGridPattern from "./components/2dpattern/FGridPattern.js";
@@ -121,6 +124,9 @@ export { FPolyhedron3 };
 
 import FLathe3 from "./components/3d/FLathe3.js";
 export { FLathe3 };
+
+import FRotation3 from "./components/3d/FRotation3.js";
+export { FRotation3 };
 
 // Transitions
 

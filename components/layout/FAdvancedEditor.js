@@ -50,16 +50,17 @@ export default {
 //     }
   },
   mounted() {
-    this.editor = CodeMirror(this.$refs.editor, {
+    this.editor = CodeMirror.fromTextArea(this.$refs.editor, {
       mode: "gfm",
       theme: "material",
       lineWrapping: true,
-      viewportMargin: Infinity,
+      //viewportMargin: Infinity,
+      viewportMargin: 20,
       tabSize: 2,
       lineNumbers: true,
       smartIndent: false,
-      undoLevels: 0
-      //inputStyle: 'contenteditable'
+      //undoLevels: 0
+      inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();
     this.$watch(
@@ -78,9 +79,7 @@ export default {
     });
   },
   template: `
-  <div style="position: relative;">
-    <div ref="editor" style="position: absolute; height: 100%; width: 100%;" />
-  </div>
+    <textarea ref="editor" />
   `,
   css: `
   .CodeMirror {
@@ -89,6 +88,8 @@ export default {
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
     height: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;

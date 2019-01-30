@@ -122,10 +122,10 @@ Creates a code editor with a live preview.
     flex: 1;
   }
   .content-editor > .editor .basic {
-    min-height: var(--content-editor-min-height);
+    height: var(--content-editor-min-height);
   }
   .content-editor > .editor .CodeMirror {
-    min-height: var(--content-editor-min-height);
+    height: var(--content-editor-min-height);
   }
   .content-editor > .preview {
     flex: 1;

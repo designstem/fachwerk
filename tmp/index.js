@@ -6,32 +6,37 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+import { Css } from '../../mixins.js'
+
+const FRotation3 = {
+  props: {
+    duration: { default: 50000, type: [Number, String]
+  },
+  template: `
+  <f-animation :duration="duration">
+    <f-group3
+      slot-scope="{ value }"
+      :rotation="[value,value,value]"
+    >
+      <slot  />
+    </f-group3>
+  </f-animation>
+  `
+}
+
 new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
-  data: { preview: 0, header: 1, advanced: 1 },
+  components: { FRotation3 },
   template: `
-  <div>
-    <header v-if="header">
-      Sample content
-    </header>
-    <f-fetch-data url="./index.md">
-      <f-content-editor
-        slot-scope="{ value }"
-        :content="value"
-        :preview="preview"
-        :advanced="advanced"
-        style="--content-editor-min-height: 100vh"
-        save-id="playground"
-      />
-    </f-fetch-data>
-    <f-keyboard alt character="p" @keyup="preview = 1 - preview" />
-    <f-keyboard alt character="h" @keyup="header = 1 - header" />
-    <f-keyboard alt character="s" @keydown="send('save')" />
-    <f-keyboard alt character="a" @keydown="advanced = 1 - advanced" />
-    <f-keyboard alt character="left" @keydown="send('prev')" />
-    <f-keyboard alt character="right" @keydown="send('next')" />
-  </div>
+<f-scene3>
+  <FRotation3>
+  <f-grid3 />
+  <f-lathe3
+    points="1 1 ; -1 -1"
+  />
+  </FRotation3>
+</f-scene3>
 `
 });
