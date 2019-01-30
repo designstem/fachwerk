@@ -1,8 +1,28 @@
 import { Init, Css } from "../mixins.js";
 import * as components from "../components.js";
-import * as utils from "../utils.js";
 
-const { kebabCase, titleCase, utilsDocs } = utils
+import * as colors from "../src/utils/colors.js";
+
+const help = [{ colors }].map(g =>
+  Object.entries(g).map(([group, module]) => [
+    group,
+    Object.entries(module)
+      .filter(([key, value]) => key.endsWith("_help"))
+      .map(([key, value]) => [key.replace('_help',''),value()])
+  ])
+);
+
+import * as utils from "../utils.js";
+const { kebabCase, titleCase, utilsDocs } = utils;
+
+
+
+// const help = [{ colors }].map(g =>
+//   Object.entries(group).filter(([key, value]) => key.endsWith("help")).map(([key, value]) => value())
+// );
+
+console.log(help);
+
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -24,25 +44,24 @@ new Vue({
   },
   computed: {
     menuItems() {
-      return menu
-        .map(m => {
-          m.items = m.items.map(i => {
-            i.title = i.component ? `${kebabCase(i.component)}` : i.title;
-            i.disabled = !!i.tbd;
-            return i;
-          });
-          return m;
-        })
-        .concat(
-          Object.entries(utilsDocs()).map(([tag, items]) => {
-            return {
-              title: `🍴${titleCase(tag)} utilities`,
-              utils: true,
-              tag,
-              items: Object.keys(items).map(i => ({ title: i }))
-            };
-          })
-        );
+      return menu.map(m => {
+        m.items = m.items.map(i => {
+          i.title = i.component ? `${kebabCase(i.component)}` : i.title;
+          i.disabled = !!i.tbd;
+          return i;
+        });
+        return m;
+      });
+      // .concat(
+      //   Object.entries(utilsDocs()).map(([tag, items]) => {
+      //     return {
+      //       title: `🍴${titleCase(tag)} utilities`,
+      //       utils: true,
+      //       tag,
+      //       items: Object.keys(items).map(i => ({ title: i }))
+      //     };
+      //   })
+      // );
     },
     activeMenu() {
       return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
@@ -58,7 +77,9 @@ new Vue({
     propsTable(props) {
       return Object.entries(props).map(p => ({
         Name: `\`${kebabCase(p[0])}\``,
-        Default: p[1].default ? `\`${String(p[1].default).replace(/'primary'/,'"primary"')}\`` : "",
+        Default: p[1].default
+          ? `\`${String(p[1].default).replace(/'primary'/, '"primary"')}\``
+          : "",
         Type: `\`${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
         }\``,
