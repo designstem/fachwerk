@@ -13,6 +13,9 @@ export { FScene };
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 
+import FAxis from "./components/2d/FAxis.js";
+export { FAxis };
+
 import FGroup from "./components/2d/FGroup.js";
 export { FGroup };
 
@@ -43,6 +46,9 @@ export { FText };
 import FArtboard from "./components/2d/FArtboard.js";
 export { FArtboard };
 
+import FRotation from "./components/2d/FRotation.js";
+export { FRotation };
+
 // Patterns
 
 import FGridPattern from "./components/2dpattern/FGridPattern.js";
@@ -50,9 +56,9 @@ export { FGridPattern };
 import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FShiftPattern from "./components/2dpattern/FShiftPattern.js";
-export { FShiftPattern };
-import FRepeatShift from "./components/2dpattern/FShiftPattern.js";
+import FBrickPattern from "./components/2dpattern/FBrickPattern.js";
+export { FBrickPattern };
+import FRepeatShift from "./components/2dpattern/FBrickPattern.js";
 export { FRepeatShift };
 
 import FHexPattern from "./components/2dpattern/FHexPattern.js";
@@ -92,6 +98,9 @@ export { FBox3 };
 import FGrid3 from "./components/3d/FGrid3.js";
 export { FGrid3 };
 
+import FAxis3 from "./components/3d/FAxis3.js";
+export { FAxis3 };
+
 import FGroup3 from "./components/3d/FGroup3.js";
 export { FGroup3 };
 
@@ -121,6 +130,9 @@ export { FPolyhedron3 };
 
 import FLathe3 from "./components/3d/FLathe3.js";
 export { FLathe3 };
+
+import FRotation3 from "./components/3d/FRotation3.js";
+export { FRotation3 };
 
 // Transitions
 
@@ -163,23 +175,6 @@ export { FReceiveData };
 import FKeyboard from "./components/data/FKeyboard.js";
 export { FKeyboard };
 
-// Depreciated
-
-import FButtonsData from "./components/depreciated/FButtonsData.js";
-export { FButtonsData };
-
-import FKeyboardData from "./components/depreciated/FKeyboardData.js";
-export { FKeyboardData };
-
-// import FRgbData from "./components/depreciated/FRgbData.js";
-// export { FRgbData };
-
-// import FHslData from "./components/depreciated/FHslData.js";
-// export { FHslData };
-
-// import FRotationData from "./components/depreciated/FRotationData.js";
-// export { FRotationData };
-
 // Content
 
 import FMath from "./components/layout/FMath.js";
@@ -213,12 +208,6 @@ export { FTheme };
 
 import FContent from "./components/layout/FContent.js";
 export { FContent };
-
-import FContentDocument from "./components/layout/FContentDocument.js";
-export { FContentDocument };
-
-import FContentSlides from "./components/layout/FContentSlides.js";
-export { FContentSlides };
 
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };

@@ -6,30 +6,22 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import FAxis from './components/FAxis.js'
-import FAxis3 from './components/FAxis3.js'
-
 new Vue({
   el: "#app",
-  components: { FAxis, FAxis3 },
+  components: { },
   mixins: [Init],
   methods: { ...utils },
   template: `
 <div>
 
-<f-scene>
-  <f-rotation duration="10000">
-    <f-grid />
-    <f-axis />
-    </f-rotation>
-</f-scene>
+<f-slider set="a" />
 
-<f-scene3>
-  <f-rotation3 duration="10000">
-    <f-grid3 />
-    <f-axis3 />
-  </f-rotation3>
-</f-scene3>
+{{ get('a') }}
+
+<br />
+
+<f-artboard><circle cx="50" cy="50" :r="get('a',1)" /></f-artboard>
+<br>
 
 </div>
 
