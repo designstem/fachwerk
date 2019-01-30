@@ -28,7 +28,7 @@ curl -L https://unpkg.com/codemirror/mode/gfm/gfm.js | npx uglifyjs >> vendor.js
 #curl -L https://unpkg.com/prettier/parser-postcss.js | npx uglifyjs >> vendor.js
 #curl -L https://unpkg.com/prettier/parser-markdown.js | npx uglifyjs >> vendor.js
 
-cat ./three_svg.js | npx uglifyjs >> vendor.js
+cat ./src/thirdparty/svgrenderer.js | npx uglifyjs >> vendor.js
 
 rm -f vendor_aframe.js
 curl -L https://unpkg.com/vue@2.5/dist/vue.js | npx uglifyjs >> vendor_aframe.js
@@ -51,7 +51,7 @@ curl -L https://unpkg.com/codemirror/mode/gfm/gfm.js | npx uglifyjs >> vendor_af
 #curl -L https://unpkg.com/prettier/parser-babylon.js | npx uglifyjs >> vendor_aframe.js
 #curl -L https://unpkg.com/prettier/parser-postcss.js | npx uglifyjs >> vendor_aframe.js
 #curl -L https://unpkg.com/prettier/parser-markdown.js | npx uglifyjs >> vendor_aframe.js
-cat ./three_svg.js | npx uglifyjs >> vendor_aframe.js
+cat ./src/thirdparty/svgrenderer.js | npx uglifyjs >> vendor_aframe.js
 
 # Offline
 
