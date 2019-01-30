@@ -54,12 +54,12 @@ export default {
       mode: "gfm",
       theme: "material",
       lineWrapping: true,
-      //viewportMargin: Infinity,
+      viewportMargin: Infinity,
       viewportMargin: 20,
       tabSize: 2,
       lineNumbers: true,
       smartIndent: false,
-      //undoLevels: 0
+      undoLevels: 0,
       inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();

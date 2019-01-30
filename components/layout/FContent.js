@@ -69,9 +69,8 @@ Shows Markdown content.
     <div
       v-for="(slide,i) in preparedContent"
       v-show="type == 'slides' ? i == currentIndex : true"
-      class="slide"
+      class="slide grid"
       :style="{
-        display: 'grid',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
         gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
         gridTemplateAreas: slide.areas,
