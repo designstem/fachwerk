@@ -8,10 +8,9 @@ import * as math from "../src/utils/math.js";
 import * as trig from "../src/utils/trig.js";
 import * as string from "../src/utils/string.js";
 import * as array from "../src/utils/array.js";
-import * as state from "../src/utils/state.js";
-import * as misc from "../src/utils/misc.js";
+import * as other from "../src/utils/other.js";
 
-const utilsHelp = [{ colors, math, trig, string, array, state, misc }].map(g =>
+const utilsHelp = [{ colors, math, trig, string, array, other }].map(g =>
   Object.entries(g).map(([group, module]) => [
     group,
     Object.entries(module)
