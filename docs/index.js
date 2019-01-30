@@ -58,7 +58,7 @@ new Vue({
     propsTable(props) {
       return Object.entries(props).map(p => ({
         Name: `\`${p[0]}\``,
-        Default: p[1].default ? `\`${p[1].default}\`` : "",
+        Default: p[1].default ? `\`${String(p[1].default).replace(/'primary'/,'"primary"')}\`` : "",
         Type: `\`${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
         }\``,

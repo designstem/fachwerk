@@ -2,10 +2,7 @@
 
 ## Now
 
-- min-height to <main>
-- <f-next-button :title="back" />
 - <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
-- responsive f-inline
 
 ## Backward comp
 
