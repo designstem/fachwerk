@@ -216,11 +216,12 @@ input[type="number"] {
   border: var(--border-width) solid var(--primary);
   color: var(--darkgray);
   border-radius: var(--border-radius);
-  padding: 0.5rem;
+  padding: calc(var(--base) * 0.55) var(--base);
   outline: none;
-  font-size: 1rem;
+  font-size: calc(var(--base) * 1.75);
   font-weight: bold;
-  margin-bottom: var(--base2);
+  margin: 0 0 var(--base2) 0;
+  box-shadow: inset 3px 3px 0px var(--lightergray);
 }
 
 input:disabled {
