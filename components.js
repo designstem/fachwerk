@@ -1,243 +1,243 @@
 
-import FSvg from "./components/2d/FSvg.js";
+import FSvg from "./src/components/2d/FSvg.js";
 export { FSvg };
 
-import FBasegrid from "./components/2d/FBasegrid.js";
+import FBasegrid from "./src/components/2d/FBasegrid.js";
 export { FBasegrid };
 
 // 2D
 
-import FScene from "./components/2d/FScene.js";
+import FScene from "./src/components/2d/FScene.js";
 export { FScene };
 
-import FGrid from "./components/2d/FGrid.js";
+import FGrid from "./src/components/2d/FGrid.js";
 export { FGrid };
 
-import FAxis from "./components/2d/FAxis.js";
+import FAxis from "./src/components/2d/FAxis.js";
 export { FAxis };
 
-import FGroup from "./components/2d/FGroup.js";
+import FGroup from "./src/components/2d/FGroup.js";
 export { FGroup };
 
-import FBox from "./components/2d/FBox.js";
+import FBox from "./src/components/2d/FBox.js";
 export { FBox };
 
-import FPoint from "./components/2d/FPoint.js";
+import FPoint from "./src/components/2d/FPoint.js";
 export { FPoint };
 
-import FLine from "./components/2d/FLine.js";
+import FLine from "./src/components/2d/FLine.js";
 export { FLine };
 
-import FCircle from "./components/2d/FCircle.js";
+import FCircle from "./src/components/2d/FCircle.js";
 export { FCircle };
 
-import FPolygon from "./components/2d/FPolygon.js";
+import FPolygon from "./src/components/2d/FPolygon.js";
 export { FPolygon };
 
-import FRegularpolygon from "./components/2d/FRegularpolygon.js";
+import FRegularpolygon from "./src/components/2d/FRegularpolygon.js";
 export { FRegularpolygon };
 
-import FHexagon from "./components/2d/FHexagon.js";
+import FHexagon from "./src/components/2d/FHexagon.js";
 export { FHexagon };
 
-import FText from "./components/2d/FText.js";
+import FText from "./src/components/2d/FText.js";
 export { FText };
 
-import FArtboard from "./components/2d/FArtboard.js";
+import FArtboard from "./src/components/2d/FArtboard.js";
 export { FArtboard };
 
-import FRotation from "./components/2d/FRotation.js";
+import FRotation from "./src/components/2d/FRotation.js";
 export { FRotation };
 
 // Patterns
 
-import FGridPattern from "./components/2dpattern/FGridPattern.js";
+import FGridPattern from "./src/components/2dpattern/FGridPattern.js";
 export { FGridPattern };
-import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
+import FRepeatGrid from "./src/components/2dpattern/FGridPattern.js";
 export { FRepeatGrid };
 
-import FBrickPattern from "./components/2dpattern/FBrickPattern.js";
+import FBrickPattern from "./src/components/2dpattern/FBrickPattern.js";
 export { FBrickPattern };
-import FRepeatShift from "./components/2dpattern/FBrickPattern.js";
+import FRepeatShift from "./src/components/2dpattern/FBrickPattern.js";
 export { FRepeatShift };
 
-import FHexPattern from "./components/2dpattern/FHexPattern.js";
+import FHexPattern from "./src/components/2dpattern/FHexPattern.js";
 export { FHexPattern };
-import FRepeatHex from "./components/2dpattern/FHexPattern.js";
+import FRepeatHex from "./src/components/2dpattern/FHexPattern.js";
 export { FRepeatHex };
 
-import FCirclePattern from "./components/2dpattern/FCirclePattern.js";
+import FCirclePattern from "./src/components/2dpattern/FCirclePattern.js";
 export { FCirclePattern };
-import FRepeatCircle from "./components/2dpattern/FCirclePattern.js";
+import FRepeatCircle from "./src/components/2dpattern/FCirclePattern.js";
 export { FRepeatCircle };
 
-import FSpinPattern from "./components/2dpattern/FSpinPattern.js";
+import FSpinPattern from "./src/components/2dpattern/FSpinPattern.js";
 export { FSpinPattern };
-import FRepeatSpin from "./components/2dpattern/FSpinPattern.js";
+import FRepeatSpin from "./src/components/2dpattern/FSpinPattern.js";
 export { FRepeatSpin };
 
-import FSlicePattern from "./components/2dpattern/FSlicePattern.js";
+import FSlicePattern from "./src/components/2dpattern/FSlicePattern.js";
 export { FSlicePattern };
-import FRepeatSlice from "./components/2dpattern/FSlicePattern.js";
+import FRepeatSlice from "./src/components/2dpattern/FSlicePattern.js";
 export { FRepeatSlice };
 
-import FMirrorX from "./components/2dpattern/FMirrorX.js";
+import FMirrorX from "./src/components/2dpattern/FMirrorX.js";
 export { FMirrorX };
 
-import FMirrorY from "./components/2dpattern/FMirrorY.js";
+import FMirrorY from "./src/components/2dpattern/FMirrorY.js";
 export { FMirrorY };
 
 // 3D
 
-import FScene3 from "./components/3d/FScene3.js";
+import FScene3 from "./src/components/3d/FScene3.js";
 export { FScene3 };
 
-import FBox3 from "./components/3d/FBox3.js";
+import FBox3 from "./src/components/3d/FBox3.js";
 export { FBox3 };
 
-import FGrid3 from "./components/3d/FGrid3.js";
+import FGrid3 from "./src/components/3d/FGrid3.js";
 export { FGrid3 };
 
-import FAxis3 from "./components/3d/FAxis3.js";
+import FAxis3 from "./src/components/3d/FAxis3.js";
 export { FAxis3 };
 
-import FGroup3 from "./components/3d/FGroup3.js";
+import FGroup3 from "./src/components/3d/FGroup3.js";
 export { FGroup3 };
 
-import FPoint3 from "./components/3d/FPoint3.js";
+import FPoint3 from "./src/components/3d/FPoint3.js";
 export { FPoint3 };
 
-import FLine3 from "./components/3d/FLine3.js";
+import FLine3 from "./src/components/3d/FLine3.js";
 export { FLine3 };
 
-import FCircle3 from "./components/3d/FCircle3.js";
+import FCircle3 from "./src/components/3d/FCircle3.js";
 export { FCircle3 };
 
-import FTriangle3 from "./components/3d/FTriangle3.js";
+import FTriangle3 from "./src/components/3d/FTriangle3.js";
 export { FTriangle3 };
 
-import FPolygon3 from "./components/3d/FPolygon3.js";
+import FPolygon3 from "./src/components/3d/FPolygon3.js";
 export { FPolygon3 };
 
-import FRegularpolygon3 from "./components/3d/FRegularpolygon3.js";
+import FRegularpolygon3 from "./src/components/3d/FRegularpolygon3.js";
 export { FRegularpolygon3 };
 
-import FHedron3 from "./components/3d/FHedron3.js";
+import FHedron3 from "./src/components/3d/FHedron3.js";
 export { FHedron3 };
 
-import FPolyhedron3 from "./components/3d/FPolyhedron3.js";
+import FPolyhedron3 from "./src/components/3d/FPolyhedron3.js";
 export { FPolyhedron3 };
 
-import FLathe3 from "./components/3d/FLathe3.js";
+import FLathe3 from "./src/components/3d/FLathe3.js";
 export { FLathe3 };
 
-import FRotation3 from "./components/3d/FRotation3.js";
+import FRotation3 from "./src/components/3d/FRotation3.js";
 export { FRotation3 };
 
 // Transitions
 
-import FFade from "./components/transitions/FFade.js";
+import FFade from "./src/components/transitions/FFade.js";
 export { FFade };
 
-import FBounce from "./components/transitions/FBounce.js";
+import FBounce from "./src/components/transitions/FBounce.js";
 export { FBounce };
 
 // Data
 
-import FAnimation from "./components/data/FAnimation.js";
+import FAnimation from "./src/components/data/FAnimation.js";
 export { FAnimation };
-import FAnimationData from "./components/data/FAnimation.js";
+import FAnimationData from "./src/components/data/FAnimation.js";
 export { FAnimationData };
 
-import FSlider from "./components/data/FSlider.js";
+import FSlider from "./src/components/data/FSlider.js";
 export { FSlider };
-import FSliderData from "./components/data/FSlider.js";
+import FSliderData from "./src/components/data/FSlider.js";
 export { FSliderData };
 
-import FArrayData from "./components/data/FArrayData.js";
+import FArrayData from "./src/components/data/FArrayData.js";
 export { FArrayData };
 
-import FBufferData from "./components/data/FBufferData.js";
+import FBufferData from "./src/components/data/FBufferData.js";
 export { FBufferData };
 
-import FDragData from "./components/data/FDragData.js";
+import FDragData from "./src/components/data/FDragData.js";
 export { FDragData };
 
-import FFetchData from "./components/data/FFetchData.js";
+import FFetchData from "./src/components/data/FFetchData.js";
 export { FFetchData };
 
-import FSheetData from "./components/data/FSheetData.js";
+import FSheetData from "./src/components/data/FSheetData.js";
 export { FSheetData };
 
-import FReceiveData from "./components/data/FReceiveData.js";
+import FReceiveData from "./src/components/data/FReceiveData.js";
 export { FReceiveData };
 
-import FKeyboard from "./components/data/FKeyboard.js";
+import FKeyboard from "./src/components/data/FKeyboard.js";
 export { FKeyboard };
 
 // Content
 
-import FMath from "./components/layout/FMath.js";
+import FMath from "./src/components/layout/FMath.js";
 export { FMath };
 
-import FSidebar from "./components/layout/FSidebar.js";
+import FSidebar from "./src/components/layout/FSidebar.js";
 export { FSidebar };
 
 // Layout
 
-import FInline from "./components/layout/FInline.js";
+import FInline from "./src/components/layout/FInline.js";
 export { FInline };
 
-import FCard from "./components/layout/FCard.js";
+import FCard from "./src/components/layout/FCard.js";
 export { FCard };
 
-import FHr from "./components/layout/FHr.js";
+import FHr from "./src/components/layout/FHr.js";
 export { FHr };
 
-import FVr from "./components/layout/FVr.js";
+import FVr from "./src/components/layout/FVr.js";
 export { FVr };
 
-import FTable from "./components/layout/FTable.js";
+import FTable from "./src/components/layout/FTable.js";
 export { FTable };
 
-import FButtons from "./components/layout/FButtons.js";
+import FButtons from "./src/components/layout/FButtons.js";
 export { FButtons };
 
-import FTheme from "./components/layout/FTheme.js";
+import FTheme from "./src/components/layout/FTheme.js";
 export { FTheme };
 
-import FContent from "./components/layout/FContent.js";
+import FContent from "./src/components/layout/FContent.js";
 export { FContent };
 
-import FTabs from "./components/layout/FTabs.js";
+import FTabs from "./src/components/layout/FTabs.js";
 export { FTabs };
 
-import FMenu from "./components/layout/FMenu.js";
+import FMenu from "./src/components/layout/FMenu.js";
 export { FMenu };
 
-import FEditor from "./components/layout/FEditor.js";
+import FEditor from "./src/components/layout/FEditor.js";
 export { FEditor };
 
-import FAdvancedEditor from "./components/layout/FAdvancedEditor.js";
+import FAdvancedEditor from "./src/components/layout/FAdvancedEditor.js";
 export { FAdvancedEditor };
 
-import FContentEditor from "./components/layout/FContentEditor.js";
+import FContentEditor from "./src/components/layout/FContentEditor.js";
 export { FContentEditor };
 
-import FIconGithub from "./components/layout/FIconGithub.js";
+import FIconGithub from "./src/components/layout/FIconGithub.js";
 export { FIconGithub };
 
-import FNextButton from "./components/layout/FNextButton.js";
+import FNextButton from "./src/components/layout/FNextButton.js";
 export { FNextButton };
 
-import FPrevButton from "./components/layout/FPrevButton.js";
+import FPrevButton from "./src/components/layout/FPrevButton.js";
 export { FPrevButton };
 
 // Internal
 
-import FMarkdown from "./components/internal/FMarkdown.js";
+import FMarkdown from "./src/components/internal/FMarkdown.js";
 export { FMarkdown };
 
-import FRender from "./components/internal/FRender.js";
+import FRender from "./src/components/internal/FRender.js";
 export { FRender };
 
