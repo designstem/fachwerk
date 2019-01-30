@@ -15,10 +15,10 @@ Description to be written.
 </f-scene3>
   `,
   props: {
-    count: { default: 6, type: Number },
-    r: { default: 1, type: Number },
+    count: { default: 6, type: [String, Number] },
+    r: { default: 1, type: [String, Number] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [String, Number] },
     fill: { default: "", type: String },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
