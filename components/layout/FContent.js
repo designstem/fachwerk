@@ -42,7 +42,10 @@ Shows Markdown content.
     next() {
       this.currentIndex < this.preparedContent.length - 1 &&
         this.currentIndex++;
-    }
+    },
+    goto(index) {
+      this.currentIndex = index
+    },
   },
   mounted() {
     this.$watch(
@@ -58,6 +61,7 @@ Shows Markdown content.
       this.$global.$on("prev", () => this.prev());
       this.$global.$on("first", () => this.first());
       this.$global.$on("last", () => this.last());
+      this.$global.$on("goto", index => this.goto(index));
     }
   },
   template: `

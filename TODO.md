@@ -2,7 +2,6 @@
 
 ## Now
 
-- Decide ; / ,
 - event goto(1)
 - text input height = button
 - input text styling
