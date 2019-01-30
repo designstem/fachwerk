@@ -79,6 +79,7 @@ export default [
       { component: "FScene" },
       { component: "FArtboard" },
       { component: "FGrid" },
+      { component: "FAxis" },
       { component: "FPoint" },
       { component: "FLine" },
       { component: "FCircle" },
@@ -88,6 +89,7 @@ export default [
       { component: "FRegularpolygon" },
       { component: "FGroup" },
       { component: "FText" },
+      { component: "FRotation" },
     ]
   },
   {
@@ -108,6 +110,7 @@ export default [
     items: [
       { component: "FScene3" },
       { component: "FGrid3" },
+      { component: "FAxis3" },
       { component: "FPoint3" },
       { component: "FTriangle3" },
       { component: "FLine3" },
@@ -119,6 +122,7 @@ export default [
       { component: "FPolyhedron3" },
       { component: "FLathe3" },
       { component: "FGroup3" },
+      { component: "FRotation3" },
     ]
   },
   {

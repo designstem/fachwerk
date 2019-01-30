@@ -28,7 +28,15 @@ Compared to \`<f-scene grid>\` it allows allows greater freedom to generate cust
       :inner-width="4"
       :inner-height="4"
       :step="step"
-      :opacity="opacity"
+      :opacity="opacity / 4"
+    />
+    <f-basegrid
+      :inner-x="-2"
+      :inner-y="-2"
+      :inner-width="4"
+      :inner-height="4"
+      :step="step * 2"
+      :opacity="opacity / 2"
     />
     <f-basegrid
       :inner-x="-2"

@@ -14,7 +14,7 @@ Description to be written.
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 0.25, type: [Number, String] }
+    opacity: { default: 0.5, type: [Number, String] }
   },
   methods: { range },
   template: `
@@ -29,14 +29,14 @@ Description to be written.
       :key="'x' + i"
       :points="[{ x, y: -2},{ x, y: 2}]"
       :stroke-width="1"
-      :opacity="x == 0 ? opacity * 2 : opacity"
+      :opacity="x == 0 ? opacity * 1.25 : opacity"
     />
     <f-line3
       v-for="y,j in range(-2,2,1)"
       :key="'y' + j"
       :points="[{ x: -2, y },{ x: 2, y }]"
       :stroke-width="1"
-      :opacity="y == 0 ? opacity * 2 : opacity"
+      :opacity="y == 0 ? opacity * 1.25 : opacity"
     />
     </f-group3>
   </f-group3>

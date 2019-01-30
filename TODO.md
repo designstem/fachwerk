@@ -6,17 +6,13 @@
 - menu top() fix
 - f-brick-pattern
 - event goto(1)
-- f-image(s)
-- polarpoints => [0,0,0] ?
-- box3 stroke
-- unify 3 shading
 - text input height = button
 - input text styling
-- fix link https://animejs.com/documentation/#linearEasing
 - min-height to <main>
 - <f-next-button :title="back" />
 - <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
 - responsive f-inline
+
 - src everywhere
 
 ## CSS
@@ -49,6 +45,7 @@ src/css/grid.js?
 
 ## Content
 
+- props innerWidth
 - https://en.wikibooks.org/wiki/LaTeX/Mathematics
 - "can navigate with < > keys"
 - repeat examples to purple
@@ -78,7 +75,8 @@ src/css/grid.js?
 
 ## 2D
 
-- f-axis
+- dashed lines?
+- f-axis transforms
 - f-arc
 - f-triangle
 - f-aframe-slider
@@ -90,6 +88,7 @@ src/css/grid.js?
 
 ## 3D
 
+- f-axis3 transforms
 - f-line3 closed
 - box3 \`stroke\` and \`stroke-width\` are currently ignored
 - f-scene3 size string (w / h ?)
@@ -122,8 +121,8 @@ src/css/grid.js?
     />
   </f-group3>
 </f-scene3>
-
-# Other features
+- box3 stroke
+- unify 3 shading
 
 ## Other components
 

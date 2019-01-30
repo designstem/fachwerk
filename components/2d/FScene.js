@@ -32,6 +32,11 @@ export default {
       type: [Boolean, String],
       description: "Show background grid?"
     },
+    axis: {
+      default: false,
+      type: [Boolean, String],
+      description: "Show axises"
+    },
     step: {
       default: 0.5,
       type: [Number, String],
@@ -74,6 +79,11 @@ export default {
         :inner-width="innerWidth"
         :inner-height="innerHeight"
         :step="step"
+      />
+      <f-axis
+        v-if="axis"
+        :inner-width="innerWidth"
+        :inner-height="innerHeight"
       />
       <slot :value="data.value" />
     </f-group>
