@@ -1,9 +1,12 @@
 import { Init, Css } from "../mixins.js";
 import * as components from "../components.js";
+import * as utils from "../utils.js";
+const { kebabCase, titleCase, flatten } = utils;
 
 import * as colors from "../src/utils/colors.js";
+import * as math from "../src/utils/math.js";
 
-const help = [{ colors }].map(g =>
+const utilsHelp = [{ colors, math }].map(g =>
   Object.entries(g).map(([group, module]) => [
     group,
     Object.entries(module)
@@ -11,18 +14,6 @@ const help = [{ colors }].map(g =>
       .map(([key, value]) => [key.replace('_help',''),value()])
   ])
 );
-
-import * as utils from "../utils.js";
-const { kebabCase, titleCase, utilsDocs } = utils;
-
-
-
-// const help = [{ colors }].map(g =>
-//   Object.entries(group).filter(([key, value]) => key.endsWith("help")).map(([key, value]) => value())
-// );
-
-console.log(help);
-
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -51,17 +42,16 @@ new Vue({
           return i;
         });
         return m;
-      });
-      // .concat(
-      //   Object.entries(utilsDocs()).map(([tag, items]) => {
-      //     return {
-      //       title: `🍴${titleCase(tag)} utilities`,
-      //       utils: true,
-      //       tag,
-      //       items: Object.keys(items).map(i => ({ title: i }))
-      //     };
-      //   })
-      // );
+      })
+      .concat(flatten(utilsHelp.map(g => {
+        return g.map(([group, items]) => {
+          return {
+            title: `🍴${titleCase(group)} utilities`,
+            utils: true,
+            items: items.map(([title,content]) => ({ title, content }))
+          }
+        })
+      })))
     },
     activeMenu() {
       return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
@@ -172,9 +162,7 @@ Function can be imported using Javascript import:
         if (this.menuItems[this.activeIndex[0]].utils) {
           this.content = this.generateUtils(
             activeMenu.title,
-            utilsDocs()[this.menuItems[this.activeIndex[0]].tag][
-              activeMenu.title
-            ].trim()
+            activeMenu.content.trim()
           );
           this.activePreview = 0;
           this.wide = false;

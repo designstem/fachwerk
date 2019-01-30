@@ -21,7 +21,7 @@ export const getCssVariable = (value, el = document.body) =>
 export const setCssVariable = (key, value, el = document.body.style) =>
   el.setProperty(key, value);
 
-/* Colors */
+/*
 
 u.color.color = `
 
@@ -45,8 +45,6 @@ const color = name => {
   const color = getCssVariable(`--${name}`);
   return color ? color.trim() : name.trim();
 };
-
-/* Color functions */
 
 u.color.rgb = `
 
@@ -91,6 +89,10 @@ Outputs a CSS \`hsla()\` string
 `;
 
 const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
+
+*/
+
+/*
 
 u.math.scale = `
 
@@ -201,6 +203,8 @@ const range = (from, to, step = 1) => {
   const length = Math.floor((to - from) / step) + 1;
   return Array.from({ length }).map((_, i) => from + i * step);
 };
+
+*/
 
 // Trigonometry
 
@@ -908,13 +912,13 @@ const docs = () => d;
 const utilsDocs = () => u;
 
 export {
-  color,
-  rgb,
-  hsl,
-  scale,
-  round,
-  random,
-  range,
+  // color,
+  // rgb,
+  // hsl,
+  // scale,
+  // round,
+  // random,
+  // range,
   polarx,
   polary,
   polarpoints,
@@ -934,7 +938,7 @@ export {
   parseSheet,
   parseColumns,
   cleanColumns,
-  trunc,
+  //trunc,
   kebabCase,
   titleCase,
   debounce,
