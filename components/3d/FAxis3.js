@@ -1,6 +1,13 @@
 import { color } from "../../utils.js";
 
 export default {
+  description: `
+Description to be written.
+  
+<f-scene3 grid>
+  <f-axis3 />
+</f-scene3>
+  `,
   props: { innerWidth: { default: 2, type: [Number, String] } },
   methods: { color },
   template: `
@@ -40,7 +47,7 @@ export default {
         :points="[[0,0,0],[0,0,-innerWidth]]"
         :stroke="color('blue')"
         stroke-width="2"
-        opacity="0.3"
+        opacity="0.5"
       />    
     </f-group3>
   `

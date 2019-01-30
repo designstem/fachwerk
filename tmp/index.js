@@ -15,11 +15,23 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-<f-scene3 renderer="webgl">
+<div>
+
+<f-scene>
+  <f-rotation duration="10000">
+    <f-grid />
+    <f-axis />
+    </f-rotation>
+</f-scene>
+
+<f-scene3>
   <f-rotation3 duration="10000">
-  <f-grid3 />
-  <f-axis3 />
+    <f-grid3 />
+    <f-axis3 />
   </f-rotation3>
 </f-scene3>
+
+</div>
+
 `
 });

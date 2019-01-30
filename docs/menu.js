@@ -79,6 +79,7 @@ export default [
       { component: "FScene" },
       { component: "FArtboard" },
       { component: "FGrid" },
+      { component: "FAxis" },
       { component: "FPoint" },
       { component: "FLine" },
       { component: "FCircle" },
@@ -108,6 +109,7 @@ export default [
     items: [
       { component: "FScene3" },
       { component: "FGrid3" },
+      { component: "FAxis3" },
       { component: "FPoint3" },
       { component: "FTriangle3" },
       { component: "FLine3" },

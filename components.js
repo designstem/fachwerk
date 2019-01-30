@@ -13,6 +13,9 @@ export { FScene };
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 
+import FAxis from "./components/2d/FAxis.js";
+export { FAxis };
+
 import FGroup from "./components/2d/FGroup.js";
 export { FGroup };
 
@@ -94,6 +97,9 @@ export { FBox3 };
 
 import FGrid3 from "./components/3d/FGrid3.js";
 export { FGrid3 };
+
+import FAxis3 from "./components/3d/FAxis3.js";
+export { FAxis3 };
 
 import FGroup3 from "./components/3d/FGroup3.js";
 export { FGroup3 };
