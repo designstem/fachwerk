@@ -1,20 +1,13 @@
 # TODO
 
-## Now
 
-- <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
-
-## Backward comp
-
-- src everywhere
-- polarpoints
+- prettier
 
 ## CSS
 
 - text input height = button
 - input text styling
 - details styling
-- 1 2 3 mobile support
 
 ## Reorg fixes
 
@@ -43,10 +36,6 @@ src/css/grid.js?
 
 - props innerWidth
 - https://en.wikibooks.org/wiki/LaTeX/Mathematics
-- "can navigate with < > keys"
-- repeat examples to purple
-- f-sidebar in dark mode?
-- ' => " color("primary") in props
 - VR components
 <f-image>
   http://sasa
@@ -66,14 +55,13 @@ src/css/grid.js?
 ## Utils
 
 - polary??
-- exportSTL from patternmaker?
+- move stlEsport from 3d to utils
 - utils shorten documentation
 
 ## 2D
 
 - f-axis transforms
 - f-arc
-- f-triangle
 - f-aframe-slider
 - f-slide-transition / f-fade-transition?
 - f-compare-image / f-split-image
@@ -119,10 +107,16 @@ src/css/grid.js?
 - box3 stroke
 - unify 3 shading
 
+## Backward comp
+
+- src everywhere
+- polarpoints [0,1]
+
 ## Other components
 
 - <f-math inline />
 - <f-slider inline />
+
 <f-image>
   http://sasa
 </f-image>
@@ -166,6 +160,7 @@ export const downloadJson = (json, filename) => {
 
 ## Maybe
 
+- f-triangle?
 - dashed lines?
 - FMarkdown2 (remark / rehype)?
 - f-leftarrow-icon / f-rightarrow-icon?

@@ -130,6 +130,24 @@ longer
     blocks
 ```
 
+### Terminal output
+
+Terminal output can be formatted using `output` tag:
+
+<output>Compiling results...</output>
+
+Additional formatting can be added using color classes:
+
+<output>
+	<span class="gray">Compiling results...</span>
+  
+  <span class="green-bg"> 10 positive results </span>
+  <span class="red-bg"> 1 negative result </span>
+  
+</output>
+
+<br>
+
 ### Tables
 
 Tables can be created with several methods:
