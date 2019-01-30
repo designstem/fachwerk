@@ -23,6 +23,11 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
       type: [Boolean, String],
       description: "Show background grid"
     },
+    axis: {
+      default: false,
+      type: [Boolean, String],
+      description: "Show axises"
+    },
     renderer: { default: 'svg', type: String }
   },
   template: `
@@ -30,6 +35,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     <Scene>
       <Camera :position="{ x: 0, y: 0, z: 2.63 }" />
       <f-grid3 v-if="grid" />
+      <f-axis3 v-if="axis" />
       <slot />
     </Scene>
   </Renderer>
