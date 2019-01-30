@@ -6,37 +6,24 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import { Css } from '../../mixins.js'
-
-const FRotation3 = {
-  props: {
-    duration: { default: 50000, type: [Number, String]
-  },
-  template: `
-  <f-animation :duration="duration">
-    <f-group3
-      slot-scope="{ value }"
-      :rotation="[value,value,value]"
-    >
-      <slot  />
-    </f-group3>
-  </f-animation>
-  `
-}
-
 new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
-  components: { FRotation3 },
   template: `
-<f-scene3>
-  <FRotation3>
-  <f-grid3 />
+<f-scene3 renderer="webgl">
+  <f-rotation3>
   <f-lathe3
+    count="16"
     points="1 1 ; -1 -1"
   />
-  </FRotation3>
+  </f-rotation3>
+  <f-rotation3 duration="5000">
+  <f-lathe3
+    count="16"
+    points="1 1 ; -1 -1"
+  />
+  </f-rotation3>
 </f-scene3>
 `
 });
