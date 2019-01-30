@@ -2,11 +2,20 @@
 
 
 - prettier
+vendor.js:1 [Vue warn]: Error in event handler for "input": "TypeError: Cannot read property 'value' of undefined"
+
+found in
+
+---> <FSlider>
+       <FRender>
+         <FMarkdown>
+           <FContent>
+             <FContentEditor>
+               <FTheme>
+                 <Root>
 
 ## CSS
 
-- text input height = button
-- input text styling
 - details styling
 
 ## Reorg fixes

@@ -7,7 +7,7 @@
   --font-serif: IBM Plex Serif, serif;
   --font-mono: Cousine, monospace;
 
-  --white: #eeeeee;
+  --white: #ffffff;
   --darkestgray: #222222;
   --darkergray: #333333;
   --darkgray: #555555; /* darkgray */
@@ -36,7 +36,7 @@
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: calc(38px - 1vw);
+  --slider-size: calc(35px - 1vw);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);
@@ -203,7 +203,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 1000px;
   background: white;
   cursor: pointer;
-  background: var(--quaternary);
+  background: var(--white);
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   height: calc(var(--slider-size) * 1.05);
@@ -222,6 +222,7 @@ input[type="number"] {
   font-weight: bold;
   margin: 0 0 var(--base2) 0;
   box-shadow: inset 3px 3px 0px var(--lightergray);
+  width: var(--base8);
 }
 
 input:disabled {
