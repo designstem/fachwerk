@@ -355,6 +355,22 @@ var.green {
   color: var(--green);
 }
 
+details {
+  padding: var(--base2) var(--base2) var(--base2) var(--base3);
+  background: var(--quaternary);
+  border-left: 4px solid var(--emphasis);
+  margin-bottom: var(--base2);
+}
+details p:last-child {
+  margin-bottom: 0;
+}
+details summary {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: var(--base);
+  outline: none;
+}
+
 /* Components */
 
 .bullet, h1 strong, h2 strong , h3 strong , h4 strong , h5 strong {
