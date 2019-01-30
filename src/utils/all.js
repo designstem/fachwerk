@@ -206,6 +206,8 @@ const range = (from, to, step = 1) => {
 
 */
 
+/*
+
 // Trigonometry
 
 u.math.polarx = `
@@ -326,6 +328,8 @@ Converts angle in radians to degrees.
 `;
 
 const rad2deg = rad => (rad * 180) / Math.PI;
+
+*/
 
 // Array
 
@@ -919,14 +923,14 @@ export {
   // round,
   // random,
   // range,
-  polarx,
-  polary,
-  polarpoints,
-  cx,
-  cy,
-  cpoints,
-  deg2rad,
-  rad2deg,
+  // polarx,
+  // polary,
+  // polarpoints,
+  // cx,
+  // cy,
+  // cpoints,
+  // deg2rad,
+  // rad2deg,
   shuffle,
   any,
   chunk,

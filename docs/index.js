@@ -5,8 +5,11 @@ const { kebabCase, titleCase, flatten } = utils;
 
 import * as colors from "../src/utils/colors.js";
 import * as math from "../src/utils/math.js";
+import * as trig from "../src/utils/trig.js";
+import * as string from "../src/utils/string.js";
+import * as array from "../src/utils/array.js";
 
-const utilsHelp = [{ colors, math }].map(g =>
+const utilsHelp = [{ colors, math, trig, string, array }].map(g =>
   Object.entries(g).map(([group, module]) => [
     group,
     Object.entries(module)
