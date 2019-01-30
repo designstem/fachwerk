@@ -1,23 +1,19 @@
 # TODO
 
-## Now
 
-- spin slice are broken
-- Decide ; / ,
-- event goto(1)
-- text input height = button
-- input text styling
-- min-height to <main>
-- <f-next-button :title="back" />
-- <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
-- responsive f-inline
+- prettier
+vendor.js:1 [Vue warn]: Error in event handler for "input": "TypeError: Cannot read property 'value' of undefined"
 
-- src everywhere
+found in
 
-## CSS
+---> <FSlider>
+       <FRender>
+         <FMarkdown>
+           <FContent>
+             <FContentEditor>
+               <FTheme>
+                 <Root>
 
-- details styling
-- 1 2 3 mobile support
 
 ## Reorg fixes
 
@@ -41,15 +37,13 @@ src/css/variables.js?
 src/css/html.js?
 src/css/grid.js?
 ```
+- move stlExport from 3d to utils
+- polary??
+- utils shorten documentation
 
 ## Content
 
-- props innerWidth
 - https://en.wikibooks.org/wiki/LaTeX/Mathematics
-- "can navigate with < > keys"
-- repeat examples to purple
-- f-sidebar in dark mode?
-- ' => " color("primary") in props
 - VR components
 <f-image>
   http://sasa
@@ -66,22 +60,15 @@ src/css/grid.js?
 </f-images>
 - f-youtube / f-vimeo?
 
-## Utils
-
-- polary??
-- exportSTL from patternmaker?
-- utils shorten documentation
 
 ## 2D
 
 - f-axis transforms
 - f-arc
-- f-triangle
 - f-aframe-slider
 - f-slide-transition / f-fade-transition?
 - f-compare-image / f-split-image
 - f-colorblind-image
-
 - Pager for slider < o o o o o * o >
 
 ## 3D
@@ -122,10 +109,16 @@ src/css/grid.js?
 - box3 stroke
 - unify 3 shading
 
+## Backward comp
+
+- src everywhere
+- polarpoints [0,1]
+
 ## Other components
 
 - <f-math inline />
 - <f-slider inline />
+
 <f-image>
   http://sasa
 </f-image>
@@ -169,6 +162,7 @@ export const downloadJson = (json, filename) => {
 
 ## Maybe
 
+- f-triangle?
 - dashed lines?
 - FMarkdown2 (remark / rehype)?
 - f-leftarrow-icon / f-rightarrow-icon?

@@ -21,7 +21,7 @@ Inline layout component.
     align-items: center;
   }
   .f-inline > * {
-    margin: 0 var(--base) 0 0;
+    margin: 0 var(--base) 0 0 !important;
   }
   .f-inline > *:last-child {
     margin: 0;

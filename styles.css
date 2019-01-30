@@ -23,7 +23,7 @@
   --green: #59CD90; /*Alt: #1C7C54;*/
   --darkblue: #162e3d;
   --orange: #FF9849;
-  --black: #000000;
+  --black: #111111;
 
   --primary: var(--darkgray);
   --secondary: var(--gray);
@@ -36,7 +36,7 @@
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: calc(38px - 1vw);
+  --slider-size: calc(35px - 1vw);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);
@@ -203,7 +203,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 1000px;
   background: white;
   cursor: pointer;
-  background: var(--quaternary);
+  background: var(--white);
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   height: calc(var(--slider-size) * 1.05);
@@ -216,11 +216,13 @@ input[type="number"] {
   border: var(--border-width) solid var(--primary);
   color: var(--darkgray);
   border-radius: var(--border-radius);
-  padding: 0.5rem;
+  padding: calc(var(--base) * 0.55) var(--base);
   outline: none;
-  font-size: 1rem;
+  font-size: calc(var(--base) * 1.75);
   font-weight: bold;
-  margin-bottom: var(--base2);
+  margin: 0 0 var(--base2) 0;
+  box-shadow: inset 3px 3px 0px var(--lightergray);
+  width: var(--base8);
 }
 
 input:disabled {
@@ -263,11 +265,42 @@ code {
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
   overflow: auto;
+  white-space: nowrap;
 }
 
 pre code {
   white-space: pre-wrap;
   padding: 0;
+}
+
+output {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: calc(var(--base) * 1.75);
+  line-height: calc(var(--base) * 2.5);
+  white-space: pre-wrap;
+  overflow: auto;
+  padding: var(--base3);
+  color: var(--white);
+  background: var(--black);
+}
+output p {
+  margin: calc(var(--base) * 2.5) 0 0 0;
+  color: var(--white);
+  font-size: calc(var(--base) * 1.75);
+  line-height: calc(var(--base) * 2.5); 
+}
+output p:first-child {
+  margin: 0;
+}
+output .gray {
+  color: gray;
+}
+output .green-bg {
+  background: green;
+}
+output .red-bg {
+  background: red;
 }
 
 /* Extra */
@@ -322,6 +355,25 @@ var.green {
   color: var(--green);
 }
 
+details {
+  padding: var(--base2) var(--base2) var(--base) var(--base2);
+  background: var(--quaternary);
+  border-left: 4px solid var(--emphasis);
+  margin-bottom: var(--base2);
+}
+details p:first-child {
+  margin-top: var(--base2);
+}
+details p:last-child {
+  margin-bottom: 0;
+}
+details summary {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: var(--base);
+  outline: none;
+}
+
 /* Components */
 
 .bullet, h1 strong, h2 strong , h3 strong , h4 strong , h5 strong {
@@ -345,7 +397,7 @@ var.green {
 
 blockquote {
   margin: 0;
-  padding: var(--base2) var(--base2) var(--base2) var(--base3);
+  padding: var(--base2);
   background: var(--quaternary);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);

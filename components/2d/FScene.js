@@ -18,12 +18,12 @@ export default {
   `,
   props: {
     width: {
-      default: 250,
+      default: 300,
       type: [Number, String],
       description: "Scene width in pixels"
     },
     height: {
-      default: 250,
+      default: 300,
       type: [Number, String],
       description: "Scene height in pixels"
     },
@@ -72,13 +72,10 @@ export default {
     "
   >
     <f-group slot-scope="data">
-      <f-basegrid
+      <f-grid
         v-if="grid"
-        :inner-x="innerX"
-        :inner-y="innerY"
         :inner-width="innerWidth"
         :inner-height="innerHeight"
-        :step="step"
       />
       <f-axis
         v-if="axis"

@@ -57,8 +57,8 @@ new Vue({
     },
     propsTable(props) {
       return Object.entries(props).map(p => ({
-        Name: `\`${p[0]}\``,
-        Default: p[1].default ? `\`${p[1].default}\`` : "",
+        Name: `\`${kebabCase(p[0])}\``,
+        Default: p[1].default ? `\`${String(p[1].default).replace(/'primary'/,'"primary"')}\`` : "",
         Type: `\`${
           Array.isArray(p[1].default) ? "array" : typeof p[1].default
         }\``,
@@ -200,6 +200,7 @@ Function can be imported using Javascript import:
     </div>
   </header>
 
+  <main style="min-height: 100vh">
 
   <f-theme
     :theme="['light','dark','yellow'][theme]"
@@ -220,6 +221,8 @@ Function can be imported using Javascript import:
     />
     
   </f-theme>
+
+  </main>
 
   <f-keyboard alt character="p" @keydown="preview = 1 - preview" />
   <f-keyboard alt character="s" @keydown="send('save')" />

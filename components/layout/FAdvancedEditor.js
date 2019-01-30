@@ -54,12 +54,12 @@ export default {
       mode: "gfm",
       theme: "material",
       lineWrapping: true,
-      //viewportMargin: Infinity,
+      viewportMargin: Infinity,
       viewportMargin: 20,
       tabSize: 2,
       lineNumbers: true,
       smartIndent: false,
-      //undoLevels: 0
+      undoLevels: 0,
       inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();
@@ -88,8 +88,6 @@ export default {
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
     height: auto;
-    overflow-y: hidden;
-    overflow-x: auto;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;

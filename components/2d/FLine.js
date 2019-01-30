@@ -7,40 +7,21 @@ export default {
 
 Description to be written.
 
-<f-scene>
-  <f-grid />
-  <f-line />
+<f-scene grid>
   <f-line
-    :points="[
-      { x: -1.5, y: -1 },
-      { x: -1,   y: -1 },
-      { x: -1.5, y: -0.5 },
-    ]"
+  	points="-0.5 1,-1 1,-1 0.5"
   />
   <f-line
-    :points="[
-      { x: -0.5, y: -1   },
-      { x: 0,    y: -1   },
-      { x: -0.5, y: -0.5 },
-    ]"
-    :closed="true"
+  	points="1 1,0.5 1,0.5 0.5"
+    curved
   />
   <f-line
-    :points="[
-      { x: 0.5, y: -1   },
-      { x: 1,   y: -1   },
-      { x: 0.5, y: -0.5 },
-    ]"
-    :curved="true"
+  	points="-0.5 -0.5,-1 -0.5,-1 -1"
+    closed
   />
   <f-line
-    :points="[
-      { x: 1.5, y: -1   },
-      { x: 2,   y: -1   },
-      { x: 1.5, y: -0.5 },
-    ]"
-    :closed="true"
-    :curved="true"
+  	points="1 -0.5,0.5 -0.5,0.5 -1"
+    closed curved
   />
 </f-scene>
   `,
