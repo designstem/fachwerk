@@ -1,3 +1,5 @@
+import { deg2rad } from '../../utils.js'
+
 export const positionTransform = coords => {
   const c = parseCoords(coords);
   return `translate(${c[0][0]} ${c[0][1]})`;
