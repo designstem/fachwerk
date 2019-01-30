@@ -2,7 +2,6 @@
 
 ## Now
 
-- spin slice are broken
 - Decide ; / ,
 - event goto(1)
 - text input height = button
@@ -12,7 +11,10 @@
 - <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
 - responsive f-inline
 
+## Backward comp
+
 - src everywhere
+- polarpoints
 
 ## CSS
 

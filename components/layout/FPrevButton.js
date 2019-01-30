@@ -9,6 +9,11 @@ export default {
   props: { title: { default: "", description: "Button title" } },
   methods: { send },
   template: `
-  <button class="secondary" @click="send('prev')">←</button>
+  <button
+    class="secondary"
+    @click="send('prev')"
+  >
+    {{ title ? '← ' + title : '←' }}
+  </button>
   `
 };

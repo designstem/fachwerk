@@ -175,23 +175,6 @@ export { FReceiveData };
 import FKeyboard from "./components/data/FKeyboard.js";
 export { FKeyboard };
 
-// Depreciated
-
-import FButtonsData from "./components/depreciated/FButtonsData.js";
-export { FButtonsData };
-
-import FKeyboardData from "./components/depreciated/FKeyboardData.js";
-export { FKeyboardData };
-
-// import FRgbData from "./components/depreciated/FRgbData.js";
-// export { FRgbData };
-
-// import FHslData from "./components/depreciated/FHslData.js";
-// export { FHslData };
-
-// import FRotationData from "./components/depreciated/FRotationData.js";
-// export { FRotationData };
-
 // Content
 
 import FMath from "./components/layout/FMath.js";
@@ -225,12 +208,6 @@ export { FTheme };
 
 import FContent from "./components/layout/FContent.js";
 export { FContent };
-
-import FContentDocument from "./components/layout/FContentDocument.js";
-export { FContentDocument };
-
-import FContentSlides from "./components/layout/FContentSlides.js";
-export { FContentSlides };
 
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
