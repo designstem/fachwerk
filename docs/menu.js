@@ -89,6 +89,7 @@ export default [
       { component: "FRegularpolygon" },
       { component: "FGroup" },
       { component: "FText" },
+      { component: "FRotation" },
     ]
   },
   {
@@ -121,6 +122,7 @@ export default [
       { component: "FPolyhedron3" },
       { component: "FLathe3" },
       { component: "FGroup3" },
+      { component: "FRotation3" },
     ]
   },
   {
