@@ -10,12 +10,12 @@ When \`:count="2"\`, the children element is horizontally mirrored around x axis
 
 <f-scene grid>
   <f-box
-    :rotation="{z:10}"
+    :rotation="10"
     opacity="0.5"
   />
   <f-slice-pattern>
     <f-box
-      :rotation="{z:10}"
+      :rotation="10"
       :stroke="color('red')"/>
     />
   </f-slice-pattern>

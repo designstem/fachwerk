@@ -7,12 +7,12 @@ export default {
 Repeats the contents in a shifted rectangular grid.
 
 <f-scene grid>
-  <f-shift-pattern>
+  <f-brick-pattern>
     <f-box
       slot-scope="data"
       :stroke="color('red')"
     />
-  </f-shift-pattern>
+  </f-brick-pattern>
   <f-box />
 </f-scene>
   `,

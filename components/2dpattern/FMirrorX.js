@@ -6,15 +6,13 @@ export default {
 Mirrors children element around horizontal x axis.
 
 <f-scene grid>
-  <f-box
-    :rotation="{z:10}"
-    opacity="0.5"
-  />
   <f-mirror-x>
-    <f-box
-      :rotation="{z:10}"
-      :stroke="color('red')"
-    />
+  	<f-rotation>
+      <f-box
+        rotation="10"
+        :stroke="color('red')"
+      />
+    </f-rotation>
   </f-mirror-x>
 </f-scene>
   `,
