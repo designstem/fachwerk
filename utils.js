@@ -1,4 +1,3 @@
-//export * from './src/utils/all.js'
 export * from './src/utils/array.js'
 export * from './src/utils/colors.js'
 export * from './src/utils/coordinates.js'
