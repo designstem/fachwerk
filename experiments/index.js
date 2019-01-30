@@ -6,12 +6,8 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import FAxis from './components/FAxis.js'
-import FAxis3 from './components/FAxis3.js'
-
 new Vue({
   el: "#app",
-  components: { FAxis, FAxis3 },
   mixins: [Init],
   methods: { ...utils },
   template: `
