@@ -12,6 +12,10 @@ export default [
         file: "./guides/writing.md"
       },
       {
+        title: "Adding tables",
+        file: "./guides/tables.md"
+      },
+      {
         title: "Images and video",
         tbd: true
       },

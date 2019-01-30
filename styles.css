@@ -356,10 +356,13 @@ var.green {
 }
 
 details {
-  padding: var(--base2) var(--base2) var(--base2) var(--base3);
+  padding: var(--base2) var(--base2) var(--base) var(--base2);
   background: var(--quaternary);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
+}
+details p:first-child {
+  margin-top: var(--base2);
 }
 details p:last-child {
   margin-bottom: 0;
@@ -394,7 +397,7 @@ details summary {
 
 blockquote {
   margin: 0;
-  padding: var(--base2) var(--base2) var(--base2) var(--base3);
+  padding: var(--base2);
   background: var(--quaternary);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
