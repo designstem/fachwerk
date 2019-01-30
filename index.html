@@ -37,6 +37,8 @@
       </div>
     </header>
 
+    <main style="min-height: 100vh">
+
     <f-theme :theme="['light','dark','yellow'][get('theme',0)]">
 
       <f-content-editor
@@ -50,6 +52,8 @@
 
     <f-keyboard alt character="p" @keydown="preview = 1 - preview"></f-keyboard>
     <f-keyboard alt character="s" @keydown="send('save')"></f-keyboard>
+
+    </main>
 
     <div class="footer">
       <div>

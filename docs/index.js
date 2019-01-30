@@ -200,6 +200,7 @@ Function can be imported using Javascript import:
     </div>
   </header>
 
+  <main style="min-height: 100vh">
 
   <f-theme
     :theme="['light','dark','yellow'][theme]"
@@ -220,6 +221,8 @@ Function can be imported using Javascript import:
     />
     
   </f-theme>
+
+  </main>
 
   <f-keyboard alt character="p" @keydown="preview = 1 - preview" />
   <f-keyboard alt character="s" @keydown="send('save')" />

@@ -2,9 +2,6 @@
 
 ## Now
 
-- event goto(1)
-- text input height = button
-- input text styling
 - min-height to <main>
 - <f-next-button :title="back" />
 - <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
@@ -17,6 +14,8 @@
 
 ## CSS
 
+- text input height = button
+- input text styling
 - details styling
 - 1 2 3 mobile support
 
