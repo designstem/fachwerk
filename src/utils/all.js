@@ -331,7 +331,7 @@ const rad2deg = rad => (rad * 180) / Math.PI;
 
 */
 
-// Array
+/*
 
 u.array.shuffle = `
 
@@ -450,6 +450,10 @@ Converts string to **Title Case**
 
 `;
 
+*/
+
+/*
+
 const titleCase = string =>
   string
     .split(" ")
@@ -503,6 +507,10 @@ const join = function(arr) {
 
 export const shorten = (str,length = 50, suffix = '...') => 
   `${str.slice(0, length)}${str.length - 1 > length ? suffix : '' }`
+
+*/
+
+/*
 
 // State
 
@@ -570,7 +578,10 @@ const set = function(key, value) {
   return null;
 };
 
+*/
+
 // Other utils
+/*
 
 u.other.debounce = `
 
@@ -673,7 +684,9 @@ const parseColumns = slide => {
   }
 };
 
-// Coordinates
+*/
+
+/* Coordinates
 
 export const positionTransform = coords => {
   const c = parseCoords(coords);
@@ -883,6 +896,8 @@ export const parseCoords = (c, normalizer = normalizeDefault) => {
   return null;
 };
 
+*/
+
 export const equal = (c, d) => {
   const seen = new Map();
   return (function compare(a, b) {
@@ -931,20 +946,20 @@ export {
   // cpoints,
   // deg2rad,
   // rad2deg,
-  shuffle,
-  any,
-  chunk,
-  unique,
-  flatten,
+  // shuffle,
+  // any,
+  // chunk,
+  // unique,
+  // flatten,
   snapToGrid,
   log,
-  join,
+  //join,
   parseSheet,
   parseColumns,
   cleanColumns,
   //trunc,
-  kebabCase,
-  titleCase,
+  // kebabCase,
+  // titleCase,
   debounce,
   send,
   receive,

@@ -18,8 +18,8 @@ Let's put them on `two-scene`:
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,1)"
-      :y="cy(i,1)"
+      :x="polarx(i,1)"
+      :y="polary(i,1)"
       r="0.02"
     />
   </f-scene>
@@ -51,8 +51,8 @@ Lets experiment with **one** `:length="360"` and **three** `:length="360*3"` rot
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,scale(i,0,360-1,1,0))"
-      :y="cy(i,scale(i,0,360-1,1,0))"
+      :x="polarx(i,scale(i,0,360-1,1,0))"
+      :y="polary(i,scale(i,0,360-1,1,0))"
       r="0.02"
     />
   </f-scene>
@@ -62,8 +62,8 @@ Lets experiment with **one** `:length="360"` and **three** `:length="360*3"` rot
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,scale(i,0,(360*3)-1,1,0))"
-      :y="cy(i,scale(i,0,(360*3)-1,1,0))"
+      :x="polarx(i,scale(i,0,(360*3)-1,1,0))"
+      :y="polary(i,scale(i,0,(360*3)-1,1,0))"
       r="0.02"
     />
   </f-scene>
@@ -79,8 +79,8 @@ First, the points:
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i*10,1)"
-      :y="cy(i*10,1)"
+      :x="polarx(i*10,1)"
+      :y="polary(i*10,1)"
       r="0.02"
     />
   </f-scene>
@@ -94,8 +94,8 @@ Nice, but how do we connect them? d3 module offers a function `d3.line()([[0,0],
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i*10,1)"
-      :y="cy(i*10,1)"
+      :x="polarx(i*10,1)"
+      :y="polary(i*10,1)"
       r="0.02"
     />
     <path
@@ -109,7 +109,7 @@ Nice, but how do we connect them? d3 module offers a function `d3.line()([[0,0],
 
 Instead of dummy `[[0,0],[1,1]]` coordinates, lets pass our circle points instead. We need to *map* our `data.value` array (currently filled with `0`) to our circle points, so
 ```
-data.value.map((v,i) => [cx(i*10,1),cy(i*10,1)])
+data.value.map((v,i) => [polarx(i*10,1),polary(i*10,1)])
 ```
 So we get this:
 
@@ -117,11 +117,11 @@ So we get this:
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :cx="cx(i*10,1)"
-      :cy="cy(i*10,1)"
+      :cx="polarx(i*10,1)"
+      :cy="polary(i*10,1)"
       r="0.02"
     />
-    <path :d="d3.line()(data.value.map((v,i) => [cx(i*10,1),cy(i*10,1)]))"       
+    <path :d="d3.line()(data.value.map((v,i) => [polarx(i*10,1),polary(i*10,1)]))"       
       fill="none"
       stroke="black"
     />
@@ -132,7 +132,7 @@ So we get this:
 
 Great, but there is one minor annoyance. We have repeated our `cx / cy` calculations two times. Instead duplicating code, let do our calclulations while initializing `<f-array-data>`. There is a `:map` prop where we can pass in a function so we can use pre-generated coordinates in many places:
 
-<f-array-data :length="360/10" :map="(v,i) => ([cx(i*10,1),cy(i*10,1)])">
+<f-array-data :length="360/10" :map="(v,i) => ([polarx(i*10,1),polary(i*10,1)])">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="d in data.value"
@@ -158,7 +158,7 @@ Great, but there is one minor annoyance. We have repeated our `cx / cy` calculat
 
 Lets get now back to our spiral. Lets add our radius scaling function `scale(i,0,360/10-1,1,0)` to `:map` so we will get our spiral, but now as a path (not as a huge set of points as previously).
 
-<f-array-data :length="360/10" :map="(_,i) => ([cx(i * 10,scale(i,0,360/10-1,1,0)),cy(i * 10,scale(i,0,360/10-1,1,0))])">
+<f-array-data :length="360/10" :map="(_,i) => ([polarx(i * 10,scale(i,0,360/10-1,1,0)),polary(i * 10,scale(i,0,360/10-1,1,0))])">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="d in data.value"
@@ -179,7 +179,7 @@ Lets get now back to our spiral. Lets add our radius scaling function `scale(i,0
 Finally, add some more spin to it!
 
 <f-animation-data from="1" to="10" value="1" alternate="true">
-<f-array-data slot-scope="sData" :length="(360 * sData.value) / 10" :map="(_,i) => ([cx(i * 10,scale(i,0,(360 * sData.value)/10-1,1,0)),cy(i * 10,scale(i,0,(360 * sData.value)/10-1,1,0))])">
+<f-array-data slot-scope="sData" :length="(360 * sData.value) / 10" :map="(_,i) => ([polarx(i * 10,scale(i,0,(360 * sData.value)/10-1,1,0)),polary(i * 10,scale(i,0,(360 * sData.value)/10-1,1,0))])">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="d in data.value"
@@ -200,7 +200,7 @@ Finally, add some more spin to it!
 
 Now, if you look very closely our spiral is not really a *curve*, our control points are connected with a straight *lines*. Lets reduce the amount of control points to `360/30 = 12` to see this in effect:
 
-<f-array-data :length="360/30" :map="(_,i) => ([cx(i * 30,scale(i,0,360/30-1,1,0)),cy(i * 30,scale(i,0,360/30-1,1,0))])">
+<f-array-data :length="360/30" :map="(_,i) => ([polarx(i * 30,scale(i,0,360/30-1,1,0)),polary(i * 30,scale(i,0,360/30-1,1,0))])">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="d in data.value"
@@ -220,7 +220,7 @@ Now, if you look very closely our spiral is not really a *curve*, our control po
 
 So we need a curve. Luckily `d3.line()` provides that option, by setting `d3.line().curve(d3.curveCardinal.tension(0))` we get our curve. 
 
-<f-array-data :length="360/30" :map="(_,i) => ([cx(i * 30,scale(i,0,360/30-1,1,0)),cy(i * 30,scale(i,0,360/30-1,1,0))])">
+<f-array-data :length="360/30" :map="(_,i) => ([polarx(i * 30,scale(i,0,360/30-1,1,0)),polary(i * 30,scale(i,0,360/30-1,1,0))])">
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="d in data.value"
@@ -246,7 +246,7 @@ slot-scope="sliderData">
 <f-array-data
   slot-scope="sliderData2"
   :length="sliderData.value"
-  :map="(_,i) => ([ cx(360 / sliderData.value * i, 1), cy(360 / sliderData.value * i, 1)])"
+  :map="(_,i) => ([ polarx(360 / sliderData.value * i, 1), polary(360 / sliderData.value * i, 1)])"
 >
 <f-scene slot-scope="arrayData">
   <f-grid />
@@ -285,8 +285,8 @@ There is one more aspect on this. Interestingly, in `x y` coordinate space the s
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,scale(i,0,360-1,1,0))"
-      :y="cy(i,scale(i,0,360-1,1,0))"
+      :x="polarx(i,scale(i,0,360-1,1,0))"
+      :y="polary(i,scale(i,0,360-1,1,0))"
       r="0.02"
     />
   </f-scene>
@@ -296,8 +296,8 @@ There is one more aspect on this. Interestingly, in `x y` coordinate space the s
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :y="cx(i,scale(i,0,(360*3)-1,1,0))"
-      :y="cy(i,scale(i,0,(360*3)-1,1,0))"
+      :y="polarx(i,scale(i,0,(360*3)-1,1,0))"
+      :y="polary(i,scale(i,0,(360*3)-1,1,0))"
       r="0.02"
     />
   </f-scene>
@@ -309,7 +309,7 @@ There is one more aspect on this. Interestingly, in `x y` coordinate space the s
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,scale(i,0,360-1,1,0))"
+      :x="polarx(i,scale(i,0,360-1,1,0))"
       :y="scale(i,0,360-1,1,0)"
       r="0.02"
     />
@@ -320,7 +320,7 @@ There is one more aspect on this. Interestingly, in `x y` coordinate space the s
   <f-scene slot-scope="data">
     <f-grid />
     <f-circle v-for="(_,i) in data.value"
-      :x="cx(i,scale(i,0,360*3-1,1,0))"
+      :x="polarx(i,scale(i,0,360*3-1,1,0))"
       :y="scale(i,0,360*3-1,1,0)"
       r="0.02"
     />
@@ -331,7 +331,7 @@ There is one more aspect on this. Interestingly, in `x y` coordinate space the s
 
 And now let's go to 3D:
 
-<f-array-data :length="360" :map="(v,i) => ({x: cx(i*10,i/500), y: cy(i*10,i/500),z:i/500})">
+<f-array-data :length="360" :map="(v,i) => ({x: polarx(i*10,i/500), y: polary(i*10,i/500),z:i/500})">
   <f-scene3 slot-scope="data">
     <f-animation-data> 
       <f-group3

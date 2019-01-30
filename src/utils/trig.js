@@ -59,8 +59,8 @@ export const polarpoints = (count = 6, radius = 1) => {
   return Array.from({
     length: count
   }).map((p, i) => ({
-    x: cx((360 / count) * i, radius),
-    y: cy((360 / count) * i, radius)
+    x: polarx((360 / count) * i, radius),
+    y: polary((360 / count) * i, radius)
   }));
 };
 

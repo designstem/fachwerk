@@ -1,4 +1,4 @@
-/* Colors */
+import { getCssVariable } from '../../utils.js'
 
 export const color_help = () => `
 
