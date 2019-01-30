@@ -6,17 +6,13 @@
 - menu top() fix
 - f-brick-pattern
 - event goto(1)
-- f-image(s)
-- polarpoints => [0,0,0] ?
-- box3 stroke
-- unify 3 shading
 - text input height = button
 - input text styling
-- fix link https://animejs.com/documentation/#linearEasing
 - min-height to <main>
 - <f-next-button :title="back" />
 - <h1 v-if="get('keyboard',0)"><big>💥</big></h1>
 - responsive f-inline
+
 - src everywhere
 
 ## CSS
@@ -122,8 +118,8 @@ src/css/grid.js?
     />
   </f-group3>
 </f-scene3>
-
-# Other features
+- box3 stroke
+- unify 3 shading
 
 ## Other components
 

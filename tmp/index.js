@@ -6,23 +6,19 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+import FAxis from './components/FAxis.js'
+import FAxis3 from './components/FAxis3.js'
+
 new Vue({
   el: "#app",
+  components: { FAxis, FAxis3 },
   mixins: [Init],
   methods: { ...utils },
   template: `
 <f-scene3 renderer="webgl">
-  <f-rotation3>
-  <f-lathe3
-    count="16"
-    points="1 1 ; -1 -1"
-  />
-  </f-rotation3>
-  <f-rotation3 duration="5000">
-  <f-lathe3
-    count="16"
-    points="1 1 ; -1 -1"
-  />
+  <f-rotation3 duration="10000">
+  <f-grid3 />
+  <f-axis3 />
   </f-rotation3>
 </f-scene3>
 `
