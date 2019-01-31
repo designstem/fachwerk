@@ -6,18 +6,23 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+import FPager from './components/FPager.js'
+Vue.component('FPager', FPager);
+
 new Vue({
+  components: { FPager },
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
   template: `
-<div style="padding: var(--base4)">
-
-<f-slider title="a" />
-
-<small>You can also use arrow keys to set the value</small>
-
-</div>
-
+  <f-theme theme="yellow">
+  <f-fetch url="./index.md">
+    <f-content
+      slot-scope="data"
+      :content="data.value"
+      style="height: 100vh;"
+    />
+  </f-fetch>
+</f-theme>
 `
 });

@@ -472,6 +472,22 @@ button,
   background: none;
 }
 
+.rounded {
+  width: var(--base4);
+  height: var(--base4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary);
+  border-radius: 100%;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: calc(var(--base) * 1.75);
+  cursor: pointer;
+  outline: none;
+  background: var(--white);
+}
+
 .buttons {
   display: flex;
 }
