@@ -1,5 +1,8 @@
 # TODO
 
+- testing 
+https://github.com/denoland/deno_std/tree/master/testing
+https://github.com/zeit/best
 
 - rm old content
 - prettier
@@ -43,6 +46,7 @@ src/css/grid.js?
 - utils shorten documentation
 
 ## Content
+
 
 - VR components
 <f-image>
