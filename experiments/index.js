@@ -13,9 +13,9 @@ new Vue({
   template: `
 <div style="padding: var(--base4)">
 
-<f-slider title="a">
+<f-slider title="a" />
 
-</f-slider>
+<small>You can also use arrow keys to set the value</small>
 
 </div>
 
