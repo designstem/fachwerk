@@ -146,6 +146,7 @@ big big big {
 
 small {
   font-size: 0.9em !important;
+  color: var(--primary);
 }
 
 img {
