@@ -134,6 +134,14 @@ export { FLathe3 };
 import FRotation3 from "./src/components/3d/FRotation3.js";
 export { FRotation3 };
 
+// Aframe
+
+import FAframe from "./src/components/aframe/FAframe.js";
+export { FAframe };
+
+import FAframeButton from "./src/components/aframe/FAframeButton.js";
+export { FAframeButton };
+
 // Transitions
 
 import FFade from "./src/components/transitions/FFade.js";

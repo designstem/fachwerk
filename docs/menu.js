@@ -54,7 +54,7 @@ export default [
       {
         title: "Drawing spirals",
         file: "./2d/spirals.md"
-      },
+      }
     ]
   },
   {
@@ -138,6 +138,10 @@ export default [
       { component: "FGroup3" },
       { component: "FRotation3" }
     ]
+  },
+  {
+    title: "📦VR / A-Frame",
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
     title: "📦Dynamic data",

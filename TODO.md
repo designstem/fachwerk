@@ -1,39 +1,16 @@
 # TODO
 
-- testing + fixes
-https://github.com/denoland/deno_std/tree/master/testing
-https://github.com/zeit/best
 - prettier
 
-## Reorg fixes
+## Scenario components
 
-- cleanup utils (see image)
-- depreciate content-slides / document
-- organize
-```
-src/components/2d.js
-src/components/3d.js
-...
-src/mixins/Css.js
-...
-src/utils/color.js
-src/utils/math.js
-```
-- npx https://github.com/css/csso-cli
-- css
-```
-...
-src/css/variables.js?
-src/css/html.js?
-src/css/grid.js?
-```
-- move stlExport from 3d to utils
-- polary??
-- utils shorten documentation
+- f-aframe-slider
+- f-compare-image / f-split-image
+- f-colorblind-image
 
 ## Content
 
-
+- Pager for slider < o o o o o * o >
 - VR components
 <f-image>
   http://sasa
@@ -49,17 +26,12 @@ src/css/grid.js?
   http://sasa
 </f-images>
 - f-youtube / f-vimeo?
-
+- f-slide-transition / f-fade-transition?
 
 ## 2D
 
 - f-axis transforms
 - f-arc
-- f-aframe-slider
-- f-slide-transition / f-fade-transition?
-- f-compare-image / f-split-image
-- f-colorblind-image
-- Pager for slider < o o o o o * o >
 
 ## 3D
 
@@ -104,8 +76,10 @@ src/css/grid.js?
 - src everywhere
 - polarpoints [0,1]
 
-## Other components
+## Other stuff
 
+- npx https://github.com/css/csso-cli
+- move stlExport from 3d to utils
 - <f-math inline />
 - <f-slider inline />
 
