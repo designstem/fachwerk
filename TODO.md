@@ -1,5 +1,6 @@
 # TODO
 
+- document store.*
 - sample project -data
 - prettier
 - improve spirals content

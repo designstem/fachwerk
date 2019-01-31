@@ -158,6 +158,7 @@ export default [
       { component: "FButtons" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
+      { component: "FPager" },
       { component: "FTabs" },
       //{ component: "FMenu" },
       { component: "FTheme" },
