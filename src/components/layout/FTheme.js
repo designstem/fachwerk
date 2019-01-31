@@ -4,7 +4,7 @@ Themes the content.
 
 Technically it adjust CSS custom properties and redefines the color constants for the child elements.
 
-<f-buttons-data
+<f-buttons
   :value="1"
   :buttons="['Light', 'Dark', 'Blue','Yellow']
 ">
@@ -20,7 +20,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
       <f-circle />
     </f-scene>
   </f-theme>
-</f-buttons-data>
+</f-buttons>
   `,
   props: {
     theme: { default: "light", type: String }

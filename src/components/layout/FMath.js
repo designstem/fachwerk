@@ -18,13 +18,13 @@ Typesetting math equations in classic LaTeX format. It uses uses a [KaTeX](https
 
 When using live variables, it is recommended to set a \`:update\` prop that triggers instant re-rendering of the equation:
 
-<f-slider-data>
+<f-slider>
   <f-math slot-scope="data" :update="data.value">
     a = 10
     b = a^2 + {{ data.value }}
     c = \\frac{a}{b} = \\frac{10}{a^2 + 100}
   </f-math>
-</f-slider-data>
+</f-slider>
 
 #### Variable colors
 

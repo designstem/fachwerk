@@ -1,13 +1,13 @@
 # Adding emojis
 
-<f-fetch-data
+<f-fetch
   url="https://unpkg.com/emoji.json/emoji-compact.json"
   type="json"
 >
   <big slot-scope="{ value }">
     <big>{{ value.join(' ') }}</big>
   </big>
-</f-fetch-data>
+</f-fetch>
 
 
 

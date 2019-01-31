@@ -1,10 +1,8 @@
 export default {
   description: `
-> This component will be renamed so that \`data\` suffix will be removed.
-
 Fetches data via AJAX.
 
-<f-fetch-data
+<f-fetch
   url="https://sofetch.glitch.me/https://samples.openweathermap.org/data/2.5/weather?q=Berlin,de&appid=b6907d289e10d714a6e88b30761fae22"
   type="json"
 >
@@ -12,7 +10,7 @@ Fetches data via AJAX.
     slot-scope="data"
     v-html="'Berlin weather: ' + data.value.weather[0].main"
   />
-</f-fetch-data>
+</f-fetch>
   `,
   data: () => ({ value: null, loaded: false }),
   props: {

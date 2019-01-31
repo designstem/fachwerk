@@ -37,13 +37,14 @@ Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?
             top: 1rem;
             right: 1rem;
         ">✕</div>
-        <f-fetch-data :url="src">
-          <f-content-document
+        <f-fetch :url="src">
+          <f-content
             slot-scope="data"
             :content="data.value"
             style="font-size: 0.8em;"
+            type="document"
           />
-        </f-fetch-data>
+        </f-fetch>
       </div>
 </span>
   `

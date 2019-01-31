@@ -4,7 +4,7 @@ export default {
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library. Supports most of the animation options AnimeJS provides.
 
-> See also available [easing functions](https://github.com/juliangarnier/anime#built-in-functions). 
+> See also available [easing functions](https://animejs.com/documentation/#linearEasing). 
 
 #### Local data
 

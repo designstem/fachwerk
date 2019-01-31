@@ -18,9 +18,9 @@ You can send events from any part of the code to any part of the code using `sen
 
 Inside the Markdown components, use `<f-receive-data>`:
 
-<f-receive-data name="d">
+<f-receive name="d">
   <pre slot-scope="data">{{ data.value ? data.value : 'Waiting for and event...' }}</pre>
-</f-receive-data>
+</f-receive>
 
 Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
 

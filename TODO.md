@@ -1,5 +1,6 @@
 # TODO
 
+- sample project -data
 - prettier
 - improve spirals content
 - get a.b
@@ -49,27 +50,6 @@
 - box3 points?
 - circle3 points?
 - r for box3
-- f-axis3
-<f-scene3>
-  <f-group3 rotation="20 -10" scale="0.8">
-    <f-grid3 />
-  	<f-line3
-    	points="0 0 0; 2 0 0"
-     	:stroke="color('red')"
-      stroke-width="1"
-    />
-    <f-line3
-    	points="0 0; 0 2 0"
-     	:stroke="color('green')"
-      stroke-width="1"
-    />
-    <f-line3
-    	points="0 0; 0 0 2"
-     :stroke="color('blue')"
-      stroke-width="1"
-    />
-  </f-group3>
-</f-scene3>
 - box3 stroke
 - unify 3 shading
 
@@ -180,13 +160,13 @@ A `<table>`, accepting array of objects as `:rows`.
 ```
 - unicode
 ```
-<f-fetch-data
+<f-fetch
   url="https://unpkg.com/unicode-11.0.0@0.7.8/General_Category/Math_Symbol/symbols.js"
 >
   <code slot-scope="{value}">
     {{ log(value.trim().replace('module.exports=','').replace(/'/g,'"').replace(/\\/g,'\\')) }}
   </code>
-</f-fetch-data>
+</f-fetch>
 ```
 - 
 `Object.getOwnPropertyNames(Math)`

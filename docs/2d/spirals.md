@@ -99,7 +99,7 @@ Now the preparations are done, we are ready to draw a spiral. Instead of hardcod
 
 Why just one spin? Let's have more of it and make it user-controllable.
 
-<f-slider-data value="1" from="1" to="10" step="0.001">
+<f-slider value="1" from="1" to="10" step="0.001">
 <f-scene grid slot-scope="{value}">
   <f-circle r="1" opacity="0.1" />
   <f-line
@@ -112,4 +112,4 @@ Why just one spin? Let's have more of it and make it user-controllable.
     curved
   />
 </f-scene>
-</f-slider-data>
+</f-slider>

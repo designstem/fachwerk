@@ -135,12 +135,12 @@ export default [
     items: [
       { component: "FAnimation" },
       { component: "FSlider" },
-      { component: "FDragData" },
-      { component: "FArrayData" },
-      { component: "FBufferData" },
-      { component: "FFetchData" },
-      { component: "FSheetData" },
-      { component: "FReceiveData" },
+      { component: "FDrag" },
+      { component: "FArray" },
+      { component: "FBuffer" },
+      { component: "FFetch" },
+      { component: "FSheet" },
+      { component: "FReceive" },
       { component: "FKeyboard" }
     ]
   },

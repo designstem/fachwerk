@@ -58,23 +58,23 @@ A VR button that is triggered by looking at it.
         :color="titleColor"
         width="7"
       />
-      <f-animation-data
+      <f-animation
         :playing="focus && !active"
         :reset="true"
         :from="0"
         :to="width - 0.2"
         :duration="cursorTimeout"
       >
-      <a-rounded
-        slot-scope="{ value }"
-        radius="0.02"
-        :width="value"
-        height="0.1"
-        :position="(width / -2 + 0.1) + ' 0.05 0.1'"
-        :material="{shader: 'flat'}"
-        color="#777"
-      />
-      </f-animation-data>
+        <a-rounded
+          slot-scope="{ value }"
+          radius="0.02"
+          :width="value"
+          height="0.1"
+          :position="(width / -2 + 0.1) + ' 0.05 0.1'"
+          :material="{shader: 'flat'}"
+          color="#777"
+        />
+      </f-animation>
     </a-entity>
   </a-entity>
   `
