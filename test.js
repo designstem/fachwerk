@@ -24,8 +24,8 @@ let passed = 0
 let failed = 0
 
 Object.keys(tests).filter(key => filteredKey ? key === filteredKey : true).forEach(key => {
-  const [actual, expected] = tests[key]();
-  if (equal(actual, expected)) {
+  const [expected, actual] = tests[key]();
+  if (equal(expected, actual)) {
     passed++
     console.log(`  ${shorten(key).padEnd(53)}\t${green}OK${reset}`);
   } else {
