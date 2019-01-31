@@ -1,6 +1,20 @@
 import * as utils from "https://designstem.github.io/fachwerk/utils.js";
 
 export default {
+  description: `
+A VR button that is triggered by looking at it.
+
+<f-aframe>
+  <f-aframe-button
+    position="0 2 -3"
+    title="Look"
+    v-on:click.native="set('move',1 - get('move',1))"
+  />
+  <a-sphere
+    :position="join(0,0,get('move',1) ? -5 : -10)"
+  />
+</f-aframe>
+  `,
   props: {
     title: { default: '', type: String },
     titleColor: { default: '#333', type: String },
@@ -8,7 +22,6 @@ export default {
     cursorTimeout: { default: 700, type: Number },
     position: { default: '0 0 0', type: String },
     rotation: { default: '0 0 0', type: String },
-    scale: { default: '1 1 1', type: String },
   },
   computed: {
     x() {
@@ -24,10 +37,9 @@ export default {
   <a-entity
     :position="position"
     :rotation="rotation"
-    :scale="scale"
   >
     <a-entity
-      scale="0.65 0.65 0.65"
+      scale="0.5 0.5 0.5"
     >
       <a-rounded
         radius="0.06"

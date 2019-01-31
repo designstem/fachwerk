@@ -54,25 +54,12 @@ export default [
       {
         title: "Drawing spirals",
         file: "./2d/spirals.md"
-      },
-    ]
-  },
-  {
-    title: "🔮 3D graphics guides",
-    items: [
-      {
-        title: "Setting up 3D scene",
-        tbd: true
       }
     ]
   },
   {
     title: "🔮 Advanced guides",
     items: [
-      {
-        title: "System architecture",
-        tbd: true
-      },
       {
         title: "Global state",
         file: "./advanced/state.md"
@@ -138,6 +125,10 @@ export default [
       { component: "FGroup3" },
       { component: "FRotation3" }
     ]
+  },
+  {
+    title: "📦VR / A-Frame",
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
     title: "📦Dynamic data",
