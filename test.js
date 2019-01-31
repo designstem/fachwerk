@@ -24,8 +24,8 @@ let passed = 0
 let failed = 0
 
 Object.keys(tests).filter(key => filteredKey ? key === filteredKey : true).forEach(key => {
-  const [output, expected] = tests[key]();
-  if (equal(output, expected)) {
+  const [expected, actual] = tests[key]();
+  if (equal(expected, actual)) {
     passed++
     console.log(`  ${shorten(key).padEnd(53)}\t${green}OK${reset}`);
   } else {
@@ -34,7 +34,7 @@ Object.keys(tests).filter(key => filteredKey ? key === filteredKey : true).forEa
  
 ${String(tests[key]).split('\n').map(row => `    ${row}`).join('\n')}
 
-    Output: ${reset}${red}${JSON.stringify(output)}${reset}${dim}
+    Actual: ${reset}${red}${JSON.stringify(actual)}${reset}${dim}
 
     Expected: ${JSON.stringify(expected)}
 ${reset}`);
