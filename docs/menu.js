@@ -83,7 +83,7 @@ export default [
       },
       {
         title: "Testing",
-        tbd: true
+        file: "./advanced/testing.md"
       }
     ]
   },
