@@ -1,23 +1,9 @@
 # TODO
 
-- testing 
+- testing + fixes
 https://github.com/denoland/deno_std/tree/master/testing
 https://github.com/zeit/best
-
-- rm old content
 - prettier
-vendor.js:1 [Vue warn]: Error in event handler for "input": "TypeError: Cannot read property 'value' of undefined"
-
-found in
-
----> <FSlider>
-       <FRender>
-         <FMarkdown>
-           <FContent>
-             <FContentEditor>
-               <FTheme>
-                 <Root>
-
 
 ## Reorg fixes
 

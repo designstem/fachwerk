@@ -60,6 +60,14 @@ export default {
     </svg>
   `,
   css: `
+    .f-svg + * {
+      margin-top: var(--base2);
+    }
+    .f-svg + .f-svg,
+    .f-svg + .f-svg + .f-svg,
+    .f-svg + .f-svg + .f-svg + .f-svg {
+      margin: 0;
+    }
     .f-svg * {
       vector-effect: non-scaling-stroke;
     }

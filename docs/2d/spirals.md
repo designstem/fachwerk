@@ -1,5 +1,7 @@
 # Drawing spirals
 
+### Setting up a scene
+
 First, lets draw a reference circle:
 
 <f-scene grid>
@@ -16,6 +18,8 @@ Given the `angle` and `radius`, lets calculate a point location in `x y` coordin
     :stroke="color('red')"
   />
 </f-scene>
+
+### From points to a circle
 
 OK, lets to a full circle made of points. To generate 360 points, lets use `range(1,360)` helper:
 
@@ -53,6 +57,10 @@ How to make a real line out of discreet points? To do that we need to first draw
   />
 </f-scene>
 
+### From points to a line
+
+Now, lets replace points with a line, `f-point` becomes a `f-line`:
+
 <f-scene grid>
   <f-circle r="1" opacity="0.1" />
   <f-line
@@ -71,6 +79,8 @@ Ok but how to make a **curved** line? We add a `curved` parameter.
     curved
   />
 </f-scene>
+
+### Time for a spiral
 
 Now the preparations are done, we are ready to draw a spiral. Instead of hardcoding the radius to be `1`, we use a scaling function to reduce the radius from `1` to `0`: `polarx(a,scale(a,0,360,1,0))`.
 
