@@ -154,31 +154,27 @@ export { FBounce };
 
 import FAnimation from "./src/components/data/FAnimation.js";
 export { FAnimation };
-import FAnimationData from "./src/components/data/FAnimation.js";
-export { FAnimationData };
 
 import FSlider from "./src/components/data/FSlider.js";
 export { FSlider };
-import FSliderData from "./src/components/data/FSlider.js";
-export { FSliderData };
 
-import FArrayData from "./src/components/data/FArrayData.js";
-export { FArrayData };
+import FArray from "./src/components/data/FArray.js";
+export { FArray };
 
-import FBufferData from "./src/components/data/FBufferData.js";
-export { FBufferData };
+import FBuffer from "./src/components/data/FBuffer.js";
+export { FBuffer };
 
-import FDragData from "./src/components/data/FDragData.js";
-export { FDragData };
+import FDrag from "./src/components/data/FDrag.js";
+export { FDrag };
 
-import FFetchData from "./src/components/data/FFetchData.js";
-export { FFetchData };
+import FFetch from "./src/components/data/FFetch.js";
+export { FFetch };
 
-import FSheetData from "./src/components/data/FSheetData.js";
-export { FSheetData };
+import FSheet from "./src/components/data/FSheet.js";
+export { FSheet };
 
-import FReceiveData from "./src/components/data/FReceiveData.js";
-export { FReceiveData };
+import FReceive from "./src/components/data/FReceive.js";
+export { FReceive };
 
 import FKeyboard from "./src/components/data/FKeyboard.js";
 export { FKeyboard };
