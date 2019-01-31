@@ -5,7 +5,7 @@ export default {
 A VR button that is triggered by looking at it.
 
 <f-aframe>
-  <f-aframe-button
+	<f-aframe-button
     position="0 2 -3"
     title="Look"
     v-on:click.native="set('move',1 - get('move',1))"
