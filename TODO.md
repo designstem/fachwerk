@@ -1,6 +1,9 @@
 # TODO
 
 - prettier
+- improve spirals content
+- get a.b
+- set a.b
 
 ## Scenario components
 
@@ -11,7 +14,6 @@
 ## Content
 
 - Pager for slider < o o o o o * o >
-- VR components
 <f-image>
   http://sasa
 </f-image>
