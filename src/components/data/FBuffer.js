@@ -1,7 +1,5 @@
 export default {
   description: `
-> This component will be renamed so that \`data\` suffix will be removed.
-
 Description to be written.
 
 <f-buffer length="10" :map="() => [0,0]">

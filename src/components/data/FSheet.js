@@ -2,8 +2,6 @@ import { parseSheet } from "../../../utils.js";
 
 export default {
   description: `
-> This component will be renamed so that \`data\` suffix will be removed.
-
 Fetches data from Google Sheets.
 
 <f-sheet id="110RcQmdpOkFcS2KIlahEh8QezwH2cwnihDiV__ZiYqk">

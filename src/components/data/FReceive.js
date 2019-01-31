@@ -3,8 +3,6 @@ export default {
     name: { default: 'value', type: String}
   },
   description: `
-> This component will be renamed so that \`data\` suffix will be removed.
-  
 Description to be written.
   `,
   data: () => ({ value: null }),
