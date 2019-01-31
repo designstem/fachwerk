@@ -5,11 +5,11 @@ export default {
   description: `
 Bounce transition
 
-<f-buttons-data :buttons="['On', 'Off']">
+<f-buttons :buttons="['On', 'Off']">
   <h3 slot-scope="data">
     <f-bounce v-if="!data.value">Bounce like a butterfly</f-bounce>
   </h3>
-</f-buttons-data>  
+</f-buttons>  
   `,
   template: `
   <transition appear name="bounce">

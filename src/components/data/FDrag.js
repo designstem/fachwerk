@@ -7,7 +7,7 @@ export default {
   Description to be written.
 
 <f-scene grid>
-  <f-drag-data
+  <f-drag
     slot-scope="sData"
     :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
     :value="sData.value"
@@ -17,7 +17,7 @@ export default {
       :points="dData.value"
       closed
     />
-  </f-drag-data>
+  </f-drag>
 </f-scene>  
   `,
   props: {

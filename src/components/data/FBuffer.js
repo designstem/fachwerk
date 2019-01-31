@@ -4,7 +4,7 @@ export default {
 
 Description to be written.
 
-<f-buffer-data length="10" :map="() => [0,0]">
+<f-buffer length="10" :map="() => [0,0]">
   <f-scene slot-scope="bData" grid>
     <f-group slot-scope="sData">
       <f-circle
@@ -27,7 +27,7 @@ Description to be written.
       />
     </f-group>
   </f-scene>
-</f-buffer-data>
+</f-buffer>
   `,  
   props: {
     length: { default: 3, type: [Number,String] },

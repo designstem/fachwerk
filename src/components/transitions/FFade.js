@@ -5,11 +5,11 @@ export default {
   description: `
 Fading transition
 
-<f-buttons-data :buttons="['On', 'Off']">
+<f-buttons :buttons="['On', 'Off']">
   <h3 slot-scope="data">
     <f-fade v-if="!data.value">Fading like a flower</f-fade>
   </h3>
-</f-buttons-data>  
+</f-buttons>  
   `,
   template: `
   <transition appear name="fade">

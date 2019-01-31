@@ -4,7 +4,7 @@ export default {
 
 Description to be written.
 
-<f-array-data :length="3">
+<f-array :length="3">
   <f-scene slot-scope="data">
   <circle
     v-for="(value,x) in data.value"
@@ -15,9 +15,9 @@ Description to be written.
     @click="data.update(1 - value, x)"
   />
   </f-scene>
-</f-array-data>
+</f-array>
 
-<f-array-data :length="7" :dimensions="2">
+<f-array :length="7" :dimensions="2">
   <f-scene slot-scope="data">
   <f-group v-for="(col, x) in data.value" :key="x">
   <f-box
@@ -32,11 +32,11 @@ Description to be written.
   />
   </f-group>
   </f-scene>
-</f-array-data>
+</f-array>
 
-<f-array-data :length="3" :map="(_,i) => i">
+<f-array :length="3" :map="(_,i) => i">
   <pre slot-scope="data">{{ data }}</pre>
-</f-array-data>
+</f-array>
   `,
   props: {
     length: { default: 1, type: Number },

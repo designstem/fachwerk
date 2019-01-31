@@ -18,7 +18,7 @@ Shows Markdown content.
     content: { default: "", type: String },
     index: { default: 0, type: Number },
     autosaveId: { default: "0", type: String },
-    type: { default: 'document', type: String }
+    type: { default: 'slides', type: String }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
