@@ -44,7 +44,6 @@ src/css/grid.js?
 
 ## Content
 
-- https://en.wikibooks.org/wiki/LaTeX/Mathematics
 - VR components
 <f-image>
   http://sasa

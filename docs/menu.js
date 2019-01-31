@@ -1,8 +1,7 @@
 export default [
   {
-    title: "🔮Guides",
+    title: "🔮 Guides",
     items: [
-      // { component: 'FEditor' },
       {
         title: "Getting started",
         file: "../README.md"
@@ -12,12 +11,12 @@ export default [
         file: "./guides/writing.md"
       },
       {
-        title: "Adding tables",
-        file: "./guides/tables.md"
-      },
-      {
         title: "Images and video",
         tbd: true
+      },
+      {
+        title: "Adding tables",
+        file: "./guides/tables.md"
       },
       {
         title: "2D scenes",
@@ -63,6 +62,19 @@ export default [
       //   title: "Making patterns",
       //   file: "./guides/patterns.md"
       // },
+      // {
+      //   title: "Forms and controls",
+      //   file: "./guides/controls.md"
+      // },
+    ]
+  },
+  {
+    title: "🚀 Advanced guides",
+    items: [
+      {
+        title: "System architecture",
+        tbd: true
+      },
       {
         title: "Global state",
         file: "./guides/state.md"
@@ -71,10 +83,10 @@ export default [
         title: "Global events",
         file: "./guides/events.md"
       },
-      // {
-      //   title: "Forms and controls",
-      //   file: "./guides/controls.md"
-      // },
+      {
+        title: "Testing",
+        tbd: true
+      },
     ]
   },
   {

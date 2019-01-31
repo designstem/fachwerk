@@ -156,11 +156,5 @@ Terminal output can be formatted using `output` tag:
 Additional formatting can be added using color classes:
 
 <output>
-<span class="gray">Compiling results...</span>
-  
-<span class="green-bg"> 10 positive results </span>
-<span class="red-bg"> 1 negative result </span>
+<span class="gray">Gray</span> <span class="green-bg"> green </span> <span class="red-bg"> red </span>
 </output>
-
-<br>
-
