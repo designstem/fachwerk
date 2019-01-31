@@ -6,11 +6,11 @@ Inspired by https://kottke.org/17/11/classical-music-scores-as-colorful-data-vis
   <f-group v-for="(d,i) in 20" :key="i">
     <f-circle
       v-for="(r,j) in 20" :key="j"
-      :x="cx(
+      :x="polarx(
         scale(d,0,20,0,360),
         scale(r,0,20,0.5,1.5)
       )"
-      :y="cy(
+      :y="polary(
         scale(d,0,20,0,360),
         scale(r,0,20,0.5,1.5)
       )"

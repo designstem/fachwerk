@@ -1,6 +1,7 @@
 # TODO
 
 
+- rm old content
 - prettier
 vendor.js:1 [Vue warn]: Error in event handler for "input": "TypeError: Cannot read property 'value' of undefined"
 
