@@ -1,6 +1,18 @@
-import { send } from "../../utils.js";
+import { send } from "../../../utils.js";
 
 export default {
+  description: `
+Sets a global pager for slides, shows prev / next buttons and also provides keyboard hotkeys.
+
+<f-pager />
+
+---
+
+## f-pager
+
+> Hey, it worked!
+
+<f-pager />`,
   methods: { send },
   template: `
     <div>

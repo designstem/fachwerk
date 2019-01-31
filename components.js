@@ -237,6 +237,10 @@ export { FNextButton };
 import FPrevButton from "./src/components/layout/FPrevButton.js";
 export { FPrevButton };
 
+import FPager from "./src/components/layout/FPager.js";
+export { FPager };
+
+
 // Internal
 
 import FMarkdown from "./src/components/internal/FMarkdown.js";
