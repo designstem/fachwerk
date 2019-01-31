@@ -1,35 +1,22 @@
 export default [
   {
-    title: "🔮Guides",
+    title: "🔮 Content guides",
     items: [
-      // { component: 'FEditor' },
       {
         title: "Getting started",
         file: "../README.md"
       },
       {
         title: "Writing content",
-        file: "./guides/writing.md"
-      },
-      {
-        title: "Adding tables",
-        file: "./guides/tables.md"
+        file: "./content/writing.md"
       },
       {
         title: "Images and video",
         tbd: true
       },
       {
-        title: "2D scenes",
-        tbd: true
-      },
-      {
-        title: "3D scenes",
-        tbd: true
-      },
-      {
-        title: "VR scenes",
-        tbd: true
+        title: "Adding tables",
+        file: "./content/tables.md"
       },
       {
         title: "Adding interaction",
@@ -37,44 +24,67 @@ export default [
       },
       {
         title: "Bringing math alive",
-        file: "./guides/math.md"
+        file: "./content/math.md"
       },
       {
         title: "Slides and navigation",
-        file: "./guides/slides.md"
+        file: "./content/slides.md"
       },
       {
         title: "Layout and grid",
-        file: "./guides/grid.md"
+        file: "./content/grid.md"
       },
       {
         title: "Using colors",
-        file: "./guides/colors.md"
+        file: "./content/colors.md"
       },
       {
         title: "Adding emojis",
-        file: "./guides/emoji.md"
+        file: "./content/emoji.md"
+      }
+    ]
+  },
+  {
+    title: "🔮 2D graphics guides",
+    items: [
+      {
+        title: "Setting up 2D scene",
+        tbd: true
       },
-      // {
-      //   title: "Visualizing data",
-      //   file: "./guides/dataviz.md"
-      // },
-      // {
-      //   title: "Making patterns",
-      //   file: "./guides/patterns.md"
-      // },
+      {
+        title: "Drawing spirals",
+        file: "./2d/spirals.md"
+      },
+    ]
+  },
+  {
+    title: "🔮 3D graphics guides",
+    items: [
+      {
+        title: "Setting up 3D scene",
+        tbd: true
+      }
+    ]
+  },
+  {
+    title: "🔮 Advanced guides",
+    items: [
+      {
+        title: "System architecture",
+        tbd: true
+      },
       {
         title: "Global state",
-        file: "./guides/state.md"
+        file: "./advanced/state.md"
       },
       {
         title: "Global events",
-        file: "./guides/events.md"
+        file: "./advanced/events.md"
       },
-      // {
-      //   title: "Forms and controls",
-      //   file: "./guides/controls.md"
-      // },
+      {
+        title: "Testing",
+        tbd: true
+      }
     ]
   },
   {
@@ -93,7 +103,7 @@ export default [
       { component: "FRegularpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FRotation" },
+      { component: "FRotation" }
     ]
   },
   {
@@ -126,7 +136,7 @@ export default [
       { component: "FPolyhedron3" },
       { component: "FLathe3" },
       { component: "FGroup3" },
-      { component: "FRotation3" },
+      { component: "FRotation3" }
     ]
   },
   {
@@ -155,8 +165,8 @@ export default [
       { component: "FVr" },
       // { component: "FSlider" },
       { component: "FButtons" },
-      { component: 'FNextButton' },
-      { component: 'FPrevButton' },
+      { component: "FNextButton" },
+      { component: "FPrevButton" },
       { component: "FTabs" },
       //{ component: "FMenu" },
       { component: "FTheme" },

@@ -1,6 +1,8 @@
 # Bringing math alive
 
-For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components.
+For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components. `<f-math>` equations are written in classic LaTex syntax.
+
+> A good tutorial on LaTeX format can be found here:  https://en.wikibooks.org/wiki/LaTeX/Mathematics
 
 ### Diameter and radius
 

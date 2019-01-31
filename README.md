@@ -10,11 +10,7 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 
 Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🦄
 
-#### Quickstart
-
-> 💾 Get the <a href="https://github.com/designstem/templates/tree/master/basic" target="_blank:">sample project from Github</a>. 
-
-#### Manual start
+## Getting started
 
 Create three files in the folder of you local machine:
 

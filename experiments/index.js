@@ -11,21 +11,11 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-<div>
+<div style="padding: var(--base4)">
 
-<f-scene>
-  <f-rotation duration="10000">
-    <f-grid />
-    <f-axis />
-    </f-rotation>
-</f-scene>
+<f-slider title="a" />
 
-<f-scene3>
-  <f-rotation3 duration="10000">
-    <f-grid3 />
-    <f-axis3 />
-  </f-rotation3>
-</f-scene3>
+<small>You can also use arrow keys to set the value</small>
 
 </div>
 

@@ -30,11 +30,11 @@ b is currently: {{ get('b', 0) }}
 
 Lets set up a slider to control value `c`:
 
-<f-slider :value="get('c', 0)" v-on:input="e => set('c',e.target.value)" />
+<f-slider title="c" :value="get('c', 0)" v-on:input="set('c',$event)" />
 
 Using the `set` parameter the line above can be condensed to
 
-<f-slider :value="get('c', 0)" set="c" />
+<f-slider set="c" />
 
 ```
 c is currently: {{ get('c', 0) }}
@@ -52,15 +52,10 @@ d is currently: {{ get('d', 0) }}
 
 #### Set a global value with a hotkey
 
->Press <kbd>Ctrl + Alt + d</kbd> to set the `d` value
+>Press <kbd>Ctrl + Alt + e</kbd> to set the `e` value
 
-<f-keyboard
-  ctrl
-  alt
-  character="d"
-  v-on:keydown="set('d', 1)"
-/>
+<f-keyboard ctrl alt character="e" v-on:keydown="set('e', 1)"/>
 
 ```
-d is currently: {{ get('d', 0) }}
+e is currently: {{ get('e', 0) }}
 ```

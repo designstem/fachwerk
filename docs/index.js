@@ -92,7 +92,7 @@ new Vue({
 
 ${c.description ? c.description.trim() : ""}
 ${c.example ? c.example.trim() : ""}
-${c.props ? `<br><br>\n\n#### Props` : ""}
+${c.props ? `\n\n#### Props` : ""}
 
 ${
         c.props
@@ -114,7 +114,7 @@ ${
               2
             )}' style="--lightblue: transparent" />`
           : ""
-      }<br><br>
+      }
 
 #### Import
 

@@ -4,9 +4,9 @@ import { color } from "../../../utils.js";
 export default {
   mixins: [Css],
   description: `
-Typesetting math equations in classic [LaTeX format](https://katex.org/docs/supported.html).
+Typesetting math equations in classic LaTeX format. It uses uses a [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and multiline support.
 
-It uses uses a [KaTeX](https://github.com/Khan/KaTeX) library with addional features such as colorized variables and multiline support.
+> A good tutorial on LaTeX format can be found here:  https://en.wikibooks.org/wiki/LaTeX/Mathematics
 
 <f-math>
   a = 10
