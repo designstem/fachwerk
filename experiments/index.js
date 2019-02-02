@@ -16,16 +16,34 @@ new Vue({
   methods: { ...utils },
   template: `
   <div style="padding: var(--base4)">
-  <f-slider set="c" from="1" to="64" integer />
+  <f-slider set="c" from="8" to="64" integer />
   <f-scene grid>
+    <f-group v-for="(a,i) in range(0,360,360 / get('c',8))" :key="i">
     <f-arc
-      v-for="(a,i) in range(0,360,360 / get('c',1))"
-      :key="i"
-      :fill="hsl(a)"
+      :fill="hsl(a,100,70)"
       stroke
       :start-angle="a"
-      :end-angle="a + (360 / get('c',1))"
+      :end-angle="a + (360 / get('c',8))"
+      r="1.2"
+      inner-radius="1"
     />
+    <f-arc
+      :fill="hsl(a,100,50)"
+      stroke
+      :start-angle="a"
+      :end-angle="a + (360 / get('c',8))"
+      r="1"
+      inner-radius="0.8"
+    />
+    <f-arc
+      :fill="hsl(a,100,30)"
+      stroke
+      :start-angle="a"
+      :end-angle="a + (360 / get('c',8))"
+      r="0.8"
+      inner-radius="0.6"
+    />
+    </f-group>
   </f-scene>
   </div>
 `
