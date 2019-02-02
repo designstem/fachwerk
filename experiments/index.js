@@ -15,8 +15,18 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
+  <div style="padding: var(--base4)">
+  <f-slider set="c" from="1" to="64" integer />
   <f-scene grid>
-    <f-arc />
+    <f-arc
+      v-for="(a,i) in range(0,360,360 / get('c',1))"
+      :key="i"
+      :fill="hsl(a)"
+      stroke
+      :start-angle="a"
+      :end-angle="a + (360 / get('c',1))"
+    />
   </f-scene>
+  </div>
 `
 });
