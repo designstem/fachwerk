@@ -6,23 +6,17 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import FPager from './components/FPager.js'
-Vue.component('FPager', FPager);
+import FArc from './src/components/FArc.js'
+Vue.component('FArc', FArc);
 
 new Vue({
-  components: { FPager },
+  components: { FArc },
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <f-theme theme="yellow">
-  <f-fetch url="./index.md">
-    <f-content
-      slot-scope="data"
-      :content="data.value"
-      style="height: 100vh;"
-    />
-  </f-fetch>
-</f-theme>
+  <f-scene grid>
+    <f-arc />
+  </f-scene>
 `
 });
