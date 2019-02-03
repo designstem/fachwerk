@@ -72,14 +72,12 @@ export const hsl = (h, s = 100, l = 50, a = null) =>
 export function rgb2hsl(r, g = 0, b = 0, a = null) {
   let c = null;
   if (typeof r === "string") {
-    c = chroma(r);
+    c = window.chroma(r);
   } else {
-    c = chroma({ r, g, b });
+    c = window.chroma({ r, g, b });
   }
   if (a) {
-    return c
-      .alpha(a)
-      .css("hsla");
+    return c.alpha(a).css("hsla");
   }
   return c.css("hsl");
 }
@@ -87,12 +85,17 @@ export function rgb2hsl(r, g = 0, b = 0, a = null) {
 export function hsl2rgb(h, s = 100, l = 50, a = null) {
   let c = null;
   if (typeof h === "string") {
-    c = chroma(h);
+    c = window.chroma(h);
   } else {
-    c = chroma({ h, s: s / 100, l: l / 100 });
+    c = window.chroma({ h, s: s / 100, l: l / 100 });
   }
   if (a) {
     return c.alpha(a).css("rgba");
   }
   return c.css("rgb");
 }
+
+export const colorblind = (color, type = "deuteranomaly") =>
+  window.chroma(window.colorBlind[type](color)).css('rgb')
+
+export const contrast = (color1, color2) => window.chroma.contrast(color1, color2)

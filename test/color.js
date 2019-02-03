@@ -1,4 +1,4 @@
-import { rgb, rgb2hsl, hsl, hsl2rgb } from "../utils.js";
+import { rgb, rgb2hsl, hsl, hsl2rgb, colorblind, contrast } from "../utils.js";
 
 // Css formatting
 
@@ -85,5 +85,61 @@ export const hsl_string_to_rgb_browser = () => {
 export const hsla_string_to_rgb_browser = () => {
   const actual = hsl2rgb(hsl(0, 100, 50, 0.5));
   const expected = "rgba(255,0,0,0.5)";
+  return [expected, actual];
+};
+
+// Colorblindness
+
+export const rgb_to_default_colorblind = () => {
+  const actual = colorblind(rgb(255, 0, 0));
+  const expected = "rgb(195,76,0)";
+  return [expected, actual];
+};
+
+// export const rgba_to_default_colorblind = () => {
+//   const actual = colorblind(rgb(255,0,0,0.5));
+//   const expected = "rgba(195,76,0,0.5)";
+//   return [expected, actual];
+// };
+
+export const hsl_to_default_colorblind = () => {
+  const actual = colorblind(hsl(360, 100, 50, 0.5));
+  const expected = "rgb(195,76,0)";
+  return [expected, actual];
+};
+
+// export const hsla_to_default_colorblind = () => {
+//   const actual = colorblind(hsl(360,100,50,0.5));
+//   const expected = "rgba(195,76,0,0.5)";
+//   return [expected, actual];
+// };
+
+export const rgb_contrast = () => {
+  const actual = contrast([0, 0, 0], [255, 0, 0]);
+  const expected = 5.252;
+  return [expected, actual];
+};
+
+export const rgb_string_contrast = () => {
+  const actual = contrast(rgb(0, 0, 0), rgb(255, 0, 0));
+  const expected = 5.252;
+  return [expected, actual];
+};
+
+export const rgba_string_contrast = () => {
+  const actual = contrast(rgb(0, 0, 0, 0.5), rgb(255, 0, 0, 0.5));
+  const expected = 5.252;
+  return [expected, actual];
+};
+
+export const hsl_string_contrast = () => {
+  const actual = contrast(hsl(0, 0, 0), hsl(0, 100, 50));
+  const expected = 5.252;
+  return [expected, actual];
+};
+
+export const hsla_string_contrast = () => {
+  const actual = contrast(hsl(0, 0, 0, 0.5), hsl(0, 100, 50, 0.5));
+  const expected = 5.252;
   return [expected, actual];
 };
