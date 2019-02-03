@@ -6,25 +6,9 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import FArc from "./src/components/FArc.js";
-Vue.component("FArc", FArc);
-
 new Vue({
-  components: { FArc },
   el: "#app",
   mixins: [Init],
-  data: () => ({
-    types: [
-      "achromatomaly",
-      "achromatopsia",
-      "deuteranomaly",
-      "deuteranopia",
-      "protanomaly",
-      "protanopia",
-      "tritanomaly",
-      "tritanopia"
-    ]
-  }),
   methods: { ...utils },
   template: `
   <f-fetch url="./index.md">
@@ -34,10 +18,9 @@ new Vue({
     />
   </f-fetch>
   `
-})
+});
 
 new Vue({
-  components: { FArc },
   //el: "#app",
   mixins: [Init],
   data: () => ({
