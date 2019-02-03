@@ -13,12 +13,28 @@ function colorblind(color, type = "deuteranomaly") {
   return window.colorBlind[type](color);
 }
 
-function hsl2rgb(h, s, l, a = 1) {
-  return window._f_hslToRgb(h, s / 100, l / 100);
+function hsl2rgb(h, s = 100, l = 50, a = null) {
+  const hsl = { h, s: s / 100, l: l / 100 }
+  if (a) {
+    return chroma(hsl).alpha(a).css('rgb')
+  }
+  return chroma(hsl).css('rgb');
 }
+
+function rgb2hsl(r, g, b, a = null) {
+  // Array.from(arguments)
+  const hsl = { r, g, b }
+  if (a) {
+    return chroma(hsl).alpha(a).css('hsla')
+  }
+  return chroma(hsl).css('hsl');
+}
+
+const contrast = (color1, color2) => chroma.contrast(color1, color2)
+
 console.log(colorblind(utils.hsl(0, 100, 50)));
 
-console.log(hsl2rgb(0, 100, 50));
+console.log(contrast([255,0,0],[0,0,0]));
 
 new Vue({
   components: { FArc },

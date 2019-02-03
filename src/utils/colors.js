@@ -43,7 +43,7 @@ Outputs a CSS \`rgba()\` string
 
 `;
 
-export const rgb = (r, g, b, a = false) =>
+export const rgb = (r, g, b, a = null) =>
   a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
 
@@ -67,4 +67,4 @@ Outputs a CSS \`hsla()\` string
 
 `;
 
-export const hsl = (h, s = 100, l = 50, a = 1) => `hsl(${h},${s}%,${l}%,${a})`;
+export const hsl = (h, s = 100, l = 50, a = null) => a ? `hsla(${h},${s}%,${l}%,${a})` : `hsl(${h},${s}%,${l}%)`;
