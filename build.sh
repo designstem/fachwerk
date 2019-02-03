@@ -13,6 +13,8 @@ curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/store@2.0.12/dist/store.modern.min.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor.js
+curl -L --compressed https://bundle.run/color-blind@0.1.1 >> vendor.js
+curl -L https://unpkg.com/chroma-js@2.0.2/chroma.js | npx uglifyjs >> vendor.js
 curl -L https://unpkg.com/d3 >> vendor.js
 curl -L https://unpkg.com/three/build/three.min.js >> vendor.js
 curl -L https://unpkg.com/codemirror | npx uglifyjs >> vendor.js
@@ -36,6 +38,8 @@ curl -L https://unpkg.com/animejs@2/anime.min.js | npx uglifyjs >> vendor_aframe
 curl -L https://unpkg.com/store@2.0.12/dist/store.modern.min.js | npx uglifyjs >> vendor_aframe.js
 curl -L https://unpkg.com/katex/dist/katex.min.js >> vendor_aframe.js
 curl -L https://unpkg.com/marked/marked.min.js >> vendor_aframe.js
+curl -L --compressed https://bundle.run/color-blind@0.1.1 >> vendor_aframe.js
+curl -L https://unpkg.com/chroma-js@2.0.2/chroma.js | npx uglifyjs >> vendor_aframe.js
 curl -L https://unpkg.com/d3 >> vendor_aframe.js
 curl -L https://unpkg.com/aframe | npx uglifyjs >> vendor_aframe.js
 curl -L https://unpkg.com/aframe-rounded | npx uglifyjs >> vendor_aframe.js

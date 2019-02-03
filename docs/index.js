@@ -3,14 +3,14 @@ import * as components from "../components.js";
 import * as utils from "../utils.js";
 const { kebabCase, titleCase, flatten } = utils;
 
-import * as colors from "../src/utils/colors.js";
+import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
 import * as trig from "../src/utils/trig.js";
 import * as string from "../src/utils/string.js";
 import * as array from "../src/utils/array.js";
 import * as other from "../src/utils/other.js";
 
-const utilsHelp = [{ colors, math, trig, string, array, other }].map(g =>
+const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
   Object.entries(g).map(([group, module]) => [
     group,
     Object.entries(module)

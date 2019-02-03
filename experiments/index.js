@@ -27,6 +27,33 @@ new Vue({
   }),
   methods: { ...utils },
   template: `
+  <f-fetch url="./index.md">
+    <f-content
+      slot-scope="data"
+      :content="data.value"
+    />
+  </f-fetch>
+  `
+})
+
+new Vue({
+  components: { FArc },
+  //el: "#app",
+  mixins: [Init],
+  data: () => ({
+    types: [
+      "achromatomaly",
+      "achromatopsia",
+      "deuteranomaly",
+      "deuteranopia",
+      "protanomaly",
+      "protanopia",
+      "tritanomaly",
+      "tritanopia"
+    ]
+  }),
+  methods: { ...utils },
+  template: `
   <f-theme theme="dark" style="padding: var(--base4)">
   <f-slider title="Slice count" set="c" from="8" to="64" integer />
   
