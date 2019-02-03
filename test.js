@@ -18,12 +18,12 @@ const dim = "\x1b[2m";
 console.log(`\n  ${dim}Running Fachwerk tests${reset}\n`);
 
 
-const filteredKey = process.argv[2]
+const filteredKey = process && process.argv[2] ? process.argv[2] : null
 
 let passed = 0
 let failed = 0
 
-Object.keys(tests).filter(key => filteredKey ? key.startsWith(filteredKey) : true).forEach(key => {
+Object.keys(tests).filter(key => !key.endsWith('_browser')).filter(key => filteredKey ? key.startsWith(filteredKey) : true).forEach(key => {
   const [expected, actual] = tests[key]();
   if (equal(expected, actual)) {
     passed++

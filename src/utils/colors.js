@@ -1,4 +1,4 @@
-import { getCssVariable } from '../../utils.js'
+import { getCssVariable } from "../../utils.js";
 
 export const color_help = () => `
 
@@ -46,7 +46,6 @@ Outputs a CSS \`rgba()\` string
 export const rgb = (r, g, b, a = null) =>
   a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
 
-
 export const hsl_help = () => `
 
 \`hsl(h, s = 100, l = 50, a = 1)\`
@@ -67,4 +66,33 @@ Outputs a CSS \`hsla()\` string
 
 `;
 
-export const hsl = (h, s = 100, l = 50, a = null) => a ? `hsla(${h},${s}%,${l}%,${a})` : `hsl(${h},${s}%,${l}%)`;
+export const hsl = (h, s = 100, l = 50, a = null) =>
+  a ? `hsla(${h},${s}%,${l}%,${a})` : `hsl(${h},${s}%,${l}%)`;
+
+export function rgb2hsl(r, g = 0, b = 0, a = null) {
+  let c = null;
+  if (typeof r === "string") {
+    c = chroma(r);
+  } else {
+    c = chroma({ r, g, b });
+  }
+  if (a) {
+    return c
+      .alpha(a)
+      .css("hsla");
+  }
+  return c.css("hsl");
+}
+
+export function hsl2rgb(h, s = 100, l = 50, a = null) {
+  let c = null;
+  if (typeof h === "string") {
+    c = chroma(h);
+  } else {
+    c = chroma({ h, s: s / 100, l: l / 100 });
+  }
+  if (a) {
+    return c.alpha(a).css("rgba");
+  }
+  return c.css("rgb");
+}
