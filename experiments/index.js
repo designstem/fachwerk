@@ -11,12 +11,11 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <f-fetch url="./index.md">
-    <f-content
-      slot-scope="data"
-      :content="data.value"
-    />
-  </f-fetch>
+  <div style="padding: var(--base4)">
+    <f-canvas>
+      <f-pixels :pixel="() => [random(0,100),0,0,255]" />
+      <f-pixel x="150" y="150" fill="white" />
+    </f-canvas>
+  </div>
   `
 });
-

@@ -108,6 +108,14 @@ export default [
     ]
   },
   {
+    title: "📦2D canvas",
+    items: [
+      { component: "FCanvas" },
+      { component: "FPixel" },
+      { component: "FPixels" },
+    ]
+  },
+  {
     title: "📦3D graphics",
     items: [
       { component: "FScene3" },
