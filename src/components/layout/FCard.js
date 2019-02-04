@@ -17,8 +17,8 @@ Decription TBD.
   props: {
     title: { default: "", type: String },
     subtitle: { default: "", type: String },
-    background: { default: "var(--tertiary)", type: String },
-    color: { default: "var(--primary)", type: String },
+    background: { default: "var(--emphasis)", type: String },
+    color: { default: "var(--secondry)", type: String },
   },
   template: `
     <div

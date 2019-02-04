@@ -16,6 +16,7 @@ new Vue({
   methods: { ...utils },
   template: `
 <div>
+  <f-pager />
   <f-fetch url="./index.md">
     <f-content
       slot-scope="data"

@@ -66,32 +66,36 @@ Shows Markdown content.
   },
   template: `
   <div>
-    <div
+    <f-theme
       v-for="(slide,i) in preparedContent"
+      :key="i"
       :theme="slide.theme || 'light'"
-      v-show="type == 'slides' ? i == currentIndex : true"
-      :class="type == 'slides' ? 'slides' : 'document'"
-      :style="{
-        display: 'grid',
-        height: slide.height === 'fit' ? 'var(--content-height)' : '',
-        gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-        _gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
-        gridTemplateAreas: slide.areas,
-        gridAutoRows: '',
-        gridAutoColumns: '',
-        overflow: 'hidden',
-        gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
-        padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)'
-      }"
     >
-      <FMarkdown
-        v-for="(col,i) in slide.content"
-        :style="{ gridArea: 'a' + (i + 1) }"
-        :key="i"
-        :content="col"
-        class="cell"
-      />
-    </div>
+      <div
+        v-show="type == 'slides' ? i == currentIndex : true"
+        :class="slide.height === 'fit' ? 'fit' : ''"
+        :style="{
+          display: 'grid',
+          height: slide.height === 'fit' ? 'var(--content-height)' : '',
+          gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
+          _gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateAreas: slide.areas,
+          gridAutoRows: '',
+          gridAutoColumns: '',
+          overflow: 'hidden',
+          gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
+          padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)'
+        }"
+      >
+        <FMarkdown
+          v-for="(col,i) in slide.content"
+          :style="{ gridArea: 'a' + (i + 1) }"
+          :key="i"
+          :content="col"
+          class="cell"
+        />
+      </div>
+    </f-theme>
   </div>
   `,
   cssprops: {
@@ -108,9 +112,9 @@ Shows Markdown content.
       description: "Gap between content columns"
     }
   },
-  // css: `
-  // .slides > .cell > * {
-  //   height: 100%;
-  // }
-  // `
+  css: `
+  .fit > .cell > p {
+    height: 100%;
+  }
+  `
 };
