@@ -11,7 +11,7 @@ import {
   normalizeDefault,
   normalizeScale,
   coordsObjectToArray
-} from "../utils.js";
+} from "../../utils.js";
 
 export const position_transform_string_0 = () => {
   const expected = "translate(0 0)";

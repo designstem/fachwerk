@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <div id="app">
-  </div>
-  <script src="../vendor.js"></script>
-  <script src="https://bundle.run/color-blind@0.1.1"></script>
-  <script src="https://unpkg.com/chroma-js@2.0.2/chroma.js"></script>
-  <script src="./index.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="..">Fachwerk</a>&nbsp;&nbsp;&nbsp;
+        <a href="../docs">Docs</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/templates" target="_blank"
+          >Templates</a
+        >&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/designstem/fachwerk" target="_blank"
+          >Github</a
+        >
+      </div>
+    </header>
+
+    <main style="min-height: 100vh; padding: var(--base4)">
+      <h1>Fachwerk test runner</h1>
+      <p>
+        Open the Developer Tools using <kbd>⌘</kbd> <kbd>Alt</kbd>
+        <kbd>i</kbd> on Mac or <kbd>Ctrl</kbd> <kbd>Alt</kbd>
+        <kbd>i</kbd> on Windows.
+      </p>
+    </main>
+    <script src="../vendor.js"></script>
+    <script src="https://bundle.run/color-blind@0.1.1"></script>
+    <script src="https://unpkg.com/chroma-js@2.0.2/chroma.js"></script>
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>

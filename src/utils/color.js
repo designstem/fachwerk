@@ -39,7 +39,8 @@ Outputs a CSS \`rgba()\` string
 #### Output
 
 <output>{{ rgb(50,100,50,0.5) }}
-{{ rgb(50,100,50) }}</output>
+{{ rgb(50,100,50) }}
+</output>
 
 `;
 
@@ -62,7 +63,8 @@ Outputs a CSS \`hsla()\` string
 
 <output>{{ hsl(50,100,50,0.5) }}
 {{ hsl(50,100,50) }}
-{{ hsl(50) }}</output>
+{{ hsl(50) }}
+</output>
 
 `;
 
@@ -71,60 +73,71 @@ export const hsl = (h, s = 100, l = 50, a = null) =>
 
 export const rgb2hsl_help = () => `
 
-\`rgb2hsl(r, g = 0, b = 0, a = null)\`
+\`rgb2hsl(r, g = 0, b = 0, a = null, array = false)\`
 
-Converts RGB to HSL, outputting CSS string.
+Converts RGB to HSL, outputting CSS string. You can also pass \`array = true\` setting to output the values as an array.
 
 #### Example
 
     rgb2hsl(255,0,0)
+    rgb2hsl(255,0,0,0.5)
+    rgb2hsl(255,0,0,0.5,true)
 
 #### Output
 
-<output>{{ rgb2hsl(255,0,0) }}</output>
+<output>{{ rgb2hsl(255,0,0) }}
+{{ rgb2hsl(255,0,0,0.5) }}
+{{ rgb2hsl(255,0,0,0.5,true) }}
+</output>
 `
 
-export function rgb2hsl(r, g = 0, b = 0, a = null) {
+export function rgb2hsl(r, g = 0, b = 0, a = null, array = false) {
   let c = null;
   if (typeof r === "string") {
     c = window.chroma(r);
   } else {
     c = window.chroma({ r, g, b });
   }
-  if (a) {
-    return c.alpha(a).css("hsla");
+  if (array) {
+    const hsl = c.hsl()
+    const arr = [hsl[0], hsl[1] * 100, hsl[2] * 100]
+    return a ? [...arr, a] : arr
   }
-  return c.css("hsl");
+  return a ? c.alpha(a).css("hsla") : c.css("hsl")
 }
 
 export const hsl2rgb_help = () => `
 
-Converts HSL to RGB, outputting CSS string.
+Converts HSL to RGB, outputting CSS string. You can also pass \`array = true\` setting to output the values as an array.
 
-\`hsl2rgb(h, s = 100, l = 50, a = null)\`
+\`hsl2rgb(h, s = 100, l = 50, a = null, array = false)\`
 
 #### Example
 
     hsl2rgb(0,100,50)
+    hsl2rgb(0,100,50,0.5)
+    hsl2rgb(0,100,50,0.5,true)
 
 #### Output
 
-<output>{{ hsl2rgb(0,100,50) }}</output>
+<output>{{ hsl2rgb(0,100,50) }}
+{{ hsl2rgb(0,100,50,0.5) }}
+{{ hsl2rgb(0,100,50,0.5,true) }}
+</output>
 `
 
-export function hsl2rgb(h, s = 100, l = 50, a = null) {
+export function hsl2rgb(h, s = 100, l = 50, a = null, array = false) {
   let c = null;
   if (typeof h === "string") {
     c = window.chroma(h);
   } else {
     c = window.chroma({ h, s: s / 100, l: l / 100 });
   }
-  if (a) {
-    return c.alpha(a).css("rgba");
+  if (array) {
+    return a ? [...c.alpha(a).rgb(), a] : c.rgb()
   }
-  return c.css("rgb");
+  return a ? c.alpha(a).css("rgba") : c.css("rgb")
 }
-
 
 export const colorblind_help = () => `
 
@@ -168,7 +181,6 @@ Calculates a color contrast ratio between two colors. It is [recommended](https:
 #### Output
 
 <output>{{ contrast(rgb(255,0,0),rgb(0,255,0)) }}</output>
-
 
 `
 
