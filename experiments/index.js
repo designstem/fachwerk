@@ -6,17 +6,17 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+import FCanvas from './src/components/FCanvas.js'
+
 new Vue({
   el: "#app",
+  components: { FCanvas },
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <f-fetch url="./index.md">
-    <f-content
-      slot-scope="data"
-      :content="data.value"
-    />
-  </f-fetch>
+  <div style="padding: var(--base4)">
+    <f-canvas />
+  </div>
   `
 });
 
