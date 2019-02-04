@@ -2,6 +2,7 @@
 
 The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
 
+- load SVG in f-image https://blobfolio.com/2018/06/lazy-loading-sprites-inline/
 - f-triangle
 https://vis4.net/chromajs/#chroma-contrast
 rgb2hsl()
