@@ -2,15 +2,16 @@
 
 ## Slide 1
 
-To create multiple slides, we separate the content with a separator:
+To create multiple slides, we separate the content with a separator and add button to move to a next slide: <code>&lt;f-next-button</code>.
 
 `---`
 
-<f-next-button />
-
-<br><br>
+<f-inline>
+  <f-next-button />
+</f-inline>
 
 <details>
+
 <summary>How this button works?</summary>
 
 `<f-next-button>` is a simple wrapper around `<button>` element that emits an event `send('next')` when it is clicked. The button above can also be written as:

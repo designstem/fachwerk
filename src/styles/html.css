@@ -255,6 +255,10 @@ details summary {
   margin-bottom: var(--base);
   outline: none;
 }
+details pre,
+details code {
+  background: var(--quaternary);
+}
 
 .bullet,
 h1 strong,
