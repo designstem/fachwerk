@@ -65,7 +65,7 @@ Shows Markdown content.
     }
   },
   template: `
-  <div>
+  <div class="content">
     <f-theme
       v-for="(slide,i) in preparedContent"
       :key="i"
@@ -104,7 +104,7 @@ Shows Markdown content.
       description: "Content height"
     },
     "--content-padding": {
-      default: "var(--base3)",
+      default: "4vw 6vw",
       description: "Content padding"
     },
     "--content-gap": {
@@ -113,6 +113,9 @@ Shows Markdown content.
     }
   },
   css: `
+  .content {
+    --base: calc(7px + 0.2vw);
+  }
   .fit > .cell > p {
     height: 100%;
   }

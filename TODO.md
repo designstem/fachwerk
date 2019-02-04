@@ -1,5 +1,7 @@
 # TODO
 
+The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
+
 - f-triangle
 https://vis4.net/chromajs/#chroma-contrast
 rgb2hsl()

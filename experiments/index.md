@@ -1,15 +1,8 @@
 | height: fit
-| theme: yellow
+| theme: blue
+| gap: none  
 
-<center>
-
-<div>
-
-# <big><big><big>Hello world</big></big></big>
-
-</div>
-
-</center>
+# Hello world
 
 -
 
@@ -17,7 +10,7 @@
 
 -
 
-<f-card>What the actual fuck</f-card>
+<f-image src="https://www.placecage.com/500/605" />
 
 ---
 
