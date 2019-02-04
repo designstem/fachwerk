@@ -231,6 +231,7 @@ Function can be imported using Javascript import:
       :content="content"
       :preview="preview"
       :save-id="activeIndex.join('-')"
+      style="--content-height: auto"
     />
     
   </f-theme>

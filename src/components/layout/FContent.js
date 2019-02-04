@@ -69,10 +69,12 @@ Shows Markdown content.
     <div
       v-for="(slide,i) in preparedContent"
       v-show="type == 'slides' ? i == currentIndex : true"
-      class="slide grid"
+      :class="type == 'slides' ? 'slides' : 'document'"
       :style="{
+        display: 'grid',
+        height: type == 'slides' ? 'var(--content-height)' : 'auto',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-        gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
+        gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
         gridTemplateAreas: slide.areas,
         gridAutoRows: '',
         gridAutoColumns: '',
@@ -92,6 +94,14 @@ Shows Markdown content.
   </div>
   `,
   cssprops: {
+    "--content-height": {
+      default: "calc(100vh - var(--base10))",
+      description: "Content height"
+    },
+    "--content-cell-height": {
+      default: "100%",
+      description: "Content cell height"
+    },
     "--content-padding": {
       default: "var(--base3)",
       description: "Content padding"
@@ -100,5 +110,10 @@ Shows Markdown content.
       default: "var(--base2)",
       description: "Gap between content columns"
     }
-  }
+  },
+  css: `
+    .slides > .cell > * {
+      height: var(--content-cell-height);
+    }
+  `
 };
