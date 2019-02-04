@@ -7,6 +7,7 @@ The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</k
 - prettier
 - get a.b
 - set a.b
+- <f-goto-button />
 
 ## Scenario components
 
