@@ -110,11 +110,15 @@ Shows Markdown content.
     "--content-gap": {
       default: "var(--base2)",
       description: "Gap between content columns"
+    },
+    "--content-base": {
+      default: "calc(7px + 0.2vw)",
+      description: "Gap between content columns"
     }
   },
   css: `
   .content {
-    --base: calc(7px + 0.2vw);
+    --base: var(--content-base);
   }
   .fit > .cell > p {
     height: 100%;
