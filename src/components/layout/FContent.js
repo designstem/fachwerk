@@ -63,27 +63,25 @@ Shows Markdown content.
       this.$global.$on("last", () => this.last());
       this.$global.$on("goto", index => this.goto(index));
     }
-    console.log(this.preparedContent)
   },
   template: `
   <div>
-    <f-theme
+    <div
       v-for="(slide,i) in preparedContent"
-      :key="i"
       :theme="slide.theme || 'light'"
       v-show="type == 'slides' ? i == currentIndex : true"
       :class="type == 'slides' ? 'slides' : 'document'"
       :style="{
         display: 'grid',
-        height: slide.height == 'fit' ? 'var(--content-height)' : 'auto',
+        height: slide.height === 'fit' ? 'var(--content-height)' : '',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-        gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+        _gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
         gridTemplateAreas: slide.areas,
         gridAutoRows: '',
         gridAutoColumns: '',
         overflow: 'hidden',
-        gridGap: slide.gap == 'none' ? '' : 'var(--content-gap)',
-        padding: slide.padding == 'none' ? '' : 'var(--content-padding)'
+        gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
+        padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)'
       }"
     >
       <FMarkdown
@@ -93,7 +91,7 @@ Shows Markdown content.
         :content="col"
         class="cell"
       />
-    </f-theme>
+    </div>
   </div>
   `,
   cssprops: {
