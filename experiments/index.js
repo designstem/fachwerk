@@ -21,10 +21,7 @@ new Vue({
     <f-content
       slot-scope="data"
       :content="data.value"
-      sstyle="
-        --content-height: calc(100vh - var(--base10));
-        --content-cell-height: 100%;
-      "
+      type="slides"
     />
   </f-fetch>
 </div>

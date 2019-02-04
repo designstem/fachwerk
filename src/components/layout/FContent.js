@@ -98,10 +98,6 @@ Shows Markdown content.
       default: "calc(100vh - var(--base10))",
       description: "Content height"
     },
-    "--content-cell-height": {
-      default: "100%",
-      description: "Content cell height"
-    },
     "--content-padding": {
       default: "var(--base3)",
       description: "Content padding"
@@ -111,9 +107,9 @@ Shows Markdown content.
       description: "Gap between content columns"
     }
   },
-  css: `
-    .slides > .cell > * {
-      height: var(--content-cell-height);
-    }
-  `
+  // css: `
+  // .slides > .cell > * {
+  //   height: 100%;
+  // }
+  // `
 };
