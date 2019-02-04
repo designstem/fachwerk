@@ -18,7 +18,7 @@ new Vue({
   template: `
   <div style="padding: var(--base4)">
     <f-canvas>
-      <f-pixels />
+      <f-pixels :fill="hsl(random(0,360))" />
     </f-canvas>
   </div>
   `
