@@ -53,10 +53,10 @@ const parseMeta = row => {
   return { [meta[0]]: meta[1] };
 };
 export const parseColumns = slide => {
-  let meta = {};
+  let meta = [];
   const metaPattern = /(\|\s(.*):\s+(.*)\n)/g;
   const metaMatch = slide.match(metaPattern);
-  if (metaMatch.length) {
+  if (metaMatch && metaMatch.length) {
     meta = metaMatch.map(parseMeta);
     slide = slide.replace(metaPattern,'')
   }

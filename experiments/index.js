@@ -16,8 +16,7 @@ new Vue({
   methods: { ...utils },
   template: `
 <div>
-<header>Test</header>
-<f-fetch url="./index.md">
+  <f-fetch url="./index.md">
     <f-content
       slot-scope="data"
       :content="data.value"

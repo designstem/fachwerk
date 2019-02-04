@@ -353,6 +353,16 @@ output .red-bg {
   background: red;
 }
 
+/* Slides */
+
+center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
 /* Extra */
 
 kbd {

@@ -67,21 +67,23 @@ Shows Markdown content.
   },
   template: `
   <div>
-    <div
+    <f-theme
       v-for="(slide,i) in preparedContent"
+      :key="i"
+      :theme="slide.theme || 'light'"
       v-show="type == 'slides' ? i == currentIndex : true"
       :class="type == 'slides' ? 'slides' : 'document'"
       :style="{
         display: 'grid',
-        height: type == 'slides' ? 'var(--content-height)' : 'auto',
+        height: slide.height == 'fit' ? 'var(--content-height)' : 'auto',
         gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
         gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
         gridTemplateAreas: slide.areas,
         gridAutoRows: '',
         gridAutoColumns: '',
         overflow: 'hidden',
-        gridGap: 'var(--content-gap)',
-        padding: 'var(--content-padding)'
+        gridGap: slide.gap == 'none' ? '' : 'var(--content-gap)',
+        padding: slide.padding == 'none' ? '' : 'var(--content-padding)'
       }"
     >
       <FMarkdown
@@ -91,12 +93,12 @@ Shows Markdown content.
         :content="col"
         class="cell"
       />
-    </div>
+    </f-theme>
   </div>
   `,
   cssprops: {
     "--content-height": {
-      default: "calc(100vh - var(--base10))",
+      default: "100vh",
       description: "Content height"
     },
     "--content-padding": {
