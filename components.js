@@ -90,6 +90,17 @@ export { FMirrorX };
 import FMirrorY from "./src/components/2dpattern/FMirrorY.js";
 export { FMirrorY };
 
+// Canvas
+
+import FCanvas from "./src/components/canvas/FCanvas.js";
+export { FCanvas };
+
+import FPixel from "./src/components/canvas/FPixel.js";
+export { FPixel };
+
+import FPixels from "./src/components/canvas/FPixels.js";
+export { FPixels };
+
 // 3D
 
 import FScene3 from "./src/components/3d/FScene3.js";
