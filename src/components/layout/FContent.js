@@ -78,7 +78,7 @@ Shows Markdown content.
           display: 'grid',
           height: slide.height === 'fit' ? 'var(--content-height)' : '',
           gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-          _gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateRows: slide.height === 'fit' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
@@ -119,6 +119,9 @@ Shows Markdown content.
   css: `
   .content {
     --base: var(--content-base);
+  }
+  .cell p:last-child {
+    margin: 0;
   }
   .fit > .cell > p {
     height: 100%;

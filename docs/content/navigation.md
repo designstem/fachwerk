@@ -1,4 +1,4 @@
-# Slides and navigation
+# Adding  navigation
 
 ## Slide 1
 
@@ -6,15 +6,22 @@ To create multiple slides, we separate the content with a separator:
 
 `---`
 
-The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
+<f-next-button />
 
-<f-next-button /><br>
+<br><br>
+
+<details>
+<summary>How this button works?</summary>
 
 `<f-next-button>` is a simple wrapper around `<button>` element that emits an event `send('next')` when it is clicked. The button above can also be written as:
 
+```
 <button class="primary" v-on:click="send('next')">
 Next step →
 </button>
+```
+
+</details>
 
 ---
 
