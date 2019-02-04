@@ -6,6 +6,7 @@ rgb2hsl()
 hsl2rgb()
 - f-arc
 
+- snapCirclular
 - document store.*
 - sample project -data
 - prettier

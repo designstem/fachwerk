@@ -63,6 +63,7 @@ Shows Markdown content.
       this.$global.$on("last", () => this.last());
       this.$global.$on("goto", index => this.goto(index));
     }
+    console.log(this.preparedContent)
   },
   template: `
   <div>
