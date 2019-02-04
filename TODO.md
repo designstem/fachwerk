@@ -1,5 +1,11 @@
 # TODO
 
+- f-triangle
+https://vis4.net/chromajs/#chroma-contrast
+rgb2hsl()
+hsl2rgb()
+- f-arc
+
 - document store.*
 - sample project -data
 - prettier

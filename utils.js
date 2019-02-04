@@ -1,5 +1,5 @@
 export * from './src/utils/array.js'
-export * from './src/utils/colors.js'
+export * from './src/utils/color.js'
 export * from './src/utils/coordinates.js'
 export * from './src/utils/internal.js'
 export * from './src/utils/math.js'

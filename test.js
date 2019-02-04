@@ -2,11 +2,11 @@
 // node -r esm test.js
 // node -r esm test.js test_name_here
 
+import * as color from "./test/color.js";
 import * as coordinates from "./test/coordinates.js";
-const tests = {...coordinates}
+const tests = {...color, ...coordinates}
 
-
-import { equal, shorten } from './utils.js'
+import { equal, shorten, rgb, hsl } from './utils.js'
 
 const reset = "\x1b[0m";
 const red = "\x1b[31m";
@@ -18,12 +18,12 @@ const dim = "\x1b[2m";
 console.log(`\n  ${dim}Running Fachwerk tests${reset}\n`);
 
 
-const filteredKey = process.argv[2]
+const filteredKey = process && process.argv[2] ? process.argv[2] : null
 
 let passed = 0
 let failed = 0
 
-Object.keys(tests).filter(key => filteredKey ? key === filteredKey : true).forEach(key => {
+Object.keys(tests).filter(key => !key.endsWith('_browser')).filter(key => filteredKey ? key.startsWith(filteredKey) : true).forEach(key => {
   const [expected, actual] = tests[key]();
   if (equal(expected, actual)) {
     passed++

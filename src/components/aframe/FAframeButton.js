@@ -1,4 +1,4 @@
-import * as utils from "https://designstem.github.io/fachwerk/utils.js";
+import * as utils from "../../../utils.js";
 
 export default {
   description: `
@@ -31,7 +31,7 @@ A VR button that is triggered by looking at it.
       return this.title.length / 2
     }
   },
-  methods: { ...utils },
+  methods: Object.assign({}, utils),
   data: () => ({ focus: false, active: false }),
   template: `
   <a-entity

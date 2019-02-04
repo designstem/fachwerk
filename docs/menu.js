@@ -84,6 +84,7 @@ export default [
       { component: "FPoint" },
       { component: "FLine" },
       { component: "FCircle" },
+      { component: "FArc" },
       { component: "FBox" },
       { component: "FHexagon" },
       { component: "FPolygon" },

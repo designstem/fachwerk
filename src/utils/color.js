@@ -1,0 +1,175 @@
+import { getCssVariable } from "../../utils.js";
+
+export const color_help = () => `
+
+\`color('name')\`
+
+Returns a color value. If \`name\` matches one of framework colors, framework color value is returned. If not, a standard CSS color name is returned.
+
+#### Example
+
+    color('red')
+    color('rebeccapurple')
+
+#### Output
+
+<output>{{ color('red') }}
+{{ color('rebeccapurple')}}</output>
+
+`;
+
+export const color = name => {
+  const color = getCssVariable(`--${name}`);
+  return color ? color.trim() : name.trim();
+};
+
+/* Color functions */
+
+export const rgb_help = () => `
+
+\`rgb(r, g, b, a = false)\`
+
+Outputs a CSS \`rgba()\` string
+
+#### Example
+
+    rgb(50,100,50,0.5)
+    rgb(50,100,50)
+
+#### Output
+
+<output>{{ rgb(50,100,50,0.5) }}
+{{ rgb(50,100,50) }}</output>
+
+`;
+
+export const rgb = (r, g, b, a = null) =>
+  a ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`;
+
+export const hsl_help = () => `
+
+\`hsl(h, s = 100, l = 50, a = 1)\`
+
+Outputs a CSS \`hsla()\` string
+
+#### Example
+
+    hsl(50,100,50,0.5)
+    hsl(50,100,50)
+    hsl(50)
+
+#### Output
+
+<output>{{ hsl(50,100,50,0.5) }}
+{{ hsl(50,100,50) }}
+{{ hsl(50) }}</output>
+
+`;
+
+export const hsl = (h, s = 100, l = 50, a = null) =>
+  a ? `hsla(${h},${s}%,${l}%,${a})` : `hsl(${h},${s}%,${l}%)`;
+
+export const rgb2hsl_help = () => `
+
+\`rgb2hsl(r, g = 0, b = 0, a = null)\`
+
+Converts RGB to HSL, outputting CSS string.
+
+#### Example
+
+    rgb2hsl(255,0,0)
+
+#### Output
+
+<output>{{ rgb2hsl(255,0,0) }}</output>
+`
+
+export function rgb2hsl(r, g = 0, b = 0, a = null) {
+  let c = null;
+  if (typeof r === "string") {
+    c = window.chroma(r);
+  } else {
+    c = window.chroma({ r, g, b });
+  }
+  if (a) {
+    return c.alpha(a).css("hsla");
+  }
+  return c.css("hsl");
+}
+
+export const hsl2rgb_help = () => `
+
+Converts HSL to RGB, outputting CSS string.
+
+\`hsl2rgb(h, s = 100, l = 50, a = null)\`
+
+#### Example
+
+    hsl2rgb(0,100,50)
+
+#### Output
+
+<output>{{ hsl2rgb(0,100,50) }}</output>
+`
+
+export function hsl2rgb(h, s = 100, l = 50, a = null) {
+  let c = null;
+  if (typeof h === "string") {
+    c = window.chroma(h);
+  } else {
+    c = window.chroma({ h, s: s / 100, l: l / 100 });
+  }
+  if (a) {
+    return c.alpha(a).css("rgba");
+  }
+  return c.css("rgb");
+}
+
+
+export const colorblind_help = () => `
+
+\`colorblind(color, type = "deuteranomaly")\`
+
+Converts color values to simulated colorblindess color values. \`type\` can be one of these:
+
+    achromatomaly   // ?
+    achromatopsia   // 0.0001%
+    deuteranomaly   // 2.7%
+    deuteranopia    // 0.56%
+    protanomaly     // 0.66%
+    protanopia      // 0.59%
+    tritanomaly     // 0.01%
+    tritanopia      // 0.016%
+
+#### Example
+
+    colorblind(rgb(255,0,0))
+
+#### Output
+
+<output>{{ colorblind(rgb(255,0,0)) }}</output>
+`
+
+
+export const colorblind = (color, type = "deuteranomaly") =>
+  window.chroma(window.colorBlind[type](window.chroma(color).css('rgb'))).css('rgb')
+
+
+export const contrast_help = () => `
+
+\`contrast(color1, color2)\`
+
+Calculates a color contrast ratio between two colors. It is [recommended](https://www.w3.org/TR/WCAG20-TECHS/G18.html) to have a contrast ration at least \`4.5\` between colors.
+
+#### Example
+
+    contrast(rgb(255,0,0),rgb(0,255,0))
+
+#### Output
+
+<output>{{ contrast(rgb(255,0,0),rgb(0,255,0)) }}</output>
+
+
+`
+
+export const contrast = (color1, color2) => window.chroma.contrast(color1, color2)
