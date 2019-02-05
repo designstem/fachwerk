@@ -1,17 +1,14 @@
-| height: fit
-| theme: blue
-| gap: none  
+| theme: dark
 
-# Hello world
+| 1 1
+| 2 3
 
--
-
-<f-image src="https://www.placecage.com/500/601" />
+<f-video />
 
 -
 
-<f-image src="https://www.placecage.com/500/605" />
+<f-video />
 
----
+-
 
-Yo
+<f-video />

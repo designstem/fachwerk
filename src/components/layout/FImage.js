@@ -1,18 +1,27 @@
-export default {
-  description: `
-Displays an image that fits to the parent size.
+import { Css } from "../../../mixins.js";
 
-<f-image src="../images/sample.jpg" />
+export default {
+  mixins: [Css],
+  description: `
+Displays an image.
+
+<f-image src="../images/example.jpg" />
   `,
   props: {
     src: { default: "", type: String, description: "Image URL" }
   },
   template: `
-    <div :style="{
+    <p :style="{
       background: 'url(' + src + ')',
       backgroundSize: 'cover',
-      _minHeight: 'calc(var(--base) * 40)',
+      minHeight: 'var(--image-min-height)',
       height: '100%'
     }" />
-  `
+  `,
+  cssprops: {
+    "--image-min-height": {
+      default: "calc(var(--base) * 40)",
+      description: "Image minimum height"
+    }
+  }
 };
