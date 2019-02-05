@@ -2,7 +2,7 @@
 
 ## Slide 1
 
-To create multiple slides, we separate the content with a separator and add button to move to a next slide: <code>&lt;f-next-button</code>.
+To create multiple slides, we separate the content with a separator and add button to move to a next slide.
 
 `---`
 

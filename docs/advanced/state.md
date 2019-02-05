@@ -10,9 +10,7 @@ Lets set up a button to set value with `set('a',20)`:
 
 Note that initially `a` is not set. To overcome this, we passed the second parameter for `get('a',0)`:
 
-```
-a is currently {{ get('a', 0) }}
-```
+<output>a is currently {{ get('a', 0) }}</output>
 
 #### Set the global value with a button group
 
@@ -22,9 +20,7 @@ a is currently {{ get('a', 0) }}
   v-on:input="i => set('b', i)"
 />
 
-```
-b is currently: {{ get('b', 0) }}
-```
+<output>b is currently: {{ get('b', 0) }}</output>
 
 #### Set global value with a slider
 
@@ -36,9 +32,11 @@ Using the `set` parameter the line above can be condensed to
 
 <f-slider set="c" />
 
-```
-c is currently: {{ get('c', 0) }}
-```
+<output>c is currently: {{ get('c', 0) }}</output>
+
+#### Set global value with text input
+
+Lets set up a textfield to control value `d`:
 
 <input
   type="text"
@@ -46,16 +44,12 @@ c is currently: {{ get('c', 0) }}
   v-on:input="e => set('d',e.target.value)"
 />
 
-```
-d is currently: {{ get('d', 0) }}
-```
+<output>d is currently: {{ get('d', 0) }}</output>
 
 #### Set a global value with a hotkey
 
->Press <kbd>Ctrl + Alt + e</kbd> to set the `e` value
+Press <kbd>Ctrl + Alt + e</kbd> to set the `e` value:
 
 <f-keyboard ctrl alt character="e" v-on:keydown="set('e', 1)"/>
 
-```
-e is currently: {{ get('e', 0) }}
-```
+<output>e is currently: {{ get('e', 0) }}</output>
