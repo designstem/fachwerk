@@ -1,4 +1,4 @@
-import { parseSheet } from "../../../utils.js";
+import { parseSheet } from "../../../dist/utils.js";
 
 export default {
   description: `

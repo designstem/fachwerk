@@ -1,5 +1,5 @@
 import { Object3D } from "./3d.js";
-import { color, parseCoords } from "../../../utils.js";
+import { color, parseCoords } from "../../../dist/utils.js";
 
 export default {
   description: `

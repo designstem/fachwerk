@@ -1,4 +1,4 @@
-import { range, color } from "../../../utils.js"
+import { range, color } from "../../../dist/utils.js"
 
 export default {
   props: {

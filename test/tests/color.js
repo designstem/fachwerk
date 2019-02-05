@@ -1,4 +1,4 @@
-import { rgb, rgb2hsl, hsl, hsl2rgb, colorblind, contrast } from "../../utils.js";
+import { rgb, rgb2hsl, hsl, hsl2rgb, colorblind, contrast } from "../../dist/utils.js";
 
 // RGB formatting
 

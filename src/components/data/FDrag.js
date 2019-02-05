@@ -1,4 +1,4 @@
-import { snapToGrid } from '../../../utils.js'
+import { snapToGrid } from '../../../dist/utils.js'
 
 export default {
   description: `

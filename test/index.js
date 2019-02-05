@@ -1,4 +1,4 @@
-import { test } from "../utils.js";
+import { test } from "../dist/utils.js";
 import * as tests from "./tests.js";
 
 const url = new URL(window.location.href);

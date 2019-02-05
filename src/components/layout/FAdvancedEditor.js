@@ -1,5 +1,5 @@
-import { CodeMirror } from '../../../vendor.js'
-import { Css } from '../../../mixins.js'
+import { CodeMirror } from '../../../dist/vendor.js'
+import { Css } from '../../../dist/mixins.js'
 
 export default {
   mixins: [Css],

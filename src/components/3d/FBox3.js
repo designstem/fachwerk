@@ -1,5 +1,5 @@
 import { Object3D } from "./3d.js";
-import { color } from '../../../utils.js'
+import { color } from '../../../dist/utils.js'
 
 export default {
   description: `

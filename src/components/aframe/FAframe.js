@@ -1,6 +1,6 @@
 //Vue.config.ignoredElements = ["a-scene", "a-sky", "a-box", "a-line"];
 
-import { Css } from '../../../mixins.js'
+import { Css } from '../../../dist/mixins.js'
 
 export default {
   mixins: [Css],

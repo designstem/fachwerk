@@ -1,7 +1,7 @@
-import { Vue } from './vendor.js'
-import { Init } from "./mixins.js";
-import * as components from "./components.js";
-import * as utils from "./utils.js";
+import { Vue } from './dist/vendor.js'
+import { Init } from "./dist/mixins.js";
+import * as components from "./dist/components.js";
+import * as utils from "./dist/utils.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);

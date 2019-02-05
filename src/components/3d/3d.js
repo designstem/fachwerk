@@ -1,4 +1,4 @@
-import { require, THREE } from '../../../vendor.js'
+import { require, THREE } from '../../../dist/vendor.js'
 window.THREE = THREE
 require('https://unpkg.com/three@0.101.1/examples/js/renderers/Projector.js').catch(() => {})
 require('https://unpkg.com/three@0.101.1/examples/js/renderers/SVGRenderer.js').catch(() => {})
@@ -8,7 +8,7 @@ import {
   positionTransform3,
   rotationTransform3,
   scaleTransform3
-} from "../../../utils.js";
+} from "../../../dist/utils.js";
 
 const Base = {
   inject: ["_baseUrl"],

@@ -1,4 +1,4 @@
-import { marked } from "../../../vendor.js";
+import { marked } from "../../../dist/vendor.js";
 import FRender from "./FRender.js";
 
 export default {

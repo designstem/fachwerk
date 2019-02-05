@@ -2,7 +2,7 @@ import {
   get as getValue,
   set as setValue,
   makeNumber
-} from "../../../utils.js";
+} from "../../../dist/utils.js";
 
 export default {
   description: `

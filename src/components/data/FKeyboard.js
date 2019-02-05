@@ -1,4 +1,4 @@
-import { titleCase } from '../../../utils.js'
+import { titleCase } from '../../../dist/utils.js'
 
 export default {
   props: {

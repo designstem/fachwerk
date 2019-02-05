@@ -1,4 +1,4 @@
-import { send } from "../../../utils.js";
+import { send } from "../../../dist/utils.js";
 
 export default {
   description: `

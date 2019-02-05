@@ -1,5 +1,5 @@
-import { Vue } from "../../../vendor.js";
-import * as utils from "../../../utils.js";
+import { Vue } from "../../../dist/vendor.js";
+import * as utils from "../../../dist/utils.js";
 
 export default {
   props: { content: String },
