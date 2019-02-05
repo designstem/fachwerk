@@ -2,7 +2,7 @@ export default {
   description: `
 Displays an image that fits to the parent size.
 
-<f-image src="../images/sample.jpg" />
+<f-image src="../images/example.jpg" />
   `,
   props: {
     src: { default: "", type: String, description: "Image URL" }

@@ -1,21 +1,26 @@
 export default {
   props: {
     src: {
-      default: "https://www.youtube.com/watch?v=B9dSYgd5Elk",
+      default: "",
       type: String,
       description: "Youtube video URL"
     }
   },
+  description: `
+Shows a Youtube video.
+
+<f-video src="https://www.youtube.com/watch?v=JYHp8LwBUzo" />
+  `,
   computed: {
     currentSrc() {
-      const { search } = new URL(this.src);
+      const { search } = new URL(this.src || 'https://www.youtube.com/watch?v=JYHp8LwBUzo');
       const params = new URLSearchParams(search);
       const id = params.get("v");
       return `//youtube.com/embed/${id}`;
     }
   },
   template: `
-    <div style="
+    <p style="
       height: 0;
       max-width: 100%;
       overflow: hidden;
@@ -34,6 +39,6 @@ export default {
         frameborder="0"
         allowfullscreen
     />
-    </div>
+  </p>
   `
 };

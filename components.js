@@ -204,6 +204,9 @@ export { FSidebar };
 import FImage from "./src/components/layout/FImage.js";
 export { FImage };
 
+import FVideo from "./src/components/layout/FVideo.js";
+export { FVideo };
+
 // Layout
 
 import FInline from "./src/components/layout/FInline.js";

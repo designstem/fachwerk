@@ -6,9 +6,6 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-import FVideo from './src/components/FVideo.js'
-Vue.component('FVideo', FVideo)
-
 new Vue({
   el: "#app",
   mixins: [Init],
