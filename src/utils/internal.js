@@ -11,7 +11,7 @@ export const equal = (c, d) => {
       if (Object.keys(a || {}).length !== Object.keys(b || {}).length) {
         return false;
       }
-      const merged = Object.assign(a,b);
+      const merged = Object.assign(a, b);
       for (const key in merged) {
         if (!compare(a && a[key], b && b[key])) {
           return false;
@@ -45,7 +45,21 @@ export const cleanColumns = content => {
   return content.replace(pattern, "");
 };
 
+const parseMeta = row => {
+  const meta = row
+    .replace(/\|/g, "")
+    .split(":")
+    .map(s => s.trim());
+  return { [meta[0]]: meta[1] };
+};
 export const parseColumns = slide => {
+  let meta = [];
+  const metaPattern = /(\|\s(.*):\s+(.*)\n)/g;
+  const metaMatch = slide.match(metaPattern);
+  if (metaMatch && metaMatch.length) {
+    meta = metaMatch.map(parseMeta);
+    slide = slide.replace(metaPattern,'')
+  }
   const pattern = /(\|[0-9\s]+\n)/g;
   const match = slide.match(pattern);
   if (match) {
@@ -61,17 +75,21 @@ export const parseColumns = slide => {
     const areas = cols
       .map(m => `'${m.map(m => `a${m}`).join(" ")}'`)
       .join("\n");
-    const content = slide.split(/\n-\n/).map(c => c.replace(pattern, ""));
+    const content = slide.split(/\n-\n/)
+      .map(c => c.replace(pattern, ""))
 
-    return { rowCount, colCount, areas, content };
+    return Object.assign({ rowCount, colCount, areas, content }, ...meta);
   } else {
     const content = slide.split(/\n-\n/);
-    return {
-      rowCount: 1,
-      colCount: content.length,
-      areas: `'${content.map((_, i) => `a${i + 1}`).join(" ")}'`,
-      content: content
-    };
+    return Object.assign(
+      {
+        rowCount: 1,
+        colCount: content.length,
+        areas: `'${content.map((_, i) => `a${i + 1}`).join(" ")}'`,
+        content: content
+      },
+      ...meta
+    );
   }
 };
 

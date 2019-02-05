@@ -8,18 +8,18 @@
 
 You can send events from any part of the code to any part of the code using `send(name, value)` helper:
 
-<button v-on:click="send('d', 1)">
-  Send message d with value 1
-</button>
-
-<p />
+<f-inline>
+  <button v-on:click="send('d', 1)">
+    Send message d with value 1
+  </button>
+</f-inline>
 
 #### Receiving events
 
 Inside the Markdown components, use `<f-receive-data>`:
 
 <f-receive name="d">
-  <pre slot-scope="data">{{ data.value ? data.value : 'Waiting for and event...' }}</pre>
+  <output slot-scope="data">{{ data.value ? data.value : 'Waiting for and event...' }}</output>
 </f-receive>
 
 Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:

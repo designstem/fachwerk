@@ -19,6 +19,7 @@ Inline layout component.
   .f-inline {
     display: flex;
     align-items: center;
+    margin-bottom: var(--base2);
   }
   .f-inline > * {
     margin: 0 var(--base) 0 0 !important;

@@ -12,8 +12,6 @@ export default {
     }
   },
   template: `
-  <div>
     <FRender :content="'<div>' + marked(processedContent, { breaks: true }) + '</div>'" />
-  </div>
   `
 };

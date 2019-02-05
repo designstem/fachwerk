@@ -65,40 +65,66 @@ Shows Markdown content.
     }
   },
   template: `
-  <div>
-    <div
+  <div class="content">
+    <f-theme
       v-for="(slide,i) in preparedContent"
-      v-show="type == 'slides' ? i == currentIndex : true"
-      class="slide grid"
-      :style="{
-        gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-        gridtemplateRows: 'repeat(' + slide.rowCount + ', 1fr)',
-        gridTemplateAreas: slide.areas,
-        gridAutoRows: '',
-        gridAutoColumns: '',
-        overflow: 'hidden',
-        gridGap: 'var(--content-gap)',
-        padding: 'var(--content-padding)'
-      }"
+      :key="i"
+      :theme="slide.theme || 'light'"
     >
-      <FMarkdown
-        v-for="(col,i) in slide.content"
-        :style="{ gridArea: 'a' + (i + 1) }"
-        :key="i"
-        :content="col"
-        class="cell"
-      />
-    </div>
+      <div
+        v-show="type == 'slides' ? i == currentIndex : true"
+        :class="slide.height === 'fit' ? 'fit' : ''"
+        :style="{
+          display: 'grid',
+          height: slide.height === 'fit' ? 'var(--content-height)' : '',
+          gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
+          gridTemplateRows: slide.height === 'fit' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateAreas: slide.areas,
+          gridAutoRows: '',
+          gridAutoColumns: '',
+          overflow: 'hidden',
+          gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
+          padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)'
+        }"
+      >
+        <FMarkdown
+          v-for="(col,i) in slide.content"
+          :style="{ gridArea: 'a' + (i + 1) }"
+          :key="i"
+          :content="col"
+          class="cell"
+        />
+      </div>
+    </f-theme>
   </div>
   `,
   cssprops: {
+    "--content-height": {
+      default: "100vh",
+      description: "Content height"
+    },
     "--content-padding": {
-      default: "var(--base3)",
+      default: "4vw 6vw",
       description: "Content padding"
     },
     "--content-gap": {
       default: "var(--base2)",
       description: "Gap between content columns"
+    },
+    "--content-base": {
+      default: "calc(7px + 0.2vw)",
+      description: "Gap between content columns"
     }
+  },
+  css: `
+  .content {
+    --base: var(--content-base);
   }
+  .cell p:last-child {
+    margin: 0;
+  }
+  .fit > .cell > p {
+    height: 100%;
+  }
+  `
 };
