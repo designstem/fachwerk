@@ -1,3 +1,8 @@
+import { require, THREE } from '../../../vendor.js'
+window.THREE = THREE
+require('https://unpkg.com/three@0.101.1/examples/js/renderers/Projector.js').catch(() => {})
+require('https://unpkg.com/three@0.101.1/examples/js/renderers/SVGRenderer.js').catch(() => {})
+
 import {
   deg2rad,
   positionTransform3,
@@ -176,7 +181,7 @@ const Renderer = {
     global.rendererSize = this.size;
     global.rendererDom = curObj.domElement;
     return { curObj, global };
-  },
+  }, 
   mounted() {
     this.$refs.container.appendChild(this.curObj.domElement);
     this.animate();

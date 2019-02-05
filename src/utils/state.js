@@ -1,3 +1,5 @@
+import { Vue } from '../../vendor.js'
+
 export const send = function(channel, value) {
   if (this.$global) {
     const v = parseFloat(value);

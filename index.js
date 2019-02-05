@@ -1,3 +1,4 @@
+import { Vue } from './vendor.js'
 import { Init } from "./mixins.js";
 import * as components from "./components.js";
 import * as utils from "./utils.js";
