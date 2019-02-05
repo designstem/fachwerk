@@ -1,10 +1,17 @@
 export default {
   props: {
-    src: { default: "B9dSYgd5Elk", type: String }
+    src: {
+      default: "https://www.youtube.com/watch?v=B9dSYgd5Elk",
+      type: String,
+      description: "Youtube video URL"
+    }
   },
   computed: {
     currentSrc() {
-      return `//youtube.com/embed/${this.src}`;
+      const { search } = new URL(this.src);
+      const params = new URLSearchParams(search);
+      const id = params.get("v");
+      return `//youtube.com/embed/${id}`;
     }
   },
   template: `
