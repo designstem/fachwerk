@@ -126,5 +126,8 @@ Shows Markdown content.
   .fit > .cell > p {
     height: 100%;
   }
+  .fit > .cell {
+    --image-min-height: 0;
+  }
   `
 };

@@ -1,6 +1,9 @@
+import { Css } from "../../../mixins.js";
+
 export default {
+  mixins: [Css],
   description: `
-Displays an image that fits to the parent size.
+Displays an image.
 
 <f-image src="../images/example.jpg" />
   `,
@@ -8,11 +11,17 @@ Displays an image that fits to the parent size.
     src: { default: "", type: String, description: "Image URL" }
   },
   template: `
-    <div :style="{
+    <p :style="{
       background: 'url(' + src + ')',
       backgroundSize: 'cover',
-      _minHeight: 'calc(var(--base) * 40)',
+      minHeight: 'var(--image-min-height)',
       height: '100%'
     }" />
-  `
+  `,
+  cssprops: {
+    "--image-min-height": {
+      default: "calc(var(--base) * 40)",
+      description: "Image minimum height"
+    }
+  }
 };
