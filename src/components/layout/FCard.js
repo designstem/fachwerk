@@ -17,30 +17,25 @@ Decription TBD.
   props: {
     title: { default: "", type: String },
     subtitle: { default: "", type: String },
-    background: { default: "var(--tertiary)", type: String },
-    color: { default: "var(--primary)", type: String },
-    width: { default: "", type: String },
-    height: { default: "", type: String }
+    background: { default: "var(--emphasis)", type: String },
+    color: { default: "var(--secondry)", type: String },
   },
   template: `
     <div
       style="
         border-radius: var(--border-radius);
         padding: var(--base2);
-
+        height: 100%;
       "
       :style="{
         color,
         background,
-        width,
-        height
       }"
     >
       <div style="
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
       ">
         <h4
           style="margin: 0;"

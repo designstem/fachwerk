@@ -95,8 +95,8 @@ Creates a code editor with a live preview.
     <div
       class="preview"
       :style="{
-        '--content-padding': preview ? '4vw 6vw' : '',
-        '--base': preview ? 'calc(7px + 0.2vw)' : ''
+        '--content-padding': preview ? '' : 'var(--base4)',
+        '--content-base': preview ? '' : 'var(--base)'
       }"
     >
       <slot :content="innerContent">

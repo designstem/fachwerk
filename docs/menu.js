@@ -11,28 +11,20 @@ export default [
         file: "./content/writing.md"
       },
       {
-        title: "Images and video",
-        tbd: true
-      },
-      {
         title: "Adding tables",
         file: "./content/tables.md"
       },
       {
-        title: "Adding interaction",
-        tbd: true
+        title: "Layout and grid",
+        file: "./content/layout.md"
+      },
+      {
+        title: "Adding navigation",
+        file: "./content/navigation.md"
       },
       {
         title: "Bringing math alive",
         file: "./content/math.md"
-      },
-      {
-        title: "Slides and navigation",
-        file: "./content/slides.md"
-      },
-      {
-        title: "Layout and grid",
-        file: "./content/grid.md"
       },
       {
         title: "Using colors",
@@ -157,13 +149,13 @@ export default [
     title: "📦Content and layout",
     items: [
       { component: "FMath" },
+      { component: "FImage" },
       { component: "FSidebar" },
       { component: "FInline" },
       { component: "FCard" },
       { component: "FTable" },
       { component: "FHr" },
       { component: "FVr" },
-      // { component: "FSlider" },
       { component: "FButtons" },
       { component: "FNextButton" },
       { component: "FPrevButton" },

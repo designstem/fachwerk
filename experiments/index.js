@@ -6,16 +6,24 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+import FImage from './src/components/FImage.js'
+
+Vue.component('FImage', FImage)
+
 new Vue({
   el: "#app",
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <div style="padding: var(--base4)">
-    <f-canvas>
-      <f-pixels :pixel="() => [random(0,100),0,0,255]" />
-      <f-pixel x="150" y="150" fill="white" />
-    </f-canvas>
-  </div>
+<div>
+  <f-pager />
+  <f-fetch url="./index.md">
+    <f-content
+      slot-scope="data"
+      :content="data.value"
+      type="slides"
+    />
+  </f-fetch>
+</div>
   `
 });

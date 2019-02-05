@@ -1,17 +1,13 @@
 # TODO
 
-- f-triangle
-https://vis4.net/chromajs/#chroma-contrast
-rgb2hsl()
-hsl2rgb()
-- f-arc
+The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
 
-- document store.*
-- sample project -data
+- load SVG in f-image https://blobfolio.com/2018/06/lazy-loading-sprites-inline/
+- snapCirclular
 - prettier
-- improve spirals content
 - get a.b
 - set a.b
+- <f-goto-button />
 
 ## Scenario components
 

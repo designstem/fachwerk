@@ -201,6 +201,9 @@ export { FMath };
 import FSidebar from "./src/components/layout/FSidebar.js";
 export { FSidebar };
 
+import FImage from "./src/components/layout/FImage.js";
+export { FImage };
+
 // Layout
 
 import FInline from "./src/components/layout/FInline.js";
