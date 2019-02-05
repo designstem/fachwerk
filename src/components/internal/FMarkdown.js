@@ -1,3 +1,4 @@
+import { marked } from "../../../vendor.js";
 import FRender from "./FRender.js";
 
 export default {
@@ -12,6 +13,6 @@ export default {
     }
   },
   template: `
-    <FRender :content="'<div>' + marked(processedContent, { breaks: true }) + '</div>'" />
+    <f-render :content="'<div>' + marked(processedContent, { breaks: true }) + '</div>'" />
   `
 };

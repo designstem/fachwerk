@@ -1,3 +1,4 @@
+import { store } from "../../../vendor.js"
 import { Css } from "../../../mixins.js";
 
 export default {

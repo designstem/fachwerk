@@ -1,3 +1,4 @@
+import { CodeMirror } from '../../../vendor.js'
 import { Css } from '../../../mixins.js'
 
 export default {
@@ -95,7 +96,8 @@ export default {
   }
   .CodeMirror-line {
     color: #87a0ab !important;
-  }
+  }import { CodeMirror } from 'codemirror';
+
   .CodeMirror .cm-header  {
     color: #f0f3f5;
     font-weight: normal;

@@ -1,3 +1,4 @@
+import { d3 } from "../../../vendor.js";
 import { Object2d } from "../../../mixins.js";
 import { parseCoords } from "../../../utils.js";
 

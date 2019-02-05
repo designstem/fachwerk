@@ -1,3 +1,4 @@
+import { chroma, colorBlind } from "../../vendor.js"
 import { getCssVariable } from "../../utils.js";
 
 export const color_help = () => `
@@ -94,9 +95,9 @@ Converts RGB to HSL, outputting CSS string. You can also pass \`array = true\` s
 export function rgb2hsl(r, g = 0, b = 0, a = null, array = false) {
   let c = null;
   if (typeof r === "string") {
-    c = window.chroma(r);
+    c = chroma(r);
   } else {
-    c = window.chroma({ r, g, b });
+    c = chroma({ r, g, b });
   }
   if (array) {
     const hsl = c.hsl()
@@ -129,9 +130,9 @@ Converts HSL to RGB, outputting CSS string. You can also pass \`array = true\` s
 export function hsl2rgb(h, s = 100, l = 50, a = null, array = false) {
   let c = null;
   if (typeof h === "string") {
-    c = window.chroma(h);
+    c = chroma(h);
   } else {
-    c = window.chroma({ h, s: s / 100, l: l / 100 });
+    c = chroma({ h, s: s / 100, l: l / 100 });
   }
   if (array) {
     return a ? [...c.alpha(a).rgb(), a] : c.rgb()
@@ -165,7 +166,7 @@ Converts color values to simulated colorblindess color values. \`type\` can be o
 
 
 export const colorblind = (color, type = "deuteranomaly") =>
-  window.chroma(window.colorBlind[type](window.chroma(color).css('rgb'))).css('rgb')
+  chroma(colorBlind[type](chroma(color).css('rgb'))).css('rgb')
 
 
 export const contrast_help = () => `
@@ -184,4 +185,4 @@ Calculates a color contrast ratio between two colors. It is [recommended](https:
 
 `
 
-export const contrast = (color1, color2) => window.chroma.contrast(color1, color2)
+export const contrast = (color1, color2) => chroma.contrast(color1, color2)

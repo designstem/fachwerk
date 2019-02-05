@@ -2,12 +2,11 @@
 
 The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</kbd> keys, but it is helpful to also create navigational controls.
 
-- load SVG in f-image https://blobfolio.com/2018/06/lazy-loading-sprites-inline/
-- snapCirclular
+## Tools
+
 - prettier
 - get a.b
 - set a.b
-- <f-goto-button />
 
 ## Scenario components
 
@@ -18,20 +17,6 @@ The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</k
 ## Content
 
 - Pager for slider < o o o o o * o >
-<f-image>
-  http://sasa
-</f-image>
-
-<f-images layout="
-1 1 1
-2 3 3
-">
-  http://sasa
-  http://sasa
-  http://sasa
-  http://sasa
-</f-images>
-- f-youtube / f-vimeo?
 - f-slide-transition / f-fade-transition?
 
 ## 2D
@@ -66,26 +51,10 @@ The user can now navigate between slides using <kbd>&lt;</kbd>  and <kbd>&gt;</k
 - npx https://github.com/css/csso-cli
 - move stlExport from 3d to utils
 - <f-math inline />
-- <f-slider inline />
-
-<f-image>
-  http://sasa
-</f-image>
-
-<f-images layout="
-1 1 1
-2 3 3
-">
-  http://sasa
-  http://sasa
-  http://sasa
-  http://sasa
-</f-images>
-
+- <f-button inline />
 - github api https://github.com/octokit/rest.js#browser
 - set(key, value, localstore = true) // del // preserve() // save() // remember()
-- set(key,value,remember = true)
-- slide ids / metadata
+- slide ids
 - f-iframe :scale -> presentations / preview | http://jsfiddle.net/AwokeKnowing/yy8yb/
 - embed?
 - copy to clipboard
@@ -111,6 +80,9 @@ export const downloadJson = (json, filename) => {
 
 ## Maybe
 
+- snapCirclular
+- <f-goto-button />
+- load SVG in f-image https://blobfolio.com/2018/06/lazy-loading-sprites-inline/
 - f-triangle?
 - dashed lines?
 - FMarkdown2 (remark / rehype)?

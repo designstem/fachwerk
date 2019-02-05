@@ -1,3 +1,4 @@
+import { katex } from "../../../vendor.js"
 import { Css } from "../../../mixins.js";
 import { color } from "../../../utils.js";
 
@@ -56,7 +57,6 @@ to this
   props: { update: { default: null } },
   data: () => ({ math: 0, timer: null }),
   methods: {
-    // String.raw`${this.$slots.default[0].text}`
     renderMath() {
       this.math = katex
         .renderToString(

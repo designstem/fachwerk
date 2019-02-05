@@ -1,4 +1,5 @@
 
+import { d3 } from "../../../vendor.js"
 import { deg2rad, parseCoords } from "../../../utils.js";
 import { Object2d } from "../../../mixins.js";
 
@@ -43,7 +44,7 @@ Technically the component is based on [d3.arc](https://github.com/d3/d3-shape#ar
   },
   computed: {
     path() {
-      return window.d3
+      return d3
         .arc()
         .outerRadius(this.r)
         .innerRadius(this.innerRadius)
