@@ -13,7 +13,7 @@ new Vue({
   methods: { ...utils },
   template: `
 <div style="padding: var(--base4);">
-  Hello
+  <f-scene3 grid />
 </div>
   `
 });

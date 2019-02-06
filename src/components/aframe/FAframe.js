@@ -1,6 +1,14 @@
-//Vue.config.ignoredElements = ["a-scene", "a-sky", "a-box", "a-line"];
 
+import { Vue, require } from "../../../dist/vendor.js"
 import { Css } from '../../../dist/mixins.js'
+
+async function loadAframe() {
+  await require('https://unpkg.com/aframe@0.8.2').catch(() => {})
+  await require('https://unpkg.com/aframe-rounded@1.0.3').catch(() => {})
+}
+loadAframe()
+
+Vue.config.ignoredElements = ["a-scene", "a-camera", "a-text", "a-entity", "a-cursor", "a-sky", "a-box", "a-sphere", "a-rounded"];
 
 export default {
   mixins: [Css],

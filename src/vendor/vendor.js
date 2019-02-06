@@ -27,4 +27,6 @@ export {
   Vue
 };
 
+
 // Missing: aframe, prettier
+// curl -L https://unpkg.com/aframe-rounded | npx uglifyjs >> vendor_aframe.js
