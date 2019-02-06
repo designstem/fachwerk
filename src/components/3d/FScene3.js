@@ -1,4 +1,6 @@
-import { Renderer, Scene, Camera } from "./3d.js";
+import Renderer from "./internal/Renderer.js";
+import Scene from "./internal/Scene.js";
+import Camera from "./internal/Camera.js";
 
 export default {
   description: `
