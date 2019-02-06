@@ -38,8 +38,6 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Import Vue, components and utils
-
 import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
 // Register global components
@@ -54,9 +52,6 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
-
-  // Initialize framework
-  mixins: [Init],
 
   // Making utility functions available to templates
   methods: { ...utils },
