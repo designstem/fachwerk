@@ -1,5 +1,6 @@
 # TODO
 
+- 2d Fsvg / Fbasegrid to /intenal
 - ./index.js remove get / set
 - rollup min
 ```js
