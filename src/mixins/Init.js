@@ -1,4 +1,4 @@
-import { Vue } from '../../dist/vendor.js'
+import { Vue } from '../../vendor.js'
 
 export default {
   beforeCreate() {

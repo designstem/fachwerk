@@ -1,7 +1,7 @@
 
-import { d3 } from "../../../dist/vendor.js"
-import { deg2rad, parseCoords } from "../../../dist/utils.js";
-import { Object2d } from "../../../dist/mixins.js";
+import { d3 } from "../../../vendor.js"
+import { deg2rad, parseCoords } from "../../../utils.js";
+import { Object2d } from "../../../mixins.js";
 
 export default {
   mixins: [Object2d],

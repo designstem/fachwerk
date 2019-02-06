@@ -1,4 +1,4 @@
-import { THREE } from '../../../../dist/vendor.js'
+import { THREE } from '../../../../vendor.js'
 import { SVGRenderer } from './SVGRenderer.js'
 
 export default {

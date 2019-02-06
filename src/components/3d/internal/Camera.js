@@ -1,4 +1,4 @@
-import { THREE } from '../../../../dist/vendor.js'
+import { THREE } from '../../../../vendor.js'
 import Object3D from './Object3D.js'
 
 export default {

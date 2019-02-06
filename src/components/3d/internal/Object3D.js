@@ -1,9 +1,9 @@
-import { THREE } from '../../../../dist/vendor.js'
+import { THREE } from '../../../../vendor.js'
 import {
   positionTransform3,
   rotationTransform3,
   scaleTransform3
-} from "../../../../dist/utils.js";
+} from "../../../../utils.js";
 
 import Base from './Base.js'
 

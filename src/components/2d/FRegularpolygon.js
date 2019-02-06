@@ -1,5 +1,5 @@
-import { Object2d } from "../../../dist/mixins.js";
-import { color, polarpoints, positionTransform } from "../../../dist/utils.js";
+import { Object2d } from "../../../mixins.js";
+import { color, polarpoints, positionTransform } from "../../../utils.js";
 
 export default {
   mixins: [Object2d],

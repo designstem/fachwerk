@@ -1,4 +1,4 @@
-import { color } from "../../../dist/utils.js";
+import { color } from "../../../utils.js";
 
 export default {
   description: `

@@ -1,7 +1,7 @@
-import { Vue, loadAframe } from "../dist/vendor.js";
-import { Init, Css } from "../dist/mixins.js";
-import * as components from "../dist/components.js";
-import * as utils from "../dist/utils.js";
+import { Vue, loadAframe } from "../vendor.js";
+import { Init, Css } from "../mixins.js";
+import * as components from "../components.js";
+import * as utils from "../utils.js";
 const { kebabCase, titleCase, flatten } = utils;
 
 import * as color from "../src/utils/color.js";
@@ -123,7 +123,7 @@ ${
 
 Component can be imported using Javascript import:
   
-    import { ${name} } from 'https://designstem.github.io/fachwerk/dist/components.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/components.js'
     
     Vue.component('${name}', ${name})
 
@@ -138,7 +138,7 @@ ${content}
 
 Function can be imported using Javascript import:
 
-    import { ${name} } from 'https://designstem.github.io/fachwerk/dist/utils.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/utils.js'
 
 `;
     }

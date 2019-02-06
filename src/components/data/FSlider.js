@@ -2,7 +2,7 @@ import {
   get as getValue,
   set as setValue,
   makeNumber
-} from "../../../dist/utils.js";
+} from "../../../utils.js";
 
 export default {
   description: `
@@ -98,7 +98,7 @@ Numeric slider.
 
 /*
 
-import { makeNumber, get, set, log } from '../../dist/utils.js';
+import { makeNumber, get, set, log } from '../../utils.js';
 
 export default {
   description: `

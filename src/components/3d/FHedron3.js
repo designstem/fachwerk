@@ -1,4 +1,4 @@
-import { polarpoints } from "../../../dist/utils.js";
+import { polarpoints } from "../../../utils.js";
 import Object3D from "./internal/Object3D.js";
 
 export default {

@@ -2,7 +2,7 @@ import {
   positionTransform,
   rotationTransform,
   scaleTransform
-} from "../../dist/utils.js";
+} from "../../utils.js";
 
 export default {
   computed: {

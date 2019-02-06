@@ -1,5 +1,5 @@
-import { chroma, colorBlind } from "../../dist/vendor.js"
-import { getCssVariable } from "../../dist/utils.js";
+import { chroma, colorBlind } from "../../vendor.js"
+import { getCssVariable } from "../../utils.js";
 
 export const color_help = () => `
 

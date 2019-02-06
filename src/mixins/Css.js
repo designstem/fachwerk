@@ -1,4 +1,4 @@
-import { setCssVariable } from "../../dist/utils.js";
+import { setCssVariable } from "../../utils.js";
 
 export default {
   created() {

@@ -1,4 +1,4 @@
-import { Object2d } from "../../../dist/mixins.js";
+import { Object2d } from "../../../mixins.js";
 
 export default {
   mixins: [Object2d],

@@ -1,6 +1,6 @@
-import { Css } from "../../../dist/mixins.js";
+import { Css } from "../../../mixins.js";
 import FMarkdown from "../internal/FMarkdown.js";
-import { parseColumns } from "../../../dist/utils.js";
+import { parseColumns } from "../../../utils.js";
 
 export default {
   mixins: [Css],

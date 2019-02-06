@@ -1,5 +1,5 @@
-import { Object2d } from "../../../dist/mixins.js";
-import { range } from "../../../dist/utils.js";
+import { Object2d } from "../../../mixins.js";
+import { range } from "../../../utils.js";
 
 export default {
   mixins: [Object2d],
