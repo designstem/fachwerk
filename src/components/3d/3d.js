@@ -1,4 +1,4 @@
-import { require, THREE } from '../../../dist/vendor.js'
+import { THREE } from '../../../dist/vendor.js'
 import { SVGRenderer } from './internal/SVGRenderer.js'
 
 import {
@@ -165,7 +165,7 @@ const Renderer = {
     let curObj = this.obj;
     if (!curObj) {
       if (this.renderer == "svg") {
-        curObj = new THREE.SVGRenderer({ antialias: true });
+        curObj = new SVGRenderer({ antialias: true });
       }
       if (this.renderer == "webgl") {
         curObj = new THREE.WebGLRenderer({ antialias: true });

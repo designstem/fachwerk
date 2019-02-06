@@ -1,6 +1,6 @@
-
-import { Object3D } from "./3d.js";
+import { THREE } from "../../../dist/vendor.js";
 import { color } from "../../../dist/utils.js"
+import { Object3D } from "./3d.js";
 
 export default {
   mixins: [Object3D],

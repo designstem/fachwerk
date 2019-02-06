@@ -1,5 +1,7 @@
 // https://unpkg.com/three@0.101.1/examples/js/renderers/Projector.js
 
+import { THREE } from '../../../../dist/vendor.js'
+
 /**
  * @author mrdoob / http://mrdoob.com/
  * @author supereggbert / http://www.paulbrunt.co.uk/
@@ -96,9 +98,9 @@ THREE.RenderableSprite = function () {
 
 };
 
-//
+// THREE.Projector = function () {
 
-THREE.Projector = function () {
+export function Projector () {
 
 	var _object, _objectCount, _objectPool = [], _objectPoolLength = 0,
 		_vertex, _vertexCount, _vertexPool = [], _vertexPoolLength = 0,

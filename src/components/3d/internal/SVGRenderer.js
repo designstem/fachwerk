@@ -1,6 +1,7 @@
 // https://unpkg.com/three@0.101.1/examples/js/renderers/SVGRenderer.js
 
 import { THREE } from '../../../../dist/vendor.js'
+import { Projector } from './Projector.js'
 
 /**
  * @author mrdoob / http://mrdoob.com/
@@ -21,11 +22,11 @@ THREE.SVGObject.prototype.constructor = THREE.SVGObject;
 // THREE.SVGRenderer = function () {
 export function SVGRenderer ( object, domElement ) {
 
-	console.log( 'THREE.SVGRenderer', THREE.REVISION );
+	// console.log( 'THREE.SVGRenderer', THREE.REVISION );
 
 	var _this = this,
 		_renderData, _elements, _lights,
-		_projector = new THREE.Projector(),
+		_projector = new Projector(),
 		_svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' ),
 		_svgWidth, _svgHeight, _svgWidthHalf, _svgHeightHalf,
 
