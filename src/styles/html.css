@@ -309,6 +309,7 @@ pre {
   padding: var(--base2);
   margin: 0 0 var(--base2) 0;
   word-break: break-all;
+  white-space: pre-wrap;
 }
 
 code {

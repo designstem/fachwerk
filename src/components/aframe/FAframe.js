@@ -2,16 +2,20 @@
 import { Vue, require } from "../../../dist/vendor.js"
 import { Css } from '../../../dist/mixins.js'
 
-Vue.config.ignoredElements = ["a-scene", "a-camera", "a-text", "a-entity", "a-cursor", "a-sky", "a-box", "a-sphere", "a-rounded"];
+// Vue.config.ignoredElements = ["a-scene", "a-camera", "a-text", "a-entity", "a-cursor", "a-sky", "a-box", "a-sphere", "a-rounded"];
 
 export default {
   mixins: [Css],
   description: `
 A basic \`a-scene\` wrapper from [A-Frame](https://aframe.io/). Adds embedding, background color and look-based cursor. 
 
-A-Frame is not included in standard Fachwerk release since it is a quite big library. Replace your vendor scripts in \`index.html\` with the following to use A-Frame:
+A-Frame is not included in standard Fachwerk release. Add following lines to \`index.js\` to load A-Frame:
 
-    <script src="https://designstem.github.io/fachwerk/vendor_aframe.js"></script>
+<pre>
+import { loadAframe } from "https://designstem.github.io/fachwerk/dist/vendor.js";
+
+loadAframe()
+</pre>
 
 <f-aframe>
   <a-sphere position="0 0 -10" />
