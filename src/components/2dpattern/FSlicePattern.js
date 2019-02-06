@@ -1,5 +1,6 @@
 import Object2D from "../2d/internal/Object2D.js";
-import { range, polarpoints } from "../../../utils.js";
+import { range, polarpoints } from "../../../fachwerk.js"
+;
 
 export default {
   mixins: [Object2D],

@@ -1,9 +1,9 @@
-import { THREE } from '../../../../vendor.js'
 import {
+  THREE,
   positionTransform3,
   rotationTransform3,
   scaleTransform3
-} from "../../../../utils.js";
+} from "../../../../fachwerk.js";
 
 import Base from './Base.js'
 

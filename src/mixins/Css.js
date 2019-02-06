@@ -1,4 +1,4 @@
-import { setCssVariable } from "../../utils.js";
+import { setCssVariable } from "../../../fachwerk.js";
 
 export default {
   created() {

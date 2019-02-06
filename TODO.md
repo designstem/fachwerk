@@ -244,8 +244,8 @@ cat ./src/thirdparty/svgrenderer.js | npx uglifyjs >> vendor_aframe.js
 # Offline
 
 npx rollup -f es -i framework.js | npx uglifyjs > ../templates/offline/components.js
-npx rollup -f es -i utils.js | npx uglifyjs > ../templates/offline/utils.js
-npx rollup -f es -i mixins.js | npx uglifyjs > ../templates/offline/mixins.js
+npx rollup -f es -i utils.js | npx uglifyjs > ../templates/offline/../fachwerk.js
+npx rollup -f es -i mixins.js | npx uglifyjs > ../templates/offline/../fachwerk.js
 cp vendor.js ../templates/offline/.
 cp vendor_aframe.js ../templates/offline/.
 cp styles.css ../templates/offline/.

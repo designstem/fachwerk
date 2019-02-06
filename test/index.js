@@ -1,4 +1,4 @@
-import { test } from "../utils.js";
+import { test } from "../src/../fachwerk.js";
 import * as tests from "./tests.js";
 
 const url = new URL(window.location.href);

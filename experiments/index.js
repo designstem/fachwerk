@@ -9,11 +9,6 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <f-fetch url="./index.md">
-    <f-content
-      slot-scope="data"
-      :content="data.value"
-    />
-  </f-fetch>
+  <div>A</div>
   `
 });

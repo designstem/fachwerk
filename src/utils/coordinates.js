@@ -1,4 +1,4 @@
-import { deg2rad } from '../../utils.js'
+import { deg2rad } from '../../../fachwerk.js'
 
 export const positionTransform = coords => {
   const c = parseCoords(coords);

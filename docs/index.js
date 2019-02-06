@@ -136,7 +136,7 @@ ${content}
 
 Function can be imported using Javascript import:
 
-    import { ${name} } from 'https://designstem.github.io/fachwerk/utils.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/../fachwerk.js'
 
 `;
     }

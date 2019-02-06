@@ -1,4 +1,5 @@
-import { color, parseCoords } from "../../../utils.js";
+import { color, parseCoords } from "../../../fachwerk.js"
+;
 import Object3D from "./internal/Object3D.js";
 
 export default {

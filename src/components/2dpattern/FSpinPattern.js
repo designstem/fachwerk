@@ -1,5 +1,6 @@
 import Object2D from "../2d/internal/Object2D.js";
-import { range } from "../../../utils.js";
+import { range } from "../../../fachwerk.js"
+;
 
 export default {
   mixins: [Object2D],

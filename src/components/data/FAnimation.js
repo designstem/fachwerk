@@ -1,5 +1,4 @@
-import { Vue, anime } from '../../../vendor.js'
-import { get as getValue, set as setValue, makeNumber } from "../../../utils.js";
+import { Vue, anime, get as getValue, set as setValue, makeNumber } from "../../../fachwerk.js";
 
 export default {
   description: `
