@@ -56,7 +56,7 @@ export default {
       lineWrapping: true,
       viewportMargin: Infinity,
       tabSize: 2,
-      lineNumbers: true,
+      // lineNumbers: true,
       smartIndent: false,
       undoLevels: 0,
       inputStyle: 'contenteditable'
@@ -83,7 +83,7 @@ export default {
   css: `
   .CodeMirror {
     font-family: var(--font-mono);
-    padding: calc(var(--base2) * 0.8);
+    padding: var(--base2);
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
     height: auto;
@@ -94,8 +94,7 @@ export default {
   }
   .CodeMirror-line {
     color: #87a0ab !important;
-  }import { CodeMirror } from 'codemirror';
-
+  }
   .CodeMirror .cm-header  {
     color: #f0f3f5;
     font-weight: normal;
