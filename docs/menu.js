@@ -150,6 +150,7 @@ export default [
     items: [
       { component: "FMath" },
       { component: "FImage" },
+      { component: "FVideo" },
       { component: "FSidebar" },
       { component: "FInline" },
       { component: "FCard" },

@@ -12,8 +12,11 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-<div style="padding: var(--base4);">
-  <f-scene3 grid />
-</div>
+  <f-fetch url="./index.md">
+    <f-content
+      slot-scope="data"
+      :content="data.value"
+    />
+  </f-fetch>
   `
 });
