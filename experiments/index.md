@@ -1,14 +1,3 @@
-| theme: dark
+# Hello world
 
-| 1 1
-| 2 3
-
-<f-video />
-
--
-
-<f-video />
-
--
-
-<f-video />
+<f-scene grid />

@@ -1,8 +1,4 @@
-import { Vue, loadAframe } from "../vendor.js";
-import { Init, Css } from "../mixins.js";
-import * as components from "../components.js";
-import * as utils from "../utils.js";
-const { kebabCase, titleCase, flatten } = utils;
+import { Vue, Init, Css, components, utils, loadAframe } from "../fachwerk.js";
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -10,6 +6,14 @@ import * as trig from "../src/utils/trig.js";
 import * as string from "../src/utils/string.js";
 import * as array from "../src/utils/array.js";
 import * as other from "../src/utils/other.js";
+
+import menu from "./menu.js";
+
+for (const name in components) {
+  Vue.component(name, components[name]);
+}
+
+const { kebabCase, titleCase, flatten } = utils;
 
 const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
   Object.entries(g).map(([group, module]) => [
@@ -19,12 +23,6 @@ const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
       .map(([key, value]) => [key.replace('_help',''),value()])
   ])
 );
-
-for (const name in components) {
-  Vue.component(name, components[name]);
-}
-
-import menu from "./menu.js";
 
 loadAframe()
 
