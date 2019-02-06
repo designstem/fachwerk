@@ -121,9 +121,13 @@ ${
 
 Component can be imported using Javascript import:
   
-    import { ${name} } from 'https://designstem.github.io/fachwerk/components.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/fachwerk.js'
     
     Vue.component('${name}', ${name})
+
+    // Later in the Vue template or Markdown file
+
+    <${kebabCase(name)} />
 
       `;
     },
@@ -136,7 +140,7 @@ ${content}
 
 Function can be imported using Javascript import:
 
-    import { ${name} } from 'https://designstem.github.io/fachwerk/../fachwerk.js'
+    import { ${name} } from 'https://designstem.github.io/fachwerk/fachwerk.js'
 
 `;
     }

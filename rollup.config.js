@@ -10,13 +10,5 @@ export default [
       format: "es"
     },
     plugins: [resolve(), commonjs(), terser()]
-  },
-  // {
-  //   input: "./fachwerk.js",
-  //   output: {
-  //     file: "./fachwerk.min.js",
-  //     format: "es"
-  //   },
-  //   plugins: [terser()]
-  // }
+  }
 ];
