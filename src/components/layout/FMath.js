@@ -1,6 +1,4 @@
-import { katex } from "../../../vendor.js"
-import { Css } from "../../../mixins.js";
-import { color } from "../../../utils.js";
+import { Css, katex, color } from "../../../fachwerk.js"
 
 export default {
   mixins: [Css],

@@ -21,14 +21,15 @@ Create three files in the folder of you local machine:
 <html>
 <head>
   <!-- Load CSS styles -->
-  <link rel="stylesheet" href="https://designstem.github.io/fachwerk/styles.css">
+  <link rel="stylesheet" href="https://designstem.github.io/fachwerk/fachwerk.css">
 </head>
 
-<body>  
+<body>
   <!-- Set up a placholder where framework can display its content -->
   <div id="app"></div>  
-  <!-- Load main Javascript file index.js. Note: type="module" is required! -->
-  <script src="./index.js" type="module"></script>
+
+  <!-- Load ./index.js. Note that module type is required -->
+  <script src="./index.js" type="module"></script>  
 </body>
 
 </html>
@@ -37,12 +38,9 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Use Javascript imports to get Vue library, framework initialization mixin, components and utility functions
+// Import VueJS, init mixin, components and utils
 
-import { Vue } from "https://designstem.github.io/fachwerk/vendor.js";
-import { Init } from "https://designstem.github.io/fachwerk/mixins.js";
-import * as components from "https://designstem.github.io/fachwerk/components.js";
-import * as utils from "https://designstem.github.io/fachwerk/utils.js";
+import { Vue, Init, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -52,13 +50,13 @@ new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
 
-  // Adding a mixin to initialize the framework
+  // Initialize framework
   mixins: [Init],
 
-  // Making utilities accessible to templates
+  // Making utility functions available to templates
   methods: { ...utils },
 
-  // Fetching the index.md and rendering it
+  // Fetching the ./index.md and rendering it
   template: `                         
   <f-fetch url="./index.md">
     <f-content

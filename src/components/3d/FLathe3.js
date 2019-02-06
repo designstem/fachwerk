@@ -1,5 +1,5 @@
-import { THREE } from "../../../vendor.js";
-import { parseCoords } from "../../../utils.js";
+import { THREE, parseCoords } from "../../../fachwerk.js"
+;
 import Object3D from "./internal/Object3D.js";
 
 export default {

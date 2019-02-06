@@ -1,6 +1,6 @@
-import { d3 } from "../../../vendor.js";
 import Object2D from "./internal/Object2D.js";
-import { parseCoords } from "../../../utils.js";
+import { d3, parseCoords } from "../../../fachwerk.js"
+;
 
 export default {
   mixins: [Object2D],

@@ -1,4 +1,4 @@
-import { THREE } from '../../../../vendor.js'
+import { THREE } from '../../../../fachwerk.js'
 import Object3D from './Object3D.js'
 
 export default {

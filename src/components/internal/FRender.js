@@ -1,5 +1,4 @@
-import { Vue } from "../../../vendor.js";
-import * as utils from "../../../utils.js";
+import { Vue, utils } from "../../../fachwerk.js";
 
 export default {
   props: { content: String },
@@ -7,7 +6,7 @@ export default {
     render: null,
     someVariable: 0
   }),
-  methods: Object.assign({},utils),
+  methods: Object.assign({}, utils),
   mounted() {
     this.$watch(
       "content",

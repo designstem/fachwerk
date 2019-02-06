@@ -1,8 +1,5 @@
 
-import { Vue, require } from "../../../vendor.js"
-import { Css } from '../../../mixins.js'
-
-// Vue.config.ignoredElements = ["a-scene", "a-camera", "a-text", "a-entity", "a-cursor", "a-sky", "a-box", "a-sphere", "a-rounded"];
+import { Css } from '../../../fachwerk.js'
 
 export default {
   mixins: [Css],

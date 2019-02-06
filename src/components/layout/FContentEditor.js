@@ -1,5 +1,4 @@
-import { store } from "../../../vendor.js"
-import { Css } from "../../../mixins.js";
+import { Css, store } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],

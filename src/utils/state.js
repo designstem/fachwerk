@@ -1,4 +1,4 @@
-import { Vue } from '../../vendor.js'
+import { Vue } from "../../fachwerk.js"
 
 export const send = function(channel, value) {
   if (this.$global) {

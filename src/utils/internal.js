@@ -1,29 +1,3 @@
-export const equal = (c, d) => {
-  const seen = new Map();
-  return (function compare(a, b) {
-    if (Object.is(a, b)) {
-      return true;
-    }
-    if (a && typeof a === "object" && b && typeof b === "object") {
-      if (seen.get(a) === b) {
-        return true;
-      }
-      if (Object.keys(a || {}).length !== Object.keys(b || {}).length) {
-        return false;
-      }
-      const merged = Object.assign(a, b);
-      for (const key in merged) {
-        if (!compare(a && a[key], b && b[key])) {
-          return false;
-        }
-      }
-      seen.set(a, b);
-      return true;
-    }
-    return false;
-  })(c, d);
-};
-
 export const parseSheet = data => {
   return data.feed.entry.map(entry => {
     return Object.keys(entry)

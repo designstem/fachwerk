@@ -1,4 +1,5 @@
-import { polarpoints } from "../../../utils.js";
+import { polarpoints } from "../../../fachwerk.js"
+;
 import Object3D from "./internal/Object3D.js";
 
 export default {
