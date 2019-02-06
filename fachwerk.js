@@ -1,4 +1,4 @@
-export * from './vendor.min.js'
+export * from './vendor.js'
 export * from './src/mixins.js'
 export * from './src/utils.js'
 
