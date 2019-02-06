@@ -1,4 +1,4 @@
-import { chroma, colorBlind, getCssVariable } from "../../../fachwerk.js"
+import { chroma, colorBlind, getCssVariable } from "../../fachwerk.js"
 
 
 export const color_help = () => `

@@ -9,6 +9,6 @@ new Vue({
   mixins: [Init],
   methods: { ...utils },
   template: `
-  <div>A</div>
+  <f-scene grid><f-grid /></f-scene>
   `
 });

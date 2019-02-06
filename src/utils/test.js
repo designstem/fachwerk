@@ -1,4 +1,4 @@
-import { shorten } from '../../../fachwerk.js'
+import { shorten } from "../../fachwerk.js"
 
 export const equal = (c, d) => {
   const seen = new Map();
