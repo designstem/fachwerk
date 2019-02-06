@@ -4,7 +4,7 @@ import { terser } from "rollup-plugin-terser";
 
 export default [
   {
-    input: "./src/vendor/vendor.js",
+    input: "./src/vendor.js",
     output: {
       file: "./vendor.js",
       format: "es"
