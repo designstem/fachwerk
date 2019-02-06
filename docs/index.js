@@ -1,4 +1,4 @@
-import { Vue, Init, Css, components, utils, loadAframe } from "../fachwerk.js";
+import { Vue, Css, components, utils, loadAframe } from "../fachwerk.js";
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -20,14 +20,16 @@ const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
     group,
     Object.entries(module)
       .filter(([key, value]) => key.endsWith("_help"))
-      .map(([key, value]) => [key.replace('_help',''),value()])
+      .map(([key, value]) => [key.replace("_help", ""), value()])
   ])
 );
 
-loadAframe()
+loadAframe();
+
+Vue.prototype.$global = new Vue({ data: { state: {} } });
 
 new Vue({
-  mixins: [Init, Css],
+  mixins: [Css],
   el: "#app",
   data: function() {
     return {
@@ -40,23 +42,28 @@ new Vue({
   },
   computed: {
     menuItems() {
-      return menu.map(m => {
-        m.items = m.items.map(i => {
-          i.title = i.component ? `${kebabCase(i.component)}` : i.title;
-          i.disabled = !!i.tbd;
-          return i;
-        });
-        return m;
-      })
-      .concat(flatten(utilsHelp.map(g => {
-        return g.map(([group, items]) => {
-          return {
-            title: `🍴${titleCase(group)} utilities`,
-            utils: true,
-            items: items.map(([title,content]) => ({ title, content }))
-          }
+      return menu
+        .map(m => {
+          m.items = m.items.map(i => {
+            i.title = i.component ? `${kebabCase(i.component)}` : i.title;
+            i.disabled = !!i.tbd;
+            return i;
+          });
+          return m;
         })
-      })))
+        .concat(
+          flatten(
+            utilsHelp.map(g => {
+              return g.map(([group, items]) => {
+                return {
+                  title: `🍴${titleCase(group)} utilities`,
+                  utils: true,
+                  items: items.map(([title, content]) => ({ title, content }))
+                };
+              });
+            })
+          )
+        );
     },
     activeMenu() {
       return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
@@ -96,26 +103,26 @@ ${c.example ? c.example.trim() : ""}
 ${c.props ? `\n\n#### Props` : ""}
 
 ${
-        c.props
-          ? `<f-table :rows='${JSON.stringify(
-              this.propsTable(c.props),
-              null,
-              2
-            ).replace(/'/g, '\\"')}'
+  c.props
+    ? `<f-table :rows='${JSON.stringify(
+        this.propsTable(c.props),
+        null,
+        2
+      ).replace(/'/g, '\\"')}'
 style="--lightblue: transparent;"
 />`
-          : ""
-      }
+    : ""
+}
 ${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
 ${
-        c.cssprops
-          ? `<f-table :rows='${JSON.stringify(
-              this.cssTable(c.cssprops),
-              null,
-              2
-            )}' style="--lightblue: transparent" />`
-          : ""
-      }
+  c.cssprops
+    ? `<f-table :rows='${JSON.stringify(
+        this.cssTable(c.cssprops),
+        null,
+        2
+      )}' style="--lightblue: transparent" />`
+    : ""
+}
 
 #### Import
 

@@ -38,14 +38,19 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Import VueJS, init mixin, components and utils
+// Import Vue, components and utils
 
-import { Vue, Init, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
+import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
+// Register global components
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+// Set up global state
+Vue.prototype.$global = new Vue({ data: { state: {} } });
+
+// Start Vue
 new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
@@ -69,6 +74,7 @@ new Vue({
 ```
 
 ##### index.md
+
 ```md
 # Hello world
 
