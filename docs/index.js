@@ -1,4 +1,4 @@
-import { Vue, require } from "../dist/vendor.js";
+import { Vue, loadAframe } from "../dist/vendor.js";
 import { Init, Css } from "../dist/mixins.js";
 import * as components from "../dist/components.js";
 import * as utils from "../dist/utils.js";
@@ -26,10 +26,6 @@ for (const name in components) {
 
 import menu from "./menu.js";
 
-async function loadAframe() {
-  await require('https://unpkg.com/aframe@0.8.2').catch(() => {})
-  await require('https://unpkg.com/aframe-rounded@1.0.3').catch(() => {})
-}
 loadAframe()
 
 new Vue({

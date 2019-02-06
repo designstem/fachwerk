@@ -3,9 +3,9 @@ import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 
 export default {
-  input: "./src/vendor/dist/vendor.js",
+  input: "./src/vendor/vendor.js",
   output: {
-    file: "./dist/dist/vendor.js",
+    file: "./dist/vendor.js",
     format: "es"
   },
   plugins: [

@@ -27,6 +27,7 @@ export {
   Vue
 };
 
-
-// Missing: aframe, prettier
-// curl -L https://unpkg.com/aframe-rounded | npx uglifyjs >> vendor_aframe.js
+export async function loadAframe() {
+  await require('https://unpkg.com/aframe@0.8.2').catch(() => {})
+  await require('https://unpkg.com/aframe-rounded@1.0.3').catch(() => {})
+}
