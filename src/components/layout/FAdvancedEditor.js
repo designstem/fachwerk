@@ -55,7 +55,6 @@ export default {
       theme: "material",
       lineWrapping: true,
       viewportMargin: Infinity,
-      viewportMargin: 20,
       tabSize: 2,
       lineNumbers: true,
       smartIndent: false,
