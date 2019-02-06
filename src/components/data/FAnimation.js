@@ -1,5 +1,5 @@
-import { Vue, anime } from '../../../dist/vendor.js'
-import { get as getValue, set as setValue, makeNumber } from "../../../dist/utils.js";
+import { Vue, anime } from '../../../vendor.js'
+import { get as getValue, set as setValue, makeNumber } from "../../../utils.js";
 
 export default {
   description: `

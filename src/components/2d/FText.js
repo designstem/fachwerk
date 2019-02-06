@@ -1,8 +1,8 @@
-import { Object2d } from "../../../dist/mixins.js";
-import { color } from "../../../dist/utils.js"
+import Object2D from "./internal/Object2D.js";
+import { color } from "../../../utils.js"
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Adds a text to the \`f-scene\`.  
 

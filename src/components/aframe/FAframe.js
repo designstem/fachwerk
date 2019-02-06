@@ -1,6 +1,6 @@
 
-import { Vue, require } from "../../../dist/vendor.js"
-import { Css } from '../../../dist/mixins.js'
+import { Vue, require } from "../../../vendor.js"
+import { Css } from '../../../mixins.js'
 
 // Vue.config.ignoredElements = ["a-scene", "a-camera", "a-text", "a-entity", "a-cursor", "a-sky", "a-box", "a-sphere", "a-rounded"];
 
@@ -12,7 +12,7 @@ A basic \`a-scene\` wrapper from [A-Frame](https://aframe.io/). Adds embedding, 
 A-Frame is not included in standard Fachwerk release. Add following lines to \`index.js\` to load A-Frame:
 
 <pre>
-import { loadAframe } from "https://designstem.github.io/fachwerk/dist/vendor.js";
+import { loadAframe } from "https://designstem.github.io/fachwerk/vendor.js";
 
 loadAframe()
 </pre>

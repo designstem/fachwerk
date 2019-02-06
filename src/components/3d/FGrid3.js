@@ -1,4 +1,4 @@
-import { range } from "../../../dist/utils.js";
+import { range } from "../../../utils.js";
 import Object3D from "./internal/Object3D.js";
 
 export default {

@@ -1,10 +1,10 @@
 
-import { d3 } from "../../../dist/vendor.js"
-import { deg2rad, parseCoords } from "../../../dist/utils.js";
-import { Object2d } from "../../../dist/mixins.js";
+import { d3 } from "../../../vendor.js"
+import { deg2rad, parseCoords } from "../../../utils.js";
+import Object2D from "./internal/Object2D.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Draws and arc from \`start-angle\` to \`end-angle\` and it supports lot of different props for customizing the arc.
 

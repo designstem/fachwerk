@@ -1,4 +1,4 @@
-import { Css } from '../../../dist/mixins.js'
+import { Css } from '../../../mixins.js'
 
 export default {
   mixins: [Css],

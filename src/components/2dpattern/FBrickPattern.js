@@ -1,8 +1,8 @@
-import { Object2d } from "../../../dist/mixins.js";
-import { range } from "../../../dist/utils.js";
+import Object2D from "../2d/internal/Object2D.js";
+import { range } from "../../../utils.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Repeats the contents in a shifted rectangular grid.
 

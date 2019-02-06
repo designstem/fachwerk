@@ -1,7 +1,7 @@
-import { Object2d } from "../../../dist/mixins.js";
+import Object2D from "./internal/Object2D.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Groups child elements and applies geometric transformations to the group.
 

@@ -1,7 +1,7 @@
-import { Object2d } from "../../../dist/mixins.js";
+import Object2D from "../2d/internal/Object2D.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Mirrors children element around vertical y axis.
 

@@ -1,6 +1,6 @@
-import { katex } from "../../../dist/vendor.js"
-import { Css } from "../../../dist/mixins.js";
-import { color } from "../../../dist/utils.js";
+import { katex } from "../../../vendor.js"
+import { Css } from "../../../mixins.js";
+import { color } from "../../../utils.js";
 
 export default {
   mixins: [Css],
@@ -88,6 +88,7 @@ to this
     <div v-html="math" />
   `,
   css: `
+  @import url("https://unpkg.com/katex/dist/katex.min.css");
   .katex {
     font-size: 1.3em;
     color: var(--primary);
