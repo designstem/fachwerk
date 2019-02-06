@@ -24,15 +24,11 @@ Create three files in the folder of you local machine:
   <link rel="stylesheet" href="https://designstem.github.io/fachwerk/styles.css">
 </head>
 
-<body>
-  <!-- Load vendor Javascript -->
-  <script src="https://designstem.github.io/fachwerk/vendor.js"></script>
-  
-  <!-- Load main Javascript file index.js. Note: type="module" is required! -->
-  <script src="./index.js" type="module"></script>
-  
+<body>  
   <!-- Set up a placholder where framework can display its content -->
   <div id="app"></div>  
+  <!-- Load main Javascript file index.js. Note: type="module" is required! -->
+  <script src="./index.js" type="module"></script>
 </body>
 
 </html>
@@ -41,8 +37,9 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Use Javascript module import to get initialization mixin, Vue components and utility functions
+// Use Javascript imports to get Vue library, framework initialization mixin, components and utility functions
 
+import { Vue } from "https://designstem.github.io/fachwerk/vendor.js";
 import { Init } from "https://designstem.github.io/fachwerk/mixins.js";
 import * as components from "https://designstem.github.io/fachwerk/components.js";
 import * as utils from "https://designstem.github.io/fachwerk/utils.js";
@@ -55,7 +52,7 @@ new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
 
-  // Adding a mixin
+  // Adding a mixin to initialize the framework
   mixins: [Init],
 
   // Making utilities accessible to templates
