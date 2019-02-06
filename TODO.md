@@ -1,6 +1,6 @@
 # TODO
 
-- 2d Fsvg / Fbasegrid to /intenal
+- Fix scene bg
 - ./index.js remove get / set
 - rollup min
 ```js

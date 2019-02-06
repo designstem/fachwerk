@@ -19,6 +19,7 @@ THREE.SVGObject = function ( node ) {
 THREE.SVGObject.prototype = Object.create( THREE.Object3D.prototype );
 THREE.SVGObject.prototype.constructor = THREE.SVGObject;
 
+// CHANGED
 // THREE.SVGRenderer = function () {
 export function SVGRenderer ( object, domElement ) {
 
@@ -133,7 +134,9 @@ export function SVGRenderer ( object, domElement ) {
 
 		if ( opacity === undefined || opacity === 1 ) return 'rgb(' + arg + ')';
 
-		return 'rgb(' + arg + '); fill-opacity: ' + opacity;
+    // CHANGED
+    // return 'rgb(' + arg + '); fill-opacity: ' + opacity;
+    return 'rgb(' + arg + '); opacity: ' + opacity;
 
 	}
 
@@ -146,7 +149,8 @@ export function SVGRenderer ( object, domElement ) {
 	this.clear = function () {
 
 		removeChildNodes();
-		_svg.style.backgroundColor = getSvgColor( _clearColor, _clearAlpha );
+    // CHANGED
+    // _svg.style.backgroundColor = getSvgColor( _clearColor, _clearAlpha );
 
 	};
 

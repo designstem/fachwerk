@@ -98,6 +98,7 @@ THREE.RenderableSprite = function () {
 
 };
 
+// CHANGED
 // THREE.Projector = function () {
 
 export function Projector () {
