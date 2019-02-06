@@ -1,9 +1,9 @@
 import { d3 } from "../../../vendor.js";
-import { Object2d } from "../../../mixins.js";
+import Object2D from "./internal/Object2D.js";
 import { parseCoords } from "../../../utils.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 
 Description to be written.

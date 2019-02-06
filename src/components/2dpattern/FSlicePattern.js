@@ -1,8 +1,8 @@
-import { Object2d } from "../../../mixins.js";
+import Object2D from "../2d/internal/Object2D.js";
 import { range, polarpoints } from "../../../utils.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Clips the children element and rotating each towards the center of the circle.
 
