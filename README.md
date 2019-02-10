@@ -38,20 +38,20 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Import VueJS, init mixin, components and utils
+import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
-import { Vue, Init, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
-
+// Register global components
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+// Set up global state
+Vue.prototype.$global = new Vue({ data: { state: {} } });
+
+// Start Vue
 new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
-
-  // Initialize framework
-  mixins: [Init],
 
   // Making utility functions available to templates
   methods: { ...utils },
@@ -69,6 +69,7 @@ new Vue({
 ```
 
 ##### index.md
+
 ```md
 # Hello world
 
@@ -79,5 +80,3 @@ new Vue({
 #### Running the project
 
 To run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder. You can also use the commandline tools of your choice.
-
-> Note that the framework is tested only in the latest Chrome browser, it *might* work also on other evergreen browsers.

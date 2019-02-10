@@ -5,9 +5,9 @@ import css from "rollup-plugin-css-only";
 
 export default [
   {
-    input: "./src/vendor/vendor.js",
+    input: "./src/vendor.js",
     output: {
-      file: "./vendor.min.js",
+      file: "./vendor.js",
       format: "es"
     },
     plugins: [resolve(), commonjs(), terser()]
