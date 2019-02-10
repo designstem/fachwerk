@@ -1,4 +1,4 @@
-import { range, color } from "../../../utils.js"
+import { range, color  } from '../../../../fachwerk.js'
 
 export default {
   props: {

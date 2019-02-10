@@ -1,5 +1,4 @@
-import { Css } from "../../../mixins.js";
-import { color } from "../../../utils.js";
+import { Css, katex, color } from "../../../fachwerk.js"
 
 export default {
   mixins: [Css],
@@ -56,7 +55,6 @@ to this
   props: { update: { default: null } },
   data: () => ({ math: 0, timer: null }),
   methods: {
-    // String.raw`${this.$slots.default[0].text}`
     renderMath() {
       this.math = katex
         .renderToString(
@@ -88,6 +86,7 @@ to this
     <div v-html="math" />
   `,
   css: `
+  @import url("https://unpkg.com/katex/dist/katex.min.css");
   .katex {
     font-size: 1.3em;
     color: var(--primary);

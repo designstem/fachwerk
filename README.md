@@ -21,18 +21,15 @@ Create three files in the folder of you local machine:
 <html>
 <head>
   <!-- Load CSS styles -->
-  <link rel="stylesheet" href="https://designstem.github.io/fachwerk/styles.css">
+  <link rel="stylesheet" href="https://designstem.github.io/fachwerk/fachwerk.css">
 </head>
 
 <body>
-  <!-- Load vendor Javascript -->
-  <script src="https://designstem.github.io/fachwerk/vendor.js"></script>
-  
-  <!-- Load main Javascript file index.js. Note: type="module" is required! -->
-  <script src="./index.js" type="module"></script>
-  
   <!-- Set up a placholder where framework can display its content -->
   <div id="app"></div>  
+
+  <!-- Load ./index.js. Note that module type is required -->
+  <script src="./index.js" type="module"></script>  
 </body>
 
 </html>
@@ -41,27 +38,25 @@ Create three files in the folder of you local machine:
 ##### index.js
 
 ```js
-// Use Javascript module import to get initialization mixin, Vue components and utility functions
+import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
-import { Init } from "https://designstem.github.io/fachwerk/mixins.js";
-import * as components from "https://designstem.github.io/fachwerk/components.js";
-import * as utils from "https://designstem.github.io/fachwerk/utils.js";
-
+// Register global components
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
+// Set up global state
+Vue.prototype.$global = new Vue({ data: { state: {} } });
+
+// Start Vue
 new Vue({
   // Attaching Vue to <div id="app"></div>
   el: "#app",
 
-  // Adding a mixin
-  mixins: [Init],
-
-  // Making utilities accessible to templates
+  // Making utility functions available to templates
   methods: { ...utils },
 
-  // Fetching the index.md and rendering it
+  // Fetching the ./index.md and rendering it
   template: `                         
   <f-fetch url="./index.md">
     <f-content
@@ -74,6 +69,7 @@ new Vue({
 ```
 
 ##### index.md
+
 ```md
 # Hello world
 
@@ -84,5 +80,3 @@ new Vue({
 #### Running the project
 
 To run the project in your browser, you have to host the files in your local server. Easiest way to do it is to install [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) and point it to your project folder. You can also use the commandline tools of your choice.
-
-> Note that the framework is tested only in the latest Chrome browser, it *might* work also on other evergreen browsers.

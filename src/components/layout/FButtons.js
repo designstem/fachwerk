@@ -2,7 +2,8 @@ import {
   get as getValue,
   set as setValue,
   makeNumber
-} from "../../../utils.js";
+} from "../../../fachwerk.js"
+;
 
 export default {
   description: `

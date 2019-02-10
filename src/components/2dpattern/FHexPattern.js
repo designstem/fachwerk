@@ -1,8 +1,9 @@
-import { Object2d } from "../../../mixins.js";
-import { range, polarpoints } from "../../../utils.js";
+import Object2D from "../2d/internal/Object2D.js";
+import { range, polarpoints } from "../../../fachwerk.js"
+;
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Repeats the contents in a hexagonal grid.
 

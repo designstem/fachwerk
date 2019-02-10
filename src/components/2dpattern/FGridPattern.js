@@ -1,8 +1,9 @@
-import { Object2d } from "../../../mixins.js";
-import { range } from "../../../utils.js";
+import Object2D from "../2d/internal/Object2D.js";
+import { range } from "../../../fachwerk.js"
+;
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Repeats the contents in a 2D grid.
 

@@ -1,4 +1,4 @@
-import { Css } from '../../../mixins.js'
+import { Css, CodeMirror } from '../../../fachwerk.js'
 
 export default {
   mixins: [Css],
@@ -55,9 +55,8 @@ export default {
       theme: "material",
       lineWrapping: true,
       viewportMargin: Infinity,
-      viewportMargin: 20,
       tabSize: 2,
-      lineNumbers: true,
+      // lineNumbers: true,
       smartIndent: false,
       undoLevels: 0,
       inputStyle: 'contenteditable'
@@ -84,7 +83,7 @@ export default {
   css: `
   .CodeMirror {
     font-family: var(--font-mono);
-    padding: calc(var(--base2) * 0.8);
+    padding: var(--base2);
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
     height: auto;

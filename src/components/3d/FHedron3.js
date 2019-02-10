@@ -1,5 +1,6 @@
-import { polarpoints } from "../../../utils.js";
-import { Object3D } from "./3d.js";
+import { polarpoints } from "../../../fachwerk.js"
+;
+import Object3D from "./internal/Object3D.js";
 
 export default {
   mixins: [Object3D],

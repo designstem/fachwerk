@@ -25,6 +25,8 @@ export const test_addone = () => {
 
 ## Test runner
 
+> Point your browser to [/test](../test) page and follow the instructions.
+
 Each test function is going through following steps:
 
 1. It is imported using Javascript imports
@@ -32,14 +34,4 @@ Each test function is going through following steps:
 3. Return values are compared using custom `equal()` function.
 4. If the values are equal, test is passing, if not, test is failing.
 
-### Running tests in the command line
 
-Test runner expects NodeJS to be installed. Run the following command in Fachwerk directory:
-
-<output>npm install esm
-node -r esm test.js
-</output>
-
-### Running tests in the browser
-
-Point your browser to [/test](./test) directory and follow the instructions.

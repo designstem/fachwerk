@@ -1,6 +1,6 @@
+import { THREE, color } from "../../../fachwerk.js"
 
-import { Object3D } from "./3d.js";
-import { color } from "../../../utils.js"
+import Object3D from "./internal/Object3D.js";
 
 export default {
   mixins: [Object3D],

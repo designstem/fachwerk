@@ -1,9 +1,10 @@
 
-import { deg2rad, parseCoords } from "../../../utils.js";
-import { Object2d } from "../../../mixins.js";
+import { d3, deg2rad } from "../../../fachwerk.js"
+;
+import Object2D from "./internal/Object2D.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Draws and arc from \`start-angle\` to \`end-angle\` and it supports lot of different props for customizing the arc.
 
@@ -43,7 +44,7 @@ Technically the component is based on [d3.arc](https://github.com/d3/d3-shape#ar
   },
   computed: {
     path() {
-      return window.d3
+      return d3
         .arc()
         .outerRadius(this.r)
         .innerRadius(this.innerRadius)

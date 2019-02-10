@@ -1,7 +1,7 @@
-import { Object2d } from "../../../mixins.js";
+import Object2D from "./internal/Object2D.js";
 
 export default {
-  mixins: [Object2d],
+  mixins: [Object2D],
   description: `
 Generates a rectangular grid.
 
