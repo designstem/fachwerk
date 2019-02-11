@@ -1,5 +1,5 @@
 import { chroma, colorBlind } from "../../vendor.js"
-import { getCssVariable } from "../utils/internal.js"
+import { getCssVariable } from "../utils.js"
 
 
 export const color_help = () => `

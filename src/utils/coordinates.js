@@ -1,4 +1,4 @@
-import { deg2rad } from "../utils/trig.js"
+import { deg2rad } from "../utils.js"
 
 export const positionTransform = coords => {
   const c = parseCoords(coords);

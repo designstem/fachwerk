@@ -1,4 +1,4 @@
-import { shorten } from "../utils/string.js"
+import { shorten } from "../utils.js"
 
 export const equal = (c, d) => {
   const seen = new Map();
