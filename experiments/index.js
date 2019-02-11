@@ -1,3 +1,7 @@
-import { fachwerk } from './fachwerk.js'
+import { fachwerk } from "./fachwerk.js";
 
-fachwerk({ editor: 'show' })
+const FBla = {
+  template: `<div>Bla</div>`
+};
+
+fachwerk({ editor: "show", components: { FBla } });

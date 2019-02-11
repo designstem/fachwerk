@@ -1,9 +1,18 @@
 import { Vue, components, utils } from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
-  const config = { el: "#fachwerk", url: "./index.md", editor: "show", ...c };
+  const config = {
+    el: "#fachwerk",
+    url: "./index.md",
+    editor: "show",
+    components: {},
+    ...c
+  };
   for (const name in components) {
     Vue.component(name, components[name]);
+  }
+  for (const name in config.components) {
+    Vue.component(name, config.components[name]);
   }
   Vue.prototype.$global = new Vue({ data: { state: {} } });
   new Vue({
