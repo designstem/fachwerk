@@ -1,18 +1,6 @@
 # TODO
 
-- Fix scene bg
-- ./index.js remove get / set
-- rollup min
-```js
-  // {
-  //   input: "./fachwerk.js",
-  //   output: {
-  //     file: "./fachwerk.min.js",
-  //     format: "es"
-  //   },
-  //   plugins: [terser()]
-  // }
-```
+- minify css https://github.com/HenrikJoreteg/rollup-plugin-css
 
 ## Tools
 
