@@ -3,18 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../fachwerk.css" />
+    <link rel="stylesheet" href="https://designstem.github.io/fachwerk/fachwerk.css" />
   </head>
   <body>
     <div id="fachwerk"></div>
+
+
     <script type="module">
-      import { fachwerk } from "./fachwerk.js";
+
+      import { fachwerk, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
       const FBla = {
-        template: `<div>Bla</div>`
+        methods: { ...utils },
+        template: `<button v-on:click="set('a',1)">Set 1</button>`
       };
 
-      fachwerk({ editor: "show", components: { FBla } });
+      fachwerk({ components: { FBla } });
     </script>
+
+
+
   </body>
 </html>
