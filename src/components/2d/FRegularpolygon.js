@@ -1,5 +1,5 @@
 import Object2D from "./internal/Object2D.js";
-import { color, polarpoints, positionTransform } from "../../../fachwerk.js"
+import { color, polarpoints, positionTransform } from "../../utils.js"
 ;
 
 export default {

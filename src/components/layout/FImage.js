@@ -1,5 +1,4 @@
-import { Css } from "../../../fachwerk.js"
-;
+import { Css } from "../../mixins.js";
 
 export default {
   mixins: [Css],

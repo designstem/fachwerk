@@ -1,5 +1,5 @@
 import Object2D from "../2d/internal/Object2D.js";
-import { range } from "../../../fachwerk.js"
+import { range } from "../../utils.js"
 ;
 
 export default {

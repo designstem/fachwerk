@@ -1,4 +1,4 @@
-import { snapToGrid } from '../../../fachwerk.js'
+import { snapToGrid } from '../../utils.js'
 
 export default {
   description: `

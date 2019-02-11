@@ -1,11 +1,11 @@
+import { THREE } from "../../../vendor.js";
 import {
-  THREE,
   positionTransform3,
   rotationTransform3,
   scaleTransform3
-} from "../../../../fachwerk.js";
+} from "../../../utils.js";
 
-import Base from './Base.js'
+import Base from "./Base.js";
 
 export default {
   mixins: [Base],

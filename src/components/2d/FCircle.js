@@ -1,5 +1,5 @@
 import Object2D from "./internal/Object2D.js";
-import { color, parseCoords } from "../../../fachwerk.js"
+import { color, parseCoords } from "../../utils.js"
 
 
 export default {

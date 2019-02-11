@@ -1,4 +1,4 @@
-import { color } from "../../../fachwerk.js"
+import { color } from "../../utils.js"
 ;
 
 export default {

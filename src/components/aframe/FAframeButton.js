@@ -1,6 +1,3 @@
-import * as utils from "../../../fachwerk.js"
-;
-
 export default {
   description: `
 A VR button that is triggered by looking at it.
@@ -32,7 +29,6 @@ A VR button that is triggered by looking at it.
       return this.title.length / 2
     }
   },
-  methods: Object.assign({}, utils),
   data: () => ({ focus: false, active: false }),
   template: `
   <a-entity

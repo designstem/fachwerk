@@ -1,4 +1,4 @@
-import { titleCase } from '../../../fachwerk.js'
+import { titleCase } from '../../utils.js'
 
 export default {
   props: {

@@ -5,18 +5,26 @@ import css from "rollup-plugin-css-only";
 
 export default [
   {
-    input: "./src/vendor.js",
+    input: "./src/fachwerk.js",
     output: {
-      file: "./vendor.js",
+      file: "./fachwerk.js",
       format: "es"
     },
-    plugins: [resolve(), commonjs(), terser()]
+    plugins: [resolve(), commonjs()/*, terser()*/]
   },
-  {
-    input: "./src/styles.js",
-    output: {
-      format: "es"
-    },
-    plugins: [resolve(), commonjs(), css({ output: "./fachwerk.css" })]
-  }
+  // {
+  //   input: "./src/vendor.js",
+  //   output: {
+  //     file: "./vendor.js",
+  //     format: "es"
+  //   },
+  //   plugins: [resolve(), commonjs(), terser()]
+  // },
+  // {
+  //   input: "./src/styles.js",
+  //   output: {
+  //     format: "es"
+  //   },
+  //   plugins: [resolve(), commonjs(), css({ output: "./fachwerk.css" })]
+  // }
 ];

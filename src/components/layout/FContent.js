@@ -1,7 +1,7 @@
-import { Css } from "../../../fachwerk.js"
+import { Css } from "../../mixins.js"
 ;
 import FMarkdown from "../internal/FMarkdown.js";
-import { parseColumns } from "../../../fachwerk.js"
+import { parseColumns } from "../../utils.js"
 ;
 
 export default {

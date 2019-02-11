@@ -1,4 +1,4 @@
-import { parseSheet } from "../../../fachwerk.js"
+import { parseSheet } from "../../utils.js"
 ;
 
 export default {

@@ -1,4 +1,4 @@
-import { Vue } from "../../fachwerk.js";
+import { Vue } from "../fachwerk.js";
 
 export default {
   beforeCreate() {

@@ -1,6 +1,6 @@
 // https://unpkg.com/three@0.101.1/examples/js/renderers/Projector.js
 
-import { THREE } from '../../../../fachwerk.js'
+import { THREE } from '../../../vendor.js'
 
 /**
  * @author mrdoob / http://mrdoob.com/

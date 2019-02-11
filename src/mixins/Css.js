@@ -1,6 +1,6 @@
-import { setCssVariable } from "../../fachwerk.js"
+import { setCssVariable } from "../utils.js"
 
-export default {
+const Css = {
   created() {
     if (this.$options.css) {
       const el = document.createElement("style");
@@ -14,3 +14,5 @@ export default {
     }
   }
 };
+
+export { Css }

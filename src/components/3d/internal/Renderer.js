@@ -1,4 +1,4 @@
-import { THREE } from '../../../../fachwerk.js'
+import { THREE } from '../../../vendor.js'
 import { SVGRenderer } from './SVGRenderer.js'
 
 export default {

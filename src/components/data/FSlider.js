@@ -2,7 +2,7 @@ import {
   get as getValue,
   set as setValue,
   makeNumber
-} from "../../../fachwerk.js"
+} from "../../utils.js"
 ;
 
 export default {
@@ -99,7 +99,7 @@ Numeric slider.
 
 /*
 
-import { makeNumber, get, set, log } from '../../../fachwerk.js';
+import { makeNumber, get, set, log } from '../../fachwerk.js';
 
 export default {
   description: `

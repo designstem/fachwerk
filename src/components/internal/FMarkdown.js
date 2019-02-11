@@ -1,4 +1,4 @@
-import { marked } from "../../../fachwerk.js";
+import { marked } from "../../vendor.js";
 import FRender from "./FRender.js";
 
 export default {

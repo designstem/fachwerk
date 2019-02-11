@@ -1,4 +1,5 @@
-import { Vue, utils } from "../../../fachwerk.js";
+import { Vue } from "../../vendor.js";
+import * as utils from "../../utils.js";
 
 export default {
   props: { content: String },
