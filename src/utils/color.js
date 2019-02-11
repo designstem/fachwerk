@@ -1,4 +1,4 @@
-import { chroma, colorBlind } from "../vendor.js"
+import { chroma, colorBlind } from "../../vendor.js"
 import { getCssVariable } from "../utils/internal.js"
 
 

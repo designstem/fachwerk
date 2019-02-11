@@ -1,5 +1,5 @@
 import Object2D from "./internal/Object2D.js";
-import { d3 } from "../../vendor.js"
+import { d3 } from "../../../vendor.js"
 import { parseCoords } from "../../utils.js"
 
 

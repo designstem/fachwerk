@@ -1,4 +1,4 @@
-import { THREE } from "../../../vendor.js";
+import { THREE } from "../../../../vendor.js";
 import {
   positionTransform3,
   rotationTransform3,

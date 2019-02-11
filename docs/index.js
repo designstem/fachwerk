@@ -1,4 +1,4 @@
-import { Vue, Css, components, utils, loadAframe } from "../fachwerk.js";
+import { Vue, Css, components, utils } from "../fachwerk.js";
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -23,8 +23,6 @@ const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
       .map(([key, value]) => [key.replace("_help", ""), value()])
   ])
 );
-
-loadAframe();
 
 Vue.prototype.$global = new Vue({ data: { state: {} } });
 

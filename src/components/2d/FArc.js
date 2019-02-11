@@ -1,6 +1,6 @@
 
 import { deg2rad } from "../../utils.js";
-import { d3 } from "../../vendor.js";
+import { d3 } from "../../../vendor.js";
 import Object2D from "./internal/Object2D.js";
 
 export default {

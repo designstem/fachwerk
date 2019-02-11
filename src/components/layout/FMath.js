@@ -1,4 +1,4 @@
-import { katex } from "../../vendor.js"
+import { katex } from "../../../vendor.js"
 import { Css } from "../../mixins.js"
 import { color } from "../../utils.js"
 

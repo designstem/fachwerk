@@ -1,4 +1,4 @@
-import { THREE } from "../../vendor.js";
+import { THREE } from "../../../vendor.js";
 import { color } from '../../utils.js'
 import Object3D from "./internal/Object3D.js";
 

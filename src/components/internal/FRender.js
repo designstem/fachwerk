@@ -1,4 +1,4 @@
-import { Vue } from "../../vendor.js";
+import { Vue } from "../../../vendor.js";
 import * as utils from "../../utils.js";
 
 export default {

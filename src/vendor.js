@@ -1,4 +1,3 @@
-import { require } from "d3-require";
 import * as d3 from "d3-shape";
 import anime from "animejs";
 import chroma from "chroma-js";
@@ -21,13 +20,7 @@ export {
   gfm,
   katex,
   marked,
-  require,
   store,
   THREE,
   Vue
 };
-
-export async function loadAframe() {
-  await require('https://unpkg.com/aframe@0.8.2').catch(() => {})
-  await require('https://unpkg.com/aframe-rounded@1.0.3').catch(() => {})
-}
