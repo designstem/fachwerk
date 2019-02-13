@@ -48,14 +48,14 @@ To run the project in your browser, you have to host the files in your local ser
 
 ## Customizing the framework
 
-In many cases the framework needs additional customization. You can start with small tweaks, add custom components or use set up your project in whole custom way
+In many cases the framework needs additional customization. You can start with small tweaks, add custom components or use set up your project in whole custom way.
 
 ### Custom configuration
 
-Fachwerk has several options for initialization:
+Fachwerk has several setup options:
 
     fachwerk({
-      el: "#fachwerk",      // Name of the html id the content goees
+      el: "#fachwerk",      // HTML id the content goes
       url: "./index.md",    // Name and path of the main Markdown file
       editor: "show",       // Options for live editor, "none", "hide", "show"
       components: {},       // See below
@@ -63,23 +63,31 @@ Fachwerk has several options for initialization:
     
 ### Custom components
 
-Fachwerk builtin components inside Markdown files can express quite complex interactions, but they can often get too long and unwieldy to be handled inside content.
+Fachwerk builtin components inside Markdown files are very powerful, but they can can be to long and unwieldy to be handled inside content.
 
-The solution is to extract complex components to separate component file. They can still communicate with builtin components and document with global state and events (see the respective documentation in 🔮**Advanced Guides** in the [documentation](/docs)).
+The solution is to extract complex components to separate component files. They can still communicate with builtin components and document with global state and events (see the respective documentation in 🔮**Advanced Guides** in the [documentation](/docs)).
 
 Here is how to do it:
 
 ##### index.js
 
 ```js
-import { fachwerk, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
+import { fachwerk } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
-const CustomComponent = {
-  methods: { ...utils },
-  template: `<div>Hey, I am custom component</div>`
-};
+import CustomComponent from './CustomComponent.js'
 
 fachwerk({ components: { CustomComponent } });
+```
+
+##### CustomComponent.js
+
+```js
+import { utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
+
+export default {
+  methods: { ...utils },
+  template: `<div>Hey, I am a custom component</div>`
+};
 ```
 
 ##### index.md
@@ -94,7 +102,7 @@ See VueJS [component documentation](https://vuejs.org/v2/guide/components.html) 
 
 ### Custom project
 
-There are may cases you want a full control how the framework is set up. Here is more or less how `fachwerk()` function works, you can do the same for your project, just replace your index.js with this:
+There are may cases you want a full control how the framework is set up. Just replace your index.js with this:
 
 ##### index.js
 
@@ -118,10 +126,12 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 
 new Vue({
 
-  // HTML element id where content goes
+  // HTML id where the content goes
+
   el: "#fachwerk",
   
   // Allow utils to be used in templates
+
   methods: { ...utils },
 
   // Reactive data will be here
@@ -133,8 +143,11 @@ new Vue({
   data: {},
 
   // In the main template fetch and
-  // display index.md
-
+  // display index.md. This template
+  // can be totally custom and can
+  // mix and match Fachwerk and custom
+  // components and utilities.
+  
   template: `
   <f-fetch url="./index.md">
     <f-content
