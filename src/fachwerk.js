@@ -22,7 +22,7 @@ export function fachwerk(c = {}) {
     data: { config, preview: config.editor == "hide" ? 1 : 0 },
     template: `
     <div>
-      <f-fetch :url="config.url">
+      <f-fetch :url="config.src">
       <div slot-scope="{ value }">
         <f-content
           v-if="config.editor == 'none'"
