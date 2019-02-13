@@ -1,5 +1,3 @@
-# Hello world
+# Hello world..
 
-<f-bla />
-
-{{ get('a',0) }}
+<custom-component />

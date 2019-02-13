@@ -1,6 +1,7 @@
 # TODO
 
 - minify css https://github.com/HenrikJoreteg/rollup-plugin-css
+- global color?
 
 ## Tools
 

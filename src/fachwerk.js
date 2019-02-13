@@ -14,6 +14,7 @@ export function fachwerk(c = {}) {
   for (const name in config.components) {
     Vue.component(name, config.components[name]);
   }
+  Vue.config.productionTip = false;
   Vue.prototype.$global = new Vue({ data: { state: {} } });
   new Vue({
     el: config.el,

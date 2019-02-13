@@ -37,7 +37,7 @@ fachwerk();
 ##### 3. index.md
 
 ```md
-# Hello world
+# Hallo Welt
 
 <f-scene grid>
   <f-circle />
@@ -57,7 +57,7 @@ Fachwerk has several setup options:
     fachwerk({
       el: "#fachwerk",      // HTML id the content goes
       url: "./index.md",    // Name and path of the main Markdown file
-      editor: "show",       // Options for live editor, "none", "hide", "show"
+      editor: "show",       // Options for live editor: "none", "hide", "show"
       components: {},       // See below
     })
     
@@ -93,7 +93,7 @@ export default {
 ##### index.md
 
 ```md
-# My content
+# Hallo Welt
 
 <custom-component />
 ```
@@ -102,7 +102,7 @@ See VueJS [component documentation](https://vuejs.org/v2/guide/components.html) 
 
 ### Custom project
 
-There are may cases you want a full control how the framework is set up. Just replace your index.js with the following:
+There are cases you want a full control how the framework is set up. Just replace your index.js with the following:
 
 ##### index.js
 
@@ -143,7 +143,7 @@ new Vue({
   // Reactive data will be here
   // Note that it will be only accessible
   // in the template, not inside Markdown
-  // Use get() / set() utils to 
+  // Use get() / set() helpers to 
   // pass values to Markdown
 
   data: {},
@@ -163,5 +163,6 @@ new Vue({
   </f-fetch>
 `
 });
+```
 
 For more reference how to set up the custom project, see the fachwerk() function [source code](https://github.com/designstem/fachwerk/blob/master/src/fachwerk.js).
