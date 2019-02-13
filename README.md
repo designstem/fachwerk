@@ -102,7 +102,7 @@ See VueJS [component documentation](https://vuejs.org/v2/guide/components.html) 
 
 ### Custom project
 
-There are may cases you want a full control how the framework is set up. Just replace your index.js with this:
+There are may cases you want a full control how the framework is set up. Just replace your index.js with the following:
 
 ##### index.js
 
@@ -117,6 +117,12 @@ import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fa
 for (const name in components) {
   Vue.component(name, components[name]);
 }
+
+// If you have custom components,
+// install them here:
+//
+// import CustomComponent from './CustomComponent.js'
+// Vue.component('custom-component', CustomComponent)
 
 // Set up global event bus
 
@@ -147,7 +153,7 @@ new Vue({
   // can be totally custom and can
   // mix and match Fachwerk and custom
   // components and utilities.
-  
+
   template: `
   <f-fetch url="./index.md">
     <f-content
@@ -157,3 +163,5 @@ new Vue({
   </f-fetch>
 `
 });
+
+For more reference how to set up the custom project, see the fachwerk() function [source code](https://github.com/designstem/fachwerk/blob/master/src/fachwerk.js).
