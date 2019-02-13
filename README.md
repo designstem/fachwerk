@@ -55,7 +55,7 @@ In many cases the framework needs additional customization. You can start with s
 Fachwerk has several setup options:
 
     fachwerk({
-      el: "#fachwerk",      // HTML id the content goes
+      el: "#fachwerk",      // HTML tag id the content goes into
       url: "./index.md",    // Name and path of the main Markdown file
       editor: "show",       // Options for live editor: "none", "hide", "show"
       components: {},       // See below
@@ -65,7 +65,7 @@ Fachwerk has several setup options:
 
 Fachwerk builtin components inside Markdown files are very powerful, but they can can be to long and unwieldy to be handled inside content.
 
-The solution is to extract complex components to separate component files. They can still communicate with builtin components and document with global state and events (see the respective documentation in 🔮**Advanced Guides** in the [documentation](/docs)).
+The solution is to extract complex components to separate component files. They can still communicate with builtin components and document with global state and events (see the [documentation](/docs) in 🔮**Advanced Guides**).
 
 Here is how to do it:
 
@@ -108,9 +108,11 @@ There are cases you want a full control how the framework is set up. Just replac
 
 ```js
 
-// Import Vue library, builtin components and utils:
-
-import { Vue, components, utils } from "https://designstem.github.io/fachwerk/fachwerk.js";
+import {
+  Vue,
+  components,
+  utils
+} from "https://designstem.github.io/fachwerk/fachwerk.js";
 
 // Register components globally
 
@@ -121,10 +123,10 @@ for (const name in components) {
 // If you have custom components,
 // install them here:
 //
-// import CustomComponent from './CustomComponent.js'
-// Vue.component('custom-component', CustomComponent)
+// import CustomComponent from "./CustomComponent.js";
+// Vue.component("custom-component", CustomComponent);
 
-// Set up global event bus
+// Set up a global event bus
 
 Vue.prototype.$global = new Vue({ data: { state: {} } });
 
@@ -132,18 +134,21 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 
 new Vue({
 
-  // HTML id where the content goes
+  // HTML tag id the content goes into
 
   el: "#fachwerk",
-  
+
   // Allow utils to be used in templates
 
-  methods: { ...utils },
+  methods: {
+    ...utils
+    // Custom methods go here
+  },
 
   // Reactive data will be here
   // Note that it will be only accessible
   // in the template, not inside Markdown
-  // Use get() / set() helpers to 
+  // Use get() / set() helpers to
   // pass values to Markdown
 
   data: {},
