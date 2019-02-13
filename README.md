@@ -4,7 +4,7 @@ Fachwerk is a Javascript framework for creating interactive learning materials i
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
-Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means ***there is no build step*** 🦄
+Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means **_there is no build step_** 🦄
 
 ## Getting started
 
@@ -18,7 +18,10 @@ Easiest way to have a custom Fachwerk application is to create a three files in 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://designstem.github.io/fachwerk/fachwerk.css" />
+    <link
+      rel="stylesheet"
+      href="https://designstem.github.io/fachwerk/fachwerk.css"
+    />
   </head>
   <body>
     <div id="fachwerk"></div>
@@ -60,7 +63,7 @@ Fachwerk has several setup options:
       editor: "show",       // Options for live editor: "none", "hide", "show"
       components: {},       // See below
     })
-    
+
 ### Custom components
 
 Fachwerk builtin components inside Markdown files are very powerful, but they can can be to long and unwieldy to be handled inside content.
@@ -74,7 +77,7 @@ Here is how to do it:
 ```js
 import { fachwerk } from "https://designstem.github.io/fachwerk/fachwerk.js";
 
-import CustomComponent from './CustomComponent.js'
+import CustomComponent from "./CustomComponent.js";
 
 fachwerk({ components: { CustomComponent } });
 ```
@@ -107,7 +110,6 @@ There are cases you want a full control how the framework is set up. Just replac
 ##### index.js
 
 ```js
-
 import {
   Vue,
   components,
@@ -133,7 +135,6 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 // Initialize VueJS
 
 new Vue({
-
   // HTML tag id the content goes into
 
   el: "#fachwerk",
@@ -169,5 +170,3 @@ new Vue({
 `
 });
 ```
-
-For more reference how to set up the custom project, see the fachwerk() function [source code](https://github.com/designstem/fachwerk/blob/master/src/fachwerk.js).
