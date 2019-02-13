@@ -3,7 +3,7 @@ import { Vue, components, utils } from "../fachwerk.js";
 export function fachwerk(c = {}) {
   const config = {
     el: "#fachwerk",
-    url: "./index.md",
+    src: "./index.md",
     editor: "show",
     components: {},
     ...c

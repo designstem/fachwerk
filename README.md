@@ -59,7 +59,7 @@ Fachwerk has several setup options:
 
     fachwerk({
       el: "#fachwerk",      // HTML tag id the content goes into
-      url: "./index.md",    // Name and path of the main Markdown file
+      src: "./index.md",    // Path of the Markdown file, local or from the web
       editor: "show",       // Options for live editor: "none", "hide", "show"
       components: {},       // See below
     })
