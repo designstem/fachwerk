@@ -50,7 +50,7 @@ export default [
     ]
   },
   {
-    title: "🔮 Advanced guides",
+    title: "🔮Advanced guides",
     items: [
       {
         title: "Global state",
