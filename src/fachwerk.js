@@ -5,6 +5,7 @@ export function fachwerk(c = {}) {
     el: "#fachwerk",
     src: "./index.md",
     editor: "show",
+    theme: "light",
     components: {},
     ...c
   };
@@ -21,7 +22,7 @@ export function fachwerk(c = {}) {
     methods: { ...utils },
     data: { config, preview: config.editor == "hide" ? 1 : 0 },
     template: `
-    <div>
+    <f-theme :theme="config.theme">
       <f-fetch :url="config.src">
       <div slot-scope="{ value }">
         <f-content
@@ -36,11 +37,11 @@ export function fachwerk(c = {}) {
           save-id="fachwerk"
         />
       </div>
-    </f-fetch>
-    <f-pager />
-    <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
-    <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
-    </div>
+      </f-fetch>
+      <f-pager />
+      <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
+      <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
+    </f-theme>
   `
   });
 }

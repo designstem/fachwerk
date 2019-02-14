@@ -61,6 +61,7 @@ Fachwerk has several setup options:
       el: "#fachwerk",      // HTML tag id the content goes into
       src: "./index.md",    // Path of the Markdown file, local or from the web
       editor: "show",       // Options for live editor: "none", "hide", "show"
+      theme: "light",       // Theme: "light", "dark", "blue", "yellow"
       components: {},       // See below
     })
 
