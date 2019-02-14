@@ -62,6 +62,8 @@ Fachwerk has several setup options:
       src: "./index.md",    // Path of the Markdown file, local or from the web
       editor: "show",       // Options for live editor: "none", "hide", "show"
       theme: "light",       // Theme: "light", "dark", "blue", "yellow"
+      pager: false,         // Show global pager?
+      style: {}             // Add custom styles, for example CSS variables
       components: {},       // See below
     })
 

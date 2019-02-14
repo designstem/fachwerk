@@ -1,3 +1,1 @@
-# Hello world..
-
-<custom-component />
+# Hello world
