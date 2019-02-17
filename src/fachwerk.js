@@ -9,6 +9,7 @@ export function fachwerk(c = {}) {
     pager: false,
     style: {},
     components: {},
+    utils: {},
     ...c
   };
   for (const name in components) {
@@ -17,11 +18,13 @@ export function fachwerk(c = {}) {
   for (const name in config.components) {
     Vue.component(name, config.components[name]);
   }
+  Vue.mixin({ methods: { ...utils, ...config.utils } });
+
   Vue.config.productionTip = false;
   Vue.prototype.$global = new Vue({ data: { state: {} } });
+
   new Vue({
     el: config.el,
-    methods: { ...utils },
     data: { config, preview: config.editor == "hide" ? 1 : 0 },
     template: `
     <f-theme
