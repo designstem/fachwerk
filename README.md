@@ -64,7 +64,8 @@ Fachwerk has several setup options:
       theme: "light",       // Theme: "light", "dark", "blue", "yellow"
       pager: false,         // Show global pager?
       style: {}             // Add custom styles, for example CSS variables
-      components: {},       // See below
+      components: {},       // Add custom components
+      utils: {},            // Add custom utilities
     })
 
 ### Custom components
@@ -105,6 +106,26 @@ export default {
 ```
 
 See VueJS [component documentation](https://vuejs.org/v2/guide/components.html) for more details.
+
+### Custom utilities
+
+Sometimes it might be useful to have your own set of utility functions to be available for templates, here is how to add them to framework:
+
+##### utils.js
+
+```js
+export const add = (a, b) => a + b
+```
+
+##### index.js
+
+```js
+import { fachwerk } from "https://designstem.github.io/fachwerk/fachwerk.js";
+
+import * as utils from "./utils.js";
+
+fachwerk({ utils });
+```
 
 ### Custom project
 

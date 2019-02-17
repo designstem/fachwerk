@@ -1,2 +1,5 @@
 import { fachwerk } from "../src/fachwerk.js";
-fachwerk()
+
+import * as utils from "./utils.js";
+
+fachwerk({ utils });
