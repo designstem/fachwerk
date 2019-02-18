@@ -18,7 +18,7 @@ export function fachwerk(c = {}) {
   for (const name in config.components) {
     Vue.component(name, config.components[name]);
   }
-  Vue.mixin({ methods: { ...utils, ...config.utils } });
+  Vue.mixin({ methods: { ...config.utils } });
 
   Vue.config.productionTip = false;
   Vue.prototype.$global = new Vue({ data: { state: {} } });
@@ -26,6 +26,7 @@ export function fachwerk(c = {}) {
   new Vue({
     el: config.el,
     data: { config, preview: config.editor == "hide" ? 1 : 0 },
+    methods: { ...utils },
     template: `
     <f-theme
       :theme="config.theme"
