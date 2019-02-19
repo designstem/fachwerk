@@ -42,7 +42,7 @@ Description to be written.
     y: { default: 0, type: [Number,String] },
     points: { default: '', type: [String, Number, Array, Object] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
