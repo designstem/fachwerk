@@ -184,7 +184,22 @@ Calculates a color contrast ratio between two colors. It is [recommended](https:
 
 export const contrast = (color1, color2) => chroma.contrast(color1, color2);
 
-export const colorscale = (start, stop, count = 6) => {
-  const color = chroma.scale([start, stop]).domain([0, count - 1]).mode('hsl');
+export const colorscale_help = () => `
+\`colorscale = (start, stop, count = 6, mode = 'hsl')\`
+
+Generates a color scale between \`start\` and \`stop\` colors with \`count\` steps. Optionally an [interpolation mode](https://vis4.net/chromajs/#scale-mode) can be specified.
+
+#### Example
+
+    colorscale('red','yellow')
+
+#### Output
+
+<output>{{ colorscale('red','yellow') }}</output>
+
+`
+
+export const colorscale = (start, stop, count = 6, mode = 'hsl') => {
+  const color = chroma.scale([start, stop]).domain([0, count - 1]).mode(mode);
   return Array.from({ length: count }).map((_, i) => color(i).css('hsl'));
 };
