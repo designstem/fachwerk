@@ -30,7 +30,7 @@ Description to be written.
     z: { default: 0, type: Number },
     points: { default: '', type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [Number,String] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },

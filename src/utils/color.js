@@ -1,5 +1,4 @@
-import { chroma, colorBlind, getCssVariable } from "../../fachwerk.js"
-
+import { chroma, colorBlind, getCssVariable, range } from "../../fachwerk.js";
 
 export const color_help = () => `
 
@@ -90,7 +89,7 @@ Converts RGB to HSL, outputting CSS string. You can also pass \`array = true\` s
 {{ rgb2hsl(255,0,0,0.5) }}
 {{ rgb2hsl(255,0,0,0.5,true) }}
 </output>
-`
+`;
 
 export function rgb2hsl(r, g = 0, b = 0, a = null, array = false) {
   let c = null;
@@ -100,11 +99,11 @@ export function rgb2hsl(r, g = 0, b = 0, a = null, array = false) {
     c = chroma({ r, g, b });
   }
   if (array) {
-    const hsl = c.hsl()
-    const arr = [hsl[0], hsl[1] * 100, hsl[2] * 100]
-    return a ? [...arr, a] : arr
+    const hsl = c.hsl();
+    const arr = [hsl[0], hsl[1] * 100, hsl[2] * 100];
+    return a ? [...arr, a] : arr;
   }
-  return a ? c.alpha(a).css("hsla") : c.css("hsl")
+  return a ? c.alpha(a).css("hsla") : c.css("hsl");
 }
 
 export const hsl2rgb_help = () => `
@@ -125,7 +124,7 @@ Converts HSL to RGB, outputting CSS string. You can also pass \`array = true\` s
 {{ hsl2rgb(0,100,50,0.5) }}
 {{ hsl2rgb(0,100,50,0.5,true) }}
 </output>
-`
+`;
 
 export function hsl2rgb(h, s = 100, l = 50, a = null, array = false) {
   let c = null;
@@ -135,9 +134,9 @@ export function hsl2rgb(h, s = 100, l = 50, a = null, array = false) {
     c = chroma({ h, s: s / 100, l: l / 100 });
   }
   if (array) {
-    return a ? [...c.alpha(a).rgb(), a] : c.rgb()
+    return a ? [...c.alpha(a).rgb(), a] : c.rgb();
   }
-  return a ? c.alpha(a).css("rgba") : c.css("rgb")
+  return a ? c.alpha(a).css("rgba") : c.css("rgb");
 }
 
 export const colorblind_help = () => `
@@ -162,12 +161,10 @@ Converts color values to simulated colorblindess color values. \`type\` can be o
 #### Output
 
 <output>{{ colorblind(rgb(255,0,0)) }}</output>
-`
-
+`;
 
 export const colorblind = (color, type = "deuteranomaly") =>
-  chroma(colorBlind[type](chroma(color).css('rgb'))).css('rgb')
-
+  chroma(colorBlind[type](chroma(color).css("rgb"))).css("rgb");
 
 export const contrast_help = () => `
 
@@ -183,6 +180,26 @@ Calculates a color contrast ratio between two colors. It is [recommended](https:
 
 <output>{{ contrast(rgb(255,0,0),rgb(0,255,0)) }}</output>
 
+`;
+
+export const contrast = (color1, color2) => chroma.contrast(color1, color2);
+
+export const colorscale_help = () => `
+\`colorscale = (start, stop, count = 6, mode = 'hsl')\`
+
+Generates a color scale between \`start\` and \`stop\` colors with \`count\` steps. Optionally an [interpolation mode](https://vis4.net/chromajs/#scale-mode) can be specified.
+
+#### Example
+
+    colorscale('red','yellow')
+
+#### Output
+
+<output>{{ colorscale('red','yellow') }}</output>
+
 `
 
-export const contrast = (color1, color2) => chroma.contrast(color1, color2)
+export const colorscale = (start, stop, count = 6, mode = 'hsl') => {
+  const color = chroma.scale([start, stop]).domain([0, count - 1]).mode(mode);
+  return Array.from({ length: count }).map((_, i) => color(i).css('hsl'));
+};
