@@ -203,3 +203,11 @@ export const colorscale = (start, stop, count = 6, mode = 'hsl') => {
   const color = chroma.scale([start, stop]).domain([0, count - 1]).mode(mode);
   return Array.from({ length: count }).map((_, i) => color(i).css('hsl'));
 };
+
+export const aiHues = () => [
+  0,17.5,35,47.5,60,97.5,135,180,225,250,275,317.5
+]
+
+// var x = d3.scaleLinear()
+//     .domain([10, 130])
+//     .range([0, 960]);
