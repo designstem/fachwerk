@@ -1,5 +1,8 @@
 #### HSL / Illustrator color wheel
 
+{{ hue2ai(180) }}
+
+<!--
 <f-scene grid>
   <f-group rotation="120">
   <f-point 
@@ -10,7 +13,7 @@
     :stroke="hsl(360 / 64 * i)"
   />
   <f-circle 
-    v-for="(h,i) in aiHues()" 
+    v-for="(h,i) in aihues()" 
     :x="polarx(h)"
     :y="polary(h)"
     r="0.15"
@@ -22,7 +25,7 @@
 <f-scene grid>
   <f-group rotation="60">
   <f-circle 
-    v-for="(h,i) in aiHues()" 
+    v-for="(h,i) in aihues()" 
     :x="polarx(360 / 12 * i)"
     :y="polary(360 / 12 * i)"
     r="0.15"
@@ -30,3 +33,4 @@
   />
   </f-group>
 </f-scene>
+-->
