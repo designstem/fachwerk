@@ -25,5 +25,5 @@ export {
   Vue
 };
 
-const d3 = Object.assign({}, d3Scale,d3Shape);
+const d3 = Object.assign({}, d3Scale, d3Shape);
 export { d3 };

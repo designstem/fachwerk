@@ -1,6 +1,36 @@
 #### HSL / Illustrator color wheel
 
-{{ hue2ai(180) }}
+<f-scene grid>
+  <f-line 
+    v-for="(a,i) in range(0,360,2)" 
+    :x1="polarx(a,0.25)"
+    :y1="polary(a,0.25)"
+    :x2="polarx(a)"
+    :y2="polary(a)"
+    :stroke="hsl(a)"
+    :stroke-width="5"
+  />
+  <f-line 
+    v-for="(a,i) in range(0,360,8)" 
+    :x1="polarx(hue2ai(a),1.05)"
+    :y1="polary(hue2ai(a),1.05)"
+    :x2="polarx(hue2ai(a),1.1)"
+    :y2="polary(hue2ai(a),1.1)"
+    :stroke-width="2"
+  />
+</f-scene>
+
+<f-scene grid>
+  <f-line 
+    v-for="(a,i) in range(0,360,2)" 
+    :x1="polarx(a,0.25)"
+    :y1="polary(a,0.25)"
+    :x2="polarx(a)"
+    :y2="polary(a)"
+    :stroke="hsl(hue2ai(a))"
+    :stroke-width="5"
+  />
+</f-scene>
 
 <!--
 <f-scene grid>
