@@ -1,7 +1,7 @@
 # TODO
 
-- minify css https://github.com/HenrikJoreteg/rollup-plugin-css
-- global color?
+# tests
+- ai tests
 
 ## Tools
 
@@ -57,6 +57,9 @@
 
 ## Other stuff
 
+- minify css https://github.com/HenrikJoreteg/rollup-plugin-css
+- https://codeplea.com/triangular-interpolation
+- http://bl.ocks.org/widged/5780720
 - move stlExport from 3d to utils
 - set(key, value, localstore = true) // del // preserve() // save() // remember()
 - f-iframe :scale -> presentations / preview | http://jsfiddle.net/AwokeKnowing/yy8yb/

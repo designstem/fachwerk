@@ -207,6 +207,18 @@ export const colorscale = (start, stop, count = 6, mode = "hsl") => {
   return Array.from({ length: count }).map((_, i) => color(i).css("hsl"));
 };
 
+export const aihues_help = () => `
+Returns hue values for Adobe Illustrator color wheel, similar to [Johannes Itten's RBY color wheel](https://en.wikipedia.org/wiki/Johannes_Itten).
+
+#### Example
+
+    aihues()
+
+#### Output
+
+<output>{{ aihues() }}</output>
+`
+
 export const aihues = () => [
   0,
   17.5,
@@ -222,11 +234,36 @@ export const aihues = () => [
   317.5,
 ];
 
+export const ai2hue_help = () => `
+Maps Adobe Illustrator color wheel hue value (RBY color system), to HSL hue values.
+
+#### Example
+
+    ai2hue(180)
+
+#### Output
+
+<output>{{ ai2hue(180) }}</output>
+`
+
 export const ai2hue = ai =>
   d3
     .scaleLinear()
     .domain(aihues())
     .range(range(0,360,360 / aihues().length))(ai);
+
+
+export const hue2ai_help = () => `
+Maps HSL hue value to Adobe Illustrator color wheel hue value (RBY color system).
+
+#### Example
+
+    hue2ai(180)
+
+#### Output
+
+<output>{{ hue2ai(180) }}</output>
+`
 
 export const hue2ai = hue =>
   d3
