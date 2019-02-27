@@ -1,4 +1,4 @@
-import { chroma, colorBlind, getCssVariable, range } from "../../fachwerk.js";
+import { chroma, colorBlind, getCssVariable, d3, range } from "../../fachwerk.js";
 
 export const color_help = () => `
 
@@ -197,9 +197,76 @@ Generates a color scale between \`start\` and \`stop\` colors with \`count\` ste
 
 <output>{{ colorscale('red','yellow') }}</output>
 
+`;
+
+export const colorscale = (start, stop, count = 6, mode = "hsl") => {
+  const color = chroma
+    .scale([start, stop])
+    .domain([0, count - 1])
+    .mode(mode);
+  return Array.from({ length: count }).map((_, i) => color(i).css("hsl"));
+};
+
+export const aihues_help = () => `
+Returns hue values for Adobe Illustrator color wheel, similar to [Johannes Itten's RBY color wheel](https://en.wikipedia.org/wiki/Johannes_Itten).
+
+#### Example
+
+    aihues()
+
+#### Output
+
+<output>{{ aihues() }}</output>
 `
 
-export const colorscale = (start, stop, count = 6, mode = 'hsl') => {
-  const color = chroma.scale([start, stop]).domain([0, count - 1]).mode(mode);
-  return Array.from({ length: count }).map((_, i) => color(i).css('hsl'));
-};
+export const aihues = () => [
+  0,
+  17.5,
+  35,
+  47.5,
+  60,
+  97.5,
+  135,
+  180,
+  225,
+  250,
+  275,
+  317.5,
+];
+
+export const ai2hue_help = () => `
+Maps Adobe Illustrator color wheel hue value (RBY color system), to HSL hue values.
+
+#### Example
+
+    ai2hue(180)
+
+#### Output
+
+<output>{{ ai2hue(180) }}</output>
+`
+
+export const ai2hue = ai =>
+  d3
+    .scaleLinear()
+    .domain(aihues())
+    .range(range(0,360,360 / aihues().length))(ai);
+
+
+export const hue2ai_help = () => `
+Maps HSL hue value to Adobe Illustrator color wheel hue value (RBY color system).
+
+#### Example
+
+    hue2ai(180)
+
+#### Output
+
+<output>{{ hue2ai(180) }}</output>
+`
+
+export const hue2ai = hue =>
+  d3
+    .scaleLinear()
+    .domain(range(0,360,360 / aihues().length))
+    .range(aihues())(hue);

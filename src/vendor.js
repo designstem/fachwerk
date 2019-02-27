@@ -1,4 +1,5 @@
-import * as d3 from "d3-shape";
+import * as d3Shape from "d3-shape";
+import * as d3Scale from "d3-scale";
 import anime from "animejs";
 import chroma from "chroma-js";
 import CodeMirror from "codemirror";
@@ -16,12 +17,13 @@ export {
   chroma,
   CodeMirror,
   colorBlind,
-  d3,
   gfm,
   katex,
   marked,
-  require,
   store,
   THREE,
   Vue
 };
+
+const d3 = Object.assign({}, d3Scale, d3Shape);
+export { d3 };
