@@ -1,6 +1,15 @@
-import { marked } from '../fachwerk.js'
-
 export default {
+  description: `
+Displays speaker / teacher notes.
+
+<f-notes>
+
+#### A Note
+
+> Here is a speaker note
+
+</f-notes>
+  `,
   template: `
   <f-sidebar
     title="✍️Notes"

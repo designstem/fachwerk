@@ -261,6 +261,9 @@ export { FPrevButton };
 import FPager from "./components/layout/FPager.js";
 export { FPager };
 
+import FNotes from "./components/layout/FNotes.js";
+export { FNotes };
+
 
 // Internal
 

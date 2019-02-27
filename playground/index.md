@@ -1,3 +1,7 @@
 # Hello
 
-<f-notes>Hello</f-notes>
+<f-notes>
+
+  Some *notes* here
+  
+</f-notes>

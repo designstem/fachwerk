@@ -1,19 +1,28 @@
 export default {
   description: `
-Description to be written.
+Sidebars load can be either inline or load from a file.
 
-<f-sidebar src="../README.md"><div class="button_primary">Want to get started?</div></f-sidebar>
+<f-sidebar title="inline">
 
-Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?  
+### Here is an inline sidebar.
+
+</f-sidebar> 
+
+...or load a from a file:
+
+<f-sidebar title="../README.md" src="../README.md" />
+
+<br><br>
 `,
   props: {
     src: { default: '', type: String },
+    title: { default: '', type: String },
     width: { default: '50vw', type: String },
   },
   data: () => ({ open: false }),
   template: `
     <span>
-      <a style="color: var(--blue); border-bottom: 2px dotted var(--blue); cursor: help;" @click.prevent="open = !open"><slot /></a>
+      <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;" @click.prevent="open = !open">{{ title }}</a>
       <div v-if="open" style="
         position: fixed;
         top: 0px;
@@ -36,8 +45,9 @@ Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?
             position: fixed;
             top: 1rem;
             right: 1rem;
+            color: var(--primary);
         ">✕</div>
-        <f-fetch :url="src">
+        <f-fetch v-if="src" :url="src">
           <f-content
             slot-scope="data"
             :content="data.value"
@@ -45,6 +55,9 @@ Or you really want to <f-sidebar src="../README.md">get started</f-sidebar>?
             type="document"
           />
         </f-fetch>
+        <div style="padding: var(--content-padding)" v-if="!src && open">
+          <slot />
+        </div>
       </div>
 </span>
   `
