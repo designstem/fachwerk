@@ -152,6 +152,7 @@ export default [
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },
+      { component: "FNotes" },
       { component: "FInline" },
       { component: "FCard" },
       { component: "FTable" },
