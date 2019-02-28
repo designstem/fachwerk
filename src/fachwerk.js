@@ -6,7 +6,8 @@ export function fachwerk(c = {}) {
     src: "./index.md",
     editor: "show",
     theme: "light",
-    pager: false,
+    type: "slides",
+    pager: true,
     style: {},
     components: {},
     utils: {},
@@ -37,6 +38,7 @@ export function fachwerk(c = {}) {
         <f-content
           v-if="config.editor == 'none'"
           :content="value"
+          :type="type"
         />
         <f-content-editor
           v-if="config.editor != 'none'"
@@ -44,6 +46,7 @@ export function fachwerk(c = {}) {
           :preview="preview"
           style="--content-editor-min-height: 100vh"
           save-id="fachwerk"
+          :type="type"
         />
       </div>
       </f-fetch>
