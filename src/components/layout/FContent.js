@@ -134,9 +134,11 @@ Shows Markdown content.
   .cell p:last-child {
     margin: 0;
   }
+  /*
   .fit > .cell > p {
     height: 100%;
   }
+  */
   .fit > .cell {
     --image-min-height: 0;
   }
