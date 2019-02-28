@@ -1,5 +1,4 @@
-import * as utils from "../../../fachwerk.js"
-;
+import { utils } from "../../../fachwerk.js";
 
 export default {
   description: `
