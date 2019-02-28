@@ -22,6 +22,6 @@ Displays speaker / teacher notes.
     "
   >
     <slot />
-  <f-sidebar>
+  </f-sidebar>
   `
 };
