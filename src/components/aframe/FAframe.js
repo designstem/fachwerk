@@ -34,6 +34,9 @@ A-Frame is not included in standard Fachwerk release. Add following lines to \`i
       }
     }
   },
+  mounted() {
+    setInterval(() => window.dispatchEvent(new Event('resize')),1000)
+  },
   template: `
     <a-scene :embedded="embed" :style="style" class="f-aframe">
       <a-camera>
