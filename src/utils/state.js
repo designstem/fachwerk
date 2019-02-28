@@ -2,8 +2,7 @@ import { Vue } from "../../fachwerk.js"
 
 export const send = function(channel, value) {
   if (this.$global) {
-    const v = parseFloat(value);
-    this.$global.$emit(channel, value == NaN ? value : v);
+    this.$global.$emit(channel, value);
   }
 };
 

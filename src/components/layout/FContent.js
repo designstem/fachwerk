@@ -45,8 +45,17 @@ Shows Markdown content.
       this.currentIndex < this.preparedContent.length - 1 &&
         this.currentIndex++;
     },
-    goto(index) {
-      this.currentIndex = index
+    goto(id) {
+      if (typeof id === 'string') {
+        console.log(this.preparedContent.map(s => s))
+        const index = this.preparedContent.findIndex(slide => slide.id === id)
+        console.log(index)
+        if (index > -1) {
+          this.currentIndex = index
+        }
+      } else {
+        this.currentIndex = id
+      }
     },
   },
   mounted() {
@@ -63,7 +72,7 @@ Shows Markdown content.
       this.$global.$on("prev", () => this.prev());
       this.$global.$on("first", () => this.first());
       this.$global.$on("last", () => this.last());
-      this.$global.$on("goto", index => this.goto(index));
+      this.$global.$on("goto", id => this.goto(id));
     }
   },
   template: `
