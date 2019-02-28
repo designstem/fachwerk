@@ -38,7 +38,7 @@ export function fachwerk(c = {}) {
         <f-content
           v-if="config.editor == 'none'"
           :content="value"
-          :type="type"
+          :type="config.type"
         />
         <f-content-editor
           v-if="config.editor != 'none'"
@@ -46,7 +46,7 @@ export function fachwerk(c = {}) {
           :preview="preview"
           style="--content-editor-min-height: 100vh"
           save-id="fachwerk"
-          :type="type"
+          :type="config.type"
         />
       </div>
       </f-fetch>
