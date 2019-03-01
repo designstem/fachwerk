@@ -161,6 +161,8 @@ export default [
       { component: "FButtons" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
+      { component: "FHeader" },
+      { component: "FHome" },
       { component: "FPager" },
       { component: "FTabs" },
       //{ component: "FMenu" },
