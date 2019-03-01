@@ -12,7 +12,9 @@ Displays a page header, accepts \`link\` array for header links.
   },
   template: `
   <header>
-    <a v-for="link in links" :href="link.src">{{ link.title }}</a>
+    <div>
+      <a v-for="link in links" :href="link.src">{{ link.title }}</a>
+    </div>
   </header>
   `
 };
