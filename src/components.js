@@ -267,6 +267,9 @@ export { FNotes };
 import FHome from "./components/layout/FHome.js";
 export { FHome };
 
+import FHeader from "./components/layout/FHeader.js";
+export { FHeader };
+
 
 // Internal
 

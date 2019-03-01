@@ -7,6 +7,7 @@ export function fachwerk(c = {}) {
     editor: "show",
     theme: "light",
     type: "slides",
+    header: [],
     home: true,
     pager: true,
     style: {},
@@ -34,6 +35,7 @@ export function fachwerk(c = {}) {
       :theme="config.theme"
       :style="config.style"
     >
+      <f-header v-if="config.header.length" :links="config.header" />
       <f-fetch :url="config.src">
       <div slot-scope="{ value }">
         <f-content
