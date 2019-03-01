@@ -34,8 +34,19 @@ A-Frame is not included in standard Fachwerk release. Add following lines to \`i
       }
     }
   },
+  methods: {
+    resize() {
+      setTimeout(() => window.dispatchEvent(new Event('resize')),100)
+    }
+  },
   mounted() {
-    setInterval(() => window.dispatchEvent(new Event('resize')),3000)
+    if (this.$global) {
+      this.$global.$on("next", () => this.resize());
+      this.$global.$on("prev", () => this.resize());
+      this.$global.$on("first", () => this.resize());
+      this.$global.$on("last", () => this.resize());
+      this.$global.$on("goto", () => this.resize());
+    }
   },
   template: `
     <a-scene :embedded="embed" :style="style" class="f-aframe">
