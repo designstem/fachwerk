@@ -8,11 +8,11 @@ Displays a page header, accepts \`link\` array for header links.
 
 `,
   props: {
-    links: { default: "", type: [String, Array ]}
+    links: { default: "", type: [String, Array] }
   },
   template: `
   <header>
     <a v-for="link in links" :href="link.src">{{ link.title }}</a>
   </header>
   `
-}
+};
