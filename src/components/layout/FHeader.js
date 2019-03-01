@@ -13,7 +13,9 @@ Displays a page header, accepts \`link\` array for header links.
   template: `
   <header>
     <div>
-      <a v-for="link in links" :href="link.src">{{ link.title }}&nbsp;&nbsp;&nbsp;</a>
+      <div v-for="link in links" >
+        <a :href="link.src">{{ link.title }}</a>&nbsp;&nbsp;&nbsp;
+      </div>
     </div>
   </header>
   `
