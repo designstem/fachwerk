@@ -22,6 +22,7 @@
 - f-slide-transition / f-fade-transition?
 - <f-math inline />
 - <f-slider inline />
+- ESC key
 
 ## 2D
 

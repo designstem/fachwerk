@@ -12,15 +12,15 @@ Displays speaker / teacher notes.
   `,
   template: `
   <f-sidebar
-    title="✍️Notes"
     width="33vw"
     style="
       position: fixed;
       z-index: 100000;
-      right: var(--base3);
-      top: var(--base3);
+      right: var(--base2);
+      top: var(--base2);
     "
   >
+    <button slot="button">Notes</button>
     <slot />
   </f-sidebar>
   `

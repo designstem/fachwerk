@@ -22,40 +22,47 @@ Sidebars load can be either inline or load from a file.
   data: () => ({ open: false }),
   template: `
     <span>
-      <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;" @click.prevent="open = !open">{{ title }}</a>
-      <div v-if="open" style="
-        position: fixed;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        background: var(--white);
-        border-left: var(--border-width) solid var(--primary);
-        overflowY: auto;
-        box-shadow: calc(50vw * -1) 0 rgba(0,0,0,0.15);
-        zIndex: 1000;
-      "
-      :style="{
-        width: width,
-        boxShadow: 'calc(100vw - ' + width + ' * -1) 0 rgba(0,0,0,0.15)'
-      }">
+      <div @click.prevent="open = !open">
+        <slot name="button">
+          <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;">{{ title }}</a>
+        </slot>
+      </div>
+      <div
+        v-if="open"
+        style="
+          position: fixed;
+          top: 0px;
+          right: 0px;
+          bottom: 0px;
+          background: var(--white);
+          border-left: var(--border-width) solid var(--primary);
+          overflowY: auto;
+          zIndex: 1000;
+        "
+        :style="{
+          width: width,
+          boxShadow: '-5px 0 10px rgba(0,0,0,0.1)'
+        }"
+      >
         <div
           @click="open = false"
           style="
             cursor: pointer;
             position: fixed;
-            top: 1rem;
-            right: 1rem;
+            top: var(--base3);
+            right: var(--base4);
             color: var(--primary);
+            font-weight: 800;
         ">✕</div>
         <f-fetch v-if="src" :url="src">
           <f-content
             slot-scope="data"
             :content="data.value"
-            style="font-size: 0.8em;"
             type="document"
+            style="padding: var(--base4) var(--base8) var(--base4) var(--base4)"
           />
         </f-fetch>
-        <div style="padding: var(--content-padding)" v-if="!src && open">
+        <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && open">
           <slot />
         </div>
       </div>
