@@ -8,6 +8,8 @@ Decription TBD.
   title="Title"
   subtitle="Subtitle"
   height="calc(var(--base) * 20)"
+  color="var(--white)"
+  background="var(--red)"
 >
   Some content here
 </f-card>
@@ -15,8 +17,8 @@ Decription TBD.
   props: {
     title: { default: "", type: String },
     subtitle: { default: "", type: String },
-    background: { default: "var(--red)", type: String },
-    color: { default: "var(--white)", type: String },
+    background: { default: "var(--emphasis)", type: String },
+    color: { default: "var(--secondry)", type: String },
   },
   template: `
     <div
