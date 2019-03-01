@@ -7,6 +7,7 @@ export function fachwerk(c = {}) {
     editor: "show",
     theme: "light",
     type: "slides",
+    home: true,
     pager: true,
     style: {},
     components: {},
@@ -50,6 +51,7 @@ export function fachwerk(c = {}) {
         />
       </div>
       </f-fetch>
+      <f-home v-if="config.home" />
       <f-pager v-if="config.pager" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />

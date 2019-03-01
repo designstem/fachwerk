@@ -12,7 +12,6 @@ Displays speaker / teacher notes.
   `,
   template: `
   <f-sidebar
-    title="✍️Notes"
     width="33vw"
     style="
       position: fixed;
@@ -21,6 +20,7 @@ Displays speaker / teacher notes.
       top: var(--base3);
     "
   >
+    <button slot="button">Notes</button>
     <slot />
   </f-sidebar>
   `

@@ -206,7 +206,7 @@ Function can be imported using Javascript import:
       <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
     </div>
     <div>
-    <f-inline>
+    <f-inline style="margin: 0;">
         <f-buttons
           :buttons="['Menu','No Menu']"
           v-model="menu"
