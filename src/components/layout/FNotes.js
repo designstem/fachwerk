@@ -16,8 +16,8 @@ Displays speaker / teacher notes.
     style="
       position: fixed;
       z-index: 100000;
-      right: var(--base2);
-      top: var(--base2);
+      right: var(--base3);
+      top: var(--base3);
     "
   >
     <button slot="button">Notes</button>

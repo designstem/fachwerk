@@ -264,6 +264,9 @@ export { FPager };
 import FNotes from "./components/layout/FNotes.js";
 export { FNotes };
 
+import FHome from "./components/layout/FHome.js";
+export { FHome };
+
 
 // Internal
 
