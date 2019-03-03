@@ -270,6 +270,8 @@ export { FHome };
 import FHeader from "./components/layout/FHeader.js";
 export { FHeader };
 
+import FFooter from "./components/layout/FFooter.js";
+export { FFooter };
 
 // Internal
 

@@ -1,3 +1,11 @@
+<f-slider set="d" to="60" integer />
+<f-slider set="d2" to="60" integer />
+
+<f-inline>
+<f-clock :duration="get('d')" :duration2="get('d2')" />
+
+Short duration {{ get('d') }}min, long duration duration {{ get('d2') }}min
+
 #### Itten color wheel (original and mapped to hsl)
 
 <f-scene grid>

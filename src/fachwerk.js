@@ -8,6 +8,7 @@ export function fachwerk(c = {}) {
     theme: "light",
     type: "slides",
     header: [],
+    footer: false,
     home: true,
     pager: true,
     style: {},
@@ -53,6 +54,7 @@ export function fachwerk(c = {}) {
         />
       </div>
       </f-fetch>
+      <f-footer v-if="config.footer" />
       <f-home v-if="config.home" />
       <f-pager v-if="config.pager" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />

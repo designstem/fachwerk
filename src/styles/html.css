@@ -555,6 +555,7 @@ footer,
   padding: var(--base4) var(--base4) calc(var(--base) * 12) var(--base4);
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   background: var(--yellow);
   color: var(--primary);
 }
