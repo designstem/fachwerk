@@ -21,7 +21,7 @@ Displays a page footer.
         </a>.
       </p>
     </div>
-    <img src="../../images/erasmus_logo.svg" style="width:240px" />
+    <img src="https://designstem.github.io/fachwerk/images/erasmus_logo.svg" style="width:240px" />
   </div>
   `
 }
