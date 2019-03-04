@@ -81,3 +81,9 @@ Shortens the \`string\` to given \`length\` and with optional \`suffix\`.
 
 export const shorten = (str, length = 50, suffix = "...") =>
   `${str.slice(0, length)}${str.length - 1 > length ? suffix : ""}`;
+
+export const str = value =>
+  Object.entries(value)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join("; ")
+    .trim();

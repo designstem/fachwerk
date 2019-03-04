@@ -1,7 +1,11 @@
 # TODO
 
+# latest
+- document str
+
 # tests
 - ai tests
+
 
 ## Tools
 
