@@ -1,8 +1,6 @@
-import { Css } from "../../../fachwerk.js"
-;
+import { Css } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
-import { parseColumns } from "../../../fachwerk.js"
-;
+import { parseColumns } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -20,7 +18,7 @@ Shows Markdown content.
     content: { default: "", type: String },
     index: { default: 0, type: Number },
     autosaveId: { default: "0", type: String },
-    type: { default: 'slides', type: String }
+    type: { default: "slides", type: String }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
@@ -36,7 +34,7 @@ Shows Markdown content.
       this.currentIndex = 0;
     },
     last() {
-      this.currentIndex =  this.preparedContent.length - 1;
+      this.currentIndex = this.preparedContent.length - 1;
     },
     prev() {
       this.currentIndex > 0 && this.currentIndex--;
@@ -46,17 +44,26 @@ Shows Markdown content.
         this.currentIndex++;
     },
     goto(id) {
-      if (typeof id === 'string') {
-        console.log(this.preparedContent.map(s => s))
-        const index = this.preparedContent.findIndex(slide => slide.id === id)
-        console.log(index)
+      if (typeof id === "string") {
+        console.log(this.preparedContent.map(s => s));
+        const index = this.preparedContent.findIndex(slide => slide.id === id);
+        console.log(index);
         if (index > -1) {
-          this.currentIndex = index
+          this.currentIndex = index;
         }
       } else {
-        this.currentIndex = id
+        this.currentIndex = id;
       }
     },
+    background(slide) {
+      const tint = slide.tint ? slide.tint : 0.3
+      return `linear-gradient(
+          rgba(0, 0, 0, ${tint}),
+          rgba(0, 0, 0, ${tint})
+        ),
+        url(${slide.background})
+      `
+    }
   },
   mounted() {
     this.$watch(
@@ -95,7 +102,9 @@ Shows Markdown content.
           gridAutoColumns: '',
           overflow: 'hidden',
           gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
-          padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)'
+          padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)',
+          background: slide.background ? background(slide) : '',
+          backgroundSize: slide.background ? 'cover' : ''
         }"
       >
         <FMarkdown

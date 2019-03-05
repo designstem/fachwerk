@@ -22,13 +22,13 @@ export const cleanColumns = content => {
 const parseMeta = row => {
   const meta = row
     .replace(/\|/g, "")
-    .split(":")
+    .split(": ")
     .map(s => s.trim());
   return { [meta[0]]: meta[1] };
 };
 export const parseColumns = slide => {
   let meta = [];
-  const metaPattern = /(\|\s(.*):\s+(.*)\n)/g;
+  const metaPattern = /(\|\s(.*?):\s+(.*)\n)/g;
   const metaMatch = slide.match(metaPattern);
   if (metaMatch && metaMatch.length) {
     meta = metaMatch.map(parseMeta);
