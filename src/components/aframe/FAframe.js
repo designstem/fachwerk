@@ -21,7 +21,8 @@ A-Frame is not included in standard Fachwerk release. Add following lines to \`i
     backgroundColor: { default: "#111", type: String },
     cursorColor: { default: "#ddd", type: String },
     cursorTimeout: { default: 700, type: Number },
-    embed: { default: true, type: Boolean }
+    embed: { default: true, type: Boolean },
+    shadow: { default: 'basic', type: String, description: '`basic`, `pcf` or `pcfsoft`' }
   },
   computed: {
     style() {
@@ -49,7 +50,7 @@ A-Frame is not included in standard Fachwerk release. Add following lines to \`i
     }
   },
   template: `
-    <a-scene :embedded="embed" :style="style" class="f-aframe">
+    <a-scene shadow="'type: ' + type" :embedded="embed" :style="style" class="f-aframe">
       <a-camera>
         <a-cursor
           :fuse="true" 
