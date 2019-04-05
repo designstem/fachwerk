@@ -373,7 +373,7 @@ center {
 }
 
 section {
-  padding: var(--base2);
+  padding: var(--content-section-padding, var(--base3));
   color: var(--primary);
   font-size: calc(var(--base) * 2);
   line-height: calc(var(--base) * 3);
@@ -555,6 +555,7 @@ footer,
   padding: var(--base4) var(--base4) calc(var(--base) * 12) var(--base4);
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   background: var(--yellow);
   color: var(--primary);
 }

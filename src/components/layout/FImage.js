@@ -1,5 +1,4 @@
-import { Css } from "../../../fachwerk.js"
-;
+import { Css } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -15,6 +14,7 @@ Displays an image.
     <p :style="{
       background: 'url(' + src + ')',
       backgroundSize: 'cover',
+      backgroundRepeat: 'none',
       minHeight: 'var(--image-min-height)',
       height: '100%'
     }" />

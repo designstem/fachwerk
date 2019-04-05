@@ -31,6 +31,17 @@ export function fachwerk(c = {}) {
     el: config.el,
     data: { config, preview: config.editor == "hide" ? 1 : 0 },
     methods: { ...utils },
+    computed: {
+      editorStyle() {
+        return Object.assign(
+          {
+            "--content-editor-min-height": "100vh",
+            "--content-editor-scale": 0.75,
+          },
+          config.style
+        );
+      }
+    },
     template: `
     <f-theme
       :theme="config.theme"
@@ -48,7 +59,7 @@ export function fachwerk(c = {}) {
           v-if="config.editor != 'none'"
           :content="value"
           :preview="preview"
-          style="--content-editor-min-height: 100vh"
+          :style="editorStyle"
           save-id="fachwerk"
           :type="config.type"
         />
