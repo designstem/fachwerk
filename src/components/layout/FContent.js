@@ -90,7 +90,7 @@ Shows Markdown content.
       :theme="slide.theme || 'light'"
     >
       <div
-        v-show="type == 'slides' ? i == currentIndex : true"
+        v-if="type == 'slides' ? i == currentIndex : true"
         :class="slide.height === 'fit' ? 'fit' : ''"
         :style="{
           display: 'grid',
