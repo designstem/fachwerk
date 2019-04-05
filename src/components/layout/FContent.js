@@ -1,4 +1,4 @@
-import { Css, log } from "../../../fachwerk.js";
+import { Css } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../../fachwerk.js";
 
@@ -30,7 +30,6 @@ Shows Markdown content.
     }
   },
   methods: {
-    log,
     first() {
       this.currentIndex = 0;
     },
@@ -46,9 +45,7 @@ Shows Markdown content.
     },
     goto(id) {
       if (typeof id === "string") {
-        console.log(this.preparedContent.map(s => s));
         const index = this.preparedContent.findIndex(slide => slide.id === id);
-        console.log(index);
         if (index > -1) {
           this.currentIndex = index;
         }
@@ -103,7 +100,7 @@ Shows Markdown content.
           gridAutoColumns: '',
           overflow: '',
           gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
-          padding: slide.padding.trim() ? slide.padding : 'var(--content-padding)',
+          padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : '',
           backgroundRepeat: slide.background ? 'no-repeat' : ''

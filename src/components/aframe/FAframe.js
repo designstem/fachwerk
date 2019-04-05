@@ -36,9 +36,10 @@ A-Frame is not included in standard Fachwerk release. Add following lines to \`i
     }
   },
   methods: {
-    resize() {
-      setTimeout(() => window.dispatchEvent(new Event('resize')),100)
-    }
+    // @TODO remove this
+    // resize() {
+    //   setTimeout(() => window.dispatchEvent(new Event('resize')),100)
+    // }
   },
   mounted() {
     // @TODO remove this
