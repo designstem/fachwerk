@@ -163,7 +163,6 @@ export default [
       { component: "FPrevButton" },
       { component: "FHeader" },
       { component: "FFooter" },
-      { component: "FHome" },
       { component: "FPager" },
       { component: "FTabs" },
       //{ component: "FMenu" },

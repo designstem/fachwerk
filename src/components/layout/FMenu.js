@@ -25,7 +25,7 @@ Displays speaker / teacher notes.
       bottom: var(--base3);
     "
   >
-    <button slot="button">Menu</button>
+    <button slot="button">≡</button>
     <slot />
   </f-sidebar>
   `
