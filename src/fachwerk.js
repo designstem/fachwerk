@@ -36,7 +36,7 @@ export function fachwerk(c = {}) {
         return Object.assign(
           {
             "--content-editor-min-height": "100vh",
-            "--content-editor-scale": 0.75,
+            "--content-editor-scale": 0.85,
           },
           config.style
         );
