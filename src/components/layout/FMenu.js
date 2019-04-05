@@ -1,58 +1,32 @@
-
 export default {
   description: `
-Vertical menu, to be used with \`v-model\`.
+Displays speaker / teacher notes.
 
-  <f-menu
-    v-model="someVariable"
-    :items="['First','Second']"
-  />
+<f-notes>
+
+#### A Note
+
+> Here is a speaker note
+
+</f-notes>
   `,
-  props: ["items", "value"],
-  data: () => ({ activeItem: 0 }),
-  methods: {
-    top() {
-      window.scrollTo(0,0);
-    }
+  props: {
+    src: { default: './menu.md', type: String },
   },
   template: `
-    <div>
-      <div
-        v-for="(item,i) in items"
-        :key="i"
-        :style="{
-          cursor: 'pointer',
-        }"
-      >
-        <div :style="{
-          display: 'flex',
-          alignItems: 'center',
-          padding: 'var(--base2) var(--base2) var(--base) var(--base2)',
-          fontWeight: 'bold',
-          color: 'var(--primary)',
-          transform: 'translate(0,calc(var(--base) * 0))',
-        }"
-        @click="activeItem = i;"
-        v-html="item.title"
-        >
-        </div>
-        <div
-          v-if="i == activeItem"
-          v-for="(item,j) in item.items"
-          :key="j"
-          :style="{
-            display: 'flex',
-            alignItems: 'center',
-            padding: 'var(--base) var(--base) var(--base) var(--base4)',
-            color: i === value[0] && j === value[1] ? 'var(--primary)' : 'var(--primary)',
-            background: i === value[0] && j === value[1] ? 'var(--tertiary)' : '',
-            opacity: item.disabled ? 0.3 : 1
-          }"
-          @click="$emit('input',[i,j]); top()"
-          v-html="item.title"
-        > 
-        </div>
-      </div>
-    </div>
+  <f-sidebar
+    :src="src"
+    orientation="left"
+    width="33vw"
+    style="
+      position: fixed;
+      z-index: 100000;
+      left: var(--base3);
+      bottom: var(--base3);
+    "
+  >
+    <button slot="button">≡</button>
+    <slot />
+  </f-sidebar>
   `
 };

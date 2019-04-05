@@ -244,6 +244,7 @@ details {
   background: var(--quaternary);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
+  outline: none;
 }
 details p:first-child {
   margin-top: var(--base2);
@@ -496,6 +497,7 @@ button,
   cursor: pointer;
   outline: none;
   background: var(--white);
+  line-height: normal;
 }
 
 .buttons {

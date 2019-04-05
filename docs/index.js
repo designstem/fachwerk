@@ -229,7 +229,7 @@ Function can be imported using Javascript import:
     :theme="['light','dark','yellow'][theme]"
     class="docs"
   >
-    <f-menu
+    <f-treemenu
       v-if="!menu"
       :items="menuItems"
       v-model="activeIndex"
