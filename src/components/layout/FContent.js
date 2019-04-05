@@ -95,17 +95,18 @@ Shows Markdown content.
         :class="type == 'slides' ? 'fit' : ''"
         :style="{
           display: 'grid',
-          height: type == 'slides' ? 'var(--content-height)' : '',
+          height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
           overflow: '',
-          gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
-          padding: slide.padding ? slide.padding : 'var(--content-padding)',
+          gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
+          padding: slide.padding.trim() ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
-          backgroundSize: slide.background ? 'cover' : ''
+          backgroundSize: slide.background ? 'cover' : '',
+          backgroundRepeat: slide.background ? 'no-repeat' : ''
         }"
       >
         <FMarkdown
@@ -131,6 +132,10 @@ Shows Markdown content.
     "--content-gap": {
       default: "calc(var(--content-base) * 3)",
       description: "Gap between content columns"
+    },
+    "--content-section-padding": {
+      default: "calc(var(--content-base) * 3)",
+      description: "Padding around `section` tag"
     },
     "--content-base": {
       default: "calc(var(--base) / 2 + 0.5vw)",

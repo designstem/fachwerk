@@ -373,7 +373,7 @@ center {
 }
 
 section {
-  padding: var(--base2);
+  padding: var(--content-section-padding, var(--base3));
   color: var(--primary);
   font-size: calc(var(--base) * 2);
   line-height: calc(var(--base) * 3);
