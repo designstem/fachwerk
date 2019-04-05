@@ -496,6 +496,7 @@ button,
   cursor: pointer;
   outline: none;
   background: var(--white);
+  line-height: normal;
 }
 
 .buttons {

@@ -15,6 +15,7 @@ Displays speaker / teacher notes.
   },
   template: `
   <f-sidebar
+    :src="src"
     orientation="left"
     width="33vw"
     style="
