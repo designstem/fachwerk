@@ -1,4 +1,4 @@
-import { Css } from "../../../fachwerk.js";
+import { Css, log } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../../fachwerk.js";
 
@@ -30,6 +30,7 @@ Shows Markdown content.
     }
   },
   methods: {
+    log,
     first() {
       this.currentIndex = 0;
     },
@@ -91,18 +92,18 @@ Shows Markdown content.
     >
       <div
         v-if="type == 'slides' ? i == currentIndex : true"
-        :class="slide.height === 'fit' ? 'fit' : ''"
+        :class="type == 'slides' ? 'fit' : ''"
         :style="{
           display: 'grid',
-          height: slide.height === 'fit' ? 'var(--content-height)' : '',
+          height: type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-          gridTemplateRows: slide.height === 'fit' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
           overflow: '',
           gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
-          padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)',
+          padding: slide.padding ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : ''
         }"
@@ -124,15 +125,15 @@ Shows Markdown content.
       description: "Content height"
     },
     "--content-padding": {
-      default: "4vw 6vw",
+      default: "calc(var(--content-base) * 5)",
       description: "Content padding"
     },
     "--content-gap": {
-      default: "var(--base2)",
+      default: "calc(var(--content-base) * 3)",
       description: "Gap between content columns"
     },
     "--content-base": {
-      default: "calc(7px + 0.2vw)",
+      default: "calc(var(--base) / 2 + 0.5vw)",
       description: "Gap between content columns"
     }
   },
