@@ -100,7 +100,7 @@ Shows Markdown content.
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
-          overflow: 'hidden',
+          overflow: '',
           gridGap: slide.gap && slide.gap == 'none' ? '' : 'var(--content-gap)',
           padding: slide.padding && slide.padding == 'none' ? '' : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
