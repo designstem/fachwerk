@@ -1,5 +1,11 @@
 # TODO
 
+Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
+
+    mounted() {
+      receive('d', value => console.log(value))
+    }
+    
 # latest
 - document str
 
