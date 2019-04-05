@@ -10,7 +10,7 @@ Sidebars load can be either inline or load from a file.
 
 ...or load a from a file:
 
-<f-sidebar title="../README.md" src="../README.md" />
+<f-sidebar title="Text from README.md" src="../README.md" />
 
 <br><br>
 `,
@@ -18,6 +18,7 @@ Sidebars load can be either inline or load from a file.
     src: { default: '', type: String },
     title: { default: '', type: String },
     width: { default: '50vw', type: String },
+    orientation: { default: 'right', type: String }
   },
   data: () => ({ open: false }),
   template: `
@@ -35,20 +36,23 @@ Sidebars load can be either inline or load from a file.
           right: 0px;
           bottom: 0px;
           background: var(--white);
-          border-left: var(--border-width) solid var(--primary);
           overflowY: auto;
           zIndex: 1000;
         "
         :style="{
           width: width,
-          boxShadow: '-5px 0 10px rgba(0,0,0,0.1)'
+          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px rgba(0,0,0,0.25)',
+          right: orientation == 'right' ? 0 : '',
+          left: orientation == 'left' ? 0 : '',
+          borderLeft: orientation == 'right' ? 'var(--border-width) solid var(--primary)' : '',
+          borderRight: orientation == 'left' ? 'var(--border-width) solid var(--primary)' : '',
         }"
       >
         <div
           @click="open = false"
           style="
             cursor: pointer;
-            position: fixed;
+            position: absolute;
             top: var(--base3);
             right: var(--base4);
             color: var(--primary);
