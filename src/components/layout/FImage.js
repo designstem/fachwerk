@@ -14,7 +14,7 @@ Displays an image.
     <p :style="{
       background: 'url(' + src + ')',
       backgroundSize: 'cover',
-      backgroundCover: 'none',
+      backgroundRepeat: 'none',
       minHeight: 'var(--image-min-height)',
       height: '100%'
     }" />

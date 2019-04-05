@@ -48,7 +48,10 @@ export function fachwerk(c = {}) {
           v-if="config.editor != 'none'"
           :content="value"
           :preview="preview"
-          style="--content-editor-min-height: 100vh"
+          style="
+            --content-editor-min-height: 100vh;
+            --content-editor-scale: 0.75;
+          "
           save-id="fachwerk"
           :type="config.type"
         />

@@ -95,9 +95,9 @@ Creates a code editor with a live preview.
     <div
       class="preview"
       :style="{
-        '--@TODO--content-base': preview ? '' : 'calc(var(--base) / 1.5)',
-        '--@TODO--content-padding': preview ? '' : 'calc(var(--base) * 3)',
-        '--@TODO--content-gap': preview ? '' : 'calc(var(--base) * 2)'
+        '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
+        '--content-padding': preview ? '' : 'calc(var(--base) * 3)',
+        '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
       }"
     >
       <slot :content="innerContent">
@@ -113,6 +113,10 @@ Creates a code editor with a live preview.
     "--content-editor-min-height": {
       default: "auto",
       description: "Editor minimum height"
+    },
+    "--content-editor-scale": {
+      default: "1",
+      description: "How much to scale content preview when editing"
     }
   },
   css: `
