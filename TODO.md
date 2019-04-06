@@ -270,3 +270,23 @@ cp vendor_aframe.js ../templates/offline/.
 cp styles.css ../templates/offline/.
 ```
 
+<f-array :length="7" :dimensions="2">
+  <f-scene slot-scope="data">
+  <f-group v-for="(col, x) in data.value" :key="x">
+  <f-box
+    v-for="(value, y) in col"
+    :key="y"
+    :x="x / 2 - 1.2"
+    :y="y / 2 - 1.2"
+    width="0.49"
+    height="0.49"
+    :fill="value ? 'var(--red)' : 'var(--primary)'"
+    @click.native="data.update(1 - value, x, y)"
+  />
+  </f-group>
+  </f-scene>
+</f-array>
+
+<f-array :length="3" :map="(_,i) => i">
+  <pre slot-scope="data">{{ data }}</pre>
+</f-array>

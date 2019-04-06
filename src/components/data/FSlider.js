@@ -11,21 +11,21 @@ Numeric slider.
 
 #### Local data
 
-<f-slider>
-  <pre slot-scope="{ value }">{{ value }}</pre>
+<f-slider v-slot="{ value }">
+  <output>{{ value }}</output>
 </f-slider>
 
 #### Local data, integer value
 
-<f-slider integer>
-  <pre slot-scope="{ value }">{{ value }}</pre>
+<f-slider integer v-slot="{ value }">
+  <output>{{ value }}</output>
 </f-slider>
 
 #### Global data
 
-<f-slider v-on:value="value => set('slider', value)" />
+<f-slider set="b" />
 
-<pre>{{ get('slider', 0) }}</pre>
+<output>{{ get('b', 0) }}</output>
   `,
   props: {
     value: { default: 0, type: [Number, String] },

@@ -450,9 +450,10 @@ tr {
   border-bottom: 1px solid var(--tertiary);
 }
 td {
-  padding: calc(var(--base) * 1) calc(var(--base) / 2);
+  padding: calc(var(--base) * 1) calc(var(--base) / 1.5);
   color: var(--primary);
   font-size: calc(var(--base) * 1.8);
+  line-height: calc(var(--base) * 2.5);
   vertical-align: top;
 }
 th p:last-child,
@@ -461,6 +462,11 @@ td p:last-child {
 }
 td code {
   --lightblue: transparent;
+  padding: 0;
+}
+td p {
+  font-size: calc(var(--base) * 1.8);
+  line-height: calc(var(--base) * 2.5);
 }
 
 /* Buttons */

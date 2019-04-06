@@ -76,7 +76,7 @@ new Vue({
     },
     propsTable(props) {
       return Object.entries(props).map(p => ({
-        Name: `\`${kebabCase(p[0])}\``,
+        Name: `\`:${kebabCase(p[0])}\``,
         Default: p[1].default
           ? `\`${String(p[1].default).replace(/'primary'/, '"primary"')}\``
           : "",
@@ -90,6 +90,13 @@ new Vue({
       return Object.entries(props).map(([key, value]) => ({
         Name: `\`${key}\``,
         Value: `\`${value.default}\``,
+        Description: value.description ? `${value.description}` : ""
+      }));
+    },
+    slotsTable(props) {
+      return Object.entries(props).map(([key, value]) => ({
+        Name: `<code>{ ${key} }</code>`,
+        Type: `\`${value.type}\``,
         Description: value.description ? `${value.description}` : ""
       }));
     },
@@ -107,8 +114,18 @@ ${
         null,
         2
       ).replace(/'/g, '\\"')}'
-style="--lightblue: transparent;"
 />`
+    : ""
+}
+${c.slots ? `\n\n<br>\n\n#### Slots` : ""}
+${
+  c.slots
+    ? `<f-table :rows='${JSON.stringify(
+        this.slotsTable(c.slots),
+        null,
+        2
+      )}'
+    />`
     : ""
 }
 ${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
@@ -118,7 +135,8 @@ ${
         this.cssTable(c.cssprops),
         null,
         2
-      )}' style="--lightblue: transparent" />`
+      )}' 
+    />`
     : ""
 }
 

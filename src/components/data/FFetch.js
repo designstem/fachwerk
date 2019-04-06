@@ -13,9 +13,15 @@ Fetches data via AJAX.
   data: () => ({ value: null, loaded: false }),
   props: {
     src: { default: "", type: String },
-    // @DEPRECIATED Remove url parameter
-    url: { default: "", type: String, description: "Depreciated, use `src`" },
+    // @TODO Remove url parameter
+    url: { default: "", type: String, description: "***NEEDS UPDATE***, use `src`" },
     type: { default: "text", type: String }
+  },
+  slots: {
+    value: {
+      type: "number",
+      description: "Gets animation value"
+    }
   },
   mounted() {
     fetch(this.src || this.url)

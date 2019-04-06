@@ -4,25 +4,23 @@ export default {
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library. Supports most of the animation options AnimeJS provides.
 
-> See also available [easing functions](https://animejs.com/documentation/#linearEasing). 
-
 #### Local data
 
-<f-animation>
-  <pre slot-scope="{ value }">{{ value }}</pre>
+<f-animation v-slot="{ value }">
+  <output>{{ value }}</output>
 </f-animation>
 
 #### Local data, integer value
 
-<f-animation integer>
-  <pre slot-scope="{ value }">{{ value }}</pre>
+<f-animation integer v-slot="{ value }">
+  <output>{{ value }}</output>
 </f-animation>
 
 #### Global data
 
-<f-animation v-on:value="value => set('animation', value)" />
+<f-animation set="a" />
 
-<pre>{{ get('animation', 0) }}</pre>
+<output>{{ get('a', 0) }}</output>
 
   `,
   props: {
@@ -34,12 +32,18 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
     reset: { default: false, type: Boolean },
     loop: { default: true, type: Boolean },
     alternate: { default: false, type: Boolean },
-    easing: { default: "linear", type: String },
+    easing: { default: "linear", type: String, description: 'See [easing functions](https://animejs.com/documentation/#linearEasing)' },
     integer: { default: false, type: Boolean },
     set: {
       default: "",
       type: [String],
       description: "Key for setting a global value"
+    }
+  },
+  slots: {
+    value: {
+      type: "number",
+      description: "Gets animation value"
     }
   },
   data: function() {

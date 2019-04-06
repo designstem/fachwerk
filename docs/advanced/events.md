@@ -19,5 +19,11 @@ You can send events from any part of the code to any part of the code using `sen
 Inside the Markdown components, use `<f-receive>` component:
 
 <f-receive name="hey" v-slot="{ value }">
-  <output >{{ value ? 'Received ' + value : 'Waiting for "hey"' }}</output>
+  <output >{{ value ? 'Received ' + value : 'Waiting for event "hey"' }}</output>
 </f-receive>
+
+Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
+
+    mounted() {
+      receive('d', value => console.log(value))
+    }
