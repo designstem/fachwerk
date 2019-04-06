@@ -2,7 +2,7 @@
 
 ### 0.0.1 / Mon 8 April 2018
 
-* ***NEEDS UPDATE:*** `f-fetch` now accepts `src` prop for source file path. `url` prop is still supported but will be removed in next version.
+* ***Depreciated***: `f-fetch` now accepts `src` prop for source file path. `url` prop is still supported but will be removed in next version.
 
 * Upgrading to Vue 2.6. The update is likely smooth but make sure your interactive elements on slides still work.
 

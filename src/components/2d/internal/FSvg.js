@@ -12,6 +12,12 @@ export default {
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean }
   },
+  slots: {
+    mouse: {
+      type: "object",
+      description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
+    }
+  },
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
     onMousemove(e) {

@@ -1,54 +1,50 @@
-import { snapToGrid } from '../../../fachwerk.js'
+import { snapToGrid } from "../../../fachwerk.js";
 
 export default {
   description: `
 Description to be written.
 
-<f-scene grid>
+<f-scene grid v-slot="{ mouse }">
   <f-drag
-    slot-scope="sData"
+    :mouse="mouse"
     :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
-    :value="sData.value"
+    v-slot="{ points }"
   >
-    <f-line
-      slot-scope="dData"
-      :points="dData.value"
-      closed
-    />
+    <f-line :points="points" closed />
   </f-drag>
 </f-scene>  
   `,
   props: {
-    points: { default: [], type: Array },
-    value: { default: [], type: Array },
-    step: { default : false, type: Boolean }
+    points: { default: "", type: [String, Number, Array, Object] },
+    mouse: { default: () => {}, type: Object },
+    step: { default: false, type: [Boolean, Number, String] }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
     handleDown(i) {
-      this.$set(this.currentPoints[i],'pressed',true)
+      this.$set(this.currentPoints[i], "pressed", true);
     },
     handleUp(i) {
-      this.$set(this.currentPoints[i],'pressed',false)
+      this.$set(this.currentPoints[i], "pressed", false);
     }
   },
   computed: {
     finalPoints() {
-      return this.currentPoints.map((p,i) => {
+      return this.currentPoints.map((p, i) => {
         if (p.pressed) {
-          p.x = this.step ? snapToGrid(this.value[0], this.step) : this.value[0]
-          p.y = this.step ? snapToGrid(this.value[1], this.step) : this.value[1]
+          p.x = this.step ? snapToGrid(this.mouse.x, this.step) : this.mouse.x;
+          p.y = this.step ? snapToGrid(this.mouse.y, this.step) : this.mouse.y;
         }
-        return p
-      })
+        return p;
+      });
     }
   },
   mounted() {
-    this.currentPoints = this.points
+    this.currentPoints = this.points;
   },
   template: `
     <f-group>
-      <slot :value="finalPoints" />
+      <slot :points="finalPoints" />
       <f-circle 
         v-for="(p,i) in finalPoints"
         :key="i"

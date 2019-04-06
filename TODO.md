@@ -290,3 +290,28 @@ cp styles.css ../templates/offline/.
 <f-array :length="3" :map="(_,i) => i">
   <pre slot-scope="data">{{ data }}</pre>
 </f-array>
+
+<f-buffer length="10" :map="() => [0,0]">
+  <f-scene slot-scope="bData" grid>
+    <f-group slot-scope="sData">
+      <f-circle
+        v-for="(p,i) in bData.value"
+        :key="i"
+        :x="p[0]"
+        :y="p[1]"
+        r="0.25"
+        :fill="color('white')"
+        :opacity="scale(i,0,9,0,1)"
+      />
+      <f-box
+        @mousemove.native="
+          bData.add([sData.value[0],sData.value[1]])
+        "
+        fill="rgba(0,0,0,0)"
+        width="4"
+        height="4"
+        stroke="none"
+      />
+    </f-group>
+  </f-scene>
+</f-buffer>
