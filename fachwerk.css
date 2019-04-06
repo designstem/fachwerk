@@ -446,6 +446,10 @@ th {
   color: var(--secondary);
   font-size: calc(var(--base) * 1.8);
 }
+th p {
+  color: var(--secondary);
+  font-size: calc(var(--base) * 1.8);
+}
 tr {
   border-bottom: 1px solid var(--tertiary);
 }

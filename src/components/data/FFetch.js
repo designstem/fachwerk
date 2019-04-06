@@ -19,8 +19,8 @@ Fetches data via AJAX.
   },
   slots: {
     value: {
-      type: "number",
-      description: "Gets animation value"
+      type: "string",
+      description: `Fetched contents. When \`type="json"\` is set, type can be \`array\` or \`object\``
     }
   },
   mounted() {
