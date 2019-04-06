@@ -56,7 +56,7 @@ Allows dragging a set of points.
         :key="i"
         :x="p.x"
         :y="p.y"
-        :r="p.pressed ? 0.32  : 0.3"
+        :r="p.pressed ? 20.32  : 20.3"
         fill="rgba(255,255,255,0.95)"
         @mousedown.native="handleDown(i)"
         @touchstart.native="handleDown(i)"
