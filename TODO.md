@@ -315,3 +315,67 @@ cp styles.css ../templates/offline/.
     </f-group>
   </f-scene>
 </f-buffer>
+
+---
+
+
+/*
+
+import { makeNumber, get, set, log } from '../../../fachwerk.js';
+
+export default {
+  description: `
+Allows to create a simple slider, to be used with \`v-model\`.
+
+Technically it is a combination of  \`label\` and \`<input type="range" />\` tags.
+
+<f-slider
+  title="Some variable"
+  v-model="someVariable"
+/>
+  `,
+  props: {
+    title: { default: "Value", type: String },
+    value: { default: 0, type: [Number,String] },
+    from: { default: 0, type: [Number,String] },
+    to: { default: 100, type: [Number,String] },
+    step: { default: 1, type: [Number,String] },
+    set: { default: '', type: [String] },
+  },
+  methods: {
+    log,
+    onInput(e) {
+      console.log(value)
+      const value = makeNumber(e.target.value)
+      $emit('input', value)
+      if (this.set) {
+        set(set, value)
+      }
+    }
+  },
+  computed: {
+    currentValue() {
+      if (this.set) {
+        return get(this.set, 0)
+      }
+      return this.value
+    }
+  },
+  template: `
+  <div>
+    <slot :value="value">
+      <label>{{ title }} <code>{{ value }}</code></label>aa
+    </slot>
+    <input
+      type="range"
+      :value="value"
+      :min="from"
+      :max="to"
+      :step="step"
+      @input="log($event)"
+    />
+  </div>
+  `
+}
+
+*/

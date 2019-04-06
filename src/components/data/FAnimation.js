@@ -36,8 +36,8 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
     integer: { default: false, type: Boolean },
     set: {
       default: "",
-      type: [String],
-      description: "Key for setting a global value"
+      type: String,
+      description: "Name for global value to set" 
     }
   },
   slots: {
