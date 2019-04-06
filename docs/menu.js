@@ -15,6 +15,10 @@ export default [
         file: "./content/tables.md"
       },
       {
+        title: "Slide setup",
+        file: "./content/slide.md"
+      },
+      {
         title: "Layout and grid",
         file: "./content/layout.md"
       },
