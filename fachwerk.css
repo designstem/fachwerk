@@ -444,6 +444,7 @@ th {
   text-align: left;
   font-weight: normal;
   color: var(--secondary);
+  font-size: calc(var(--base) * 1.8);
 }
 tr {
   border-bottom: 1px solid var(--tertiary);
@@ -451,10 +452,15 @@ tr {
 td {
   padding: calc(var(--base) * 1) calc(var(--base) / 2);
   color: var(--primary);
+  font-size: calc(var(--base) * 1.8);
+  vertical-align: top;
 }
 th p:last-child,
 td p:last-child {
   margin-bottom: 0;
+}
+td code {
+  --lightblue: transparent;
 }
 
 /* Buttons */
