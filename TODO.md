@@ -1,5 +1,7 @@
 # TODO
 
+ The main improvement is how `slot` and `slot-scope` work: they are dramatically simplified.
+- fix theme background
 Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
 
     mounted() {

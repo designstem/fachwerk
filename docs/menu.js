@@ -7,6 +7,10 @@ export default [
         file: "../README.md"
       },
       {
+        title: "Release notes",
+        file: "../RELEASES.md"
+      },
+      {
         title: "Writing content",
         file: "./content/writing.md"
       },
