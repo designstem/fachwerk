@@ -1,4 +1,4 @@
-import { Vue, Css, components, utils } from "../fachwerk.js";
+import { Vue, Css, components, utils, store } from "../fachwerk.js";
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -120,22 +120,14 @@ ${
 ${c.slots ? `\n\n<br>\n\n#### Slots` : ""}
 ${
   c.slots
-    ? `<f-table :rows='${JSON.stringify(
-        this.slotsTable(c.slots),
-        null,
-        2
-      )}'
+    ? `<f-table :rows='${JSON.stringify(this.slotsTable(c.slots), null, 2)}'
     />`
     : ""
 }
 ${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
 ${
   c.cssprops
-    ? `<f-table :rows='${JSON.stringify(
-        this.cssTable(c.cssprops),
-        null,
-        2
-      )}' 
+    ? `<f-table :rows='${JSON.stringify(this.cssTable(c.cssprops), null, 2)}' 
     />`
     : ""
 }
@@ -169,9 +161,23 @@ Function can be imported using Javascript import:
     }
   }),
   mounted() {
+    const storedActiveIndex = store.get("activeindex");
+
+    if (storedActiveIndex) {
+      this.activeIndex = storedActiveIndex;
+    }
+
+    this.$watch(
+      "activeIndex",
+      activeIndex => {
+        store.set("activeindex", activeIndex);
+      }
+    );
+
     this.$watch(
       "activeMenu",
       activeMenu => {
+        store.set("activemenu", activeMenu);
         if (activeMenu.file) {
           fetch(activeMenu.file)
             .then(res => res.text())
