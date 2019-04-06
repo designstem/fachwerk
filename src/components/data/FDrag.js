@@ -2,7 +2,7 @@ import { snapToGrid } from "../../../fachwerk.js";
 
 export default {
   description: `
-Description to be written.
+Allows dragging a set of points.
 
 <f-scene grid v-slot="{ mouse }">
   <f-drag
@@ -18,6 +18,12 @@ Description to be written.
     points: { default: "", type: [String, Number, Array, Object] },
     mouse: { default: () => {}, type: Object },
     step: { default: false, type: [Boolean, Number, String] }
+  },
+  slots: {
+    points: {
+      type: "array",
+      description: "An array of points with each points as  `{ x: 0, y: 0 }` object"
+    }
   },
   data: () => ({ currentPoints: [] }),
   methods: {
