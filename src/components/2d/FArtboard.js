@@ -18,13 +18,20 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     grid: { default: false, type: Boolean },
     step: { default: 25, type: [Number,String] }
   }, 
+  slots: {
+    mouse: {
+      type: "object",
+      description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
+    }
+  },
   template: `
   <f-svg 
     :width="width"
     :height="height"
     class="f-artboard"
+    v-slot="{ mouse }"
   >
-    <f-group slot-scope="data">
+    <f-group>
       <f-basegrid 
         v-if="grid"
         :inner-width="width"
@@ -37,7 +44,7 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
         :inner-height="height"
         :step="step * 4"
       />
-      <slot :value="data.value" />
+      <slot :mouse="mouse" />
     </f-group>
   </f-svg>
   `,

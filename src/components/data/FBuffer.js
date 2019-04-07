@@ -1,35 +1,31 @@
 export default {
   description: `
-Description to be written.
+Stores an array of values as a sliding buffer. When adding value to the end of buffer, first value will be removed.
 
-<f-buffer length="10" :map="() => [0,0]">
-  <f-scene slot-scope="bData" grid>
-    <f-group slot-scope="sData">
-      <f-circle
-        v-for="(p,i) in bData.value"
-        :key="i"
-        :x="p[0]"
-        :y="p[1]"
-        r="0.25"
-        :fill="color('white')"
-        :opacity="scale(i,0,9,0,1)"
-      />
-      <f-box
-        @mousemove.native="
-          bData.add([sData.value[0],sData.value[1]])
-        "
-        fill="rgba(0,0,0,0)"
-        width="4"
-        height="4"
-        stroke="none"
-      />
-    </f-group>
-  </f-scene>
+Initially all buffer values are \`0\` but it can be adjusted with a \`map\` prop.
+
+
+<f-buffer length="3" v-slot="{ value, add }">
+  <button @click="add(1)">Add 1 to buffer</button>
+  <button @click="add(2)">Add 2 to buffer</button>
+  <p />
+  <output>{{ value }}</output>
 </f-buffer>
+
   `,  
   props: {
-    length: { default: 3, type: [Number,String] },
+    length: { default: 1, type: [Number,String] },
     map: { default: d => 0, type: Function }
+  },
+  slots: {
+    value: {
+      type: "array",
+      description: "Gets buffer values"
+    },
+    add: {
+      type: "function",
+      description: "Adds a value to the buffer, `add(value)`"
+    }
   },
   methods: {
     onAdd(value) {

@@ -270,3 +270,112 @@ cp vendor_aframe.js ../templates/offline/.
 cp styles.css ../templates/offline/.
 ```
 
+<f-array :length="7" :dimensions="2">
+  <f-scene slot-scope="data">
+  <f-group v-for="(col, x) in data.value" :key="x">
+  <f-box
+    v-for="(value, y) in col"
+    :key="y"
+    :x="x / 2 - 1.2"
+    :y="y / 2 - 1.2"
+    width="0.49"
+    height="0.49"
+    :fill="value ? 'var(--red)' : 'var(--primary)'"
+    @click.native="data.update(1 - value, x, y)"
+  />
+  </f-group>
+  </f-scene>
+</f-array>
+
+<f-array :length="3" :map="(_,i) => i">
+  <pre slot-scope="data">{{ data }}</pre>
+</f-array>
+
+<f-buffer length="10" :map="() => [0,0]">
+  <f-scene slot-scope="bData" grid>
+    <f-group slot-scope="sData">
+      <f-circle
+        v-for="(p,i) in bData.value"
+        :key="i"
+        :x="p[0]"
+        :y="p[1]"
+        r="0.25"
+        :fill="color('white')"
+        :opacity="scale(i,0,9,0,1)"
+      />
+      <f-box
+        @mousemove.native="
+          bData.add([sData.value[0],sData.value[1]])
+        "
+        fill="rgba(0,0,0,0)"
+        width="4"
+        height="4"
+        stroke="none"
+      />
+    </f-group>
+  </f-scene>
+</f-buffer>
+
+---
+
+
+/*
+
+import { makeNumber, get, set, log } from '../../../fachwerk.js';
+
+export default {
+  description: `
+Allows to create a simple slider, to be used with \`v-model\`.
+
+Technically it is a combination of  \`label\` and \`<input type="range" />\` tags.
+
+<f-slider
+  title="Some variable"
+  v-model="someVariable"
+/>
+  `,
+  props: {
+    title: { default: "Value", type: String },
+    value: { default: 0, type: [Number,String] },
+    from: { default: 0, type: [Number,String] },
+    to: { default: 100, type: [Number,String] },
+    step: { default: 1, type: [Number,String] },
+    set: { default: '', type: [String] },
+  },
+  methods: {
+    log,
+    onInput(e) {
+      console.log(value)
+      const value = makeNumber(e.target.value)
+      $emit('input', value)
+      if (this.set) {
+        set(set, value)
+      }
+    }
+  },
+  computed: {
+    currentValue() {
+      if (this.set) {
+        return get(this.set, 0)
+      }
+      return this.value
+    }
+  },
+  template: `
+  <div>
+    <slot :value="value">
+      <label>{{ title }} <code>{{ value }}</code></label>aa
+    </slot>
+    <input
+      type="range"
+      :value="value"
+      :min="from"
+      :max="to"
+      :step="step"
+      @input="log($event)"
+    />
+  </div>
+  `
+}
+
+*/

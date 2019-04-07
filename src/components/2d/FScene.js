@@ -2,18 +2,12 @@ export default {
   description: `
 2D vector graphics scene with a coordinate system optimized for graph drawing. For more general vector graphics see \`<f-artboard>\`.
 
-<f-scene grid="true">
-  
-  <f-point x="1" y="1" />
-  <f-text x="1" y="1.5">
-    x:1 y:1
-  </f-text>
-  
-  <f-point x="-1" y="-1" />
-  <f-text x="-1" y="-0.5">
-    x:-1 y:-1
-  </f-text>
-
+<f-scene grid v-slot="{ mouse }">
+	<f-circle
+  	:x="mouse.x"
+    :y="mouse.y"
+    :r="mouse.pressed ? 0.5 : 1"
+  />
 </f-scene>
   `,
   props: {
@@ -43,6 +37,12 @@ export default {
       description: "Background grid step"
     }
   },
+  slots: {
+    mouse: {
+      type: "object",
+      description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
+    }
+  },
   computed: {
     innerWidth() {
       return this.width >= this.height ? (4 * this.width) / this.height : 4;
@@ -70,8 +70,9 @@ export default {
       --text-size: 1.4%;
       --text-transform: scale(1,-1);
     "
+    v-slot="{ mouse }"
   >
-    <f-group slot-scope="data">
+    <f-group>
       <f-grid
         v-if="grid"
         :inner-width="innerWidth"
@@ -82,7 +83,7 @@ export default {
         :inner-width="innerWidth"
         :inner-height="innerHeight"
       />
-      <slot :value="data.value" />
+      <slot :mouse="mouse" />
     </f-group>
   </f-svg>
   `
