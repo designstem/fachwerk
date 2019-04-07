@@ -1,18 +1,30 @@
-import { Vue, snapToGrid, color, set as setValue } from "../../../fachwerk.js";
+import {
+  Vue,
+  snapToGrid,
+  color,
+  set as setValue,
+  parseCoords
+} from "../../../fachwerk.js";
 
 export default {
   description: `
 Allows dragging a set of points.
 
-<f-scene grid v-slot="{ mouse }">
+<f-scene grid v-slot="{ mouse }" width="200">
   <f-drag
     :mouse="mouse"
-    :points="[{ x: 1, y: 0 },{ x: 0, y: 1 },{ x: -1, y: -1 }]"
+    points="-1 1, 1 1, 1 -1, -1 -1"
     v-slot="{ points }"
     set="p"
   >
     <f-line :points="points" closed />
   </f-drag>
+</f-scene>
+
+<f-scene grid width="200">
+	<f-spin-pattern scale="0.5" r="2">
+		<f-line :points="get('p')" closed />
+  </f-spin-pattern>
 </f-scene>
 
 <output>
@@ -40,7 +52,6 @@ Allows dragging a set of points.
   data: () => ({ currentPoints: [], pressed: false }),
   methods: {
     color,
-    setValue,
     handleDown(i) {
       this.pressed = true;
       this.$set(this.currentPoints[i], "pressed", true);
@@ -51,6 +62,11 @@ Allows dragging a set of points.
     }
   },
   computed: {
+    parsedPoints() {
+      return this.points
+        ? parseCoords(this.points).map(p => ({ x: p[0], y: p[1] }))
+        : [];
+    },
     finalPoints() {
       return this.currentPoints.map((p, i) => {
         if (p.pressed) {
@@ -62,7 +78,7 @@ Allows dragging a set of points.
     }
   },
   mounted() {
-    this.currentPoints = this.points;
+    this.currentPoints = this.parsedPoints;
     this.$emit("points", this.currentPoints);
     if (this.$global && this.set) {
       Vue.set(
@@ -74,6 +90,13 @@ Allows dragging a set of points.
     this.$watch("mouse", _ => {
       if (this.pressed) {
         this.$emit("points", this.finalPoints);
+        if (this.$global && this.set) {
+          Vue.set(
+            this.$global.$data.state,
+            this.set,
+            JSON.parse(JSON.stringify(this.finalPoints))
+          );
+        }
       }
     });
   },
@@ -99,7 +122,6 @@ Allows dragging a set of points.
           @touchstart.native="handleDown(i)"
           @mouseup.native="handleUp(i)"
           @touchend.native="handleUp(i)"
-          @mousemove.native="() => pressed && set ? setValue(set, finalPoints) : ''"
           style="cursor: move;"
         />
       </f-group>    
