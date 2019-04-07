@@ -1,3 +1,5 @@
 import { fachwerk } from "../src/fachwerk.js";
 
-fachwerk();
+import FPattern from './FPattern.js'
+
+fachwerk({ components: { FPattern }});
