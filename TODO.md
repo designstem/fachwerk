@@ -1,5 +1,21 @@
 # TODO
 
+- <f-scene grid>
+  <f-group scale="0.5">
+    <f-grid-pattern cols="6" rows="6" step="1"
+    	v-slot="{ row, col }"
+    >
+      <f-circle 
+ 				r="0.5"
+    		:fill="hsl(
+    			scale(row,0,5,0,255),
+      		scale(col,0,5,0,100)
+         )"
+       />
+    </f-grid-pattern>
+  </f-group> 
+</f-scene>
+
  The main improvement is how `slot` and `slot-scope` work: they are dramatically simplified.
 - fix theme background
 Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:

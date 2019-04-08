@@ -14,6 +14,24 @@ Repeats the contents in a 2D grid.
     <f-box /> 
   </f-group> 
 </f-scene>
+
+\`f-grid-pattern\` also provides slot variables \`row\` and \`col\` got get the current row and column of the repeating element:
+
+<f-scene grid>
+  <f-group scale="0.5">
+    <f-grid-pattern cols="3" rows="3" step="1"
+    	v-slot="{ row, col }"
+    >
+      <f-circle 
+ 				r="0.5"
+    		:fill="hsl(
+    			scale(row,0,2,0,255),
+      		scale(col,0,2,0,100)
+         )"
+       />
+    </f-grid-pattern>
+  </f-group> 
+</f-scene>
   `,
   props: {
     rows: { default: 3, type: [Number,String] },
