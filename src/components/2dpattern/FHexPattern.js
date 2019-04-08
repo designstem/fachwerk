@@ -9,7 +9,7 @@ Repeats the contents in a hexagonal grid.
 
 <f-scene grid>
   <f-group scale="0.5">
-    <f-hex-pattern cols="3" rows="3">
+    <f-hex-pattern cols="3" rows="3" step="1">
       <f-hexagon
         :stroke="color('red')"
       />

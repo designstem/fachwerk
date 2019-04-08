@@ -9,7 +9,7 @@ Repeats the contents in a shifted rectangular grid.
 
 <f-scene grid>
   <f-group scale="0.5">
-    <f-brick-pattern cols="3" rows="3">
+    <f-brick-pattern cols="3" rows="3" step="1">
       <f-box :stroke="color('red')" />
     </f-brick-pattern>
     <f-box />
