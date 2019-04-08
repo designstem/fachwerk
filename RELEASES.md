@@ -4,7 +4,7 @@
 
 #### Improvements
 
-* New component `f-menu` for slide navigation, accepts a md file (`./menu.md` is default) or inline content. It is enabled by default, use `fachwerk({ menu: false })` to disable in your scenario `index.js` file.
+* New component `f-menu` for slide navigation, accepts a md file (`./menu.md` is default) or inline content. It is enabled by default, use `fachwerk({ menu: false })` to disable in your scenario `index.js` file. This is the groundwork for upcoming navigation system.
 
 * Slide options are simplified: `padding`, `gap` and `height` accept regular CSS values and  have sensible defaults.
 
