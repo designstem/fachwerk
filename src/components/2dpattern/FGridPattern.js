@@ -7,10 +7,12 @@ export default {
 Repeats the contents in a 2D grid.
 
 <f-scene grid>
-  <f-grid-pattern>
-    <f-box :stroke="color('red')" />
-  </f-grid-pattern>
-  <f-box />  
+  <f-group scale="0.5">
+    <f-grid-pattern cols="3" rows="3">
+      <f-box :stroke="color('red')" />
+    </f-grid-pattern>
+    <f-box /> 
+  </f-group> 
 </f-scene>
   `,
   props: {
