@@ -16,8 +16,8 @@ Repeats the contents in a 2D grid.
   props: {
     rows: { default: 3, type: [Number,String] },
     cols: { default: 3, type: [Number,String] },
-    width: { default: null, type: [Number,String], description: "***Depreciated*** Use `cols`" },
-    height: { default: null, type: [Number,String], description: "***Depreciated*** Use `rows`" },
+    width: { default: '', type: [Number,String], description: "***Depreciated*** Use `cols`" },
+    height: { default: '', type: [Number,String], description: "***Depreciated*** Use `rows`" },
     step: { default: 1, type: [Number,String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
