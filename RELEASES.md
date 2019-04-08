@@ -2,23 +2,39 @@
 
 ### 0.0.1 / Mon 8 April 2018
 
-* ***Depreciated***: `f-fetch` now accepts `src` prop for source file path. `url` prop is still supported but will be removed in next version.
+#### Improvements
 
-* Upgrading to Vue 2.6. The update is likely smooth but make sure your interactive elements on slides still work.
+* New component `f-menu` for slide navigation, accepts a md file (`./menu.md` is default) or inline content. It is enabled by default, use `fachwerk({ menu: false })` to disable in your scenario `index.js` file.
 
 * Slide options are simplified: `padding`, `gap` and `height` accept regular CSS values and  have sensible defaults.
 
-* New docs page for slide options.
+* `f-drag` now works properly and allows getting the dragged points using both local and global variables.
 
-* New component `f-menu` for slide navigation, accepts a md file (`./menu.md` is default) or inline content. It is enabled by default, use `fachwerk({ menu: false })` to disable.
+* `f-buffer` is fixed and working properly.
+
+#### Depreciations
+
+* ***Depreciated***: `f-fetch` now accepts `src` prop for source file path.
+`url` prop is still supported but will be removed in next version.
+
+* ***Depreciated***: `f-grid-pattern` `f-brick-pattern` `f-hex-pattern` now accept `rows` and `cols` props.
+`width` and `height` props are still supported but will be removed in next version.
 
 * `f-home` component and `home` setting on `fahcwerk()` are removed.
+
+#### Docs
+
+* Documentation page remembers last accessed page. This is the first step for actual per-page URLs for each documentation page.
+
+* New docs page for slide options.
+
+* Improved docs for dynamic data components
 
 * Adding release notes.
 
 ### 0.0.0
 
-Initial version
+Initial version.
 
 
 
