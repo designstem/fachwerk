@@ -10,7 +10,7 @@ Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y
 
 #### Output
 
-    {{ polarx(90, 10) }}
+<output>{{ polarx(90, 10) }}</output>
 
 `;
 
@@ -31,7 +31,7 @@ Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y
 
 #### Output
 
-    {{ polary(90, 10) }}
+<output>{{ polary(90, 10) }}</output>
 
 `;
 
@@ -52,7 +52,7 @@ Calculates \`count\` of \`{ x, y }\` points on the circle.
 
 #### Output
 
-    {{ polarpoints(4,10) }}
+<output>{{ polarpoints(4,10) }}</output>
 `;
 
 export const polarpoints = (count = 6, radius = 1) => {
@@ -77,7 +77,7 @@ Converts angle in degrees to radians.
 
 #### Output
 
-    {{ deg2rad(180) }}
+<output>{{ deg2rad(180) }}</output>
 `;
 
 export const deg2rad = deg => (deg * Math.PI) / 180;
@@ -95,7 +95,7 @@ Converts angle in radians to degrees.
 
 #### Output
 
-    {{ rad2deg(Math.PI) }}
+<output>{{ rad2deg(Math.PI) }}</output>
 `;
 
 export const rad2deg = rad => (rad * 180) / Math.PI;

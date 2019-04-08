@@ -10,7 +10,7 @@ Sorts the array in random order.
 
 #### Output
 
-    {{ shuffle(range(0,3)) }}
+<output>{{ shuffle(range(0,3)) }}</output>
 
 `;
 
@@ -30,8 +30,9 @@ Supports both array and function argument syntax.
 
 #### Output
 
-    {{ any([0,1,2]) }}
-    {{ any(0,1,2) }}
+<output>{{ any([0,1,2]) }}
+{{ any(0,1,2) }}
+<output>
 
 `;
 
@@ -53,7 +54,7 @@ Flattens multidimensional array
 
 #### Output
 
-    {{ flatten([0,1,[2,[3,4]]]) }}
+<output>{{ flatten([0,1,[2,[3,4]]]) }}</output>
 
 `;
 
@@ -72,7 +73,7 @@ Chunks \`array\` into smaller \`length\`-sized arrays
 
 #### Output
 
-    {{ chunk([0,1,2,3],2) }}
+<output>{{ chunk([0,1,2,3],2) }}</output>
 
 `;
 
@@ -93,7 +94,7 @@ Removes duplicates from the array
 
 #### Output
 
-    {{ unique([0,0,1,2]) }}
+<output>{{ unique([0,0,1,2]) }}</output>
 
 `;
 
