@@ -9,5 +9,5 @@
   title="Test"
   section="test"
   :completed="get('completed')"
->Do a test!</f-section-card>
+>{{ get('completed') ? 'Test done' : 'Do a test!' }}</f-section-card>
 </div>

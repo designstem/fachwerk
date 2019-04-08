@@ -2,7 +2,7 @@ export default {
   description: `
 Decription TBD.
 
-<f-card>Some content here</f-carc>
+<f-card>Some content here</f-card>
 
 <f-card
   title="Title"
@@ -40,7 +40,7 @@ Decription TBD.
         justify-content: space-between;
         align-items: center;
       ">
-        <h4
+        <h5
           style="margin: 0;"
           :style="{ color }"
           v-html="title"

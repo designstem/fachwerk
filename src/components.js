@@ -213,6 +213,9 @@ export { FVideo };
 import FInline from "./components/layout/FInline.js";
 export { FInline };
 
+import FEmbed from "./components/layout/FEmbed.js";
+export { FEmbed };
+
 import FCard from "./components/layout/FCard.js";
 export { FCard };
 

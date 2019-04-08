@@ -161,6 +161,7 @@ export default [
       { component: "FVideo" },
       { component: "FSidebar" },
       { component: "FNotes" },
+      { component: "FEmbed" },
       { component: "FInline" },
       { component: "FCard" },
       { component: "FSectionCard" },

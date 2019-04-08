@@ -63,7 +63,11 @@ Sidebars load can be either inline or load from a file.
             slot-scope="data"
             :content="data.value"
             type="document"
-            style="--content-padding: var(--base2);"
+            style="
+              --content-padding: var(--base2);
+              --cols: 1fr 1fr;
+              --gap: var(--base);
+            "
           />
         </f-fetch>
         <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && open">

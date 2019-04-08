@@ -49,9 +49,9 @@
   --base9: calc(var(--base) * 9);
   --base10: calc(var(--base) * 10);
 
-  --cols: 1fr 1fr;
+  --cols: 1fr 1fr 1fr;
   --rows: none;
-  --gap: var(--base3);
+  --gap: var(--base2);
 
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
