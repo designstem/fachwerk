@@ -8,7 +8,7 @@ Repeats the contents in a 2D grid.
 
 <f-scene grid>
   <f-group scale="0.5">
-    <f-grid-pattern cols="3" rows="3">
+    <f-grid-pattern cols="3" rows="3" step="1">
       <f-box :stroke="color('red')" />
     </f-grid-pattern>
     <f-box /> 
@@ -41,13 +41,13 @@ Repeats the contents in a 2D grid.
     :transform="transform"
     :opacity="opacity"
   >
-    <f-group :position="[(currentRows - 1 * step) / -2,(currentCols - 1 * step) / -2]">
+    <f-group :position="[(currentCols - 1) * step / -2,(currentRows - 1) * step / -2]">
       <f-group
-        v-for="(_, yIndex) in range(0, currentCols - 1)"
+        v-for="(_, yIndex) in range(0, currentRows - 1)"
         :key="yIndex"
       >
         <f-group
-          v-for="(_, xIndex) in range(0, currentRows - 1)"
+          v-for="(_, xIndex) in range(0, currentCols - 1)"
           :key="xIndex"
           :position="[xIndex * step, yIndex * step]"
         >
