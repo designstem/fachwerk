@@ -13,11 +13,11 @@ Fetches data via AJAX.
   data: () => ({ value: null, loaded: false }),
   props: {
     src: { default: "", type: String },
-    // @TODO Remove url parameter
+    // @DEPRECIATED Remove url parameter
     url: {
       default: "",
       type: String,
-      description: "***Depreciated***, use `src`"
+      description: "***Depreciated*** Use `src`"
     },
     type: { default: "text", type: String }
   },

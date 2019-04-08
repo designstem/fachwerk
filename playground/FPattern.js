@@ -18,15 +18,18 @@ export default {
     }
   },
   template: `
-    <f-group>
+    <f-group :position="[(cols - 1) * xStep / - 2,(rows - 1) * yStep / -2]">
       <f-group
         v-for="(_, yIndex) in range(0, rows - 1)"
         :key="yIndex"
       >
         <f-group
-          v-for="(_, xIndex) in range(0, cols - 1)"
+          v-for="(_, xIndex) in range(0, yIndex % 2 ? cols : cols - 1)"
           :key="xIndex"
-          :position="[xIndex * xStep - (yIndex % 2 ? xStep / 2 : 0), yIndex * yStep]"
+          :position="[
+            xIndex * xStep - (yIndex % 2 ? xStep / 2 : 0),
+            yIndex * yStep
+          ]"
         >
           <slot />
         </f-group>
@@ -45,7 +48,7 @@ export const A = {
     cols: { default: 3 },
   },
   template: `
-    <f-group :position="[(cols - 1 * step) / -2, (rows - 1 * step) / -2]">
+    <f-group :position="[(cols - 1) * step / -2, (rows - 1) * step / -2]">
       <f-group
         v-for="(_, yIndex) in range(0, rows - 1)"
         :key="yIndex"
@@ -61,7 +64,7 @@ export const A = {
     </f-group>
   `,
   template2: `
-  <f-group :position="[(cols - 1 * step) / -2, (rows - 1 * step) / -2]">
+  <f-group :position="[(cols - 1) * step / -2, (rows - 1) * step / -2]">
     <f-group
       v-for="(_, yIndex) in range(0, cols - 1)"
       :key="yIndex"

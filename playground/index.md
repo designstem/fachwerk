@@ -1,6 +1,6 @@
 <f-scene grid>
   <f-group scale="0.5">
-  <f-pattern>
+  <f-pattern rows="2" cols="2">
     <f-hexagon />
   </f-pattern>
   </f-group>
