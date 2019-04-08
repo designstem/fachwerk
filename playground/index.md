@@ -1,32 +1,42 @@
-<f-scene grid>
-  <f-group scale="0.5">
-  <f-pattern rows="2" cols="2">
-    <f-hexagon />
-  </f-pattern>
-  </f-group>
-</f-scene>
+# First page
 
+<big><big>Here comes the introductiory text. It can be longer or it can be also shorter.</big></big>
 
+<f-embed src="./menu.md" />
 
-<!--
+---
 
-<f-scene grid>
-  <f-group scale="0.5">
-    <f-hexagon />
-    <f-point
-    	stroke-width="5"
-      stroke="red"
-      :x="polarx(60)"
-      :y="polary(60)"
-    />
-  </f-group>
-</f-scene>
+| section: one
+| theme: yellow
 
-<f-scene grid>
-	<f-group scale="0.5">
-  <f-pattern rows="3" cols="3" step="1" >
-    <f-box />
-  </f-pattern>
-  </f-group>
-</f-scene>
--->
+# I am section number one
+
+---
+
+# I am section number one, second slide
+
+---
+
+| section: two
+| theme: yellow
+
+# I am section number two
+
+---
+
+# I am section number two, second slide
+
+---
+
+| section: test
+
+# I am a test
+
+<pre>Test status: {{ get('completed') }}</pre>
+
+<f-inline>
+<button @click="set('completed', true)">Click here to complete test</button>
+<button @click="set('completed', false)">Click to start over the test</button>
+</f-inline>
+
+<div class="primary" @click="goto(0)">Back to home</div>

@@ -2,7 +2,7 @@ export default {
   description: `
 Decription TBD.
 
-<f-card>Some content here</f-carc>
+<f-card>Some content here</f-card>
 
 <f-card
   title="Title"
@@ -18,7 +18,8 @@ Decription TBD.
     title: { default: "", type: String },
     subtitle: { default: "", type: String },
     background: { default: "var(--emphasis)", type: String },
-    color: { default: "var(--secondry)", type: String },
+    color: { default: "var(--primary)", type: String },
+    border: { default: "transparent", type: String },
   },
   template: `
     <div
@@ -26,10 +27,12 @@ Decription TBD.
         border-radius: var(--border-radius);
         padding: var(--base2);
         height: 100%;
+        cursor: pointer;
       "
       :style="{
         color,
         background,
+        border: '3px solid ' + border
       }"
     >
       <div style="
@@ -37,7 +40,7 @@ Decription TBD.
         justify-content: space-between;
         align-items: center;
       ">
-        <h4
+        <h5
           style="margin: 0;"
           :style="{ color }"
           v-html="title"
