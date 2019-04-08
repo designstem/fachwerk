@@ -1,19 +1,12 @@
 # TODO
 
- The main improvement is how `slot` and `slot-scope` work: they are dramatically simplified.
-- fix theme background
-Alternative you can listen to the event using `receive()` helper in `mounted()` hook in your Javascript component:
+## Current
 
-    mounted() {
-      receive('d', value => console.log(value))
-    }
-    
-# latest
-- document str
+- CCC emails
 
-# tests
+## Tests
+
 - ai tests
-
 
 ## Tools
 
@@ -30,6 +23,7 @@ Alternative you can listen to the event using `receive()` helper in `mounted()` 
 
 ## Content
 
+- fix theme background
 - Pager for slider < o o o o o * o >
 - f-slide-transition / f-fade-transition?
 - <f-math inline />
@@ -59,8 +53,7 @@ Alternative you can listen to the event using `receive()` helper in `mounted()` 
 
 ## Backward comp
 
-- src everywhere
-- polarpoints [0,1]
+- polarpoints [0,1] ?
 
 ## Packaging
 
@@ -70,11 +63,13 @@ Alternative you can listen to the event using `receive()` helper in `mounted()` 
 
 ## Other stuff
 
-- minify css https://github.com/HenrikJoreteg/rollup-plugin-css
 - https://codeplea.com/triangular-interpolation
 - http://bl.ocks.org/widged/5780720
 - move stlExport from 3d to utils
 - set(key, value, localstore = true) // del // preserve() // save() // remember()
+- set(key.key)
+- Vue.observable -> set
+
 - f-iframe :scale -> presentations / preview | http://jsfiddle.net/AwokeKnowing/yy8yb/
 - embed
 - copy to clipboard

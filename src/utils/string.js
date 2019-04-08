@@ -10,7 +10,7 @@ Converts string to **Title Case**
 
 #### Output
 
-    {{ titleCase('das ist wunderbar') }}
+<output>{{ titleCase('das ist wunderbar') }}</output>
 
 `;
 
@@ -32,7 +32,7 @@ Converts string to **kebab-case**
 
 #### Output
 
-    {{ kebabCase('DonnerWetter') }}
+<output>{{ kebabCase('DonnerWetter') }}</output>
 
 `;
 

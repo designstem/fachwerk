@@ -12,14 +12,13 @@ to the output range  \`start2\` and \`stop2\`.
 
 #### Output
 
-    {{ scale(50, 0, 100, 0, 1) }}
+<output>{{ scale(50, 0, 100, 0, 1) }}</output>
 
 `;
 
 export const scale = (value, start1, stop1, start2 = -2, stop2 = 2) => {
   return ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 };
-
 
 export const round_help = () => `
 
@@ -34,15 +33,15 @@ Example
 
 Output
   
-    {{ round(0.1234) }}
-    {{ round(0.1234, 2) }}
+<output>{{ round(0.1234) }}
+{{ round(0.1234, 2) }}
+</output>
 
 `;
 
 export const round = (value, decimals = 0) => {
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 };
-
 
 export const trunc_help = () => `
 
@@ -57,15 +56,15 @@ Example
 
 Output
   
-    {{ trunc('Hello', 4) }}
-    {{ trunc(Math.PI, 4) }}
+<output>{{ trunc('Hello', 4) }}
+{{ trunc(Math.PI, 4) }}
+</output>
 
 `;
 
 export const trunc = (value, count) => {
-  return String(value).slice(0, count)
-}
-
+  return String(value).slice(0, count);
+};
 
 export const random_help = () => `
 
@@ -80,16 +79,16 @@ Example
     random(0, 2, true)
 
 Output
-  
-    {{ random(0, 2) }}
-    {{ random(0, 2, true) }}
+
+<output>{{ random(0, 2) }}
+{{ random(0, 2, true) }}
+</output>
 `;
 
 export const random = (from, to, float = false) => {
   const r = from + Math.random() * (to - from);
   return float ? r : Math.floor(r, 2);
 };
-
 
 export const range_help = () => `
 
@@ -103,7 +102,7 @@ Example
 
 Output
 
-    {{ range(-1, 1, 0.5) }}
+<output>{{ range(-1, 1, 0.5) }}</output>
 
 `;
 
@@ -111,3 +110,21 @@ export const range = (from, to, step = 1) => {
   const length = Math.floor((to - from) / step) + 1;
   return Array.from({ length }).map((_, i) => from + i * step);
 };
+
+export const distance_help = () => `
+
+\`distance(x1, y1, x2, y2)\`
+
+Calculates the distance between tow points
+
+Example
+
+    distance(0, 0, 1, 1)
+
+Output
+
+<output>{{ distance(0, 0, 1, 1) }}</output>
+`;
+
+export const distance = (x1, y1, x2, y2) =>
+  Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
