@@ -29,6 +29,16 @@ Repeats the contents in a hexagonal grid.
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: Number }
   },
+  slots: {
+    row: {
+      type: "number",
+      description: "Current row of the repeated element, starting from `0`"
+    },
+    col: {
+      type: "number",
+      description: "Current column of the repeated element, starting from `0`"
+    }
+  },
   methods: { range },
   computed: {
     xStep() {
@@ -63,7 +73,7 @@ Repeats the contents in a hexagonal grid.
             yIndex * yStep
           ]"
         >
-          <slot />
+          <slot :col="xIndex" :row="yIndex" />
         </f-group>
       </f-group>
     </f-group>

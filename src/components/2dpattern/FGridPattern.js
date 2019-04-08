@@ -26,6 +26,16 @@ Repeats the contents in a 2D grid.
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: Number }
   },
+  slots: {
+    row: {
+      type: "number",
+      description: "Current row of the repeated element, starting from `0`"
+    },
+    col: {
+      type: "number",
+      description: "Current column of the repeated element, starting from `0`"
+    }
+  },
   methods: { range },
   computed: {
     // @DEPRECIATED: remove this
@@ -51,7 +61,7 @@ Repeats the contents in a 2D grid.
           :key="xIndex"
           :position="[xIndex * step, yIndex * step]"
         >
-          <slot />
+          <slot :col="xIndex" :row="yIndex" />
         </f-group>
       </f-group>
     </f-group>
