@@ -6,6 +6,12 @@ export const send = function(channel, value) {
   }
 };
 
+export const goto = function(value) {
+  if (this.$global) {
+    this.$global.$emit('goto', value);
+  }
+};
+
 export const receive = function(channel, callback) {
   if (this.$global) {
     this.$global.$on(channel, callback);

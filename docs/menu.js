@@ -163,6 +163,7 @@ export default [
       { component: "FNotes" },
       { component: "FInline" },
       { component: "FCard" },
+      { component: "FSectionCard" },
       { component: "FTable" },
       { component: "FHr" },
       { component: "FVr" },

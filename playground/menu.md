@@ -1,7 +1,13 @@
-<a href=".." class="tertiary">← Back to projects</a>
+#### Hello I am a menu!
 
-### Hello I am a menu!
+<p />
 
-Here comes the menu
-
-<f-card @click.native="send('next')">
+<div class="grid">
+<f-section-card title="One" section="one">Section one</f-section-card>
+<f-section-card title="Two" section="two">Section two</f-section-card>
+<f-section-card
+  title="Test"
+  section="test"
+  :completed="get('completed')"
+>Do a test!</f-section-card>
+</div>

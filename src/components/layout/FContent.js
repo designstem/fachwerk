@@ -1,4 +1,4 @@
-import { Css } from "../../../fachwerk.js";
+import { Vue, Css } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../../fachwerk.js";
 
@@ -45,7 +45,9 @@ Shows Markdown content.
     },
     goto(id) {
       if (typeof id === "string") {
-        const index = this.preparedContent.findIndex(slide => slide.id === id);
+        const index = this.preparedContent.findIndex(
+          slide => slide.section === id || slide.id === id
+        );
         if (index > -1) {
           this.currentIndex = index;
         }
@@ -54,13 +56,13 @@ Shows Markdown content.
       }
     },
     background(slide) {
-      const tint = slide.tint ? slide.tint : 0.3
+      const tint = slide.tint ? slide.tint : 0.3;
       return `linear-gradient(
           rgba(0, 0, 0, ${tint}),
           rgba(0, 0, 0, ${tint})
         ),
         url(${slide.background})
-      `
+      `;
     }
   },
   mounted() {
@@ -68,6 +70,17 @@ Shows Markdown content.
       "index",
       index => {
         this.currentIndex = index;
+      },
+      { immediate: true }
+    );
+
+    this.$watch(
+      "currentIndex",
+      currentIndex => {
+        const currentSlide = this.preparedContent[currentIndex];
+        if (currentSlide.section) {
+          Vue.set(this.$global.$data.state, "section", currentSlide.section);
+        }
       },
       { immediate: true }
     );
