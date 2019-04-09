@@ -126,5 +126,30 @@ Output
 <output>{{ distance(0, 0, 1, 1) }}</output>
 `;
 
-export const distance = (x1, y1, x2, y2) =>
-  Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+const distance = (x1, y1, x2, y2) =>
+  Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+export const linepoint_help = () => `
+
+\`linepoint(x1, y1, x2, y2, distance)\`
+
+Finds point coordinates on the line.
+
+Example
+
+<f-slider to="2" set="d" />
+
+<output>{{ linepoint(0,0,2,2,get('d')) }}</output>
+
+<f-scene grid>
+	<f-line x2="2" y2="2" />
+  <f-circle r="0.1" :position="linepoint(0,0,2,2,get('d'))" />
+</f-scene>
+`;
+
+export const linepoint = (x1, y1, x2, y2, d) => {
+  const dis = distance(x1, y1, x2, y2);
+  const x3 = x1 + (d / dis) * (x2 - x1);
+  const y3 = y1 + (d / dis) * (y2 - y1);
+  return [x3, y3];
+};
