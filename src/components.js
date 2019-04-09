@@ -44,6 +44,9 @@ export { FRegularpolygon };
 import FHexagon from "./components/2d/FHexagon.js";
 export { FHexagon };
 
+import FRoundedpolygon from "./components/2d/FRoundedpolygon.js";
+export { FRoundedpolygon };
+
 import FText from "./components/2d/FText.js";
 export { FText };
 
@@ -278,6 +281,9 @@ export { FHeader };
 
 import FFooter from "./components/layout/FFooter.js";
 export { FFooter };
+
+import FIcon from "./components/layout/FIcon.js";
+export { FIcon };
 
 // Internal
 
