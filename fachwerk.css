@@ -84,8 +84,12 @@ h5 {
   padding: 0;
   line-height: 1.2em;
   color: var(--primary);
+  display: flex;
+  align-items: center;
 }
-
+h1 > *, h2 > *, h3 > *, h4 > *, h5 > * {
+  margin-right: calc(1ch * 0.5);
+}
 h1 {
   font-size: calc(var(--base) * 3 + 2vw);
   line-height: 1em;

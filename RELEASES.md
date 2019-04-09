@@ -1,5 +1,11 @@
 # Release notes
 
+### 0.0.2 / Mon 15 April 2018
+
+* New math functions: `distance()` to calculate distance between two points and `linepoint()` to calculate point coordinates on the line.
+
+* `goto(id)` utility function. Use it everywhere you used `emit('goto', id)`.
+
 ### 0.0.1 / Mon 8 April 2018
 
 #### Improvements
