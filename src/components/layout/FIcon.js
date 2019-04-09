@@ -2,11 +2,12 @@ import { color } from "../../../fachwerk.js";
 
 const Fact = {
   methods: { color },
+  props: ["strokeWidth"],
   template: `
   <g>
-    <path d="M33.678,15.341a11,11,0,1,0-17,9.207v5.793a6,6,0,0,0,12,0V24.548A10.992,10.992,0,0,0,33.678,15.341Z" :fill="color('primary')"/>
-    <path d="M26.678,30.341a4,4,0,0,1-8,0V25.577a10.853,10.853,0,0,0,8,0Z" :fill="color('lightblue')"/>
-    <path d="M23.678,24.282V18.013a1.5,1.5,0,0,0,.307-.364l.029-.05h0l1.634-2.831,1.634,2.83.014-.008a.985.985,0,0,0,.852.509,1,1,0,0,0,1-1A.973.973,0,0,0,29,16.607l.015-.008L26.948,13.02a1.5,1.5,0,0,0-2.6,0l-.028.05h0L22.686,15.9l-1.633-2.83h0l-.03-.05a1.5,1.5,0,0,0-1.3-.751h0a1.506,1.506,0,0,0-1.3.75L16.356,16.6h0l0,0,.012.007a.966.966,0,0,0-.146.489,1,1,0,0,0,1,1,.987.987,0,0,0,.85-.505l.017.009,1.634-2.83,1.633,2.83,0,0,.027.046a1.457,1.457,0,0,0,.291.352v6.282a9,9,0,1,1,2,0Z" :fill="color('white')"/>
+    <path d="M33.678,15.341a11,11,0,1,0-17,9.207v5.793a6,6,0,0,0,12,0V24.548A10.992,10.992,0,0,0,33.678,15.341Z" :fill="color('primary')" :stroke="color('primary')" :stroke-width="strokeWidth" />
+    <path d="M26.678,30.341a4,4,0,0,1-8,0V25.577a10.853,10.853,0,0,0,8,0Z" :fill="color('lightblue')" :stroke="color('primary')" :stroke-width="strokeWidth / 2" />
+    <path d="M23.678,24.282V18.013a1.5,1.5,0,0,0,.307-.364l.029-.05h0l1.634-2.831,1.634,2.83.014-.008a.985.985,0,0,0,.852.509,1,1,0,0,0,1-1A.973.973,0,0,0,29,16.607l.015-.008L26.948,13.02a1.5,1.5,0,0,0-2.6,0l-.028.05h0L22.686,15.9l-1.633-2.83h0l-.03-.05a1.5,1.5,0,0,0-1.3-.751h0a1.506,1.506,0,0,0-1.3.75L16.356,16.6h0l0,0,.012.007a.966.966,0,0,0-.146.489,1,1,0,0,0,1,1,.987.987,0,0,0,.85-.505l.017.009,1.634-2.83,1.633,2.83,0,0,.027.046a1.457,1.457,0,0,0,.291.352v6.282a9,9,0,1,1,2,0Z" :fill="color('white')" :stroke="color('primary')" :stroke-width="strokeWidth / 2"/>
   </g>
   `
 };
@@ -66,11 +67,21 @@ export default {
   data: function() {
     return {
       sizes: {
+        small: {
+          width: 30,
+          x: 1.5,
+          y: 3,
+          scale: 0.6,
+          strokeWidth: 2,
+          innerStrokeWidth: 1
+        },
         medium: {
           width: 50,
           x: 2.5,
           y: 6,
-          scale: 1
+          scale: 1,
+          strokeWidth: 3,
+          innerStrokeWidth: 1
         }
       }
     };
@@ -94,13 +105,17 @@ export default {
   >
     <f-group :position="[sizes[size].width / 2 , sizes[size].width / 2]">
       <f-roundedpolygon
-        stroke-width="2"
+        :stroke-width="sizes[size].strokeWidth"
         corner-radius="0.5"
         :r="sizes[size].width / 2"
         fill="white"
       />
     </f-group>
-    <component :transform="transform" :is="icon" />
+    <component
+      :is="icon"
+      :transform="transform"
+      :stroke-width="sizes[size].innerStrokeWidth"
+    />
   </f-artboard>
   `
 };
