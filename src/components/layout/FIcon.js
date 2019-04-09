@@ -68,8 +68,8 @@ export default {
       sizes: {
         medium: {
           width: 50,
-          x: 8,
-          y: 10,
+          x: 2.5,
+          y: 6,
           scale: 1
         }
       }
@@ -82,21 +82,25 @@ export default {
           ${this.sizes[this.size].x}
           ${this.sizes[this.size].y}
         )
-        scale(1 1)
+        scale(${this.sizes[this.size].scale} ${this.sizes[this.size].scale})
       `;
     }
   },
   template: `
-  <f-artboard :width="sizes[size].width" :height="sizes[size].width" style="border: 1px solid red">
-    <f-group :position="[size / 2, size / 2]">
+  <f-artboard
+    :width="sizes[size].width"
+    :height="sizes[size].width"
+    style="border: 1px solid red"
+  >
+    <f-group :position="[sizes[size].width / 2 , sizes[size].width / 2]">
       <f-roundedpolygon
         stroke-width="2"
         corner-radius="0.5"
-        :r="size / 2"
+        :r="sizes[size].width / 2"
         fill="white"
       />
     </f-group>
-      <component :tranform="transform" :is="icon" />
-    </f-artboard>
+    <component :transform="transform" :is="icon" />
+  </f-artboard>
   `
 };
