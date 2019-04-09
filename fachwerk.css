@@ -84,6 +84,8 @@ h5 {
   padding: 0;
   line-height: 1.2em;
   color: var(--primary);
+  display: flex;
+  align-items: center;
 }
 
 h1 {

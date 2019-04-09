@@ -60,19 +60,43 @@ const Headset = {
 export default {
   components: { Fact, Activity, Notes, Headset },
   props: {
-    icon: { default: "fact", type: String, description: "Icon name" }
+    icon: { default: "fact", type: String, description: "Icon name" },
+    size: { default: "medium" }
+  },
+  data: function() {
+    return {
+      sizes: {
+        medium: {
+          width: 50,
+          x: 8,
+          y: 10,
+          scale: 1
+        }
+      }
+    };
+  },
+  computed: {
+    transform() {
+      return `
+        translate(
+          ${this.sizes[this.size].x}
+          ${this.sizes[this.size].y}
+        )
+        scale(1 1)
+      `;
+    }
   },
   template: `
-  <f-artboard width="53" height="53">
-    <f-group position="30 30">
+  <f-artboard :width="sizes[size].width" :height="sizes[size].width" style="border: 1px solid red">
+    <f-group :position="[size / 2, size / 2]">
       <f-roundedpolygon
         stroke-width="2"
         corner-radius="0.5"
-        r="22"
+        :r="size / 2"
         fill="white"
       />
     </f-group>
-    <component transform="translate(8,10)" :is="icon" />
+      <component :tranform="transform" :is="icon" />
     </f-artboard>
   `
 };
