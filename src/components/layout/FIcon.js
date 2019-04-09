@@ -14,23 +14,25 @@ const Fact = {
 
 const Activity = {
   methods: { color },
+  props: ["strokeWidth"],
   template: `
   <g>
-    <path d="M28.534,14.079a11.011,11.011,0,0,1,10,10.949h0a1,1,0,0,1-1,1H28.48a11.012,11.012,0,0,1-10.945,9.942h0a1,1,0,0,1-1-1h0V25.92a11.01,11.01,0,0,1-10-10.949h0a1,1,0,0,1,1-1h9.054A11.012,11.012,0,0,1,27.534,4.029h0a1,1,0,0,1,1,1h0" :fill="color('primary')" />
+    <path d="M28.534,14.079a11.011,11.011,0,0,1,10,10.949h0a1,1,0,0,1-1,1H28.48a11.012,11.012,0,0,1-10.945,9.942h0a1,1,0,0,1-1-1h0V25.92a11.01,11.01,0,0,1-10-10.949h0a1,1,0,0,1,1-1h9.054A11.012,11.012,0,0,1,27.534,4.029h0a1,1,0,0,1,1,1h0" :fill="color('primary')" :stroke="color('primary')" :stroke-width="strokeWidth"/>
     <!--green-->
-    <path d="M26.534,6.088v8.031a6.008,6.008,0,0,0-4.893,4.8,4,4,0,0,1-3.107-3.891A9.01,9.01,0,0,1,26.534,6.088Z" :fill="color('white')"/>
+    <path d="M26.534,6.088v8.031a6.008,6.008,0,0,0-4.893,4.8,4,4,0,0,1-3.107-3.891A9.01,9.01,0,0,1,26.534,6.088Z" :fill="color('white')" :stroke="color('primary')" :stroke-width="strokeWidth"/>
     <!--red-->
-    <path d="M36.475,24.029H28.444a6.008,6.008,0,0,0-4.8-4.893,4,4,0,0,1,3.89-3.107h0A9.009,9.009,0,0,1,36.475,24.029Z" :fill="color('lightblue')"/>
+    <path d="M36.475,24.029H28.444a6.008,6.008,0,0,0-4.8-4.893,4,4,0,0,1,3.89-3.107h0A9.009,9.009,0,0,1,36.475,24.029Z" :fill="color('lightblue')" :stroke="color('primary')" :stroke-width="strokeWidth"/>
     <!--green-->
-    <path d="M18.534,33.912V25.881a6.011,6.011,0,0,0,4.885-4.746,4,4,0,0,1,3.113,3.875A9.008,9.008,0,0,1,18.534,33.912Z" :fill="color('white')"/>
+    <path d="M18.534,33.912V25.881a6.011,6.011,0,0,0,4.885-4.746,4,4,0,0,1,3.113,3.875A9.008,9.008,0,0,1,18.534,33.912Z" :fill="color('white')" :stroke="color('primary')" :stroke-width="strokeWidth"/>
     <!--red-->
-    <path d="M8.593,15.971h8.023a6.008,6.008,0,0,0,4.793,4.948,4,4,0,0,1-3.875,3.052A9.01,9.01,0,0,1,8.593,15.971Z" :fill="color('lightblue')"/>
+    <path d="M8.593,15.971h8.023a6.008,6.008,0,0,0,4.793,4.948,4,4,0,0,1-3.875,3.052A9.01,9.01,0,0,1,8.593,15.971Z" :fill="color('lightblue')" :stroke="color('primary')" :stroke-width="strokeWidth"/>
   </g>
 `
 };
 
-const Notes = {
+const Note = {
   methods: { color },
+  props: ["strokeWidth"],
   template: `
   <g>
     <path d="M23.768,29.117h0a.988.988,0,0,0-.85.5l-.016-.01-1.634,2.83-1.634-2.83,0,0-.028-.048a1.507,1.507,0,0,0-1.3-.748h0a1.506,1.506,0,0,0-1.3.75l-.029.05h0l-1.634,2.83-1.634-2.83-.013.008a.988.988,0,0,0-.852-.508,1,1,0,0,0-1,1h0a.975.975,0,0,0,.147.492l-.014.008L14.042,34.2a1.5,1.5,0,0,0,1.3.751h0a1.5,1.5,0,0,0,1.3-.75l.028-.049h0L18.3,31.318l1.634,2.831,0,0,.028.049a1.5,1.5,0,0,0,2.6,0l2.067-3.58h0l0,0-.011-.006a.975.975,0,0,0,.145-.489h0A1,1,0,0,0,23.768,29.117Z" :fill="color('primary')"/>
@@ -45,6 +47,7 @@ const Notes = {
 
 const Headset = {
   methods: { color },
+  props: ["strokeWidth"],
   template: `
   <g>
     <g>
@@ -59,7 +62,7 @@ const Headset = {
 };
 
 export default {
-  components: { Fact, Activity, Notes, Headset },
+  components: { Fact, Activity, Note, Headset },
   props: {
     icon: { default: "fact", type: String, description: "Icon name" },
     size: { default: "medium" }
@@ -73,15 +76,23 @@ export default {
           y: 3,
           scale: 0.6,
           strokeWidth: 2,
-          innerStrokeWidth: 1
+          innerStrokeWidth: 0.5
         },
         medium: {
           width: 50,
           x: 2.5,
           y: 6,
           scale: 1,
+          strokeWidth: 2,
+          innerStrokeWidth: 0
+        },
+        large: {
+          width: 75,
+          x: 2.5,
+          y: 6,
+          scale: 1.5,
           strokeWidth: 3,
-          innerStrokeWidth: 1
+          innerStrokeWidth: 0
         }
       }
     };
@@ -101,7 +112,6 @@ export default {
   <f-artboard
     :width="sizes[size].width"
     :height="sizes[size].width"
-    style="border: 1px solid red"
   >
     <f-group :position="[sizes[size].width / 2 , sizes[size].width / 2]">
       <f-roundedpolygon
