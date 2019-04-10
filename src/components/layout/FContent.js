@@ -85,7 +85,7 @@ Shows Markdown content.
       "currentIndex",
       currentIndex => {
         const currentSlide = this.preparedContent[currentIndex];
-        if (currentSlide.section) {
+        if (currentSlide && currentSlide.section) {
           Vue.set(this.$global.$data.state, "section", currentSlide.section);
         }
         store.set("index", currentIndex);
