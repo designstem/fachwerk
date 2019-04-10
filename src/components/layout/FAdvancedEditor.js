@@ -56,18 +56,18 @@ export default {
       lineWrapping: true,
       viewportMargin: Infinity,
       tabSize: 2,
-      // lineNumbers: true,
       smartIndent: false,
-      undoLevels: 0,
       inputStyle: 'contenteditable'
     });
     const doc = this.editor.getDoc();
     this.$watch(
       "value",
       value => {
+        const scrollInfo = this.editor.getScrollInfo()
         const cursor = doc.getCursor()
         this.editor.setValue(value)
-        doc.setCursor(cursor)
+        doc.setCursor(cursor, null, { scroll: false })
+        this.editor.scrollTo(scrollInfo.left, scrollInfo.top)
       },
       { immediate: true }
     );
@@ -80,13 +80,19 @@ export default {
   template: `
     <textarea ref="editor" />
   `,
+  cssprops: {
+    "--advanced-editor-height": {
+      default: "100vh",
+      description: "Editor height. Set to `auto` to fit all the editor contents"
+    },
+  },
   css: `
   .CodeMirror {
     font-family: var(--font-mono);
     padding: var(--base2);
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
-    height: 100vh;
+    height: var(--advanced-editor-height);
   }
   .CodeMirror-linenumber {
     opacity: 0.2;
