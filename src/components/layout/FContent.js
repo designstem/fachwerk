@@ -1,4 +1,4 @@
-import { Vue, Css } from "../../../fachwerk.js";
+import { Vue, Css, store } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
 import { parseColumns } from "../../../fachwerk.js";
 
@@ -66,6 +66,9 @@ Shows Markdown content.
     }
   },
   mounted() {
+
+    const storedActiveIndex = store.get("index");
+
     this.$watch(
       "index",
       index => {
@@ -74,6 +77,10 @@ Shows Markdown content.
       { immediate: true }
     );
 
+    if (storedActiveIndex) {
+      this.currentIndex = storedActiveIndex;
+    }
+
     this.$watch(
       "currentIndex",
       currentIndex => {
@@ -81,6 +88,7 @@ Shows Markdown content.
         if (currentSlide.section) {
           Vue.set(this.$global.$data.state, "section", currentSlide.section);
         }
+        store.set("index", currentIndex);
       },
       { immediate: true }
     );
