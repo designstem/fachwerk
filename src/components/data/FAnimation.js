@@ -76,6 +76,9 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
       },
       { immediate: true }
     );
+    if (this.set && this.$global) {
+      Vue.set(this.$global.$data.state, this.set, this.innerValue);
+    }
     this.$watch(
       "innerValue",
       function(innerValue) {
