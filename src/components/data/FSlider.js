@@ -1,4 +1,5 @@
 import {
+  Vue,
   get as getValue,
   set as setValue,
   makeNumber
@@ -54,24 +55,42 @@ Numeric slider.
     this.$watch("value", value => {
       this.innerValue = value;
     });
+    if (this.set) {
+      Vue.set(
+        this.$global.$data.state,
+        this.set,
+        JSON.parse(JSON.stringify(this.innerValue))
+      );
+    }
     this.$watch(
       "innerValue",
       innerValue => {
         this.$emit("value", innerValue);
         this.$emit("input", innerValue);
+        if (this.set) {
+          Vue.set(
+            this.$global.$data.state,
+            this.set,
+            JSON.parse(JSON.stringify(innerValue))
+          );
+        }
       },
       { immediate: true }
     );
   },
   computed: {
     currentTitle() {
-      return this.title || this.set || ''
+      return this.title || ''
     }
   },
   template: `
     <div>
       <div>
-        <label v-if="currentTitle">{{ currentTitle }}&nbsp;&nbsp;<code>{{ innerValue }}</code></label>
+        <label>
+        <slot name="title" :value="innerValue">
+          <template v-if="currentTitle">{{ currentTitle }}&nbsp;&nbsp;<code>{{ innerValue }}</code></template>
+        </slot>
+        </label>
         <input
           v-if="!set"
           style="margin-bottom: 1rem;"
@@ -86,7 +105,7 @@ Numeric slider.
           style="margin-bottom: 1rem;"
           type="range"
           :value="getValue(set, 0)"
-          @input="innerValue = makeNumber($event.target.value); setValue(set, makeNumber($event.target.value))"
+          @input="innerValue = makeNumber($event.target.value)"
           :min="from"
           :max="to"
           :step="step ? step : (integer ? 1 : 0.001)"
