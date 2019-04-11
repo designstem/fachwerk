@@ -6,6 +6,8 @@
 
 * `goto(id)` utility function. Use it everywhere you used `emit('goto', id)`.
 
+* To display the label for the slider, one has to set `<f-slider title="Some title">` (Previously when using `set` attribute, the variable name was added automatically).
+
 ### 0.0.1 / Mon 8 April 2018
 
 #### Improvements
