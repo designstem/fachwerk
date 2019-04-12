@@ -112,7 +112,7 @@ export default [
     items: [
       { component: "FCanvas" },
       { component: "FPixel" },
-      { component: "FPixels" },
+      { component: "FPixels" }
     ]
   },
   {
@@ -151,6 +151,16 @@ export default [
       { component: "FSheet" },
       { component: "FReceive" },
       { component: "FKeyboard" }
+    ]
+  },
+  {
+    title: "📦Icons",
+    items: [
+      { component: "FIcon" },
+      { component: "FGithubIcon" },
+      { component: "FArrowLeftIcon" },
+      { component: "FArrowRightIcon" },
+      { component: "FMenuIcon" }
     ]
   },
   {

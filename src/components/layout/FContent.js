@@ -67,8 +67,6 @@ Shows Markdown content.
   },
   mounted() {
 
-    const storedActiveIndex = store.get("index");
-
     this.$watch(
       "index",
       index => {
@@ -77,9 +75,16 @@ Shows Markdown content.
       { immediate: true }
     );
 
-    if (storedActiveIndex) {
-      this.currentIndex = storedActiveIndex;
-    }
+    const storedActiveIndex = store.get("index");
+
+    Vue.nextTick(() => {
+      if (
+        storedActiveIndex &&
+        storedActiveIndex < this.preparedContent.length
+      ) {
+        this.currentIndex = storedActiveIndex;
+      }
+    });
 
     this.$watch(
       "currentIndex",

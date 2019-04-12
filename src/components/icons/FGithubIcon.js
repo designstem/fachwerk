@@ -2,7 +2,9 @@ export default {
   description: `
 A Github icon.
 
-<f-icon-github />
+<f-github-icon />
+
+<p />
   `,
   props: { url: { default: "https://github.com/designstem/fachwerk" } },
   template: `

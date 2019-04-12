@@ -1,6 +1,13 @@
 import { color } from "../../../fachwerk.js";
 
 export default {
+  description: `
+Navigation menu icon.
+  
+<f-menu-icon />
+
+<p />
+  `,
   data: () => ({
     size: 16
   }),

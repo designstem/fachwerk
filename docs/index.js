@@ -64,7 +64,10 @@ new Vue({
         );
     },
     activeMenu() {
-      return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
+      if (this.menuItems[this.activeIndex[0]] && this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]]) {
+        return this.menuItems[this.activeIndex[0]].items[this.activeIndex[1]];
+      }
+      return this.menuItems[0][0]
     }
   },
   methods: Object.assign({}, utils, {

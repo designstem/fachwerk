@@ -281,10 +281,14 @@ export { FFooter };
 
 // Icons
 
-import FIconGithub from "./components/layout/FIconGithub.js";
+import FGithubIcon from "./components/icons/FGithubIcon.js";
+export { FGithubIcon };
+
+// @DEPRECIATED
+import FIconGithub from "./components/icons/FGithubIcon.js";
 export { FIconGithub };
 
-import FIcon from "./components/layout/FIcon.js";
+import FIcon from "./components/icons/FIcon.js";
 export { FIcon };
 
 import FMenuIcon from "./components/icons/FMenuIcon.js";

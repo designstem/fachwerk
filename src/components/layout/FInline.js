@@ -27,7 +27,7 @@ By setting CSS variables you can adjust how the contents is layed out:
 </div>
 </f-inline>
 
-You can also use `<f-inline>` to justify content:
+You can also use \`<f-inline>\` to justify content:
 
 <f-inline style="
 	--inline-justify: space-between;

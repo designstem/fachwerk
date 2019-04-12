@@ -62,10 +62,18 @@ const Headset = {
 };
 
 export default {
+  description: `
+Various icons.
+
+<f-icon icon="fact" />
+<f-icon icon="activity" />
+<f-icon icon="note" />
+<f-icon icon="headset" />
+  `,
   components: { Fact, Activity, Note, Headset },
   props: {
     icon: { default: "fact", type: String, description: "Icon name" },
-    size: { default: "medium" }
+    size: { default: "medium", type: String, description: "Icon size: `small` `medium` `large`" }
   },
   data: function() {
     return {
