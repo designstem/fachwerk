@@ -294,11 +294,11 @@ export { FIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
-import FArrowRightIcon from "./components/icons/FArrowRightIcon.js";
-export { FArrowRightIcon };
+import FRightarrowIcon from "./components/icons/FRightarrowIcon.js";
+export { FRightarrowIcon };
 
-import FArrowLeftIcon from "./components/icons/FArrowLeftIcon.js";
-export { FArrowLeftIcon };
+import FLeftarrowIcon from "./components/icons/FLeftarrowIcon.js";
+export { FLeftarrowIcon };
 
 
 // Internal

@@ -2,9 +2,9 @@ import { color } from "../../../fachwerk.js";
 
 export default {
   description: `
-Arrow left icon.
+Left arrow icon.
   
-<f-arrow-left-icon />
+<f-leftarrow-icon />
 
 <p />
   `,

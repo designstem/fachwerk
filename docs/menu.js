@@ -158,8 +158,8 @@ export default [
     items: [
       { component: "FIcon" },
       { component: "FGithubIcon" },
-      { component: "FArrowLeftIcon" },
-      { component: "FArrowRightIcon" },
+      { component: "FLeftarrowIcon" },
+      { component: "FRightarrowIcon" },
       { component: "FMenuIcon" }
     ]
   },
