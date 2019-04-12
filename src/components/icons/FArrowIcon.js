@@ -15,6 +15,10 @@ Arrow icon.
   methods: { color },
   template: `
   <f-artboard :width="size" :height="size">
+    <f-group
+      :transform="'rotate(' + rotation + ')'"
+      :transform-origin="[size / 2, size / 2].join(' ')"
+    >
     <f-line
       :x1="2"
       :y1="size / 2"
@@ -24,12 +28,11 @@ Arrow icon.
       stroke-width="2"
     />
     <f-line
-      :transform="'rotate(' + rotation + ')'"
-      :transform-origin="[size / 2, size / 2].join(' ')"
       :points="[[size / 2,2],[size - 2,size/2],[size / 2,size - 2]]"
       :stroke="color('primary')"
       stroke-width="2"
     />
+    </f-group>
   </f-artboard>
   `
 };
