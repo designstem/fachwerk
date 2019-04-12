@@ -10,5 +10,5 @@ Button that navigates to the next slide.
   props: { title: { default: "Next step", description: "Button title" } },
   methods: { send },
   template: `
-  <button class="primary" @click="send('next')">{{ title }} <f-rightarrow-icon /></button>
+  <button class="primary" @click="send('next')">{{ title }} →</button>
   `,};
