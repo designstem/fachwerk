@@ -261,9 +261,6 @@ export { FAdvancedEditor };
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
 
-import FIconGithub from "./components/layout/FIconGithub.js";
-export { FIconGithub };
-
 import FNextButton from "./components/layout/FNextButton.js";
 export { FNextButton };
 
@@ -282,8 +279,23 @@ export { FHeader };
 import FFooter from "./components/layout/FFooter.js";
 export { FFooter };
 
+// Icons
+
+import FIconGithub from "./components/layout/FIconGithub.js";
+export { FIconGithub };
+
 import FIcon from "./components/layout/FIcon.js";
 export { FIcon };
+
+import FMenuIcon from "./components/icons/FMenuIcon.js";
+export { FMenuIcon };
+
+import FArrowRightIcon from "./components/icons/FArrowRightIcon.js";
+export { FArrowRightIcon };
+
+import FArrowLeftIcon from "./components/icons/FArrowLeftIcon.js";
+export { FArrowLeftIcon };
+
 
 // Internal
 
