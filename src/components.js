@@ -294,6 +294,9 @@ export { FIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
+import FArrowIcon from "./components/icons/FArrowIcon.js";
+export { FArrowIcon };
+
 import FRightarrowIcon from "./components/icons/FRightarrowIcon.js";
 export { FRightarrowIcon };
 
