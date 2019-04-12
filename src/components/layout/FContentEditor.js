@@ -82,8 +82,8 @@ Creates a code editor with a live preview.
         >{{ labels[state] }}</div>
       </div>
       <f-editor
-        class="basic"
         v-if="!advanced"
+        class="basic"
         v-model="innerContent"
       />
       <f-advanced-editor
@@ -100,12 +100,10 @@ Creates a code editor with a live preview.
         '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
       }"
     >
-      <slot :content="innerContent">
-        <f-content
-          :content="innerContent"
-          :type="type"
-        />
-      </slot> 
+      <f-content
+        :content="innerContent"
+        :type="type"
+      />
     </div>
   </div>
   `,

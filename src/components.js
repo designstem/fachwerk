@@ -261,9 +261,6 @@ export { FAdvancedEditor };
 import FContentEditor from "./components/layout/FContentEditor.js";
 export { FContentEditor };
 
-import FIconGithub from "./components/layout/FIconGithub.js";
-export { FIconGithub };
-
 import FNextButton from "./components/layout/FNextButton.js";
 export { FNextButton };
 
@@ -282,8 +279,27 @@ export { FHeader };
 import FFooter from "./components/layout/FFooter.js";
 export { FFooter };
 
-import FIcon from "./components/layout/FIcon.js";
+// Icons
+
+import FGithubIcon from "./components/icons/FGithubIcon.js";
+export { FGithubIcon };
+
+// @DEPRECIATED
+import FIconGithub from "./components/icons/FGithubIcon.js";
+export { FIconGithub };
+
+import FIcon from "./components/icons/FIcon.js";
 export { FIcon };
+
+import FMenuIcon from "./components/icons/FMenuIcon.js";
+export { FMenuIcon };
+
+import FRightarrowIcon from "./components/icons/FRightarrowIcon.js";
+export { FRightarrowIcon };
+
+import FLeftarrowIcon from "./components/icons/FLeftarrowIcon.js";
+export { FLeftarrowIcon };
+
 
 // Internal
 
