@@ -156,11 +156,16 @@ export default [
   {
     title: "📦Icons",
     items: [
-      { component: "FIcon" },
-      { component: "FGithubIcon" },
+      { component: "FFactIcon" },
+      { component: "FActivityIcon" },
+      { component: "FNoteIcon" },
+      { component: "FVrIcon" },
       { component: "FLeftarrowIcon" },
       { component: "FRightarrowIcon" },
-      { component: "FMenuIcon" }
+      { component: "FMenuIcon" },
+      { component: "FGithubIcon" },
+      { component: "FIcon" },
+      { component: "FArrowIcon" },
     ]
   },
   {

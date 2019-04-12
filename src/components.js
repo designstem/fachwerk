@@ -291,6 +291,18 @@ export { FIconGithub };
 import FIcon from "./components/icons/FIcon.js";
 export { FIcon };
 
+import FFactIcon from "./components/icons/FFactIcon.js";
+export { FFactIcon };
+
+import FActivityIcon from "./components/icons/FActivityIcon.js";
+export { FActivityIcon };
+
+import FNoteIcon from "./components/icons/FNoteIcon.js";
+export { FNoteIcon };
+
+import FVrIcon from "./components/icons/FVrIcon.js";
+export { FVrIcon };
+
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
@@ -299,6 +311,9 @@ export { FRightarrowIcon };
 
 import FLeftarrowIcon from "./components/icons/FLeftarrowIcon.js";
 export { FLeftarrowIcon };
+
+import FArrowIcon from "./components/icons/FArrowIcon.js";
+export { FArrowIcon };
 
 
 // Internal

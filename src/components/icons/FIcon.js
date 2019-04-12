@@ -45,7 +45,7 @@ const Note = {
   `
 };
 
-const Headset = {
+const Vr = {
   methods: { color },
   props: ["strokeWidth"],
   template: `
@@ -68,9 +68,9 @@ Various icons.
 <f-icon icon="fact" />
 <f-icon icon="activity" />
 <f-icon icon="note" />
-<f-icon icon="headset" />
+<f-icon icon="vr" />
   `,
-  components: { Fact, Activity, Note, Headset },
+  components: { Fact, Activity, Note, Vr },
   props: {
     icon: { default: "fact", type: String, description: "Icon name" },
     size: { default: "medium", type: String, description: "Icon size: `small` `medium` `large`" }
