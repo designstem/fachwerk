@@ -73,6 +73,7 @@ body {
   font-family: var(--font-sansserif);
   font-size: calc(var(--base) * 2);
   margin: 0;
+  color: var(--primary);
 }
 
 h1,

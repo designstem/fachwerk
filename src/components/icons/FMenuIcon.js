@@ -10,9 +10,9 @@ export default {
     <f-line
       v-for="(y,i) in [3, size / 2, size - 3]"
       :key="i"
-      :x1="0"
+      :x1="2"
       :y1="y"
-      :x2="size"
+      :x2="size - 2"
       :y2="y"
       :stroke="color('primary')"
       stroke-width="2"
