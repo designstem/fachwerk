@@ -28,7 +28,7 @@ Sidebars load can be either inline or load from a file.
           <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;">{{ title }}</a>
         </slot>
       </span>
-      <div
+      <f-fade
         v-if="open"
         style="
           position: fixed;
@@ -55,9 +55,7 @@ Sidebars load can be either inline or load from a file.
             position: absolute;
             top: var(--base3);
             right: var(--base4);
-            color: var(--primary);
-            font-weight: 800;
-        ">✕</div>
+        "><f-close-icon /></div>
         <f-fetch v-if="src" :url="src">
           <f-content
             slot-scope="data"
@@ -73,7 +71,7 @@ Sidebars load can be either inline or load from a file.
         <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && open">
           <slot />
         </div>
-      </div>
+      </f-fade>
   </span>
   `
 };

@@ -303,6 +303,9 @@ export { FRightarrowIcon };
 import FLeftarrowIcon from "./components/icons/FLeftarrowIcon.js";
 export { FLeftarrowIcon };
 
+import FCloseIcon from "./components/icons/FCloseIcon.js";
+export { FCloseIcon };
+
 
 // Internal
 

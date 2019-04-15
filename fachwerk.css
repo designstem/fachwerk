@@ -55,6 +55,8 @@
 
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
+
+  --transition-speed: 0.3s;
 }
 
 /* All */
@@ -639,6 +641,7 @@ footer,
     margin-bottom: 0;
   }
 }
+
 /* BASICS */
 
 .CodeMirror {
