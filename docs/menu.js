@@ -161,7 +161,8 @@ export default [
       { component: "FArrowIcon" },
       { component: "FLeftarrowIcon" },
       { component: "FRightarrowIcon" },
-      { component: "FMenuIcon" }
+      { component: "FMenuIcon" },
+      { component: "FCloseIcon" }
     ]
   },
   {
