@@ -48,6 +48,8 @@ export function fachwerk(c = {}) {
       :style="config.style"
     >
       <f-header v-if="config.header.length" :links="config.header" />
+      <f-menu v-if="config.menu" />
+      <f-pager v-if="config.pager" />
       <f-fetch :url="config.src">
       <div slot-scope="{ value }">
         <f-content
@@ -66,8 +68,6 @@ export function fachwerk(c = {}) {
       </div>
       </f-fetch>
       <f-footer v-if="config.footer" />
-      <f-menu v-if="config.menu" />
-      <f-pager v-if="config.pager" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
     </f-theme>

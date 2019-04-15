@@ -21,7 +21,7 @@ Navigation menu icon.
       :y1="y"
       :x2="size - 2"
       :y2="y"
-      :stroke="color('primary')"
+      :stroke="color('secondary')"
       stroke-width="2"
     />
   </f-artboard>

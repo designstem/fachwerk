@@ -17,18 +17,18 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
   methods: { send },
   template: `
     <div>
-      <div
+      <f-inline
         style="
           position: fixed;
           z-index: 100000;
-          right: var(--base3);
-          bottom: var(--base3);
+          right: calc(var(--base) * 1.5);
+          top: 10px;
+          cursor: pointer;
         "
-        class="buttons"
       >
-        <a class="button_tertiary" title="Alt + ←" @click="send('prev')">←</a>
-        <a class="button_tertiary" title="Alt + →" @click="send('next')">→</a>
-      </div>
+        <a class="quaternary" style="padding: 0 4px" @click="send('prev')" ><f-leftarrow-icon /></a>
+        <a class="quaternary" style="padding: 0 4px" @click="send('next')" ><f-rightarrow-icon /></a>
+      </f-inline>
       <f-keyboard alt character="left" @keydown="send('prev')" />
       <f-keyboard alt character="right" @keydown="send('next')" />
     </div>

@@ -23,16 +23,17 @@ export default {
     onMousemove(e) {
       let svg = this.$refs.f_svg
       let container = this.$refs.f_svg_g
-      
-      let point = svg.createSVGPoint();
-      point.x = e.clientX;
-      point.y = e.clientY;
-      let ctm = container.getScreenCTM();
-      if ((ctm = ctm.inverse())) {
-        point = point.matrixTransform(ctm);
+      if (svg && container) {
+        let point = svg.createSVGPoint();
+        point.x = e.clientX;
+        point.y = e.clientY;
+        let ctm = container.getScreenCTM();
+        if ((ctm = ctm.inverse())) {
+          point = point.matrixTransform(ctm);
+        }
+        this.mouseX = point.x;
+        this.mouseY = point.y;
       }
-      this.mouseX = point.x;
-      this.mouseY = point.y;
     }
   },
   computed: {

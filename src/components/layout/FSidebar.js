@@ -37,7 +37,7 @@ Sidebars load can be either inline or load from a file.
           bottom: 0px;
           background: var(--white);
           overflowY: auto;
-          zIndex: 1000;
+          zIndex: 10000000 !important;
         "
         :style="{
           width: width,
@@ -48,14 +48,17 @@ Sidebars load can be either inline or load from a file.
           borderRight: orientation == 'left' ? 'var(--border-width) solid var(--primary)' : '',
         }"
       >
-        <div
+        <a
           @click="open = false"
+          class="quaternary"
           style="
             cursor: pointer;
             position: absolute;
-            top: var(--base3);
-            right: var(--base4);
-        "><f-close-icon /></div>
+            top: 15px;
+            right: 15px;
+            padding: 0 4px;
+        "><f-close-icon />
+        </a>
         <f-fetch v-if="src" :url="src">
           <f-content
             slot-scope="data"

@@ -56,7 +56,7 @@
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
 
-  --transition-speed: 0.3s;
+  --transition-duration: 0.2s;
 }
 
 /* All */
@@ -528,6 +528,27 @@ button,
   outline: none;
   background: var(--white);
   line-height: normal;
+}
+
+.quaternary,
+button.quaternary {
+  padding: 0 8px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  color: var(--secondary);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.1s linear;
+  font-size: 14px;
+}
+.quaternary:hover {
+  background: var(--quaternary);
+  color: var(--primary);
+}
+a.quaternary {
+  border-bottom: none;
 }
 
 .buttons {

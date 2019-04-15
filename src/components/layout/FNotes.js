@@ -10,17 +10,18 @@ Displays speaker / teacher notes.
 
 </f-notes>
   `,
+  // @TODO: Fix top calculation
   template: `
   <f-sidebar
     width="33vw"
     style="
       position: fixed;
       z-index: 100000;
-      right: var(--base3);
-      top: var(--base3);
+      right: 90px;
+      top: 10px;
     "
   >
-    <button slot="button">Notes</button>
+    <a slot="button" class="quaternary">Notes</a>
     <slot />
   </f-sidebar>
   `

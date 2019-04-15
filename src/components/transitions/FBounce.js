@@ -18,10 +18,10 @@ Bounce transition
   `,
   css: `
   .bounce-enter-active {
-    animation: bounce-in var(--transition-speed);
+    animation: bounce-in var(--transition-duration);
   }
   .bounce-leave-active {
-    animation: bounce-in var(--transition-speed) reverse;
+    animation: bounce-in var(--transition-duration) reverse;
   }
   .bounce-enter, .bounce-leave-to {
     transform: scale(0);
