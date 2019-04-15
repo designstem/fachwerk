@@ -113,10 +113,11 @@ Shows Markdown content.
       :key="i"
       :theme="slide.theme || 'light'"
     >
-      <div
+      <f-fade
         v-if="type == 'slides' ? i == currentIndex : true"
         :class="type == 'slides' ? 'fit' : ''"
         :style="{
+          '--transition-duration': '0.1s',
           display: 'grid',
           height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
@@ -140,7 +141,7 @@ Shows Markdown content.
           :content="col"
           class="cell"
         />
-      </div>
+      </f-fade>
     </f-theme>
   </div>
   `,

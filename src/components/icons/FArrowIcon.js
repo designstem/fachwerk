@@ -24,12 +24,12 @@ Arrow icon.
       :y1="size / 2"
       :x2="size - 3"
       :y2="size / 2"
-      :stroke="color('primary')"
+      :stroke="color('secondary')"
       stroke-width="2"
     />
     <f-line
       :points="[[size / 2,2],[size - 2,size/2],[size / 2,size - 2]]"
-      :stroke="color('primary')"
+      :stroke="color('secondary')"
       stroke-width="2"
     />
     </f-group>

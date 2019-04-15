@@ -21,11 +21,12 @@ Displays speaker / teacher notes.
     style="
       position: fixed;
       z-index: 100000;
-      left: var(--base3);
-      bottom: var(--base3);
+      left: calc(var(--base) * 1.5);
+      top: calc(var(--base) * 1.5);
+      cursor: pointer;
     "
   >
-    <button slot="button">≡</button>
+    <a slot="button" class="quaternary" style="padding: 0 4px"><f-menu-icon /></a>
     <slot />
   </f-sidebar>
   `

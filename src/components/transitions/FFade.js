@@ -20,10 +20,10 @@ Fading transition
   `,
   css: `
   .fade-enter-active {
-    transition: all var(--transition-speed) ease-in;
+    transition: all var(--transition-duration) ease-in;
   }
   .fade-leave-active {
-    transition: all var(--transition-speed) ease-out;
+    transition: all var(--transition-duration) ease-out;
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;
