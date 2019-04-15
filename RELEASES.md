@@ -4,30 +4,42 @@
 
 #### Improvements
 
-* New top navigaton for menus, notes and paging buttons. This work is ongoing.
+* New top navigaton for menu, editor, notes and paging buttons. This work is ongoing.
 
-* New content icons: `f-activity-icon`, `f-fact-icon`, `f-note-icon` and `f-arrow-icon`
+* New content icons: `<f-activity-icon />`, `<f-fact-icon />`, `<f-note-icon />` and `<f-vr-icon />`
 
-* New navigation icons (mostly used internally): `f-note-icon`, `f-rightarrow-icon`, `f-leftarrow-icon`, `f-close-icon`
+* New navigation icons (mostly used internally): `<f-menu-icon />`, `<f-rightarrow-icon />`, `<f-leftarrow-icon />`, `<f-close-icon />`
 
 * New math functions: `distance()` to calculate distance between two points and `linepoint()` to calculate single point coordinates on the line.
 
-* `goto(id)` utility function. Use it everywhere you used `emit('goto', id)`.
+* Added `goto(id)` utility function. Use it everywhere you used `send('goto', id)`.
 
-* To display the label for the slider, one has to set `<f-slider title="Some title">` (Previously when using `set` attribute, the variable name was added automatically).
+* Global CSS variable `--transition-duration` for setting CSS transition speeds
 
+* `<f-animation>` now supports `delay` parameter
 
-* Global CSS variable `--transition-duration` for transitions speeds
+* Fading transitions on slides and sidebar / notes / menu appearences
 
-* Fading transitions on slides and sidebar / notes / menu appeareances
+* Currently active slide will be remebered on page reload
 
-#### Experimental funcionality
+#### Experimental functionality
 
-* Initial work for having sections (group of slides) in content. Documentation in upcoming releases.
+* Initial work for having sections (subgroup of slides) in content. Documentation will be added on upcoming releases.
 
-* Experimental `<f-secion-card>` component for constructing menus. Documentation in upcoming releases.
+* Experimental `<f-section-card>` component for setting up menus. Documentation will be added on upcoming releases.
 
 * `<f-inline>` component accepts `--inline-gap` `--inline-justify` and `--inline-align` CSS parameters. This is experimental: this functionality might later migrated to more generic `f-flex` component.
+
+* Experimental work on printing slides support.
+
+#### Depreciations
+
+* To display the label for the slider, one always has to set `<f-slider title="Some title">`. Previously when using `set` attribute, the variable name was added automatically, this is no longer the case.
+
+#### Docs
+
+* Dedicated icons section
+
 
 ### 0.0.1 / Mon 8 April 2018
 
