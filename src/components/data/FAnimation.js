@@ -28,11 +28,12 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
     from: { default: 0, type: [Number, String] },
     to: { default: 360, type: [Number, String] },
     duration: { default: 10000, type: [Number, String] },
+    delay: { default: 0, type: [Number, String] },
     playing: { default: true, type: Boolean },
     reset: { default: false, type: Boolean },
     loop: { default: true, type: Boolean },
     alternate: { default: false, type: Boolean },
-    easing: { default: "linear", type: String, description: 'See [easing functions](https://animejs.com/documentation/#linearEasing)' },
+    easing: { default: "linear", type: String, description: 'See [easing functions](https://github.com/juliangarnier/anime/tree/v2.2.0#easing-functions)' },
     integer: { default: false, type: Boolean },
     set: {
       default: "",
@@ -60,7 +61,8 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
       loop: this.loop,
       direction: this.alternate ? "alternate" : null,
       easing: this.easing,
-      autoplay: false
+      autoplay: false,
+      delay: this.delay
     });
     this.$watch(
       "playing",
