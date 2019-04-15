@@ -6,6 +6,8 @@
 
 * New top navigaton for menu, editor, notes and paging buttons. This work is ongoing.
 
+* Slides can be navigated with right / left buttons. alt + right / alt + left should be used when on-page editor is open
+
 * New content icons: `<f-activity-icon />`, `<f-fact-icon />`, `<f-note-icon />` and `<f-vr-icon />`
 
 * New navigation icons (mostly used internally): `<f-menu-icon />`, `<f-rightarrow-icon />`, `<f-leftarrow-icon />`, `<f-close-icon />`
