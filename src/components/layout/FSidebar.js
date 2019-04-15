@@ -17,18 +17,18 @@ Sidebars load can be either inline or load from a file.
   props: {
     src: { default: '', type: String },
     title: { default: '', type: String },
-    width: { default: '50vw', type: String },
+    width: { default: '33vw', type: String },
     orientation: { default: 'right', type: String }
   },
   data: () => ({ open: false }),
   template: `
     <span>
-      <div @click.prevent="open = !open">
+      <span @click.prevent="open = !open">
         <slot name="button">
           <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;">{{ title }}</a>
         </slot>
-      </div>
-      <div
+      </span>
+      <f-fade
         v-if="open"
         style="
           position: fixed;
@@ -55,9 +55,7 @@ Sidebars load can be either inline or load from a file.
             position: absolute;
             top: var(--base3);
             right: var(--base4);
-            color: var(--primary);
-            font-weight: 800;
-        ">✕</div>
+        "><f-close-icon /></div>
         <f-fetch v-if="src" :url="src">
           <f-content
             slot-scope="data"
@@ -73,7 +71,7 @@ Sidebars load can be either inline or load from a file.
         <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && open">
           <slot />
         </div>
-      </div>
-</span>
+      </f-fade>
+  </span>
   `
 };

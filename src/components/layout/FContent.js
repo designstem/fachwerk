@@ -129,7 +129,8 @@ Shows Markdown content.
           padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : '',
-          backgroundRepeat: slide.background ? 'no-repeat' : ''
+          backgroundRepeat: slide.background ? 'no-repeat' : '',
+          breakAfter: 'always'
         }"
       >
         <FMarkdown

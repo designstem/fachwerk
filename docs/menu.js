@@ -166,6 +166,7 @@ export default [
       { component: "FGithubIcon" },
       { component: "FIcon" },
       { component: "FArrowIcon" },
+      { component: "FCloseIcon" }
     ]
   },
   {
