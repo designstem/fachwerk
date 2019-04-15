@@ -8,6 +8,8 @@
 
 * To display the label for the slider, one has to set `<f-slider title="Some title">` (Previously when using `set` attribute, the variable name was added automatically).
 
+* `f-inline` component accepts `--inline-gap` `--inline-justify` and `--inline-align` CSS parameters. This is experimental: this functionality might later migrated to more generic and flexible `f-flex` layout component.
+
 ### 0.0.1 / Mon 8 April 2018
 
 #### Improvements
