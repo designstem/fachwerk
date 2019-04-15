@@ -18,10 +18,10 @@ Displays speaker / teacher notes.
       position: fixed;
       z-index: 100000;
       right: 90px;
-      top: 10px;
+      top: 7px;
     "
   >
-    <a slot="button" class="quaternary">Notes</a>
+      <a slot="button" class="quaternary">Notes</a>
     <slot />
   </f-sidebar>
   `

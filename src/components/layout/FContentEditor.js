@@ -134,6 +134,8 @@ Creates a code editor with a live preview.
     flex: 1;
   }
   .content-editor .toolbar {
+    /* @TODO Fix this padding */
+    padding: 3px 0 0 25px;
     height: calc(var(--base) * 3.5);
     display: flex;
     align-items: center;
