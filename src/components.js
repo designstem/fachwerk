@@ -315,10 +315,6 @@ export { FRightarrowIcon };
 import FLeftarrowIcon from "./components/icons/FLeftarrowIcon.js";
 export { FLeftarrowIcon };
 
-import FArrowIcon from "./components/icons/FArrowIcon.js";
-export { FArrowIcon };
-
-
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
