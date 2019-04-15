@@ -17,17 +17,17 @@ Sidebars load can be either inline or load from a file.
   props: {
     src: { default: '', type: String },
     title: { default: '', type: String },
-    width: { default: '50vw', type: String },
+    width: { default: '33vw', type: String },
     orientation: { default: 'right', type: String }
   },
   data: () => ({ open: false }),
   template: `
     <span>
-      <div @click.prevent="open = !open">
+      <span @click.prevent="open = !open">
         <slot name="button">
           <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;">{{ title }}</a>
         </slot>
-      </div>
+      </span>
       <div
         v-if="open"
         style="
@@ -74,6 +74,6 @@ Sidebars load can be either inline or load from a file.
           <slot />
         </div>
       </div>
-</span>
+  </span>
   `
 };
