@@ -76,16 +76,38 @@ Creates a code editor with a live preview.
     clearTimeout(this.timeout);
   },
   template: `
+  <div>
+  <div
+    v-if="preview"
+    style="
+      position: fixed;
+      z-index: 100000;
+      left: 35px;
+      top: 12px;
+    "
+  >
+      <a slot="button" title="Alt + E" class="quaternary" @click="$emit('togglePreview')">Edit</a>
+    <slot />
+  </div>
   <div class="content-editor">
     <div v-if="!preview" class="editor">
       <div class="toolbar">
-        <div>
+      <div
+        class="editor-button"
+        style="opacity: 0.5"
+        @click="$emit('togglePreview')"
+      >Close</div>
+      <div>
           <div
             v-if="state == 'saved' || state == 'saving'"
             class="editor-button"
             style="opacity: 0.3"
             @click="handleReset"
-          >Reset to original</div>&nbsp;</div>
+          >
+            Reset to original
+          </div>
+          &nbsp;
+        </div>
         <div
           @click="handleSave"
           class="editor-button"
@@ -117,6 +139,7 @@ Creates a code editor with a live preview.
       />
     </div>
   </div>
+  </div>
   `,
   cssprops: {
     "--content-editor-min-height": {
@@ -146,7 +169,7 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
-    padding: 5px 5px 0 30px;
+    padding: 7px 5px 0 30px;
     height: calc(var(--base) * 4);
     display: flex;
     align-items: center;

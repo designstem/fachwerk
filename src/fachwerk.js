@@ -64,6 +64,7 @@ export function fachwerk(c = {}) {
           :style="editorStyle"
           save-id="fachwerk"
           :type="config.type"
+          @togglePreview="preview = !preview"
         />
       </div>
       </f-fetch>
