@@ -1,4 +1,4 @@
-import { Css, store } from "../../../fachwerk.js";
+import { Vue, Css, store } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -47,6 +47,17 @@ Creates a code editor with a live preview.
     }
   },
   mounted() {
+    this.$watch(
+      "preview",
+      preview => {
+        Vue.set(
+          this.$global.$data.state,
+          'preview',
+          preview
+        );
+      },
+      { immediate: true }
+    );
     this.$watch(
       "content",
       content => {
@@ -135,8 +146,8 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
-    padding: 3px 0 0 25px;
-    height: calc(var(--base) * 3.5);
+    padding: 5px 5px 0 30px;
+    height: calc(var(--base) * 4);
     display: flex;
     align-items: center;
     justify-content: space-between;

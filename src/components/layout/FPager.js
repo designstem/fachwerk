@@ -1,5 +1,4 @@
-import { send } from "../../../fachwerk.js"
-;
+import { send, get } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -14,7 +13,7 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
 > Hey, it worked!
 
 <f-pager />`,
-  methods: { send },
+  methods: { send, get },
   template: `
     <div>
       <f-inline
@@ -31,6 +30,8 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
       </f-inline>
       <f-keyboard alt character="left" @keydown="send('prev')" />
       <f-keyboard alt character="right" @keydown="send('next')" />
+      <f-keyboard v-if="get('preview')" character="left" @keydown="send('prev')" />
+      <f-keyboard v-if="get('preview')" character="right" @keydown="send('next')" />
     </div>
   `
 };

@@ -26,7 +26,7 @@ Displays speaker / teacher notes.
       cursor: pointer;
     "
   >
-    <f-menu-icon slot="button" />
+    <a slot="button" class="quaternary" style="padding: 0 4px"><f-menu-icon /></a>
     <slot />
   </f-sidebar>
   `

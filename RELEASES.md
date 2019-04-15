@@ -4,17 +4,22 @@
 
 #### Improvements
 
+* New top navigaton for menus, notes and paging buttons. This work is ongoing.
+
+* New content icons: `f-activity-icon`, `f-fact-icon`, `f-note-icon` and `f-arrow-icon`
+
+* New navigation icons (mostly used internally): `f-note-icon`, `f-rightarrow-icon`, `f-leftarrow-icon`, `f-close-icon`
+
 * New math functions: `distance()` to calculate distance between two points and `linepoint()` to calculate single point coordinates on the line.
 
 * `goto(id)` utility function. Use it everywhere you used `emit('goto', id)`.
 
 * To display the label for the slider, one has to set `<f-slider title="Some title">` (Previously when using `set` attribute, the variable name was added automatically).
 
-* New content icons: `f-activity-icon`, `f-fact-icon`, `f-note-icon` and `f-arrow-icon`
 
-* New navigation icons, mostly used internally: `f-note-icon`, `f-rightarrow-icon`, `f-leftarrow-icon`, `f-close-icon`
+* Global CSS variable `--transition-duration` for transitions speeds
 
-* Global CSS variable `--transition-speed` for transitions speeds
+* Fading transitions on slides and sidebar / notes / menu appeareances
 
 #### Experimental funcionality
 
