@@ -1,5 +1,11 @@
 # Release notes
 
+### 0.0.3 / Mon 22 April 2018
+
+#### Improvements
+
+* New `polarxy(angle, radius)` function, returns [x,y] coordinates, works nicely with `:position` prop on geometry components.
+
 ### 0.0.2 / Mon 15 April 2018
 
 #### Improvements

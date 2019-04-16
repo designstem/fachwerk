@@ -2,7 +2,7 @@ export const polarx_help = () => `
 
 \`polarx(angle, radius = 1)\`
 
-Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y\`.
+Given the polar coordinates \`angle\` and \`radius\`, return cartesian coordinates \`x\`.
 
 #### Example
 
@@ -23,7 +23,7 @@ export const polary_help = () => `
 
 \`polary(angle, radius = 1)\`
 
-Given the polar coordinates \`angle radius\`, return cartesian coordinates \`x y\`.
+Given the polar coordinates \`angle\` and \`radius\`, return cartesian coordinate \`y\`.
 
 #### Example
 
@@ -39,6 +39,25 @@ export const polary = (deg = 0, radius = 1) => {
   return Math.sin((deg - 90) * (Math.PI / 180)) * radius;
 };
 
+
+export const polarxy_help = () => `
+
+\`polarxy(angle, radius = 1)\`
+
+Given the polar coordinates \`angle\` and \`radius\`, return array of cartesian coordinates \`[x,y]\`.
+
+#### Example
+
+    polarxy(90, 10)
+
+#### Output
+
+<output>{{ polarxy(90, 10) }}</output>
+`;
+
+export const polarxy = (deg = 0, radius = 1) => {
+  return [polarx(deg, radius),polary(deg, radius)]
+};
 
 export const polarpoints_help = () => `
 
