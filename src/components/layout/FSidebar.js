@@ -37,7 +37,7 @@ Sidebars load can be either inline or load from a file.
           bottom: 0px;
           background: var(--white);
           overflowY: auto;
-          zIndex: 10000000 !important;
+          zIndex: 100000000 !important;
         "
         :style="{
           width: width,
