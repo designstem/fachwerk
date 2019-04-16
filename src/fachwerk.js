@@ -42,6 +42,9 @@ export function fachwerk(c = {}) {
         );
       }
     },
+    mounted() {
+      Vue.prototype.$global.$on('edit', () => this.preview = !this.preview)
+    },
     template: `
     <f-theme
       :theme="config.theme"
