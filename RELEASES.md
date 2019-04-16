@@ -20,9 +20,9 @@
 
 * `<f-animation>` now supports `delay` parameter
 
-* Fading transitions on slides and sidebar / notes / menu appearences
+* Fading transitions on slides and sidebar / notes / menu appearances
 
-* Currently active slide will be remebered on page reload
+* Currently active slide will be remembered on page reload
 
 #### Experimental functionality
 
