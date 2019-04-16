@@ -26,7 +26,11 @@ Creates a code editor with a live preview.
     saveId: {
       default: "1",
       type: String
-    }
+    },
+    menu: {
+      default: true,
+      type: [Boolean, Number, String]
+    },
   },
   data: () => ({
     innerContent: "",
@@ -91,8 +95,9 @@ Creates a code editor with a live preview.
   </div>
   <div class="content-editor">
     <div v-if="!preview" class="editor">
-      <div class="toolbar">
+      <div class="toolbar" :style="{ padding: menu ? '7px 5px 0 30px' : '7px 5px 0 0' }">
       <div
+        v-if="menu"
         class="editor-button"
         style="opacity: 0.5"
         @click="$emit('togglePreview')"
@@ -169,7 +174,6 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
-    padding: 7px 5px 0 30px;
     height: calc(var(--base) * 4);
     display: flex;
     align-items: center;

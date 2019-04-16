@@ -272,6 +272,7 @@ Function can be imported using Javascript import:
         --content-height: calc(100vh - var(--base10));
         --advanced-editor-height: auto;
       "
+      :menu="false"
     />
     
   </f-theme>
