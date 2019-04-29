@@ -5,7 +5,10 @@ export default {
   description: `
 Clock icon.
     
-<f-clock-icon />
+<f-clock-icon
+  duration="15"
+  duration2="30"
+/>
   
 <p />
     `,

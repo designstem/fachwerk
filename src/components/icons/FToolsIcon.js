@@ -1,6 +1,13 @@
 import { color } from "../../../fachwerk.js";
 
 export default {
+description: `
+Tools icon.
+  
+<f-tools-icon />
+
+<p />
+  `,
   data: () => ({ size: 20 }),
   methods: { color },
   template: `
