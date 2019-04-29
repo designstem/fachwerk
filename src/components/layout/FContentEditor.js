@@ -79,12 +79,13 @@ Creates a code editor with a live preview.
   unmounted() {
     clearTimeout(this.timeout);
   },
+  /* @TODO remove reset button position hack */
   template: `
-  <div>
+  <div style="position: relative">
   <div
     v-if="preview"
     style="
-      position: fixed;
+      position: absolute;
       z-index: 100000;
       left: 35px;
       top: 12px;
@@ -109,7 +110,7 @@ Creates a code editor with a live preview.
             style="opacity: 0.3"
             @click="handleReset"
           >
-            Reset to original
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset to original
           </div>
           &nbsp;
         </div>
