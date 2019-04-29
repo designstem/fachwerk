@@ -60,7 +60,7 @@ Fachwerk has several setup options:
     fachwerk({
       el: "#fachwerk",      // HTML tag id the content goes into
       src: "./index.md",    // Path of the Markdown file, local or from the web
-      editor: "show",       // Options for live editor: "none", "hide", "show"
+      editor: "hide",       // Options for live editor: "none", "hide", "show"
       theme: "light",       // Theme: "light", "dark", "blue", "yellow"
       type: "slides",       // Content type: "slides", "document",
       pager: true,          // Show global pager?
