@@ -136,11 +136,7 @@ export default [
     ]
   },
   {
-    title: "📦VR / A-Frame",
-    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
-  },
-  {
-    title: "📦Dynamic data",
+    title: "📦Dynamic content",
     items: [
       { component: "FAnimation" },
       { component: "FSlider" },
@@ -150,7 +146,20 @@ export default [
       { component: "FFetch" },
       { component: "FSheet" },
       { component: "FReceive" },
-      { component: "FKeyboard" }
+      { component: "FKeyboard" },
+      { component: "FMath" },
+      { component: "FImage" },
+      { component: "FVideo" },
+      { component: "FSidebar" },
+      { component: "FNotes" },
+      { component: "FEmbed" },
+      { component: "FInline" },
+      { component: "FPager" },
+      { component: "FNextButton" },
+      { component: "FPrevButton" },
+      { component: "FButtons" },
+      { component: "FCard" },
+      { component: "FSectionCard" }
     ]
   },
   {
@@ -166,39 +175,32 @@ export default [
       { component: "FGithubIcon" },
       { component: "FIcon" },
       { component: "FArrowIcon" },
-      { component: "FCloseIcon" }
+      { component: "FCloseIcon" },
+      { component: "FGithubIcon" },
+      { component: "FPeopleIcon" },
+      { component: "FToolsIcon" },
+      { component: "FClockIcon" }
     ]
   },
   {
-    title: "📦Content and layout",
+    title: "📦Advanced layouts",
     items: [
-      { component: "FMath" },
-      { component: "FImage" },
-      { component: "FVideo" },
-      { component: "FSidebar" },
-      { component: "FNotes" },
-      { component: "FEmbed" },
-      { component: "FInline" },
-      { component: "FCard" },
-      { component: "FSectionCard" },
+      { component: "FHeader" },
+      { component: "FFooter" },
       { component: "FTable" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FButtons" },
-      { component: "FNextButton" },
-      { component: "FPrevButton" },
-      { component: "FHeader" },
-      { component: "FFooter" },
-      { component: "FPager" },
       { component: "FTabs" },
-      //{ component: "FMenu" },
       { component: "FTheme" },
       { component: "FEditor" },
       { component: "FContent" },
       { component: "FContentEditor" },
-      { component: "FIconGithub" },
       { component: "FFade" },
       { component: "FBounce" }
     ]
+  },
+  {
+    title: "📦VR / A-Frame",
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   }
 ];

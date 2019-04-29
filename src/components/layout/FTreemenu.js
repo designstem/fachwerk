@@ -1,4 +1,3 @@
-
 export default {
   description: `
 Vertical menu, to be used with \`v-model\`.
@@ -8,12 +7,21 @@ Vertical menu, to be used with \`v-model\`.
     :items="['First','Second']"
   />
   `,
-  props: ["items", "value"],
-  data: () => ({ activeItem: 0 }),
+  props: ["items", "value", "activeItem"],
+  data: () => ({ currentActiveItem: 0 }),
   methods: {
     top() {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     }
+  },
+  mounted() {
+    this.$watch(
+      "activeItem",
+      activeItem => {
+        this.currentActiveItem = activeItem;
+      },
+      { immediate: true }
+    );
   },
   template: `
     <div>
@@ -32,12 +40,12 @@ Vertical menu, to be used with \`v-model\`.
           color: 'var(--primary)',
           transform: 'translate(0,calc(var(--base) * 0))',
         }"
-        @click="activeItem = i;"
+        @click="currentActiveItem = i;"
         v-html="item.title"
         >
         </div>
         <div
-          v-if="i == activeItem"
+          v-if="i == currentActiveItem"
           v-for="(item,j) in item.items"
           :key="j"
           :style="{

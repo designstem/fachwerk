@@ -6,11 +6,16 @@
 
 * `<f-notes>` accepts `title` attribute and defaults to "Teacher notes"
 
+* Initial improvements to the docs menu structure
+
+* New icons for internal use: `<f-people>`, `<f-clock>`, `<f-tools>` (placeholder for now).
+
 ### 0.0.3 / Mon 22 April 2018
 
 #### Improvements
 
 * New `polarxy(angle, radius)` function, returns [x,y] coordinates, works nicely with `:position` prop on geometry components.
+
 * Added `send('edit')` event that toggles edit mode for `<f-content-editor />`
 
 ### 0.0.2 / Mon 15 April 2018
