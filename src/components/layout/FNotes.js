@@ -10,6 +10,9 @@ Displays speaker / teacher notes.
 
 </f-notes>
   `,
+  props: {
+    title: { default: 'Teacher notes', type: String },
+  },
   // @TODO: Fix top calculation
   template: `
   <f-sidebar
@@ -21,7 +24,7 @@ Displays speaker / teacher notes.
       top: 7px;
     "
   >
-      <a slot="button" class="quaternary">Notes</a>
+      <a slot="button" class="quaternary">{{ title }}</a>
     <slot />
   </f-sidebar>
   `

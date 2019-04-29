@@ -1,5 +1,11 @@
 # TODO
 
+## Default
+
+- f-sidebar > * accept title
+- notes width
+- editor hide
+
 ## Current
 
 - CCC emails

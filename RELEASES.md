@@ -1,5 +1,11 @@
 # Release notes
 
+### 0.0.3 / Mon 29 April 2018
+
+#### Improvements
+
+* `<f-notes>` accepts `title` attribute and defaults to "Teacher notes"
+
 ### 0.0.2 / Mon 15 April 2018
 
 #### Improvements
