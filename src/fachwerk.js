@@ -4,7 +4,7 @@ export function fachwerk(c = {}) {
   const config = {
     el: "#fachwerk",
     src: "./index.md",
-    editor: "show",
+    editor: "hide",
     theme: "light",
     type: "slides",
     header: [],
