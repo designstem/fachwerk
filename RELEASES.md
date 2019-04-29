@@ -5,6 +5,7 @@
 #### Improvements
 
 * `<f-notes>` accepts `title` attribute and defaults to "Teacher notes"
+* Initial improvements to the docs menu structure
 
 ### 0.0.3 / Mon 22 April 2018
 

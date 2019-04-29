@@ -261,6 +261,7 @@ Function can be imported using Javascript import:
       :items="menuItems"
       v-model="activeIndex"
       class="menu"
+      :active-item="activeIndex[0]"
     />
 
     <f-content-editor

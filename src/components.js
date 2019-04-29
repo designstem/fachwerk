@@ -318,6 +318,15 @@ export { FLeftarrowIcon };
 import FCloseIcon from "./components/icons/FCloseIcon.js";
 export { FCloseIcon };
 
+import FClockIcon from "./components/icons/FClockIcon.js";
+export { FClockIcon };
+
+import FPeopleIcon from "./components/icons/FPeopleIcon.js";
+export { FPeopleIcon };
+
+import FToolsIcon from "./components/icons/FToolsIcon.js";
+export { FToolsIcon };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
