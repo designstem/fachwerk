@@ -4,11 +4,17 @@
 
 #### Improvements
 
+* In scenario slides editor is hidden by default. You can control it in `index.js` by setting
+      
+      fachwerk({ editor: 'hide'})
+      fachwerk({ editor: 'show'})
+      fachwerk({ editor: 'none'})
+
 * `<f-notes>` accepts `title` attribute and defaults to "Teacher notes"
 
 * Initial improvements to the docs menu structure
 
-* New icons for internal use: `<f-people>`, `<f-clock>`, `<f-tools>` (placeholder for now).
+* New icons for internal use: `<f-people>`, `<f-clock>`, `<f-tools>` (last one is placeholder for now).
 
 ### 0.0.3 / Mon 22 April 2018
 
