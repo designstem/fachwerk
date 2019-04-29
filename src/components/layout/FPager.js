@@ -18,10 +18,10 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
     <div>
       <f-inline
         style="
-          position: fixed;
+          position: absolute;
           z-index: 100000;
           right: calc(var(--base) * 1.5);
-          top: 10px;
+          top: 12px;
           cursor: pointer;
         "
       >

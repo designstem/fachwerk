@@ -11,6 +11,7 @@
 #### Improvements
 
 * New `polarxy(angle, radius)` function, returns [x,y] coordinates, works nicely with `:position` prop on geometry components.
+* Added `send('edit')` event that toggles edit mode for `<f-content-editor />`
 
 ### 0.0.2 / Mon 15 April 2018
 

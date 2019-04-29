@@ -18,10 +18,10 @@ Displays speaker / teacher notes.
   <f-sidebar
     width="33vw"
     style="
-      position: fixed;
+      position: absolute;
       z-index: 100000;
       right: 90px;
-      top: 7px;
+      top: 12px;
     "
   >
       <a slot="button" class="quaternary">{{ title }}</a>

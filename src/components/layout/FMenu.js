@@ -19,7 +19,7 @@ Displays speaker / teacher notes.
     orientation="left"
     width="33vw"
     style="
-      position: fixed;
+      position: absolute;
       z-index: 100000;
       left: calc(var(--base) * 1.5);
       top: calc(var(--base) * 1.5);
