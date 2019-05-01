@@ -45,11 +45,9 @@ Sidebars load can be either inline or load from a file.
         "
         :style="{
           width: width,
-          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px rgba(0,0,0,0.25)',
+          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px rgba(0,0,0,0.15)',
           right: orientation == 'right' ? 0 : '',
           left: orientation == 'left' ? 0 : '',
-          borderLeft: orientation == 'right' ? 'var(--border-width) solid var(--primary)' : '',
-          borderRight: orientation == 'left' ? 'var(--border-width) solid var(--primary)' : '',
         }"
       >
         <a

@@ -20,7 +20,7 @@ Displays speaker / teacher notes.
     style="
       position: absolute;
       z-index: 10000;
-      right: 90px;
+      right: 95px;
       top: 12px;
     "
   >

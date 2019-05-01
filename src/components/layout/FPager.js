@@ -19,7 +19,7 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
       <f-inline
         style="
           position: absolute;
-          z-index: 100000;
+          z-index: 10000;
           right: calc(var(--base) * 1.5);
           top: 12px;
           cursor: pointer;
