@@ -86,8 +86,8 @@ Creates a code editor with a live preview.
     v-if="preview"
     style="
       position: absolute;
-      z-index: 100000;
-      left: 35px;
+      z-index: 10000;
+      left: 40px;
       top: 12px;
     "
   >
@@ -96,27 +96,27 @@ Creates a code editor with a live preview.
   </div>
   <div class="content-editor">
     <div v-if="!preview" class="editor">
-      <div class="toolbar" :style="{ padding: menu ? '7px 5px 0 30px' : '7px 5px 0 0' }">
+      <div class="toolbar" :style="{ padding: menu ? '12px 10px 0 40px' : '7px 10px 0 0' }">
       <div
         v-if="menu"
-        class="editor-button"
+        class="quaternary"
         style="opacity: 0.5"
         @click="$emit('togglePreview')"
       >Close</div>
       <div>
           <div
             v-if="state == 'saved' || state == 'saving'"
-            class="editor-button"
+            class="quaternary"
             style="opacity: 0.3"
             @click="handleReset"
           >
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset to original
+            Reset to original
           </div>
           &nbsp;
         </div>
         <div
           @click="handleSave"
-          class="editor-button"
+          class="quaternary"
           :style="{ opacity: state == 'saved' ? 1 : 0.5}"
         >{{ labels[state] }}</div>
       </div>
@@ -175,7 +175,7 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
-    height: calc(var(--base) * 4);
+    height: calc(var(--base) * 7);
     display: flex;
     align-items: center;
     justify-content: space-between;

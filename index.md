@@ -1,35 +1,32 @@
-<center>
-<f-scene>
-  <f-circle-pattern :r="0.5 - (get('r', 1) / 2)" count="6">
-    <f-circle-pattern :r="get('r', 1)" count="6">
-      <component
-        :is="['f-regularpolygon','f-circle'][get('type',0)]"
-        :r="get('r', 1)"
-        :stroke="color('purple')" 
-      />
-    </f-circle-pattern>
-  </f-circle-pattern>
-</f-scene>
-</center>
-
 <f-animation
+	set="r"
   from="0"
   to="1"
   alternate
   easing="easeInQuad"
-  v-on:value="r => set('r', r)"
 />
 
+<center>
+  <f-scene>
+    <f-rotation>
+      <f-circle-pattern :r="0.5 - (get('r') / 2)">
+        <f-circle-pattern :r="get('r')">
+          <f-hexagon :stroke="color('purple')" />
+        </f-circle-pattern>
+      </f-circle-pattern>
+    </f-rotation>
+  </f-scene>
+</center>
 
 # <big><big><big>Fachwerk</big></big></big>
 
-<big><big>Prefer <button v-on:click="set('type',1)">Circles</button> over <button v-on:click="set('type',0)">Hexagons</button>? Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
+<big><big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 <br>
 
 ## **1**Play
 
-<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is **✍🏾 editable** so you can make instant changes and explorations in code. </big>
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything in the left column is **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code. For more cleaner state try our <a href="./playground">playground</a></big>
 
 <br>
 
@@ -46,8 +43,7 @@
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
 <big>
-  <a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>&nbsp;
-  <a href="https://github.com/designstem/templates" class="primary">Starter templates on Github</a>
+  <a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>
 </big>
 
 ---
@@ -88,6 +84,6 @@ Fachwerk is a part of [DesignSTEM](https://designstem.github.io/homepage) educat
 
 ### Why not React?
 
-We keep wondering as well. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
+Why indeed. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
 
-Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS offers this and mixed with latest Javascript features it was a *Natürliche* choice for Fachwerk.
+Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS templates offer this and mixed with latest Javascript features such as module imports it was a *Natürliche* choice for Fachwerk.

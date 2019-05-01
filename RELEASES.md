@@ -1,5 +1,9 @@
 # Release notes
 
+### 0.0.5 / Mon 6 May 2018
+
+* Dedicated docs for buttons  
+
 ### 0.0.4 / Mon 29 April 2018
 
 #### Improvements

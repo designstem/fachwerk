@@ -15,8 +15,8 @@ export default [
         file: "./content/writing.md"
       },
       {
-        title: "Adding tables",
-        file: "./content/tables.md"
+        title: "Adding buttons",
+        file: "./content/buttons.md"
       },
       {
         title: "Slide setup",
@@ -33,6 +33,10 @@ export default [
       {
         title: "Bringing math alive",
         file: "./content/math.md"
+      },
+      {
+        title: "Formatting tables",
+        file: "./content/tables.md"
       },
       {
         title: "Using colors",

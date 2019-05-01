@@ -19,7 +19,7 @@ Close icon.
       :y1="3"
       :x2="size - 3"
       :y2="size - 3"
-      :stroke="color('secondary')"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
     />
     <f-line
@@ -27,7 +27,7 @@ Close icon.
       :y1="3"
       :x2="3"
       :y2="size - 3"
-      :stroke="color('secondary')"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
     />
   </f-artboard>

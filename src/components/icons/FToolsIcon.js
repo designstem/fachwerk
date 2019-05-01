@@ -16,15 +16,17 @@ Tools icon.
       :x="size / 2"
       :y="size / 2"
       :r="size / 2 - 1"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
-      fill="var(--white)"
+      fill="var(--icon-fill)"
     />
     <f-circle 
       :x="size / 2"
       :y="size / 2"
       :r="size / 6"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
-      fill="var(--white)"
+      fill="var(--icon-fill)"
     />
   </f-artboard>
   `

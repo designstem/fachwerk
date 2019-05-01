@@ -123,6 +123,7 @@ Various icons.
   >
     <f-group :position="[sizes[size].width / 2 , sizes[size].width / 2]">
       <f-roundedpolygon
+        stroke="var(--icon-stroke)"
         :stroke-width="sizes[size].strokeWidth"
         corner-radius="0.5"
         :r="sizes[size].width / 2"
@@ -135,5 +136,15 @@ Various icons.
       :stroke-width="sizes[size].innerStrokeWidth"
     />
   </f-artboard>
-  `
+  `,
+  cssprops: {
+    "--icon-stroke": {
+      default: "var(--primary)",
+      description: "Icon stroke color"
+    },
+    "--icon-fill": {
+      default: "rgba(0,0,0,0)",
+      description: "Icon fill"
+    },
+  }
 };
