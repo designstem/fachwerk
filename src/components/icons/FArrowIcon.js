@@ -1,5 +1,3 @@
-import { color } from "../../../fachwerk.js";
-
 export default {
   description: `
 Arrow icon.
@@ -12,7 +10,6 @@ Arrow icon.
   data: () => ({
     size: 16
   }),
-  methods: { color },
   template: `
   <f-artboard :width="size" :height="size">
     <f-group
@@ -24,12 +21,12 @@ Arrow icon.
       :y1="size / 2"
       :x2="size - 3"
       :y2="size / 2"
-      :stroke="color('secondary')"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
     />
     <f-line
       :points="[[size / 2,2],[size - 2,size/2],[size / 2,size - 2]]"
-      :stroke="color('secondary')"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
     />
     </f-group>

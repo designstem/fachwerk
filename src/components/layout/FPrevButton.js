@@ -12,9 +12,10 @@ export default {
   template: `
   <button
     class="secondary"
-    @click="send('prev')"
+    @click.prevent="send('prev')"
   >
-    {{ title ? '← ' + title : '←' }}
+    <f-leftarrow-icon />
+    {{ title }}&nbsp;
   </button>
   `
 };

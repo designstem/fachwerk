@@ -18,7 +18,7 @@ Clock icon.
   },
   template: `
   <f-scene width="20" height="20">
-    <f-circle r="1.7" stroke :fill="color('white')" />
+    <f-circle r="1.7" stroke fill="var(--icon-fill)" />
     <f-arc
       rotation="180"
       scale="-1 1"
@@ -39,11 +39,11 @@ Clock icon.
       :fill="color('blue')"
       stroke
     />
-    <f-circle r="1.7" stroke-width="2" />
-    <f-line rotation="0" x1="0" y1="1.7" x2="0" y2="1.5" stroke-width="2" stroke="var(--darkgray)" />
-    <f-line rotation="0" x1="0" y1="-1.7" x2="0" y2="-1.5" stroke-width="2" stroke="var(--darkgray)" />
-    <f-line rotation="90" x1="0" y1="1.7" x2="0" y2="1.5" stroke-width="2" stroke="var(--darkgray)" />
-    <f-line rotation="90" x1="0" y1="-1.7" x2="0" y2="-1.5" stroke-width="2" stroke="var(--darkgray)" />
+    <f-circle r="1.7" stroke-width="2" stroke="var(--icon-stroke)" />
+    <f-line rotation="0" x1="0" y1="1.7" x2="0" y2="1.5" stroke-width="2" stroke="var(--icon-stroke)" />
+    <f-line rotation="0" x1="0" y1="-1.7" x2="0" y2="-1.5" stroke-width="2" stroke="var(--icon-stroke)" />
+    <f-line rotation="90" x1="0" y1="1.7" x2="0" y2="1.5" stroke-width="2" stroke="var(--icon-stroke)" />
+    <f-line rotation="90" x1="0" y1="-1.7" x2="0" y2="-1.5" stroke-width="2" stroke="var(--icon-stroke)" />
   </f-scene>
 `
 };

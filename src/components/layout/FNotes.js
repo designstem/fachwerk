@@ -19,7 +19,7 @@ Displays speaker / teacher notes.
     width="33vw"
     style="
       position: absolute;
-      z-index: 100000;
+      z-index: 10000;
       right: 90px;
       top: 12px;
     "

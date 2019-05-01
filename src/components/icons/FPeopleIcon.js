@@ -20,6 +20,7 @@ People icon.
       :x="size / 2"
       :y="size"
       :r="size / 2.2"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
       :fill="color('white')"
     />
@@ -27,6 +28,7 @@ People icon.
       :x="size / 2"
       :y="size / 4 + 3"
       :r="size / 3.5"
+      stroke="var(--icon-stroke)"
       stroke-width="2"
       :fill="color('white')"
     />

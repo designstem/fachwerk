@@ -36,7 +36,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--gray)",
           "--lightblue": "var(--darkblue)",
-          "--quaternary": "var(--darkergray)",
+          "--quaternary": "var(--darkgray)",
           "--blue": "var(--lightgray)"
         },
         blue: {
@@ -56,6 +56,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--gray": "var(--darkgray)",
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--lightgray)",
+          "--quaternary": "var(--gray)",
         }
       }
     };

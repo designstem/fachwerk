@@ -86,7 +86,7 @@ Creates a code editor with a live preview.
     v-if="preview"
     style="
       position: absolute;
-      z-index: 100000;
+      z-index: 10000;
       left: 35px;
       top: 12px;
     "

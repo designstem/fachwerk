@@ -25,7 +25,11 @@ Sidebars load can be either inline or load from a file.
     <span>
       <span @click.prevent="open = !open">
         <slot name="button">
-          <a style="color: var(--blue); border-bottom: 1px dotted var(--blue); cursor: alias;">{{ title }}</a>
+          <a style="
+            color: var(--blue);
+            border-bottom: 1px dotted var(--blue);
+            cursor: alias;"
+          >{{ title }}</a>
         </slot>
       </span>
       <f-fade
@@ -37,7 +41,7 @@ Sidebars load can be either inline or load from a file.
           bottom: 0px;
           background: var(--white);
           overflowY: auto;
-          zIndex: 100000000 !important;
+          z-index: 100000000 !important;
         "
         :style="{
           width: width,

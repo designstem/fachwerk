@@ -113,27 +113,15 @@ It is the same as to use `<blockquote>` tag it in HTML.
 <details>
 	<summary>Now you do not see the fact...</summary>
   
-  And now you do!
-</details>
-
-Note that details tag can contain any kind of content:
-
-<details>
-	<summary>Click me now!</summary>
-  
-  # <big><big><big>B💥om!</big></big></big>
+  And now you do! *Note that Markdown is supported as well*
 
 </details>
-
-<br>
 
 ### Variables
 
 Variables can be marked as such: <var>variable</var>.
 
 There is a range of colors available for `<var>` tags: <var class="orange">orange</var> <var class="yellow">yellow</var> <var class="blue">blue</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var>.
-
-<br>
 
 ### Code
 

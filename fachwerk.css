@@ -14,7 +14,8 @@
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
   --lightergray: #eee;
-  --purple: #663399; /* rebeccapurple; */
+  --purple: hsl(270, 50%, 40%); /* rebeccapurple; */
+  --darkpurple: hsl(270, 50%, 30%); /* rebeccapurple; */
   --red: #ff595e; /* tomato */
   --yellow: #ffca3a; /* gold */
   --lightblue: #d8e6f3; /* ghostwhite */
@@ -28,7 +29,7 @@
   --primary: var(--darkgray);
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
-  --quaternary: var(--lightergray);
+  --quaternary: var(--lightgray);
 
   --emphasis: var(--yellow);
 
@@ -57,6 +58,10 @@
   --text-transform: scale(1, 1);
 
   --transition-duration: 0.2s;
+
+  /* @TODO Figure out css var vs cssprops situation */
+  --icon-stroke: var(--primary);
+  --icon-fill: rgba(0,0,0,0);
 }
 
 /* All */
@@ -76,6 +81,7 @@ body {
   font-size: calc(var(--base) * 2);
   margin: 0;
   color: var(--primary);
+  background: var(--white);
 }
 
 h1,
@@ -253,7 +259,7 @@ label,
 }
 
 details {
-  padding: var(--base2) var(--base2) var(--base) var(--base2);
+  padding: var(--base2);
   background: var(--quaternary);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
@@ -488,28 +494,54 @@ td p {
 
 /* Buttons */
 
+button.primary,
 .button_primary,
 .primary {
+  display: inline-flex;
+  align-items: center;
   background: var(--purple);
   padding: calc(var(--base) * 1.5) calc(var(--base) * 2);
-  display: inline-flex;
   border-radius: var(--border-radius);
   color: var(--white);
-  font-weight: bold;
+  font-family: var(--font-sansserif);
+  font-weight: bold !important;
   cursor: pointer;
   border: none;
+  transition: all 0.1s linear;
+  --icon-stroke: var(--white);
+  font-size: 1em;
+}
+.primary .f-svg {
+  margin: 0 0.5ch !important;
+}
+.primary:hover {
+  background: var(--darkpurple);
 }
 
+button.secondary,
 .button_secondary,
 .secondary {
+  display: inline-flex;
+  align-items: center;
   background: var(--tertiary);
   padding: calc(var(--base) * 1.5) calc(var(--base) * 2);
-  display: inline-flex;
   border-radius: var(--border-radius);
   color: var(--darkgray);
+  --icon-color: var(--darkgray);
+  font-family: var(--font-sansserif);
   font-weight: bold;
   cursor: pointer;
   border: none;
+  font-size: var(--base2);
+  transition: all 0.1s linear;
+  --icon-stroke: var(--darkgray);
+  font-size: 1em;
+}
+.secondary .f-svg {
+  margin: 0 0.5ch !important;
+}
+.secondary:hover {
+  background: lightgray;
 }
 
 button,
@@ -517,33 +549,52 @@ button,
 .tertiary {
   padding: calc(var(--base) * 0.5) calc(var(--base) * 1);
   display: inline-flex;
-  border: 3px solid var(--primary);
+  align-items: center;
+  border: 3px solid var(--darkgray);
   border-radius: var(--border-radius);
-  color: var(--primary);
+  color: var(--darkgray);
   font-weight: bold;
+  font-family: var(--font-sansserif);
   font-size: calc(var(--base) * 1.75);
   cursor: pointer;
   outline: none;
   background: var(--white);
   line-height: normal;
+  transition: all 0.1s linear;
+  --icon-stroke: var(--darkgray);
+}
+.tertiary .f-svg {
+  margin: 0 calc(var(--base) * 0.5) !important;
+}
+.tertiary:hover {
+  background: var(--lightergray);
 }
 
 .quaternary,
 button.quaternary {
+  background: transparent;
   padding: 0 8px;
-  height: 24px;
+  height: var(--base4);
   display: inline-flex;
   align-items: center;
   border-radius: var(--border-radius);
-  color: var(--secondary);
+  color: var(--quaternary);
   cursor: pointer;
   outline: none;
   transition: all 0.1s linear;
+  font-family: var(--font-sansserif);
   font-size: 14px;
+  font-weight: bold;
+  border: none;
+  --icon-stroke: var(--quaternary);
+}
+.quaternary .f-svg {
+  margin: 0 calc(var(--base) * 0.5) !important;
 }
 .quaternary:hover {
-  background: var(--quaternary);
-  color: var(--primary);
+  background: var(--lightergray);
+  color: var(--darkgray);
+  --icon-stroke: var(--primary);
 }
 a.quaternary {
   border-bottom: none;
