@@ -279,6 +279,9 @@ export { FHeader };
 import FFooter from "./components/layout/FFooter.js";
 export { FFooter };
 
+import FIconHeading from "./components/layout/FIconHeading.js";
+export { FIconHeading };
+
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";
