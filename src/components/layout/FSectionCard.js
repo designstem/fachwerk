@@ -17,7 +17,8 @@ Card that navigates the user to particular section in slides.
   props: {
     title: { default: "", type: String },
     section: { default: "", type: String },
-    completed: { default: false, type: [String, Boolean, Number] }
+    border: { default: "var(--transparent)", type: String },
+    background: { default: "var(--yellow)", type: String },
   },
   methods: {
     get,
@@ -27,8 +28,8 @@ Card that navigates the user to particular section in slides.
   <f-card
 	  @click.native="goto(section);"
     :title="title"
-    :border="get('section') == section ? 'var(--primary)' : 'transparent'"
-    :background="completed ? 'var(--green)' : 'var(--yellow)'"
+    :border="get('section') == section ? 'var(--primary)' : border"
+    :background="background"
   >
 	  <slot />
   </f-card>
