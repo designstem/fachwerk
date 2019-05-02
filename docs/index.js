@@ -243,7 +243,7 @@ Function can be imported using Javascript import:
           v-model="preview"
         ></f-buttons>
         <f-buttons
-          :buttons="['Light','Dark','Yellow']"
+          :buttons="['Light','Dark','Yellow','Blue']"
           v-model="theme"
         ></f-buttons>
       </f-inline>
@@ -253,7 +253,7 @@ Function can be imported using Javascript import:
   <main style="min-height: 100vh">
 
   <f-theme
-    :theme="['light','dark','yellow'][theme]"
+    :theme="['light','dark','yellow','blue'][theme]"
     class="docs"
   >
     <f-treemenu
