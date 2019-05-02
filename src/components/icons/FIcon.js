@@ -73,7 +73,7 @@ Various icons.
   components: { Fact, Activity, Note, Vr },
   props: {
     icon: { default: "fact", type: String, description: "Icon name" },
-    size: { default: "medium", type: String, description: "Icon size: `small` `medium` `large`" }
+    size: { default: "medium", type: String, description: "Icon size: `small`, `medium`, `large`" }
   },
   data: function() {
     return {

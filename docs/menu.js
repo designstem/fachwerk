@@ -163,7 +163,8 @@ export default [
       { component: "FPrevButton" },
       { component: "FButtons" },
       { component: "FCard" },
-      { component: "FSectionCard" }
+      { component: "FSectionCard" },
+      { component: "FIconHeading" }
     ]
   },
   {
