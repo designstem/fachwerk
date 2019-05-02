@@ -1,4 +1,4 @@
-import { get, goto } from "../../../fachwerk.js";
+import { get, goto, send } from "../../../fachwerk.js";
 
 export default {
   description: ` 
@@ -22,11 +22,12 @@ Card that navigates the user to particular section in slides.
   },
   methods: {
     get,
-    goto
+    goto,
+    send
   },
   template: `
   <f-card
-	  @click.native="goto(section);"
+	  @click.native="send('menu'); goto(section);"
     :title="title"
     :border="get('section') == section ? 'var(--primary)' : border"
     :background="background"
