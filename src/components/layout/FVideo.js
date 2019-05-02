@@ -16,7 +16,8 @@ Shows a Youtube video.
       const { search } = new URL(this.src || 'https://www.youtube.com/watch?v=JYHp8LwBUzo');
       const params = new URLSearchParams(search);
       const id = params.get("v");
-      return `//youtube.com/embed/${id}`;
+      const start = params.get("start");
+      return start ? `//youtube.com/embed/${id}?start=${start}` : `//youtube.com/embed/${id}`;
     }
   },
   template: `
