@@ -61,7 +61,7 @@
 
   /* @TODO Figure out css var vs cssprops situation */
   --icon-stroke: var(--primary);
-  --icon-fill: rgba(0,0,0,0);
+  --icon-fill: var(--white);
 }
 
 /* All */
@@ -508,8 +508,9 @@ button.primary,
   cursor: pointer;
   border: none;
   transition: all 0.1s linear;
-  --icon-stroke: var(--white);
   font-size: 1em;
+  --icon-stroke: var(--white);
+  --icon-fill: var(--transparent);
 }
 .primary .f-svg {
   margin: 0 0.5ch !important;
