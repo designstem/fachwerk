@@ -29,7 +29,7 @@
   --black: #111111;
 
   --transparent: rgba(0,0,0,0);
-  
+
   --primary: var(--darkgray);
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
@@ -584,7 +584,7 @@ button.quaternary {
   display: inline-flex;
   align-items: center;
   border-radius: var(--border-radius);
-  color: var(--quaternary);
+  color: var(--gray);
   cursor: pointer;
   outline: none;
   transition: all 0.1s linear;
@@ -592,7 +592,8 @@ button.quaternary {
   font-size: 14px;
   font-weight: bold;
   border: none;
-  --icon-stroke: var(--quaternary);
+  --icon-stroke: var(--gray);
+  --icon-fill: var(--transparent);
 }
 .quaternary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;
