@@ -13,12 +13,22 @@ export default [
     ]
   },
   {
-    title: "Creating content",
+    title: "Content",
     items: [
       {
         title: "Creating content",
         file: "./content/writing.md"
       },
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+      { component: "FMath" },
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },
@@ -36,7 +46,7 @@ export default [
     ]
   },
   {
-    title: "Adjusting layout",
+    title: "Layout",
     items: [
       {
         title: "Slide setup",
@@ -48,11 +58,11 @@ export default [
       },
       { component: "FInline" },
       { component: "FHr" },
-      { component: "FVr" },
+      { component: "FVr" }
     ]
   },
   {
-    title: "Adding navigation",
+    title: "Navigation",
     items: [
       {
         title: "Adding navigation",
@@ -132,7 +142,7 @@ export default [
     ]
   },
   {
-    title: "Add interaction",
+    title: "Interaction",
     items: [
       {
         title: "Add interaction",
@@ -145,34 +155,12 @@ export default [
       { component: "FDrag" },
       { component: "FArray" },
       { component: "FBuffer" },
+      { component: "FFetch" },
+      { component: "FSheet" }
     ]
   },
   {
-    title: "Get remote content",
-    items: [{ component: "FFetch" }, { component: "FSheet" }]
-  },
-  {
-    title: "Bringing math alive",
-    items: [
-      {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" }
-    ]
-  },
-  {
-    title: "Adding tables",
-    items: [
-      {
-        title: "Adding tables",
-        file: "./content/tables.md"
-      },
-      { component: "FTable" }
-    ]
-  },
-  {
-    title: "Add icons",
+    title: "Icons",
     items: [
       { component: "FFactIcon" },
       { component: "FActivityIcon" },
@@ -192,11 +180,11 @@ export default [
     ]
   },
   {
-    title: "VR / A-Frame",
+    title: "VR",
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
-    title: "For developers",
+    title: "Developers",
     items: [
       {
         title: "Global events",

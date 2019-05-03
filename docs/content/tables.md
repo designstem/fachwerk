@@ -36,17 +36,4 @@ There is also a classic HTML table format available:
 
 ### Component format
 
-When table data is coming from another datasorce, it makes sense to use a dedicated `<f-table>` component that accepts data as a Javascript collection `:rows`:
-
-<f-table :rows="[
-  {
-  	name: 'Klaus',
-    born: '1926',
-    profession: 'Actor'
-  },
-  {
-  	name: 'Werner',
-    born: '1942',
-    profession: 'Director'
-  }
-]"/>
+When table data is coming from another datasorce, it makes sense to use a dedicated `<f-table>` component.

@@ -54,7 +54,7 @@ new Vue({
             utilsHelp.map(g => {
               return g.map(([group, items]) => {
                 return {
-                  title: `🍴${titleCase(group)} utilities`,
+                  title: `${titleCase(group)} utilities`,
                   utils: true,
                   items: items.map(([title, content]) => ({ title, content }))
                 };
