@@ -1,5 +1,3 @@
-import { color } from "../../../fachwerk.js";
-
 export default {
   description: `
 People icon.
@@ -13,7 +11,6 @@ People icon.
     description: "Rotation angle in degrees"
   },
   data: () => ({ size: 20 }),
-  methods: { color },
   template: `
   <f-artboard :width="size" :height="size">
     <f-circle
@@ -22,7 +19,7 @@ People icon.
       :r="size / 2.2"
       stroke="var(--icon-stroke)"
       stroke-width="2"
-      :fill="color('white')"
+      fill="var(--icon-fill)"
     />
     <f-circle
       :x="size / 2"
@@ -30,7 +27,7 @@ People icon.
       :r="size / 3.5"
       stroke="var(--icon-stroke)"
       stroke-width="2"
-      :fill="color('white')"
+      fill="var(--icon-fill)"
     />
     <f-line
       x1="1"
@@ -39,7 +36,6 @@ People icon.
       :y2="size - 1"
       stroke-width="2"
     />
-
   </f-artboard>
   `
 };

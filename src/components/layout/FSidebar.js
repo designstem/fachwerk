@@ -15,15 +15,19 @@ Sidebars load can be either inline or load from a file.
 <br><br>
 `,
   props: {
-    src: { default: '', type: String },
-    title: { default: '', type: String },
-    width: { default: '33vw', type: String },
-    orientation: { default: 'right', type: String }
+    src: { default: "", type: String },
+    title: { default: "", type: String },
+    width: { default: "33vw", type: String },
+    orientation: { default: "right", type: String },
+    open: { default: false, type: Boolean }
   },
-  data: () => ({ open: false }),
+  data: () => ({ currentOpen: false }),
+  mounted() {
+    this.$watch("open", open => (this.currentOpen = open), { immediate: true });
+  },
   template: `
     <span>
-      <span @click.prevent="open = !open">
+      <span @click.prevent="currentOpen = !currentOpen">
         <slot name="button">
           <a style="
             color: var(--blue);
@@ -33,7 +37,7 @@ Sidebars load can be either inline or load from a file.
         </slot>
       </span>
       <f-fade
-        v-if="open"
+        v-if="currentOpen"
         style="
           position: fixed;
           top: 0px;
@@ -51,7 +55,7 @@ Sidebars load can be either inline or load from a file.
         }"
       >
         <a
-          @click="open = false"
+          @click="currentOpen = false"
           class="quaternary"
           style="
             cursor: pointer;
@@ -73,7 +77,7 @@ Sidebars load can be either inline or load from a file.
             "
           />
         </f-fetch>
-        <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && open">
+        <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && currentOpen">
           <slot />
         </div>
       </f-fade>

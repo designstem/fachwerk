@@ -1,4 +1,4 @@
-import { get, goto } from "../../../fachwerk.js";
+import { get, goto, send } from "../../../fachwerk.js";
 
 export default {
   description: ` 
@@ -17,18 +17,20 @@ Card that navigates the user to particular section in slides.
   props: {
     title: { default: "", type: String },
     section: { default: "", type: String },
-    completed: { default: false, type: [String, Boolean, Number] }
+    border: { default: "var(--transparent)", type: String },
+    background: { default: "var(--yellow)", type: String },
   },
   methods: {
     get,
-    goto
+    goto,
+    send
   },
   template: `
   <f-card
-	  @click.native="goto(section);"
+	  @click.native="send('menu'); goto(section);"
     :title="title"
-    :border="get('section') == section ? 'var(--primary)' : 'transparent'"
-    :background="completed ? 'var(--green)' : 'var(--yellow)'"
+    :border="get('section') == section ? 'var(--primary)' : border"
+    :background="background"
   >
 	  <slot />
   </f-card>

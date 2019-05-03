@@ -143,7 +143,7 @@ Various icons.
       description: "Icon stroke color"
     },
     "--icon-fill": {
-      default: "rgba(0,0,0,0)",
+      default: "var(--white)",
       description: "Icon fill"
     },
   }

@@ -61,6 +61,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--lightgray)",
           "--quaternary": "var(--gray)",
+          "--icon-stroke": "var(--darkgray)"
         }
       }
     };
