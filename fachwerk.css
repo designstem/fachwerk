@@ -14,10 +14,10 @@
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
   --lightergray: #eee;
-  --purple: hsl(270, 50%, 40%); /* rebeccapurple; */
+  --purple: #663399; /* rebeccapurple; */
   --darkpurple: hsl(270, 50%, 30%); /* rebeccapurple; */
   --red: #ff595e; /* tomato */
-  --yellow: hsl(44, 100%, 61%); /* gold */
+  --yellow: #fec938; /* gold */
   --lightyellow: hsl(44, 100%, 78%); /* gold */
   --lighteryellow: hsl(44, 100%, 88%);
   --lightblue: #d8e6f3; /* ghostwhite */

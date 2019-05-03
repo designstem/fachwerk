@@ -6,22 +6,25 @@ export default {
 Displays an image.
 
 <f-image src="../images/example.jpg" />
+
+<p />
+
   `,
   props: {
     src: { default: "", type: String, description: "Image URL" }
   },
   template: `
-    <p :style="{
+    <div :style="{
       background: 'url(' + src + ')',
       backgroundSize: 'cover',
       backgroundRepeat: 'none',
-      minHeight: 'var(--image-min-height)',
+      minHeight: 'calc(var(--base) * 40)',
       height: '100%'
-    }" />
+    }">&nbsp;</div>
   `,
   cssprops: {
     "--image-min-height": {
-      default: "calc(var(--base) * 40)",
+      default: "20vh",
       description: "Image minimum height"
     }
   }
