@@ -1,20 +1,25 @@
+import { Vue } from "../../../fachwerk.js"
+
 export default {
   description: `
-Displays speaker / teacher notes.
+Displays navigation menu.
 
-<f-notes>
+<f-menu>
 
-#### A Note
+### Here is a navigation menu
 
-> Here is a speaker note
-
-</f-notes>
+</f-menu>
   `,
   props: {
     src: { default: './menu.md', type: String },
   },
+  data: () => ({ open: false }),
+  mounted() {
+    Vue.prototype.$global.$on('menu', () => this.open = !this.open)
+  },
   template: `
   <f-sidebar
+    :open="open"
     :src="src"
     orientation="left"
     width="33vw"

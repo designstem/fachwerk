@@ -519,6 +519,7 @@ button.primary,
 }
 .primary .f-svg {
   margin: 0 0.5ch !important;
+  transform: scale(2ch);
 }
 .primary:hover {
   background: var(--darkpurple);
