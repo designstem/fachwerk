@@ -513,9 +513,9 @@ button.primary,
   cursor: pointer;
   border: none;
   transition: all 0.1s linear;
+  font-size: 1em;
   --icon-stroke: var(--white);
   --icon-fill: var(--transparent);
-  font-size: 1em;
 }
 .primary .f-svg {
   margin: 0 0.5ch !important;
@@ -585,7 +585,7 @@ button.quaternary {
   display: inline-flex;
   align-items: center;
   border-radius: var(--border-radius);
-  color: var(--quaternary);
+  color: var(--gray);
   cursor: pointer;
   outline: none;
   transition: all 0.1s linear;
@@ -593,7 +593,8 @@ button.quaternary {
   font-size: 14px;
   font-weight: bold;
   border: none;
-  --icon-stroke: var(--quaternary);
+  --icon-stroke: var(--gray);
+  --icon-fill: var(--transparent);
 }
 .quaternary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;

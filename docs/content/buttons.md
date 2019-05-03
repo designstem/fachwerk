@@ -1,8 +1,3 @@
-<f-inline>
-	<f-prev-button />
-	<f-next-button />
-</f-inline>
-
 # Buttons
 
 ## Primary buttons
