@@ -71,46 +71,6 @@ export default [
     ]
   },
   {
-    title: "Add interaction",
-    items: [
-      {
-        title: "Add interaction",
-        file: "./advanced/state.md"
-      },
-      { component: "FAnimation" },
-      { component: "FSlider" },
-      { component: "FButtons" },
-      { component: "FKeyboard" },
-      { component: "FDrag" },
-      { component: "FArray" },
-      { component: "FBuffer" },
-    ]
-  },
-  {
-    title: "Get remote content",
-    items: [{ component: "FFetch" }, { component: "FSheet" }]
-  },
-  {
-    title: "Bringing math alive",
-    items: [
-      {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" }
-    ]
-  },
-  {
-    title: "Adding tables",
-    items: [
-      {
-        title: "Adding tables",
-        file: "./content/tables.md"
-      },
-      { component: "FTable" }
-    ]
-  },
-  {
     title: "2D graphics",
     items: [
       { component: "FScene" },
@@ -169,6 +129,46 @@ export default [
       { component: "FLathe3" },
       { component: "FGroup3" },
       { component: "FRotation3" }
+    ]
+  },
+  {
+    title: "Add interaction",
+    items: [
+      {
+        title: "Add interaction",
+        file: "./advanced/state.md"
+      },
+      { component: "FAnimation" },
+      { component: "FSlider" },
+      { component: "FButtons" },
+      { component: "FKeyboard" },
+      { component: "FDrag" },
+      { component: "FArray" },
+      { component: "FBuffer" },
+    ]
+  },
+  {
+    title: "Get remote content",
+    items: [{ component: "FFetch" }, { component: "FSheet" }]
+  },
+  {
+    title: "Bringing math alive",
+    items: [
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+      { component: "FMath" }
+    ]
+  },
+  {
+    title: "Adding tables",
+    items: [
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" }
     ]
   },
   {

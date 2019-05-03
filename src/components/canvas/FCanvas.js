@@ -1,18 +1,8 @@
 export default {
   description: `
-Creates a 2D bitmap canvas.
+Creates a 2D bitmap canvas. Use \`<f-pixel>\` and \`<f-pixels>\` to draw on it.
 
 <f-canvas>
-  <f-pixel
-    v-for="p in range(0,300)"
-    :x="p"
-    :y="p"
-  />
-  <f-pixel
-    v-for="p in range(0,300)"
-    :x="p"
-    :y="300 - p"
-  />
 </f-canvas>
   `,
   props: {
