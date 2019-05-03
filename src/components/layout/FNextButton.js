@@ -6,6 +6,7 @@ Button that navigates to the next slide.
 
 <f-next-button />
 
+<p />
   `,
   props: { title: { default: "Next step", description: "Button title" } },
   methods: { send },

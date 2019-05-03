@@ -283,7 +283,7 @@ details summary {
 }
 details pre,
 details code {
-  background: var(--quaternary);
+  background: var(--lighteryellow);
 }
 
 .bullet,
