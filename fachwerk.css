@@ -17,7 +17,9 @@
   --purple: hsl(270, 50%, 40%); /* rebeccapurple; */
   --darkpurple: hsl(270, 50%, 30%); /* rebeccapurple; */
   --red: #ff595e; /* tomato */
-  --yellow: #ffca3a; /* gold */
+  --yellow: hsl(44, 100%, 61%); /* gold */
+  --lightyellow: hsl(44, 100%, 78%); /* gold */
+  --lighteryellow: hsl(44, 100%, 88%);
   --lightblue: #d8e6f3; /* ghostwhite */
   --blue: #1982c4; /* steelblue */
   --paleblue: #263238;
@@ -31,6 +33,7 @@
   --tertiary: var(--lightgray);
   --quaternary: var(--lightgray);
 
+  --lightemphasis: var(--lighteryellow);
   --emphasis: var(--yellow);
 
   --border-width: 3px;
@@ -260,7 +263,7 @@ label,
 
 details {
   padding: var(--base2);
-  background: var(--quaternary);
+  background: var(--lightemphasis);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -301,7 +304,7 @@ h5 strong {
 blockquote {
   margin: 0;
   padding: var(--base2);
-  background: var(--quaternary);
+  background: var(--lightemphasis);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -1207,7 +1210,7 @@ span.CodeMirror-selectedtext {
 */
 
 .cm-s-material.CodeMirror {
-  background-color: #263238;
+  background-color: var(--paleblue);
   color: rgba(233, 237, 237, 1);
 }
 .cm-s-material .CodeMirror-gutters {
