@@ -40,7 +40,7 @@ Vertical menu, to be used with \`v-model\`.
           color: 'var(--primary)',
           transform: 'translate(0,calc(var(--base) * 0))',
         }"
-        @click="currentActiveItem = i;"
+        @click="currentActiveItem = i; $emit('input',[i,0]); top();"
         v-html="item.title"
         >
         </div>
@@ -56,7 +56,7 @@ Vertical menu, to be used with \`v-model\`.
             background: i === value[0] && j === value[1] ? 'var(--tertiary)' : '',
             opacity: item.disabled ? 0.3 : 1
           }"
-          @click="$emit('input',[i,j]); top()"
+          @click="$emit('input',[i,j]); top();"
           v-html="item.title"
         > 
         </div>

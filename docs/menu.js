@@ -46,27 +46,20 @@ export default [
     ]
   },
   {
-    title: "Layout",
+    title: "Layout & Navigation",
     items: [
-      {
-        title: "Slide setup",
-        file: "./content/slide.md"
-      },
       {
         title: "Layout and grid",
-        file: "./content/layout.md"
+        file: "./content/layout.md",
       },
-      { component: "FInline" },
-      { component: "FHr" },
-      { component: "FVr" }
-    ]
-  },
-  {
-    title: "Navigation",
-    items: [
+      {
+        title: "Creating pages",
+        file: "./content/slide.md",
+      },
       {
         title: "Adding navigation",
-        file: "./content/navigation.md"
+        file: "./content/navigation.md",
+        type: 'slides'
       },
       {
         title: "Adding buttons",
@@ -77,7 +70,8 @@ export default [
       { component: "FCard" },
       { component: "FSectionCard" },
       { component: "FMenu" },
-      { component: "FPager" }
+      { component: "FPager" },
+      { component: "FInline" },
     ]
   },
   {
@@ -146,10 +140,10 @@ export default [
     items: [
       {
         title: "Add interaction",
-        file: "./advanced/state.md"
+        file: "./content/interaction.md"
       },
-      { component: "FAnimation" },
       { component: "FSlider" },
+      { component: "FAnimation" },
       { component: "FButtons" },
       { component: "FKeyboard" },
       { component: "FDrag" },
@@ -203,7 +197,9 @@ export default [
       { component: "FContent" },
       { component: "FContentEditor" },
       { component: "FFade" },
-      { component: "FBounce" }
+      { component: "FBounce" },
+      { component: "FHr" },
+      { component: "FVr" }
     ]
   }
 ];

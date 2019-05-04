@@ -263,9 +263,9 @@ Function can be imported using Javascript import:
       class="menu"
       :active-item="activeIndex[0]"
     />
-
     <f-content-editor
       class="editor"
+      :type="activeMenu.type || 'document'"
       :content="content"
       :preview="preview"
       :save-id="activeIndex.join('-')"

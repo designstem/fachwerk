@@ -24,7 +24,7 @@ By setting CSS variables you can adjust how the contents is layed out:
 
 ### Hello world
 
-~The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.~
+The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
 
 </div>
 </f-inline>

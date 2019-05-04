@@ -104,16 +104,16 @@ Ordered list:
 
 ### Fact boxes
 
-> Why so *Postfaktisch*? Here is a fact for you.
+> Here is a fact for you.
 
 It is the same as to use `<blockquote>` tag it in HTML.
 
 ### Collapsed fact boxes
 
 <details>
-	<summary>Now you do not see the fact...</summary>
+	<summary>Click to see the fact</summary>
   
-  And now you do! *Note that Markdown is supported as well*
+  Here is the fact: *Markdown is supported here*
 
 </details>
 
