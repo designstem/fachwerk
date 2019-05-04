@@ -3,9 +3,12 @@ import { send } from "../../../fachwerk.js"
 
 export default {
   description: `
-  Button that navigates to the previous slide.
+Button that navigates to the previous slide.
 
 <f-prev-button />
+
+<p />
+
 `,
   props: { title: { default: "", description: "Button title" } },
   methods: { send },

@@ -381,29 +381,17 @@ Technically it is a combination of  \`label\` and \`<input type="range" />\` tag
 
 */
 
-f-math
-f-image
-f-video
-f-inline
-f-pager
-f-next-button
-f-prev-button
-f-sidebar
-f-notes
-f-embed
 
-f-header
-f-theme
-f-content
-f-editor
-f-content-editor
-f-footer
-f-tabs
-f-card
-f-section-card
-f-buttons
-f-table
-f-hr
-f-vr
-f-fade
-f-bounce
+<details>
+
+<summary>How this button works?</summary>
+
+`<f-next-button>` is a simple wrapper around `<button>` element that emits an event `send('next')` when it is clicked. The button above can also be written as:
+
+```
+<button class="primary" v-on:click="send('next')">
+Next step →
+</button>
+```
+
+</details>
