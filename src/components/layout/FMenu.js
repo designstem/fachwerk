@@ -15,7 +15,7 @@ Displays navigation menu.
   },
   data: () => ({ open: false }),
   mounted() {
-    Vue.prototype.$global.$on('menu', () => this.open = !this.open)
+    Vue.prototype.$global.$on('menu', open => this.open = open || true)
   },
   template: `
   <f-sidebar
