@@ -56,6 +56,18 @@ export default [
         title: "Creating pages",
         file: "./content/slide.md",
       },
+<<<<<<< HEAD
+=======
+      { component: "FInline" },
+      { component: "FCard" },
+      { component: "FHr" },
+      { component: "FVr" }
+    ]
+  },
+  {
+    title: "Adding navigation",
+    items: [
+>>>>>>> master
       {
         title: "Adding navigation",
         file: "./content/navigation.md",
@@ -67,7 +79,6 @@ export default [
       },
       { component: "FNextButton" },
       { component: "FPrevButton" },
-      { component: "FCard" },
       { component: "FSectionCard" },
       { component: "FMenu" },
       { component: "FPager" },
@@ -148,6 +159,7 @@ export default [
       { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
+<<<<<<< HEAD
       { component: "FBuffer" },
       { component: "FFetch" },
       { component: "FSheet" }
@@ -155,6 +167,41 @@ export default [
   },
   {
     title: "Icons",
+=======
+      { component: "FBuffer" }
+    ]
+  },
+  {
+    title: "Get remote data",
+    items: [
+      { component: "FFetch" },
+      { component: "FSheet" },
+      { component: "FWebsocket" }
+    ]
+  },
+  {
+    title: "Bring math alive",
+    items: [
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+      { component: "FMath" }
+    ]
+  },
+  {
+    title: "Adding tables",
+    items: [
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" }
+    ]
+  },
+  {
+    title: "Add icons",
+>>>>>>> master
     items: [
       { component: "FFactIcon" },
       { component: "FActivityIcon" },

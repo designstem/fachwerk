@@ -1,4 +1,4 @@
-import { get, goto, send } from "../../../fachwerk.js";
+import { Vue, get, goto, send } from "../../../fachwerk.js";
 
 export default {
   description: ` 
@@ -22,12 +22,12 @@ Card that navigates the user to particular section in slides.
   },
   methods: {
     get,
-    goto,
-    send
+    send,
+    goto
   },
   template: `
   <f-card
-	  @click.native="send('menu'); goto(section);"
+	  @click.native="send('closemenu'); goto(section);"
     :title="title"
     :border="get('section') == section ? 'var(--primary)' : border"
     :background="background"

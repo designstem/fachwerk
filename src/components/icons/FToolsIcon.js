@@ -11,23 +11,39 @@ Tools icon.
   data: () => ({ size: 20 }),
   methods: { color },
   template: `
-  <f-artboard :width="size" :height="size">
+  <f-scene :width="size" :height="size">
     <f-circle 
-      :x="size / 2"
-      :y="size / 2"
-      :r="size / 2 - 1"
+      x="1"
+      y="1"
+      r="0.75"
       stroke="var(--icon-stroke)"
       stroke-width="2"
       fill="var(--icon-fill)"
     />
     <f-circle 
-      :x="size / 2"
-      :y="size / 2"
-      :r="size / 6"
+      x="-1"
+      y="-1"
+      r="0.75"
       stroke="var(--icon-stroke)"
       stroke-width="2"
       fill="var(--icon-fill)"
     />
-  </f-artboard>
+    <f-box 
+      x="-1"
+      y="1"
+      r="1.25"
+      stroke="var(--icon-stroke)"
+      stroke-width="2"
+      fill="var(--icon-fill)"
+    />
+    <f-box 
+      x="1"
+      y="-1"
+      r="1.25"
+      stroke="var(--icon-stroke)"
+      stroke-width="2"
+      fill="var(--icon-fill)"
+    />
+  </f-scene>
   `
 };

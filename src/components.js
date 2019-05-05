@@ -197,6 +197,9 @@ export { FReceive };
 import FKeyboard from "./components/data/FKeyboard.js";
 export { FKeyboard };
 
+import FWebsocket from "./components/data/FWebsocket.js";
+export { FWebsocket };
+
 // Content
 
 import FMath from "./components/layout/FMath.js";
