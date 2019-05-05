@@ -2,22 +2,21 @@ import { Vue } from "../../../fachwerk.js"
 
 export default {
   description: `
-Displays navigation menu.
+Displays a navigation menu. It can display inline content as shown here. Also the content can be fetched from local or remote file (using \`src\` prop).
+
+Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu opening and closing.
+
+<button v-on:click="send('openmenu')">Open menu</button>
 
 <f-menu>
 
 ### I am a menu content
 
-<button v-on:click="send('menu')">Trigger menu</button>
+<button v-on:click="send('closemenu')">
+  Close menu
+</button>
 
 </f-menu>
-
-Displays a navigation menu. It can display inline content as shown here. Also the content can be fetched from local or remote file (using \`src\` prop).
-
-Menu also responds to \`menu\` event that triggers menu opening and closing:
-
-<button v-on:click="send('menu')">Trigger menu</button>
-
 
   `,
   props: {
@@ -25,7 +24,11 @@ Menu also responds to \`menu\` event that triggers menu opening and closing:
   },
   data: () => ({ open: false }),
   mounted() {
-    Vue.prototype.$global.$on('menu', open => this.open = open || true)
+    Vue.prototype.$global.$on('openmenu', () => this.open = true)
+    Vue.prototype.$global.$on('closemenu', () => {
+      console.log('aaa');
+      this.open = false
+    })
   },
   template: `
   <f-sidebar
