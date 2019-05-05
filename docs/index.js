@@ -54,7 +54,7 @@ new Vue({
             utilsHelp.map(g => {
               return g.map(([group, items]) => {
                 return {
-                  title: `🍴${titleCase(group)} utilities`,
+                  title: `${titleCase(group)} utilities`,
                   utils: true,
                   items: items.map(([title, content]) => ({ title, content }))
                 };
@@ -263,9 +263,9 @@ Function can be imported using Javascript import:
       class="menu"
       :active-item="activeIndex[0]"
     />
-
     <f-content-editor
       class="editor"
+      :type="activeMenu.type || 'document'"
       :content="content"
       :preview="preview"
       :save-id="activeIndex.join('-')"

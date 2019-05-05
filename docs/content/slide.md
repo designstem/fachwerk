@@ -6,8 +6,8 @@ Key | Default | Description
 ---|---|---
 `\| theme:`|`light`|Slide theme, can be `light dark yellow blue`
 `\| id:`||Slide ID. Use `send('goto', id)` to navigate there
-`\| padding:`|resonponsive|Padding around content. Set to `0` to remove padding 
-`\| gap:`|resonponsive|Gap between columns. Set to `0` to remove gap 
+`\| padding:`|responsive|Padding around content. Set to `0` to remove padding 
+`\| gap:`|responsive|Gap between columns. Set to `0` to remove gap 
 `\| background:`||Slide background image url
 `\| tint:`|`0.3`|Slide background image darkening
 `\| height:`|`100vh`|Minimum content height

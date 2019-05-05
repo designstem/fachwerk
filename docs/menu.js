@@ -13,12 +13,22 @@ export default [
     ]
   },
   {
-    title: "Creating content",
+    title: "Content",
     items: [
       {
         title: "Creating content",
         file: "./content/writing.md"
       },
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+      { component: "FMath" },
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },
@@ -36,28 +46,20 @@ export default [
     ]
   },
   {
-    title: "Adjusting layout",
+    title: "Layout and navigation",
     items: [
-      {
-        title: "Slide setup",
-        file: "./content/slide.md"
-      },
       {
         title: "Layout and grid",
-        file: "./content/layout.md"
+        file: "./content/layout.md",
       },
-      { component: "FInline" },
-      { component: "FCard" },
-      { component: "FHr" },
-      { component: "FVr" }
-    ]
-  },
-  {
-    title: "Adding navigation",
-    items: [
       {
-        title: "Adding navigation",
-        file: "./content/navigation.md"
+        title: "Creating slides",
+        file: "./content/navigation.md",
+        type: 'slides'
+      },
+      {
+        title: "Slide setup",
+        file: "./content/slide.md",
       },
       {
         title: "Adding buttons",
@@ -65,9 +67,13 @@ export default [
       },
       { component: "FNextButton" },
       { component: "FPrevButton" },
-      { component: "FSectionCard" },
+      { component: "FPager", type: 'slides' },
       { component: "FMenu" },
-      { component: "FPager" }
+      { component: "FCard" },
+      { component: "FSectionCard" },
+      { component: "FInline" },
+      { component: "FHr" },
+      { component: "FVr" }
     ]
   },
   {
@@ -132,23 +138,23 @@ export default [
     ]
   },
   {
-    title: "Add interaction",
+    title: "Interaction",
     items: [
       {
         title: "Add interaction",
-        file: "./advanced/state.md"
+        file: "./content/interaction.md"
       },
-      { component: "FAnimation" },
       { component: "FSlider" },
+      { component: "FAnimation" },
       { component: "FButtons" },
       { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
-      { component: "FBuffer" }
+      { component: "FBuffer" },
     ]
   },
   {
-    title: "Get remote data",
+    title: "Remote data",
     items: [
       { component: "FFetch" },
       { component: "FSheet" },
@@ -156,27 +162,7 @@ export default [
     ]
   },
   {
-    title: "Bring math alive",
-    items: [
-      {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" }
-    ]
-  },
-  {
-    title: "Adding tables",
-    items: [
-      {
-        title: "Adding tables",
-        file: "./content/tables.md"
-      },
-      { component: "FTable" }
-    ]
-  },
-  {
-    title: "Add icons",
+    title: "Icons",
     items: [
       { component: "FFactIcon" },
       { component: "FActivityIcon" },
@@ -196,11 +182,11 @@ export default [
     ]
   },
   {
-    title: "VR / A-Frame",
+    title: "VR",
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
-    title: "For developers",
+    title: "Developers",
     items: [
       {
         title: "Global events",
@@ -219,7 +205,9 @@ export default [
       { component: "FContent" },
       { component: "FContentEditor" },
       { component: "FFade" },
-      { component: "FBounce" }
+      { component: "FBounce" },
+      { component: "FHr" },
+      { component: "FVr" }
     ]
   }
 ];

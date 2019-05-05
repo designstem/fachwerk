@@ -5,6 +5,7 @@
 - f-sidebar > * accept title
 - notes width
 - editor hide
+- trim in f-table
 
 ## Current
 
@@ -395,3 +396,18 @@ Next step →
 ```
 
 </details>
+
+---
+
+
+#### Set global value with text input
+
+Lets set up a textfield to control value `d`:
+
+<input
+	type="text"
+	:value="get('d', 0)"
+  v-on:input="e => set('d',e.target.value)"
+/>
+
+<output>d is currently: {{ get('d', 0) }}</output>

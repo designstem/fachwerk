@@ -6,9 +6,17 @@ export default {
 A \`<table>\`, accepting array of objects as \`:rows\`.
 
 <f-table :rows="[
-  { name: 'Klaus', born: 1926 },
-  { name: 'Werner', born: 1942 }
-]"/>  
+  {
+  	name: 'Klaus',
+    born: '1926',
+    profession: 'Actor'
+  },
+  {
+  	name: 'Werner',
+    born: '1942',
+    profession: 'Director'
+  }
+]"/>
   `,
   props: { rows: { default: [], type: Array } },
   template: `

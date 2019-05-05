@@ -73,7 +73,7 @@ Fachwerk has several setup options:
 
 Fachwerk builtin components inside Markdown files are very powerful, but they can can be to long and unwieldy to be handled inside content.
 
-The solution is to extract complex components to separate component files. They can still communicate with builtin components and document with global state and events (see the [documentation](/docs) in 🔮**Advanced Guides**).
+The solution is to extract complex components to separate component files. They can still communicate with builtin components and document with global state and events.
 
 Here is how to do it:
 
