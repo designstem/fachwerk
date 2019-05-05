@@ -46,29 +46,20 @@ export default [
     ]
   },
   {
-    title: "Layout & Navigation",
+    title: "Layout and navigation",
     items: [
       {
         title: "Layout and grid",
         file: "./content/layout.md",
       },
       {
-        title: "Creating pages",
-        file: "./content/slide.md",
-      },
-      { component: "FInline" },
-      { component: "FCard" },
-      { component: "FHr" },
-      { component: "FVr" }
-    ]
-  },
-  {
-    title: "Adding navigation",
-    items: [
-      {
-        title: "Adding navigation",
+        title: "Creating slides",
         file: "./content/navigation.md",
         type: 'slides'
+      },
+      {
+        title: "Slide setup",
+        file: "./content/slide.md",
       },
       {
         title: "Adding buttons",
@@ -76,10 +67,13 @@ export default [
       },
       { component: "FNextButton" },
       { component: "FPrevButton" },
-      { component: "FSectionCard" },
+      { component: "FPager", type: 'slides' },
       { component: "FMenu" },
-      { component: "FPager" },
+      { component: "FCard" },
+      { component: "FSectionCard" },
       { component: "FInline" },
+      { component: "FHr" },
+      { component: "FVr" }
     ]
   },
   {
@@ -160,7 +154,7 @@ export default [
     ]
   },
   {
-    title: "Get remote data",
+    title: "Remote data",
     items: [
       { component: "FFetch" },
       { component: "FSheet" },
