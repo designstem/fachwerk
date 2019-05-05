@@ -1,6 +1,10 @@
 import Object2D from "./internal/Object2D.js";
-import { color } from "../../../fachwerk.js"
-
+import {
+  color,
+  positionTransform,
+  rotationTransform,
+  scaleTransform
+} from "../../../fachwerk.js";
 
 export default {
   mixins: [Object2D],
@@ -12,21 +16,26 @@ Adds a text to the \`f-scene\`.
 </f-scene>
   `,
   props: {
-    x: { default: 0, type: [Number,String] },
-    y: { default: 0, type: [Number,String] },
+    x: { default: "", type: [Number, String] },
+    y: { default: "", type: [Number, String] },
     fill: { default: "color('primary')", type: String },
-    position: { default: '0 0', type: [String, Number, Object, Array] },
-    rotation: { default: '0', type: [String, Number, Object, Array] },
-    scale: { default: '1', type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: [Number,String] },
+    position: { default: "0 0", type: [String, Number, Object, Array] },
+    rotation: { default: "0", type: [String, Number, Object, Array] },
+    scale: { default: "1", type: [String, Number, Object, Array] },
+    opacity: { default: 1, type: [Number, String] }
   },
   computed: {
+    currentTransform() {
+      return `${positionTransform(
+        this.x || this.y ? [this.x || 0, this.y || 0] : this.position
+      )} ${rotationTransform(this.rotation)} ${scaleTransform(this.scale)}`;
+    },
     fillColor() {
-      return this.fill == "color('primary')" ? color('primary') : this.fill
+      return this.fill == "color('primary')" ? color("primary") : this.fill;
     }
   },
   template: `
-  <f-group :position="{x: x, y: y}" :transform="transform">
+  <f-group :transform="currentTransform">
     <text
       text-anchor="middle"
       alignment-baseline="middle"
@@ -35,9 +44,10 @@ Adds a text to the \`f-scene\`.
         fontFamily: 'var(--font-mono)',
         fill: fillColor
       }"
+      y="-1.5"
     >
       <slot />
     </text>
   </f-group>
   `
-}
+};

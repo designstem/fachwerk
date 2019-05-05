@@ -1,6 +1,6 @@
 export default [
   {
-    title: "🔮 Content guides",
+    title: "Getting started",
     items: [
       {
         title: "Getting started",
@@ -9,35 +9,22 @@ export default [
       {
         title: "Release notes",
         file: "../RELEASES.md"
-      },
+      }
+    ]
+  },
+  {
+    title: "Creating content",
+    items: [
       {
-        title: "Writing content",
+        title: "Creating content",
         file: "./content/writing.md"
       },
-      {
-        title: "Adding buttons",
-        file: "./content/buttons.md"
-      },
-      {
-        title: "Slide setup",
-        file: "./content/slide.md"
-      },
-      {
-        title: "Layout and grid",
-        file: "./content/layout.md"
-      },
-      {
-        title: "Adding navigation",
-        file: "./content/navigation.md"
-      },
-      {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      {
-        title: "Formatting tables",
-        file: "./content/tables.md"
-      },
+      { component: "FImage" },
+      { component: "FVideo" },
+      { component: "FSidebar" },
+      { component: "FNotes" },
+      { component: "FEmbed" },
+      { component: "FIconHeading" },
       {
         title: "Using colors",
         file: "./content/colors.md"
@@ -49,37 +36,42 @@ export default [
     ]
   },
   {
-    title: "🔮 2D graphics guides",
+    title: "Adjusting layout",
     items: [
       {
-        title: "Setting up 2D scene",
-        tbd: true
+        title: "Slide setup",
+        file: "./content/slide.md"
       },
       {
-        title: "Drawing spirals",
-        file: "./2d/spirals.md"
-      }
+        title: "Layout and grid",
+        file: "./content/layout.md"
+      },
+      { component: "FInline" },
+      { component: "FHr" },
+      { component: "FVr" },
     ]
   },
   {
-    title: "🔮Advanced guides",
+    title: "Adding navigation",
     items: [
       {
-        title: "Global state",
-        file: "./advanced/state.md"
+        title: "Adding navigation",
+        file: "./content/navigation.md"
       },
       {
-        title: "Global events",
-        file: "./advanced/events.md"
+        title: "Adding buttons",
+        file: "./content/buttons.md"
       },
-      {
-        title: "Testing",
-        file: "./advanced/testing.md"
-      }
+      { component: "FNextButton" },
+      { component: "FPrevButton" },
+      { component: "FCard" },
+      { component: "FSectionCard" },
+      { component: "FMenu" },
+      { component: "FPager" }
     ]
   },
   {
-    title: "📦2D graphics",
+    title: "2D graphics",
     items: [
       { component: "FScene" },
       { component: "FArtboard" },
@@ -99,7 +91,7 @@ export default [
     ]
   },
   {
-    title: "📦2D patterns",
+    title: "2D patterns",
     items: [
       { component: "FGridPattern" },
       { component: "FBrickPattern" },
@@ -112,7 +104,7 @@ export default [
     ]
   },
   {
-    title: "📦2D canvas",
+    title: "2D canvas",
     items: [
       { component: "FCanvas" },
       { component: "FPixel" },
@@ -120,7 +112,7 @@ export default [
     ]
   },
   {
-    title: "📦3D graphics",
+    title: "3D graphics",
     items: [
       { component: "FScene3" },
       { component: "FGrid3" },
@@ -140,35 +132,47 @@ export default [
     ]
   },
   {
-    title: "📦Dynamic content",
+    title: "Add interaction",
     items: [
+      {
+        title: "Add interaction",
+        file: "./advanced/state.md"
+      },
       { component: "FAnimation" },
       { component: "FSlider" },
+      { component: "FButtons" },
+      { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
       { component: "FBuffer" },
-      { component: "FFetch" },
-      { component: "FSheet" },
-      { component: "FReceive" },
-      { component: "FKeyboard" },
-      { component: "FMath" },
-      { component: "FImage" },
-      { component: "FVideo" },
-      { component: "FSidebar" },
-      { component: "FNotes" },
-      { component: "FEmbed" },
-      { component: "FInline" },
-      { component: "FPager" },
-      { component: "FNextButton" },
-      { component: "FPrevButton" },
-      { component: "FButtons" },
-      { component: "FCard" },
-      { component: "FSectionCard" },
-      { component: "FIconHeading" }
     ]
   },
   {
-    title: "📦Icons",
+    title: "Get remote content",
+    items: [{ component: "FFetch" }, { component: "FSheet" }]
+  },
+  {
+    title: "Bringing math alive",
+    items: [
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+      { component: "FMath" }
+    ]
+  },
+  {
+    title: "Adding tables",
+    items: [
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" }
+    ]
+  },
+  {
+    title: "Add icons",
     items: [
       { component: "FFactIcon" },
       { component: "FActivityIcon" },
@@ -188,13 +192,23 @@ export default [
     ]
   },
   {
-    title: "📦Advanced layouts",
+    title: "VR / A-Frame",
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
+  },
+  {
+    title: "For developers",
     items: [
+      {
+        title: "Global events",
+        file: "./advanced/events.md"
+      },
+      { component: "FReceive" },
+      {
+        title: "Testing",
+        file: "./advanced/testing.md"
+      },
       { component: "FHeader" },
       { component: "FFooter" },
-      { component: "FTable" },
-      { component: "FHr" },
-      { component: "FVr" },
       { component: "FTabs" },
       { component: "FTheme" },
       { component: "FEditor" },
@@ -203,9 +217,5 @@ export default [
       { component: "FFade" },
       { component: "FBounce" }
     ]
-  },
-  {
-    title: "📦VR / A-Frame",
-    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   }
 ];

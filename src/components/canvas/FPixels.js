@@ -3,17 +3,11 @@ export default {
   description: `
 Creates a bitmap on a canvas from \`width × height \` array of pixels. Each pixel is going through \`:pixel\` function that returns pixel color as  \`[r,g,b,a]\`.
 
-<f-inline>
-  <f-canvas width="100" height="100">
-    <f-pixels :pixel="index => [random(0,255),0,0,255]" />
-  </f-canvas>
-  <f-canvas width="100" height="100">
-    <f-pixels :pixel="index => [0,random(0,255),0,255]" />
-  </f-canvas>
-  <f-canvas width="100" height="100">
-    <f-pixels :pixel="index => [0,0,random(0,255),255]" />
-  </f-canvas>
-</f-inline>
+<f-canvas>
+  <f-pixels :pixel="index => [random(0,255),random(0,255),random(0,255),255]" />
+</f-canvas>
+
+<p />
   `,
   props: {
     pixel: { default: index => [0,0,0,255], type: Function }

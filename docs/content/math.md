@@ -53,7 +53,7 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
   v-on:value="i => set('r', i)"
 />
   
-<f-scene grid>
+<f-scene grid width="200" height="200">
   <f-circle
     :fill="color('orange')"
     stroke-width="0"
@@ -63,7 +63,7 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
   <f-line :x2="get('r',1)" :stroke="color('blue')" />
 </f-scene>
 
-<f-scene grid>
+<f-scene grid width="200" height="200">
   <f-box
     :fill="color('orange')"
     stroke-width="0"

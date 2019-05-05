@@ -6,12 +6,22 @@ Displays navigation menu.
 
 <f-menu>
 
-### Here is a navigation menu
+### I am a menu content
+
+<button v-on:click="send('menu')">Trigger menu</button>
 
 </f-menu>
+
+Displays a navigation menu. It can display inline content as shown here. Also the content can be fetched from local or remote file (using \`src\` prop).
+
+Menu also responds to \`menu\` event that triggers menu opening and closing:
+
+<button v-on:click="send('menu')">Trigger menu</button>
+
+
   `,
   props: {
-    src: { default: './menu.md', type: String },
+    src: { default: '', type: String },
   },
   data: () => ({ open: false }),
   mounted() {

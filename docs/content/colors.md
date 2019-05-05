@@ -1,7 +1,5 @@
 # Using colors
 
-### Preset colors
-
 A compact set of useful colors are available as CSS variables, `var(--purple)` and Javascript functions `color('purple')`:
 
 <f-scene

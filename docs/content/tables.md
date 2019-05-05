@@ -2,44 +2,51 @@
 
 Tables can be created with several methods:
   
-#### Text format
+### Markdown format
 
 For simple tables, a following syntax can be used. Note that the table cells can contain additional formatting.
 
-Name        | Born
------------ | -----------
-Klaus       | `1926`
-Werner      | `1942`  
-
-<br>
+Name        | Born        | Profession
+----------- | ----------- | ----------
+Klaus       | 1926        | Actor
+Werner      | 1942        | Director
   
-#### Component format
-
-When table data is coming from another datasorce, it makes sense to use a dedicated `<f-table>` component that accepts data as a Javascript collection `:rows`:
-
-<f-table :rows="[
-  { name: 'Klaus', born: '`1926`' },
-  { name: 'Werner', born: '`1942`' }
-]"/>
-
-<br>
-  
-#### HTML format
+### HTML format
 
 There is also a classic HTML table format available:
 <table>
   <thead>
     <th>Name</th>
     <th>Born</th>
+    <th>Profession</th>
   </thead>
   <tbody>
     <tr>
       <td>Klaus</td>
-      <td><code>1926</code></td>
+      <td>1926</td>
+      <td>Actor</td>
     </tr>
     <tr>
       <td>Werner</td>
-      <td><code>1942</code></td>
+      <td>1942</td>
+      <td>Director</td>
     </tr>
   </tbody>
 </table>
+
+### Component format
+
+When table data is coming from another datasorce, it makes sense to use a dedicated `<f-table>` component that accepts data as a Javascript collection `:rows`:
+
+<f-table :rows="[
+  {
+  	name: 'Klaus',
+    born: '1926',
+    profession: 'Actor'
+  },
+  {
+  	name: 'Werner',
+    born: '1942',
+    profession: 'Director'
+  }
+]"/>

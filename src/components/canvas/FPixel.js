@@ -9,8 +9,10 @@ Draws a single pixel onto a 2D canvas.
 > For drawing multiple pixels, use more performant \`f-pixels\`.
 
 <f-canvas>
-  <f-pixel x="150" y="150" />
+  <f-pixel v-for="p in 300" :key="p" :x="random(0,300)" :y="random(0,300)" />
 </f-canvas>
+
+<p />
     `,
   props: {
     x: { default: 0, type: [Number, String] },
