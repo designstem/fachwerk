@@ -3,11 +3,11 @@ export default {
 Fetches data via AJAX.
 
 <f-fetch
-  src="https://bit.ly/2YOJYNf"
+  src="https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49"
   type="json"
   v-slot="{ value }"
 >
-  <output>Berlin weather: {{ value.weather[0].main }}</output>
+  <pre>{{ value.description }}</pre>
 </f-fetch>
   `,
   data: () => ({ value: null, loaded: false }),

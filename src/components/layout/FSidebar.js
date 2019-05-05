@@ -23,7 +23,14 @@ Sidebars load can be either inline or load from a file.
   },
   data: () => ({ currentOpen: false }),
   mounted() {
-    this.$watch("open", open => (this.currentOpen = open), { immediate: true });
+    this.$watch(
+      "open",
+      open => {
+        console.log('Initial', open);
+        this.currentOpen = open;
+      },
+      { immediate: true }
+    );
   },
   template: `
     <span>

@@ -4,11 +4,17 @@ export default {
   description: `
 Displays speaker / teacher notes.
 
+Notes also respond to \`opennotes\` and \`closenotes\` events that trigger notes opening and closing.
+
+<button v-on:click="send('opennotes')">Open notes</button>
+
 <f-notes>
 
-#### A Note
+### I am a notes content
 
-> Here is a speaker note
+<button v-on:click="send('closenotes')">
+  Close notes
+</button>
 
 </f-notes>
   `,
@@ -20,7 +26,8 @@ Displays speaker / teacher notes.
   },
   data: () => ({ open: false }),
   mounted() {
-    Vue.prototype.$global.$on("notes", () => (this.open = !this.open));
+    Vue.prototype.$global.$on("opennotes", () => this.open = true);
+    Vue.prototype.$global.$on("closenotes", () => this.open = false);
   },
   // @TODO: Fix top calculation
   template: `
