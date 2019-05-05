@@ -20,7 +20,7 @@ Displays speaker / teacher notes.
   },
   data: () => ({ open: false }),
   mounted() {
-    Vue.prototype.$global.$on("notes", () => (this.open = !this.open));
+    Vue.prototype.$global.$on("notes", open => this.open = open || true);
   },
   // @TODO: Fix top calculation
   template: `
