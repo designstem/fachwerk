@@ -56,8 +56,6 @@ export default [
         title: "Creating pages",
         file: "./content/slide.md",
       },
-<<<<<<< HEAD
-=======
       { component: "FInline" },
       { component: "FCard" },
       { component: "FHr" },
@@ -67,7 +65,6 @@ export default [
   {
     title: "Adding navigation",
     items: [
->>>>>>> master
       {
         title: "Adding navigation",
         file: "./content/navigation.md",
@@ -159,16 +156,7 @@ export default [
       { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
-<<<<<<< HEAD
       { component: "FBuffer" },
-      { component: "FFetch" },
-      { component: "FSheet" }
-    ]
-  },
-  {
-    title: "Icons",
-=======
-      { component: "FBuffer" }
     ]
   },
   {
@@ -180,28 +168,7 @@ export default [
     ]
   },
   {
-    title: "Bring math alive",
-    items: [
-      {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" }
-    ]
-  },
-  {
-    title: "Adding tables",
-    items: [
-      {
-        title: "Adding tables",
-        file: "./content/tables.md"
-      },
-      { component: "FTable" }
-    ]
-  },
-  {
-    title: "Add icons",
->>>>>>> master
+    title: "Icons",
     items: [
       { component: "FFactIcon" },
       { component: "FActivityIcon" },
