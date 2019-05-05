@@ -1,15 +1,8 @@
-| section: ONE
+<f-websocket
+  src="https://eka-server.now.sh"
+  v-slot="{ send }"
+  @message="m => set('m',m)">
+  <button v-on:click="send('Hello')">Send</button>
+</f-websocket>
 
-<button v-on:click="send('menu')">Menu</button>
-
-<button v-on:click="send('notes')">Notes</button>
-
-<f-notes>Hello</f-notes>
-
-# Hello world
-
----
-
-| section: TWO
-
-# Ahaa
+Message {{ get('m') }}

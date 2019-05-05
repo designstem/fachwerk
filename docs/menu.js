@@ -47,8 +47,9 @@ export default [
         file: "./content/layout.md"
       },
       { component: "FInline" },
+      { component: "FCard" },
       { component: "FHr" },
-      { component: "FVr" },
+      { component: "FVr" }
     ]
   },
   {
@@ -64,7 +65,6 @@ export default [
       },
       { component: "FNextButton" },
       { component: "FPrevButton" },
-      { component: "FCard" },
       { component: "FSectionCard" },
       { component: "FMenu" },
       { component: "FPager" }
@@ -144,15 +144,19 @@ export default [
       { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
-      { component: "FBuffer" },
+      { component: "FBuffer" }
     ]
   },
   {
-    title: "Get remote content",
-    items: [{ component: "FFetch" }, { component: "FSheet" }]
+    title: "Get remote data",
+    items: [
+      { component: "FFetch" },
+      { component: "FSheet" },
+      { component: "FWebsocket" }
+    ]
   },
   {
-    title: "Bringing math alive",
+    title: "Bring math alive",
     items: [
       {
         title: "Bringing math alive",

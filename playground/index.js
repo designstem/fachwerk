@@ -1,3 +1,5 @@
 import { fachwerk } from "../src/fachwerk.js";
 
-fachwerk();
+import FWebsocket from './FWebsocket.js'
+
+fachwerk({ components: { FWebsocket }});

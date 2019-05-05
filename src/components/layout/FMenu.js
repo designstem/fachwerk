@@ -1,4 +1,4 @@
-import { Vue } from "../../../fachwerk.js"
+import { Vue } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -20,15 +20,12 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
 
   `,
   props: {
-    src: { default: '', type: String },
+    src: { default: "", type: String }
   },
   data: () => ({ open: false }),
   mounted() {
-    Vue.prototype.$global.$on('openmenu', () => this.open = true)
-    Vue.prototype.$global.$on('closemenu', () => {
-      console.log('aaa');
-      this.open = false
-    })
+    this.$global.$on("openmenu", () => (this.open = true));
+    this.$global.$on("closemenu", () => (this.open = false));
   },
   template: `
   <f-sidebar

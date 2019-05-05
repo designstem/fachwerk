@@ -6,7 +6,7 @@ export default {
   description: `
 A basic \`a-scene\` wrapper from [A-Frame](https://aframe.io/). Adds embedding, background color and look-based cursor. 
 
-A-Frame is not included in standard Fachwerk release. Add following lines to \`index.html\` to load A-Frame:
+***Note*** A-Frame is not included in standard Fachwerk release. Add following lines to \`index.html\` to load A-Frame:
 
     <script src="https://unpkg.com/aframe"></script>
     <script src="https://unpkg.com/aframe-rounded"></script>
