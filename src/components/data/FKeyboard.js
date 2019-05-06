@@ -7,7 +7,7 @@ export default {
     ctrl: { default: false, type: [Boolean, String] }
   },
   description: `
-Listens keypresses and emits \`@keydown\` and \`@keyup\` events.
+Listens keypresses and emits \`v-on:keydown\` and \`v-on:keyup\` events.
 
 <f-keyboard
   ctrl
