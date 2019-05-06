@@ -26,7 +26,6 @@ Sidebars load can be either inline or load from a file.
     this.$watch(
       "open",
       open => {
-        console.log('Initial', open);
         this.currentOpen = open;
       },
       { immediate: true }
