@@ -116,9 +116,9 @@ Shows Markdown content.
       <f-fade
         v-if="type == 'slides' ? i == currentIndex : true"
         :class="type == 'slides' ? 'fit' : ''"
+        class="cells"
         :style="{
           '--transition-duration': '0.1s',
-          display: 'grid',
           height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
@@ -170,6 +170,17 @@ Shows Markdown content.
   css: `
   .content {
     --base: var(--content-base);
+  }
+  .cells {
+    display: grid;
+  }
+  @media (max-width: 800px) {
+    .cells {
+      display: block;
+    }
+    .cell {
+      margin-top: var(--content-gap);
+    }
   }
   .cell p:last-child {
     margin: 0;
