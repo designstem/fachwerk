@@ -11,7 +11,9 @@ Key | Default | Description
 `\| background:`||Slide background image url
 `\| tint:`|`0.3`|Slide background image darkening
 `\| height:`|`100vh`|Minimum content height
-`\| 1 2 3`<br>`\| 4 5 6`|`\| 1 2 3 …`|Define a content grid. Use `-` to separate columns in the content.
+`\| 1 2 3`<br>`\| 4 5 6`|`\| 1 2 3 …`|Define a content grid. Use `-` to separate columns 
+`\| rows:`|`1fr 1fr ...`|CSS grid rows
+`\| cols:`|`1fr 1fr ...`|CSS grid columns
 
 
 

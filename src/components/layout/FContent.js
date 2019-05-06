@@ -120,8 +120,8 @@ Shows Markdown content.
         :style="{
           '--transition-duration': '0.1s',
           height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
-          gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-          gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
+          gridTemplateRows: slide.rows ? slide.rows : type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
