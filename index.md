@@ -1,11 +1,3 @@
-<f-animation
-	set="r"
-  from="0"
-  to="1"
-  alternate
-  easing="easeInQuad"
-/>
-
 <center>
   <f-scene>
     <f-rotation>
@@ -22,11 +14,21 @@
 
 <big><big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
+
+<f-slider
+	set="r"
+  value="0.5"
+  from="0"
+  to="1"
+/>
+
 <br>
 
 ## **1**Play
 
-<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything in the left column is **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code. For more cleaner state try our <a href="./playground">playground</a></big>
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code. 
+
+<big><a href="./playground" class="primary">Go to playground</a></big>
 
 <br>
 
@@ -43,7 +45,7 @@
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
 <big>
-  <a href="https://github.com/designstem/fachwerk" class="primary">Source on Github</a>
+  <a href="https://github.com/designstem/fachwerk#fachwerk" class="primary">README.md in Github</a>
 </big>
 
 ---
