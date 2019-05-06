@@ -50,6 +50,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--quaternary": "var(--darkergray)",
           "--emphasis": "var(--blue)",
           "--lightemphasis": "var(--black)",
+          "--purple": "var(--blue)"
         },
         yellow: {
           background: "var(--yellow)",
@@ -61,7 +62,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--lightgray)",
           "--quaternary": "var(--gray)",
-          "--icon-stroke": "var(--darkgray)"
+          "--icon-stroke": "var(--darkgray)",
         }
       }
     };

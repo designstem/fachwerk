@@ -30,7 +30,7 @@
             v-model="preview"
           ></f-buttons>
           <f-buttons
-            :buttons="['Light','Dark','Yellow']"
+            :buttons="['Light','Dark','Yellow','Blue']"
             :value="get('theme', 0)"
             v-on:input="i => set('theme', i)"
           ></f-buttons>
@@ -40,7 +40,7 @@
 
     <main style="min-height: 100vh">
 
-    <f-theme :theme="['light','dark','yellow'][get('theme',0)]">
+    <f-theme :theme="['light','dark','yellow','blue'][get('theme',0)]">
 
       <f-content-editor
         :content="content"
