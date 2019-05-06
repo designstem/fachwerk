@@ -13,7 +13,7 @@ Rotates the child elements in 3D space.
     duration: {
       default: 30000,
       type: [Number, String],
-      description: "Time for one rotation, in milliseconds."
+      description: "Time for full rotation, in milliseconds."
     }
   },
   template: `

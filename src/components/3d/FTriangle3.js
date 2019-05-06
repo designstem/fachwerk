@@ -4,19 +4,13 @@ import Object3D from "./internal/Object3D.js";
 
 export default {
   description: `
-The key building block of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in <code>:points</code> array.
+The key building block of 3D graphics, this component draws a triangle in 3D space. It accepts three 3D coordinates in \`points\` array.
 
 <f-scene3>
-  <f-group3 :rotation="{ y: 45, x: 45 }">
+  <f-rotation3>
     <f-grid3 />
-    <f-triangle3
-      :points="[
-        { x: 1, y: 1,  z: 0 },
-        { x: 1, y: 0,  z: 1 },
-        { x: 1, y: -1, z: 0 },
-      ]" 
-    /> 
-  </f-group3>
+    <f-triangle3 points="1 1 0, 1 0 1, 1 -1 0" /> 
+  </f-rotation3>
 </f-scene3>
   `,
   mixins: [Object3D],

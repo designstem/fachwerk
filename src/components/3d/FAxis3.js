@@ -3,10 +3,13 @@ import { color } from "../../../fachwerk.js"
 
 export default {
   description: `
-Description to be written.
+Displays \`x y z\` axis.
   
-<f-scene3 grid>
-  <f-axis3 />
+<f-scene3>
+  <f-rotation3>
+    <f-grid3 />
+    <f-axis3 />
+  </f-rotation3>
 </f-scene3>
   `,
   props: { innerWidth: { default: 2, type: [Number, String] } },

@@ -5,11 +5,14 @@ import { color, polarpoints, positionTransform } from "../../../fachwerk.js"
 export default {
   mixins: [Object2D],
   description: `
-Description to be written.
+Displays a \`count\`-sided regular polygon.
 
 <f-scene grid>
   <f-regularpolygon />
-  <f-regularpolygon count="3" />
+  <f-regularpolygon
+    count="3"
+    :stroke="color('red')"
+  />
 </f-scene>
   `,
   props: {

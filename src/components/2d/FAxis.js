@@ -3,7 +3,7 @@ import { color } from "../../../fachwerk.js"
 
 export default {
   description: `
-Description to be written.
+Displays \`x y\` axis.
 
 <f-scene grid>
   <f-axis />

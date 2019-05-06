@@ -49,25 +49,17 @@ export default [
     title: "Layout and navigation",
     items: [
       {
-        title: "Layout and grid",
+        title: "Setting up grid",
         file: "./content/layout.md",
       },
       {
-        title: "Creating slides",
+        title: "Creating pages",
         file: "./content/navigation.md",
         type: 'slides'
       },
-      {
-        title: "Slide setup",
-        file: "./content/slide.md",
-      },
-      {
-        title: "Adding buttons",
-        file: "./content/buttons.md"
-      },
       { component: "FNextButton" },
       { component: "FPrevButton" },
-      { component: "FPager", type: 'slides' },
+      { component: "FPager" },
       { component: "FMenu" },
       { component: "FCard" },
       { component: "FSectionCard" },
@@ -186,7 +178,7 @@ export default [
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
-    title: "Developers",
+    title: "Advanced",
     items: [
       {
         title: "Global events",

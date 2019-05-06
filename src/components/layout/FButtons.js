@@ -7,7 +7,7 @@ import {
 
 export default {
   description: `
-Description to be written.
+Displays a group of buttons.
 
 <f-buttons
   v-model="someVariable"
@@ -34,7 +34,7 @@ Description to be written.
     }
   },
   template: `
-    <div :style="{display: 'flex', marginLeft: '3px'}">
+    <div :style="{display: 'flex', marginLeft: '3px', marginBottom: 'var(--base2)'}">
       <div
         v-for="(button,i) in buttons"
         :key="i"

@@ -117,12 +117,6 @@ It is the same as to use `<blockquote>` tag it in HTML.
 
 </details>
 
-### Variables
-
-Variables can be marked as such: <var>variable</var>.
-
-There is a range of colors available for `<var>` tags: <var class="orange">orange</var> <var class="yellow">yellow</var> <var class="blue">blue</var> <var class="purple">purple</var> <var class="blue">blue</var> <var class="green">green</var> <var class="gray">gray</var>.
-
 ### Code
 
 For code snippets inside text use `this format`.

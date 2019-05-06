@@ -27,9 +27,7 @@ Allows dragging a set of points.
   </f-spin-pattern>
 </f-scene>
 
-<output>
-{{ get('p') }}
-</output> 
+<pre>{{ get('p') }}</pre> 
   `,
   props: {
     points: { default: "", type: [String, Number, Array, Object] },

@@ -5,13 +5,13 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays a 2D circle in 3D space
 
 <f-scene3>
-  <f-group3 :rotation="{ y: 45, x: 45 }">
+  <f-rotation3>
     <f-grid3 />
-    <f-circle3 />
-  </f-group3>
+    <f-circle3 opacity="0.5" />
+  </f-rotation3>
 </f-scene3>
   `,
   props: {

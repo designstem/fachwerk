@@ -5,20 +5,17 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays a straight or segmented line.
 
 <f-scene3>
-  <f-group3 :rotation="{ y: 45, x: 45 }">
-  <f-grid3 />
-  <f-line3
-    :points="[
-      { x: 1, y:  1, z: 0 },
-      { x: 1, y:  0, z: 1 },
-      { x: 1, y: -1, z: 0 },
-      { x: 1, y: -2, z: 0 },
-    ]"
-  />
-  </f-group3>
+  <f-rotation3>
+    <f-grid3 />
+    <f-line3 points="
+      1  1  0,
+      1  0  1,
+      1 -1  0
+    "/>
+  </f-rotation3>
 </f-scene3>
   `,
   mixins: [Object3D],

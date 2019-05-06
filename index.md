@@ -11,7 +11,7 @@
     <f-rotation>
       <f-circle-pattern :r="0.5 - (get('r') / 2)">
         <f-circle-pattern :r="get('r')">
-          <f-hexagon :stroke="color('purple')" />
+          <f-hexagon stroke="var(--purple)" />
         </f-circle-pattern>
       </f-circle-pattern>
     </f-rotation>

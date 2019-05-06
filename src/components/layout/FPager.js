@@ -5,14 +5,7 @@ export default {
 Sets a global pager for slides, shows prev / next buttons and also provides keyboard hotkeys.
 
 <f-pager />
-
----
-
-## f-pager
-
-> Hey, it worked!
-
-<f-pager />`,
+`,
   methods: { send, get },
   template: `
     <div>

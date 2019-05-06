@@ -4,15 +4,17 @@ import Object3D from "./internal/Object3D.js";
 
 export default {
   description: `
-Description to be written.
+Displays 3D lathe geometry.
 
 <f-scene3 renderer="webgl">
-  <f-grid3 />
-  <f-lathe3
-    scale="0.5"
-    count="12"
-    :points="range(-Math.PI,Math.PI,0.25).map(y => [Math.sin(y),y])"
-  />
+  <f-rotation3>
+    <f-grid3 />
+    <f-lathe3
+      scale="0.5"
+      count="12"
+      :points="range(-Math.PI,Math.PI,0.25).map(y => [Math.sin(y),y])"
+    />
+  </f-rotation3>
 </f-scene3>
   `,
   mixins: [Object3D],

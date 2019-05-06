@@ -5,8 +5,7 @@ import { d3, parseCoords } from "../../../fachwerk.js"
 export default {
   mixins: [Object2D],
   description: `
-
-Description to be written.
+Displays a straight, segmented or curved line.
 
 <f-scene grid>
   <f-line

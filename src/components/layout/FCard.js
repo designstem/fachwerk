@@ -1,6 +1,6 @@
 export default {
   description: `
-Decription TBD.
+Shows a content card.
 
 <f-card>Some content here</f-card>
 
@@ -13,6 +13,8 @@ Decription TBD.
 >
   Some content here
 </f-card>
+
+<p />
   `,
   props: {
     title: { default: "", type: String },

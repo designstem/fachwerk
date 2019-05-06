@@ -3,7 +3,7 @@ import { Vue, get, goto, send } from "../../../fachwerk.js";
 export default {
   description: ` 
 
-Card that navigates the user to particular section in slides.
+Shows a navigation card that navigate the user to particular page.
 
 <f-section-card
   title="Example section"

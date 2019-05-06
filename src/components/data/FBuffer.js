@@ -10,7 +10,7 @@ Initially all buffer values are \`0\` but it can be adjusted with a \`map\` prop
   <button @click="add(1)">Add 1 to buffer</button>
   <button @click="add(2)">Add 2 to buffer</button>
   <p />
-  <output>{{ value }}</output>
+  <pre>{{ value }}</pre>
 </f-buffer>
 
 #### Drawing with buffer

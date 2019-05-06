@@ -1,9 +1,5 @@
 # Global events
 
-> Events are most useful as oneoff commands. For setting a global state it is more useful to use `get()` and `set()` instead.
-
-### Examples
-
 #### Sending events
 
 You can send events from any part of the code to any part of the code using `send(name, value)` helper:

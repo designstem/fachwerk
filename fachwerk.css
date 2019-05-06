@@ -397,10 +397,10 @@ center {
 }
 
 section {
-  padding: var(--content-section-padding, var(--base3));
+  padding: var(--content-section-padding, var(--base4));
   color: var(--primary);
-  font-size: calc(var(--base) * 2);
-  line-height: calc(var(--base) * 3);
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* Extra */
@@ -434,7 +434,6 @@ var {
   color: var(--red);
   padding: 0 calc(var(--base) / 3);
   font-family: KaTeX_Math, var(--font-serif) !important;
-  font-style: italic;
   font-size: 1.25em;
   white-space: pre-wrap;
   border-radius: 2px;

@@ -2,6 +2,7 @@
 
 ## Default
 
+- fix polygon3
 - f-sidebar > * accept title
 - notes width
 - editor hide

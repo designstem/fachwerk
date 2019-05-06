@@ -6,7 +6,7 @@ export default {
   mixins: [Object2D],
   description: `
 
-Description to be written.
+Displays a point in 2D space.
 
 #### A single point
 
@@ -43,6 +43,7 @@ Description to be written.
     points: { default: '', type: [String, Number, Array, Object] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number,String] },
+    r: { default: '', type: [Number,String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
@@ -64,7 +65,7 @@ Description to be written.
         :key="i"
         :points="[point,point]"
         :stroke="strokeColor"
-        :stroke-width="strokeWidth"
+        :stroke-width="r || strokeWidth"
         stroke-linecap="round"
         stroke-linejoin="round"
         :opacity="opacity"
@@ -73,7 +74,7 @@ Description to be written.
         v-if="!currentPoints"
         :points="[[x, y],[x, y]]"
         :stroke="strokeColor"
-        :stroke-width="strokeWidth"
+        :stroke-width="r || strokeWidth"
         stroke-linecap="round"
         stroke-linejoin="round"
         :opacity="opacity"
