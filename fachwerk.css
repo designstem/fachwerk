@@ -317,7 +317,7 @@ blockquote p:last-child {
 del {
   font-family: var(--font-serif);
   text-decoration: none;
-  font-size: 1.1em !important;
+  font-size: 1.05em !important;
   line-height: 1.6em !important;
 }
 

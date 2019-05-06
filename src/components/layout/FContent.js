@@ -116,12 +116,13 @@ Shows Markdown content.
       <f-fade
         v-if="type == 'slides' ? i == currentIndex : true"
         :class="type == 'slides' ? 'fit' : ''"
+        class="cells"
         :style="{
           '--transition-duration': '0.1s',
-          display: 'grid',
+          ddisplay: 'grid',
           height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
-          gridTemplateColumns: 'repeat(' + slide.colCount + ', 1fr)',
-          gridTemplateRows: type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateColumns: slide.columns ? slide.columns : 'repeat(' + slide.colCount + ', minmax(1fr,500px))',
+          gridTemplateRows: slide.rows ? slide.rows : type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,
           gridAutoRows: '',
           gridAutoColumns: '',
@@ -163,13 +164,24 @@ Shows Markdown content.
       description: "Padding around `section` tag"
     },
     "--content-base": {
-      default: "calc(var(--base) / 2 + 0.5vw)",
+      default: "calc(var(--base) / 1.5 + 0.3vw)",
       description: "Gap between content columns"
     }
   },
   css: `
   .content {
     --base: var(--content-base);
+  }
+  .cells {
+    display: grid;
+  }
+  @media (max-width: 800px) {
+    .cells {
+      display: block;
+    }
+    .cell {
+      margin-top: var(--content-gap);
+    }
   }
   .cell p:last-child {
     margin: 0;
