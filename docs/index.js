@@ -230,6 +230,7 @@ Function can be imported using Javascript import:
       <a href="..">Fachwerk</a>&nbsp;&nbsp; 
       <a href=".">Docs</a>&nbsp;&nbsp; 
       <a href="../playground" target="_blank">Playground</a>&nbsp;&nbsp; 
+      <a href="https://designstem.github.io/scenarios" target="_blank">Examples</a>&nbsp;&nbsp;&nbsp;
       <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
     </div>
     <div>
