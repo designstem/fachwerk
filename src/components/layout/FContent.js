@@ -193,5 +193,12 @@ Shows Markdown content.
   .fit > .cell {
     --image-min-height: 0;
   }
+  .cell h1:only-child,
+  .cell h2:only-child,
+  .cell h3:only-child,
+  .cell h4:only-child,
+  .cell h5:only-child {
+    margin: 0;
+  }
   `
 };
