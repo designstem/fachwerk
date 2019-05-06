@@ -6,7 +6,7 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 
 Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technologies such as Javascript imports / exports and CSS variables. It provides an easy onboarding without any complex tooling or setup. Yes, this means **_there is no build step_** 🦄
 
-## Getting started
+## Quickstart
 
 Easiest way to have a custom Fachwerk application is to create a three files in your machine
 
