@@ -5,26 +5,17 @@ import { color } from "../../../fachwerk.js"
 export default {
   mixins: [Object2D],
   example: `
-Description to be written.
+Displays a closed polygon based on points.
 
 <f-scene>
   <f-grid />
+  <f-polygon points="0 0, 1 0, 0 1" />
   <f-polygon
-    :points="[
-      { x: 0, y: 0 },
-      { x: 1, y: 0 },
-      { x: 0, y: 1 },
-    ]"
-  />
-  <f-polygon
-    :points="[
-      { x: 0, y: 0 },
-      { x: 1, y: 0 },
-      { x: 0, y: 1 },
-    ]"
-    :position="{ x: 1, y: 1 }"
-    :rotation="{ z: 45 }"
-    :scale="{ x: 0.2, y: 0.2 }"
+    points="0 0, 1 0, 0 1"
+    position="1 1"
+    rotation="180"
+    scale="0.25"
+    :stroke="color('red')"
   />
 </f-scene>
   `,

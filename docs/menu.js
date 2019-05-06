@@ -178,7 +178,7 @@ export default [
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
-    title: "Developers",
+    title: "Advanced",
     items: [
       {
         title: "Global events",

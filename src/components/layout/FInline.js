@@ -3,10 +3,11 @@ import { Css } from '../../../fachwerk.js'
 export default {
   mixins: [Css],
   description: `
-> Note: this component will be renamed to \`f-flex\`. \`f-inline\` will likely stay but will support the simpler use case.
 
 Inline layout component based on [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Flexbox
 ).
+
+***Note*** This component will be renamed to \`f-flex\`. \`f-inline\` will likely stay but will support the simpler use case.
 
 <f-inline>
   <button>Button 1</button>

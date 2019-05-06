@@ -5,16 +5,14 @@ import { color, parseCoords } from "../../../fachwerk.js"
 export default {
   mixins: [Object2D],
   description: `
-Description to be written.
+Displays a 2D rectangle.
 
-<f-scene>
-  <f-grid />
+<f-scene grid>
   <f-box />
   <f-box
-    :points="[{x: -1},{x: 0},{x: 1}]"
-    :r="0.1"
-    width="0.2"
-    height="0.2"
+    points="-1 0, 0 0, 1 0"
+    r="0.25"
+    :stroke="color('red')"
   />
 </f-scene>
   `,

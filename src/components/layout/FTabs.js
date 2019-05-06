@@ -1,11 +1,9 @@
 export default {
   tag: 'Layout',
   description: `
-Description to be written.
-
+Displays navigation tabs.
 
 <f-tabs
-  v-model="someVariable"
   :buttons="['First','Second']"
 />
   `,

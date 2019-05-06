@@ -5,32 +5,14 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays regular 3D hedron with optional \`height\` parameter.
 
 <f-scene3>
-  <f-grid3 />
-  <f-hedron3 shading />
+  <f-rotation3>
+    <f-grid3 />
+    <f-hedron3 shading height="1" />
+  </f-rotation3>
 </f-scene3>
-
-  <f-animation
-    :duration="1000 * 20"
-  >
-  <f-scene3 slot-scope="data">
-    <f-group3
-      :rotation="{
-        x: data.value,
-        y: data.value
-      }"
-    >
-      <f-grid3 />
-      <f-hedron3
-        :count="6"
-        :height="1"
-        shading
-      />
-    </f-group3>
-  </f-scene3>
-  </f-animation>
   `,
   methods: { polarpoints },
   props: {

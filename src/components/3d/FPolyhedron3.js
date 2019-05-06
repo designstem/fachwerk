@@ -3,22 +3,32 @@ import Object3D from "./internal/Object3D.js";
 
 export default {
   description: `
-Description to be written.
+Displays a polyhedron geometry in 3D space.
 
 <f-scene3>
-  <f-grid3 />
-  <f-polyhedron3
-    v-for="(hedron,i) in [
-      'Tetrahedron',
-      'Octahedron',
-      'Icosahedron',
-      'Dodecahedron'
-    ]"
-    :key="i"
-    :hedron="hedron"
-    :position="{x: i - 1.5}"
-    :r="0.5"
-  />
+  <f-rotation3>
+    <f-grid3 />
+    <f-polyhedron3
+      hedron="Tetrahedron"
+      position="-1.5 0 0"
+      scale="0.5"
+    />
+    <f-polyhedron3
+      hedron="Octahedron"
+      position="-0.5 0 0"
+      scale="0.5"
+    />
+    <f-polyhedron3
+      hedron="Icosahedron"
+      position="0.5 0 0"
+      scale="0.5"
+    />
+    <f-polyhedron3
+      hedron="Dodecahedron"
+      position="1.5 0 0"
+      scale="0.5"
+    />
+  </f-rotation3>
 </f-scene3>  
   `,
   mixins: [Object3D],

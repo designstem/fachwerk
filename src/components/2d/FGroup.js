@@ -3,7 +3,7 @@ import Object2D from "./internal/Object2D.js";
 export default {
   mixins: [Object2D],
   description: `
-Groups child elements and applies geometric transformations to the group.
+Groups child elements and applies 2D transformations to the group.
 
 <f-scene grid>
   <f-group

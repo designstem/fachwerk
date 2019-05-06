@@ -3,7 +3,7 @@ import Object2D from "./internal/Object2D.js";
 export default {
   mixins: [Object2D],
   description: `
-Generates a rectangular grid.
+Displays a 2D rectangular grid.
 
 Compared to \`<f-scene grid>\` it allows allows greater freedom to generate custom grids using transformation parameters.
 

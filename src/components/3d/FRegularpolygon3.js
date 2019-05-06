@@ -5,14 +5,18 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays 2D regular polygon in 3D space.
 
 <f-scene3>
-  <f-group3 :rotation="{ y: 45, x: 45 }">
+  <f-rotation3>
     <f-grid3 />
     <f-regularpolygon3 opacity="0.5" />
-    <f-regularpolygon3 :count="3" />
-  </f-group3>
+    <f-regularpolygon3
+      opacity="0.5"
+      count="3"
+      :stroke="color('red')"
+    />
+  </f-rotation3>
 </f-scene3>
   `,
   props: {

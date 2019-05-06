@@ -5,10 +5,15 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays a 3D rectangular grid.
 
-<f-scene3>
-  <f-grid3 :rotation="{ y: 45, x: 45 }" />
+Compared to \`<f-scene3 grid>\` it allows allows greater freedom to generate custom grids using transformation parameters.
+  
+<f-scene3 grid>
+  <f-rotation3>
+    <f-grid3 position="-1 0 0" scale="0.25" />
+    <f-grid3 position="1 0 0"  scale="0.25" />
+  </f-rotation3>
 </f-scene3>
   `,
   props: {

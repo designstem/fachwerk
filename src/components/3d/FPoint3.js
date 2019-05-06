@@ -5,23 +5,26 @@ import Object3D from "./internal/Object3D.js";
 export default {
   mixins: [Object3D],
   description: `
-Description to be written.
+Displays a point in 3D space.
 
 <f-scene3>
-  <f-point3 />
-  <f-group3 :rotation="{ y: 45, x: 45 }">
-  <f-grid3 />
-  <f-point3
-    :points="range(-4,4,0.05)
-    .map(x => ({ x, y: Math.cos(x), z: Math.sin(x) }))"
-    :stroke="color('red')"
-  />
-  <f-point3
-    :points="range(-4,4,0.05)
-    .map(x => ({ x, y: Math.sin(x), z: Math.cos(x) }))"
+  <f-rotation3>
+    <f-grid3 />
+    <f-point3
+      :points="
+        range(-4,4,0.05)
+          .map(x => [x,Math.cos(x),Math.sin(x)])
+      "
+      :stroke="color('red')"
+    />
+    <f-point3
+    :points="
+      range(-4,4,0.05)
+        .map(x => [x,Math.sin(x),Math.cos(x)])
+    "
     :stroke="color('blue')"
-  />
-  </f-group3>
+    />
+  </f-rotation3>
 </f-scene3>
   `,
   props: {

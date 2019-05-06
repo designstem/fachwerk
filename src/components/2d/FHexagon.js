@@ -3,11 +3,14 @@ import Object2D from "./internal/Object2D.js";
 export default {
   mixins: [Object2D],
   description: `
-Description to be written.
+Displays a hexagon.
 
 <f-scene grid>
   <f-hexagon />
-  <f-hexagon r="0.5" />
+  <f-hexagon
+    r="0.25"
+    :stroke="color('red')"
+  />
 </f-scene>
   `,
   props: {

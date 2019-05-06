@@ -36,7 +36,7 @@ export default {
 Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:points</code> array.
 
 <f-scene3>
-  <f-group3 :rotation="{ y: 45, x: 45 }">
+  <f-rotation3>
     <f-grid3 />
     <f-polygon3
       :points="[
@@ -46,7 +46,7 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
         { x: -1, y:  1 },
       ]"
     />
-  </f-group3>
+  </f-rotation3>
 </f-scene3>
   `,
   components: { InternalPolygon },

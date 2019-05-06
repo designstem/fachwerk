@@ -3,11 +3,13 @@ import Object3D from "./internal/Object3D.js";
 
 export default {
   description: `
-Description to be written.
+Displays a 3D box.
 
 <f-scene3>
-  <f-grid3 :rotation="{ y: 45, x: 45 }" />
-  <f-box3 :rotation="{ y: 45, x: 45 }" />
+  <f-rotation3>
+    <f-grid3 />
+    <f-box3 />
+  </f-rotation3>
 </f-scene3>  
   `,
   mixins: [Object3D],
