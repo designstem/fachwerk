@@ -2,6 +2,7 @@
 
 ## Default
 
+- fix math live variables
 - fix polygon3
 - f-sidebar > * accept title
 - notes width
