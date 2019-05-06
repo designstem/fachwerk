@@ -4,9 +4,11 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 
 > A good tutorial on LaTeX format can be found here:  https://en.wikibooks.org/wiki/LaTeX/Mathematics
 
-### Diameter and radius
+### Examples
 
-~Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var>, <var class="green">π</var> and radius <var class="blue">r</var>~
+#### Circle <var>diameter</var> and <var class="blue">radius</var>
+
+Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var>, <var class="green">π</var> and radius <var class="blue">r</var>:  
 
 <f-scene grid >
   <f-line
@@ -40,17 +42,17 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 
 <br><br>
 
-### Area and radius
+#### Circle <var class="orange">area</var> and <var class="blue">radius</var>
 
-~Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:~
+Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:
+
+<var class="blue">r</var> value is <var class="blue">{{ get('r') }}</var>
 
 <f-slider
-  title="r"
   from="0.5"
   to="2"
   step="0.01"
-  :value="get('r',1)"
-  v-on:value="i => set('r', i)"
+  set="r"
 />
   
 <f-scene grid width="200" height="200">
@@ -80,4 +82,47 @@ For highlighting variables and  writing math equations we can use `<var>` tags a
 
 <f-math :update="get('r')">
   \color{orange} a \color{black} = {{ Math.PI }} \cdot \color{blue} {{ get('r',1) }} \color{black} ^2 = \color{orange} {{ Math.PI * Math.pow(get('r',1),2) }}
+</f-math>
+
+### Color variables in text
+
+Variables in text can be marked as such: <var>variable</var>.
+
+There is a range of colors available for `<var>` tags:
+
+<var class="orange">orange</var>
+<var class="yellow">yellow</var>
+<var class="blue">blue</var>
+<var class="purple">purple</var>
+<var class="blue">blue</var>
+<var class="green">green</var>
+<var class="gray">gray</var>
+
+### Color variables math equations
+
+In `<f-math>` component same colors are available:
+
+<f-math>
+	color = \color{red} red \color{black}
+  color = \color{orange} orange \color{black}
+  color = \color{blue} purple \color{black}
+  color = \color{purple} purple \color{black}
+  color = \color{green} green \color{black}
+  color = \color{gray} gray  \color{black}
+</f-math>
+
+***Note*** Setting `\color{red}` or any other color acts as a *trigger*: if you set it, it will populate through the rest of the equation.
+
+To stop the population, you will have to add another symbol `\color{black}` to the point where coloring should be ending.
+
+Compare this
+
+<f-math>
+	\color{red} a \cdot b \cdot c
+</f-math>
+
+to this
+
+<f-math>
+	\color{red} a \color{black} \cdot b \cdot c
 </f-math>
