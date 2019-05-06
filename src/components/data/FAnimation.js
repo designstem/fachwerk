@@ -4,23 +4,44 @@ export default {
   description: `
 An animation component, based on [AnimeJS](https://github.com/juliangarnier/anime) library. Supports most of the animation options AnimeJS provides.
 
-#### Local data
+### Simplest usage
 
-<f-animation v-slot="{ value }">
-  <output>{{ value }}</output>
-</f-animation>
+Provide a \`set\` prop to set a global variable:
 
-#### Local data, integer value
-
-<f-animation integer v-slot="{ value }">
-  <output>{{ value }}</output>
-</f-animation>
-
-#### Global data
+    <f-animation set="a" />
 
 <f-animation set="a" />
 
-<output>{{ get('a', 0) }}</output>
+and \`get\` it with utility function:
+
+ <pre v-pre>{{ get('a') }}</pre>
+
+Output: 
+
+<output>a value: {{ get('a') }}</output>
+
+### Integer value
+
+To get the integer value, set \`integer\` prop:
+
+    <f-animation set="b" integer />
+
+<f-animation set="b" integer />
+
+<output>b value: {{ get('b') }}</output>
+
+
+### Local data
+
+In some cases you want animation value to be available to its children components only. You can use the following:
+
+    <f-animation v-slot="{ value: c }">
+      <output>{{ c }}</output>
+    </f-animation>
+
+<f-animation v-slot="{ value: c }">
+  <output>Local c value: {{ c }}</output>
+</f-animation>
 
   `,
   props: {

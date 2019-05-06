@@ -8,25 +8,46 @@ import {
 
 export default {
   description: `
-Numeric slider.
+Displays numeric slider and allows to get its value.
 
-#### Local data
+### Simplest usage
 
-<f-slider v-slot="{ value }">
-  <output>{{ value }}</output>
+Provide a \`set\` prop to set a global variable:
+
+    <f-slider set="d" />
+
+<f-slider set="d" />
+
+and \`get\` it with utility function:
+
+  <pre v-pre>{{ get('d') }}</pre>
+
+Output: 
+
+<output>d value: {{ get('d') }}</output>
+
+### Integer value
+
+To get the integer value, set \`integer\` prop:
+
+    <f-slider set="e" integer />
+
+<f-slider set="e" integer />
+
+<output>b value: {{ get('e') }}</output>
+
+
+### Local data
+
+In some cases you want animation value to be available to its children components only. You can use the following:
+
+    <f-slider v-slot="{ value: f }">
+      <output>{{ f }}</output>
+    </f-slider>
+
+<f-slider v-slot="{ value: f }">
+  <output>Local f value: {{ f }}</output>
 </f-slider>
-
-#### Local data, integer value
-
-<f-slider integer v-slot="{ value }">
-  <output>{{ value }}</output>
-</f-slider>
-
-#### Global data
-
-<f-slider set="b" />
-
-<output>{{ get('b', 0) }}</output>
   `,
   props: {
     value: { default: 0, type: [Number, String] },
