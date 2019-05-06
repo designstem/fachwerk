@@ -2,6 +2,8 @@
 
 ### 0.0.5 / Mon 6 May 2018
 
+#### Improvements
+
 * Experimental `f-websocket` component, allowing bidirectional realtime communication
 
 * Adding transparent color, accessible via `color('transparent')` function and `var(--transparent)` CSS variable
@@ -10,13 +12,15 @@
 
 * Slide layouts are now responsive (ongoing work)
 
-* New docs structure, pages are consolidated by topic
-
-* New introduction docs for layout, navigation and interaction
-
 * `f-video` Youtube URL accepts `?start=` parameter for playing from specified timestamp
 
 * Icon colors are set by `--icon-stroke` and `--icon-fill` CSS variables
+
+#### Docs
+
+* New docs structure, pages are consolidated by topic
+
+* New introduction docs for layout, navigation and interaction
 
 ### 0.0.4 / Mon 29 April 2018
 

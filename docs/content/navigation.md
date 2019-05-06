@@ -1,70 +1,68 @@
-# Adding  navigation
+# Adding navigation
 
-## Slide 1
+## First page
 
-To create multiple slides, we separate the content with a separator and add button to move to a next slide.
+To create multiple slides, separate the content with a separator.
 
 `---`
 
-<f-inline>
-  <f-next-button />
-</f-inline>
 
-<details>
+You can navigate to the next page using keyboard <kbd>←</kbd> and <kbd>→</kbd> arrows. 
 
-<summary>How this button works?</summary>
+When editing is active, you can navigate with <kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd>
 
-`<f-next-button>` is a simple wrapper around `<button>` element that emits an event `send('next')` when it is clicked. The button above can also be written as:
+Having to rely just on keyboard is not convinient, so let's add a `<f-pager />` (this setting is on by default)
 
-```
-<button class="primary" v-on:click="send('next')">
-Next step →
-</button>
-```
+<f-pager />
 
-</details>
+It is even more convinient to click one *Groß* button, so let's add `<f-next-button />`:
+
+<f-next-button />
 
 ---
 
-| 1 1
-| 2 3
+# Hey, you made it!
 
-### Slide 2
+### Second page
 
-Now try to set the value higher than `1.5` to move to the next step.
+Let's have a button to move to the previous page:
 
--
+<f-prev-button />
 
-#### Controls
+<p />
 
-<f-slider
-  from="0.5"
-  to="2"
-  :value="get('r', 0.5)"
-  v-on:value="value => set('r', value)"
-/>
+### Conditional elements
 
-<f-inline>
-  <f-prev-button />
-  <f-next-button v-if="get('r',0.5) > 1.5" />
-</f-inline>
--
+Let's make the navigation more interesting.
 
-#### Scene
+Let's set up a slider and allow to move to the next page only if the user has set the value <var>a</var> more than <var>180</var>:
 
-<f-scene grid>
-  <f-circle :r="get('r', 0)" />
-</f-scene>
+    <f-next-button v-if="get('a') > 180" />
+
+Current <var>a</var> value is <var>{{ get('a') }} </var>
+
+<f-slider set="a" />
+
+<f-next-button v-if="get('a') > 180" />
 
 ---
 
-## Slide 3
+## Back to beginning
 
-We are done here, let's reset the global state,`set('r', 0)` and send the user back to the first page, `send('first')`.
+Let's have button that takes us back to the first slide.
 
-<button
-  class="secondary"
-  v-on:click="set('r', 0); send('first')"
+Note that there is no special button for this but we can create our own:
+
+    <button 
+      class="primary"
+      v-on:click="send('first')"
+    >
+    ← Back to start
+    </button>
+
+<button 
+  class="primary"
+  v-on:click="send('first')"
 >
 ← Back to start
 </button>
