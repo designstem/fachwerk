@@ -35,6 +35,8 @@
   --tertiary: var(--lightgray);
   --quaternary: var(--lightgray);
 
+  --accent: var(--purple);
+  
   --lightemphasis: var(--lighteryellow);
   --emphasis: var(--yellow);
 
@@ -175,14 +177,39 @@ img {
   width: 100%;
   display: block;
 }
-ul,
-ol {
+ul {
   margin: 0 0 calc(var(--base) * 2) 0;
 }
 li {
   color: var(--primary);
   font-size: calc(var(--base) * 2);
   margin-bottom: var(--base);
+}
+ol {
+  counter-reset: f-counter;
+  list-style: none;
+  padding-left: 40px;
+}
+ol li {
+  margin: 0 0 0.5rem 0;
+  counter-increment: f-counter;
+  position: relative;
+}
+ol li::before {
+  --size: calc(var(--base) * 3);
+  content: counter(f-counter);
+  color: var(--white);
+  font-size: calc(var(--size) * 0.55);
+  font-weight: bold;
+  position: absolute;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  background: var(--accent);
+  border-radius: 50%;
+  text-align: center;
 }
 hr {
   border: 0;
