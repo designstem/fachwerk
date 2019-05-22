@@ -93,11 +93,13 @@ All textual content can be made bigger and smaller. You also go `<big><big><big>
 Unordered list:
 
   * Autobahn
+
   * Radio-Aktivität
 
 Ordered list:
 
   1. Trans-Europa Express
+  
   2. Computerwelt
 
 <br>
