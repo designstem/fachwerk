@@ -41,7 +41,6 @@ Adds a text to the \`f-scene\`.
       alignment-baseline="middle"
       transform="scale(1,-1)"
       :style="{
-        fontFamily: 'var(--font-mono)',
         fill: fillColor
       }"
       y="-1.5"
