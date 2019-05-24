@@ -18,6 +18,7 @@ Mirrors children element around vertical y axis.
   `,
   props: {
     r: { default: 1, type: [Number, String] },
+    step: { default: 0, type: [Number, String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
@@ -43,13 +44,17 @@ Mirrors children element around vertical y axis.
     </defs>
 
     <f-group :clip-path="'url(#' + id + ')'">
-      <slot :value="0" />
+      <f-group :position="[step,0]">
+        <slot :value="0" />
+      </f-group>
     </f-group>
     <f-group
       :clip-path="'url(#' + id + ')'"
       transform="scale(-1,1)"
     >
-      <slot :value="1" />
+      <f-group :position="[step,0]">
+        <slot :value="1" />
+      </f-group>
     </f-group>
 
   </f-group>  
