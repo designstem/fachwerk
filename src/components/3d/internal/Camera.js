@@ -12,7 +12,7 @@ export default {
     const { w, h } = this.global.rendererSize;
     if (!curObj) {
       // curObj = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-      curObj = new THREE.OrthographicCamera( w / - 170, w / 170, h / 170, h / -170, - 1000, 1000); 
+      curObj = new THREE.OrthographicCamera( w / - 150, w / 150, h / 150, h / -150, - 1000, 1000); 
     }
     curObj.name = curObj.name || curObj.type;
     return { curObj };
