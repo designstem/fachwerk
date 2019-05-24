@@ -1,5 +1,5 @@
-import { THREE } from '../../../../fachwerk.js'
-import { SVGRenderer } from './SVGRenderer.js'
+import { THREE } from "../../../../fachwerk.js";
+import { SVGRenderer } from "./SVGRenderer.js";
 
 export default {
   provide() {
@@ -10,7 +10,7 @@ export default {
     };
   },
   props: {
-    renderer: { default: "svg", type: String },
+    webgl: { default: false, type: Boolean },
     size: {
       type: Object,
       required: true
@@ -21,12 +21,9 @@ export default {
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      if (this.renderer == "svg") {
-        curObj = new SVGRenderer({ antialias: true });
-      }
-      if (this.renderer == "webgl") {
-        curObj = new THREE.WebGLRenderer({ antialias: true });
-      }
+      curObj = this.webgl
+        ? new THREE.WebGLRenderer({ antialias: true })
+        : new SVGRenderer({ antialias: true });
       curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
@@ -36,7 +33,7 @@ export default {
     global.rendererSize = this.size;
     global.rendererDom = curObj.domElement;
     return { curObj, global };
-  }, 
+  },
   mounted() {
     this.$refs.container.appendChild(this.curObj.domElement);
     this.animate();
@@ -53,4 +50,4 @@ export default {
     <div ref="container"></div>
   </div>
   `
-}
+};

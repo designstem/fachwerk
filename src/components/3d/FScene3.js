@@ -30,12 +30,13 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
       type: [Boolean, String],
       description: "Show axises"
     },
-    renderer: { default: 'svg', type: String }
+    webgl: { default: false, type: Boolean },
+    isometric: { default: false, type: Boolean }
   },
   template: `
-  <Renderer :size="{ w: width, h: height }" :renderer="renderer">
+  <Renderer :size="{ w: width, h: height }" :webgl="webgl">
     <Scene>
-      <Camera :position="{ x: 0, y: 0, z: 2.63 }" />
+      <Camera :position="{ x: 0, y: 0, z: 2.63 }" :isometric="isometric" />
       <f-grid3 v-if="grid" />
       <f-axis3 v-if="axis" />
       <slot />

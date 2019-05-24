@@ -29,7 +29,7 @@ export function fachwerk(c = {}) {
 
   new Vue({
     el: config.el,
-    data: { config, preview: config.editor == "hide" ? 1 : 0 },
+    data: { config, type: config.type == 'document' ? 1 : 0, preview: config.editor == "hide" ? 1 : 0 },
     methods: { ...utils },
     computed: {
       editorStyle() {
@@ -37,6 +37,8 @@ export function fachwerk(c = {}) {
           {
             "--content-editor-min-height": "100vh",
             "--content-editor-scale": 0.85,
+            "--content-padding": this.type ? "40px 200px" : "",
+            "--content-base": this.type ? "8px" : "var(--base)"
           },
           config.style
         );
@@ -66,13 +68,14 @@ export function fachwerk(c = {}) {
           :preview="preview"
           :style="editorStyle"
           save-id="fachwerk"
-          :type="config.type"
+          :type="['slides','document'][type]"
           @togglePreview="preview = !preview"
         />
       </div>
       </f-fetch>
       <f-footer v-if="config.footer" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
+      <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
     </f-theme>
   `
