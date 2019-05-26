@@ -1,3 +1,11 @@
 import { fachwerk } from "../src/fachwerk.js";
 
-fachwerk({ menu: false, editor: 'show', pager: false });
+import FMidiIn from "./FMidiIn.js";
+
+fachwerk({
+  menu: false,
+  editor: "show",
+  pager: false,
+  src: "./midi.md",
+  components: { FMidiIn }
+});
