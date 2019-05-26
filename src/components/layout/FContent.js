@@ -119,7 +119,7 @@ Shows Markdown content.
         class="cells"
         :style="{
           '--transition-duration': '0.1s',
-          height: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
+          minHeight: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
           gridTemplateAreas: slide.areas,

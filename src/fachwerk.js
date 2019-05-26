@@ -38,7 +38,7 @@ export function fachwerk(c = {}) {
             "--content-editor-min-height": "100vh",
             "--content-editor-scale": 0.85,
             "--content-padding": this.type ? "40px 200px" : "",
-            "--content-base": this.type ? "8px" : "var(--base)"
+            "--content-base": this.type ? "var(--base)" : "calc(var(--base) / 2 + 0.5vw)"
           },
           config.style
         );
