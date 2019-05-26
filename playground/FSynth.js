@@ -1,37 +1,24 @@
 export default {
-  props: {
-    cc: { default: "all", type: [Number, String] },
-    device: { default: 0, type: [Number, String] }
-  },
+  data: () => ({ synth: null }),
   mounted() {
-    WebMidi.enable(() => {
-      console.log(WebMidi.inputs.map(i => i.name));
-      let input = WebMidi.inputs[this.device];
-      input.addListener("controlchange", "all", ({ value, controller }) => {
-        if (this.cc == "all") {
-          this.$emit("cc", value);
-        } else {
-          if (controller.number == this.cc) {
-            this.$emit("cc", value);
-          }
-        }
-      });
-      input.addListener("noteon", "all", ({ note }) => {
-        const { name, octave, number } = note;
-        this.$emit("noteon", name + octave);
-      })
-      input.addListener("noteoff", "all", ({ note }) => {
-        const { name, octave, number } = note;
-        this.$emit("noteoff", name + octave);
-      })
-    });
+    this.synth = new Tone.PolySynth(6, Tone.Synth).toMaster();
+  },
+  methods: {
+    onNoteon(note) {
+      this.synth.triggerAttack(note);
+      console.log(note)
+    },
+    onNoteoff(note) {
+      this.synth.triggerRelease(note);
+    } 
   },
   template: `
   <div>
-    <slot /> 
+    <slot :noteon="onNoteon" :noteoff="onNoteoff" /> 
   </div>
   `
-};
+}
+
 
 /*
 
