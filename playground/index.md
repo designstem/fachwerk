@@ -1,12 +1,15 @@
 <f-animation set="a" />
+
 <f-scene3 grid webgl>
-<f-rotation3>
-<f-group3>
-<f-extrude3
-  points="-1 -1, -1 1, 1 1, 1 -1, -1 -1"
-/>
-</f-group3>
-</f-rotation3>
+  <f-extrude3
+    scale="0.3"
+    rotation="-30 0 30"
+    position="0 -0.5 0"
+    points="
+      -1 -1, -1 1, 1 1, 1 -1, 2 -2, -1 -1
+    "
+    length="4"
+  />
 </f-scene3>
 
 <!--

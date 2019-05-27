@@ -1,9 +1,27 @@
-import { parseCoords, range, log } from "../fachwerk.js";
+import { parseCoords, range, log } from "../../../fachwerk.js"
+import Object3D from "./internal/Object3D.js";
 
 export default {
+mixins: [Object3D],
+  description: `
+Extrudes the array of 2D \`points\` to the \`z\` dimension.
+
+<f-scene3>
+  <f-rotation3>
+    <f-grid3 />
+    <f-extrude3
+      points="-1 -1, -1 1, 1 1, 1 -1, -1 -1"
+    />
+  </f-rotation3>
+</f-scene3>
+  `,
   props: {
     points: { default: "", type: [String, Number, Array] },
-    length: { default: 1, type: [Number, String] }
+    length: { default: 1, type: [Number, String] },
+    position: { default: "0 0 0", type: [String, Number, Array, Object] },
+    rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
+    scale: { default: "1 1 1", type: [String, Number, Array, Object] },
+    opacity: { default: 1, type: [Number, String] }
   },
   computed: {
     p() {
