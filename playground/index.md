@@ -1,7 +1,10 @@
+
 <f-scene3 grid>
+<f-group3 rotation="30 0 0">
 <f-extrude
-  points="-1 -1, 1 1, 1 0"
+  points="0 0, 1 0"
 />
+</f-group3>
 </f-scene3>
 
 <!--
