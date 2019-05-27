@@ -10,7 +10,7 @@ export default {
     }
   },
   methods: { range, parseCoords, log },
-  template: `
+  template3: `
   <f-group3>
     {{ log(p) }}
     <f-polygon3
@@ -23,17 +23,24 @@ export default {
     />
   </f-group3>
   `,
-  template3: `
+  template: `
   <f-group3>
-    {{ log(p) }}
-    <f-polygon3>
+    <f-triangle3
+      v-for="i in range(0, p.length - 2)"
       :points="[
         [p[i][0],p[i][1],0],
         [p[i + 1][0],p[i + 1][1],0],
         [p[i + 1][0],p[i + 1][1],1],
-        [p[i][0],p[i][1],1],
       ]"
     />
+    <f-triangle3
+    v-for="i in range(0, p.length - 2)"
+    :points="[
+      [p[i][0],p[i][1],0],
+      [p[i][0],p[i][1],1],
+      [p[i + 1][0],p[i + 1][1],1],
+    ]"
+  />
   </f-group3>
   `,
   template2: `
