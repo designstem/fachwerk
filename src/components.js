@@ -152,6 +152,9 @@ export { FLathe3 };
 import FRotation3 from "./components/3d/FRotation3.js";
 export { FRotation3 };
 
+import FExtrude3 from "./components/3d/FExtrude3.js";
+export { FExtrude3 };
+
 // Aframe
 
 import FAframe from "./components/aframe/FAframe.js";
