@@ -17,7 +17,7 @@ Shows Markdown content.
   props: {
     content: { default: "", type: String },
     index: { default: 0, type: Number },
-    autosaveId: { default: "0", type: String },
+    saveId: { default: "fachwerk", type: String },
     type: { default: "slides", type: String }
   },
   data: () => ({ currentIndex: 0 }),
@@ -75,7 +75,7 @@ Shows Markdown content.
       { immediate: true }
     );
 
-    const storedActiveIndex = store.get("index");
+    const storedActiveIndex = store.get(this.saveId + ".index");
 
     Vue.nextTick(() => {
       if (
@@ -93,7 +93,7 @@ Shows Markdown content.
         if (currentSlide && currentSlide.section) {
           Vue.set(this.$global.$data.state, "section", currentSlide.section);
         }
-        store.set("index", currentIndex);
+        store.set(this.saveId + ".index", currentIndex);
       },
       { immediate: true }
     );

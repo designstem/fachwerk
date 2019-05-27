@@ -24,7 +24,7 @@ Creates a code editor with a live preview.
       type: [Boolean, Number, String]
     },
     saveId: {
-      default: "1",
+      default: "fachwerk",
       type: String
     },
     menu: {
@@ -142,6 +142,7 @@ Creates a code editor with a live preview.
       <f-content
         :content="innerContent"
         :type="type"
+        :saveId="saveId"
       />
     </div>
   </div>
