@@ -5,25 +5,25 @@ export default {
   },
   mounted() {
     WebMidi.enable(() => {
-      console.log(WebMidi.inputs.map(i => i.name));
-      let input = WebMidi.inputs[this.device];
-      input.addListener("controlchange", "all", ({ value, controller }) => {
-        if (this.cc == "all") {
-          this.$emit("cc", value);
-        } else {
-          if (controller.number == this.cc) {
+      WebMidi.inputs.forEach(input => {
+        input.addListener("controlchange", "all", ({ value, controller }) => {
+          if (this.cc == "all") {
             this.$emit("cc", value);
+          } else {
+            if (controller.number == this.cc) {
+              this.$emit("cc", value);
+            }
           }
-        }
+        });
+        input.addListener("noteon", "all", ({ note }) => {
+          const { name, octave, number } = note;
+          this.$emit("noteon", name + octave);
+        });
+        input.addListener("noteoff", "all", ({ note }) => {
+          const { name, octave, number } = note;
+          this.$emit("noteoff", name + octave);
+        });
       });
-      input.addListener("noteon", "all", ({ note }) => {
-        const { name, octave, number } = note;
-        this.$emit("noteon", name + octave);
-      })
-      input.addListener("noteoff", "all", ({ note }) => {
-        const { name, octave, number } = note;
-        this.$emit("noteoff", name + octave);
-      })
     });
   },
   template: `
