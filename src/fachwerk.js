@@ -67,7 +67,7 @@ export function fachwerk(c = {}) {
           :content="value"
           :preview="preview"
           :style="editorStyle"
-          save-id="fachwerk"
+          :save-id="'fachwerk.' + config.src"
           :type="['slides','document'][type]"
           @togglePreview="preview = !preview"
         />
