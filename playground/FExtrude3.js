@@ -43,12 +43,5 @@ export default {
       />
     </f-group3>
   </f-group3>
-  `,
-  template2: `
-  <div>
-    <pre v-for="i in range(0, p.length - 2)">
-    {{ [[p[i][0],p[i][1],2],[p[i + 1][0],p[i + 1][1],2]] }}
-    </pre>
-  </div>
   `
 }
