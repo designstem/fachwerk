@@ -1,3 +1,12 @@
+<f-scene3 grid>
+<f-rotation3>
+<f-extrude
+  points="-1 -1, 1 1, 1 0"
+/>
+</f-rotation3>
+</f-scene3>
+
+<!--
 # Hallo Welt
 
 Here is a simple interactive scene to get you started.
@@ -11,4 +20,4 @@ Slider value is `{{ get('a') }}`
 <f-scene grid>
   <f-box :rotation="get('a', 0)" />
 </f-scene>
-
+-->
