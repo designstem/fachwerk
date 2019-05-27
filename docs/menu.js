@@ -125,6 +125,7 @@ export default [
       { component: "FHedron3" },
       { component: "FPolyhedron3" },
       { component: "FLathe3" },
+      { component: "FExtrude3" },
       { component: "FGroup3" },
       { component: "FRotation3" }
     ]
