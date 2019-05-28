@@ -26,7 +26,7 @@
 
 ## **1**Play
 
-<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code. 
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code.</big>
 
 <big><a href="./playground" class="primary">Go to playground</a></big>
 

@@ -1,6 +1,7 @@
 import { fachwerk } from "../src/fachwerk.js";
 import { range, flatten } from "../fachwerk.js";
 
+<<<<<<< HEAD
 import FMidiIn from "./FMidiIn.js";
 import FSynth from "./FSynth.js";
 
@@ -22,11 +23,16 @@ const notes = () => {
   return flatten(range(0,9).map(o => keys.map(k => ({...k, note: k.key + (k.sharp ? '#' : '') + o, octave: o}))))
 };
 
+=======
+>>>>>>> master
 fachwerk({
   menu: false,
   editor: "show",
   pager: false,
+<<<<<<< HEAD
   src: "./midi.md",
   components: { FMidiIn, FSynth },
   utils: { notes }
+=======
+>>>>>>> master
 });
