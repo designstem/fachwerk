@@ -1,17 +1,15 @@
 <f-synth v-slot="{ noteon, noteoff }">
   <f-midi-in
-    v-on:noteon="noteon"
-    v-on:noteoff="noteoff"
+    v-on:noteon="n => noteon(n.replace('0','2').replace('1','3'))"
+    v-on:noteoff="n => noteoff(n.replace('0','2').replace('1','3'))"
   />
 </f-synth>
 
-{{ get('note','') }}
+<f-midi-in
+  v-on:noteon="note => set('note', note)"
+/>
 
-  <f-midi-in
-    v-on:noteon="note => set('note', note)"
-  />
-
-<pre>{{ get('note','') }}</pre>
+<pre>Last reveived note: {{ get('note','') }}</pre>
 
 <f-artboard>
   <f-line
@@ -23,8 +21,6 @@
     :stroke="note.note == get('note','') ? 'red' : note.sharp ? 'black' : 'var(--lightgray)'"
   />
 </f-artboard>
-
-<pre>{{ notes() }}</pre>
 
 <!--f-midi-in
   v-on:noteon="note => log('on ' + note)"

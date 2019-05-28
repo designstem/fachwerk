@@ -6,7 +6,6 @@ export default {
   methods: {
     onNoteon(note) {
       this.synth.triggerAttack(note);
-      console.log(note)
     },
     onNoteoff(note) {
       this.synth.triggerRelease(note);
