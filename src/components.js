@@ -336,6 +336,14 @@ export { FPeopleIcon };
 import FToolsIcon from "./components/icons/FToolsIcon.js";
 export { FToolsIcon };
 
+// Audio
+
+import FDrum from "./components/audio/FDrum.js";
+export { FDrum };
+
+import FSynth from "./components/audio/FSynth.js";
+export { FSynth };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";

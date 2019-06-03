@@ -155,6 +155,13 @@ export default [
     ]
   },
   {
+    title: "Audio and MIDI",
+    items: [
+      { component: "FDrum" },
+      { component: "FSynth" },
+    ]
+  },
+  {
     title: "Icons",
     items: [
       { component: "FFactIcon" },

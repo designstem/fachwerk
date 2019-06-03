@@ -7,6 +7,7 @@ export default {
     WebMidi.enable(() => {
       WebMidi.inputs.forEach(input => {
         input.addListener("controlchange", "all", ({ value, controller }) => {
+          console.log(value)
           if (this.cc == "all") {
             this.$emit("cc", value);
           } else {

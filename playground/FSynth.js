@@ -1,7 +1,7 @@
 export default {
   data: () => ({ synth: null }),
   mounted() {
-    this.synth = new Tone.PolySynth(6, Tone.Synth).toMaster();
+    this.synth = new Tone.PolySynth(10, Tone.Synth).toMaster();
   },
   methods: {
     onNoteon(note) {

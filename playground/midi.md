@@ -1,54 +1,60 @@
-<f-synth v-slot="{ noteon, noteoff }">
-  <f-midi-in
-    v-on:noteon="n => noteon(n.replace('0','2').replace('1','3'))"
-    v-on:noteoff="n => noteoff(n.replace('0','2').replace('1','3'))"
-  />
-</f-synth>
+| theme: dark
 
-<f-midi-in
-  v-on:noteon="note => set('note', note)"
+<f-midi-out v-slot="{ noteon: n }">
+<f-sequencer
+	bpm="160"
+  v-on:beat1="n('C2')											"
+  v-on:beat2="n('C2');										"
+  v-on:beat3="														"
+  v-on:beat4="									         	"
+  v-on:beat5="				n('D2');					 	"
+  v-on:beat6="n('C2');          					"
+  v-on:beat7="									 	        "
+  v-on:beat8="									n('D#2'); "
 />
+</f-midi-out>
 
-<pre>Last reveived note: {{ get('note','') }}</pre>
-
-<f-artboard>
-  <f-line
-    v-for="(note,i) in notes()"
-    :x1="i * 6 + 2"
-    y1="0"
-    :x2="i * 6 + 2"
-    :y2="note.sharp ? 50 : 100"
-    :stroke="note.note == get('note','') ? 'red' : note.sharp ? 'black' : 'var(--lightgray)'"
+<!--f-drum v-slot="{ kick, snare }">
+  <button v-on:click="kick">Extra kick</button>
+  <button v-on:click="snare">Extra snare</button>
+  <f-sequencer
+    v-on:beat1="kick"
+    v-on:beat2="kick"
+    v-on:beat3="kick"
   />
-</f-artboard>
+</f-drum->
 
-<!--f-midi-in
-  v-on:noteon="note => log('on ' + note)"
-  v-on:notoff="note => log('off ' + note)"
+<!--f-sequencer
+  v-on:beat1="log('1')"
+  v-on:beat2="log('2')"
 /-->
 
 <!--
-<f-midi-in
-	cc="all"
-  v-on:cc="x => log(x)"
+<f-slider title="BPM" from="1" to="300" value="120" set="bpm" step="0.5" />
+
+<f-sequencer
+	:bpm="get('bpm', 120)"
+  v-on:beat1="set('beat',0); set('a', get('a',0) + 10)"
+  v-on:beat2="set('beat',1)"
 />
 
-<f-midi-in
-	cc="all"
-  v-on:cc="x => set('x',x)"
-/>
-
-<f-midi-in
-	cc="all"
-  v-on:cc="y => set('y',y)"
-/>
-
-Value: {{ get('a') }}
-  
-<f-scene grid>
-	<f-circle
-  	:x="scale(get('x',0),0,127,-2,2)"
-    :y="scale(get('y',0),0,127,-2,2)"
+<f-scene width="600" height="600">
+	<f-hex-pattern>
+  <f-rotation>
+	<f-circle-pattern
+  	count="12"
+  	:r="[0.2,0.4][get('beat',0)]" :rotation="360 -get('a',0)"
+  >
+	<f-hexagon
+    stroke="red"
+    :r="[0.5,1.5][get('beat',0)]"
+    :rotation="360 -get('a',0)"
+    :scale="get('a',0) / 400"
+    stroke-width="1"
   />
+  </f-circle-pattern>
+  </f-rotation>
+	</f-hex-pattern>
 </f-scene>
+
 -->
