@@ -159,6 +159,7 @@ export default [
     items: [
       { component: "FDrum" },
       { component: "FSynth" },
+      { component: "FSequencer" },
     ]
   },
   {

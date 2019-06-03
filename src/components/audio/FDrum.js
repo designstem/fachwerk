@@ -1,16 +1,29 @@
 export default {
   description: `
-> This component requires ToneJS libray to installed https://unpkg.com/tone
-
-> You will need to set [Chrome autoplay policy](chrome://flags/#autoplay-policy) to "No user gesture is required".
-
 Synthesizer emitting drum sounds.
 
 <f-drum v-slot="{ kick, snare, hihat }">
-  <button @click="kick">Kick</button>
+  <f-inline>
+    <button @mousedown="kick">Kick</button>
+    <button @mousedown="snare">Snare</button>
+    <button @mousedown="hihat">Hihat</button>
+  </f-inline>
 </f-drum>
 
 <p />
+
+<blockquote>
+
+Music libraries are not included with default Fachwerk installation. This component requires adding following libraries to your HTML file:
+
+<p />
+
+    <script src="https://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/webmidi"></script>
+    
+You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-policy) to *No user gesture is required*.
+
+</blockquote>
 `,
   data: () => ({ kick: null, snare: null, hihat: null }),
   mounted() {

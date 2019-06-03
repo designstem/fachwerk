@@ -344,6 +344,9 @@ export { FDrum };
 import FSynth from "./components/audio/FSynth.js";
 export { FSynth };
 
+import FSequencer from "./components/audio/FSequencer.js";
+export { FSequencer };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
