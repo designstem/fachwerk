@@ -6,22 +6,16 @@ Polyphonic synthesizer emitting basic analog waves.
 
 <f-synth :osc="['sine','square','triangle','sawtooth'][get('o',0)]" v-slot="{ noteon, noteoff }">
   <button
-    @mousedown="() => noteon('C4')"
-    @mouseup="() => noteoff('C4')"
+    v-on:mousedown="() => noteon('C4')"
+    v-on:mouseup="() => noteoff('C4')"
   >
     Play C4
   </button>
   <button
-    @mousedown="() => noteon('D4')"
-    @mouseup="() => noteoff('D4')"
+    v-on:mousedown="() => noteon('D4')"
+    v-on:mouseup="() => noteoff('D4')"
   >
     Play D4
-  </button>
-  <button
-    @mousedown="() => noteon('E4')"
-    @mouseup="() => noteoff('E4')"
-  >
-    Play E4
   </button>
 </f-synth>
 

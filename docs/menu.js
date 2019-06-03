@@ -160,6 +160,8 @@ export default [
       { component: "FDrum" },
       { component: "FSynth" },
       { component: "FSequencer" },
+      { component: "FMidiIn" },
+      { component: "FMidiOut" },
     ]
   },
   {

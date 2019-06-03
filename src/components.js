@@ -347,6 +347,12 @@ export { FSynth };
 import FSequencer from "./components/audio/FSequencer.js";
 export { FSequencer };
 
+import FMidiIn from "./components/audio/FMidiIn.js";
+export { FMidiIn };
+
+import FMidiOut from "./components/audio/FMidiOut.js";
+export { FMidiOut };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
