@@ -5,18 +5,10 @@ Polyphonic synthesizer emitting basic analog waves.
 <f-buttons :buttons="['sine','square','triangle','sawtooth']" set="o" />
 
 <f-synth :osc="['sine','square','triangle','sawtooth'][get('o',0)]" v-slot="{ noteon, noteoff }">
-  <button
-    v-on:mousedown="() => noteon('C4')"
-    v-on:mouseup="() => noteoff('C4')"
-  >
-    Play C4
-  </button>
-  <button
-    v-on:mousedown="() => noteon('D4')"
-    v-on:mouseup="() => noteoff('D4')"
-  >
-    Play D4
-  </button>
+  <f-piano
+    v-on:noteon="noteon"
+    v-on:noteoff="noteoff"
+  />
 </f-synth>
 
 <p />

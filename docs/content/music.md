@@ -106,3 +106,13 @@ We can also do it other way around: control external MIDI devices from virtual k
 <p />
 
 > 🎹 You should external MIDI instrument playing when onscreen keyboard is touched
+
+### Chords
+
+<div class="grid" style="--cols: 1fr 1fr 1fr 1fr">
+<div v-for="c in chords().slice(0,20)">
+<p>C{{ c }}4</p>
+<f-piano
+  :notes="chord(c)"
+/>
+</div>
