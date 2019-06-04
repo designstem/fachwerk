@@ -1,5 +1,27 @@
 # Release notes
 
+### 0.0.6 / Mon 3 Jun 2018
+
+#### New features
+
+* Orthogonal / isometric rendering for 3d scenes. Can be set with `<f-scene3 isometric>` prop.
+
+* `f-extrude3` component to create extruded geometry from 2D polyline.
+
+* Experimental audio and MIDI components `f-synth`, `f-sequencer`, `f-drum`, `f-midi-info`, `f-midi-in`, `f-midi-out` and beginnings of music making tutorial.
+
+#### Improvements
+
+* Code editor now wraps long URLs in code and there is a `--content-editor-min-width` CSS variable to control minimum width.
+
+* Ordered lists are now styled with bullets.
+
+* `f-mirror-x` and `f-mirror-y` now accept `step` prop to control distance between original and mirrored element.
+
+#### Depreciations
+
+* `<f-scene3 renderer="webgl" />` prop has been replaced with `<f-scene3 webgl />`
+
 ### 0.0.5 / Mon 6 May 2018
 
 #### Improvements
