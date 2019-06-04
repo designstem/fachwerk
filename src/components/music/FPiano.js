@@ -58,7 +58,7 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
     }
   },
   template: `
-  <f-artboard width="110" height="55" grid>
+  <f-artboard width="110" height="55">
     <f-box
       v-for="(n,i) in pianoNotes.filter(n => !n.sharp)"
       :key="'w' + i"

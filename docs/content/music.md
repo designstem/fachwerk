@@ -53,7 +53,7 @@ Note that sequencer only emits beat events, you will need to hook it up to actua
 
 ### Draw the beats
 
-How to represent those 1/8 beats visually? The classic approach is to show show them in line as in classic analog sequencers and drum machines.
+How to represent those 1/8 beats visually? The traditional approach is to show show them in line as in classic [analog sequencers](http://www.vintagesynth.com/arp/arpseq.php) and [drum machines](https://en.wikipedia.org/wiki/Roland_TR-808).
 
 <f-artboard width="300" height="50">
 	<f-circle 
@@ -67,11 +67,12 @@ How to represent those 1/8 beats visually? The classic approach is to show show 
 
 We could also be more experimental and visualize beats in circle.
 
-<f-scene width="250" height="250">
+
+<f-scene width="150" height="150">
 	<f-circle
   	v-for="(p,i) in polarpoints(8,1.5)"
     :position="p"
-    r="0.17"
+    r="0.3"
     :fill="color(get('beat',1) == i + 1 ? 'red' : 'white')"
   />
 </f-scene>
