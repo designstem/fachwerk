@@ -13,6 +13,8 @@ Noteon: {{ get('noteon') }}
 Noteoff: {{ get('noteoff') }}
 CC: {{ get('cc') }}
 </pre>
+
+> This component needs extra installation to work. See **Making music** tutorial.
 `,
   props: {
     cc: { default: "all", type: [Number, String] },

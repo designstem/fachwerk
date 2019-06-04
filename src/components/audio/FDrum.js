@@ -10,8 +10,7 @@ Synthesizer emitting drum sounds.
   </f-inline>
 </f-drum>
 
-<p />
-
+> This component needs extra installation to work. See **Making music** tutorial.
 
 `,
   data: () => ({ kick: null, snare: null, hihat: null }),

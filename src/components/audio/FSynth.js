@@ -21,18 +21,7 @@ Polyphonic synthesizer emitting basic analog waves.
 
 <p />
 
-<blockquote>
-
-Music libraries are not included with default Fachwerk installation. This component requires adding following libraries to your HTML file:
-
-<p />
-
-    <script src="https://unpkg.com/tone"></script>
-    <script src="https://unpkg.com/webmidi"></script>
-    
-You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-policy) to *No user gesture is required*.
-
-</blockquote>
+> This component needs extra installation to work. See **Making music** tutorial.
 `,
   props: {
     osc: {
@@ -64,7 +53,7 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
     // }
   },
   methods: {
-    onNote(note = "C4", length = '8n') {
+    onNote(note = "C4", length = "8n") {
       this.synth.triggerAttackRelease(note, length);
     },
     onNoteon(note = "C4") {

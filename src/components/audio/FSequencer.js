@@ -16,8 +16,8 @@ Step sequencer emitting eight-note \`beat1\` / \`beat2\` / \`...\` events based 
 
     Beat: {{ get('beat') }}
 
-
-  `,
+> This component needs extra installation to work. See **Making music** tutorial.
+    `,
   props: {
     bpm: { default: "120", type: [Number, String] },
     beats: { default: "8", type: [Number, String] }

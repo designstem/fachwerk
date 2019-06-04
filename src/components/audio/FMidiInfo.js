@@ -3,6 +3,11 @@ export default {
 Outputs MIDI input and output info.
 
 <f-midi-info />
+
+#### Note
+
+> This component needs extra installation to work. See **Making music** tutorial.
+
   `,
   data: () => ({ inputs: [], outputs: [] }),
   mounted() {

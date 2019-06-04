@@ -22,7 +22,7 @@ export default {
   />
 </f-midi-out>
 
-<p />
+> This component needs extra installation to work. See **Making music** tutorial.
   `,
   props: {
     cc: { default: 0, type: [Number, String] },
