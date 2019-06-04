@@ -336,6 +336,26 @@ export { FPeopleIcon };
 import FToolsIcon from "./components/icons/FToolsIcon.js";
 export { FToolsIcon };
 
+// Audio
+
+import FDrum from "./components/audio/FDrum.js";
+export { FDrum };
+
+import FSynth from "./components/audio/FSynth.js";
+export { FSynth };
+
+import FSequencer from "./components/audio/FSequencer.js";
+export { FSequencer };
+
+import FMidiInfo from "./components/audio/FMidiInfo.js";
+export { FMidiInfo };
+
+import FMidiIn from "./components/audio/FMidiIn.js";
+export { FMidiIn };
+
+import FMidiOut from "./components/audio/FMidiOut.js";
+export { FMidiOut };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
