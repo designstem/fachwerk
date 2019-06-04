@@ -167,7 +167,8 @@ export default [
       { component: "FSequencer" },
       { component: "FMidiInfo" },
       { component: "FMidiIn" },
-      { component: "FMidiOut" }
+      { component: "FMidiOut" },
+      { component: "FPiano" }
     ]
   },
   {

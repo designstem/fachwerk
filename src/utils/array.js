@@ -99,3 +99,21 @@ Removes duplicates from the array
 `;
 
 export const unique = arr => [...new Set(arr)];
+
+export const intersection_help = () => `
+
+\`intersection(array1, array2)\`
+
+Returns intersection of two arrays
+
+#### Example
+
+    intersection([0,1,2],[1,2,3])
+
+#### Output
+
+<output>{{ intersection([0,1,2],[1,2,3]) }}</output>
+
+`;
+
+export const intersection = (arr1, arr2) => arr1.filter(n => arr2.includes(n));

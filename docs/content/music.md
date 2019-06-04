@@ -91,4 +91,17 @@ If so, let's hook a `f-midi-in` with `f-synth` and play some notes.
   />
 </f-synth>
 
-> 🔈You should be hearing notes when MIDI keyboard is attached.
+> 🔈You should be hearing notes when external MIDI instrument is played
+
+We can also do it other way around: control external MIDI devices from virtual keyboard
+
+<f-midi-out v-slot="{ noteon, noteoff }">
+  <f-piano
+    v-on:noteon="noteon"
+    v-on:noteoff="noteoff"
+  />
+</f-midi-out>
+
+<p />
+
+> 🎹 You should external MIDI instrument playing when onscreen keyboard is touched
