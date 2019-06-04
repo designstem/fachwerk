@@ -1,6 +1,6 @@
-import { color, intersection } from "../../../fachwerk.js";
+import { color, flatten, range } from "../../../fachwerk.js";
 
-const pianoNotes = [
+const octave = o => [
   { key: "C", sharp: false },
   { key: "C", sharp: true },
   { key: "D", sharp: false },
@@ -13,7 +13,9 @@ const pianoNotes = [
   { key: "A", sharp: false },
   { key: "A", sharp: true },
   { key: "B", sharp: false }
-].map(n => ({ ...n, note: `${n.key}${n.sharp ? "#" : ""}4` }));
+].map(n => ({ ...n, note: `${n.key}${n.sharp ? "#" : ""}${o}` }));
+
+const pianoNotes = flatten(range(3,5).map(octave))
 
 export default {
   description: `
@@ -58,7 +60,7 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
     }
   },
   template: `
-  <f-artboard width="110" height="55">
+  <f-artboard :width="pianoNotes.filter(n => !n.sharp).length * 14" height="55">
     <f-box
       v-for="(n,i) in pianoNotes.filter(n => !n.sharp)"
       :key="'w' + i"
@@ -74,7 +76,7 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
     <f-box
       v-for="(n,i) in pianoNotes.filter(n => n.sharp)"
       :key="'b' + i"
-      :x="i * 15 + 18 + (i > 1 ? 15 : 0)"
+      :x="i * 15 + [15,0,0,15,15][i % 4]"
       :y="25 / 2 + 3"
       width="10"
       height="25"
