@@ -347,6 +347,9 @@ export { FSynth };
 import FSequencer from "./components/audio/FSequencer.js";
 export { FSequencer };
 
+import FMidiInfo from "./components/audio/FMidiInfo.js";
+export { FMidiInfo };
+
 import FMidiIn from "./components/audio/FMidiIn.js";
 export { FMidiIn };
 

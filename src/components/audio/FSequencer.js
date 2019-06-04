@@ -1,8 +1,13 @@
-import { range } from "../../../fachwerk.js"
+import { Vue, range } from "../../../fachwerk.js";
 
 export default {
   description: `
 Step sequencer emitting eight-note \`beat1\` / \`beat2\` / \`...\` events based on the \`bpm\`.
+
+<f-inline>
+  <button v-on:click="send('start')">Start</button>
+  <button v-on:click="send('stop')">Stop</button>
+</f-inline>
 
 <f-sequencer
   beats="4"
@@ -11,18 +16,7 @@ Step sequencer emitting eight-note \`beat1\` / \`beat2\` / \`...\` events based 
 
     Beat: {{ get('beat') }}
 
-<blockquote>
 
-Music libraries are not included with default Fachwerk installation. This component requires adding following libraries to your HTML file:
-
-<p />
-
-    <script src="https://unpkg.com/tone"></script>
-    <script src="https://unpkg.com/webmidi"></script>
-    
-You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-policy) to *No user gesture is required*.
-
-</blockquote>
   `,
   props: {
     bpm: { default: "120", type: [Number, String] },
@@ -34,15 +28,16 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
         this.$emit("beat", i);
         this.$emit(`beat${i}`);
       },
-      range(1,this.beats),
+      range(1, this.beats),
       `${this.beats}n`
     ).start(0);
-
-    Tone.Transport.start();
 
     this.$watch("bpm", bpm => (Tone.Transport.bpm.value = parseFloat(bpm)), {
       immediate: true
     });
+
+    Vue.prototype.$global.$on("start", () => Tone.Transport.start());
+    Vue.prototype.$global.$on("stop", () => Tone.Transport.stop());
   },
   template: `
   <div>

@@ -64,6 +64,9 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
     // }
   },
   methods: {
+    onNote(note = "C4", length = '8n') {
+      this.synth.triggerAttackRelease(note, length);
+    },
     onNoteon(note = "C4") {
       this.synth.triggerAttack(note);
     },
@@ -73,7 +76,7 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
   },
   template: `
 <div>
-  <slot :noteon="onNoteon" :noteoff="onNoteoff" /> 
+  <slot :note="onNote" :noteon="onNoteon" :noteoff="onNoteoff" /> 
 </div>
 `
 };

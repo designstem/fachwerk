@@ -50,12 +50,12 @@ export default [
     items: [
       {
         title: "Setting up grid",
-        file: "./content/layout.md",
+        file: "./content/layout.md"
       },
       {
         title: "Creating pages",
         file: "./content/navigation.md",
-        type: 'slides'
+        type: "slides"
       },
       { component: "FNextButton" },
       { component: "FPrevButton" },
@@ -143,7 +143,7 @@ export default [
       { component: "FKeyboard" },
       { component: "FDrag" },
       { component: "FArray" },
-      { component: "FBuffer" },
+      { component: "FBuffer" }
     ]
   },
   {
@@ -157,11 +157,17 @@ export default [
   {
     title: "Audio and MIDI",
     items: [
+      {
+        title: "Making music",
+        file: "./content/music.md",
+        type: "slides"
+      },
       { component: "FDrum" },
       { component: "FSynth" },
       { component: "FSequencer" },
+      { component: "FMidiInfo" },
       { component: "FMidiIn" },
-      { component: "FMidiOut" },
+      { component: "FMidiOut" }
     ]
   },
   {

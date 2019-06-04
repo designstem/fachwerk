@@ -149,6 +149,10 @@ Creates a code editor with a live preview.
   </div>
   `,
   cssprops: {
+    "--content-editor-min-width": {
+      default: "40vw",
+      description: "Editor minimum width"
+    },
     "--content-editor-min-height": {
       default: "auto",
       description: "Editor minimum height"
@@ -164,6 +168,7 @@ Creates a code editor with a live preview.
   }
   .content-editor > .editor {
     flex: 1;
+    min-width: var(--content-editor-min-width);
   }
   .content-editor > .editor .basic {
     min-height: var(--content-editor-min-height);

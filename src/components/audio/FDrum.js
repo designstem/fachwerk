@@ -12,18 +12,7 @@ Synthesizer emitting drum sounds.
 
 <p />
 
-<blockquote>
 
-Music libraries are not included with default Fachwerk installation. This component requires adding following libraries to your HTML file:
-
-<p />
-
-    <script src="https://unpkg.com/tone"></script>
-    <script src="https://unpkg.com/webmidi"></script>
-    
-You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-policy) to *No user gesture is required*.
-
-</blockquote>
 `,
   data: () => ({ kick: null, snare: null, hihat: null }),
   mounted() {
@@ -36,7 +25,6 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
       octaves: 10
     }).toMaster();
     this.snare = new Tone.NoiseSynth({
-      volume: -5,
       envelope: {
         attack: 0.001,
         decay: 0.3,
@@ -49,7 +37,6 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
       }
     }).toMaster();
     this.hihat = new Tone.NoiseSynth({
-			"volume" : -10,
 			"filter" : {
 				"Q" : 10
 			},

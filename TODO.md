@@ -2,6 +2,7 @@
 
 ## Default
 
+- f-table assumes strings (trim)
 - fix math live variables
 - fix polygon3
 - f-sidebar > * accept title

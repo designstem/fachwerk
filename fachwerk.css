@@ -1117,7 +1117,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-wrap pre {
   word-wrap: break-word;
   white-space: pre-wrap;
-  word-break: normal;
+  /*word-break: normal;*/ /* CHANGED */
 }
 
 .CodeMirror-linebackground {
