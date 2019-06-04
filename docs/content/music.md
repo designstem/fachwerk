@@ -39,18 +39,15 @@ Note that sequencer only emits beat events, you will need to hook it up to actua
   <button v-on:click="send('stop')">Stop</button>
 </f-inline>
 
-<f-slider title="BPM" value="120" to="300" integer set="bpm" />
+<f-slider title="BPM" value="120" from="1" to="300" integer set="bpm" />
 
 > 🔈 You should be hearing 1/8 note hihat sound 
     
-<f-drum v-slot="{ kick, snare }">
+<f-drum v-slot="{ hihat }">
   <f-sequencer
   	:bpm="get('bpm',120)"
     beats="8"
-    v-on:beat1="beat => kick()"
-    v-on:beat4="beat => snare()"
-    v-on:beat5="beat => snare()"
-    v-on:beat6="beat => kick()"
+    v-on:beat="beat => hihat()"
   />
 </f-drum>
 
