@@ -46,6 +46,9 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
         return color("yellow");
       }
       return n.sharp ? color("primary") : color("white");
+    },
+    xOffset(i) {
+      return (i - [0,0.5,1,1.5,2,2,2.5,3,3.5,4,4.5,5][i]) * 15 + 7.5 + 3
     }
   },
   computed: {
@@ -60,9 +63,10 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
   template: `
   <f-artboard width="110" height="55">
     <f-box
-      v-for="(n,i) in pianoNotes.filter(n => !n.sharp)"
-      :key="'w' + i"
-      :x="i * 15 + 10"
+      v-for="(n,i) in pianoNotes"
+      v-if="!n.sharp"
+      :key="i"
+      :x="xOffset(i)"
       :y="25 + 3"
       width="15"
       height="50"
@@ -72,6 +76,19 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
       style="cursor: pointer"
     />
     <f-box
+      v-for="(n,i) in pianoNotes"
+      v-if="n.sharp"
+      :key="i"
+      :x="(i - [0,0.5,1,1.5,2,2,2.5,3,3.5,4,4.5,5][i]) * 15 + 7.5 + 3"
+      :y="25 / 2 + 3"
+      width="10"
+      height="25"
+      :fill="noteFill(n)"
+      @mousedown.native="$emit('noteon', n.note); "
+      @mouseup.native="$emit('noteoff', n.note); "
+      style="cursor: pointer"
+    />
+    <!--f-box
       v-for="(n,i) in pianoNotes.filter(n => n.sharp)"
       :key="'b' + i"
       :x="i * 15 + 18 + (i > 1 ? 15 : 0)"
@@ -82,7 +99,7 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
       @mousedown.native="$emit('noteon', n.note); "
       @mouseup.native="$emit('noteoff', n.note); "
       style="cursor: pointer"
-    />
+    /-->
   />
   </f-artboard>
   `
