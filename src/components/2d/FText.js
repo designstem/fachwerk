@@ -43,7 +43,6 @@ Adds a text to the \`f-scene\`.
       :style="{
         fill: fillColor
       }"
-      y="-1.5"
     >
       <slot />
     </text>
