@@ -8,3 +8,4 @@ export * from "./utils/state.js";
 export * from "./utils/string.js";
 export * from "./utils/test.js";
 export * from "./utils/trig.js";
+export * from "./utils/music.js";

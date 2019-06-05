@@ -53,7 +53,7 @@ Note that sequencer only emits beat events, you will need to hook it up to actua
 
 ### Draw the beats
 
-How to represent those 1/8 beats visually? The classic approach is to show show them in line as in classic analog sequencers and drum machines.
+How to represent those 1/8 beats visually? The traditional approach is to show show them in line as in classic [analog sequencers](http://www.vintagesynth.com/arp/arpseq.php) and [drum machines](https://en.wikipedia.org/wiki/Roland_TR-808).
 
 <f-artboard width="300" height="50">
 	<f-circle 
@@ -67,11 +67,12 @@ How to represent those 1/8 beats visually? The classic approach is to show show 
 
 We could also be more experimental and visualize beats in circle.
 
-<f-scene width="250" height="250">
+
+<f-scene width="150" height="150">
 	<f-circle
   	v-for="(p,i) in polarpoints(8,1.5)"
     :position="p"
-    r="0.17"
+    r="0.3"
     :fill="color(get('beat',1) == i + 1 ? 'red' : 'white')"
   />
 </f-scene>
@@ -91,4 +92,26 @@ If so, let's hook a `f-midi-in` with `f-synth` and play some notes.
   />
 </f-synth>
 
-> 🔈You should be hearing notes when MIDI keyboard is attached.
+> 🔈You should be hearing notes when external MIDI instrument is played
+
+We can also do it other way around: control external MIDI devices from virtual keyboard
+
+<f-midi-out v-slot="{ noteon, noteoff }">
+  <f-piano
+    v-on:noteon="noteon"
+    v-on:noteoff="noteoff"
+  />
+</f-midi-out>
+
+<p />
+
+> 🎹 You should external MIDI instrument playing when onscreen keyboard is touched
+
+### Chords
+
+<div v-for="c in chords().filter(c => c.length < 2)">
+<p>C <mark>{{ c }}</mark> 4</p>
+<f-piano
+  :notes="chord(c)"
+/>
+</div>

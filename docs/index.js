@@ -5,6 +5,7 @@ import * as math from "../src/utils/math.js";
 import * as trig from "../src/utils/trig.js";
 import * as string from "../src/utils/string.js";
 import * as array from "../src/utils/array.js";
+import * as music from "../src/utils/music.js";
 import * as other from "../src/utils/other.js";
 
 import menu from "./menu.js";
@@ -15,7 +16,7 @@ for (const name in components) {
 
 const { kebabCase, titleCase, flatten } = utils;
 
-const utilsHelp = [{ color, math, trig, string, array, other }].map(g =>
+const utilsHelp = [{ color, math, trig, string, array, music, other }].map(g =>
   Object.entries(g).map(([group, module]) => [
     group,
     Object.entries(module)
