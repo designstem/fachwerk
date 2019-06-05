@@ -1,6 +1,6 @@
-import { color, intersection } from "../../../fachwerk.js";
+import { color, chunk, flatten, range } from "../../../fachwerk.js";
 
-const pianoNotes = [
+const octave = octave => [
   { key: "C", sharp: false },
   { key: "C", sharp: true },
   { key: "D", sharp: false },
@@ -13,7 +13,9 @@ const pianoNotes = [
   { key: "A", sharp: false },
   { key: "A", sharp: true },
   { key: "B", sharp: false }
-].map(n => ({ ...n, note: `${n.key}${n.sharp ? "#" : ""}4` }));
+].map(n => ({ ...n, octave, note: `${n.key}${n.sharp ? "#" : ""}${octave}` }));
+
+const octaves = flatten(range(3,5).map(octave))
 
 export default {
   description: `
@@ -34,12 +36,13 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
   />
 </f-synth>
   `,
-  data: () => ({ pianoNotes }),
+  data: () => ({ octaves }),
   props: {
     notes: { default: "", type: [String, Array] }
   },
   methods: {
     color,
+    chunk,
     noteFill(n) {
       const isActive = this.currentNotes.includes(n.note);
       if (isActive) {
@@ -61,45 +64,41 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
     }
   },
   template: `
-  <f-artboard width="110" height="55">
-    <f-box
-      v-for="(n,i) in pianoNotes"
-      v-if="!n.sharp"
+  <f-artboard :width="chunk(octaves,12).length * (7 * 15) + 6" height="55">
+    <f-group
+      v-for="(octave,i) in chunk(octaves,12)"
       :key="i"
-      :x="xOffset(i)"
+      :position="[i * (7 * 15),0]"
+    >
+    <f-box
+      v-for="(n,j) in octave"
+      v-if="!n.sharp"
+      :key="j"
+      :x="xOffset(j)"
       :y="25 + 3"
       width="15"
       height="50"
+      stroke-width="2"
       :fill="noteFill(n)"
       @mousedown.native="$emit('noteon', n.note); "
       @mouseup.native="$emit('noteoff', n.note); "
       style="cursor: pointer"
     />
     <f-box
-      v-for="(n,i) in pianoNotes"
+      v-for="(n,j) in octave"
       v-if="n.sharp"
-      :key="i"
-      :x="(i - [0,0.5,1,1.5,2,2,2.5,3,3.5,4,4.5,5][i]) * 15 + 7.5 + 3"
+      :key="j"
+      :x="xOffset(j)"
       :y="25 / 2 + 3"
       width="10"
       height="25"
+      stroke-width="2"
       :fill="noteFill(n)"
       @mousedown.native="$emit('noteon', n.note); "
       @mouseup.native="$emit('noteoff', n.note); "
       style="cursor: pointer"
     />
-    <!--f-box
-      v-for="(n,i) in pianoNotes.filter(n => n.sharp)"
-      :key="'b' + i"
-      :x="i * 15 + 18 + (i > 1 ? 15 : 0)"
-      :y="25 / 2 + 3"
-      width="10"
-      height="25"
-      :fill="noteFill(n)"
-      @mousedown.native="$emit('noteon', n.note); "
-      @mouseup.native="$emit('noteoff', n.note); "
-      style="cursor: pointer"
-    /-->
+    </f-group>
   />
   </f-artboard>
   `
