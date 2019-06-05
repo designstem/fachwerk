@@ -2,7 +2,9 @@
 
 ### 0.0.7 / Mon 10 Jun 2018
 
-* `f-piano` onscreen keyboard
+* Adding `<f-piano>` onscreen keyboard component
+* Adding `chords()` and `chord()` music utility functions
+* Adding `intersection()` array utility function
 
 ### 0.0.6 / Mon 3 Jun 2018
 

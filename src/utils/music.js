@@ -42,7 +42,7 @@ Returns notes for a chord
 `;
 
 export const chord = (chord = "M", note = "C", octave = 4) =>
-  Tonal.Chord.intervals(note + chord).map(i =>
-    Tonal.Distance.transpose(note + octave, i)
-  );
+  Tonal.Chord.intervals(note + chord).map(n =>
+    Tonal.Note.fromMidi(Tonal.Note.midi(Tonal.Distance.transpose(note + octave, n)),true)
+  )
 

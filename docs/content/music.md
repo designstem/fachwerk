@@ -109,9 +109,8 @@ We can also do it other way around: control external MIDI devices from virtual k
 
 ### Chords
 
-<div class="grid" style="--cols: 1fr 1fr 1fr 1fr">
-<div v-for="c in chords().slice(0,20)">
-<p>C{{ c }}4</p>
+<div v-for="c in chords().filter(c => c.length < 2)">
+<p>C <mark>{{ c }}</mark> 4</p>
 <f-piano
   :notes="chord(c)"
 />
