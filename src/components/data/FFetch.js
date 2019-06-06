@@ -56,7 +56,6 @@ Fetches data via AJAX.
     }
   },
   mounted() {
-    console.log(this.src)
     if (Array.isArray(this.src)) {
       Promise.all(this.src.map(src => this.fetchType(src, this.type)))
         .then(res => {

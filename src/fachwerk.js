@@ -29,8 +29,24 @@ export function fachwerk(c = {}) {
 
   new Vue({
     el: config.el,
-    data: { config, type: config.type == 'document' ? 1 : 0, preview: config.editor == "hide" ? 1 : 0 },
-    methods: { ...utils },
+    data: {
+      config,
+      type: config.type == "document" ? 1 : 0,
+      preview: config.editor == "hide" ? 1 : 0
+    },
+    methods: {
+      ...utils,
+      flattenContent(content) {
+        return content
+          .map(
+            (c, i) =>
+              `<!-- Start of ${this.config.src[i]} -->\n\n${c}\n\n<!-- End of ${
+                this.config.src[i]
+              } -->`
+          )
+          .join("\n\n---\n\n");
+      }
+    },
     computed: {
       editorStyle() {
         return Object.assign(
@@ -38,14 +54,16 @@ export function fachwerk(c = {}) {
             "--content-editor-min-height": "100vh",
             "--content-editor-scale": 0.85,
             "--content-padding": this.type ? "40px 200px" : "",
-            "--content-base": this.type ? "var(--base)" : "calc(var(--base) / 2 + 0.5vw)"
+            "--content-base": this.type
+              ? "var(--base)"
+              : "calc(var(--base) / 2 + 0.5vw)"
           },
           config.style
         );
       }
     },
     mounted() {
-      Vue.prototype.$global.$on('edit', () => this.preview = !this.preview)
+      Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
     },
     template: `
     <f-theme
@@ -59,15 +77,15 @@ export function fachwerk(c = {}) {
         <div>
           <f-content
             v-if="config.editor == 'none'"
-            :content="value"
+            :content="isarray(value) ? flattenContent(value) : value"
             :type="config.type"
           />
           <f-content-editor
             v-if="config.editor != 'none'"
-            :content="value"
+            :content="isarray(value) ? flattenContent(value) : value"
             :preview="preview"
             :style="editorStyle"
-            :save-id="'fachwerk.' + config.src"
+            :save-id="'fachwerk.' + isarray(config.src)"
             :type="['slides','document'][type]"
             @togglePreview="preview = !preview"
           />
