@@ -8,13 +8,11 @@ export default {
 
 We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
 
-<f-animation>
-  <f-scene3 slot-scope="data">
-    <f-grid3
-      :rotation="{ x: data.value, y: data.value }"
-    />
+  <f-scene3>
+    <f-rotation3>
+      <f-grid3 />
+    </f-rotation3>
   </f-scene3>
-</f-animation>
   `,
   components: { Renderer, Scene, Camera },
   props: {
