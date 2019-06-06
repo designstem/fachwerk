@@ -336,25 +336,28 @@ export { FPeopleIcon };
 import FToolsIcon from "./components/icons/FToolsIcon.js";
 export { FToolsIcon };
 
-// Audio
+// Music
 
-import FDrum from "./components/audio/FDrum.js";
+import FDrum from "./components/music/FDrum.js";
 export { FDrum };
 
-import FSynth from "./components/audio/FSynth.js";
+import FSynth from "./components/music/FSynth.js";
 export { FSynth };
 
-import FSequencer from "./components/audio/FSequencer.js";
+import FSequencer from "./components/music/FSequencer.js";
 export { FSequencer };
 
-import FMidiInfo from "./components/audio/FMidiInfo.js";
+import FMidiInfo from "./components/music/FMidiInfo.js";
 export { FMidiInfo };
 
-import FMidiIn from "./components/audio/FMidiIn.js";
+import FMidiIn from "./components/music/FMidiIn.js";
 export { FMidiIn };
 
-import FMidiOut from "./components/audio/FMidiOut.js";
+import FMidiOut from "./components/music/FMidiOut.js";
 export { FMidiOut };
+
+import FPiano from "./components/music/FPiano.js";
+export { FPiano };
 
 // Internal
 
