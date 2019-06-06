@@ -2,9 +2,10 @@
 
 ### 0.0.7 / Mon 10 Jun 2018
 
-* Adding `<f-piano>` onscreen keyboard component
-* Adding `chords()` and `chord()` music utility functions
-* Adding `intersection()` array utility function
+* Added `elasticity` prop for `<f-animation>`
+* Added `<f-piano>` onscreen keyboard component
+* Added `chords()` and `chord()` music utility functions
+* Added `intersection()` array utility function
 
 ### 0.0.6 / Mon 3 Jun 2018
 
