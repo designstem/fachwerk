@@ -44,7 +44,7 @@
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: calc(35px - 1vw);
+  --slider-size: var(--base3);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);
@@ -254,6 +254,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   height: calc(var(--slider-size) * 1.05);
   width: calc(var(--slider-size) * 1.05);
   border-radius: 1000px;
+  box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.1);
 }
 input[type="text"],
 input[type="number"] {
@@ -330,6 +331,20 @@ h5 strong {
   color: var(--white);
 }
 
+h1 del,
+h2 del,
+h3 del,
+h4 del,
+h5 del {
+  font-family: var(--font-sansserif);
+  color: var(--gray);
+  padding: 0;
+  font-weight: normal;
+  --font-size: calc(var(--base) * 2.5) !important;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 blockquote {
   margin: 0;
   padding: var(--base2);
@@ -355,6 +370,7 @@ del {
 pre {
   font-family: var(--font-mono);
   font-size: calc(var(--base) * 1.75);
+  font-weight: normal;
   line-height: calc(var(--base) * 2.5);
   border-radius: var(--border);
   background: var(--lightblue);
@@ -372,6 +388,7 @@ code {
   color: var(--blue);
   padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
   font-size: calc(var(--base) * 1.75);
+  font-weight: normal;
   overflow: auto;
   white-space: nowrap;
 }

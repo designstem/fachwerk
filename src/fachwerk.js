@@ -56,7 +56,7 @@ export function fachwerk(c = {}) {
             "--content-padding": this.type ? "40px 200px" : "",
             "--content-base": this.type
               ? "var(--base)"
-              : "calc(var(--base) / 2 + 0.5vw)"
+              : "var(--content-preview-base)"
           },
           config.style
         );

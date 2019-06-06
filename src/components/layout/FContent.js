@@ -163,9 +163,13 @@ Shows Markdown content.
       description: "Padding around `section` tag"
     },
     "--content-base": {
-      default: "calc(var(--base) / 2 + 0.5vw)",
-      description: "Gap between content columns"
-    }
+      default: "calc(var(--base) * 1.25)",
+      description: "Content base size"
+    },
+    "--content-preview-base": {
+      default: "var(--content-base)",
+      description: "Content base size"
+    },
   },
   css: `
   .content {
