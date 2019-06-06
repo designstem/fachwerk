@@ -117,3 +117,23 @@ Returns intersection of two arrays
 `;
 
 export const intersection = (arr1, arr2) => arr1.filter(n => arr2.includes(n));
+
+export const isarray_help = () => `
+
+\`isarray(value)\`
+
+Returns \`true\` when \`value\` is an array, \`false\` if not
+
+#### Example
+
+    isarray(['a','b'])
+    isarray('a, b')
+
+#### Output
+
+<output>{{ isarray(['a','b']) }}
+{{ isarray('a, b') }}
+</output>
+`;
+
+export const isarray = value => Array.isArray(value)

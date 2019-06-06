@@ -2,10 +2,14 @@
 
 ### 0.0.7 / Mon 10 Jun 2018
 
-* Added `elasticity` prop for `<f-animation>`
-* Added `<f-piano>` onscreen keyboard component
-* Added `chords()` and `chord()` music utility functions
-* Added `intersection()` array utility function
+* Adding `<f-piano>` onscreen keyboard component
+* Adding `chords()` and `chord()` music utility functions
+* Adding `intersection()` array utility function
+* In `<f-fetch>`, `src` prop can be an array and load multiple files
+
+#### Depreciations
+
+* `url` prop is replaced with `scr` prop in `<f-fetch>`
 
 ### 0.0.6 / Mon 3 Jun 2018
 
