@@ -5,6 +5,11 @@
 * Adding `<f-piano>` onscreen keyboard component
 * Adding `chords()` and `chord()` music utility functions
 * Adding `intersection()` array utility function
+* In `<f-fetch>`, `src` prop can be an array and load multiple files
+
+#### Depreciations
+
+* `url` prop is replaced with `scr` prop in `<f-fetch>`
 
 ### 0.0.6 / Mon 3 Jun 2018
 
