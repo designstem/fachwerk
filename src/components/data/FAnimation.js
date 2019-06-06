@@ -1,4 +1,4 @@
-import { Vue, anime, get as getValue, set as setValue, makeNumber } from "../../../fachwerk.js";
+import { Vue, anime, get as getValue, set as setValue, makeNumber, scale } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -56,6 +56,7 @@ In some cases you want animation value to be available to its children component
     alternate: { default: false, type: Boolean },
     easing: { default: "linear", type: String, description: 'See [easing functions](https://github.com/juliangarnier/anime/tree/v2.2.0#easing-functions)' },
     integer: { default: false, type: Boolean },
+    elasticity: { default: 0.5, type: [Number, String], description: 'Set elasticity from `0` to `1` when using elastic easings' },
     set: {
       default: "",
       type: String,
@@ -83,7 +84,8 @@ In some cases you want animation value to be available to its children component
       direction: this.alternate ? "alternate" : null,
       easing: this.easing,
       autoplay: false,
-      delay: this.delay
+      delay: this.delay,
+      elasticity: scale(makeNumber(this.elasticity),0,1,0,1000)
     });
     this.$watch(
       "playing",
