@@ -72,7 +72,7 @@ Sidebars load can be either inline or load from a file.
             padding: 0 4px;
         "><f-close-icon />
         </a>
-        <f-fetch v-if="src" :url="src">
+        <f-fetch v-if="src" :src="src">
           <f-content
             slot-scope="data"
             :content="data.value"

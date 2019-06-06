@@ -1,7 +1,7 @@
 # Adding emojis
 
 <f-fetch
-  url="https://unpkg.com/emoji.json/emoji-compact.json"
+  src="https://unpkg.com/emoji.json/emoji-compact.json"
   type="json"
 >
   <big slot-scope="{ value }">

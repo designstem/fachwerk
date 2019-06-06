@@ -55,23 +55,23 @@ export function fachwerk(c = {}) {
       <f-header v-if="config.header.length" :links="config.header" />
       <f-menu v-if="config.menu" src="./menu.md" />
       <f-pager v-if="config.pager" />
-      <f-fetch :url="config.src">
-      <div slot-scope="{ value }">
-        <f-content
-          v-if="config.editor == 'none'"
-          :content="value"
-          :type="config.type"
-        />
-        <f-content-editor
-          v-if="config.editor != 'none'"
-          :content="value"
-          :preview="preview"
-          :style="editorStyle"
-          :save-id="'fachwerk.' + config.src"
-          :type="['slides','document'][type]"
-          @togglePreview="preview = !preview"
-        />
-      </div>
+      <f-fetch :src="config.src" v-slot="{ value }">
+        <div>
+          <f-content
+            v-if="config.editor == 'none'"
+            :content="value"
+            :type="config.type"
+          />
+          <f-content-editor
+            v-if="config.editor != 'none'"
+            :content="value"
+            :preview="preview"
+            :style="editorStyle"
+            :save-id="'fachwerk.' + config.src"
+            :type="['slides','document'][type]"
+            @togglePreview="preview = !preview"
+          />
+        </div>
       </f-fetch>
       <f-footer v-if="config.footer" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />

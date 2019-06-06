@@ -159,7 +159,7 @@ A `<table>`, accepting array of objects as `:rows`.
 - unicode
 ```
 <f-fetch
-  url="https://unpkg.com/unicode-11.0.0@0.7.8/General_Category/Math_Symbol/symbols.js"
+  src="https://unpkg.com/unicode-11.0.0@0.7.8/General_Category/Math_Symbol/symbols.js"
 >
   <code slot-scope="{value}">
     {{ log(value.trim().replace('module.exports=','').replace(/'/g,'"').replace(/\\/g,'\\')) }}

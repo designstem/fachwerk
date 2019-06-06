@@ -186,7 +186,7 @@ new Vue({
   // components and utilities.
 
   template: `
-  <f-fetch url="./index.md">
+  <f-fetch src="./index.md">
     <f-content
       slot-scope="{ value }"
       :content="value"
