@@ -8,16 +8,6 @@ An animation component, based on [AnimeJS](https://github.com/juliangarnier/anim
 
 Provide a \`set\` prop to set a global variable:
 
-<f-artboard
-  width="360"
-  height="20"
->
-  <f-circle
-    :x="get('a',0)
-    y="10"
-  />
-</f-artboard>
-
     <f-animation set="a" />
 
 <f-animation set="a" />
