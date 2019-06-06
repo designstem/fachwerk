@@ -1,5 +1,9 @@
 # Release notes
 
+### 0.0.7 / Mon 10 Jun 2018
+
+* `elasticity` prop for `<f-animation>`
+
 ### 0.0.6 / Mon 3 Jun 2018
 
 #### New features
