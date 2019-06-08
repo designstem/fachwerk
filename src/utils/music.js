@@ -37,7 +37,12 @@ export const octave = (octave = 4) =>
       octave,
       note: `${n.key}${n.sharp ? "#" : ""}${octave}`
     }))
-    .map(n => ({ ...n, freq: Tonal.Note.freq(n.note), midi: Tonal.Note.midi(n.note)  }));
+    .map(n => ({
+      ...n,
+      flatnote: Tonal.Note.fromMidi(Tonal.Note.midi(n.note)),
+      freq: Tonal.Note.freq(n.note),
+      midi: Tonal.Note.midi(n.note),
+    }));
 
 export const chords_help = () => `
 
