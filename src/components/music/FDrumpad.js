@@ -13,9 +13,13 @@ Displays a drum pad.
 
 <f-drumpad />
 
+There is also \`sharps\` prop that optionally displays sharp / flat notes.
+
+<f-drumpad sharps />
+
 Drum pad can also display highlighted keys.
 
-<f-drumpad notes="C4 E4 G4" />
+<f-drumpad notes="C2 E2 G2" />
 
 Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual keyboard to play notes.
 
@@ -29,7 +33,8 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
 <p />
   `,
   props: {
-    notes: { default: "", type: [String, Array] }
+    notes: { default: "", type: [String, Array], description: "List of active notes.<br>Examples: `\"C2 E2\"`, `\"C2,E2\"`, `\"['C2','E2']\"`" },
+    sharps: { default: false, type: Boolean, description: "Show sharp / flat keys?" }
   },
   methods: {
     chunk,
@@ -40,12 +45,12 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
       if (isActive) {
         return color("yellow");
       }
-      return n.sharp ? color("white") : color("white");
+      return n.sharp && this.sharps ? color("lightgray") : color("white");
     }
   },
   computed: {
     currentNotes() {
-      return flatten(range(4, 5).map(octave)).slice(0, 16);
+      return flatten(range(2, 3).map(octave)).slice(0, 16);
     },
     activeNotes() {
       const notes =
