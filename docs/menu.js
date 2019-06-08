@@ -163,6 +163,7 @@ export default [
         type: "slides"
       },
       { component: "FDrum" },
+      { component: "FDrumpad" },
       { component: "FSynth" },
       { component: "FSequencer" },
       { component: "FMidiInfo" },

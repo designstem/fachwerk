@@ -1,19 +1,4 @@
-import { color, chunk, flatten, range } from "../../../fachwerk.js";
-
-const octave = octave => [
-  { key: "C", sharp: false },
-  { key: "C", sharp: true },
-  { key: "D", sharp: false },
-  { key: "D", sharp: true },
-  { key: "E", sharp: false },
-  { key: "F", sharp: false },
-  { key: "F", sharp: true },
-  { key: "G", sharp: false },
-  { key: "G", sharp: true },
-  { key: "A", sharp: false },
-  { key: "A", sharp: true },
-  { key: "B", sharp: false }
-].map(n => ({ ...n, octave, note: `${n.key}${n.sharp ? "#" : ""}${octave}` }));
+import { color, chunk, flatten, range, octave } from "../../../fachwerk.js";
 
 const octaves = flatten(range(3,5).map(octave))
 
@@ -80,8 +65,10 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
       height="50"
       stroke-width="2"
       :fill="noteFill(n)"
-      @mousedown.native="$emit('noteon', n.note); "
-      @mouseup.native="$emit('noteoff', n.note); "
+      @mousedown.native="$emit('noteon', n.note)"
+      @mouseup.native="$emit('noteoff', n.note)"
+      @touchstart.native="$emit('noteon', n.note)"
+      @touchend.native="$emit('noteoff', n.note)"
       style="cursor: pointer"
     />
     <f-box
@@ -94,8 +81,10 @@ Also, it emits \`noteon\` and \`noteoff\` events so it can be used as a virtual 
       height="25"
       stroke-width="2"
       :fill="noteFill(n)"
-      @mousedown.native="$emit('noteon', n.note); "
-      @mouseup.native="$emit('noteoff', n.note); "
+      @mousedown.native="$emit('noteon', n.note)"
+      @mouseup.native="$emit('noteoff', n.note)"
+      @touchstart.native="$emit('noteon', n.note)"
+      @touchend.native="$emit('noteoff', n.note)"
       style="cursor: pointer"
     />
     </f-group>
