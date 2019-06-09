@@ -39,9 +39,10 @@ export const octave = (octave = 4) =>
     }))
     .map(n => ({
       ...n,
-      flatnote: Tonal.Note.fromMidi(Tonal.Note.midi(n.note)),
-      freq: Tonal.Note.freq(n.note),
-      midi: Tonal.Note.midi(n.note)
+      // @TODO Bring Tonal back
+      // flatnote: Tonal.Note.fromMidi(Tonal.Note.midi(n.note)),
+      // freq: Tonal.Note.freq(n.note),
+      // midi: Tonal.Note.midi(n.note)
     }));
 
 export const chords_help = () => `
