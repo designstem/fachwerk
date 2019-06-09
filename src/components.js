@@ -359,6 +359,9 @@ export { FMidiOut };
 import FPiano from "./components/music/FPiano.js";
 export { FPiano };
 
+import FDrumpad from "./components/music/FDrumpad.js";
+export { FDrumpad };
+
 // Internal
 
 import FMarkdown from "./components/internal/FMarkdown.js";
