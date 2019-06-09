@@ -44,7 +44,7 @@
   --border-radius: 6px;
   --border-small: 3px;
 
-  --slider-size: calc(35px - 1vw);
+  --slider-size: var(--base3);
 
   --base: 8px;
   --base2: calc(var(--base) * 2);
