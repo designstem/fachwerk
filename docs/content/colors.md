@@ -1,41 +1,86 @@
-# Using colors
+# Typography
 
-A compact set of useful colors are available as CSS variables, `var(--purple)` and Javascript functions `color('purple')`:
+Text|Font|Size
+---|---|---
+Main text|[IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?selection.family=IBM+Plex+Sans)|16px
+~Emphasized text~|[IBM Plex Serif](https://fonts.google.com/specimen/IBM+Plex+Serif)|16.8px
+`Monospaced text`|[Cousine](https://fonts.google.com/specimen/Cousine)|14px
 
-<f-scene
-  width="150" height="150"
-  v-for="c in [
-    'purple', 
-    'red',
-    'yellow',
-    'darkblue',
-    'blue',
-    'lightblue',
-    'paleblue',
-    'orange',
-    'green',
-    'darkestgray',
-    'darkergray',
-    'darkgray',
-    'gray',
-    'lightgray', 
-    'lightergray', 
-]"
-:key="c"
->
-  <f-circle
-    :fill="color(c)"
-    stroke="none"
-    r="1.8"
-  />
-  <f-text
-    style="font-size: 1.8em"
-    :fill="color('white')"
-    y="0.3"
-  >{{ c }}</f-text>
-  <f-text
-    style="font-size: 1.8em"
-    :fill="color('white')"
-    y="-0.3"
-  >{{ color(c) }}</f-text>
-</f-scene>
+# Colors
+
+A compact set of useful colors are available as CSS variables and Javascript functions
+
+### Backgrounds
+
+<div class="grid" style="--cols: 1fr 1fr; font-family: var(--font-mono); font-size: 0.9em; line-height: 1.3em; color: var(--gray);">
+<div v-for="c in colors()">
+<f-card :background="color(c)"><h2>&nbsp;</h2></f-card>
+<br>
+color('{{ c }}')<br>
+{{ color(c) }}<br>
+</div>
+</div>
+
+### Borders
+
+<div class="grid" style="--cols: 1fr 1fr; font-family: var(--font-mono); font-size: 0.9em; line-height: 1.3em; color: var(--gray);">
+<div v-for="c in colors()">
+<f-card :border="color(c)" background><h2>&nbsp;</h2></f-card>
+<br>
+color('{{ c }}')<br>
+{{ color(c) }}<br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

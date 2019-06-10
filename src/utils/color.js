@@ -1,4 +1,10 @@
-import { chroma, colorBlind, getCssVariable, d3, range } from "../../fachwerk.js";
+import {
+  chroma,
+  colorBlind,
+  getCssVariable,
+  d3,
+  range
+} from "../../fachwerk.js";
 
 export const color_help = () => `
 
@@ -217,7 +223,7 @@ Returns hue values for Adobe Illustrator color wheel, similar to [Johannes Itten
 #### Output
 
 <output>{{ aihues() }}</output>
-`
+`;
 
 export const aihues = () => [
   0,
@@ -231,7 +237,7 @@ export const aihues = () => [
   225,
   250,
   275,
-  317.5,
+  317.5
 ];
 
 export const ai2hue_help = () => `
@@ -244,14 +250,13 @@ Maps Adobe Illustrator color wheel hue value (RBY color system), to HSL hue valu
 #### Output
 
 <output>{{ ai2hue(180) }}</output>
-`
+`;
 
 export const ai2hue = ai =>
   d3
     .scaleLinear()
     .domain(aihues())
-    .range(range(0,360,360 / aihues().length))(ai);
-
+    .range(range(0, 360, 360 / aihues().length))(ai);
 
 export const hue2ai_help = () => `
 Maps HSL hue value to Adobe Illustrator color wheel hue value (RBY color system).
@@ -263,10 +268,46 @@ Maps HSL hue value to Adobe Illustrator color wheel hue value (RBY color system)
 #### Output
 
 <output>{{ hue2ai(180) }}</output>
-`
+`;
 
 export const hue2ai = hue =>
   d3
     .scaleLinear()
-    .domain(range(0,360,360 / aihues().length))
+    .domain(range(0, 360, 360 / aihues().length))
     .range(aihues())(hue);
+
+export const colors_help = () => `
+
+Return array of color names used in the framework.
+
+#### Example
+
+    colors()
+
+#### Output
+
+<output>{{ colors() }}</output>
+`;
+
+export const colors = () => [
+  "purple",
+  "darkpurple",
+  "red",
+  "yellow",
+  "lightyellow",
+  "lighteryellow",
+  "lightblue",
+  "blue",
+  "paleblue",
+  "green",
+  "darkblue",
+  "orange",
+  "black",
+  "darkestgray",
+  "darkergray",
+  "darkgray",
+  "gray",
+  "lightgray",
+  "lightergray",
+  "white"
+];
