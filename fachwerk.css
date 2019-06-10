@@ -1,25 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
-
+  
 :root {
   --font-sansserif: IBM Plex Sans, sans-serif;
   --font-serif: IBM Plex Serif, serif;
   --font-mono: Cousine, monospace;
 
-  --white: #ffffff;
-  --darkestgray: #222222;
-  --darkergray: #333333;
-  --darkgray: #555555; /* darkgray */
-  --gray: #aaaaaa;
-  --lightgray: #cccccc; /* lightgray */
-  --lightergray: #eee;
   --purple: #663399; /* rebeccapurple; */
-  --darkpurple: hsl(270, 50%, 30%); /* rebeccapurple; */
+  --darkpurple: #4c2672; /* rebeccapurple; */
   --red: #ff595e; /* tomato */
   --yellow: #fec938; /* gold */
-  --lightyellow: hsl(44, 100%, 78%); /* gold */
-  --lighteryellow: hsl(44, 100%, 88%);
+  --lightyellow: #ffe18e; /* gold */
+  --lighteryellow: #feeec1;
   --lightblue: #d8e6f3; /* ghostwhite */
   --blue: #1982c4; /* steelblue */
   --paleblue: #263238;
@@ -27,7 +20,14 @@
   --darkblue: #162e3d;
   --orange: #ff9849;
   --black: #111111;
-
+  --darkestgray: #222222;
+  --darkergray: #333333;
+  --darkgray: #555555; /* darkgray */
+  --gray: #aaaaaa;
+  --lightgray: #cccccc; /* lightgray */
+  --lightergray: #eee;
+  --white: #ffffff;
+  
   --transparent: rgba(0,0,0,0);
 
   --primary: var(--darkgray);
