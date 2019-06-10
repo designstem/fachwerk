@@ -5,6 +5,7 @@
 * Adding `<f-piano>` onscreen keyboard component
 * Adding `chords()` and `chord()` music utility functions
 * Adding `intersection()` array utility function
+* Adding `colors()` function to return list of framework color names
 * In `<f-fetch>`, `src` prop can be an array and load multiple files
 
 #### Depreciations
