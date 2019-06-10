@@ -36,7 +36,7 @@ export default [
       { component: "FEmbed" },
       { component: "FIconHeading" },
       {
-        title: "Typography & colors",
+        title: "Using color",
         file: "./content/colors.md"
       },
       {

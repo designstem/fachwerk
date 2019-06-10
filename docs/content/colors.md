@@ -1,11 +1,3 @@
-# Typography
-
-Text|Font|Size
----|---|---
-Main text|[IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?selection.family=IBM+Plex+Sans)|16px
-~Emphasized text~|[IBM Plex Serif](https://fonts.google.com/specimen/IBM+Plex+Serif)|16.8px
-`Monospaced text`|[Cousine](https://fonts.google.com/specimen/Cousine)|14px
-
 # Colors
 
 A compact set of useful colors are available as CSS variables and Javascript functions
