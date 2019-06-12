@@ -1,14 +1,26 @@
 # Adding interaction
 
-### Using a slider
+### Using slider
 
 All content in Fachwerk can be dynamic and interactive. Let's start with the simplest example: a slider that sets value `r1`:
 
 <f-slider set="r1" />
 
-To display and use the value we can use `get` function and we wrap it to curly parentheses: <code v-pre>{{ get('r1') }}</code>
+To display and use the value we can use `get(value, default)` function
 
-<pre>Slider value is: {{ get('r1') }}</pre>
+	r1 value is: {{ get('r1') }}
+
+### Using text input
+
+Alternatively you can use the text input. This needs a bit longer code.
+
+<input
+	type="text"
+	:value="get('r1', 0)"
+  v-on:input="e => set('r1',e.target.value)"
+/>
+
+### Showing graphics 
 
 Showing the raw value is not that exiting so let's hook up `r1` value to the 2D graphics:
 
