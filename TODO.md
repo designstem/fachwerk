@@ -415,3 +415,7 @@ Lets set up a textfield to control value `d`:
 />
 
 <output>d is currently: {{ get('d', 0) }}</output>
+
+### Music
+
+- Use http://joesul.li/van/synthesizing-hi-hats/
