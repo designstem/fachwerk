@@ -14,44 +14,42 @@ You will also need to set [Chrome autoplay policy](chrome://flags/#autoplay-poli
 
 </blockquote>
 
-### Generate beats
+### Make beats
 
 Let's use `<f-sequencer>` to generate the beats on each 1/8 note.
 
-<f-inline>
-  <button v-on:click="send('start')">Start</button>
-  <button v-on:click="send('stop')">Stop</button>
-</f-inline>
+<f-sequencer />
 
-<f-sequencer
-  beats="8"
-  v-on:beat="beat => set('beat', beat)"
-/>
+It seems nothing happens at this point. We need to do some additional setup.
 
-    Beat: {{ get('beat') }}
+By default sequencer only *emits* `beat` event, you will need to hook it up to actual sound generator that take beat event as input and play sounds. Let's wrap sequencer to `<f-drum>` components and on each `beat` event let's play closed hihat sound.
 
-### Play beats
-
-Note that sequencer only emits beat events, you will need to hook it up to actual sound generator. Let's use `<f-drum>` for this.
-
-<f-inline>
-  <button v-on:click="send('start')">Start</button>
-  <button v-on:click="send('stop')">Stop</button>
-</f-inline>
-
-<f-slider title="BPM" value="120" from="1" to="300" integer set="bpm" />
-
-> 🔈 You should be hearing 1/8 note hihat sound 
-    
-<f-drum v-slot="{ hihat }">
+<f-drum v-slot="{ closedhihat }">
   <f-sequencer
   	:bpm="get('bpm',120)"
     beats="8"
-    v-on:beat="beat => hihat()"
+    v-on:beat="beat => { closedhihat(); set('beat', beat) }"
   />
 </f-drum>
 
-### Draw the beats
+    {{ get('beat') }}
+
+Also, let's set up some controls. We need to send `start` and `stop` event so the sequencer will start (is is stopped by default).
+
+<f-inline>
+  <button v-on:click="send('start')">Start</button>
+  <button v-on:click="send('stop')">Stop</button>
+</f-inline>
+
+White at it, let's also control **BPM** or *beats per minute* value dynamically.
+
+<f-slider title="BPM" value="120" from="1" to="300" integer set="bpm" />
+
+> 🔈 When pressing 'Start" you should be hear 1/8 note hihat sound 
+    
+
+
+### Draw beats
 
 How to represent those 1/8 beats visually? The traditional approach is to show show them in line as in classic [analog sequencers](http://www.vintagesynth.com/arp/arpseq.php) and [drum machines](https://en.wikipedia.org/wiki/Roland_TR-808).
 
