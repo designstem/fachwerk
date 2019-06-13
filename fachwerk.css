@@ -261,7 +261,7 @@ input[type="number"] {
   border: var(--border-width) solid var(--primary);
   color: var(--darkgray);
   border-radius: var(--border-radius);
-  padding: calc(var(--base) * 0.55) var(--base);
+  padding: calc(var(--base) * 0.6);
   outline: none;
   font-size: calc(var(--base) * 1.75);
   font-weight: bold;
