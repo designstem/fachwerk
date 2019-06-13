@@ -56,6 +56,7 @@ In some cases you want animation value to be available to its children component
     to: { default: 360, type: [Number, String] },
     integer: { default: false, type: Boolean },
     step: { default: "", type: [Number, String] },
+    inline: { default: false, type: Boolean },
     set: {
       default: "",
       type: String,
@@ -105,7 +106,7 @@ In some cases you want animation value to be available to its children component
     }
   },
   template: `
-    <div>
+    <div :style="{display: inline ? 'inline-flex' : 'flex'}">
       <div>
         <label>
         <slot name="title" :value="innerValue">

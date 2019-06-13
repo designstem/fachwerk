@@ -23,7 +23,10 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
   </f-math>
 </f-slider>
   `,
-  props: { update: { default: null } },
+  props: {
+    inline: { default: false, type: Boolean },
+    update: { default: null }
+  },
   data: () => ({ math: 0, timer: null }),
   methods: {
     renderMath() {
@@ -54,7 +57,7 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
     clearInterval(this.timer);
   },
   template: `
-    <div v-html="math" />
+    <div v-html="math" :style="{display: inline ? 'inline-flex' : 'flex'}" />
   `,
   css: `
   @import url("https://unpkg.com/katex/dist/katex.min.css");
