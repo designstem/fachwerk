@@ -76,18 +76,30 @@ Note that `r4` is either `0` or `1`: this represent which button is currently ac
 	<f-circle :r="[1,1.5][get('r4',0)]" />
 </f-scene>
 
+#### Using checkbox
+
+You can also update global value `r5` with a checkbox
+
+<input
+	type="checkbox"
+	:checked="get('r5', false)"
+  v-on:input="e => set('r5',e.target.checked)"
+/>
+
+<pre>r5 is currently {{ get('r5', false) }}</pre>
+
 #### Set a global value with a hotkey
 
 To wrap things up, the values can be also set using a keyboard.
 
-Use <kbd>Ctrl + Alt + r</kbd> to set the `r5` value:
+Use <kbd>Ctrl + Alt + r</kbd> to set the `r6` value:
 
-<f-keyboard ctrl alt character="r" v-on:keydown="set('r5', 1.5)"/>
+<f-keyboard ctrl alt character="r" v-on:keydown="set('r6', 1.5)"/>
 
-<pre>r5 is currently {{ get('r5', 1) }}</pre>
+<pre>r6 is currently {{ get('r6', 1) }}</pre>
 
 <f-scene grid>
-	<f-circle :r="get('r5', 1)" />
+	<f-circle :r="get('r6', 1)" />
 </f-scene>
 
 
