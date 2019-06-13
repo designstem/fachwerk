@@ -10,13 +10,21 @@ Displays a 3D box.
     <f-grid3 />
     <f-box3 />
   </f-rotation3>
-</f-scene3>  
+</f-scene3>
+
+<f-scene3>
+  <f-rotation3>
+    <f-grid3 />
+    <f-box3 r="0.25" />
+  </f-rotation3>
+</f-scene3> 
   `,
   mixins: [Object3D],
   props: {
     width: { default: 1, type: Number },
     height: { default: 1, type: Number },
     depth: { default: 1, type: Number },
+    r: { default: "", type: [Number, String] },
     stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
     fill: { default: "color('primary')", type: String },
@@ -29,7 +37,7 @@ Displays a 3D box.
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var geometry = new THREE.BoxGeometry(this.width, this.height, this.depth);
+      var geometry = new THREE.BoxGeometry(this.r ? this.r * 2 : this.width, this.r ? this.r * 2 : this.height, this.r ? this.r * 2 : this.depth);
       curObj = new THREE.Mesh(
         geometry,
         this.shading ? new THREE.MeshNormalMaterial({
