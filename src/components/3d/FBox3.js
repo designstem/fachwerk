@@ -15,7 +15,7 @@ Displays a 3D box.
 <f-scene3>
   <f-rotation3>
     <f-grid3 />
-    <f-box3 r="0.2" />
+    <f-box3 r="0.25" />
   </f-rotation3>
 </f-scene3> 
   `,
