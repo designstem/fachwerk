@@ -48,6 +48,10 @@ In some cases you want animation value to be available to its children component
 <f-slider v-slot="{ value: f }">
   <output>Local f value: {{ f }}</output>
 </f-slider>
+
+### Inline slider
+
+Slider can also be set to inline <f-slider title="a" inline set="g" /> to support slider flowing with a content.
   `,
   props: {
     value: { default: 0, type: [Number, String] },
@@ -106,8 +110,8 @@ In some cases you want animation value to be available to its children component
     }
   },
   template: `
-    <div :style="{display: inline ? 'inline-flex' : 'flex'}">
-      <div>
+    <div :style="{display: inline ? 'inline-flex' : 'block'}">
+      <div :style="{display: inline ? 'inline-flex' : 'block'}">
         <label>
         <slot name="title" :value="innerValue">
           <template v-if="currentTitle">{{ currentTitle }}&nbsp;&nbsp;<code>{{ innerValue }}</code></template>
