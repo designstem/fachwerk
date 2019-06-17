@@ -17,8 +17,7 @@ Repeats the contents in a 3D grid.
   props: {
     rows: { default: 3, type: [Number,String] },
     cols: { default: 3, type: [Number,String] },
-    width: { default: '', type: [Number,String], description: "***Depreciated*** Use `cols`" },
-    height: { default: '', type: [Number,String], description: "***Depreciated*** Use `rows`" },
+    slices: { default: 3, type: [Number,String] },
     step: { default: 1, type: [Number,String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
@@ -37,29 +36,33 @@ Repeats the contents in a 3D grid.
   },
   methods: { range },
   computed: {
-    // @DEPRECIATED: remove this
     currentRows() {
-      return this.width || this.rows
+      return this.rows
     },
     currentCols() {
-      return this.height || this.cols
+      return this.cols
     }
   },
   template: `
   <f-group3
     :opacity="opacity"
   >
-    <f-group3 :position="[(currentCols - 1) * step / -2,(currentRows - 1) * step / -2, 0]">
+    <f-group3 :position="[(currentCols - 1) * step / -2,(currentRows - 1) * step / -2, (slices - 1) * step - 2]">
       <f-group3
-        v-for="(_, yIndex) in range(0, currentRows - 1)"
-        :key="yIndex"
+        v-for="(_, zIndex) in range(0, slices - 1)"
+        :key="zIndex"
       >
         <f-group3
-          v-for="(_, xIndex) in range(0, currentCols - 1)"
-          :key="xIndex"
-          :position="[xIndex * step, yIndex * step, 0]"
+          v-for="(_, yIndex) in range(0, currentRows - 1)"
+          :key="yIndex"
         >
-          <slot :col="xIndex" :row="yIndex" />
+          <f-group3
+            v-for="(_, xIndex) in range(0, currentCols - 1)"
+            :key="xIndex"
+            :position="[xIndex * step, yIndex * step, zIndex * step]"
+          >
+            <slot :col="xIndex" :row="yIndex" :slice="zIndex" />
+          </f-group3>
         </f-group3>
       </f-group3>
     </f-group3>
