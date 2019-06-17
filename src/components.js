@@ -60,33 +60,21 @@ export { FRotation };
 
 import FGridPattern from "./components/2dpattern/FGridPattern.js";
 export { FGridPattern };
-import FRepeatGrid from "./components/2dpattern/FGridPattern.js";
-export { FRepeatGrid };
 
 import FBrickPattern from "./components/2dpattern/FBrickPattern.js";
 export { FBrickPattern };
-import FRepeatShift from "./components/2dpattern/FBrickPattern.js";
-export { FRepeatShift };
 
 import FHexPattern from "./components/2dpattern/FHexPattern.js";
 export { FHexPattern };
-import FRepeatHex from "./components/2dpattern/FHexPattern.js";
-export { FRepeatHex };
 
 import FCirclePattern from "./components/2dpattern/FCirclePattern.js";
 export { FCirclePattern };
-import FRepeatCircle from "./components/2dpattern/FCirclePattern.js";
-export { FRepeatCircle };
 
 import FSpinPattern from "./components/2dpattern/FSpinPattern.js";
 export { FSpinPattern };
-import FRepeatSpin from "./components/2dpattern/FSpinPattern.js";
-export { FRepeatSpin };
 
 import FSlicePattern from "./components/2dpattern/FSlicePattern.js";
 export { FSlicePattern };
-import FRepeatSlice from "./components/2dpattern/FSlicePattern.js";
-export { FRepeatSlice };
 
 import FMirrorX from "./components/2dpattern/FMirrorX.js";
 export { FMirrorX };
@@ -154,6 +142,14 @@ export { FRotation3 };
 
 import FExtrude3 from "./components/3d/FExtrude3.js";
 export { FExtrude3 };
+
+// 3D patterns
+
+// Patterns
+
+import FGridPattern3 from "./components/3dpattern/FGridPattern3.js";
+export { FGridPattern3 };
+
 
 // Aframe
 
