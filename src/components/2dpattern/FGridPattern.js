@@ -34,14 +34,14 @@ Repeats the contents in a 2D grid.
 </f-scene>
   `,
   props: {
-    rows: { default: 3, type: [Number,String] },
-    cols: { default: 3, type: [Number,String] },
-    width: { default: '', type: [Number,String] },
-    height: { default: '', type: [Number,String] },
-    step: { default: 1, type: [Number,String] },
-    position: { default: '0 0', type: [String, Number, Object, Array] },
-    rotation: { default: '0', type: [String, Number, Object, Array] },
-    scale: { default: '1', type: [String, Number, Object, Array] },
+    rows: { default: 3, type: [Number, String] },
+    cols: { default: 3, type: [Number, String] },
+    width: { default: "", type: [Number, String] },
+    height: { default: "", type: [Number, String] },
+    step: { default: 1, type: [Number, String] },
+    position: { default: "0 0", type: [String, Number, Object, Array] },
+    rotation: { default: "0", type: [String, Number, Object, Array] },
+    scale: { default: "1", type: [String, Number, Object, Array] },
     opacity: { default: 1, type: Number }
   },
   slots: {
@@ -75,5 +75,5 @@ Repeats the contents in a 2D grid.
       </f-group>
     </f-group>
   </f-group>  
-  `,
-}
+  `
+};
