@@ -32,32 +32,28 @@ Repeats the contents in a 3D grid.
     col: {
       type: "number",
       description: "Current column of the repeated element, starting from `0`"
+    },
+    slice: {
+      type: "number",
+      description: "Current slice (along z-axis) of the repeated element, starting from `0`"
     }
   },
   methods: { range },
-  computed: {
-    currentRows() {
-      return this.rows
-    },
-    currentCols() {
-      return this.cols
-    }
-  },
   template: `
   <f-group3
     :opacity="opacity"
   >
-    <f-group3 :position="[(currentCols - 1) * step / -2,(currentRows - 1) * step / -2, (slices - 1) * step - 2]">
+    <f-group3 :position="[(cols - 1) * step / -2,(rows - 1) * step / -2, (slices - 1) * step - 2]">
       <f-group3
         v-for="(_, zIndex) in range(0, slices - 1)"
         :key="zIndex"
       >
         <f-group3
-          v-for="(_, yIndex) in range(0, currentRows - 1)"
+          v-for="(_, yIndex) in range(0, rows - 1)"
           :key="yIndex"
         >
           <f-group3
-            v-for="(_, xIndex) in range(0, currentCols - 1)"
+            v-for="(_, xIndex) in range(0, cols - 1)"
             :key="xIndex"
             :position="[xIndex * step, yIndex * step, zIndex * step]"
           >
