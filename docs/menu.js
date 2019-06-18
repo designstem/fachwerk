@@ -131,6 +131,10 @@ export default [
     ]
   },
   {
+    title: "3D patterns",
+    items: [{ component: "FGridPattern3" }]
+  },
+  {
     title: "Interaction",
     items: [
       {
