@@ -48,7 +48,7 @@ Displays a polyhedron geometry in 3D space.
         geometry,
         new THREE.MeshNormalMaterial({
           flatShading: true,
-          opacity: 0.8,
+          opacity: this.opacity,
           side: THREE.DoubleSide
         })
       );
