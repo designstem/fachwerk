@@ -5,14 +5,14 @@ const InternalPolygon = {
   mixins: [Object3D],
   props: {
     points: { default: '', type: [String, Number, Array] },
-    fill: { default: "color('primary')", type: String },
+    fill: { default: '', type: String },
     opacity: { default: 1, type: Number },
   },
   data() {
     let curObj = this.obj;
     if (!curObj) {
       var vectorPoints = this.points.map(
-        p => new THREE.Vector3(p.x || 0, p.y || 0, p.z || 0)
+        p => new THREE.Vector3(p[0] || 0, p[1] || 0, p[2] || 0)
       );
       var shape = new THREE.Shape(vectorPoints);
       var geometry = new THREE.ShapeGeometry(shape);
@@ -20,10 +20,10 @@ const InternalPolygon = {
         geometry,
         new THREE.MeshBasicMaterial({
           color: this.fill == "color('primary')" ? color("primary") : this.fill,
-          opacity: this.opacity,
+          opacity: this.fill == '' ? 0 : this.opacity,
           side: THREE.DoubleSide
         })
-      );
+      ); 
     }
     curObj.name = curObj.name || curObj.type;
     return { curObj };
@@ -45,6 +45,8 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
       0  1  0,
       0  0  0
     "
+    :stroke="color('red')"
+    :fill="color('blue')"
     />
   </f-rotation3>
 </f-scene3>
@@ -71,7 +73,7 @@ Draws a 2D polygon on a plane in 3D space, accepts 2D coordinates in <code>:poin
   },
   template: `
     <f-group3>
-      <InternalPolygon :points="currentPoints" :fill="fill" :opacity="opacity" />
+      <InternalPolygon :points="currentPoints" :fill="fill" :opacity="opacity" position="0 0 0" />
       <f-line3 :points="currentPoints" :stroke="strokeColor" :strokeWidth="strokeWidth" :opacity="opacity" />
     </f-group3>
   `
