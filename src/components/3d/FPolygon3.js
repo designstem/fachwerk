@@ -11,11 +11,25 @@ const InternalPolygon = {
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var vectorPoints = this.points.map(
-        p => new THREE.Vector3(p[0] || 0, p[1] || 0, p[2] || 0)
-      );
-      var shape = new THREE.Shape(vectorPoints);
-      var geometry = new THREE.ShapeGeometry(shape);
+      // var vectorPoints = this.points.map(
+      //   p => new THREE.Vector3(p[0] || 0, p[1] || 0, p[2] || 0)
+      // );
+      // var shape = new THREE.Shape(vectorPoints);
+      // var geometry = new THREE.ShapeGeometry(shape);
+
+      var vertices = [];
+      var holes = [];
+      var triangles;
+      var geometry = new THREE.Geometry();
+      this.points.forEach(p => {
+        vertices.push(new THREE.Vector3(...p));
+      });
+      geometry.vertices = vertices;
+      triangles = THREE.ShapeUtils.triangulateShape ( vertices, holes );
+      triangles.forEach(t => {
+        geometry.faces.push( new THREE.Face3( t[0], t[1], t[2] ));
+      });
+
       curObj = new THREE.Mesh(
         geometry,
         new THREE.MeshBasicMaterial({
