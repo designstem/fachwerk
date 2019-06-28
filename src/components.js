@@ -332,6 +332,9 @@ export { FPeopleIcon };
 import FToolsIcon from "./components/icons/FToolsIcon.js";
 export { FToolsIcon };
 
+import FDownloadIcon from "./components/icons/FDownloadIcon.js";
+export { FDownloadIcon };
+
 // Music
 
 import FDrum from "./components/music/FDrum.js";

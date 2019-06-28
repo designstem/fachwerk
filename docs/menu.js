@@ -198,7 +198,8 @@ export default [
       { component: "FGithubIcon" },
       { component: "FPeopleIcon" },
       { component: "FToolsIcon" },
-      { component: "FClockIcon" }
+      { component: "FClockIcon" },
+      { component: "FDownloadIcon" }
     ]
   },
   {
