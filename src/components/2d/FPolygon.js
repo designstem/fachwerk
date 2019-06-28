@@ -30,15 +30,18 @@ Displays a closed polygon based on points.
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
-    strokeColor() {
+    currentStrokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
-    }
+    },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+    },
   },
   template: `
     <f-line
       :points="points"
       :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke-width="currentStrokeColor"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"

@@ -95,9 +95,6 @@ export default {
     .f-svg + .f-svg + .f-svg + .f-svg {
       margin: 0;
     }
-    .f-svg * {
-      --vector-effect: non-scaling-stroke;
-    }
     .f-svg text {
       fill: var(--primary);
       font-family: var(--font-mono);
