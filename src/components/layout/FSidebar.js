@@ -2,7 +2,7 @@ export default {
   description: `
 Sidebars load can be either inline or load from a file.
 
-<f-sidebar title="inline" orientation="left" width="66vw">
+<f-sidebar title="inline" orientation="left">
 
 ### Here is an inline sidebar.
 
@@ -12,9 +12,9 @@ Sidebars load can be either inline or load from a file.
 
 <f-sidebar title="Text from README.md" src="../README.md"  /> 
 
-For optional content overlay use <code>:overlay="true"</code>
+For optional content overlay use \`overlay\` 
 
-<f-sidebar title="Sidebar with overlay" :overlay="true">
+<f-sidebar title="Sidebar with overlay" overlay>
 
 ### Here is a sidebar with content-overlay.
 
@@ -64,7 +64,7 @@ For optional content overlay use <code>:overlay="true"</code>
         "
         :style="{
           width: width,
-          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.25)' + (overlay == true ? ', 0 0 0 99vw rgba(0,0,0,0.7)' : ''),
+          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.25)' + (overlay ? ', 0 0 0 99vw rgba(0,0,0,0.7)' : ''),
           right: orientation == 'right' ? 0 : '',
           left: orientation == 'left' ? 0 : '',
         }"
@@ -75,12 +75,12 @@ For optional content overlay use <code>:overlay="true"</code>
           style="
             cursor: pointer;
             position: sticky;
-            top: 15px;
-            left: calc( 100% - 45px );
+            top: var(--base2);
+            left: calc( 100% - var(--base6) );
             padding: 0 4px;
             background: var(--white);
         "
-        ><f-close-icon />
+        ><f-close-icon /> 
         </a>
         <f-fetch v-if="src" :src="src">
           <f-content
