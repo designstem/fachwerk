@@ -35,7 +35,8 @@ export default {
       default: 0.5,
       type: [Number, String],
       description: "Background grid step"
-    }
+    },
+    id: { default: "scene", type: String }
   },
   slots: {
     mouse: {
@@ -71,6 +72,7 @@ export default {
       --text-transform: scale(1,-1);
     "
     v-slot="{ mouse }"
+    :id="id"
   >
     <f-group>
       <f-grid
