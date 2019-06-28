@@ -85,7 +85,11 @@ export default [
       { component: "FRegularpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FRotation" }
+      { component: "FRotation" },
+      {
+        title: "Downloading SVG",
+        file: "./content/download.md",
+      },
     ]
   },
   {
