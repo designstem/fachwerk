@@ -2,7 +2,7 @@ export default {
   description: `
 Sidebars load can be either inline or load from a file.
 
-<f-sidebar title="inline">
+<f-sidebar title="inline" orientation="left">
 
 ### Here is an inline sidebar.
 
@@ -10,7 +10,15 @@ Sidebars load can be either inline or load from a file.
 
 ...or load a from a file:
 
-<f-sidebar title="Text from README.md" src="../README.md" />
+<f-sidebar title="Text from README.md" src="../README.md"  /> 
+
+For optional content overlay use \`overlay\` 
+
+<f-sidebar title="Sidebar with overlay" overlay>
+
+### Here is a sidebar with content-overlay.
+
+</f-sidebar> 
 
 <br><br>
 `,
@@ -19,7 +27,8 @@ Sidebars load can be either inline or load from a file.
     title: { default: "", type: String },
     width: { default: "33vw", type: String },
     orientation: { default: "right", type: String },
-    open: { default: false, type: Boolean }
+    open: { default: false, type: Boolean },
+    overlay: {default: false, type: Boolean}
   },
   data: () => ({ currentOpen: false }),
   mounted() {
@@ -55,7 +64,7 @@ Sidebars load can be either inline or load from a file.
         "
         :style="{
           width: width,
-          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px rgba(0,0,0,0.15)',
+          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.25)' + (overlay ? ', 0 0 0 99vw rgba(0,0,0,0.7)' : ''),
           right: orientation == 'right' ? 0 : '',
           left: orientation == 'left' ? 0 : '',
         }"
@@ -65,11 +74,13 @@ Sidebars load can be either inline or load from a file.
           class="quaternary"
           style="
             cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 15px;
+            position: sticky;
+            top: var(--base2);
+            left: calc( 100% - var(--base6) );
             padding: 0 4px;
-        "><f-close-icon />
+            background: var(--white);
+        "
+        ><f-close-icon /> 
         </a>
         <f-fetch v-if="src" :src="src">
           <f-content
