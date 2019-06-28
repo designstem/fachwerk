@@ -52,14 +52,17 @@ Technically the component is based on [d3.arc](https://github.com/d3/d3-shape#ar
         .endAngle(deg2rad(this.endAngle))
         .padAngle(deg2rad(this.padAngle))
         .cornerRadius(this.cornerRadius)();
-    }
+    },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
+    },
   },
   template: `
     <path
       :d="path"
       :fill="fill"
       :stroke="stroke"
-      :stroke-width="strokeWidth"
+      :stroke-width="currentStrokeWidth"
       :transform="transform"
       :opacity="opacity"
     />
