@@ -7,7 +7,7 @@ export default {
   example: `
 Displays a closed polygon based on points.
 
-<f-scene>
+<f-scene grid>
   <f-polygon points="0 0, 1 0, 0 1" />
   <f-polygon
     points="0 0, 1 0, 0 1"
@@ -37,7 +37,7 @@ Displays a closed polygon based on points.
     <f-line
       :points="points"
       :stroke="currentStrokeColor"
-      :stroke-width="currentStrokeWidth"
+      :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"

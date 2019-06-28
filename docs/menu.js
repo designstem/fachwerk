@@ -83,6 +83,7 @@ export default [
       { component: "FHexagon" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },
+      { component: "FRoundedpolygon" },
       { component: "FGroup" },
       { component: "FText" },
       { component: "FRotation" },
