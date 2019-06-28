@@ -1,16 +1,17 @@
-import { Css } from '../../../../fachwerk.js'
+import { Vue, Css } from "../../../../fachwerk.js";
 
 export default {
   mixins: [Css],
   props: {
-    width: { default: 300, type: [Number,String] },
-    height: { default: 300, type: [Number,String] },
-    innerX: { default: 0, type: [Number,String] },
-    innerY: { default: 0, type: [Number,String] },
-    innerWidth: { default: null, type: [Number,String] },
-    innerHeight: { default: null, type: [Number,String] },
+    width: { default: 300, type: [Number, String] },
+    height: { default: 300, type: [Number, String] },
+    innerX: { default: 0, type: [Number, String] },
+    innerY: { default: 0, type: [Number, String] },
+    innerWidth: { default: null, type: [Number, String] },
+    innerHeight: { default: null, type: [Number, String] },
     flipX: { default: false, type: Boolean },
-    flipY: { default: false, type: Boolean }
+    flipY: { default: false, type: Boolean },
+    id: { default: "scene", type: String }
   },
   slots: {
     mouse: {
@@ -21,8 +22,8 @@ export default {
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
     onMousemove(e) {
-      let svg = this.$refs.f_svg
-      let container = this.$refs.f_svg_g
+      let svg = this.$refs.f_svg;
+      let container = this.$refs.f_svg_g;
       if (svg && container) {
         let point = svg.createSVGPoint();
         point.x = e.clientX;
@@ -34,17 +35,35 @@ export default {
         this.mouseX = point.x;
         this.mouseY = point.y;
       }
+    },
+    download() {
+      const svg = document.getElementById(this.id).outerHTML;
+      const svgBlob = new Blob([svg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(svgBlob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `${this.id}.svg`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     }
   },
   computed: {
     viewBox() {
-      return `${this.innerX} ${this.innerY} ${this.innerWidth || this.width} ${
-        this.innerHeight || this.height
-      }`;
+      return `${this.innerX} ${this.innerY} ${this.innerWidth ||
+        this.width} ${this.innerHeight || this.height}`;
     },
     transform() {
       return `scale(${this.flipX ? -1 : 1},${this.flipY ? -1 : 1})`;
     }
+  },
+  mounted() {
+    Vue.prototype.$global.$on("download", (id = "scene") => {
+      if (this.id == id) {
+        this.download();
+      }
+    });
   },
   template: `
     <svg
@@ -54,6 +73,7 @@ export default {
         :view-box.camel="viewBox"
         class="f-svg"
         ref="f_svg"
+        :id="id"
         @mousemove="onMousemove"
         @touchmove="onMousemove"
         @mousedown="mousePressed = true"
@@ -87,4 +107,4 @@ export default {
     }
     
   `
-}
+};
