@@ -25,6 +25,11 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
       description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
     }
   },
+  provide() {
+    return {
+        innerScale: () => 1
+    }
+  },
   template: `
   <f-svg 
     :width="width"

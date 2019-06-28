@@ -56,6 +56,14 @@ export default {
     },
     innerY() {
       return this.innerHeight / -2;
+    },
+    innerScale() {
+      return this.innerWidth / this.width
+    }
+  },
+  provide() {
+    return {
+        innerScale: () => this.innerScale
     }
   },
   template: `

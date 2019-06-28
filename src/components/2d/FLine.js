@@ -46,6 +46,9 @@ Displays a straight, segmented or curved line.
     currentPoints() {
       return this.points ? parseCoords(this.points) : null;
     },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+    },
     path() {
       if (this.curved && this.closed) {
         return d3.line().curve(d3.curveCardinalClosed.tension(this.tension || 0))
@@ -60,12 +63,12 @@ Displays a straight, segmented or curved line.
     }
   },
   template: `
-    <g :transform="transform">
+    <g :transform="transform" id="Line">
       <path
         v-if="currentPoints"
         :d="path(currentPoints)"
         :stroke="stroke"
-        :stroke-width="strokeWidth"
+        :stroke-width="currentStrokeWidth"
         stroke-linecap="round"
         stroke-linejoin="round"
         :fill="fill"
@@ -78,7 +81,7 @@ Displays a straight, segmented or curved line.
         :x2="x2"
         :y2="y2"
         :stroke="stroke"
-        :stroke-width="strokeWidth"
+        :stroke-width="currentStrokeWidth"
         stroke-linecap="round"
         stroke-linejoin="round"
         :fill="fill"

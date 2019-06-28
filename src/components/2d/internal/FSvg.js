@@ -56,7 +56,7 @@ export default {
     },
     transform() {
       return `scale(${this.flipX ? -1 : 1},${this.flipY ? -1 : 1})`;
-    }
+    },
   },
   mounted() {
     Vue.prototype.$global.$on("download", (id = "scene") => {

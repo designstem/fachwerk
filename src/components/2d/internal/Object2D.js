@@ -11,5 +11,6 @@ export default {
         this.rotation
       )} ${scaleTransform(this.scale)}`;
     }
-  }
+  },
+  inject: ['innerScale']
 };
