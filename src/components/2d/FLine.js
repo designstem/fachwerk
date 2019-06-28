@@ -47,7 +47,7 @@ Displays a straight, segmented or curved line.
       return this.points ? parseCoords(this.points) : null;
     },
     currentStrokeWidth() {
-      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
     path() {
       if (this.curved && this.closed) {

@@ -7,9 +7,9 @@ Groups child elements and applies 2D transformations to the group.
 
 <f-scene grid>
   <f-group
-    :position="{ x: 1, y: 1 }"
-    :rotation="{ z: 45 }"
-    :scale="{ x: 0.2, y: 0.2 }"
+    position="1 1"
+    rotation="45"
+    scale="0.5"
   >
     <f-box />
   </f-group>
@@ -21,8 +21,13 @@ Groups child elements and applies 2D transformations to the group.
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
   },
+  provide() {
+    return {
+      groupScale: () => this.scale
+    }
+  },
   template: `
-    <g :transform="transform">
+    <g :transform="transform" id="Group">
       <slot />
     </g>
   `

@@ -8,7 +8,7 @@ export default {
     cornerRadius: { default: 0.5, type: [Number, String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number, String] },
-    fill: { default: "none", type: String }
+    fill: { default: "none", type: String },
   },
   methods: {
     color,
@@ -21,7 +21,7 @@ export default {
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color("primary") : this.stroke;
-    }
+    },
   },
   template: `
   <f-group :scale="r" :position="[x,y]">

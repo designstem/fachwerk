@@ -57,13 +57,13 @@ export default {
     innerY() {
       return this.innerHeight / -2;
     },
-    innerScale() {
+    svgScale() {
       return this.innerWidth / this.width
     }
   },
   provide() {
     return {
-        innerScale: () => this.innerScale
+      svgScale: () => this.svgScale
     }
   },
   template: `

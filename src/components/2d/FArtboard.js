@@ -13,12 +13,12 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
 </f-artboard>
   `,
   props: {
-    width: { default: 600, type: [Number,String] },
-    height: { default: 600, type: [Number,String] },
+    width: { default: 600, type: [Number, String] },
+    height: { default: 600, type: [Number, String] },
     grid: { default: false, type: Boolean },
-    step: { default: 25, type: [Number,String] },
+    step: { default: 25, type: [Number, String] },
     id: { default: "scene", type: String }
-  }, 
+  },
   slots: {
     mouse: {
       type: "object",
@@ -27,8 +27,8 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
   },
   provide() {
     return {
-        innerScale: () => 1
-    }
+      svgScale: () => 1
+    };
   },
   template: `
   <f-svg 
@@ -54,5 +54,5 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
       <slot :mouse="mouse" />
     </f-group>
   </f-svg>
-  `,
+  `
 };

@@ -32,11 +32,11 @@ Displays a 2D rectangle.
     opacity: { default: 1, type: [Number, String] }
   },
   computed: {
-    strokeColor() {
+    currentStrokeColor() {
       return this.stroke == "color('primary')" ? color("primary") : this.stroke;
     },
     currentStrokeWidth() {
-      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
     currentPoints() {
       return this.points ? parseCoords(this.points) : null;
@@ -51,7 +51,7 @@ Displays a 2D rectangle.
       :y="p[1] - ((r || height) / 2)"
       :width="r || width"
       :height="r || height"
-      :stroke="strokeColor"
+      :stroke="currentStrokeColor"
       :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -65,7 +65,7 @@ Displays a 2D rectangle.
       :y="y - ((r || height) / 2)"
       :width="r || width"
       :height="r || height"
-      :stroke="strokeColor"
+      :stroke="currentStrokeColor"
       :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"

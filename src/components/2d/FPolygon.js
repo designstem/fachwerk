@@ -8,7 +8,6 @@ export default {
 Displays a closed polygon based on points.
 
 <f-scene>
-  <f-grid />
   <f-polygon points="0 0, 1 0, 0 1" />
   <f-polygon
     points="0 0, 1 0, 0 1"
@@ -33,21 +32,19 @@ Displays a closed polygon based on points.
     currentStrokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
-    currentStrokeWidth() {
-      return this.strokeWidth * this.innerScale() * (1 / this.scale)
-    },
   },
   template: `
     <f-line
       :points="points"
-      :stroke="strokeColor"
-      :stroke-width="currentStrokeColor"
+      :stroke="currentStrokeColor"
+      :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
       :closed="true"
+      :scale="scale"
     />
   `
 };

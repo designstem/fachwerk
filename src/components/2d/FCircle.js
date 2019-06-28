@@ -34,7 +34,7 @@ Displays a circle.
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
     },
     currentStrokeWidth() {
-      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
     currentPoints() {
      return this.points ? parseCoords(this.points) : null;

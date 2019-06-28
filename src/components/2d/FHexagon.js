@@ -35,6 +35,7 @@ Displays a hexagon.
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
+      :scale="scale"
     />
   `
 };

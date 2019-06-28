@@ -54,7 +54,7 @@ Technically the component is based on [d3.arc](https://github.com/d3/d3-shape#ar
         .cornerRadius(this.cornerRadius)();
     },
     currentStrokeWidth() {
-      return this.strokeWidth * this.innerScale() * (1 / this.scale)
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
   },
   template: `

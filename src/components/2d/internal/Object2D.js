@@ -10,7 +10,7 @@ export default {
       return `${positionTransform(this.position)} ${rotationTransform(
         this.rotation
       )} ${scaleTransform(this.scale)}`;
-    }
+    },
   },
-  inject: ['innerScale']
+  inject: { svgScale: { default: () => 1 }, groupScale: { default: () => 1 } }
 };
