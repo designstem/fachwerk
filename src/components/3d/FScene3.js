@@ -33,6 +33,20 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     id: { default: "scene", type: String },
     download: { default: false, type: Boolean }
   },
+  methods: {
+    onDownload() {
+      const svg = this.curObj.domElement.outerHTML;
+      const svgBlob = new Blob([svg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(svgBlob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `${this.id}.svg`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  },
   template: `
   <Renderer
     :size="{ w: width, h: height }"
