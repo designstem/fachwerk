@@ -1,4 +1,4 @@
-import { Vue, Css } from "../../../../fachwerk.js";
+import { Vue, Css, send } from "../../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -11,7 +11,8 @@ export default {
     innerHeight: { default: null, type: [Number, String] },
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean },
-    id: { default: "scene", type: String }
+    id: { default: "scene", type: String },
+    download: { default: false, type: Boolean }
   },
   slots: {
     mouse: {
@@ -21,6 +22,7 @@ export default {
   },
   data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
   methods: {
+    send,
     onMousemove(e) {
       let svg = this.$refs.f_svg;
       let container = this.$refs.f_svg_g;
@@ -36,7 +38,7 @@ export default {
         this.mouseY = point.y;
       }
     },
-    download() {
+    onDownload() {
       const svg = document.getElementById(this.id).outerHTML;
       const svgBlob = new Blob([svg], { type: "image/svg+xml" });
       const url = URL.createObjectURL(svgBlob);
@@ -61,11 +63,12 @@ export default {
   mounted() {
     Vue.prototype.$global.$on("download", (id = "scene") => {
       if (this.id == id) {
-        this.download();
+        this.onDownload();
       }
     });
   },
   template: `
+  <div>
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
@@ -85,6 +88,9 @@ export default {
         <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
       </g>
     </svg>
+    <br />
+    <button v-if="download" class="quaternary" @click="send('download', id)">⤓</button>
+  </div>
   `,
   css: `
     .f-svg + * {

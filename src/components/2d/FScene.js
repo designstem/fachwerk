@@ -36,7 +36,8 @@ export default {
       type: [Number, String],
       description: "Background grid step"
     },
-    id: { default: "scene", type: String }
+    id: { default: "scene", type: String },
+    download: { default: false, type: Boolean }
   },
   slots: {
     mouse: {
@@ -81,6 +82,7 @@ export default {
     "
     v-slot="{ mouse }"
     :id="id"
+    :download="download"
   >
     <f-group>
       <f-grid
