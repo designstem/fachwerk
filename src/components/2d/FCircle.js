@@ -30,8 +30,11 @@ Displays a circle.
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
-    strokeColor() {
+    currentStrokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
     currentPoints() {
      return this.points ? parseCoords(this.points) : null;
@@ -40,25 +43,27 @@ Displays a circle.
   template: `
     <f-group>
     <circle
+      id="Circle"
       v-if="currentPoints"
       v-for="p,i in currentPoints"
       :key="i"
       :cx="p[0]"
       :cy="p[1]"
       :r="r"
-      :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke="currentStrokeColor"
+      :stroke-width="currentStrokeWidth"
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
     />
     <circle
+      id="Circle"
       v-if="!currentPoints"
       :cx="x"
       :cy="y"
       :r="r"
-      :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke="currentStrokeColor"
+      :stroke-width="currentStrokeWidth"
       :fill="fill"
       :transform="transform"
       :opacity="opacity"

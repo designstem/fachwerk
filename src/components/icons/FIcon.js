@@ -124,7 +124,7 @@ Various icons.
     <f-group :position="[sizes[size].width / 2 , sizes[size].width / 2]">
       <f-roundedpolygon
         stroke="var(--icon-stroke)"
-        :stroke-width="sizes[size].strokeWidth"
+        :stroke-width="sizes[size].strokeWidth / 20"
         corner-radius="0.5"
         :r="sizes[size].width / 2"
         fill="white"

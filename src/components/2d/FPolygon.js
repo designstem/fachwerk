@@ -7,8 +7,7 @@ export default {
   example: `
 Displays a closed polygon based on points.
 
-<f-scene>
-  <f-grid />
+<f-scene grid>
   <f-polygon points="0 0, 1 0, 0 1" />
   <f-polygon
     points="0 0, 1 0, 0 1"
@@ -30,14 +29,14 @@ Displays a closed polygon based on points.
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
-    strokeColor() {
+    currentStrokeColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
-    }
+    },
   },
   template: `
     <f-line
       :points="points"
-      :stroke="strokeColor"
+      :stroke="currentStrokeColor"
       :stroke-width="strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -45,6 +44,7 @@ Displays a closed polygon based on points.
       :transform="transform"
       :opacity="opacity"
       :closed="true"
+      :scale="scale"
     />
   `
 };

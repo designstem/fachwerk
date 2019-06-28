@@ -42,41 +42,45 @@ Displays a point in 2D space.
     y: { default: 0, type: [Number,String] },
     points: { default: '', type: [String, Number, Array, Object] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: [Number,String] },
-    r: { default: '', type: [Number,String] },
+    strokeWidth: { default: '', type: [Number,String] },
+    r: { default: 1.5, type: [Number,String] },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
   },
   computed: {
-    strokeColor() {
+    currentFillColor() {
       return this.stroke == "color('primary')" ? color('primary') : this.stroke
+    },
+    currentRadius() {
+      return this.svgScale() * (1 / this.groupScale()) * (1 / this.scale) * (this.strokeWidth || this.r)
     },
     currentPoints() {
       return this.points ? parseCoords(this.points) : null;
     }
   },
+  mounted() {
+   console.log(this.svgScale())
+  },
   template: `
     <g :transform="transform">
-      <f-line
+      <f-circle
         v-if="currentPoints"
         v-for="(point,i) in currentPoints"
         :key="i"
         :points="[point,point]"
-        :stroke="strokeColor"
-        :stroke-width="r || strokeWidth"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        :fill="currentFillColor"
+        stroke="none"
+        :r="currentRadius"
         :opacity="opacity"
       />
-      <f-line
+      <f-circle
         v-if="!currentPoints"
         :points="[[x, y],[x, y]]"
-        :stroke="strokeColor"
-        :stroke-width="r || strokeWidth"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        :fill="currentFillColor"
+        stroke="none"
+        :r="currentRadius"
         :opacity="opacity"
       />
     </g>

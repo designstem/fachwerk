@@ -32,15 +32,18 @@ Displays a 2D rectangle.
     opacity: { default: 1, type: [Number, String] }
   },
   computed: {
-    strokeColor() {
+    currentStrokeColor() {
       return this.stroke == "color('primary')" ? color("primary") : this.stroke;
+    },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.svgScale() * (1 / this.groupScale()) * (1 / this.scale)
     },
     currentPoints() {
       return this.points ? parseCoords(this.points) : null;
     }
   },
   template: `
-  <g>
+  <g id="Box">
     <rect
       v-if="currentPoints"
       v-for="p in currentPoints"
@@ -48,8 +51,8 @@ Displays a 2D rectangle.
       :y="p[1] - ((r || height) / 2)"
       :width="r || width"
       :height="r || height"
-      :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke="currentStrokeColor"
+      :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"
@@ -62,8 +65,8 @@ Displays a 2D rectangle.
       :y="y - ((r || height) / 2)"
       :width="r || width"
       :height="r || height"
-      :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke="currentStrokeColor"
+      :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"

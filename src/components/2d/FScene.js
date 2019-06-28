@@ -56,6 +56,14 @@ export default {
     },
     innerY() {
       return this.innerHeight / -2;
+    },
+    svgScale() {
+      return this.innerWidth / this.width
+    }
+  },
+  provide() {
+    return {
+      svgScale: () => this.svgScale
     }
   },
   template: `
