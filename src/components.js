@@ -11,6 +11,9 @@ export { FBasegrid };
 import FScene from "./components/2d/FScene.js";
 export { FScene };
 
+import FScene2 from "./components/2d/FScene2.js";
+export { FScene2 };
+
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 

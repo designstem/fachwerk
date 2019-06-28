@@ -31,9 +31,13 @@ Displays a 2D rectangle.
     scale: { default: "1", type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number, String] }
   },
+  inject: ['innerScale'],
   computed: {
     strokeColor() {
       return this.stroke == "color('primary')" ? color("primary") : this.stroke;
+    },
+    currentStrokeWidth() {
+      return this.strokeWidth * this.innerScale()
     },
     currentPoints() {
       return this.points ? parseCoords(this.points) : null;
@@ -49,7 +53,7 @@ Displays a 2D rectangle.
       :width="r || width"
       :height="r || height"
       :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"
@@ -63,7 +67,7 @@ Displays a 2D rectangle.
       :width="r || width"
       :height="r || height"
       :stroke="strokeColor"
-      :stroke-width="strokeWidth"
+      :stroke-width="currentStrokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
       :fill="fill"
