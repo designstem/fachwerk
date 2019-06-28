@@ -1,24 +1,22 @@
-### Downloading a named SVG file
+### Download a SVG file 
 
-To download a single SVG file from `f-scene` or `f-artboard`, you will first have a `id` prop on the component (this will be the name of the downloaded file).
+To download a single SVG file from `f-scene` or `f-artboard`, you will have to set a `download` and `id` prop on the component (the latter will be the name of the downloaded file).
 
-<f-artboard id="test" width="300" height="300">
-  <f-circle r="100" x="150" y="150" />
-</f-artboard>
+<f-scene grid download id="2d">
+  <f-box  />
+</f-scene>
 
-Then emit a `download` event with `test` as a parameter.
+<f-scene3 grid download id="3d">
+  <f-rotation3>
+    <f-box3 />
+  </f-rotation3>
+</f-scene3>
 
-<button v-on:click="send('download', 'test')">Download test.svg</button>
+### Download SVG file on an event
 
-### Downloading an unnamed SVG file
+Sometimes you want to trigger a download from somewhere else in the document. In this case, you will need to `send` a `download` event with `id` referring to particular scene or artboard on the document.
 
-You do not have to specify the `id` prop, it is assumed to be `scene` by default. In this case the download will be even simpler:
-
-<f-artboard width="300" height="300">
-  <f-box r="100" x="150" y="150
-  " />
-</f-artboard>
-
-<button v-on:click="send('download')">Download scene.svg</button>
-
-***Note:*** If there are multiple unnamed SVG files, all of them will be downloaded. Your browser might warn you about downloading multiple files though.
+<f-inline>
+  <button v-on:click="send('download', '2d')">Download 2d.svg</button>
+  <button v-on:click="send('download', '3d')">Download 3d.svg</button>
+</f-inline>

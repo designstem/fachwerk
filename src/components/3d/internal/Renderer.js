@@ -1,4 +1,4 @@
-import { THREE } from "../../../../fachwerk.js";
+import { THREE, Vue, send } from "../../../../fachwerk.js";
 import { SVGRenderer } from "./SVGRenderer.js";
 
 export default {
@@ -16,7 +16,9 @@ export default {
       required: true
     },
     obj: { type: Object },
-    background: { type: String, default: "#ffffff" }
+    background: { type: String, default: "#ffffff" },
+    id: { default: "scene", type: String },
+    download: { default: false, type: Boolean }
   },
   data() {
     let curObj = this.obj;
@@ -35,19 +37,38 @@ export default {
     return { curObj, global };
   },
   mounted() {
+    Vue.prototype.$global.$on("download", (id = "scene") => {
+      if (this.id == id) {
+        this.onDownload();
+      }
+    });
     this.$refs.container.appendChild(this.curObj.domElement);
     this.animate();
   },
   methods: {
+    send,
     animate() {
       requestAnimationFrame(this.animate);
       this.curObj.render(this.global.scene, this.global.camera);
+    },
+    onDownload() {
+      const svg = this.curObj.domElement.outerHTML;
+      const svgBlob = new Blob([svg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(svgBlob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `${this.id}.svg`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     }
   },
   template: `
   <div>
     <slot></slot>
     <div ref="container"></div>
+    <button v-if="download && !webgl" class="quaternary" @click="send('download', id)">⤓</button>
   </div>
   `
 };
