@@ -1,4 +1,4 @@
-import { Css } from "../../../../fachwerk.js";
+import { Vue, Css } from "../../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -11,7 +11,7 @@ export default {
     innerHeight: { default: null, type: [Number, String] },
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean },
-    id: { default: 'scene', type: String }
+    id: { default: "scene", type: String }
   },
   slots: {
     mouse: {
@@ -58,7 +58,14 @@ export default {
       return `scale(${this.flipX ? -1 : 1},${this.flipY ? -1 : 1})`;
     }
   },
-  template: `<div><button @click="download">Download</button>
+  mounted() {
+    Vue.prototype.$global.$on("download", (id = "scene") => {
+      if (this.id == id) {
+        this.download();
+      }
+    });
+  },
+  template: `
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
@@ -77,7 +84,7 @@ export default {
       <g :transform="transform" ref="f_svg_g">
         <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
       </g>
-    </svg></div>
+    </svg>
   `,
   css: `
     .f-svg + * {
