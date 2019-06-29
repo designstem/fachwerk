@@ -28,8 +28,8 @@ export default {
       let container = this.$refs.f_svg_g;
       if (svg && container) {
         let point = svg.createSVGPoint();
-        point.x = e.clientX;
-        point.y = e.clientY;
+        point.x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        point.y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
         let ctm = container.getScreenCTM();
         if ((ctm = ctm.inverse())) {
           point = point.matrixTransform(ctm);
