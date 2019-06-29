@@ -1,5 +1,4 @@
-import { color } from "../../../fachwerk.js"
-;
+import { color } from "../../../fachwerk.js";
 
 export default {
   inject: ["provider"],

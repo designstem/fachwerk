@@ -1,4 +1,4 @@
-import { Vue, send } from "../../../../fachwerk.js";
+import { Vue, send } from "../../../fachwerk.js";
 
 export default {
   description: `
