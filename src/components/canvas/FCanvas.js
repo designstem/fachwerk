@@ -35,8 +35,8 @@ Creates a 2D bitmap canvas. Use \`<f-pixel>\` and \`<f-pixels>\` to draw on it.
     this.provider.context = this.$refs.canvas.getContext("2d");
     this.$refs.canvas.width = this.width;
     this.$refs.canvas.height = this.height;
-    Vue.prototype.$global.$on("download", (id = "scene") => {
-      if (this.id == id) {
+    Vue.prototype.$global.$on("download", id => {
+      if (id && this.id == id) {
         this.onDownload();
       }
     });
@@ -61,7 +61,7 @@ Creates a 2D bitmap canvas. Use \`<f-pixel>\` and \`<f-pixels>\` to draw on it.
     <canvas ref="canvas" />
     <slot />
     <br />
-    <button v-if="download" class="quaternary" @click="send('download', id)">⤓</button>
+    <button v-if="download" class="quaternary" @click="onDownload">⤓</button>
   </div>
 `
 };

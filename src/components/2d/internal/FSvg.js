@@ -61,8 +61,8 @@ export default {
     },
   },
   mounted() {
-    Vue.prototype.$global.$on("download", (id = "scene") => {
-      if (this.id == id) {
+    Vue.prototype.$global.$on("download", id => {
+      if (id && this.id == id) {
         this.onDownload();
       }
     });
@@ -89,7 +89,7 @@ export default {
       </g>
     </svg>
     <br />
-    <button v-if="download" class="quaternary" @click="send('download', id)">⤓</button>
+    <button v-if="download" class="quaternary" @click="onDownload">⤓</button>
   </div>
   `,
   css: `

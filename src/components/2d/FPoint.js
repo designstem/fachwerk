@@ -60,9 +60,6 @@ Displays a point in 2D space.
       return this.points ? parseCoords(this.points) : null;
     }
   },
-  mounted() {
-   console.log(this.svgScale())
-  },
   template: `
     <g :transform="transform">
       <f-circle

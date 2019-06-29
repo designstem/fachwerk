@@ -37,8 +37,8 @@ export default {
     return { curObj, global };
   },
   mounted() {
-    Vue.prototype.$global.$on("download", (id = "scene") => {
-      if (this.id == id) {
+    Vue.prototype.$global.$on("download", id => {
+      if (id && this.id == id) {
         this.onDownload();
       }
     });
@@ -68,7 +68,7 @@ export default {
   <div>
     <slot></slot>
     <div ref="container"></div>
-    <button v-if="download && !webgl" class="quaternary" @click="send('download', id)">⤓</button>
+    <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓</button>
   </div>
   `
 };
