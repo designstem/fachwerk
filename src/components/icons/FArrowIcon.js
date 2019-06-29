@@ -16,20 +16,21 @@ Arrow icon.
       :transform="'rotate(' + rotation + ')'"
       :transform-origin="[size / 2, size / 2].join(' ')"
     >
-    <f-line
-      :x1="2"
-      :y1="size / 2"
-      :x2="size - 3"
-      :y2="size / 2"
-      stroke="var(--icon-stroke)"
-      stroke-width="2"
-    />
-    <f-line
-      :points="[[size / 2,2],[size - 2,size/2],[size / 2,size - 2]]"
-      stroke="var(--icon-stroke)"
-      stroke-width="2"
-    />
+      <f-line
+        :x1="2"
+        :y1="size / 2"
+        :x2="size - 3"
+        :y2="size / 2"
+        stroke="var(--icon-stroke)"
+        stroke-width="2"
+      />
+      <f-line
+        :points="[[size / 2,2],[size - 2,size/2],[size / 2,size - 2]]"
+        stroke="var(--icon-stroke)"
+        stroke-width="2"
+      />
     </f-group>
+    <slot :size="size" />
   </f-artboard>
   `
 };

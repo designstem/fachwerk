@@ -16,8 +16,8 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
   `,
   components: { Renderer, Scene, Camera },
   props: {
-    width: { default: 300, type: [Number,String] },
-    height: { default: 300, type: [Number,String] },
+    width: { default: 300, type: [Number, String] },
+    height: { default: 300, type: [Number, String] },
     grid: {
       default: false,
       type: [Boolean, String],
@@ -29,10 +29,31 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
       description: "Show axises"
     },
     webgl: { default: false, type: Boolean },
-    isometric: { default: false, type: Boolean }
+    isometric: { default: false, type: Boolean },
+    id: { default: "scene", type: String },
+    download: { default: false, type: Boolean }
+  },
+  methods: {
+    onDownload() {
+      const svg = this.curObj.domElement.outerHTML;
+      const svgBlob = new Blob([svg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(svgBlob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `${this.id}.svg`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
   },
   template: `
-  <Renderer :size="{ w: width, h: height }" :webgl="webgl">
+  <Renderer
+    :size="{ w: width, h: height }"
+    :webgl="webgl"
+    :id="id"
+    :download="download"
+  >
     <Scene>
       <Camera :position="{ x: 0, y: 0, z: 2.63 }" :isometric="isometric" />
       <f-grid3 v-if="grid" />

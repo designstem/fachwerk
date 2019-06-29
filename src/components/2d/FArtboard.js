@@ -17,7 +17,8 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     height: { default: 600, type: [Number, String] },
     grid: { default: false, type: Boolean },
     step: { default: 25, type: [Number, String] },
-    id: { default: "scene", type: String }
+    id: { default: "scene", type: String },
+    download: { default: false, type: Boolean }
   },
   slots: {
     mouse: {
@@ -37,6 +38,7 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     class="f-artboard"
     v-slot="{ mouse }"
     :id="id"
+    :download="download"
   >
     <f-group>
       <f-basegrid 
