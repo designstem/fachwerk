@@ -65,7 +65,7 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
       :style="{
         display: inline ? 'inline' : 'block',
         padding: inline ? 0 : '1rem 2rem',
-        fontSize: inline ? '' : '1.3em',
+        fontSize: inline ? '' : '1.1em',
         color: 'color: var(--primary)'
       }"
     />
