@@ -30,12 +30,24 @@ When using live variables, it is recommended to set a \`:update\` prop that trig
   `,
   props: {
     inline: { default: false, type: Boolean },
+    red: { default: false, type: Boolean },
+    orange: { default: false, type: Boolean },
+    purple: { default: false, type: Boolean },
+    blue: { default: false, type: Boolean },
+    green: { default: false, type: Boolean },
+    gray: { default: false, type: Boolean },
     update: { default: null, type: [Number, String, Array, Object] }
   },
   data: () => ({ math: 0, timer: null }),
   methods: {
     renderMath() {
-      const text = this.$slots.default[0].text.trim();
+      let text = this.$slots.default[0].text ? this.$slots.default[0].text.trim() : ''
+      if (this.red) { text = `\\color{red} ${text}` }
+      if (this.orange) { text = `\\color{orange} ${text}` }
+      if (this.purple) { text = `\\color{purple} ${text}` }
+      if (this.blue) { text = `\\color{blue} ${text}` }
+      if (this.green) { text = `\\color{green} ${text}` }
+      if (this.gray) { text = `\\color{gray} ${text}` }
       this.math = katex
         .renderToString(this.inline ? text : text.replace(/\n+/g, "\\newline"), {
           throwOnError: false
