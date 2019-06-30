@@ -29,6 +29,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
       description: "Show axises"
     },
     webgl: { default: false, type: Boolean },
+    static: { default: false, type: Boolean },
     isometric: { default: false, type: Boolean },
     id: { default: "scene", type: String },
     download: { default: false, type: Boolean }
@@ -51,6 +52,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
   <Renderer
     :size="{ w: width, h: height }"
     :webgl="webgl"
+    :static="static"
     :id="id"
     :download="download"
   >

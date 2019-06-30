@@ -11,6 +11,7 @@ export default {
   },
   props: {
     webgl: { default: false, type: Boolean },
+    static: { default: false, type: Boolean },
     size: {
       type: Object,
       required: true
@@ -48,7 +49,9 @@ export default {
   methods: {
     send,
     animate() {
-      requestAnimationFrame(this.animate);
+      if(!this.static){
+        requestAnimationFrame(this.animate);
+      }
       this.curObj.render(this.global.scene, this.global.camera);
     },
     onDownload() {
