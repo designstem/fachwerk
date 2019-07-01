@@ -1,13 +1,9 @@
-# Hallo Welt
-
-Here is a simple interactive scene to get you started.
-
-See the [docs](../docs) for reference, click **Save locally** to save your explorations to your browser.
-
-Slider value is `{{ get('a') }}`
-
-<f-slider set="a" />
-
-<f-scene grid>
-  <f-box :rotation="get('a', 0)" />
+<f-scene download>
+	<text text-anchor="middle" alignment-baseline="middle" text-anchor="middle" :font-size="64 * 0.0133" transform="scale(1,-1)">ja</text>
+  <f-text2>a</f-text2>
 </f-scene>
+
+<f-artboard download id="a">
+	<text x="100" y="100" alignment-baseline="middle" text-anchor="middle" :font-size="64 * 1">Hallo</text>
+  <f-text2 x="100" y="100">Hello</f-text2>
+</f-artboard>

@@ -50,6 +50,9 @@ export { FRoundedpolygon };
 import FText from "./components/2d/FText.js";
 export { FText };
 
+import FText2 from "./components/2d/FText2.js";
+export { FText2};
+
 import FArtboard from "./components/2d/FArtboard.js";
 export { FArtboard };
 
