@@ -68,13 +68,13 @@ export default {
     });
   },
   template: `
-  <div>
+  <div class="f-svg">
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
         :height="height"
         :view-box.camel="viewBox"
-        class="f-svg"
+       
         ref="f_svg"
         :id="id"
         @mousemove="onMousemove"

@@ -20,11 +20,6 @@ export default [
         file: "./content/writing.md"
       },
       {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" },
-      {
         title: "Adding tables",
         file: "./content/tables.md"
       },
@@ -88,8 +83,8 @@ export default [
       { component: "FText" },
       { component: "FRotation" },
       {
-        title: "Downloading SVG",
-        file: "./content/download.md",
+        title: "Creating 2D graphics",
+        file: "./content/2d.md",
       },
     ]
   },
@@ -161,6 +156,16 @@ export default [
       { component: "FFetch" },
       { component: "FSheet" },
       { component: "FWebsocket" }
+    ]
+  },
+  {
+    title: "Math",
+    items: [
+      { component: "FMath" },
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
     ]
   },
   {
