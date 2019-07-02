@@ -93,6 +93,9 @@ export default {
   </div>
   `,
   css: `
+    .f-svg {
+      display: inline-flex;
+    }
     .f-svg + * {
       margin-top: var(--base2);
     }
