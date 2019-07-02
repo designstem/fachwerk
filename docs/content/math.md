@@ -2,13 +2,11 @@
 
 For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components. `<f-math>` equations are written in classic LaTex syntax.
 
-> A good tutorial on LaTeX format can be found here:  https://en.wikibooks.org/wiki/LaTeX/Mathematics
-
 ### Examples
 
-#### Circle <var>diameter</var> and <var class="blue">radius</var>
+#### Circle diameter <f-math inline red>d</f-math> and radius <f-math inline blue>r</f-math>
 
-Let's draw a simple graph and set of equations to represent circle's diameter <var>d</var>, <var class="green">π</var> and radius <var class="blue">r</var>:  
+Let's draw a simple graph and set of equations to represent circle's diameter <f-math inline red>d</f-math>, <f-math inline green>\pi</f-math> and radius <f-math inline blue>r</f-math>:  
 
 <f-scene grid >
   <f-line
@@ -42,11 +40,11 @@ Let's draw a simple graph and set of equations to represent circle's diameter <v
 
 <br><br>
 
-#### Circle <var class="orange">area</var> and <var class="blue">radius</var>
+#### Circle area <f-math inline orange>a</f-math> and radius <f-math inline blue>r</f-math>
 
-Let's explore further, this time circle area <var class="orange">a</var> and radius <var class="blue">r</var>, but let's make <var class="blue">r</var> an adjustable parameter:
+Let's explore further, this time circle area <f-math inline orange>a</f-math> and radius <f-math inline blue>r</f-math>, but let's make <f-math inline blue>r</f-math> an adjustable parameter:
 
-<var class="blue">r</var> value is <var class="blue">{{ get('r') }}</var>
+<f-math :update="get('r')">\color{blue} r \color{black} = \color{blue} {{ get('r') }}</f-math>
 
 <f-slider
   from="0.5"
@@ -55,7 +53,7 @@ Let's explore further, this time circle area <var class="orange">a</var> and rad
   set="r"
 />
   
-<f-scene grid width="200" height="200">
+<f-scene grid>
   <f-circle
     :fill="color('orange')"
     stroke-width="0"
@@ -65,7 +63,7 @@ Let's explore further, this time circle area <var class="orange">a</var> and rad
   <f-line :x2="get('r',1)" :stroke="color('blue')" />
 </f-scene>
 
-<f-scene grid width="200" height="200">
+<f-scene grid>
   <f-box
     :fill="color('orange')"
     stroke-width="0"
@@ -77,52 +75,9 @@ Let's explore further, this time circle area <var class="orange">a</var> and rad
 </f-scene>
 
 <f-math>
-  \color{orange} a \color{black} = \pi \cdot \color{blue} r \color{black} ^2
+  \color{orange} a \color{black} = \color{green} \pi \color{black} \cdot \color{blue} r \color{black} ^2
 </f-math>
 
 <f-math :update="get('r')">
-  \color{orange} a \color{black} = {{ Math.PI }} \cdot \color{blue} {{ get('r',1) }} \color{black} ^2 = \color{orange} {{ Math.PI * Math.pow(get('r',1),2) }}
-</f-math>
-
-### Color variables in text
-
-Variables in text can be marked as such: <var>variable</var>.
-
-There is a range of colors available for `<var>` tags:
-
-<var class="orange">orange</var>
-<var class="yellow">yellow</var>
-<var class="blue">blue</var>
-<var class="purple">purple</var>
-<var class="blue">blue</var>
-<var class="green">green</var>
-<var class="gray">gray</var>
-
-### Color variables math equations
-
-In `<f-math>` component same colors are available:
-
-<f-math>
-	color = \color{red} red \color{black}
-  color = \color{orange} orange \color{black}
-  color = \color{blue} purple \color{black}
-  color = \color{purple} purple \color{black}
-  color = \color{green} green \color{black}
-  color = \color{gray} gray  \color{black}
-</f-math>
-
-***Note*** Setting `\color{red}` or any other color acts as a *trigger*: if you set it, it will populate through the rest of the equation.
-
-To stop the population, you will have to add another symbol `\color{black}` to the point where coloring should be ending.
-
-Compare this
-
-<f-math>
-	\color{red} a \cdot b \cdot c
-</f-math>
-
-to this
-
-<f-math>
-	\color{red} a \color{black} \cdot b \cdot c
+  \color{orange} a \color{black} = \color{green} {{ Math.PI }} \color{black} \times \color{black} \color{blue} {{ get('r',1) }} \color{black} ^2 = \color{orange} {{ Math.PI * Math.pow(get('r',1),2) }}
 </f-math>

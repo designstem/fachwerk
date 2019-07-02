@@ -95,7 +95,7 @@ export default {
         :inner-width="innerWidth"
         :inner-height="innerHeight"
       />
-      <slot :mouse="mouse" />
+      <slot :mouse="mouse" :svgscale="svgScale" />
     </f-group>
   </f-svg>
   `
