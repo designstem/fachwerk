@@ -1,3 +1,5 @@
+import { shuffle } from "../../fachwerk.js"
+
 export const debounce_help = () => `
 
 \`debounce(function, time)\`
@@ -25,3 +27,24 @@ Logs a value from a template to the console
 `;
 
 export const log = value => console.log(value);
+
+export const randomid_help = () => `
+
+\`randomid()\`
+
+Genrates a random alphabetical ID
+
+#### Example
+
+    randomid()
+
+#### Output
+
+<output>{{ randomid() }}</output>
+`;
+
+export const randomid = () => {
+  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  console.log(letters)
+  return shuffle(letters).slice(0,8).join('')
+}

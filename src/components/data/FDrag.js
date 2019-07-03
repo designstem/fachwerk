@@ -32,7 +32,7 @@ Allows dragging a set of points.
   props: {
     points: { default: "", type: [String, Number, Array, Object] },
     mouse: { default: () => {}, type: Object },
-    r: { default: 20, type: [Number, String] },
+    r: { default: 10, type: [Number, String] },
     step: { default: false, type: [Boolean, Number, String] },
     set: {
       default: "",
