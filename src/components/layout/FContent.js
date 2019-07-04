@@ -1,6 +1,5 @@
-import { Vue, Css, store } from "../../../fachwerk.js";
+import { Vue, Css, store, isimageurl, parseColumns, color } from "../../../fachwerk.js";
 import FMarkdown from "../internal/FMarkdown.js";
-import { parseColumns } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -57,12 +56,12 @@ Shows Markdown content.
     },
     background(slide) {
       const tint = slide.tint ? slide.tint : 0.3;
-      return `linear-gradient(
+      return isimageurl(slide.background) ? `linear-gradient(
           rgba(0, 0, 0, ${tint}),
           rgba(0, 0, 0, ${tint})
         ),
         url(${slide.background})
-      `;
+      ` : color(slide.background);
     }
   },
   mounted() {
