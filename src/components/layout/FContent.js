@@ -16,7 +16,7 @@ Shows Markdown content.
   components: { FMarkdown },
   props: {
     content: { default: "", type: String },
-    index: { default: 0, type: Number },
+    index: { default: 0, type: [String, Number] },
     saveId: { default: "fachwerk", type: String },
     type: { default: "slides", type: String }
   },

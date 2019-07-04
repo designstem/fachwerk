@@ -34,7 +34,7 @@ Displays a polyhedron geometry in 3D space.
   mixins: [Object3D],
   props: {
     hedron: { default: "Icosahedron", type: String },
-    r: { default: 1, type: Number },
+    r: { default: 1, type: [String, Number] },
     fill: { default: "", type: String },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
