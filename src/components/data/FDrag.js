@@ -32,7 +32,7 @@ Allows dragging a set of points.
   props: {
     points: { default: "", type: [String, Number, Array, Object] },
     mouse: { default: () => {}, type: Object },
-    r: { default: 20, type: [Number, String] },
+    r: { default: 10, type: [Number, String] },
     step: { default: false, type: [Boolean, Number, String] },
     set: {
       default: "",
@@ -116,6 +116,12 @@ Allows dragging a set of points.
           :y="p.y"
           stroke="white"
           :stroke-width="p.pressed ? r + 1.5 - 3 : r - 3"
+        />
+        <f-point 
+          :x="p.x"
+          :y="p.y"
+          stroke="rgba(0,0,0,0)"
+          :stroke-width="r * 2"
           @mousedown.native="handleDown(i)"
           @touchstart.native="handleDown(i)"
           @mouseup.native="handleUp(i)"

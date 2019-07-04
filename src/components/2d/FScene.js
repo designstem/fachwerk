@@ -23,20 +23,25 @@ export default {
     },
     grid: {
       default: false,
-      type: [Boolean, String],
+      type: Boolean,
       description: "Show background grid?"
     },
-    axis: {
+    dots: {
       default: false,
-      type: [Boolean, String],
-      description: "Show axises"
+      type: Boolean,
+      description: "Show background grid?"
     },
     step: {
       default: 0.5,
       type: [Number, String],
-      description: "Background grid step"
+      description: "Background grid or dots step"
     },
-    id: { default: "scene", type: String },
+    axis: {
+      default: false,
+      type: Boolean,
+      description: "Show axises?"
+    },
+    id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
   slots: {
@@ -59,13 +64,13 @@ export default {
       return this.innerHeight / -2;
     },
     svgScale() {
-      return this.innerWidth / this.width
+      return this.innerWidth / this.width;
     }
   },
   provide() {
     return {
       svgScale: () => this.svgScale
-    }
+    };
   },
   template: `
   <f-svg 
@@ -89,6 +94,15 @@ export default {
         v-if="grid"
         :inner-width="innerWidth"
         :inner-height="innerHeight"
+        :step="step"
+      />
+      <f-dots
+        v-if="dots"
+        :inner-x="-2"
+        :inner-y="-2"
+        :inner-width="4"
+        :inner-height="4"
+        :step="step"
       />
       <f-axis
         v-if="axis"

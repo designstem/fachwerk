@@ -16,8 +16,9 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     width: { default: 600, type: [Number, String] },
     height: { default: 600, type: [Number, String] },
     grid: { default: false, type: Boolean },
+    dots: { default: false, type: Boolean },
     step: { default: 25, type: [Number, String] },
-    id: { default: "scene", type: String },
+    id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
   slots: {
@@ -47,11 +48,11 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
         :inner-height="height"
         :step="step"
       />
-      <f-basegrid 
-        v-if="grid"
+      <f-dots 
+        v-if="dots"
         :inner-width="width"
         :inner-height="height"
-        :step="step * 4"
+        :step="step"
       />
       <slot :mouse="mouse" />
     </f-group>
