@@ -20,7 +20,7 @@ A basic \`a-scene\` wrapper from [A-Frame](https://aframe.io/). Adds embedding, 
     height: { default: 300, type: [Number, String] },
     backgroundColor: { default: "#111", type: String },
     cursorColor: { default: "#ddd", type: String },
-    cursorTimeout: { default: 700, type: Number },
+    cursorTimeout: { default: 700, type: [String, Number] },
     embed: { default: true, type: Boolean },
     shadow: { default: 'basic', type: String, description: '`basic`, `pcf` or `pcfsoft`' }
   },

@@ -21,7 +21,7 @@ Displays a closed polygon based on points.
   props: {
     points: { default: "", type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String},
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [String, Number] },
     fill: { default: "none", type: String },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },

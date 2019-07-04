@@ -1,5 +1,4 @@
-import { color, parseCoords } from "../../../fachwerk.js"
-;
+import { color, parseCoords } from "../../../fachwerk.js";
 import Object3D from "./internal/Object3D.js";
 
 export default {
@@ -28,9 +27,9 @@ Displays a point in 3D space.
 </f-scene3>
   `,
   props: {
-    x: { default: 0, type: Number },
-    y: { default: 0, type: Number },
-    z: { default: 0, type: Number },
+    x: { default: 0, type: [String, Number] },
+    y: { default: 0, type: [String, Number] },
+    z: { default: 0, type: [String, Number] },
     points: { default: '', type: [String, Number, Array] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number,String] },

@@ -1,4 +1,4 @@
-import { Css, katex, color } from "../../../fachwerk.js";
+import { Css, katex, color, flatten, unique } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -19,6 +19,38 @@ Typesetting math equations in classic LaTeX format. It uses uses a [KaTeX](https
 Equations can also be set inline using \`inline\` prop.
 
 Here are <f-math inline>a^2 + 100</f-math> some <f-math inline>c = \\frac{a}{b} = \\frac{10}{a^2 + 100}</f-math> examples.
+
+#### Multiline math
+
+Math source can contain multiple newlines.  Internally the emtpy rows are removed and rows will be separated by \`\\newline\` command.
+
+<f-math>
+
+	b = a^2 + 100
+  
+  c = \\frac{a}{b}
+
+</f-math>
+
+is the same as
+
+<f-math>
+	b = a^2 + 100
+  c = \\frac{a}{b}
+</f-math>
+
+is the same as 
+
+<f-math>
+	b = a^2 + 100 \\newline c = \\frac{a}{b}
+</f-math>
+
+For inline math, the empty rows and newlines in the source are not considered, the multiple rows are separated by \`\\space\` command.
+
+For example <f-math inline>
+	b = a^2 + 100
+  c = \\frac{a}{b}
+</f-math> is the same as <f-math inline>b = a^2 + 100 \\space c = \\frac{a}{b}</f-math>.
 
 #### Coloured math
 
@@ -85,15 +117,67 @@ With \`:update\` prop:
   data: () => ({ math: 0, timer: null }),
   methods: {
     renderMath() {
-      let text = this.$slots.default[0].text ? this.$slots.default[0].text.trim() : ''
-      if (this.red) { text = `\\color{red} ${text}` }
-      if (this.orange) { text = `\\color{orange} ${text}` }
-      if (this.purple) { text = `\\color{purple} ${text}` }
-      if (this.blue) { text = `\\color{blue} ${text}` }
-      if (this.green) { text = `\\color{green} ${text}` }
-      if (this.gray) { text = `\\color{gray} ${text}` }
+      const rows = unique(
+        flatten(
+          this.$slots.default
+            .map(row => {
+              if (row.text) {
+                return row.text;
+              }
+              if (row.children) {
+                return row.children
+                  .map(row => {
+                    if (row.text) {
+                      return row.text;
+                    }
+                    if (row.children) {
+                      return row.children
+                        .map(row => {
+                          if (row.text) {
+                            return row.text;
+                          }
+                        })
+                        .filter(r => r);
+                    }
+                  })
+                  .filter(r => r);
+              }
+            })
+            .filter(r => r)
+        )
+      );
+      const splitRows = flatten(
+        rows.map(row =>
+          row
+            .split(/\r?\n/)
+            .filter(t => t)
+            .map(t => t.trim())
+        )
+      );
+
+      let text = splitRows.join(this.inline ? "\\space " : "\\newline ");
+
+      if (this.red) {
+        text = `\\color{red} ${text}`;
+      }
+      if (this.orange) {
+        text = `\\color{orange} ${text}`;
+      }
+      if (this.purple) {
+        text = `\\color{purple} ${text}`;
+      }
+      if (this.blue) {
+        text = `\\color{blue} ${text}`;
+      }
+      if (this.green) {
+        text = `\\color{green} ${text}`;
+      }
+      if (this.gray) {
+        text = `\\color{gray} ${text}`;
+      }
+
       this.math = katex
-        .renderToString(this.inline ? text : text.replace(/\n+/g, "\\newline"), {
+        .renderToString(text, {
           throwOnError: false
         })
         .replace(/color:black/g, "color:" + color("primary"))
@@ -109,7 +193,7 @@ With \`:update\` prop:
   },
   mounted() {
     this.renderMath();
-    this.timer = setInterval(() => this.renderMath(), 200);
+    this.timer = setInterval(() => this.renderMath(), 500);
     this.$watch("update", value => this.renderMath());
   },
   unmounted() {

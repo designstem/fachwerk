@@ -15,15 +15,15 @@ Displays a 2D circle in 3D space
 </f-scene3>
   `,
   props: {
-    r: { default: 1, type: Number },
+    r: { default: 1, type: [String, Number] },
     stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: 3, type: Number },
+    strokeWidth: { default: 3, type: [String, Number] },
     fill: { default: "", type: String },
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
-    opacity: { default: 1, type: Number },
-    shading: { default: false, type: Boolean },
+    opacity: { default: 1, type: [Number,String] },
+    shading: { default: true, type: Boolean },
   },
   computed: {
     strokeColor() {

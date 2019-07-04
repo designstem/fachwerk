@@ -11,6 +11,7 @@ export default {
     innerHeight: { default: null, type: [Number, String] },
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean },
+    responsive: { default: false, type: Boolean },
     id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
@@ -70,14 +71,13 @@ export default {
     });
   },
   template: `
-  <div class="f-svg">
+  <div class="f-svg" style="display: responsive ? 'block' : 'inline-flex'">
     <div>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        :width="width"
-        :height="height"
+        :width="responsive ? '100%' : width"
+        :height="responsive ? 'auto' : height"
         :view-box.camel="viewBox"
-       
         ref="f_svg"
         :id="id || defaultid"
         @mousemove="onMousemove"
@@ -97,9 +97,6 @@ export default {
   </div>
   `,
   css: `
-    .f-svg {
-      display: inline-flex;
-    }
     .f-svg + * {
       margin-top: var(--base2);
     }

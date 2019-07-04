@@ -18,10 +18,12 @@ Extrudes the array of 2D \`points\` to the \`z\` dimension.
   props: {
     points: { default: "", type: [String, Number, Array] },
     length: { default: 1, type: [Number, String] },
+    fill: { default: "", type: String },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 1, type: [Number, String] }
+    opacity: { default: 1, type: [Number, String] },
+    shading: { default: true, type: Boolean },
   },
   computed: {
     p() {
@@ -38,6 +40,8 @@ Extrudes the array of 2D \`points\` to the \`z\` dimension.
           [p[i + 1][0],p[i + 1][1],0],
           [p[i + 1][0],p[i + 1][1],length],
         ]"
+        :shading="shading"
+        :fill="fill"
       />
       <f-triangle3
         v-for="i in range(0, p.length - 2)"
@@ -47,6 +51,8 @@ Extrudes the array of 2D \`points\` to the \`z\` dimension.
           [p[i][0],p[i][1],length],
           [p[i + 1][0],p[i + 1][1],length],
         ]"
+        :shading="shading"
+        :fill="fill"
       />
       <f-line3
         v-for="i in range(0, p.length - 2)"

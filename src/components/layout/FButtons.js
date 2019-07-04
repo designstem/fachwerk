@@ -16,7 +16,7 @@ Displays a group of buttons.
   `,
   props: {
     buttons: { default: [], type: Array },
-    value: { default: 0, type: Number },
+    value: { default: 0, type: [String, Number] },
     set: {
       default: "",
       type: [String],
