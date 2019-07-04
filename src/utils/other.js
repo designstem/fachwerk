@@ -45,6 +45,5 @@ Genrates a random alphabetical ID
 
 export const randomid = () => {
   const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
-  console.log(letters)
   return shuffle(letters).slice(0,8).join('')
 }
