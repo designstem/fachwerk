@@ -1,4 +1,4 @@
-import { Css, katex, color } from "../../../fachwerk.js";
+import { Css, katex, color, flatten, unique } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -85,15 +85,65 @@ With \`:update\` prop:
   data: () => ({ math: 0, timer: null }),
   methods: {
     renderMath() {
-      let text = this.$slots.default[0].text ? this.$slots.default[0].text.trim() : ''
-      if (this.red) { text = `\\color{red} ${text}` }
-      if (this.orange) { text = `\\color{orange} ${text}` }
-      if (this.purple) { text = `\\color{purple} ${text}` }
-      if (this.blue) { text = `\\color{blue} ${text}` }
-      if (this.green) { text = `\\color{green} ${text}` }
-      if (this.gray) { text = `\\color{gray} ${text}` }
+      const rows = unique(
+        flatten(
+          this.$slots.default
+            .map(row => {
+              if (row.text) {
+                return row.text;
+              }
+              if (row.children) {
+                return row.children
+                  .map(row => {
+                    if (row.text) {
+                      return row.text;
+                    }
+                  })
+                  .filter(r => r);
+              }
+            })
+            .filter(r => r)
+        )
+      );
+      const splitRows = flatten(rows.map(row =>
+        row
+          .split(/\r?\n/)
+          .filter(t => t)
+          .map(t => t.trim())
+      ));
+      console.log(splitRows)
+      let text = this.$slots.default[0].text
+        ? this.$slots.default[0].text.trim()
+        : "";
+      if (this.red) {
+        text = `\\color{red} ${text}`;
+      }
+      if (this.orange) {
+        text = `\\color{orange} ${text}`;
+      }
+      if (this.purple) {
+        text = `\\color{purple} ${text}`;
+      }
+      if (this.blue) {
+        text = `\\color{blue} ${text}`;
+      }
+      if (this.green) {
+        text = `\\color{green} ${text}`;
+      }
+      if (this.gray) {
+        text = `\\color{gray} ${text}`;
+      }
+
+      let processedText = "";
+      if (!this.inline) {
+        const rows = text
+          .split(/\r?\n/)
+          .filter(t => t)
+          .map(t => t.trim());
+        processedText = rows.join("\\newline ");
+      }
       this.math = katex
-        .renderToString(this.inline ? text : text.replace(/\n+/g, "\\newline"), {
+        .renderToString(this.inline ? text : processedText, {
           throwOnError: false
         })
         .replace(/color:black/g, "color:" + color("primary"))
@@ -109,7 +159,7 @@ With \`:update\` prop:
   },
   mounted() {
     this.renderMath();
-    this.timer = setInterval(() => this.renderMath(), 200);
+    this.timer = setInterval(() => this.renderMath(), 200000);
     this.$watch("update", value => this.renderMath());
   },
   unmounted() {
