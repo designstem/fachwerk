@@ -19,6 +19,7 @@ export default {
     },
     obj: { type: Object },
     background: { type: String, default: "#ffffff" },
+    responsive: { default: false, type: Boolean },
     id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
@@ -72,7 +73,7 @@ export default {
     }
   },
   template: `
-  <div class="f-scene3">
+  <div class="f-scene3" :class="{ 'responsive': responsive }">
     <slot></slot>
     <div ref="container"></div>
     <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓</button>
@@ -81,6 +82,10 @@ export default {
   css: `
   .f-scene3 svg {
     shape-rendering: crispEdges;
+  }
+  .f-scene3.responsive svg, .f-scene3.responsive canvas {
+    width: 100% !important;
+    height: 100% !important;
   }
   `
 };
