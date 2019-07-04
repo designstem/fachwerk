@@ -47,3 +47,18 @@ export const randomid = () => {
   const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
   return shuffle(letters).slice(0,8).join('')
 }
+
+export const isimageurl_help = () => `
+
+\`isimageurl()\`
+
+Checks whenever URL is a link to an image
+
+#### Output
+
+<output>{{ isimageurl('./images/image.png') ? 'true' : 'false' }}</output>
+`;
+
+export const isimageurl = url => {
+  return url.match(/(data:|https?:|\/\/)?\.(?:png|jpg|jpeg|gif|png|svg)/g)
+}
