@@ -26,7 +26,10 @@ export default {
     if (!curObj) {
       curObj = this.webgl
         ? new THREE.WebGLRenderer({ antialias: true })
-        : new SVGRenderer({ antialias: true, overdraw: 1 });
+        : new SVGRenderer({ antialias: true });
+      if (this.webgl) {
+        curObj.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
+      }
       curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
