@@ -23,7 +23,7 @@ Displays a 2D circle in 3D space
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
     opacity: { default: 1, type: Number },
-    shading: { default: false, type: Boolean },
+    shading: { default: true, type: Boolean },
   },
   computed: {
     strokeColor() {

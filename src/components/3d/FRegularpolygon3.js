@@ -29,7 +29,7 @@ Displays 2D regular polygon in 3D space.
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number,String] },
-    shading: { default: false, type: Boolean },
+    shading: { default: true, type: Boolean },
   },
   computed: {
     strokeColor() {
