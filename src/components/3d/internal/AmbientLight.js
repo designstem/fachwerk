@@ -6,7 +6,8 @@ export default {
   data () {
     let curObj = this.obj
     if (!curObj) {
-      curObj = new THREE.AmbentLight(0x4000ff)
+//      curObj = new THREE.AmbientLight(0xffffff, 0.4)
+        curObj = new THREE.AmbientLight(0x616161, 0.4)
     }
     curObj.name = curObj.name || curObj.type
     return { curObj }
