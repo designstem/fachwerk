@@ -18,7 +18,7 @@ export default {
     },
     obj: { type: Object },
     background: { type: String, default: "#ffffff" },
-    id: { default: "scene", type: String },
+    id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
   data() {
@@ -60,7 +60,7 @@ export default {
       const url = URL.createObjectURL(svgBlob);
       const link = document.createElement("a");
       link.setAttribute("href", url);
-      link.setAttribute("download", `${this.id}.svg`);
+      link.setAttribute("download", `${this.id || 'scene'}.svg`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

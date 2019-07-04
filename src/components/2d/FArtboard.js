@@ -18,7 +18,7 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     grid: { default: false, type: Boolean },
     dots: { default: false, type: Boolean },
     step: { default: 25, type: [Number, String] },
-    id: { default: "scene", type: String },
+    id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
   slots: {

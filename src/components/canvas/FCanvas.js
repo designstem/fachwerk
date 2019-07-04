@@ -18,7 +18,7 @@ Creates a 2D bitmap canvas. Use \`<f-pixel>\` and \`<f-pixels>\` to draw on it.
       type: [Number, String],
       description: "Canvas height in pixels"
     },
-    id: { default: "canvas", type: String },
+    id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
   data: () => ({
@@ -48,7 +48,7 @@ Creates a 2D bitmap canvas. Use \`<f-pixel>\` and \`<f-pixels>\` to draw on it.
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.setAttribute("href", url);
-        link.setAttribute("download", `${this.id}.png`);
+        link.setAttribute("download", `${this.id || 'canvas'}.png`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

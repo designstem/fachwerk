@@ -46,7 +46,7 @@ export default {
       const url = URL.createObjectURL(svgBlob);
       const link = document.createElement("a");
       link.setAttribute("href", url);
-      link.setAttribute("download", `${this.id || 'Fachwerk'}.svg`);
+      link.setAttribute("download", `${this.id || 'scene'}.svg`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
