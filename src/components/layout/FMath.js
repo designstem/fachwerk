@@ -105,16 +105,17 @@ With \`:update\` prop:
             .filter(r => r)
         )
       );
-      const splitRows = flatten(rows.map(row =>
-        row
-          .split(/\r?\n/)
-          .filter(t => t)
-          .map(t => t.trim())
-      ));
-      console.log(splitRows)
-      let text = this.$slots.default[0].text
-        ? this.$slots.default[0].text.trim()
-        : "";
+      const splitRows = flatten(
+        rows.map(row =>
+          row
+            .split(/\r?\n/)
+            .filter(t => t)
+            .map(t => t.trim())
+        )
+      );
+
+      let text = splitRows.join(this.inline ? "\\space " : "\\newline ");
+
       if (this.red) {
         text = `\\color{red} ${text}`;
       }
@@ -134,16 +135,8 @@ With \`:update\` prop:
         text = `\\color{gray} ${text}`;
       }
 
-      let processedText = "";
-      if (!this.inline) {
-        const rows = text
-          .split(/\r?\n/)
-          .filter(t => t)
-          .map(t => t.trim());
-        processedText = rows.join("\\newline ");
-      }
       this.math = katex
-        .renderToString(this.inline ? text : processedText, {
+        .renderToString(text, {
           throwOnError: false
         })
         .replace(/color:black/g, "color:" + color("primary"))
@@ -159,7 +152,7 @@ With \`:update\` prop:
   },
   mounted() {
     this.renderMath();
-    this.timer = setInterval(() => this.renderMath(), 200000);
+    this.timer = setInterval(() => this.renderMath(), 500);
     this.$watch("update", value => this.renderMath());
   },
   unmounted() {
