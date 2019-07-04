@@ -1,7 +1,8 @@
-import { THREE, Vue, send } from "../../../../fachwerk.js";
+import { THREE, Vue, send, Css } from "../../../../fachwerk.js";
 import { SVGRenderer } from "./SVGRenderer.js";
 
 export default {
+  mixins: [Css],
   provide() {
     return {
       parentObj: null,
@@ -26,10 +27,13 @@ export default {
     if (!curObj) {
       curObj = this.webgl
         ? new THREE.WebGLRenderer({ antialias: true })
-        : new SVGRenderer({ antialias: true });
+        : new SVGRenderer({ antialias: false });
+      if (this.webgl) {
+        curObj.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
+      }
       curObj.setClearColor(this.background);
     }
-    curObj.name = curObj.name || curObj.type;
+    curObj.name = curObj.name || curObj.type; 
     curObj.setSize(this.size.w, this.size.h);
     // fixme: better solution for global vars
     let global = {};
@@ -68,10 +72,15 @@ export default {
     }
   },
   template: `
-  <div>
+  <div class="f-scene3">
     <slot></slot>
     <div ref="container"></div>
     <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓</button>
   </div>
+  `,
+  css: `
+  .f-scene3 svg {
+    shape-rendering: crispEdges;
+  }
   `
 };

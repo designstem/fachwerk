@@ -26,8 +26,8 @@ Displays regular 3D hedron with optional \`height\` parameter.
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
-    opacity: { default: 1, type: [Number,String] },
-    shading: { default: false, type: Boolean },
+    opacity: { default: '', type: [Number,String] },
+    shading: { default: true, type: Boolean },
   },
   computed: {
     points() {
@@ -49,7 +49,7 @@ Displays regular 3D hedron with optional \`height\` parameter.
           {x: 0, y: 0, z: 0}
         ]"
         :fill="fill"
-        :opacity="opacity"
+        :opacity="opacity || 1"
         :shading="shading"
       />   
       <f-triangle3
@@ -65,14 +65,14 @@ Displays regular 3D hedron with optional \`height\` parameter.
           {x: 0, y: 0, z: height}
         ]"
         :fill="fill"
-        :opacity="opacity"
+        :opacity="opacity || 1"
         :shading="shading"
       />
       <f-line3
         :points="points.concat(points[0])"
         :stroke="stroke"
         :strokeWidth="strokeWidth"
-        :opacity="opacity"
+        :opacity="opacity || 1"
       />
       <f-line3
         v-if="heightStrokeWidth"
@@ -84,7 +84,7 @@ Displays regular 3D hedron with optional \`height\` parameter.
         ]"
         :stroke="stroke"
         :strokeWidth="heightStrokeWidth"
-        :opacity="opacity"
+        :opacity="opacity || 1"
       />
       </f-group3>
   `
