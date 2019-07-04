@@ -1,7 +1,8 @@
-import { THREE, Vue, send } from "../../../../fachwerk.js";
+import { THREE, Vue, send, Css } from "../../../../fachwerk.js";
 import { SVGRenderer } from "./SVGRenderer.js";
 
 export default {
+  mixins: [Css],
   provide() {
     return {
       parentObj: null,
@@ -71,10 +72,15 @@ export default {
     }
   },
   template: `
-  <div>
+  <div class="f-scene3">
     <slot></slot>
     <div ref="container"></div>
     <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓</button>
   </div>
+  `,
+  css: `
+  .f-scene3 svg {
+    shape-rendering: crispEdges;
+  }
   `
 };

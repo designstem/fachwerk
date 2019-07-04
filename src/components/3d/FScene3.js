@@ -45,7 +45,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     :download="download"
   >
     <Scene>
-      <AmbientLight />
+      <AmbientLight :color="webgl ? 0xffffff : 0x616161" />
       <DirectionalLight />
       <Camera :position="{ x: 0, y: 0, z: 2.63 }" :isometric="isometric" />
       <f-grid3 v-if="grid" />
