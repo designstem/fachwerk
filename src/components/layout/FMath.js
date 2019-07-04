@@ -20,6 +20,38 @@ Equations can also be set inline using \`inline\` prop.
 
 Here are <f-math inline>a^2 + 100</f-math> some <f-math inline>c = \\frac{a}{b} = \\frac{10}{a^2 + 100}</f-math> examples.
 
+#### Multiline math
+
+Math source can contain multiple newlines.  Internally the emtpy rows are removed and rows will be separated by \`\\newline\` command.
+
+<f-math>
+
+	b = a^2 + 100
+  
+  c = \\frac{a}{b}
+
+</f-math>
+
+is the same as
+
+<f-math>
+	b = a^2 + 100
+  c = \\frac{a}{b}
+</f-math>
+
+is the same as 
+
+<f-math>
+	b = a^2 + 100 \\newline c = \\frac{a}{b}
+</f-math>
+
+For inline math, the empty rows and newlines in the source are not considered, the multiple rows are separated by \`\\space\` command.
+
+For example <f-math inline>
+	b = a^2 + 100
+  c = \\frac{a}{b}
+</f-math> is the same as <f-math inline>b = a^2 + 100 \\space c = \\frac{a}{b}</f-math>.
+
 #### Coloured math
 
 There is a range of colors available for math equations. When color can be passed as a prop all contents of the equation will be coloured.
@@ -97,6 +129,15 @@ With \`:update\` prop:
                   .map(row => {
                     if (row.text) {
                       return row.text;
+                    }
+                    if (row.children) {
+                      return row.children
+                        .map(row => {
+                          if (row.text) {
+                            return row.text;
+                          }
+                        })
+                        .filter(r => r);
                     }
                   })
                   .filter(r => r);
