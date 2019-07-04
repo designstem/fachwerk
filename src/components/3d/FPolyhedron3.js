@@ -35,10 +35,12 @@ Displays a polyhedron geometry in 3D space.
   props: {
     hedron: { default: "Icosahedron", type: String },
     r: { default: 1, type: Number },
+    fill: { default: "", type: String },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number,String] },
+    shading: { default: true, type: Boolean }
   },
   data() {
     let curObj = this.obj;
@@ -46,11 +48,18 @@ Displays a polyhedron geometry in 3D space.
       var geometry = new THREE[this.hedron + "Geometry"](this.r, 0);
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshNormalMaterial({
-          flatShading: true,
-          opacity: this.opacity,
-          side: THREE.DoubleSide
-        })
+        this.shading
+          ? new THREE.MeshNormalMaterial({
+              opacity: this.opacity,
+              side: THREE.DoubleSide
+            })
+          : new THREE.MeshLambertMaterial({
+              transparent: true,
+              color:
+                this.fill == "color('primary')" ? color("primary") : this.fill,
+                opacity: this.opacity,
+                side: THREE.DoubleSide
+            })
       );
     }
     curObj.name = curObj.name || curObj.type;

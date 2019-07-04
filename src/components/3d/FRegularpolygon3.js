@@ -43,7 +43,7 @@ Displays 2D regular polygon in 3D space.
     :stroke="strokeColor"
     :stroke-width="strokeWidth"
     :fill="fill"
-    :opacity="opacity"
+    :opacity="opacity || 1"
     :shading="shading"
   />
   `

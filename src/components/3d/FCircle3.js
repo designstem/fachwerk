@@ -22,7 +22,7 @@ Displays a 2D circle in 3D space
     position: { default: () => ({}), type: Object },
     rotation: { default: () => ({}), type: Object },
     scale: { default: () => ({}), type: [Object, Number] },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number,String] },
     shading: { default: true, type: Boolean },
   },
   computed: {
