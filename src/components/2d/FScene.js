@@ -41,6 +41,7 @@ export default {
       type: Boolean,
       description: "Show axises?"
     },
+    responsive: { default: false, type: Boolean },
     id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
@@ -86,6 +87,7 @@ export default {
       --text-transform: scale(1,-1);
     "
     v-slot="{ mouse }"
+    :responsive="responsive"
     :id="id"
     :download="download"
   >
