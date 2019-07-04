@@ -10,7 +10,7 @@ const InternalBox3 = {
     r: { default: "", type: [Number, String] },
     stroke: { default: "", type: String },
     strokeWidth: { default: 3, type: Number },
-    fill: { default: "color('primary')", type: String },
+    fill: { default: "", type: String },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
@@ -20,7 +20,11 @@ const InternalBox3 = {
   data() {
     let curObj = this.obj;
     if (!curObj) {
-      var geometry = new THREE.BoxGeometry(this.r ? this.r * 2 : this.width, this.r ? this.r * 2 : this.height, this.r ? this.r * 2 : this.depth);
+      var geometry = new THREE.BoxGeometry(
+        this.r ? this.r * 2 : this.width,
+        this.r ? this.r * 2 : this.height,
+        this.r ? this.r * 2 : this.depth
+      );
       curObj = new THREE.Mesh(
         geometry,
         this.shading
@@ -71,25 +75,68 @@ Displays a 3D box.
   computed: {
     frontfacePoints() {
       return [
-        [this.r ? this.r : this.width / 2, this.r ? this.r : this.height / 2, this.r ? this.r : this.depth / 2],
-        [this.r ? this.r : this.width / 2, this.r ? -this.r : this.height / -2, this.r ? this.r : this.depth / 2],
-        [this.r ? -this.r : this.width / -2, this.r ? -this.r : this.height / -2, this.r ? this.r : this.depth / 2],
-        [this.r ? -this.r : this.width / -2, this.r ? this.r : this.height / 2, this.r ? this.r : this.depth / 2],
-        [this.r ? this.r : this.width / 2, this.r ? this.r : this.height / 2, this.r ? this.r : this.depth / 2]
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? this.r : this.height / 2,
+          this.r ? this.r : this.depth / 2
+        ],
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? -this.r : this.height / -2,
+          this.r ? this.r : this.depth / 2
+        ],
+        [
+          this.r ? -this.r : this.width / -2,
+          this.r ? -this.r : this.height / -2,
+          this.r ? this.r : this.depth / 2
+        ],
+        [
+          this.r ? -this.r : this.width / -2,
+          this.r ? this.r : this.height / 2,
+          this.r ? this.r : this.depth / 2
+        ],
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? this.r : this.height / 2,
+          this.r ? this.r : this.depth / 2
+        ]
       ];
     },
     backfacePoints() {
       return [
-        [this.r ? this.r : this.width / 2, this.r ? this.r : this.height / 2, this.r ? -this.r : this.depth / -2],
-        [this.r ? this.r : this.width / 2, this.r ? -this.r : this.height / -2, this.r ? -this.r : this.depth / -2],
-        [this.r ? -this.r : this.width / -2, this.r ? -this.r : this.height / -2, this.r ? -this.r : this.depth / -2],
-        [this.r ? -this.r : this.width / -2, this.r ? this.r : this.height / 2, this.r ? -this.r : this.depth / -2],
-        [this.r ? this.r : this.width / 2, this.r ? this.r : this.height / 2, this.r ? -this.r : this.depth / -2]
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? this.r : this.height / 2,
+          this.r ? -this.r : this.depth / -2
+        ],
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? -this.r : this.height / -2,
+          this.r ? -this.r : this.depth / -2
+        ],
+        [
+          this.r ? -this.r : this.width / -2,
+          this.r ? -this.r : this.height / -2,
+          this.r ? -this.r : this.depth / -2
+        ],
+        [
+          this.r ? -this.r : this.width / -2,
+          this.r ? this.r : this.height / 2,
+          this.r ? -this.r : this.depth / -2
+        ],
+        [
+          this.r ? this.r : this.width / 2,
+          this.r ? this.r : this.height / 2,
+          this.r ? -this.r : this.depth / -2
+        ]
       ];
     },
     connectorPoints() {
-      return range(0,3).map(i => [this.frontfacePoints[i],this.backfacePoints[i]])
-    }
+      return range(0, 3).map(i => [
+        this.frontfacePoints[i],
+        this.backfacePoints[i]
+      ]);
+    },
   },
   template: `
     <f-group3
@@ -123,6 +170,7 @@ Displays a 3D box.
         :depth="depth"
         :r="r"
         :shading="shading"
+        :fill="fill"
       />
     </f-group3>
   `

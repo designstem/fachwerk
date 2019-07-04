@@ -26,7 +26,7 @@ export default {
     if (!curObj) {
       curObj = this.webgl
         ? new THREE.WebGLRenderer({ antialias: true })
-        : new SVGRenderer({ antialias: true });
+        : new SVGRenderer({ antialias: true, overdraw: 1 });
       curObj.setClearColor(this.background);
     }
     curObj.name = curObj.name || curObj.type;
