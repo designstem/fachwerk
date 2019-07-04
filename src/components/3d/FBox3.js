@@ -32,7 +32,13 @@ const InternalBox3 = {
               opacity: this.opacity,
               side: THREE.DoubleSide
             })
-          : new THREE.MeshBasicMaterial({
+          : new THREE.MeshLambertMaterial({
+              // ambient: 0x555555,
+              // color: 0x555555,
+              // specular: 0xffffff,
+              // shininess: 50,
+              // shading: THREE.SmoothShading,
+              transparent: true,
               color:
                 this.fill == "color('primary')" ? color("primary") : this.fill,
               opacity: this.opacity,
@@ -136,7 +142,7 @@ Displays a 3D box.
         this.frontfacePoints[i],
         this.backfacePoints[i]
       ]);
-    },
+    }
   },
   template: `
     <f-group3
@@ -171,6 +177,7 @@ Displays a 3D box.
         :r="r"
         :shading="shading"
         :fill="fill"
+        :opacity="opacity"
       />
     </f-group3>
   `

@@ -26,13 +26,13 @@ export default {
     if (!curObj) {
       curObj = this.webgl
         ? new THREE.WebGLRenderer({ antialias: true })
-        : new SVGRenderer({ antialias: true });
+        : new SVGRenderer({ antialias: false });
       if (this.webgl) {
         curObj.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
       }
       curObj.setClearColor(this.background);
     }
-    curObj.name = curObj.name || curObj.type;
+    curObj.name = curObj.name || curObj.type; 
     curObj.setSize(this.size.w, this.size.h);
     // fixme: better solution for global vars
     let global = {};

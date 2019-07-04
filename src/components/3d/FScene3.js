@@ -1,6 +1,8 @@
 import Renderer from "./internal/Renderer.js";
 import Scene from "./internal/Scene.js";
 import Camera from "./internal/Camera.js";
+import AmbientLight from "./internal/AmbientLight.js";
+import DirectionalLight from "./internal/DirectionalLight.js";
 
 export default {
   description: `
@@ -14,7 +16,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     </f-rotation3>
   </f-scene3>
   `,
-  components: { Renderer, Scene, Camera },
+  components: { Renderer, Scene, Camera, AmbientLight, DirectionalLight },
   props: {
     width: { default: 300, type: [Number, String] },
     height: { default: 300, type: [Number, String] },
@@ -43,6 +45,8 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     :download="download"
   >
     <Scene>
+      <AmbientLight />
+      <DirectionalLight />
       <Camera :position="{ x: 0, y: 0, z: 2.63 }" :isometric="isometric" />
       <f-grid3 v-if="grid" />
       <f-axis3 v-if="axis" />
