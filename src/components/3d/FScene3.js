@@ -33,6 +33,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     webgl: { default: false, type: Boolean },
     static: { default: false, type: Boolean },
     isometric: { default: false, type: Boolean },
+    responsive: { default: false, type: Boolean },
     id: { default: "", type: String },
     download: { default: false, type: Boolean }
   },
@@ -41,6 +42,7 @@ We use a [ThreeJS](https://threejs.org/) wrapper with a custom SVG renderer.
     :size="{ w: width, h: height }"
     :webgl="webgl"
     :static="static"
+    :responsive="responsive"
     :id="id"
     :download="download"
   >
