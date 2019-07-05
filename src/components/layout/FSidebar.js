@@ -64,7 +64,7 @@ For optional content overlay use \`overlay\`
         "
         :style="{
           width: width,
-          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.25)' + (overlay ? ', 0 0 0 99vw rgba(0,0,0,0.7)' : ''),
+          boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.25)' + (overlay ? ', 0 0 0 99vw rgba(0,0,0,0.4)' : ''),
           right: orientation == 'right' ? 0 : '',
           left: orientation == 'left' ? 0 : '',
         }"
