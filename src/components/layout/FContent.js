@@ -6,7 +6,6 @@ import {
   parseColumns,
   color,
   array2object,
-  log
 } from "../../../fachwerk.js";
 
 import FMarkdown from "../internal/FMarkdown.js";
@@ -40,7 +39,6 @@ Shows Markdown content.
   },
   methods: {
     array2object,
-    log,
     first() {
       this.currentIndex = 0;
     },
