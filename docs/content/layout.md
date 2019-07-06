@@ -148,6 +148,7 @@ Key | Default | Description
 `\| cols:`|`1fr 1fr ...`|CSS grid columns
 `\| id:`||Slide ID. Use `goto('id')` to navigate there
 `\| section:`||Section ID. Use `goto('section')` to navigate there
+`\| style:`||Css styles applied to a slide, formatted as HTML inline styles `key: value; key: value`
 
 
 
