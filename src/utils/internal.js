@@ -24,7 +24,11 @@ const parseMeta = row => {
     .replace(/\|/g, "")
     .split(": ")
     .map(s => s.trim());
-  return { [meta[0]]: meta[1] };
+  // Handle case for key: key: value
+  const key = meta[0]
+  meta.shift()
+  const values = meta.join(': ') 
+  return { [key]: values };
 };
 export const parseColumns = slide => {
   let meta = [];

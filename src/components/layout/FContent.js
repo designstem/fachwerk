@@ -1,4 +1,13 @@
-import { Vue, Css, store, isimageurl, parseColumns, color } from "../../../fachwerk.js";
+import {
+  Vue,
+  Css,
+  store,
+  isimageurl,
+  parseColumns,
+  color,
+  array2object,
+} from "../../../fachwerk.js";
+
 import FMarkdown from "../internal/FMarkdown.js";
 
 export default {
@@ -29,6 +38,7 @@ Shows Markdown content.
     }
   },
   methods: {
+    array2object,
     first() {
       this.currentIndex = 0;
     },
@@ -56,16 +66,27 @@ Shows Markdown content.
     },
     background(slide) {
       const tint = slide.tint ? slide.tint : 0.3;
-      return isimageurl(slide.background) ? `linear-gradient(
+      return isimageurl(slide.background)
+        ? `linear-gradient(
           rgba(0, 0, 0, ${tint}),
           rgba(0, 0, 0, ${tint})
         ),
         url(${slide.background})
-      ` : color(slide.background);
+      `
+        : color(slide.background);
+    },
+    parseStyle(style) {
+      return array2object(
+        style
+          .split(/;/g)
+          .map(item => item.split(/:/).map(s => s.trim()))
+          .filter(item => {
+            return item.length == 2;
+          })
+      );
     }
   },
   mounted() {
-
     this.$watch(
       "index",
       index => {
@@ -116,7 +137,7 @@ Shows Markdown content.
         v-if="type == 'slides' ? i == currentIndex : true"
         :class="type == 'slides' ? 'fit' : ''"
         class="cells"
-        :style="{
+        :style="Object.assign({
           '--transition-duration': '0.1s',
           minHeight: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
@@ -131,7 +152,7 @@ Shows Markdown content.
           backgroundSize: slide.background ? 'cover' : '',
           backgroundRepeat: slide.background ? 'no-repeat' : '',
           breakAfter: 'always'
-        }"
+        }, slide.style ? parseStyle(slide.style) : {})"
       >
         <FMarkdown
           v-for="(col,i) in slide.content"
