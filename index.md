@@ -24,7 +24,7 @@
 
 <br>
 
-## **1**Play
+## 1. Play
 
 <big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code.</big>
 
@@ -32,7 +32,7 @@
 
 <br>
 
-## **2**Learn
+## 2. Learn
 
 <big>Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!</big>
 
@@ -40,7 +40,7 @@
 
 <br>
 
-## **3**Build
+## 3.Build
 
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
