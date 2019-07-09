@@ -40,7 +40,7 @@
 
 <br>
 
-## 3.Build
+## 3. Build
 
 <big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
 
