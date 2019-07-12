@@ -20,11 +20,6 @@ export default [
         file: "./content/writing.md"
       },
       {
-        title: "Bringing math alive",
-        file: "./content/math.md"
-      },
-      { component: "FMath" },
-      {
         title: "Adding tables",
         file: "./content/tables.md"
       },
@@ -83,12 +78,13 @@ export default [
       { component: "FHexagon" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },
+      { component: "FRoundedpolygon" },
       { component: "FGroup" },
       { component: "FText" },
       { component: "FRotation" },
       {
-        title: "Downloading SVG",
-        file: "./content/download.md",
+        title: "Creating 2D graphics",
+        file: "./content/2d.md",
       },
     ]
   },
@@ -163,6 +159,16 @@ export default [
     ]
   },
   {
+    title: "Math",
+    items: [
+      { component: "FMath" },
+      {
+        title: "Bringing math alive",
+        file: "./content/math.md"
+      },
+    ]
+  },
+  {
     title: "Audio and MIDI",
     items: [
       {
@@ -197,7 +203,8 @@ export default [
       { component: "FGithubIcon" },
       { component: "FPeopleIcon" },
       { component: "FToolsIcon" },
-      { component: "FClockIcon" }
+      { component: "FClockIcon" },
+      { component: "FDownloadIcon" }
     ]
   },
   {

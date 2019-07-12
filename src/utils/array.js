@@ -137,3 +137,24 @@ Returns \`true\` when \`value\` is an array, \`false\` if not
 `;
 
 export const isarray = value => Array.isArray(value)
+
+
+export const array2object_help = () => `
+
+\`array2object(array)\`
+
+Converts a twodimensional array to object with key and value pairs
+
+#### Example
+
+    array2object([['a','b'],['c','d']])
+
+#### Output
+
+<output>{{ array2object([['a','b'],['c','d']]) }}</output>
+`;
+
+export const array2object = array => array.reduce((acc, el) => {
+  acc[el[0]] = el[1]
+  return acc
+}, {})

@@ -19,7 +19,7 @@ A VR button that is triggered by looking at it.
     title: { default: '', type: String },
     titleColor: { default: '#333', type: String },
     backgroundColor: { default: '#ddd', type: String },
-    cursorTimeout: { default: 700, type: Number },
+    cursorTimeout: { default: 700, type: [String, Number] },
     position: { default: '0 0 0', type: String },
     rotation: { default: '0 0 0', type: String },
   },

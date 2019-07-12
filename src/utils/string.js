@@ -39,6 +39,34 @@ Converts string to **kebab-case**
 export const kebabCase = string =>
   string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
+
+export const camelcase_help = () => `
+
+\`camelcase(string)\`
+
+Converts string to **camelCase**
+
+#### Example
+
+    camelcase('donner-wetter')
+
+#### Output
+
+<output>{{ camelcase('donnerWetter') }}</output>
+
+`;
+
+// https://matthiashager.com/converting-snake-case-to-camel-case-object-keys-with-javascript
+
+export const camelcase = string => {
+  return string.replace(/([-_][a-z])/gi, $1 => {
+    return $1
+      .toUpperCase()
+      .replace("-", "")
+      .replace("_", "");
+  });
+};
+
 export const join_help = () => `
 
 \`join(value1, value2, value3)\`

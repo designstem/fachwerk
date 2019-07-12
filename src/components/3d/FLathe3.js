@@ -6,7 +6,7 @@ export default {
   description: `
 Displays 3D lathe geometry.
 
-<f-scene3 renderer="webgl">
+<f-scene3 webgl>
   <f-rotation3>
     <f-grid3 />
     <f-lathe3
@@ -34,8 +34,6 @@ Displays 3D lathe geometry.
       const points = parseCoords(this.points).map(p => {
         return new THREE.Vector2(...p);
       });
-      // phiStart 0 (radians)
-      // phiLength 2PI (radians)
       var geometry = new THREE.LatheGeometry(points, this.count);
       curObj = new THREE.Mesh(
         geometry,
@@ -44,7 +42,8 @@ Displays 3D lathe geometry.
               opacity: this.opacity,
               side: THREE.DoubleSide
             })
-          : new THREE.MeshBasicMaterial({
+          : new THREE.MeshLambertMaterial({
+              transparent: true,
               color:
                 this.fill == "color('primary')" ? color("primary") : this.fill,
               opacity: this.opacity,

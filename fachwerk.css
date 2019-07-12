@@ -101,13 +101,6 @@ h5 {
   line-height: 1.2em;
   color: var(--primary);
 }
-h1 > *,
-h2 > *,
-h3 > *,
-h4 > *,
-h5 > * {
-  margin-right: calc(1ch * 0.5);
-}
 h1 {
   font-size: calc(var(--base) * 3 + 2vw);
   line-height: 1em;
@@ -313,17 +306,11 @@ details code {
   background: var(--lighteryellow);
 }
 
-.bullet,
-h1 strong,
-h2 strong,
-h3 strong,
-h4 strong,
-h5 strong {
+.bullet {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  margin-right: calc(1ch / 2);
   width: 1.5em;
   height: 1.5em;
   background: var(--purple);
@@ -365,13 +352,15 @@ pre {
   white-space: pre-wrap;
 }
 
+
 code {
   font-family: var(--font-mono);
+  font-weight: normal;
   border-radius: 2px;
   background: var(--lightblue);
   color: var(--blue);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
+  padding: 0.2ch 0.5ch 0ch 0.5ch;
+  font-size: 0.9em;
   overflow: auto;
   white-space: nowrap;
 }
@@ -434,11 +423,12 @@ section {
 
 kbd {
   font-family: var(--font-mono);
-  background: var(--gray);
-  color: var(--lightergray);
-  padding: calc(var(--base) / 3) calc(var(--base) / 2) 0 calc(var(--base) / 2);
-  font-size: calc(var(--base) * 1.75);
+  font-weight: normal;
   border-radius: 2px;
+  background: var(--darkergray);
+  color: var(--lightgray);
+  padding: 0.2ch 0.5ch 0ch 0.5ch;
+  font-size: 0.9em;
 }
 
 strong em,
@@ -447,10 +437,23 @@ mark {
   border-radius: var(--border-radius-small);
   background: var(--emphasis);
   color: var(--darkgray);
-  padding: 0 calc(var(--base) / 2);
+  padding: 0 0.5ch;
   border-radius: 2px;
   font-weight: normal;
   font-style: normal;
+}
+
+h1 strong em,
+h1 mark,
+h2 strong em,
+h2 mark,
+h3 strong em,
+h3 mark,
+h4 strong em,
+h4 mark,
+h5 strong em,
+h5 mark {
+  font-size: 0.84em;
 }
 
 var {
@@ -462,7 +465,7 @@ var {
   padding: 0 calc(var(--base) / 3);
   font-family: KaTeX_Math, var(--font-serif) !important;
   font-style: italic;
-  font-size: 1.25em;
+  font-size: 1.1em;
   white-space: pre-wrap;
   border-radius: 2px;
 }

@@ -141,13 +141,14 @@ Key | Default | Description
 `\| padding:`|responsive|Padding around content. Set to `0` to remove padding 
 `\| gap:`|responsive|Gap between columns. Set to `0` to remove gap 
 `\| theme:`|`light`|Slide theme, can be `light dark yellow blue`
-`\| background:`||Slide background image url
+`\| background:`||Slide background color or image url
 `\| tint:`|`0.3`|Slide background image darkening
 `\| height:`|`100vh`|Minimum content height
 `\| rows:`|`1fr 1fr ...`|CSS grid rows
 `\| cols:`|`1fr 1fr ...`|CSS grid columns
 `\| id:`||Slide ID. Use `goto('id')` to navigate there
 `\| section:`||Section ID. Use `goto('section')` to navigate there
+`\| style:`||Css styles applied to a slide, formatted as HTML inline styles `key: value; key: value`
 
 
 

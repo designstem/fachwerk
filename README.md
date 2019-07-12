@@ -160,15 +160,19 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 // Initialize VueJS
 
 new Vue({
+  
   // HTML tag id the content goes into
 
   el: "#fachwerk",
 
-  // Allow utils to be used in templates
-
   methods: {
-    ...utils
+    
+    // Allow utils to be used in templates
+    
+    ...utils,
+    
     // Custom methods go here
+    
   },
 
   // Reactive data will be here
@@ -186,12 +190,9 @@ new Vue({
   // components and utilities.
 
   template: `
-  <f-fetch src="./index.md">
-    <f-content
-      slot-scope="{ value }"
-      :content="value"
-    />
+  <f-fetch src="./index.md" v-slot="{ value }">
+    <f-content :content="value" />
   </f-fetch>
-`
+  `
 });
 ```

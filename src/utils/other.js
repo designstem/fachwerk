@@ -1,3 +1,5 @@
+import { shuffle } from "../../fachwerk.js"
+
 export const debounce_help = () => `
 
 \`debounce(function, time)\`

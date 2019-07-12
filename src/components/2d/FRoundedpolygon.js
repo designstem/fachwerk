@@ -1,6 +1,20 @@
-import { color, range, scale, polarx, polary, linepoint } from "../../../fachwerk.js";
+import {
+  color,
+  range,
+  scale,
+  polarx,
+  polary,
+  linepoint
+} from "../../../fachwerk.js";
 
 export default {
+  description: `
+Displays a rounded polygon.
+
+<f-scene grid>
+  <f-roundedpolygon />
+</f-scene>
+  `,
   props: {
     x: { default: 0, type: [Number, String] },
     y: { default: 0, type: [Number, String] },

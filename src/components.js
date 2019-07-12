@@ -6,6 +6,9 @@ export { FSvg };
 import FBasegrid from "./components/2d/internal/FBasegrid.js";
 export { FBasegrid };
 
+import FDots from "./components/2d/FDots.js";
+export { FDots };
+
 // 2D
 
 import FScene from "./components/2d/FScene.js";
@@ -331,6 +334,9 @@ export { FPeopleIcon };
 
 import FToolsIcon from "./components/icons/FToolsIcon.js";
 export { FToolsIcon };
+
+import FDownloadIcon from "./components/icons/FDownloadIcon.js";
+export { FDownloadIcon };
 
 // Music
 

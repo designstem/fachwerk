@@ -38,7 +38,6 @@ Adds a text to the \`f-scene\`.
   <f-group :transform="currentTransform">
     <text
       text-anchor="middle"
-      alignment-baseline="middle"
       transform="scale(1,-1)"
       :style="{
         fill: fillColor

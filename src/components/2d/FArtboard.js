@@ -13,17 +13,25 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
 </f-artboard>
   `,
   props: {
-    width: { default: 600, type: [Number,String] },
-    height: { default: 600, type: [Number,String] },
+    width: { default: 600, type: [Number, String] },
+    height: { default: 600, type: [Number, String] },
     grid: { default: false, type: Boolean },
-    step: { default: 25, type: [Number,String] },
-    id: { default: "scene", type: String }
-  }, 
+    dots: { default: false, type: Boolean },
+    step: { default: 25, type: [Number, String] },
+    responsive: { default: false, type: Boolean },
+    id: { default: "", type: String },
+    download: { default: false, type: Boolean }
+  },
   slots: {
     mouse: {
       type: "object",
       description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
     }
+  },
+  provide() {
+    return {
+      svgScale: () => 1
+    };
   },
   template: `
   <f-svg 
@@ -31,7 +39,9 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
     :height="height"
     class="f-artboard"
     v-slot="{ mouse }"
+    :responsive="responsive"
     :id="id"
+    :download="download"
   >
     <f-group>
       <f-basegrid 
@@ -40,14 +50,14 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
         :inner-height="height"
         :step="step"
       />
-      <f-basegrid 
-        v-if="grid"
+      <f-dots 
+        v-if="dots"
         :inner-width="width"
         :inner-height="height"
-        :step="step * 4"
+        :step="step"
       />
       <slot :mouse="mouse" />
     </f-group>
   </f-svg>
-  `,
+  `
 };

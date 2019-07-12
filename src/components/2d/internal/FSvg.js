@@ -1,4 +1,4 @@
-import { Vue, Css } from "../../../../fachwerk.js";
+import { Vue, Css, send, randomid } from "../../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -11,7 +11,9 @@ export default {
     innerHeight: { default: null, type: [Number, String] },
     flipX: { default: false, type: Boolean },
     flipY: { default: false, type: Boolean },
-    id: { default: "scene", type: String }
+    responsive: { default: false, type: Boolean },
+    id: { default: "", type: String },
+    download: { default: false, type: Boolean }
   },
   slots: {
     mouse: {
@@ -19,15 +21,18 @@ export default {
       description: "Mouse data as `mouse.x` `mouse.y` `mouse.pressed`"
     }
   },
-  data: () => ({ mouseX: 0, mouseY: 0, mousePressed: false }),
+  data: function() {
+    return { mouseX: 0, mouseY: 0, mousePressed: false, defaultid: randomid() };
+  },
   methods: {
+    send,
     onMousemove(e) {
       let svg = this.$refs.f_svg;
       let container = this.$refs.f_svg_g;
       if (svg && container) {
         let point = svg.createSVGPoint();
-        point.x = e.clientX;
-        point.y = e.clientY;
+        point.x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        point.y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
         let ctm = container.getScreenCTM();
         if ((ctm = ctm.inverse())) {
           point = point.matrixTransform(ctm);
@@ -36,13 +41,13 @@ export default {
         this.mouseY = point.y;
       }
     },
-    download() {
-      const svg = document.getElementById(this.id).outerHTML;
+    onDownload() {
+      const svg = document.getElementById(this.id || this.defaultid).outerHTML;
       const svgBlob = new Blob([svg], { type: "image/svg+xml" });
       const url = URL.createObjectURL(svgBlob);
       const link = document.createElement("a");
       link.setAttribute("href", url);
-      link.setAttribute("download", `${this.id}.svg`);
+      link.setAttribute("download", `${this.id || 'scene'}.svg`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -59,21 +64,22 @@ export default {
     }
   },
   mounted() {
-    Vue.prototype.$global.$on("download", (id = "scene") => {
-      if (this.id == id) {
-        this.download();
+    Vue.prototype.$global.$on("download", id => {
+      if (id && this.id == id) {
+        this.onDownload();
       }
     });
   },
   template: `
+  <div class="f-svg" style="display: responsive ? 'block' : 'inline-flex'">
+    <div>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        :width="width"
-        :height="height"
+        :width="responsive ? '100%' : width"
+        :height="responsive ? 'auto' : height"
         :view-box.camel="viewBox"
-        class="f-svg"
         ref="f_svg"
-        :id="id"
+        :id="id || defaultid"
         @mousemove="onMousemove"
         @touchmove="onMousemove"
         @mousedown="mousePressed = true"
@@ -85,6 +91,10 @@ export default {
         <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
       </g>
     </svg>
+    <br />
+    <button v-if="download" class="quaternary" @click="onDownload">⤓</button>
+    </div>
+  </div>
   `,
   css: `
     .f-svg + * {
@@ -94,9 +104,6 @@ export default {
     .f-svg + .f-svg + .f-svg,
     .f-svg + .f-svg + .f-svg + .f-svg {
       margin: 0;
-    }
-    .f-svg * {
-      vector-effect: non-scaling-stroke;
     }
     .f-svg text {
       fill: var(--primary);

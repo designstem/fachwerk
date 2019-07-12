@@ -12,8 +12,8 @@ Provides an array of values and an update function.
 </f-array>
   `,
   props: {
-    length: { default: 1, type: Number },
-    dimensions: { default: 1, type: Number },
+    length: { default: 1, type: [String, Number] },
+    dimensions: { default: 1, type: [String, Number] },
     map: { default: d => d, type: Function }
   },
   slots: {

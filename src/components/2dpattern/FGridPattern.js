@@ -42,7 +42,7 @@ Repeats the contents in a 2D grid.
     position: { default: "0 0", type: [String, Number, Object, Array] },
     rotation: { default: "0", type: [String, Number, Object, Array] },
     scale: { default: "1", type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: Number }
+    opacity: { default: 1, type: [Number, String] }
   },
   slots: {
     row: {

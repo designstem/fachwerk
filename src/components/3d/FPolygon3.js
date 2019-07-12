@@ -6,7 +6,7 @@ const InternalPolygon = {
   props: {
     points: { default: '', type: [String, Number, Array] },
     fill: { default: '', type: String },
-    opacity: { default: 1, type: Number },
+    opacity: { default: 1, type: [Number, String] },
   },
   data() {
     let curObj = this.obj;
@@ -19,11 +19,18 @@ const InternalPolygon = {
 
       curObj = new THREE.Mesh(
         geometry,
-        new THREE.MeshBasicMaterial({
-          color: this.fill == "color('primary')" ? color("primary") : this.fill,
-          opacity: this.fill == '' ? 0 : this.opacity,
-          side: THREE.DoubleSide
-        })
+        this.shading
+          ? new THREE.MeshNormalMaterial({
+              opacity: this.opacity,
+              side: THREE.DoubleSide
+            })
+          : new THREE.MeshLambertMaterial({
+              transparent: true,
+              color:
+                this.fill == "color('primary')" ? color("primary") : this.fill,
+              opacity: this.opacity,
+              side: THREE.DoubleSide
+            })
       ); 
     }
     curObj.name = curObj.name || curObj.type;
