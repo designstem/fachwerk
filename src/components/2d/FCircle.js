@@ -43,7 +43,6 @@ Displays a circle.
   template: `
     <f-group>
     <circle
-      id="Circle"
       v-if="currentPoints"
       v-for="p,i in currentPoints"
       :key="i"
@@ -57,7 +56,6 @@ Displays a circle.
       :opacity="opacity"
     />
     <circle
-      id="Circle"
       v-if="!currentPoints"
       :cx="x"
       :cy="y"

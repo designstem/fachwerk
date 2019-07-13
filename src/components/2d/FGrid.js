@@ -21,7 +21,7 @@ Compared to \`<f-scene grid>\` it allows allows greater freedom to generate cust
     opacity: { default: 0.2, type: [Number,String] },
   },
   template: `
-  <f-group :transform="transform" id="Grid">
+  <f-group :transform="transform">
     <f-basegrid
       :inner-x="-2"
       :inner-y="-2"
