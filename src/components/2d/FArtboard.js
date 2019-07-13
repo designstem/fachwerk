@@ -4,7 +4,8 @@ A playground for generative vector graphics. Compared to the \`<f-scene>\` it is
 
 <f-artboard width="400" height="400" grid>
   <f-circle
-    v-for="r in range(0,300,10).reverse()"
+    v-for="(r,i) in range(0,300,10).reverse()"
+    :key="i"
     x="200"
     y="200"
     :r="r"
