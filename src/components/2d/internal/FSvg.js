@@ -75,8 +75,8 @@ export default {
     <div>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        :width="responsive ? '100%' : width"
-        :height="responsive ? 'auto' : height"
+        :width="width"
+        :height="height"
         :view-box.camel="viewBox"
         ref="f_svg"
         :id="id || defaultid"
@@ -86,6 +86,7 @@ export default {
         @touchstart="mousePressed = true"
         @mouseup="mousePressed = false"
         @touchend="mousePressed = false"
+        :style="{ width: responsive ? '100%' : width, height: responsive ? 'auto' : height}"
     >
       <g :transform="transform" ref="f_svg_g">
         <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
