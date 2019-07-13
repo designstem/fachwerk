@@ -43,7 +43,7 @@ Displays a 2D rectangle.
     }
   },
   template: `
-  <g id="Box">
+  <g>
     <rect
       v-if="currentPoints"
       v-for="p in currentPoints"

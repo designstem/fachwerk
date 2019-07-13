@@ -27,7 +27,7 @@ Groups child elements and applies 2D transformations to the group.
     }
   },
   template: `
-    <g :transform="transform" id="Group" :opacity="opacity">
+    <g :transform="transform" :opacity="opacity">
       <slot />
     </g>
   `
