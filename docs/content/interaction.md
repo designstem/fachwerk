@@ -80,13 +80,23 @@ Note that `r4` is either `0` or `1`: this represent which button is currently ac
 
 You can also update global value `r5` with a checkbox
 
-<input
-	type="checkbox"
-	:checked="get('r5', false)"
-  v-on:input="e => set('r5',e.target.checked)"
+<f-checkbox
+	set="r5"
 />
 
-<pre>r5 is currently {{ get('r5', false) }}</pre>
+<pre>r5 is currently {{ get('r5', 0) }}</pre>
+
+#### Using checkbox
+
+You can also update global value `r6` with a checkbox
+
+<input
+	type="checkbox"
+	:checked="get('r6', false)"
+  v-on:input="e => set('r6',e.target.checked)"
+/>
+
+<pre>r5 is currently {{ get('r6', false) }}</pre>
 
 #### Set a global value with a hotkey
 
