@@ -1,11 +1,40 @@
 # Release notes
 
+### 0.0.8 / Mon 15 Jul 2018
+
+#### New features
+
+* New `<f-toggle>` component
+
+* `<f-scene>`, `<f-scene3>`, `<f-artboard>` and `<f-canvas>` now have `download` prop that allows download the scene as SVG or PNG
+
+* `<f-scene>`, `<f-scene3>` and `<f-artboard>` have `responsive` tag to scale the scene to the container width
+
+* `<f-scene3>` can have `static` drop that improves the performance when you do not need live editing or animations
+
+* New pattern component `<f-grid-pattern3>`
+
+* `<f-math>` now has `inline` prop for inline math and various color props for math coloring
+
+* Slides can now have `style: ` setting where you can set the CSS styles
+
+* Slides `background: ` setting can now be either a CSS variable color or an image 
+
+* New utility functions: `object2array()`, `camelcase()`
+
+* `<f-scene3>` scenes now support retina screens
+
+
 ### 0.0.7 / Mon 10 Jun 2018
 
 * Adding `<f-piano>` onscreen keyboard component
+
 * Adding `chords()` and `chord()` music utility functions
+
 * Adding `intersection()` array utility function
+
 * Adding `colors()` function to return list of framework color names
+
 * In `<f-fetch>`, `src` prop can be an array and load multiple files
 
 #### Depreciations
