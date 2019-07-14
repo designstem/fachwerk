@@ -84,8 +84,8 @@ export default [
       { component: "FRotation" },
       {
         title: "Creating 2D graphics",
-        file: "./content/2d.md",
-      },
+        file: "./content/2d.md"
+      }
     ]
   },
   {
@@ -143,19 +143,10 @@ export default [
       },
       { component: "FSlider" },
       { component: "FAnimation" },
+      { component: "FToggle" },
       { component: "FButtons" },
       { component: "FKeyboard" },
-      { component: "FDrag" },
-      { component: "FArray" },
-      { component: "FBuffer" }
-    ]
-  },
-  {
-    title: "Remote data",
-    items: [
-      { component: "FFetch" },
-      { component: "FSheet" },
-      { component: "FWebsocket" }
+      { component: "FDrag" }
     ]
   },
   {
@@ -165,7 +156,19 @@ export default [
       {
         title: "Bringing math alive",
         file: "./content/math.md"
-      },
+      }
+    ]
+  },
+  {
+    title: "Data structures",
+    items: [{ component: "FArray" }, { component: "FBuffer" }]
+  },
+  {
+    title: "Remote data",
+    items: [
+      { component: "FFetch" },
+      { component: "FSheet" },
+      { component: "FWebsocket" }
     ]
   },
   {
