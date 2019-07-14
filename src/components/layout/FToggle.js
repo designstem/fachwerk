@@ -4,12 +4,12 @@ export default {
   description: `
 Displays the toggle control.
 
-<f-toggle />
+<f-toggle title="Toggle" />
 
 <p />`,
   data: () => ({ size: 26, width: 1.6, padding: 2, innerValue: false }),
   props: {
-    value: { default: false, type: [Number, String, Boolean] },
+    value: { default: false, type: [Boolean, Number] },
     title: { default: "", type: String },
     set: {
       default: "",
@@ -52,29 +52,32 @@ Displays the toggle control.
     }
   },
   template: `
+  <f-inline style="--inline-gap: calc(var(--base) / 2)">
   <f-artboard
     :width="size * width"
     :height="size"
   >
     <f-group @click.native="onClick">
-    <rect
-      :x="padding"
-      :y="padding"
-      :width="(size * width) - (padding * 2)"
-      :height="size - (padding * 2)"
-      :rx="(size - (padding * 2)) / 2"
-      :ry="(size - (padding * 2)) / 2"
-      :fill="color(innerValue ? 'green' : 'gray')"
-      stroke-width="3"
-      stroke="var(--primary)"
-    />
-    <f-circle
-      :r="(size - (padding * 2)) / 2"
-      :x="innerValue ? (size * width) - (size / 2) : size / 2"
-      :y="size / 2"
-      fill="white"
-    />
+      <rect
+        :x="padding"
+        :y="padding"
+        :width="(size * width) - (padding * 2)"
+        :height="size - (padding * 2)"
+        :rx="(size - (padding * 2)) / 2"
+        :ry="(size - (padding * 2)) / 2"
+        :fill="color(innerValue ? 'green' : 'gray')"
+        stroke-width="3"
+        stroke="var(--primary)"
+      />
+      <f-circle
+        :r="(size - (padding * 2)) / 2"
+        :x="innerValue ? (size * width) - (size / 2) : size / 2"
+        :y="size / 2"
+        fill="white"
+      />
     </f-group>
   </f-artboard>
+  <div>{{ title }}</div>
+  </f-inline>
   `
 };
