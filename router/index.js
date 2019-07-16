@@ -33,7 +33,6 @@ Vertical menu, to be used with \`v-model\`.
     //   },
     //   { immediate: true }
     // );
-    console.log(this.items)
   },
   template: `
     <div>
@@ -74,7 +73,7 @@ Vertical menu, to be used with \`v-model\`.
   `
 };
 
-const Hello = {
+const DocsFrontpage = {
   props: ["a"],
   template: `
 <div>
@@ -83,7 +82,7 @@ const Hello = {
 `
 };
 
-const ComponentPage = {
+const DocsComponent = {
   props: ["title", "content"],
   computed: {
     currentContent() {
@@ -97,7 +96,7 @@ ${this.content}
 </div>`
 };
 
-const FilePage = {
+const DocsFile = {
   props: ["title", "src"],
   computed: {
     content() {
@@ -112,7 +111,7 @@ ${this.a}
 </f-fetch>`
 };
 
-const UtilsPage = {
+const DocsUtils = {
   props: ["title", "content"],
   computed: {
     currentContent() {
@@ -126,7 +125,7 @@ ${this.content}
 </div>`
 };
 
-const routes = [{ path: "/", component: Hello }];
+const routes = [{ path: "/", component: DocsFrontpage }];
 
 // https://gist.github.com/mathewbyrne/1280286#gistcomment-2614193
 
@@ -209,7 +208,7 @@ const menuMap = (c) => {
   if (c.component) {
     return {
       path: `/${c.component}`,
-      component: ComponentPage,
+      component: DocsComponent,
       title: c.component,
       props: { title: c.component, content: components[c.component].description }
     }
@@ -217,7 +216,7 @@ const menuMap = (c) => {
   if (c.file) {
     return {
       path: `/${slug(c.title)}`,
-      component: FilePage,
+      component: DocsFile,
       title: c.title,
       props: { title: c.title, src: c.file.replace(/^\.\//,'../docs/') }
     }
@@ -225,16 +224,16 @@ const menuMap = (c) => {
   if (c.utils) {
     return {
       path: `/${c.title}`,
-      component: UtilsPage,
+      component: DocsUtils,
       title: c.title,
       props: { title: c.title, content: c.content }
     }
   }
 }
 
-const menuRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap)
+const pageRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap)
 
-const a = fullMenu.map(m => {
+const menuRoutes = fullMenu.map(m => {
   m.items = m.items.map(menuMap)
   return m
 })
@@ -242,7 +241,7 @@ const a = fullMenu.map(m => {
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
   //mode: 'history',
-  routes: [...routes, ...menuRoutes]
+  routes: [...routes, ...pageRoutes]
 })
 
 Vue.use(VueRouter);
@@ -251,7 +250,7 @@ new Vue({
   //el: "#fachwerk",
   components: { DocsMenu },
   router,
-  data: { menuRoutes, a },
+  data: { menuRoutes },
   methods: {
     ...utils
   },
@@ -261,7 +260,7 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <docs-menu :items="a" />
+      <docs-menu :items="menuRoutes" />
       <!--section>
         <router-link to="/">Hello</router-link>
         <router-link style="display: block" v-for="route in menuRoutes" :to="route.path" v-html="route.props.title" /> 
