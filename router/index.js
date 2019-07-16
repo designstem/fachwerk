@@ -49,7 +49,7 @@ const menuMap = c => {
       path: `/${c.component}`,
       component: DocsComponent,
       title: c.component,
-      props: { title: c.component, content: components[c.component].description }
+      props: { title: c.component, c: components[c.component] }
     }
   }
   if (c.file) {
