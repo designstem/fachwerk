@@ -1,4 +1,4 @@
-import { Vue, VueRouter, components, utils, kebabCase } from "../fachwerk.js";
+import { Vue, VueRouter, components, utils, flatten, titleCase } from "../fachwerk.js";
 
 import menu from "../docs/menu.js";
 
@@ -19,16 +19,16 @@ const Hello = {
 };
 
 const ComponentPage = {
-  props: ["title", "a"],
+  props: ["title", "content"],
   computed: {
-    content() {
+    currentContent() {
       return `# ${this.title}
 ${this.a}
     `;
     }
   },
   template: `
-<f-content-editor :content="content" />
+<f-content-editor :content="currentContent" />
 </div>`
 };
 
@@ -46,7 +46,10 @@ ${this.a}
 <f-content-editor :content="content" />
 </f-fetch>`
 };
+
 const routes = [{ path: "/", component: Hello }];
+
+// https://gist.github.com/mathewbyrne/1280286#gistcomment-2614193
 
 const slug = text => {
   text = text.toString().toLowerCase().trim();
@@ -92,13 +95,45 @@ const slug = text => {
     .replace(/-+$/, '');
 }
 
+import * as color from "../src/utils/color.js";
+import * as math from "../src/utils/math.js";
+import * as trig from "../src/utils/trig.js";
+import * as string from "../src/utils/string.js";
+import * as array from "../src/utils/array.js";
+import * as music from "../src/utils/music.js";
+import * as other from "../src/utils/other.js";
+
+const utilsPages = [{ color, math, trig, string, array, music, other }].map(g =>
+  Object.entries(g).map(([group, module]) => [
+    group,
+    Object.entries(module)
+      .filter(([key, value]) => key.endsWith("_help"))
+      .map(([key, value]) => [key.replace("_help", ""), value()])
+  ])
+);
+
+const fullMenu = menu.concat(
+  flatten(
+    utilsPages.map(g => {
+      return g.map(([group, items]) => {
+        return {
+          title: `${titleCase(group)} utilities`,
+          //utils: true,
+          items: items.map(([title, content]) => ({ title, content, utils: true }))
+        };
+      });
+    })
+  )
+);
+
+console.log(fullMenu.map)
 
 const menuMap = (c) => {
   if (c.component) {
     return {
       path: `/${c.component}`,
       component: ComponentPage,
-      props: { title: c.component, a: components[c.component].description }
+      props: { title: c.component, content: components[c.component].description }
     }
   }
   if (c.file) {
@@ -108,6 +143,13 @@ const menuMap = (c) => {
       props: { title: c.title, src: c.file.replace('./','../docs/') }
     }
   }
+  if (c.utils) {
+    return {
+      path: `/${c.title}`,
+      component: UtilsPage,
+      props: { title: c.title, content: c.content }
+    }
+  }
 }
 
 const menuRoutes = menu[3].items.slice(-5).map(menuMap);
@@ -115,8 +157,8 @@ const menuRoutes = menu[3].items.slice(-5).map(menuMap);
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
   //mode: 'history',
-  routes: [...routes, ...menuRoutes] // short for `routes: routes`
-});
+  routes: [...routes, ...menuRoutes]
+})
 
 Vue.use(VueRouter);
 
@@ -132,13 +174,10 @@ new Vue({
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
   template: `
-    <f-theme>
-      <f-header />
+    <f-theme style="display: flex">
       <section>
-      <f-inline>
         <router-link to="/">Hello</router-link>
-        <router-link v-for="route in menuRoutes" :to="route.path" v-html="route.props.title" /> 
-      </f-inline>
+        <router-link style="display: block" v-for="route in menuRoutes" :to="route.path" v-html="route.props.title" /> 
       </section>
       <router-view></router-view>
     </f-theme>
