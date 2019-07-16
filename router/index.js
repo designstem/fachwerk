@@ -56,14 +56,15 @@ Vertical menu, to be used with \`v-model\`.
         v-html="item.title"
         />
         <router-link
-          v-if="i == currentActiveItem"
+          if="i == currentActiveItem"
           v-for="(item,j) in item.items"
           :key="j"
           :style="{
             display: 'flex',
             alignItems: 'center',
             padding: 'var(--base) var(--base) var(--base) var(--base4)',
-            border: 'none'
+            border: 'none',
+            fontWeight: 'normal'
           }"
           :to="item.path"
           v-html="item.title"
@@ -72,7 +73,6 @@ Vertical menu, to be used with \`v-model\`.
     </div>
   `
 };
-
 
 const Hello = {
   props: ["a"],
