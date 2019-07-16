@@ -15,7 +15,7 @@ export const parseSheet = data => {
 };
 
 export const cleanColumns = content => {
-  const pattern = /(\|[0-9\s]+\n)/g;
+  const pattern = /(\|[0-9\s]+\r?\n)/g;
   return content.replace(pattern, "");
 };
 
@@ -32,13 +32,13 @@ const parseMeta = row => {
 };
 export const parseColumns = slide => {
   let meta = [];
-  const metaPattern = /(\|\s(.*?):\s+(.*)\n)/g;
+  const metaPattern = /(\|\s(.*?):\s+(.*)\r?\n)/g;
   const metaMatch = slide.match(metaPattern);
   if (metaMatch && metaMatch.length) {
     meta = metaMatch.map(parseMeta);
     slide = slide.replace(metaPattern,'')
   }
-  const pattern = /(\|[0-9\s]+\n)/g;
+  const pattern = /(\|[0-9\s]+\r?\n)/g;
   const match = slide.match(pattern);
   if (match) {
     const rowCount = match.length;
@@ -53,12 +53,12 @@ export const parseColumns = slide => {
     const areas = cols
       .map(m => `'${m.map(m => `a${m}`).join(" ")}'`)
       .join("\n");
-    const content = slide.split(/\n-\n/)
+    const content = slide.split(/\r?\n-\r?\n/)
       .map(c => c.replace(pattern, ""))
 
     return Object.assign({ rowCount, colCount, areas, content }, ...meta);
   } else {
-    const content = slide.split(/\n-\n/);
+    const content = slide.split(/\r?\n-\r?\n/);
     return Object.assign(
       {
         rowCount: 1,

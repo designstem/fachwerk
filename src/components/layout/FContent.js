@@ -32,8 +32,8 @@ Shows Markdown content.
   computed: {
     preparedContent() {
       return this.content
-        .replace(/\n--\n/g, "")
-        .split(/\n---\n/)
+        .replace(/\r?\n--\r?\n/g, "")
+        .split(/\r?\n---\r?\n/)
         .map(parseColumns);
     }
   },
