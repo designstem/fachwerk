@@ -9,6 +9,71 @@ for (const name in components) {
 Vue.config.productionTip = false;
 Vue.prototype.$global = new Vue({ data: { state: {} } });
 
+const DocsMenu = {
+  description: `
+Vertical menu, to be used with \`v-model\`.
+
+  <f-menu
+    v-model="someVariable"
+    :items="['First','Second']"
+  />
+  `,
+  props: ["items", "value"],
+  data: () => ({ currentActiveItem: 0 }),
+  methods: {
+    top() {
+      window.scrollTo(0, 0);
+    }
+  },
+  mounted() {
+    // this.$watch(
+    //   "activeItem",
+    //   activeItem => {
+    //     this.currentActiveItem = activeItem;
+    //   },
+    //   { immediate: true }
+    // );
+    console.log(this.items)
+  },
+  template: `
+    <div>
+      <div
+        v-for="(item,i) in items"
+        :key="i"
+        :style="{
+          cursor: 'pointer',
+        }"
+      >
+        <div :style="{
+          display: 'flex',
+          alignItems: 'center',
+          padding: 'var(--base2) var(--base2) var(--base) var(--base2)',
+          fontWeight: 'bold',
+          color: 'var(--primary)',
+          transform: 'translate(0,calc(var(--base) * 0))',
+        }"
+        @click="currentActiveItem = i; top();"
+        v-html="item.title"
+        />
+        <router-link
+          v-if="i == currentActiveItem"
+          v-for="(item,j) in item.items"
+          :key="j"
+          :style="{
+            display: 'flex',
+            alignItems: 'center',
+            padding: 'var(--base) var(--base) var(--base) var(--base4)',
+            border: 'none'
+          }"
+          :to="item.path"
+          v-html="item.title"
+        /> 
+      </div>
+    </div>
+  `
+};
+
+
 const Hello = {
   props: ["a"],
   template: `
@@ -40,9 +105,6 @@ const FilePage = {
 ${this.a}
     `;
     }
-  },
-  mounted() {
-    this.$watch('src', src => console.log(src), { immediate: true })
   },
   template: `
 <f-fetch :src="src" v-slot="{ value: content }">
@@ -148,6 +210,7 @@ const menuMap = (c) => {
     return {
       path: `/${c.component}`,
       component: ComponentPage,
+      title: c.component,
       props: { title: c.component, content: components[c.component].description }
     }
   }
@@ -155,6 +218,7 @@ const menuMap = (c) => {
     return {
       path: `/${slug(c.title)}`,
       component: FilePage,
+      title: c.title,
       props: { title: c.title, src: c.file.replace(/^\.\//,'../docs/') }
     }
   }
@@ -162,16 +226,18 @@ const menuMap = (c) => {
     return {
       path: `/${c.title}`,
       component: UtilsPage,
+      title: c.title,
       props: { title: c.title, content: c.content }
     }
   }
 }
 
-//console.log(flatten(menu.map(c => c.items)).map(menuMap))
-
 const menuRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap)
 
-console.log(menuRoutes)
+const a = fullMenu.map(m => {
+  m.items = m.items.map(menuMap)
+  return m
+})
 
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
@@ -183,8 +249,9 @@ Vue.use(VueRouter);
 
 new Vue({
   //el: "#fachwerk",
+  components: { DocsMenu },
   router,
-  data: { menuRoutes },
+  data: { menuRoutes, a },
   methods: {
     ...utils
   },
@@ -194,10 +261,11 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <section>
+      <docs-menu :items="a" />
+      <!--section>
         <router-link to="/">Hello</router-link>
         <router-link style="display: block" v-for="route in menuRoutes" :to="route.path" v-html="route.props.title" /> 
-      </section>
+      </section-->
       <router-view></router-view>
     </f-theme>
   `
