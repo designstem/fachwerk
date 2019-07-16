@@ -1,14 +1,21 @@
-import { Vue, VueRouter, components, utils, flatten, titleCase } from "../fachwerk.js";
+import {
+  Vue,
+  VueRouter,
+  components,
+  utils,
+  flatten,
+  titleCase
+} from "../fachwerk.js";
 
-import { slug } from "./utils.js"
+import { slug } from "./utils.js";
 
-import DocsComponent from './components/DocsComponent.js'
-import DocsFile from './components/DocsFile.js'
-import DocsUtils from './components/DocsUtils.js'
-import DocsMenu from './components/DocsMenu.js'
-import DocsFrontpage from './components/DocsFrontpage.js'
+import DocsComponent from "./components/DocsComponent.js";
+import DocsFile from "./components/DocsFile.js";
+import DocsUtils from "./components/DocsUtils.js";
+import DocsMenu from "./components/DocsMenu.js";
+import DocsFrontpage from "./components/DocsFrontpage.js";
 
-import menu from "../docs/menu.js";
+import menu from "./menu.js";
 
 const routes = [{ path: "/", component: DocsFrontpage }];
 
@@ -36,7 +43,11 @@ const fullMenu = menu.concat(
         return {
           title: `${titleCase(group)} utilities`,
           //utils: true,
-          items: items.map(([title, content]) => ({ title, content, utils: true }))
+          items: items.map(([title, content]) => ({
+            title,
+            content,
+            utils: true
+          }))
         };
       });
     })
@@ -50,15 +61,15 @@ const menuMap = c => {
       component: DocsComponent,
       title: c.component,
       props: { title: c.component, c: components[c.component] }
-    }
+    };
   }
   if (c.file) {
     return {
       path: `/${slug(c.title)}`,
       component: DocsFile,
       title: c.title,
-      props: { title: c.title, src: c.file.replace(/^\.\//,'../docs/') }
-    }
+      props: { title: c.title, src: c.file.replace(/^\.\//, "../docs/") }
+    };
   }
   if (c.utils) {
     return {
@@ -66,22 +77,22 @@ const menuMap = c => {
       component: DocsUtils,
       title: c.title,
       props: { title: c.title, content: c.content }
-    }
+    };
   }
-}
+};
 
-const pageRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap)
+const pageRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap);
 
 const menuRoutes = fullMenu.map(m => {
-  m.items = m.items.map(menuMap)
-  return m
-})
+  m.items = m.items.map(menuMap);
+  return m;
+});
 
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
   //mode: 'history',
   routes: [...routes, ...pageRoutes]
-})
+});
 
 for (const name in components) {
   Vue.component(name, components[name]);
@@ -105,11 +116,15 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <docs-menu :items="menuRoutes" />
-      <!--section>
-        <router-link to="/">Hello</router-link>
-        <router-link style="display: block" v-for="route in menuRoutes" :to="route.path" v-html="route.props.title" /> 
-      </section-->
+      <div>
+        <router-link :style="{
+          display: 'flex',
+          alignItems: 'center',
+          padding: 'var(--base2) var(--base) var(--base) var(--base2)',
+          border: 'none',
+        }" to="/">Home</router-link>
+        <docs-menu :items="menuRoutes" />
+      </div>
       <router-view></router-view>
     </f-theme>
   `
