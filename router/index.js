@@ -23,7 +23,7 @@ const ComponentPage = {
   computed: {
     currentContent() {
       return `# ${this.title}
-${this.a}
+${this.content}
     `;
     }
   },
@@ -41,10 +41,27 @@ ${this.a}
     `;
     }
   },
+  mounted() {
+    this.$watch('src', src => console.log(src), { immediate: true })
+  },
   template: `
 <f-fetch :src="src" v-slot="{ value: content }">
 <f-content-editor :content="content" />
 </f-fetch>`
+};
+
+const UtilsPage = {
+  props: ["title", "content"],
+  computed: {
+    currentContent() {
+      return `# ${this.title}
+${this.content}
+    `;
+    }
+  },
+  template: `
+<f-content-editor :content="currentContent" />
+</div>`
 };
 
 const routes = [{ path: "/", component: Hello }];
@@ -126,8 +143,6 @@ const fullMenu = menu.concat(
   )
 );
 
-console.log(fullMenu.map)
-
 const menuMap = (c) => {
   if (c.component) {
     return {
@@ -140,7 +155,7 @@ const menuMap = (c) => {
     return {
       path: `/${slug(c.title)}`,
       component: FilePage,
-      props: { title: c.title, src: c.file.replace('./','../docs/') }
+      props: { title: c.title, src: c.file.replace(/^\.\//,'../docs/') }
     }
   }
   if (c.utils) {
@@ -152,7 +167,11 @@ const menuMap = (c) => {
   }
 }
 
-const menuRoutes = menu[3].items.slice(-5).map(menuMap);
+//console.log(flatten(menu.map(c => c.items)).map(menuMap))
+
+const menuRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap)
+
+console.log(menuRoutes)
 
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
