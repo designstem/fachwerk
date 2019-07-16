@@ -51,7 +51,7 @@ export const test = tests => {
         console.log(`  ${shorten(name).padEnd(53)}\t${red}Failed${reset}${dim}
  
 ${String(test)
-  .split("\n")
+  .split("\r?\n")
   .map(row => `    ${row}`)
   .join("\n")}
 
