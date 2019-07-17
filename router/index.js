@@ -133,7 +133,6 @@ new Vue({
   template: `
     <f-theme style="display: flex">
       <div v-if="true" style="
-        transform: translateX(-160px);
         min-width: 200px;
         height: 100vh;
         overflow: auto;
@@ -155,7 +154,6 @@ new Vue({
       <router-view
         style="
           --advanced-editor-height: auto;
-          transform: translateX(-160px);
         "
         :style="{
           '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 18)' : 'calc(var(--base) * 8) calc(var(--base) * 4)'
