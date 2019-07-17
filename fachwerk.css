@@ -621,7 +621,7 @@ button,
 .quaternary,
 button.quaternary {
   background: transparent;
-  padding: 0 8px;
+  padding: 0 6px;
   height: var(--base4);
   display: inline-flex;
   align-items: center;

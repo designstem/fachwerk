@@ -28,7 +28,7 @@ Creates a code editor with a live preview.
       type: String
     },
     menu: {
-      default: true,
+      default: false,
       type: [Boolean, Number, String]
     },
   },
@@ -77,6 +77,7 @@ Creates a code editor with a live preview.
       this.$global.$on("save", () => this.handleSave());
       this.$global.$on("reset", () => this.handleReset());
     }
+    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
   unmounted() {
     clearTimeout(this.timeout);
@@ -99,30 +100,32 @@ Creates a code editor with a live preview.
       style="
         position: absolute;
         z-index: 10000;
-        left: 100px;
+        left: 50px;
         top: 12px;
       "
     >
-        <a slot="button" title="Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+        <a slot="button" title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
       <slot />
     </div>
     <div class="content-editor">
       <div v-if="!get('preview', false)" class="editor">
-        <div class="toolbar" :style="{ padding: '10px' }">
-        <div>
+        <div class="toolbar" :style="{ padding: '15px 15px 0 15px' }">
+        <div style="display: flex">
           <a
-          v-if="menu"
-          class="quaternary"
-          style="opacity: 0.5"
-          @click="send('openmenu')"
-          title="Alt + e"
-          ><f-menu-icon /></a>
-          <a
+            v-if="menu"
             class="quaternary"
             style="opacity: 0.5"
-            @click="set('preview', true)"
-            title="Alt + e"
-          >Close</a>
+            @click="send('openmenu')"
+          >
+            <f-menu-icon />
+          </a>
+          <a
+            @click="handleSave"
+            class="quaternary"
+            :style="{ opacity: state == 'saved' ? 1 : 0.5}"
+          >
+            {{ labels[state] }}
+          </a>
         </div>
         <div>
             <div
@@ -135,11 +138,13 @@ Creates a code editor with a live preview.
             </div>
             &nbsp;
           </div>
-          <div
-            @click="handleSave"
+          <a
             class="quaternary"
-            :style="{ opacity: state == 'saved' ? 1 : 0.5}"
-          >{{ labels[state] }}</div>
+            style="opacity: 0.5"
+            @click="set('preview', true)"
+            title="Close editor Alt + e"
+          ><f-close-icon /></a>
+          
         </div>
         <f-editor
           v-if="!advanced"
@@ -191,6 +196,7 @@ Creates a code editor with a live preview.
   .content-editor > .editor {
     flex: 1;
     min-width: var(--content-editor-min-width);
+    background: var(--paleblue);
   }
   .content-editor > .editor .basic {
     min-height: var(--content-editor-min-height);

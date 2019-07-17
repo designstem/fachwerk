@@ -76,6 +76,7 @@ export default [
       { component: "FCircle" },
       { component: "FArc" },
       { component: "FBox" },
+      { component: "FRect" },
       { component: "FHexagon" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },

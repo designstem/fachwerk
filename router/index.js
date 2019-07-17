@@ -132,7 +132,7 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <div v-if="false" style="
+      <div v-if="true" style="
         min-width: 200px;
         height: 100vh;
         overflow: auto;
