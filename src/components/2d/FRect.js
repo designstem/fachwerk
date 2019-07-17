@@ -12,6 +12,7 @@ Displays a 2D rectangle.
     :stroke="color('red')"
     position="1 1"
     scale="0.5"
+    corner-radius="0.3"
   />
 </f-scene>
   `,
