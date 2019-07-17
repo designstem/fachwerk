@@ -1,4 +1,4 @@
-import { Vue, Css, store } from "../../../fachwerk.js";
+import { Vue, Css, store, get, set, log } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -39,6 +39,8 @@ Creates a code editor with a live preview.
     timeout: null
   }),
   methods: {
+    get,
+    set,
     handleSave() {
       store.set(`content-editor-${this.saveId}`, this.innerContent);
       this.state = "saving";
@@ -82,70 +84,81 @@ Creates a code editor with a live preview.
   /* @TODO remove reset button position hack */
   template: `
   <div style="position: relative">
-  <div
-    v-if="preview"
-    style="
-      position: absolute;
-      z-index: 10000;
-      left: 40px;
-      top: 12px;
-    "
-  >
-      <a slot="button" title="Alt + E" class="quaternary" @click="$emit('togglePreview')">Edit</a>
-    <slot />
-  </div>
-  <div class="content-editor">
-    <div v-if="!preview" class="editor">
-      <div class="toolbar" :style="{ padding: menu ? '12px 10px 0 40px' : '7px 10px 0 0' }">
-      <div
-        v-if="menu"
-        class="quaternary"
-        style="opacity: 0.5"
-        @click="$emit('togglePreview')"
-      >Close</div>
-      <div>
-          <div
-            v-if="state == 'saved' || state == 'saving'"
-            class="quaternary"
-            style="opacity: 0.3"
-            @click="handleReset"
-          >
-            Reset to original
-          </div>
-          &nbsp;
-        </div>
-        <div
-          @click="handleSave"
-          class="quaternary"
-          :style="{ opacity: state == 'saved' ? 1 : 0.5}"
-        >{{ labels[state] }}</div>
-      </div>
-      <f-editor
-        v-if="!advanced"
-        class="basic"
-        v-model="innerContent"
-      />
-      <f-advanced-editor
-        v-if="advanced"
-        v-model="innerContent"
-        style="height: 100vh;"
-      />
-    </div>
+    <f-keyboard
+      alt
+      character="s"
+      @keydown="handleSave"
+    />
+    <f-keyboard
+      alt
+      character="e"
+      @keydown="set('preview', !get('preview', false))"
+    />
     <div
-      class="preview"
-      :style="{
-        '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
-        '--content-padding': preview ? '' : 'calc(var(--base) * 3)',
-        '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
-      }"
+      v-if="get('preview', false)"
+      style="
+        position: absolute;
+        z-index: 10000;
+        left: 40px;
+        top: 12px;
+      "
     >
-      <f-content
-        :content="innerContent"
-        :type="type"
-        :saveId="saveId"
-      />
+        <a slot="button" title="Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+      <slot />
     </div>
-  </div>
+    <div class="content-editor">
+      <div v-if="!get('preview', false)" class="editor">
+        <div class="toolbar" :style="{ padding: menu ? '12px 10px 0 40px' : '7px 10px 0 0' }">
+        <a
+          v-if="menu"
+          class="quaternary"
+          style="opacity: 0.5"
+          @click="set('preview', true)"
+          title="Alt + e"
+        >Close</a>
+        <div>
+            <div
+              v-if="state == 'saved' || state == 'saving'"
+              class="quaternary"
+              style="opacity: 0.3"
+              @click="handleReset"
+            >
+              Reset to original
+            </div>
+            &nbsp;
+          </div>
+          <div
+            @click="handleSave"
+            class="quaternary"
+            :style="{ opacity: state == 'saved' ? 1 : 0.5}"
+          >{{ labels[state] }}</div>
+        </div>
+        <f-editor
+          v-if="!advanced"
+          class="basic"
+          v-model="innerContent"
+        />
+        <f-advanced-editor
+          v-if="advanced"
+          v-model="innerContent"
+          style="height: 100vh;"
+        />
+      </div>
+      <div
+        class="preview"
+        :style="{
+          '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
+          '----content-padding': preview ? '' : 'calc(var(--base) * 3)',
+          '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
+        }"
+      >
+        <f-content
+          :content="innerContent"
+          :type="type"
+          :saveId="saveId"
+        />
+      </div>
+    </div>
   </div>
   `,
   cssprops: {

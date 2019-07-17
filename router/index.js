@@ -132,7 +132,15 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <div style="min-width: 200px; height: 100vh; overflow: auto;">
+      <div style="
+        min-width: 200px;
+        height: 100vh;
+        overflow: auto;
+        background: var(--lightestgray);
+        position: sticky;
+        top: 0;
+      ">
+        <f-close-icon style="margin: 20px"/>
         <router-link :style="{
           display: 'flex',
           alignItems: 'center',
@@ -141,7 +149,14 @@ new Vue({
         }" to="/">Home</router-link>
         <docs-menu :items="menuRoutes" />
       </div>
-      <router-view style="--advanced-editor-height: auto;"></router-view>
+      <router-view
+        style="
+          --advanced-editor-height: auto;
+        "
+        :style="{
+          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 14)' : 'calc(var(--base) * 8) calc(var(--base) * 4)'
+        }"
+      ></router-view>
     </f-theme>
   `
 }).$mount("#fachwerk");

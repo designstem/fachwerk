@@ -14,6 +14,6 @@ Function can be imported using Javascript import:
     }
   },
   template: `
-<f-content-editor :content="generateUtils(title,content)" />
+<f-content-editor :save-id="title" :content="generateUtils(title,content)" />
 </div>`
 };
