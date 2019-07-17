@@ -108,14 +108,22 @@ Creates a code editor with a live preview.
     </div>
     <div class="content-editor">
       <div v-if="!get('preview', false)" class="editor">
-        <div class="toolbar" :style="{ padding: menu ? '12px 10px 0 40px' : '7px 10px 0 0' }">
-        <a
+        <div class="toolbar" :style="{ padding: '10px' }">
+        <div>
+          <a
           v-if="menu"
           class="quaternary"
           style="opacity: 0.5"
-          @click="set('preview', true)"
+          @click="send('openmenu')"
           title="Alt + e"
-        >Close</a>
+          ><f-menu-icon /></a>
+          <a
+            class="quaternary"
+            style="opacity: 0.5"
+            @click="set('preview', true)"
+            title="Alt + e"
+          >Close</a>
+        </div>
         <div>
             <div
               v-if="state == 'saved' || state == 'saving'"
@@ -178,6 +186,7 @@ Creates a code editor with a live preview.
   css: `
   .content-editor {
     display: flex;
+    flex-direction: row;
   }
   .content-editor > .editor {
     flex: 1;
