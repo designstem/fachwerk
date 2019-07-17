@@ -26,7 +26,7 @@
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
   --lightergray: #eee;
-  --lightestgray: #fafafa;
+  --lightestgray: #f4f4f4;
   --white: #ffffff;
   
   --transparent: rgba(0,0,0,0);
@@ -35,6 +35,8 @@
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
   --quaternary: var(--lightgray);
+
+  --background: var(--white);
 
   --accent: var(--purple);
   
@@ -498,11 +500,11 @@ th {
   padding: calc(var(--base) * 1) calc(var(--base) / 2);
   text-align: left;
   font-weight: normal;
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 th p {
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 tr {

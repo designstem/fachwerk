@@ -1,16 +1,6 @@
 export default {
   props: ["items", "value"],
   data: () => ({ currentActiveItem: 0 }),
-  methods: {
-    top() {
-      window.scrollTo(0, 0);
-    }
-  },
-  methods: {
-    onClick() {
-
-    }
-  },
   template: `
     <div>
       <div
@@ -28,7 +18,7 @@ export default {
           color: 'var(--primary)',
           transform: 'translate(0,calc(var(--base) * 0))',
         }"
-        @click="currentActiveItem = i; top();"
+        @click="currentActiveItem = i;"
         v-html="item.title"
         />
         <router-link

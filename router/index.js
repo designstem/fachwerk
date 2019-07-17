@@ -81,19 +81,19 @@ const menuMap = c => {
   if (c.component) {
     return {
       path: `/${kebabcase(c.component)}`,
-      title: kebabcase(c.component),
+      title: kebabcase(c.component)
     };
   }
   if (c.file) {
     return {
       path: `/${slug(c.title)}`,
-      title: c.title,
+      title: c.title
     };
   }
   if (c.utils) {
     return {
       path: `/${c.title}`,
-      title: c.title,
+      title: c.title
     };
   }
 };
@@ -122,7 +122,7 @@ Vue.use(VueRouter);
 new Vue({
   components: { DocsMenu },
   router,
-  data: { menuRoutes, preview: false },
+  data: { menuRoutes, preview: false, theme: 0 },
   methods: {
     ...utils
   },
@@ -131,35 +131,50 @@ new Vue({
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
   template: `
-    <f-theme style="display: flex;">
+    <f-theme :theme="['light','dark','yellow','blue'][theme]" style="display: flex;">
       <div v-if="get('menu', true)" style="
         min-width: 200px;
         height: 100vh;
         overflow: auto;
-        background: var(--lightestgray);
+        background: var(--background);
         position: sticky;
         top: 0;
       ">
         <f-inline style="margin: var(--base); --inline-justify: flex-end">
-          <a class="quaternary" @click="set('menu', false)"><f-close-icon  /><a>
+          <a class="quaternary" @click="set('menu', false)"><f-close-icon  /></a>
         </f-inline>
+        
+        <h2 style="padding: 0 var(--base2)">Fachwerk</h2>
+
+        <f-colors
+          style="padding: 0 var(--base2)"
+          :colors="['lightergray','darkgray','yellow','blue']"
+          value="0"
+          v-on:value="v => theme = v"
+        />
+
         <router-link :style="{
           display: 'flex',
+          background: 'var(--background)',
           alignItems: 'center',
           padding: 'var(--base2) var(--base) var(--base) var(--base2)',
           border: 'none',
         }" to="/">Home</router-link>
         <docs-menu :items="menuRoutes" />
       </div>
-      <div v-if="!get('menu', true)" style="
+      <div v-if="!get('menu', true)"
+        class="closedmenu"
+        style="
         min-width: 40px;
         height: 100vh;
-        background: var(--lightestgray);
         position: sticky;
         top: 0;
-      ">
+        cursor: pointer;
+      "
+      @click="set('menu', true)"
+      >
         <f-inline style="margin-top: var(--base); --inline-gap: 0; --inline-justify: center">
-          <a class="quaternary" @click="set('menu', true)"><f-menu-icon  /><a>
+          <a class="quaternary"><f-menu-icon /></a>
         </f-inline>
       </div>
       <router-view
