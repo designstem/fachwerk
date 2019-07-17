@@ -242,6 +242,9 @@ export { FTable };
 import FButtons from "./components/layout/FButtons.js";
 export { FButtons };
 
+import FCheckbox from "./components/layout/FCheckbox.js";
+export { FCheckbox };
+
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
