@@ -4,10 +4,10 @@ import {
   components,
   utils,
   flatten,
-  titlecase
+  titlecase,
+  kebabcase,
+  slug
 } from "../fachwerk.js";
-
-import { slug } from "./utils.js";
 
 import DocsComponent from "./components/DocsComponent.js";
 import DocsFile from "./components/DocsFile.js";
@@ -42,7 +42,6 @@ const fullMenu = menu.concat(
       return g.map(([group, items]) => {
         return {
           title: `${titlecase(group)} utilities`,
-          //utils: true,
           items: items.map(([title, content]) => ({
             title,
             content,
@@ -54,12 +53,11 @@ const fullMenu = menu.concat(
   )
 );
 
-const menuMap = c => {
+const pageMap = c => {
   if (c.component) {
     return {
-      path: `/${c.component}`,
+      path: `/${kebabcase(c.component)}`,
       component: DocsComponent,
-      title: c.component,
       props: { title: c.component, c: components[c.component] }
     };
   }
@@ -67,7 +65,6 @@ const menuMap = c => {
     return {
       path: `/${slug(c.title)}`,
       component: DocsFile,
-      title: c.title,
       props: { title: c.title, src: c.file.replace(/^\.\//, "../docs/") }
     };
   }
@@ -75,13 +72,33 @@ const menuMap = c => {
     return {
       path: `/${c.title}`,
       component: DocsUtils,
-      title: c.title,
       props: { title: c.title, content: c.content }
     };
   }
 };
 
-const pageRoutes = flatten(fullMenu.map(c => c.items)).map(menuMap);
+const menuMap = c => {
+  if (c.component) {
+    return {
+      path: `/${kebabcase(c.component)}`,
+      title: kebabcase(c.component),
+    };
+  }
+  if (c.file) {
+    return {
+      path: `/${slug(c.title)}`,
+      title: c.title,
+    };
+  }
+  if (c.utils) {
+    return {
+      path: `/${c.title}`,
+      title: c.title,
+    };
+  }
+};
+
+const pageRoutes = flatten(fullMenu.map(c => c.items)).map(pageMap);
 
 const menuRoutes = fullMenu.map(m => {
   m.items = m.items.map(menuMap);
