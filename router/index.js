@@ -133,6 +133,7 @@ new Vue({
   template: `
     <f-theme style="display: flex">
       <div v-if="true" style="
+        transform: translateX(-160px);
         min-width: 200px;
         height: 100vh;
         overflow: auto;
@@ -140,7 +141,9 @@ new Vue({
         position: sticky;
         top: 0;
       ">
-        <f-close-icon style="margin: 20px"/>
+        <f-inline style="margin: 10px; --inline-justify: flex-end">
+          <f-menu-icon />
+        </f-inline>
         <router-link :style="{
           display: 'flex',
           alignItems: 'center',
@@ -152,9 +155,10 @@ new Vue({
       <router-view
         style="
           --advanced-editor-height: auto;
+          transform: translateX(-160px);
         "
         :style="{
-          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 14)' : 'calc(var(--base) * 8) calc(var(--base) * 4)'
+          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 18)' : 'calc(var(--base) * 8) calc(var(--base) * 4)'
         }"
       ></router-view>
     </f-theme>

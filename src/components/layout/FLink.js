@@ -39,7 +39,7 @@ This link goes to <f-link to="props">Local slide</f-link> with ID \`props\`
   <span>
     <router-link v-if="isRoute" :to="to"><slot /></router-link>
     <a v-if="isUrl" :href="to" target="_blank"><slot /></a>
-    <a v-if="isId" @click="goto(to)"><slot /></a>
+    <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
     <slot v-if="!isRoute && !isUrl && !isId" />
   </span>
   `

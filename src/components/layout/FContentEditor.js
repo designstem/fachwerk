@@ -84,7 +84,7 @@ Creates a code editor with a live preview.
   },
   /* @TODO remove reset button position hack */
   template: `
-  <div style="position: relative">
+  <div style="position: relative; width: 100%;">
     <f-keyboard
       alt
       character="s"
@@ -100,7 +100,7 @@ Creates a code editor with a live preview.
       style="
         position: absolute;
         z-index: 10000;
-        left: 50px;
+        left: var(--base2);
         top: 12px;
       "
     >
