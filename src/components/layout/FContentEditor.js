@@ -100,8 +100,8 @@ Creates a code editor with a live preview.
       style="
         position: absolute;
         z-index: 10000;
-        left: var(--base2);
-        top: 12px;
+        left: var(--base);
+        top: var(--base);
       "
     >
         <a slot="button" title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
@@ -109,7 +109,7 @@ Creates a code editor with a live preview.
     </div>
     <div class="content-editor">
       <div v-if="!get('preview', false)" class="editor">
-        <div class="toolbar" :style="{ padding: '15px 15px 0 15px' }">
+        <div class="toolbar">
         <div style="display: flex">
           <a
             v-if="menu"
@@ -209,6 +209,7 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
+    padding: var(--base) var(--base) 0 var(--base);
     height: calc(var(--base) * 7);
     display: flex;
     align-items: center;

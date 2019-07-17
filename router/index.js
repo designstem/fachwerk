@@ -131,8 +131,8 @@ new Vue({
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
   template: `
-    <f-theme style="display: flex">
-      <div v-if="true" style="
+    <f-theme style="display: flex;">
+      <div v-if="get('menu', true)" style="
         min-width: 200px;
         height: 100vh;
         overflow: auto;
@@ -140,8 +140,8 @@ new Vue({
         position: sticky;
         top: 0;
       ">
-        <f-inline style="margin: 10px; --inline-justify: flex-end">
-          <f-menu-icon />
+        <f-inline style="margin: var(--base); --inline-justify: flex-end">
+          <a class="quaternary" @click="set('menu', false)"><f-close-icon  /><a>
         </f-inline>
         <router-link :style="{
           display: 'flex',
@@ -150,6 +150,17 @@ new Vue({
           border: 'none',
         }" to="/">Home</router-link>
         <docs-menu :items="menuRoutes" />
+      </div>
+      <div v-if="!get('menu', true)" style="
+        min-width: 40px;
+        height: 100vh;
+        background: var(--lightestgray);
+        position: sticky;
+        top: 0;
+      ">
+        <f-inline style="margin-top: var(--base); --inline-gap: 0; --inline-justify: center">
+          <a class="quaternary" @click="set('menu', true)"><f-menu-icon  /><a>
+        </f-inline>
       </div>
       <router-view
         style="
