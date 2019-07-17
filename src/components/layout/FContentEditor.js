@@ -99,7 +99,7 @@ Creates a code editor with a live preview.
       style="
         position: absolute;
         z-index: 10000;
-        left: 40px;
+        left: 100px;
         top: 12px;
       "
     >
