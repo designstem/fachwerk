@@ -20,6 +20,7 @@ Displays a 2D rectangle.
     y: { default: 0, type: [Number, String] },
     width: { default: 1, type: [Number, String] },
     height: { default: 1, type: [Number, String] },
+    cornerRadius: { default: 0, type: [Number, String] },
     stroke: { default: "color('primary')", type: String },
     strokeWidth: { default: 3, type: [Number, String] },
     fill: { default: "none", type: String },
@@ -40,6 +41,8 @@ Displays a 2D rectangle.
   <rect
     :x="x"
     :y="y"
+    :rx="cornerRadius"
+    :ry="cornerRadius"
     :width="width"
     :height="height"
     :stroke="currentStrokeColor"
