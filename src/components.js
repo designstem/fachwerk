@@ -26,6 +26,9 @@ export { FGroup };
 import FBox from "./components/2d/FBox.js";
 export { FBox };
 
+import FRect from "./components/2d/FRect.js";
+export { FRect };
+
 import FPoint from "./components/2d/FPoint.js";
 export { FPoint };
 
