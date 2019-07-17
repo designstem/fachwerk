@@ -63,7 +63,7 @@ Displays a straight, segmented or curved line.
     }
   },
   template: `
-    <g :transform="transform" id="Line">
+    <g :transform="transform">
       <path
         v-if="currentPoints"
         :d="path(currentPoints)"

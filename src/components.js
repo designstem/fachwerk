@@ -290,6 +290,9 @@ export { FFooter };
 import FIconHeading from "./components/layout/FIconHeading.js";
 export { FIconHeading };
 
+import FToggle from "./components/layout/FToggle.js";
+export { FToggle };
+
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";

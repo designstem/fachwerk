@@ -12,7 +12,7 @@ export default {
           w.replace(/(\n|[\n])/g, " ").replace(/\s+/g, " ")
         )
         .replace(/(@)(.*)(=)/g, "v-on:$2$3")
-        .replace(/(#+)\s+([0-9a-zA-Z]+)\./g, "$1 <span class=\"bullet\">$2</span>")
+        .replace(/(#+)\s+([0-9]+)\.\s/g, "$1 <span class=\"bullet\">$2</span> ")
     }
   },
   template: `
