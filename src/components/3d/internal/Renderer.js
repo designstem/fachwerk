@@ -76,7 +76,7 @@ export default {
   <div class="f-scene3" :class="{ 'responsive': responsive }">
     <slot></slot>
     <div ref="container"></div>
-    <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓</button>
+    <button v-if="download && !webgl" class="quaternary" @click="onDownload">⤓ Download</button>
   </div>
   `,
   css: `
