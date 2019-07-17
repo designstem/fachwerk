@@ -1,13 +1,19 @@
 export default {
   props: ["title", "content"],
-  computed: {
-    currentContent() {
-      return `# ${this.title}
-${this.content}
-    `;
+  methods: {
+    generateUtils(title, content) {
+      return `## ${title}${content}
+
+#### Import
+
+Function can be imported using Javascript import:
+
+    import { ${title} } from "https://designstem.github.io/fachwerk/fachwerk.js"
+
+`;
     }
   },
   template: `
-<f-content-editor :content="currentContent" />
+<f-content-editor :content="generateUtils(title,content)" />
 </div>`
 };

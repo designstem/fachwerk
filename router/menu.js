@@ -7,9 +7,9 @@ export default [
         file: "../README.md"
       },
       {
-        title: "Release notes",
-        file: "../RELEASES.md"
-      }
+        title: "Playground",
+        file: "playground.md"
+      },
     ]
   },
   {
@@ -238,5 +238,14 @@ export default [
       { component: "FHr" },
       { component: "FVr" }
     ]
-  }
+  },
+  {
+    title: "Development",
+    items: [
+      {
+        title: "Release notes",
+        file: "../RELEASES.md"
+      }
+    ]
+  },
 ];

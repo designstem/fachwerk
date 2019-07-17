@@ -1,20 +1,20 @@
 export const titlecase_help = () => `
 
-\`titleCase(string)\`
+\`titlecase(string)\`
 
 Converts string to **Title Case**
 
 #### Example
 
-    titleCase('das ist wunderbar')
+    titlecase('das ist wunderbar')
 
 #### Output
 
-<output>{{ titleCase('das ist wunderbar') }}</output>
+<output>{{ titlecase('das ist wunderbar') }}</output>
 
 `;
 
-export const titleCase = string =>
+export const titlecase = string =>
   string
     .split(" ")
     .map(([h, ...t]) => h.toUpperCase() + t.join("").toLowerCase())
@@ -22,21 +22,21 @@ export const titleCase = string =>
 
 export const kebabcase_help = () => `
 
-\`kebabCase(string)\`
+\`kebabcase(string)\`
 
 Converts string to **kebab-case**
 
 #### Example
 
-    kebabCase('DonnerWetter')
+    kebabcase('DonnerWetter')
 
 #### Output
 
-<output>{{ kebabCase('DonnerWetter') }}</output>
+<output>{{ kebabcase('DonnerWetter') }}</output>
 
 `;
 
-export const kebabCase = string =>
+export const kebabcase = string =>
   string.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
 

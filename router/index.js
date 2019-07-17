@@ -4,7 +4,7 @@ import {
   components,
   utils,
   flatten,
-  titleCase
+  titlecase
 } from "../fachwerk.js";
 
 import { slug } from "./utils.js";
@@ -41,7 +41,7 @@ const fullMenu = menu.concat(
     utilsPages.map(g => {
       return g.map(([group, items]) => {
         return {
-          title: `${titleCase(group)} utilities`,
+          title: `${titlecase(group)} utilities`,
           //utils: true,
           items: items.map(([title, content]) => ({
             title,
@@ -103,10 +103,9 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
-  //el: "#fachwerk",
   components: { DocsMenu },
   router,
-  data: { menuRoutes },
+  data: { menuRoutes, preview: false },
   methods: {
     ...utils
   },
@@ -116,7 +115,7 @@ new Vue({
   },
   template: `
     <f-theme style="display: flex">
-      <div>
+      <div style="min-width: 200px; height: 100vh; overflow: auto;">
         <router-link :style="{
           display: 'flex',
           alignItems: 'center',
@@ -125,7 +124,7 @@ new Vue({
         }" to="/">Home</router-link>
         <docs-menu :items="menuRoutes" />
       </div>
-      <router-view></router-view>
+      <router-view style="--advanced-editor-height: auto;"></router-view>
     </f-theme>
   `
 }).$mount("#fachwerk");

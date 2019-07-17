@@ -1,11 +1,11 @@
-import { kebabCase } from "../../fachwerk.js";
+import { kebabcase } from "../../fachwerk.js";
 
 export default {
   props: ["title", "c"],
   methods: {
     propsTable(props) {
       return Object.entries(props).map(p => ({
-        Name: `\`:${kebabCase(p[0])}\``,
+        Name: `\`:${kebabcase(p[0])}\``,
         Default: p[1].default
           ? `\`${String(p[1].default).replace(/'primary'/, '"primary"')}\``
           : "",
@@ -30,7 +30,7 @@ export default {
       }));
     },
     generateContent(title, c) {
-      return `## ${kebabCase(title)}
+      return `## ${kebabcase(title)}
 
 ${c.description ? c.description.trim() : ""}
 ${c.example ? c.example.trim() : ""}
@@ -65,13 +65,13 @@ ${
 
 Component can be imported using Javascript import:
   
-    import { ${title} } from 'https://designstem.github.io/fachwerk/fachwerk.js'
+    import { ${title} } from "https://designstem.github.io/fachwerk/fachwerk.js"
     
     Vue.component('${title}', ${title})
 
     // Later in the Vue template or Markdown file
 
-    <${kebabCase(title)} />
+    <${kebabcase(title)} />
 
       `;
     }

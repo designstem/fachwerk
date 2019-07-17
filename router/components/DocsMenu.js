@@ -6,14 +6,10 @@ export default {
       window.scrollTo(0, 0);
     }
   },
-  mounted() {
-    // this.$watch(
-    //   "activeItem",
-    //   activeItem => {
-    //     this.currentActiveItem = activeItem;
-    //   },
-    //   { immediate: true }
-    // );
+  methods: {
+    onClick() {
+
+    }
   },
   template: `
     <div>
