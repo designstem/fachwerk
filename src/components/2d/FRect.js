@@ -1,6 +1,5 @@
 import Object2D from "./internal/Object2D.js";
-import { color, parseCoords } from "../../../fachwerk.js"
-;
+import { color, parseCoords } from "../../../fachwerk.js";
 
 export default {
   mixins: [Object2D],
@@ -11,6 +10,8 @@ Displays a 2D rectangle.
   <f-rect />
   <f-rect
     :stroke="color('red')"
+    position="1 1"
+    scale="0.5"
   />
 </f-scene>
   `,
