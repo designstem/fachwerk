@@ -2,6 +2,7 @@ import {
   Css,
   get as getValue,
   set as setValue,
+  color
 } from "../../../fachwerk.js"
   ;
 
@@ -15,7 +16,7 @@ Displays a checkbox.
   `,
   mixins: [Css],
   props: {
-    value: { default: 0, type: [Number] },
+    value: { default: false, type: [Boolean] },
     set: {
       default: "",
       type: [String],
@@ -25,30 +26,33 @@ Displays a checkbox.
   methods: {
     getValue,
     setValue,
+    color,
+    onClick() {
+      this.setValue(this.set, !this.getValue(this.set, false));
+    }
   },
   template: `
-    <div :style="{display: 'flex', marginLeft: '3px', marginBottom: 'var(--base2)'}">
-      <input class="tertiary"
-        type="checkbox"
-        :checked="getValue(set, 0)"
-        v-on:input="e => setValue(set, e.target.checked ? 1 : 0)"
-        :style="{
-          padding: '0.25rem 0.5rem',
-          border: '3px solid var(--primary)',
-          borderTopLeftRadius: 'var(--border-radius)',
-          borderBottomLeftRadius: 'var(--border-radius)',
-          borderTopRightRadius: 'var(--border-radius)',
-          borderBottomRightRadius: 'var(--border-radius)',
-          color: 'var(--primary)',
-          fontWeight: 'bold',
-          fontSize: '0.9rem',
-          marginLeft: '-3px',
-          cursor: 'pointer',
-          background: value ? 'var(--tertiary)' : 'none',
-          height: '30px',
-          width: '30px'
-        }"
-      />
-    </div>
+    <f-artboard :width="26" :height="26">
+      <f-group @click.native="onClick">
+        <rect
+          :x="2"
+          :y="2"
+          :width="22"
+          :height="22"
+          :rx="6"
+          :ry="6"
+          :fill="color('white')"
+          stroke-width="3"
+          stroke="var(--primary)"
+        />
+        <polyline
+          v-if="getValue(set, 0)"
+          points="6, 12, 12, 18, 19, 8"
+          fill="none"
+          stroke-width="3"
+          :stroke="color('green')"
+        />
+      </f-group>
+    </f-artboard>
   `
 };
