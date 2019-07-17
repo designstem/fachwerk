@@ -52,6 +52,7 @@ export default [
         file: "./content/navigation.md",
         type: "slides"
       },
+      { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
       { component: "FPager" },
