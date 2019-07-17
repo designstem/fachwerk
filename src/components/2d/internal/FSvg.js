@@ -71,29 +71,32 @@ export default {
     });
   },
   template: `
-  <div class="f-svg" style="display: responsive ? 'block' : 'inline-flex'">
+  <div
+    class="f-svg"
+    :style="{ display: responsive ? 'block' : 'inline-flex', lineHeight: 0}"
+  >
     <div>
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        :width="width"
-        :height="height"
-        :view-box.camel="viewBox"
-        ref="f_svg"
-        :id="id || defaultid"
-        @mousemove="onMousemove"
-        @touchmove="onMousemove"
-        @mousedown="mousePressed = true"
-        @touchstart="mousePressed = true"
-        @mouseup="mousePressed = false"
-        @touchend="mousePressed = false"
-        :style="{ width: responsive ? '100%' : width, height: responsive ? 'auto' : height}"
-    >
-      <g :transform="transform" ref="f_svg_g">
-        <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
-      </g>
-    </svg>
-    <br />
-    <button v-if="download" class="quaternary" @click="onDownload">⤓</button>
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :width="width"
+          :height="height"
+          :view-box.camel="viewBox"
+          ref="f_svg"
+          :id="id || defaultid"
+          @mousemove="onMousemove"
+          @touchmove="onMousemove"
+          @mousedown="mousePressed = true"
+          @touchstart="mousePressed = true"
+          @mouseup="mousePressed = false"
+          @touchend="mousePressed = false"
+          :style="{ display: 'block', width: responsive ? '100%' : width, height: responsive ? 'auto' : height}"
+      >
+        <g :transform="transform" ref="f_svg_g">
+          <slot :mouse="{x:mouseX,y:mouseY,pressed: mousePressed}" />
+        </g>
+      </svg>
+      <!-- @TODO: Remove this / 2 hack -->
+      <button v-if="download" style="margin-top: calc(var(--base2) / 2); display: block" class="quaternary" @click="onDownload">⤓ Download</button>
     </div>
   </div>
   `,
