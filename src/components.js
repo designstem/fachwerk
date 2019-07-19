@@ -293,6 +293,12 @@ export { FIconHeading };
 import FToggle from "./components/layout/FToggle.js";
 export { FToggle };
 
+import FLink from "./components/layout/FLink.js";
+export { FLink };
+
+import FColors from "./components/layout/FColors.js";
+export { FColors };
+
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";

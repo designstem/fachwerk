@@ -26,6 +26,7 @@
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
   --lightergray: #eee;
+  --lightestgray: #f4f4f4;
   --white: #ffffff;
   
   --transparent: rgba(0,0,0,0);
@@ -34,6 +35,8 @@
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
   --quaternary: var(--lightgray);
+
+  --background: var(--white);
 
   --accent: var(--purple);
   
@@ -497,11 +500,11 @@ th {
   padding: calc(var(--base) * 1) calc(var(--base) / 2);
   text-align: left;
   font-weight: normal;
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 th p {
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 tr {
@@ -547,6 +550,10 @@ button.primary,
   --icon-stroke: var(--white);
   --icon-fill: var(--transparent);
 }
+.primary a {
+  border-bottom: none;
+  color: var(--white);
+}
 .primary .f-svg {
   margin: 0 0.5ch !important;
   transform: scale(2ch);
@@ -574,6 +581,9 @@ button.secondary,
   --icon-stroke: var(--darkgray);
   font-size: 1em;
 }
+.secondary a {
+  border-bottom: none;
+}
 .secondary .f-svg {
   margin: 0 0.5ch !important;
 }
@@ -600,6 +610,9 @@ button,
   transition: all 0.1s linear;
   --icon-stroke: var(--darkgray);
 }
+.tertiary a {
+  border-bottom: none;
+}
 .tertiary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
@@ -610,7 +623,7 @@ button,
 .quaternary,
 button.quaternary {
   background: transparent;
-  padding: 0 8px;
+  padding: 0 6px;
   height: var(--base4);
   display: inline-flex;
   align-items: center;
@@ -625,6 +638,9 @@ button.quaternary {
   border: none;
   --icon-stroke: var(--gray);
   --icon-fill: var(--transparent);
+}
+.quaternary a {
+  border-bottom: none;
 }
 .quaternary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;

@@ -1,7 +1,7 @@
 import { fachwerk } from "../src/fachwerk.js";
 
 fachwerk({
-  menu: false,
+  menu: true,
   editor: "show",
   pager: false,
 });
