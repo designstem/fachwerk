@@ -56,7 +56,7 @@ const fullMenu = menu.concat(
 const pageMap = c => {
   if (c.component) {
     return {
-      path: `/${kebabcase(c.component)}`,
+      path: `/v2/${kebabcase(c.component)}`,
       component: DocsComponent,
       props: { title: c.component, c: components[c.component] }
     };
