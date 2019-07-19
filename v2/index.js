@@ -56,7 +56,7 @@ const fullMenu = menu.concat(
 const pageMap = c => {
   if (c.component) {
     return {
-      path: `/v2/${kebabcase(c.component)}`,
+      path: `/${kebabcase(c.component)}`,
       component: DocsComponent,
       props: { title: c.component, c: components[c.component] }
     };
@@ -128,6 +128,7 @@ new Vue({
   computed: {},
   created () {
     // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+    console.log(sessionStorage.redirect)
     if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
