@@ -128,6 +128,7 @@ new Vue({
   computed: {},
   created () {
     // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+    console.log(sessionStorage.redirect)
     if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
