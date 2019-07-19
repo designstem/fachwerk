@@ -56,21 +56,21 @@ const fullMenu = menu.concat(
 const pageMap = c => {
   if (c.component) {
     return {
-      path: `/${kebabcase(c.component)}`,
+      path: `/v2/${kebabcase(c.component)}`,
       component: DocsComponent,
       props: { title: c.component, c: components[c.component] }
     };
   }
   if (c.file) {
     return {
-      path: `/${slug(c.title)}`,
+      path: `/v2/${slug(c.title)}`,
       component: DocsFile,
       props: { title: c.title, src: c.file.replace(/^\.\//, "../docs/") }
     };
   }
   if (c.utils) {
     return {
-      path: `/${c.title}`,
+      path: `/v2/${c.title}`,
       component: DocsUtils,
       props: { title: c.title, content: c.content }
     };
@@ -80,19 +80,19 @@ const pageMap = c => {
 const menuMap = c => {
   if (c.component) {
     return {
-      path: `/${kebabcase(c.component)}`,
+      path: `/v2/${kebabcase(c.component)}`,
       title: kebabcase(c.component)
     };
   }
   if (c.file) {
     return {
-      path: `/${slug(c.title)}`,
+      path: `/v2/${slug(c.title)}`,
       title: c.title
     };
   }
   if (c.utils) {
     return {
-      path: `/${c.title}`,
+      path: `/v2/${c.title}`,
       title: c.title
     };
   }
@@ -106,8 +106,7 @@ const menuRoutes = fullMenu.map(m => {
 });
 
 const router = new VueRouter({
-  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
-  //mode: 'history',
+  mode: 'history',
   routes: [...routes, ...pageRoutes]
 });
 
@@ -127,6 +126,14 @@ new Vue({
     ...utils
   },
   computed: {},
+  created () {
+    // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+    if (sessionStorage.redirect) {
+      const redirect = sessionStorage.redirect
+      delete sessionStorage.redirect
+      this.$router.push(redirect)
+    }
+  },
   mounted() {
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
