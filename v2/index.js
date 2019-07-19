@@ -140,18 +140,14 @@ new Vue({
         position: sticky;
         top: 0;
       ">
-        <f-inline style="margin: var(--base); --inline-justify: flex-end">
+        <f-inline style="margin: var(--base); --inline-justify: space-between">
+          <f-colors
+            :colors="['lightergray','darkgray','yellow','blue']"
+            value="0"
+            v-on:value="v => theme = v"
+          />
           <a class="quaternary" @click="set('menu', false)"><f-close-icon  /></a>
         </f-inline>
-        
-        <h2 style="padding: 0 var(--base2)">Fachwerk</h2>
-
-        <f-colors
-          style="padding: 0 var(--base2)"
-          :colors="['lightergray','darkgray','yellow','blue']"
-          value="0"
-          v-on:value="v => theme = v"
-        />
 
         <router-link :style="{
           display: 'flex',

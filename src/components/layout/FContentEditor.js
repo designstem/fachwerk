@@ -100,7 +100,7 @@ Creates a code editor with a live preview.
       style="
         position: absolute;
         z-index: 10000;
-        left: var(--base);
+        left: calc(var(--base) * 6);
         top: var(--base);
       "
     >
@@ -122,7 +122,7 @@ Creates a code editor with a live preview.
           <a
             @click="handleSave"
             class="quaternary"
-            :style="{ opacity: state == 'saved' ? 1 : 0.5}"
+            :style="{ marginLeft: 'calc(var(--base) * 4)', opacity: state == 'saved' ? 1 : 0.5}"
           >
             {{ labels[state] }}
           </a>
