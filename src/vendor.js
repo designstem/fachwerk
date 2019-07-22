@@ -9,11 +9,8 @@ import katex from "katex";
 import marked from "marked";
 import store from "store/dist/store.modern.js";
 import THREE from "three/build/three.js";
-
-// @TODO 2.6+ import Vue from 'vue/dist/vue.esm.browser.js';
-
+// 2.6+ import Vue from 'vue/dist/vue.esm.browser.js';
 import Vue from "vue/dist/vue.js";
-import VueRouter from 'vue-router/dist/vue-router.js'
 
 export {
   anime,
@@ -25,8 +22,7 @@ export {
   marked,
   store,
   THREE,
-  Vue,
-  VueRouter
+  Vue
 };
 
 const d3 = Object.assign({}, d3Scale, d3Shape);

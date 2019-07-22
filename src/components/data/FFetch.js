@@ -35,7 +35,7 @@ Fetches data via AJAX.
   `,
   data: () => ({ value: null, loaded: false }),
   props: {
-    src: { default: "", type: [String, Array] },
+    src: { default: "", type: [String,Array] },
     type: { default: "text", type: String }
   },
   slots: {
@@ -56,27 +56,21 @@ Fetches data via AJAX.
     }
   },
   mounted() {
-    this.$watch(
-      "src",
-      src => {
-        if (Array.isArray(src)) {
-          Promise.all(src.map(src => this.fetchType(src, this.type)))
-            .then(res => {
-              this.value = res;
-              this.loaded = true;
-            })
-            .catch(error => console.log(error));
-        } else {
-          this.fetchType(src, this.type)
-            .then(res => {
-              this.value = res;
-              this.loaded = true;
-            })
-            .catch(error => console.log(error));
-        }
-      },
-      { immediate: true }
-    );
+    if (Array.isArray(this.src)) {
+      Promise.all(this.src.map(src => this.fetchType(src, this.type)))
+        .then(res => {
+          this.value = res;
+          this.loaded = true;
+        })
+        .catch(error => console.log(error));
+    } else {
+      this.fetchType(this.src, this.type)
+        .then(res => {
+          this.value = res;
+          this.loaded = true;
+        })
+        .catch(error => console.log(error));
+    }
   },
   render() {
     return this.loaded

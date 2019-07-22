@@ -20,7 +20,6 @@
     "rollup-plugin-terser": "^4.0.3",
     "store": "^2.0.12",
     "three": "^0.101.1",
-    "vue": "^2.6",
-    "vue-router": "^3.0.7"
+    "vue": "^2.6"
   }
 }

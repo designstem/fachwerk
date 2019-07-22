@@ -1,4 +1,4 @@
-import { titlecase } from '../../../fachwerk.js'
+import { titleCase } from '../../../fachwerk.js'
 
 export default {
   props: {
@@ -24,9 +24,9 @@ Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
   computed: {
     code() {
       if (this.character == 'top' ||  this.character == 'right' ||  this.character == 'bottom' ||  this.character == 'left') {
-        return `Arrow${titlecase(this.character)}`
+        return `Arrow${titleCase(this.character)}`
       }
-      return `Key${titlecase(this.character)}`
+      return `Key${titleCase(this.character)}`
     }
   },
   mounted() {

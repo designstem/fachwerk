@@ -17,7 +17,7 @@ export default [
     items: [
       {
         title: "Creating content",
-        file: "./content/creating.md"
+        file: "./content/writing.md"
       },
       {
         title: "Adding tables",
@@ -60,8 +60,7 @@ export default [
       { component: "FSectionCard" },
       { component: "FInline" },
       { component: "FHr" },
-      { component: "FVr" },
-      { component: "FColors" },
+      { component: "FVr" }
     ]
   },
   {

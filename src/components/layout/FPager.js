@@ -9,13 +9,12 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
   methods: { send, get },
   template: `
     <div>
-      <!-- @TODO Remove / 2 hack -->
       <f-inline
         style="
           position: absolute;
           z-index: 10000;
           right: calc(var(--base) * 1.5);
-          top: calc(var(--base2) / 2);
+          top: 12px;
           cursor: pointer;
         "
       >

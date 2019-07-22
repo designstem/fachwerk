@@ -309,6 +309,5 @@ export const colors = () => [
   "gray",
   "lightgray",
   "lightergray",
-  "lightestgray",
   "white"
 ];
