@@ -1,4 +1,7 @@
+import { Css } from '../../../fachwerk.js'
+
 export default {
+  mixins: [Css],
   description: `
 Sidebars load can be either inline or load from a file.
 
@@ -20,15 +23,25 @@ For optional content overlay use \`overlay\`
 
 </f-sidebar> 
 
+By default sidebar width is 33% of viewport on larger screens and 90%, if viewport is narrower than 800px. You can redefine width with css-properties \'--sidebar-width\' and \'--sidebar-mobile-width\'
+
+<f-sidebar title="Wider sidebar" style="--sidebar-width:60vw; --sidebar-mobile-width:75vw" overlay>
+
+### This sidebar covers 60% of the viewport on wider screens
+
+And 75% if the viewport is 800px or smaller...
+
+</f-sidebar>
+
+
 <br><br>
 `,
   props: {
     src: { default: "", type: String },
     title: { default: "", type: String },
-    width: { default: "33vw", type: String },
     orientation: { default: "right", type: String },
     open: { default: false, type: Boolean },
-    overlay: {default: false, type: Boolean}
+    overlay: { default: false, type: Boolean }
   },
   data: () => ({ currentOpen: false }),
   mounted() {
@@ -51,7 +64,7 @@ For optional content overlay use \`overlay\`
           >{{ title }}</a>
         </slot>
       </span>
-      <f-fade
+      <f-fade class="f-sidebar__panel"
         v-if="currentOpen"
         style="
           position: fixed;
@@ -63,7 +76,6 @@ For optional content overlay use \`overlay\`
           z-index: 100000000 !important;
         "
         :style="{
-          width: width,
           boxShadow: (orientation == 'right' ? '-5px' : '5px') + ' 0 10px 0 rgba(0,0,0,0.2)' + (overlay ? ', 0 0 0 99vw rgba(0,0,0,0.3)' : ''),
           right: orientation == 'right' ? 0 : '',
           left: orientation == 'left' ? 0 : '',
@@ -99,5 +111,25 @@ For optional content overlay use \`overlay\`
         </div>
       </f-fade>
   </span>
+  `,
+  cssprops: {
+    "--sidebar-width": {
+      default: "33vw",
+      description: "Sidebar width"
+    },
+    "--sidebar-mobile-width": {
+      default: "90vw",
+      description: "Sidebar width on viewports narrower than 800px"
+    },
+  },
+  css: `
+    .f-sidebar__panel {
+      width: var(--sidebar-width);
+    }
+    @media (max-width: 800px) {
+      .f-sidebar__panel {
+        width: var(--sidebar-mobile-width) !important;
+      }
+    }
   `
 };
