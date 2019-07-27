@@ -23,7 +23,7 @@ For optional content overlay use \`overlay\`
 
 </f-sidebar> 
 
-By default sidebar width is 33% of viewport on larger screens and 90%, if viewport is narrower than 800px. You can redefine width with css-properties \'--sidebar-width\' and \'--sidebar-mobile-width\'
+By default sidebar width is 33% of viewport on larger screens and 90%, if viewport is narrower than 800px. You can redefine these values with css-properties <code>--sidebar-width</code> and <code>--sidebar-mobile-width</code>
 
 <f-sidebar title="Wider sidebar" style="--sidebar-width:60vw; --sidebar-mobile-width:75vw" overlay>
 
@@ -41,7 +41,8 @@ And 75% if the viewport is 800px or smaller...
     title: { default: "", type: String },
     orientation: { default: "right", type: String },
     open: { default: false, type: Boolean },
-    overlay: { default: false, type: Boolean }
+    overlay: { default: false, type: Boolean },
+    width: { default: null, type: String }
   },
   data: () => ({ currentOpen: false }),
   mounted() {
