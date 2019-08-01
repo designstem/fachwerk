@@ -1,6 +1,6 @@
 import {
   Vue,
-  snapToGrid,
+  snaptogrid,
   color,
   set as setValue,
   parseCoords
@@ -32,7 +32,7 @@ Allows dragging a set of points.
   props: {
     points: { default: "", type: [String, Number, Array, Object] },
     mouse: { default: () => {}, type: Object },
-    r: { default: 10, type: [Number, String] },
+    r: { default: 30, type: [Number, String] },
     step: { default: false, type: [Boolean, Number, String] },
     set: {
       default: "",
@@ -68,8 +68,8 @@ Allows dragging a set of points.
     finalPoints() {
       return this.currentPoints.map((p, i) => {
         if (p.pressed) {
-          p.x = this.step ? snapToGrid(this.mouse.x, +this.step) : this.mouse.x;
-          p.y = this.step ? snapToGrid(this.mouse.y, +this.step) : this.mouse.y;
+          p.x = this.step ? snaptogrid(this.mouse.x, +this.step) : this.mouse.x;
+          p.y = this.step ? snaptogrid(this.mouse.y, +this.step) : this.mouse.y;
         }
         return p;
       });
@@ -109,19 +109,13 @@ Allows dragging a set of points.
           :x="p.x"
           :y="p.y"
           :stroke="color('primary')"
-          :stroke-width="p.pressed ? r + 1.5 : r"
+          :stroke-width="p.pressed ? r + 3 : r"
         />  
         <f-point 
           :x="p.x"
           :y="p.y"
           stroke="white"
-          :stroke-width="p.pressed ? r + 1.5 - 3 : r - 3"
-        />
-        <f-point 
-          :x="p.x"
-          :y="p.y"
-          stroke="rgba(0,0,0,0)"
-          :stroke-width="r * 2"
+          :stroke-width="p.pressed ? r + 3 - 6 : r - 6"
           @mousedown.native="handleDown(i)"
           @touchstart.native="handleDown(i)"
           @mouseup.native="handleUp(i)"

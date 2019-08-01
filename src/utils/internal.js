@@ -77,12 +77,6 @@ export const getCssVariable = (value, el = document.body) =>
 export const setCssVariable = (key, value, el = document.body.style) =>
   el.setProperty(key, value);
 
-export const snapToGrid = (value, gridsize) => {
-  return value % gridsize < gridsize / 2
-    ? value - (value % gridsize)
-    : value + gridsize - (value % gridsize);
-};
-
 export const generateSTL = scene => {
   var vector = new THREE.Vector3();
   var normalMatrixWorld = new THREE.Matrix3();

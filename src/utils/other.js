@@ -28,37 +28,30 @@ Logs a value from a template to the console
 
 export const log = value => console.log(value);
 
-export const randomid_help = () => `
+export const snaptogrid_help = () => `
 
-\`randomid()\`
+\`snaptogrid(value, gridsize)\`
 
-Genrates a random alphabetical ID
+Snaps object to grid
 
-#### Example
-
-    randomid()
-
-#### Output
-
-<output>{{ randomid() }}</output>
 `;
 
-export const randomid = () => {
-  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
-  return shuffle(letters).slice(0,8).join('')
-}
+export const snaptogrid = (value, gridsize) => {
+  return value % gridsize < gridsize / 2
+      ? value - (value % gridsize)
+      : value + gridsize - (value % gridsize);
+};
 
-export const isimageurl_help = () => `
+export const snaptocircle_help = () => `
 
-\`isimageurl()\`
+\`snaptocircle(value, radius, center)\`
 
-Checks whenever URL is a link to an image
+Snaps object to circle
 
-#### Output
-
-<output>{{ isimageurl('./images/image.png') ? 'true' : 'false' }}</output>
 `;
 
-export const isimageurl = url => {
-  return url.match(/(data:|https?:|\/\/)?\.(?:png|jpg|jpeg|gif|png|svg)/g)
-}
+export const snaptocircle = (value, radius, center) => {
+  // From https://math.stackexchange.com/questions/127613/closest-point-on-circle-edge-from-point-outside-inside-the-circle
+  return center + (radius * (value - center) / Math.sqrt(Math.pow(value - center, 2) + Math.pow(value - center, 2)));
+};
+
