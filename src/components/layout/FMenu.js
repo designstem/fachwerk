@@ -38,10 +38,9 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
       z-index: 100000;
       left: calc(var(--base) * 1.5);
       top: calc(var(--base) * 1.5);
-      cursor: pointer;
     "
   >
-    <a slot="button" class="quaternary" style="padding: 0 4px"><f-menu-icon /></a>
+    <a slot="button" class="quaternary" style="padding: 0 4px; cursor: pointer;"><f-menu-icon /></a>
     <slot />
   </f-sidebar>
   `
