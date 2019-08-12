@@ -39,7 +39,8 @@ Notes also respond to \`opennotes\` and \`closenotes\` events that trigger notes
       z-index: 10000;
       right: 95px;
       top: 12px;
-    "
+    " 
+    :style="{ '--sidebar-width': width }"
   >
       <a slot="button" :class="className">{{ title }}</a>
     <slot />
