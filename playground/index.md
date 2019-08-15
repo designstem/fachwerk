@@ -1,3 +1,5 @@
+| section: a
+
 # Hallo Welt
 
 Here is a simple interactive scene to get you started.

@@ -30,7 +30,6 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
   template: `
   <f-sidebar
     :open="open"
-    :src="src"
     orientation="left"
     width="33vw"
     style="
@@ -41,7 +40,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
     "
   >
     <a slot="button" class="quaternary" style="padding: 0 4px; cursor: pointer;"><f-menu-icon /></a>
-    <slot />
+    <f-toc :src="src" />
   </f-sidebar>
   `
 };
