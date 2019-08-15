@@ -1,4 +1,4 @@
-import { parseContent, goto, get, isarray } from "../../../fachwerk.js";
+import { parseContent, goto, get } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -23,7 +23,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
     src: { default: "", type: [String, Array] }
   },
   data: () => ({ open: false }),
-  methods: { parseContent, goto, get, isarray },
+  methods: { parseContent, goto, get },
   mounted() {
     this.$global.$on("openmenu", () => (this.open = true));
     this.$global.$on("closemenu", () => (this.open = false));
