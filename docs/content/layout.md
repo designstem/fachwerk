@@ -145,7 +145,7 @@ Key | Default | Description
 `\| tint:`|`0.3`|Slide background image darkening
 `\| height:`|`100vh`|Minimum content height
 `\| cols:`|`1fr 1fr ...`|CSS grid columns
-`\| rows:`|`auto`|CSS grid rows
+`\| rows:`|`auto ...`|CSS grid rows
 `\| id:`||Slide ID. Use `goto('id')` to navigate there
 `\| section:`||Section ID. Use `goto('section')` to navigate there
 `\| style:`||Css styles applied to a slide, formatted as HTML inline styles `key: value; key: value`
