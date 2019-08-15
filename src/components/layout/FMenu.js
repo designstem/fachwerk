@@ -60,7 +60,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
         </h4>
         <h5
           v-if="c.section"
-          style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base2) 0 0 0"
+          style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base) 0 0 0"
           :style="{
             borderLeft: get('section','') == c.section ? '3px solid var(--blue)' : '3px solid var(--transparent)',
             fontWeight: get('section','') == c.section ? 'bold' : 'normal',

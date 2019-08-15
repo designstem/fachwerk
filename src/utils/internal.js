@@ -1,3 +1,5 @@
+import { isarray } from "../../fachwerk.js"
+
 export const parseSheet = data => {
   return data.feed.entry.map(entry => {
     return Object.keys(entry)
@@ -73,7 +75,8 @@ export const parsePage = slide => {
 };
 
 export const parseContent = content => {
-  return content
+  const processedContent = isarray(content) ? content.join('\n\n---\n\n') : content
+  return processedContent
     .replace(/\r?\n--\r?\n/g, "")
     .split(/\r?\n---\r?\n/)
     .map(parsePage)
