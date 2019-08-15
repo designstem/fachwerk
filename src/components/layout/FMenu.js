@@ -1,4 +1,4 @@
-import { parseContent, goto, get } from "../../../fachwerk.js";
+import { parseContent, goto, get, isarray } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -23,7 +23,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
     src: { default: "", type: [String, Array] }
   },
   data: () => ({ open: false }),
-  methods: { parseContent, goto, get },
+  methods: { parseContent, goto, get, isarray },
   mounted() {
     this.$global.$on("openmenu", () => (this.open = true));
     this.$global.$on("closemenu", () => (this.open = false));
@@ -60,7 +60,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
         </h4>
         <h5
           v-if="c.section"
-          style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base2) 0 0 0"
+          style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base) 0 0 0"
           :style="{
             borderLeft: get('section','') == c.section ? '3px solid var(--blue)' : '3px solid var(--transparent)',
             fontWeight: get('section','') == c.section ? 'bold' : 'normal',
