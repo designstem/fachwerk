@@ -257,9 +257,6 @@ export { FTabs };
 import FMenu from "./components/layout/FMenu.js";
 export { FMenu };
 
-import FToc from "./components/layout/FToc.js";
-export { FToc };
-
 import FTreemenu from "./components/layout/FTreemenu.js";
 export { FTreemenu };
 
