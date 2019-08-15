@@ -1,4 +1,4 @@
-import { Vue } from "../../../fachwerk.js";
+import { parseContent, goto, get } from "../../../fachwerk.js";
 
 export default {
   description: `
@@ -23,6 +23,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
     src: { default: "", type: String }
   },
   data: () => ({ open: false }),
+  methods: { parseContent, goto, get },
   mounted() {
     this.$global.$on("openmenu", () => (this.open = true));
     this.$global.$on("closemenu", () => (this.open = false));
@@ -30,7 +31,6 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
   template: `
   <f-sidebar
     :open="open"
-    :src="src"
     orientation="left"
     width="33vw"
     style="
@@ -41,7 +41,37 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
     "
   >
     <a slot="button" class="quaternary" style="padding: 0 4px; cursor: pointer;"><f-menu-icon /></a>
-    <slot />
+    <f-fetch :src="src" v-slot="{ value: content }">
+      <div style="margin-top: calc(var(--base) * -5.5)">
+      <a
+        href="../"
+        class="quaternary"
+        style="margin-left: calc(var(--base) * -1)"
+      >
+        <f-leftarrow-icon />
+        Back to projects
+      </a>
+      <div v-for="(c, i) in parseContent(content).filter(c => c.chapter || c.section)">
+        <h4
+          v-if="c.chapter"
+          style="margin-top: var(--base2)"
+        >
+          {{ c.chapter }}
+        </h4>
+        <h5
+          v-if="c.section"
+          style="display: block; cursor: pointer; padding-left: 1ch;"
+          :style="{
+            borderLeft: get('section','') == c.section ? '3px solid var(--blue)' : '3px solid var(--transparent)',
+            fontWeight: get('section','') == c.section ? 'bold' : 'normal',
+          }"
+          @click="goto(c.section)"
+        >
+          {{ c.section }}
+        </h5>
+      </div>
+    </div>
+    </f-fetch>
   </f-sidebar>
   `
 };

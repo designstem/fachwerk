@@ -3,7 +3,7 @@ import {
   Css,
   store,
   isimageurl,
-  parseColumns,
+  parseContent,
   color,
   array2object,
 } from "../../../fachwerk.js";
@@ -31,10 +31,7 @@ Shows Markdown content.
   data: () => ({ currentIndex: 0 }),
   computed: {
     preparedContent() {
-      return this.content
-        .replace(/\r?\n--\r?\n/g, "")
-        .split(/\r?\n---\r?\n/)
-        .map(parseColumns);
+      return parseContent(this.content)
     }
   },
   methods: {
