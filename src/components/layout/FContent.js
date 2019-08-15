@@ -139,13 +139,10 @@ Shows Markdown content.
         class="cells"
         :style="Object.assign({
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : type == 'slides' ? 'var(--content-height)' : '',
+          minHeight: slide.height ? slide.height : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
-          gridTemplateRows: slide.rows ? slide.rows : type == 'slides' ? 'repeat(' + slide.rowCount + ', 1fr)' : 'none',
+          gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
-          gridAutoRows: '',
-          gridAutoColumns: '',
-          overflow: '',
           gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
           padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
