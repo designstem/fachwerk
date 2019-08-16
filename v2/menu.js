@@ -1,7 +1,12 @@
 export default [
   {
-    title: "Getting started",
+    title: "Fachwerk",
     items: [
+      {
+        title: "Home",
+        file: "../index.md",
+        home: true
+      },
       {
         title: "Getting started",
         file: "../README.md"
@@ -9,7 +14,7 @@ export default [
       {
         title: "Playground",
         file: "playground.md"
-      },
+      }
     ]
   },
   {
@@ -63,7 +68,7 @@ export default [
       { component: "FInline" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FColors" },
+      { component: "FColors" }
     ]
   },
   {
@@ -251,5 +256,5 @@ export default [
         file: "../RELEASES.md"
       }
     ]
-  },
+  }
 ];

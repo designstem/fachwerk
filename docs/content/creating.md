@@ -45,9 +45,13 @@ It is the same as to write it in HTML:
 We support up to five levels of headings:
 
 # Heading 1
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
 
 <br>
@@ -69,9 +73,13 @@ Is the same as to write it in HTML:
 Lets get down to it:
 
 # 1. Heading 1
+
 ## 2. Heading 2
+
 ### 3. Heading 3
+
 #### 4. Heading 4
+
 ##### 5. Heading 5
 
 <br>
@@ -80,13 +88,12 @@ Lets get down to it:
 
 Content can be made bigger and smaller using `<big>` and `<small>` tags:
 
+# <big>Big header</big>
+
 <big>Big text</big>
 
 <small>Small text</small>
 
-All textual content can be made bigger and smaller. You also go `<big><big><big>` and beyond:
-
-# <big><big><big>Heading</big></big></big>
 
 ### Lists
 

@@ -46,14 +46,14 @@ ${
 />`
     : ""
 }
-${c.slots ? `\n\n<br>\n\n#### Slots` : ""}
+${c.slots ? `\n\n#### Slots` : ""}
 ${
   c.slots
     ? `<f-table :rows='${JSON.stringify(this.slotsTable(c.slots), null, 2)}'
     />`
     : ""
 }
-${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
+${c.cssprops ? `\n\n#### CSS variables` : ""}
 ${
   c.cssprops
     ? `<f-table :rows='${JSON.stringify(this.cssTable(c.cssprops), null, 2)}' 

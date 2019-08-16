@@ -99,14 +99,22 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 0 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
   padding: 0;
   line-height: 1.2em;
   color: var(--primary);
   font-weight: 700;
 }
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0
+}
+
 h1 {
-  font-size: calc(var(--base) * 3 + 2vw);
+  font-size: calc(var(--base) * 7);
   line-height: 1em;
 }
 h2 {
@@ -133,11 +141,12 @@ br {
 a {
   text-decoration: none;
   color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-  font-weight: bold;
+  border-bottom: 2px solid var(--lightgray);
+  font-weight: 500;
 }
 a:hover {
   color: var(--darkergray);
+  border-bottom: 2px solid var(--darkgray);
 }
 b,
 strong {
@@ -145,7 +154,7 @@ strong {
 }
 
 big {
-  font-size: 1.3em !important;
+  font-size: 1.5em !important;
   line-height: 1.5em !important;
 }
 big h1,
@@ -160,8 +169,12 @@ h5 big {
   line-height: 95% !important;
 }
 
-big big {
+big {
   letter-spacing: -0.02em;
+}
+
+big big {
+  letter-spacing: -0.03em;
 }
 
 big big big {
@@ -292,7 +305,6 @@ label,
 
 details {
   padding: var(--base2);
-  background: var(--lightemphasis);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -305,7 +317,7 @@ details p:last-child {
 details summary {
   color: var(--primary);
   font-weight: bold;
-  margin-bottom: var(--base);
+  margin: 0;
   outline: none;
 }
 details pre,
@@ -326,8 +338,7 @@ details code {
 
 blockquote {
   margin: 0;
-  padding: var(--base2);
-  background: var(--lightemphasis);
+  padding: calc(var(--base2) / 2) var(--base2);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -734,20 +745,6 @@ footer,
   .footer > *:last-child {
     margin-bottom: 0;
   }
-}
-
-/* Hero */
-
-.hero {
-  --base: 13px;
-  padding: var(--base4);
-  background: var(--darkergray);
-  border-bottom: var(--border) solid var(--darkgray);
-  color: var(--yellow);
-  letter-spacing: -0.03em;
-}
-.hero h1 {
-  color: var(--yellow);
 }
 
 /* Grid */
