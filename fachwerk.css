@@ -1365,13 +1365,8 @@ span.CodeMirror-selectedtext {
   color: white !important;
 }
 
-
-
-
 caption {
   text-align: left;
-  border-left: 3px solid var(--gray);
-  padding-left: 1ch;
   margin: 0 0 var(--base4) 0;
   font-weight: bold;
   color: var(--gray);
