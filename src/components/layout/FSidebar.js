@@ -122,17 +122,9 @@ And 75% if the viewport is 800px or smaller...
   `,
   directives: {
     'click-outside': {
-      bind: function(el, binding, vNode) {
-        if (typeof binding.value !== 'function') {
-        	const compName = vNode.context.name
-          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`
-          if (compName) { warn += `Found in component '${compName}'` }
-          
-          console.warn(warn)
-        }
-        const bubble = binding.modifiers.bubble
+      bind: function(el, binding) {
         const handler = (e) => {
-          if (bubble || (!el.contains(e.target) && el !== e.target)) {
+          if (binding.modifiers.bubble || (!el.contains(e.target) && el !== e.target)) {
           	binding.value(e)
           }
         }
