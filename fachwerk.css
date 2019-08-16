@@ -183,9 +183,9 @@ big big big {
   letter-spacing: -0.04em;
 }
 
-small {
-  font-size: 0.9em !important;
-  color: var(--primary);
+small, small p {
+  font-size: 0.8em !important;
+  opacity: 0.8;
 }
 
 img {
