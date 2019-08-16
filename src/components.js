@@ -175,6 +175,9 @@ export { FBounce };
 
 // Data
 
+import FValue from "./components/data/FValue.js";
+export { FValue };
+
 import FAnimation from "./components/data/FAnimation.js";
 export { FAnimation };
 
