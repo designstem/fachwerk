@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600,600i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,700,700i");
 
 /* Variables */
   
@@ -132,6 +132,9 @@ a {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
   font-weight: bold;
+}
+a:hover {
+  color: var(--darkergray);
 }
 b,
 strong {
@@ -1347,4 +1350,17 @@ span.CodeMirror-selectedtext {
 .cm-s-material .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: white !important;
+}
+
+
+
+
+caption {
+  text-align: left;
+  border-left: 3px solid var(--gray);
+  padding-left: 1ch;
+  margin: 0 0 var(--base4) 0;
+  font-weight: bold;
+  color: var(--gray);
+  display: block;
 }
