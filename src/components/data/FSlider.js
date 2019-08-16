@@ -59,7 +59,7 @@ In some cases you want animation value to be available to its children component
     set: {
       default: "",
       type: String,
-      description: "Name for global value to set" 
+      description: "Name for a global value to set" 
     },
     plain: {
       default: false,
