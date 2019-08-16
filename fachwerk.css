@@ -105,20 +105,13 @@ h5 {
   color: var(--primary);
   font-weight: 700;
 }
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child {
-  margin-top: 0
-}
-
 h1 {
   font-size: calc(var(--base) * 7);
   line-height: 1em;
 }
 h2 {
   font-size: calc(var(--base) * 4);
+  margin: 1em 0 0.5em 0;
 }
 h3 {
   font-size: calc(var(--base) * 3);
@@ -129,6 +122,14 @@ h4 {
 h5 {
   font-size: calc(var(--base) * 2);
 }
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0
+}
+
 p {
   font-size: calc(var(--base) * 2);
   line-height: calc(var(--base) * 3);
