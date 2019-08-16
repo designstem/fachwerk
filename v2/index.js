@@ -17,7 +17,7 @@ import DocsFrontpage from "./components/DocsFrontpage.js";
 
 import menu from "./menu.js";
 
-const routes = [{ path: "/", component: DocsFrontpage }];
+//const routes = [{ path: "/", component: DocsFrontpage }];
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -54,6 +54,13 @@ const fullMenu = menu.concat(
 );
 
 const pageMap = c => {
+  if (c.home) {
+    return {
+      path: `/`,
+      component: DocsFile,
+      props: { title: c.title, src: c.file }
+    };
+  }
   if (c.component) {
     return {
       path: `/${kebabcase(c.component)}`,
@@ -78,6 +85,12 @@ const pageMap = c => {
 };
 
 const menuMap = c => {
+  if (c.home) {
+    return {
+      path: `/`,
+      title: 'Home'
+    };
+  }
   if (c.component) {
     return {
       path: `/${kebabcase(c.component)}`,
@@ -108,7 +121,7 @@ const menuRoutes = fullMenu.map(m => {
 const router = new VueRouter({
   // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
   //mode: 'history',
-  routes: [...routes, ...pageRoutes]
+  routes: pageRoutes
 });
 
 for (const name in components) {
@@ -157,14 +170,6 @@ new Vue({
           />
           <a class="quaternary" @click="set('menu', false)"><f-close-icon  /></a>
         </f-inline>
-
-        <router-link :style="{
-          display: 'flex',
-          background: 'var(--background)',
-          alignItems: 'center',
-          padding: 'var(--base2) var(--base) var(--base) var(--base2)',
-          border: 'none',
-        }" to="/">Home</router-link>
         <docs-menu :items="menuRoutes" />
       </div>
       <div v-if="!get('menu', true)"
