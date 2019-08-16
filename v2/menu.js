@@ -7,9 +7,9 @@ export default [
         file: "../README.md"
       },
       {
-        title: "Release notes",
-        file: "../RELEASES.md"
-      }
+        title: "Playground",
+        file: "playground.md"
+      },
     ]
   },
   {
@@ -52,6 +52,7 @@ export default [
         file: "./content/navigation.md",
         type: "slides"
       },
+      { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
       { component: "FPager" },
@@ -240,5 +241,14 @@ export default [
       { component: "FHr" },
       { component: "FVr" }
     ]
-  }
+  },
+  {
+    title: "Development",
+    items: [
+      {
+        title: "Release notes",
+        file: "../RELEASES.md"
+      }
+    ]
+  },
 ];

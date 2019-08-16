@@ -1,4 +1,4 @@
-import { Vue, Css, store } from "../../../fachwerk.js";
+import { Vue, Css, store, get, set, log } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -28,7 +28,7 @@ Creates a code editor with a live preview.
       type: String
     },
     menu: {
-      default: true,
+      default: false,
       type: [Boolean, Number, String]
     },
   },
@@ -39,6 +39,8 @@ Creates a code editor with a live preview.
     timeout: null
   }),
   methods: {
+    get,
+    set,
     handleSave() {
       store.set(`content-editor-${this.saveId}`, this.innerContent);
       this.state = "saving";
@@ -75,77 +77,101 @@ Creates a code editor with a live preview.
       this.$global.$on("save", () => this.handleSave());
       this.$global.$on("reset", () => this.handleReset());
     }
+    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
   unmounted() {
     clearTimeout(this.timeout);
   },
   /* @TODO remove reset button position hack */
   template: `
-  <div style="position: relative">
-  <div
-    v-if="preview"
-    style="
-      position: absolute;
-      z-index: 10000;
-      left: 40px;
-      top: 12px;
-    "
-  >
-      <a slot="button" title="Alt + E" class="quaternary" @click="$emit('togglePreview')">Edit</a>
-    <slot />
-  </div>
-  <div class="content-editor">
-    <div v-if="!preview" class="editor">
-      <div class="toolbar" :style="{ padding: menu ? '12px 10px 0 40px' : '7px 10px 0 0' }">
-      <div
-        v-if="menu"
-        class="quaternary"
-        style="opacity: 0.5"
-        @click="$emit('togglePreview')"
-      >Close</div>
-      <div>
-          <div
-            v-if="state == 'saved' || state == 'saving'"
-            class="quaternary"
-            style="opacity: 0.3"
-            @click="handleReset"
-          >
-            Reset to original
-          </div>
-          &nbsp;
-        </div>
-        <div
-          @click="handleSave"
-          class="quaternary"
-          :style="{ opacity: state == 'saved' ? 1 : 0.5}"
-        >{{ labels[state] }}</div>
-      </div>
-      <f-editor
-        v-if="!advanced"
-        class="basic"
-        v-model="innerContent"
-      />
-      <f-advanced-editor
-        v-if="advanced"
-        v-model="innerContent"
-        style="height: 100vh;"
-      />
-    </div>
+  <div style="position: relative; width: 100%;">
+    <f-keyboard
+      alt
+      character="s"
+      @keydown="handleSave"
+    />
+    <f-keyboard
+      alt
+      character="e"
+      @keydown="set('preview', !get('preview', false))"
+    />
     <div
-      class="preview"
-      :style="{
-        '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
-        '--content-padding': preview ? '' : 'calc(var(--base) * 3)',
-        '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
-      }"
+      v-if="get('preview', false)"
+      style="
+        position: absolute;
+        z-index: 10000;
+        left: calc(var(--base) * 6);
+        top: var(--base);
+      "
     >
-      <f-content
-        :content="innerContent"
-        :type="type"
-        :saveId="saveId"
-      />
+        <a slot="button" title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+      <slot />
     </div>
-  </div>
+    <div class="content-editor">
+      <div v-if="!get('preview', false)" class="editor">
+        <div class="toolbar">
+        <div style="display: flex">
+          <a
+            v-if="menu"
+            class="quaternary"
+            style="opacity: 0.5"
+            @click="send('openmenu')"
+          >
+            <f-menu-icon />
+          </a>
+          <a
+            @click="handleSave"
+            class="quaternary"
+            :style="{ marginLeft: 'calc(var(--base) * 4)', opacity: state == 'saved' ? 1 : 0.5}"
+          >
+            {{ labels[state] }}
+          </a>
+        </div>
+        <div>
+            <div
+              v-if="state == 'saved' || state == 'saving'"
+              class="quaternary"
+              style="opacity: 0.3"
+              @click="handleReset"
+            >
+              Reset to original
+            </div>
+            &nbsp;
+          </div>
+          <a
+            class="quaternary"
+            style="opacity: 0.5"
+            @click="set('preview', true)"
+            title="Close editor Alt + e"
+          ><f-close-icon /></a>
+          
+        </div>
+        <f-editor
+          v-if="!advanced"
+          class="basic"
+          v-model="innerContent"
+        />
+        <f-advanced-editor
+          v-if="advanced"
+          v-model="innerContent"
+          style="height: 100vh;"
+        />
+      </div>
+      <div
+        class="preview"
+        :style="{
+          '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
+          '----content-padding': preview ? '' : 'calc(var(--base) * 3)',
+          '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
+        }"
+      >
+        <f-content
+          :content="innerContent"
+          :type="type"
+          :saveId="saveId"
+        />
+      </div>
+    </div>
   </div>
   `,
   cssprops: {
@@ -165,10 +191,12 @@ Creates a code editor with a live preview.
   css: `
   .content-editor {
     display: flex;
+    flex-direction: row;
   }
   .content-editor > .editor {
     flex: 1;
     min-width: var(--content-editor-min-width);
+    background: var(--paleblue);
   }
   .content-editor > .editor .basic {
     min-height: var(--content-editor-min-height);
@@ -181,6 +209,7 @@ Creates a code editor with a live preview.
   }
   .content-editor .toolbar {
     /* @TODO Fix this padding */
+    padding: var(--base) var(--base) 0 var(--base);
     height: calc(var(--base) * 7);
     display: flex;
     align-items: center;

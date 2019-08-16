@@ -4,7 +4,7 @@ Loads content from Markdown file and show it inline.
 
 Below is the content fetched from \`../RELEASES.md\`:
 
-<f-embed src="../RELEASES.md">
+<f-embed src="../RELEASES.md" />
 `,
   props: {
     src: { default: '', type: String },

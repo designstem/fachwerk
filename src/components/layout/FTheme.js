@@ -32,6 +32,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
         light: {},
         dark: {
           background: "var(--darkestgray)",
+          "--background": "var(--darkestgray)",
           "--primary": "var(--lightergray)",
           "--secondary": "var(--lightgray)",
           "--tertiary": "var(--gray)",
@@ -42,6 +43,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
         },
         blue: {
           background: "var(--darkblue)",
+          "--background": "var(--darkblue)",
           "--paleblue": "var(--black)",
           "--primary": "var(--lightergray)",
           "--secondary": "var(--lightgray)",
@@ -54,13 +56,14 @@ Technically it adjust CSS custom properties and redefines the color constants fo
         },
         yellow: {
           background: "var(--yellow)",
+          "--background": "var(--yellow)",
           "--emphasis": "var(--red)",
           "--lightemphasis": "var(--lightergray)",
           "--primary": "var(--darkgray)",
           "--lightblue": "var(--darkblue)",
           "--gray": "var(--darkgray)",
           "--secondary": "var(--lightgray)",
-          "--tertiary": "var(--lightgray)",
+          "--tertiary": "var(--gray)",
           "--quaternary": "var(--gray)",
           "--icon-stroke": "var(--darkgray)",
         }
