@@ -127,8 +127,6 @@ new Vue({
     ...utils
   },
   computed: {},
-<<<<<<< HEAD
-=======
   created () {
     // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
     console.log(sessionStorage.redirect)
@@ -138,7 +136,6 @@ new Vue({
       this.$router.push(redirect)
     }
   },
->>>>>>> kika-router-2
   mounted() {
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
   },
