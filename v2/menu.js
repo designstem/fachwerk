@@ -24,6 +24,7 @@ export default [
         file: "./content/tables.md"
       },
       { component: "FTable" },
+      { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },

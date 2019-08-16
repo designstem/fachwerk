@@ -23,6 +23,7 @@ export default [
         title: "Adding tables",
         file: "./content/tables.md"
       },
+      { component: "FLink", type: "slides" },
       { component: "FTable" },
       { component: "FImage" },
       { component: "FVideo" },

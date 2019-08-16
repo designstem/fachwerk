@@ -9,7 +9,7 @@ This link goes to local <f-link to="/f-scene">f-scene</f-link> documentaton rout
 
 This link goes to <f-link to="https://pudding.cool/2018/02/waveforms/">external site</f-link>
 
-This link goes to <f-link to="props">Local slide</f-link> with ID \`props\`
+This link goes to <f-link to="props">Local slide</f-link> with ID or section \`props\`
 
 ---
 
@@ -25,14 +25,14 @@ This link goes to <f-link to="props">Local slide</f-link> with ID \`props\`
     goto
   },
   computed: {
-    isUrl() {
-      return isurl(this.to)
-    },
     isRoute() {
-      return !this.isUrl && this.to.startsWith('/')
+      return this.to.startsWith('/')
+    },
+    isUrl() {
+      return !this.to.startsWith('/') && isurl(this.to)
     },
     isId() {
-      return this.to && !this.isUrl && !this.isRoute
+      return !this.isRoute && !this.isUrl
     },
   },
   template: `
@@ -40,7 +40,6 @@ This link goes to <f-link to="props">Local slide</f-link> with ID \`props\`
     <router-link v-if="isRoute" :to="to"><slot /></router-link>
     <a v-if="isUrl" :href="to" target="_blank"><slot /></a>
     <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
-    <slot v-if="!isRoute && !isUrl && !isId" />
   </span>
   `
 }
