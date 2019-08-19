@@ -86,7 +86,7 @@ Fot more customizable layouts there a more classical grid system available, buil
 
 ### Horizontal rules
 
-<div class="grid" style="--cols: 1fr; --rows: 1fr 3px 1fr; --gap: var(--base3);">
+<div class="grid" style="--cols: 1fr; --rows: 1fr var(--border-width) 1fr; --gap: var(--base3);">
   <f-card>Column 1</f-card>
   <f-hr />
   <f-card>Column 2</f-card>
@@ -96,7 +96,7 @@ Fot more customizable layouts there a more classical grid system available, buil
 
 ### Vertical rules
 
-<div class="grid" style="--cols: 1fr 3px 1fr; --gap: var(--base3);">
+<div class="grid" style="--cols: 1fr var(--border-width) 1fr; --gap: var(--base3);">
   <f-card>Column 1</f-card>
   <f-vr />
   <f-card>Column 2</f-card>

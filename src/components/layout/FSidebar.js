@@ -55,14 +55,14 @@ And 75% if the viewport is 800px or smaller...
     );
   },
   methods: {
-    outsideclick: function(e) {
+    clickOutside: function(e) {
       if( this.currentOpen == true ){
         this.currentOpen = false;
       }
     }
   },
   template: `
-    <span v-click-outside="outsideclick">
+    <span v-click-outside="clickOutside">
       <span @click.prevent="currentOpen = !currentOpen">
         <slot name="button">
           <a style="

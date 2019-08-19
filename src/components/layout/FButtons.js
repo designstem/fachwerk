@@ -34,14 +34,14 @@ Displays a group of buttons.
     }
   },
   template: `
-    <div :style="{display: 'flex', marginLeft: '3px', marginBottom: 'var(--base2)'}">
+    <div :style="{display: 'flex', marginLeft: 'var(--border-width)', marginBottom: 'var(--base2)'}">
       <div
         v-for="(button,i) in buttons"
         :key="i"
         @click="$emit('input',i); $emit('value',i); if (set) { setValue(set, i) }"
         :style="{
           padding: '0.25rem 0.5rem',
-          border: '3px solid var(--primary)',
+          border: 'var(--border-width) solid var(--primary)',
           borderTopLeftRadius: i == 0 && 'var(--border-radius)',
           borderBottomLeftRadius: i == 0 && 'var(--border-radius)',
           borderTopRightRadius: i == buttons.length - 1 && 'var(--border-radius)',
@@ -49,7 +49,7 @@ Displays a group of buttons.
           color: i === value ? 'var(--primary)' : 'var(--primary)',
           fontWeight: 'bold',
           fontSize: '0.9rem',
-          marginLeft: '-3px',
+          marginLeft: 'calc(var(--border-width) * -1)',
           cursor: 'pointer',
           background: isActive(i) ? 'var(--tertiary)' : 'none',
         }"

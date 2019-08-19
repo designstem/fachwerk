@@ -34,7 +34,7 @@ Shows a content card.
       :style="{
         color,
         background,
-        border: '3px solid ' + border
+        border: 'var(--border-width) solid ' + border
       }"
     >
       <div style="

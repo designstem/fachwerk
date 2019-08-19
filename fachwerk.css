@@ -43,9 +43,8 @@
   --lightemphasis: var(--lighteryellow);
   --emphasis: var(--yellow);
 
-  --border-width: 3px;
+  --border-width: 2px;
   --border-radius: 6px;
-  --border-small: 3px;
 
   --slider-size: var(--base3);
 
@@ -143,12 +142,12 @@ br {
 a {
   text-decoration: none;
   color: var(--primary);
-  border-bottom: 2px solid var(--lightgray);
+  border-bottom: 2px solid var(--primary);
   font-weight: 500;
 }
 a:hover {
-  color: var(--darkergray);
-  border-bottom: 2px solid var(--darkgray);
+  color: var(--emphasis);
+  border-bottom: 2px solid var(--emphasis);
 }
 b,
 strong {
@@ -229,7 +228,7 @@ ol li::before {
 hr {
   border: 0;
   height: 0;
-  border-bottom: 3px solid var(--primary);
+  border-bottom: var(--border-width) solid var(--primary);
 }
 .break {
   overflow-wrap: break-word;
@@ -281,7 +280,7 @@ input[type="number"] {
   font-size: calc(var(--base) * 1.75);
   font-weight: bold;
   margin: 0 0 var(--base2) 0;
-  box-shadow: inset 3px 3px 0px var(--lightergray);
+  box-shadow: inset var(--border-width) var(--border-width) 0px var(--lightergray);
   width: var(--base8);
 }
 
@@ -513,7 +512,7 @@ table {
   margin-bottom: var(--base2);
 }
 th {
-  border-bottom: 3px solid var(--tertiary);
+  border-bottom: var(--border-width) solid var(--tertiary);
   padding: calc(var(--base) * 1) calc(var(--base) / 2);
   text-align: left;
   font-weight: normal;
@@ -614,7 +613,7 @@ button,
   padding: calc(var(--base) * 0.5) calc(var(--base) * 1);
   display: inline-flex;
   align-items: center;
-  border: 3px solid var(--darkgray);
+  border: var(--border-width) solid var(--darkgray);
   border-radius: var(--border-radius);
   color: var(--darkgray);
   font-weight: bold;
@@ -676,7 +675,7 @@ a.quaternary {
 }
 
 .buttons .button_tertiary {
-  margin-left: -3px;
+  margin-left: -var(--border-width);
   border-radius: 0;
 }
 
@@ -724,7 +723,7 @@ header,
 
 footer,
 .footer {
-  border-top: 3px solid var(--darkgray);
+  border-top: var(--border-width) solid var(--darkgray);
   padding: var(--base4) var(--base4) calc(var(--base) * 12) var(--base4);
   display: flex;
   justify-content: space-between;
@@ -803,7 +802,7 @@ footer,
 .CodeMirror-linenumbers {
 }
 .CodeMirror-linenumber {
-  padding: 0 3px 0 5px;
+  padding: 0 var(--border-width) 0 5px;
   min-width: 20px;
   text-align: right;
   color: #999;
