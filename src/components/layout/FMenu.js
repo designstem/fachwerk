@@ -62,7 +62,7 @@ Menu also responds to \`openmenu\` and \`closemenu\` events that trigger menu op
           v-if="c.section"
           style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base) 0 0 0"
           :style="{
-            borderLeft: get('section','') == c.section ? '3px solid var(--blue)' : '3px solid var(--transparent)',
+            borderLeft: get('section','') == c.section ? 'var(--border-width) solid var(--blue)' : 'var(--border-width) solid var(--transparent)',
             fontWeight: get('section','') == c.section ? 'bold' : 'normal',
           }"
           @click="goto(c.section)"
