@@ -1,7 +1,3 @@
-| 1 1
-| 2 3
-| 2 4
-
 <center>
   <f-scene>
     <f-rotation>
@@ -14,9 +10,9 @@
   </f-scene>
 </center>
 
-# <big>Fachwerk</big>
+# <big><big><big>Fachwerk</big></big></big>
 
-<big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big>
+<big><big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big></big>
 
 
 <f-slider
@@ -26,19 +22,39 @@
   to="1"
 />
 
-### 1. Play
+<br>
 
-Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is ✍🏾and can be stored in your browser so you can make instant changes and explorations in code.
+## 1. Play
 
-### 2. Learn
+<big>Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here **✍🏾 editable**  and can be stored in your browser so you can make instant changes and explorations in code.</big>
 
-Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!
+<big><a href="./playground" class="primary">Go to playground</a></big>
 
-### 3. Build
+<br>
 
-Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
+## 2. Learn
 
-## FAQ
+<big>Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!</big>
+
+<big><a href="./docs" class="primary">Explore the docs</a></big>
+
+<br>
+
+## 3. Build
+
+<big>Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.</big>
+
+<big>
+  <a href="https://github.com/designstem/fachwerk#fachwerk" class="primary">README.md in Github</a>
+</big>
+
+---
+  
+| 1 1
+| 2 3
+| 2 4
+
+# FAQ
 
 -
 

@@ -1,14 +1,19 @@
 export default [
   {
-    title: "Getting started",
+    title: "Fachwerk",
     items: [
+      {
+        title: "Home",
+        file: "../index.md",
+        home: true
+      },
       {
         title: "Getting started",
         file: "../README.md"
       },
       {
-        title: "Release notes",
-        file: "../RELEASES.md"
+        title: "Playground",
+        file: "playground.md"
       }
     ]
   },
@@ -23,8 +28,8 @@ export default [
         title: "Adding tables",
         file: "./content/tables.md"
       },
-      { component: "FLink", type: "slides" },
       { component: "FTable" },
+      { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },
@@ -53,6 +58,7 @@ export default [
         file: "./content/navigation.md",
         type: "slides"
       },
+      { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
       { component: "FPager" },
@@ -62,7 +68,7 @@ export default [
       { component: "FInline" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FColors" },
+      { component: "FColors" }
     ]
   },
   {
@@ -144,7 +150,6 @@ export default [
         title: "Add interaction",
         file: "./content/interaction.md"
       },
-      { component: "FValue" },
       { component: "FSlider" },
       { component: "FAnimation" },
       { component: "FToggle" },
@@ -241,6 +246,15 @@ export default [
       { component: "FBounce" },
       { component: "FHr" },
       { component: "FVr" }
+    ]
+  },
+  {
+    title: "Development",
+    items: [
+      {
+        title: "Release notes",
+        file: "../RELEASES.md"
+      }
     ]
   }
 ];

@@ -3,7 +3,7 @@ import {
   Css,
   store,
   isimageurl,
-  parseColumns,
+  parseContent,
   color,
   array2object,
 } from "../../../fachwerk.js";
@@ -31,10 +31,7 @@ Shows Markdown content.
   data: () => ({ currentIndex: 0 }),
   computed: {
     preparedContent() {
-      return this.content
-        .replace(/\r?\n--\r?\n/g, "")
-        .split(/\r?\n---\r?\n/)
-        .map(parseColumns);
+      return parseContent(this.content)
     }
   },
   methods: {
@@ -139,7 +136,7 @@ Shows Markdown content.
         class="cells"
         :style="Object.assign({
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : 'auto',
+          minHeight: slide.height ? slide.height : '100vh',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,

@@ -92,7 +92,8 @@ export default {
     padding: var(--base2);
     font-size: calc(var(--base) * 1.85);
     line-height: calc(var(--base) * 2.75);
-    height: var(--advanced-editor-height);
+    height: var(--advanced-editor-height) !important;
+    min-height: 100vh;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;

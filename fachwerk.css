@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,500,500i");
 
 /* Variables */
   
@@ -26,6 +26,7 @@
   --gray: #aaaaaa;
   --lightgray: #cccccc; /* lightgray */
   --lightergray: #eee;
+  --lightestgray: #f4f4f4;
   --white: #ffffff;
   
   --transparent: rgba(0,0,0,0);
@@ -34,6 +35,8 @@
   --secondary: var(--gray);
   --tertiary: var(--lightgray);
   --quaternary: var(--lightgray);
+
+  --background: var(--white);
 
   --accent: var(--purple);
   
@@ -96,17 +99,20 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 0 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
   padding: 0;
   line-height: 1.2em;
   color: var(--primary);
+  font-weight: 700;
 }
 h1 {
-  font-size: calc(var(--base) * 3 + 2vw);
+  font-size: calc(var(--base) * 7);
   line-height: 1em;
+  margin: 0.5em 0 0.5em 0;
 }
 h2 {
   font-size: calc(var(--base) * 4);
+  margin: 1em 0 0.5em 0;
 }
 h3 {
   font-size: calc(var(--base) * 3);
@@ -117,6 +123,14 @@ h4 {
 h5 {
   font-size: calc(var(--base) * 2);
 }
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0
+}
+
 p {
   font-size: calc(var(--base) * 2);
   line-height: calc(var(--base) * 3);
@@ -129,8 +143,12 @@ br {
 a {
   text-decoration: none;
   color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-  font-weight: bold;
+  border-bottom: 2px solid var(--lightgray);
+  font-weight: 500;
+}
+a:hover {
+  color: var(--darkergray);
+  border-bottom: 2px solid var(--darkgray);
 }
 b,
 strong {
@@ -138,7 +156,7 @@ strong {
 }
 
 big {
-  font-size: 1.3em !important;
+  font-size: 1.5em !important;
   line-height: 1.5em !important;
 }
 big h1,
@@ -153,17 +171,21 @@ h5 big {
   line-height: 95% !important;
 }
 
-big big {
+big {
   letter-spacing: -0.02em;
+}
+
+big big {
+  letter-spacing: -0.03em;
 }
 
 big big big {
   letter-spacing: -0.04em;
 }
 
-small {
-  font-size: 0.9em !important;
-  color: var(--primary);
+small, small p {
+  font-size: 0.8em !important;
+  opacity: 0.8;
 }
 
 img {
@@ -285,7 +307,6 @@ label,
 
 details {
   padding: var(--base2);
-  background: var(--lightemphasis);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -298,7 +319,7 @@ details p:last-child {
 details summary {
   color: var(--primary);
   font-weight: bold;
-  margin-bottom: var(--base);
+  margin: 0;
   outline: none;
 }
 details pre,
@@ -319,8 +340,7 @@ details code {
 
 blockquote {
   margin: 0;
-  padding: var(--base2);
-  background: var(--lightemphasis);
+  padding: calc(var(--base2) / 2) var(--base2);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }
@@ -497,11 +517,11 @@ th {
   padding: calc(var(--base) * 1) calc(var(--base) / 2);
   text-align: left;
   font-weight: normal;
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 th p {
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: calc(var(--base) * 1.8);
 }
 tr {
@@ -547,6 +567,10 @@ button.primary,
   --icon-stroke: var(--white);
   --icon-fill: var(--transparent);
 }
+.primary a {
+  border-bottom: none;
+  color: var(--white);
+}
 .primary .f-svg {
   margin: 0 0.5ch !important;
   transform: scale(2ch);
@@ -574,6 +598,9 @@ button.secondary,
   --icon-stroke: var(--darkgray);
   font-size: 1em;
 }
+.secondary a {
+  border-bottom: none;
+}
 .secondary .f-svg {
   margin: 0 0.5ch !important;
 }
@@ -600,6 +627,9 @@ button,
   transition: all 0.1s linear;
   --icon-stroke: var(--darkgray);
 }
+.tertiary a {
+  border-bottom: none;
+}
 .tertiary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
@@ -610,7 +640,7 @@ button,
 .quaternary,
 button.quaternary {
   background: transparent;
-  padding: 0 8px;
+  padding: 0 6px;
   height: var(--base4);
   display: inline-flex;
   align-items: center;
@@ -625,6 +655,9 @@ button.quaternary {
   border: none;
   --icon-stroke: var(--gray);
   --icon-fill: var(--transparent);
+}
+.quaternary a {
+  border-bottom: none;
 }
 .quaternary .f-svg {
   margin: 0 calc(var(--base) * 0.5) !important;
@@ -714,20 +747,6 @@ footer,
   .footer > *:last-child {
     margin-bottom: 0;
   }
-}
-
-/* Hero */
-
-.hero {
-  --base: 13px;
-  padding: var(--base4);
-  background: var(--darkergray);
-  border-bottom: var(--border) solid var(--darkgray);
-  color: var(--yellow);
-  letter-spacing: -0.03em;
-}
-.hero h1 {
-  color: var(--yellow);
 }
 
 /* Grid */
@@ -1346,4 +1365,12 @@ span.CodeMirror-selectedtext {
 .cm-s-material .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: white !important;
+}
+
+caption {
+  text-align: left;
+  margin: 0 0 var(--base4) 0;
+  font-weight: bold;
+  color: var(--gray);
+  display: block;
 }

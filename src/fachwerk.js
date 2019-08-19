@@ -71,7 +71,7 @@ export function fachwerk(c = {}) {
       :style="config.style"
     >
       <f-header v-if="config.header.length" :links="config.header" />
-      <f-menu v-if="config.menu" src="./menu.md" />
+      <f-menu v-if="config.menu" :src="config.src" />
       <f-pager v-if="config.pager" />
       <f-fetch :src="config.src" v-slot="{ value }">
         <div>

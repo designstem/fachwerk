@@ -14,7 +14,7 @@ for (const name in components) {
   Vue.component(name, components[name]);
 }
 
-const { kebabCase, titleCase, flatten } = utils;
+const { kebabcase, titlecase, flatten } = utils;
 
 const utilsHelp = [{ color, math, trig, string, array, music, other }].map(g =>
   Object.entries(g).map(([group, module]) => [
@@ -44,7 +44,7 @@ new Vue({
       return menu
         .map(m => {
           m.items = m.items.map(i => {
-            i.title = i.component ? `${kebabCase(i.component)}` : i.title;
+            i.title = i.component ? `${kebabcase(i.component)}` : i.title;
             i.disabled = !!i.tbd;
             return i;
           });
@@ -55,7 +55,7 @@ new Vue({
             utilsHelp.map(g => {
               return g.map(([group, items]) => {
                 return {
-                  title: `${titleCase(group)} utilities`,
+                  title: `${titlecase(group)} utilities`,
                   utils: true,
                   items: items.map(([title, content]) => ({ title, content }))
                 };
@@ -76,11 +76,11 @@ new Vue({
       return sortedComponents
         .map(c => Object.entries(c)[0])
         .filter(c => c[1].tag == tag)
-        .map(c => ({ title: kebabCase(c[0]), name: c[0] }));
+        .map(c => ({ title: kebabcase(c[0]), name: c[0] }));
     },
     propsTable(props) {
       return Object.entries(props).map(p => ({
-        Name: `\`:${kebabCase(p[0])}\``,
+        Name: `\`:${kebabcase(p[0])}\``,
         Default: p[1].default
           ? `\`${String(p[1].default).replace(/'primary'/, '"primary"')}\``
           : "",
@@ -105,7 +105,7 @@ new Vue({
       }));
     },
     generateContent(name, c) {
-      return `## ${kebabCase(name)}
+      return `## ${kebabcase(name)}
 
 ${c.description ? c.description.trim() : ""}
 ${c.example ? c.example.trim() : ""}
@@ -121,14 +121,14 @@ ${
 />`
     : ""
 }
-${c.slots ? `\n\n<br>\n\n#### Slots` : ""}
+${c.slots ? `\n\n#### Slots` : ""}
 ${
   c.slots
     ? `<f-table :rows='${JSON.stringify(this.slotsTable(c.slots), null, 2)}'
     />`
     : ""
 }
-${c.cssprops ? `\n\n<br>\n\n#### CSS variables` : ""}
+${c.cssprops ? `\n\n#### CSS variables` : ""}
 ${
   c.cssprops
     ? `<f-table :rows='${JSON.stringify(this.cssTable(c.cssprops), null, 2)}' 
@@ -146,7 +146,7 @@ Component can be imported using Javascript import:
 
     // Later in the Vue template or Markdown file
 
-    <${kebabCase(name)} />
+    <${kebabcase(name)} />
 
       `;
     },

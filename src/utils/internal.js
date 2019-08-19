@@ -1,3 +1,5 @@
+import { isarray } from "../../fachwerk.js"
+
 export const parseSheet = data => {
   return data.feed.entry.map(entry => {
     return Object.keys(entry)
@@ -30,7 +32,8 @@ const parseMeta = row => {
   const values = meta.join(': ') 
   return { [key]: values };
 };
-export const parseColumns = slide => {
+
+export const parsePage = slide => {
   let meta = [];
   const metaPattern = /(\|\s(.*?):\s+(.*)\r?\n)/g;
   const metaMatch = slide.match(metaPattern);
@@ -70,6 +73,14 @@ export const parseColumns = slide => {
     );
   }
 };
+
+export const parseContent = content => {
+  const processedContent = isarray(content) ? content.join('\n\n---\n\n') : content
+  return processedContent
+    .replace(/\r?\n--\r?\n/g, "")
+    .split(/\r?\n---\r?\n/)
+    .map(parsePage)
+}
 
 export const getCssVariable = (value, el = document.body) =>
   getComputedStyle(el).getPropertyValue(value);

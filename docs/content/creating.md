@@ -1,4 +1,4 @@
-# Writing content
+# Creating content
 
 ### Basic text
 
@@ -45,9 +45,13 @@ It is the same as to write it in HTML:
 We support up to five levels of headings:
 
 # Heading 1
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
 
 <br>
@@ -68,11 +72,15 @@ Is the same as to write it in HTML:
 
 Lets get down to it:
 
-# **1**Heading 1
-## **2**Heading 2
-### **3**Heading 3
-#### **4**Heading 4
-##### **5**Heading 5
+# 1. Heading 1
+
+## 2. Heading 2
+
+### 3. Heading 3
+
+#### 4. Heading 4
+
+##### 5. Heading 5
 
 <br>
 
@@ -80,27 +88,37 @@ Lets get down to it:
 
 Content can be made bigger and smaller using `<big>` and `<small>` tags:
 
+# <big>Big header</big>
+
 <big>Big text</big>
 
 <small>Small text</small>
 
-All textual content can be made bigger and smaller. You also go `<big><big><big>` and beyond:
-
-# <big><big><big>Heading</big></big></big>
 
 ### Lists
 
 Unordered list:
 
-  * Autobahn
+* Autobahn
 
-  * Radio-Aktivität
+* Radio-Aktivität
 
 Ordered list:
 
-  1. Trans-Europa Express
-  
-  2. Computerwelt
+1. Trans-Europa Express
+
+2. Computerwelt
+
+If you have subsequent content under list item you have to indent that content so it will be included to current list item:
+
+1. Trans-Europa Express
+
+  An important piece of new equipment used on the album was the Synthanorma Sequenzer, a customized 32-step 16-channel analog sequencer made for the band by Matten & Wiechers
+
+2. Computerwelt
+
+  The cover shows a computer terminal (apparently based on one made by the Hazeltine Corporation) displaying the heads of the four band members.
+
 
 <br>
 
