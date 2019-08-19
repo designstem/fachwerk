@@ -1,4 +1,4 @@
-import { Css } from '../../../fachwerk.js'
+import { Css } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -55,8 +55,8 @@ And 75% if the viewport is 800px or smaller...
     );
   },
   methods: {
-    clickOutside: function(e) {
-      if( this.currentOpen == true ){
+    clickOutside() {
+      if (this.currentOpen == true) {
         this.currentOpen = false;
       }
     }
@@ -121,20 +121,22 @@ And 75% if the viewport is 800px or smaller...
   </span>
   `,
   directives: {
-    'click-outside': {
+    "click-outside": {
       bind: function(el, binding) {
-        const handler = (e) => {
-          if (binding.modifiers.bubble || (!el.contains(e.target) && el !== e.target)) {
-          	binding.value(e)
+        const handler = e => {
+          if (
+            binding.modifiers.bubble ||
+            (!el.contains(e.target) && el !== e.target)
+          ) {
+            binding.value(e);
           }
-        }
-        el.__vueClickOutside__ = handler
-        document.addEventListener('click', handler)
-			},
+        };
+        el.__vueClickOutside__ = handler;
+        document.addEventListener("click", handler);
+      },
       unbind: function(el, binding) {
-        document.removeEventListener('click', el.__vueClickOutside__)
-        el.__vueClickOutside__ = null
-
+        document.removeEventListener("click", el.__vueClickOutside__);
+        el.__vueClickOutside__ = null;
       }
     }
   },
@@ -146,7 +148,7 @@ And 75% if the viewport is 800px or smaller...
     "--sidebar-mobile-width": {
       default: "90vw",
       description: "Sidebar width on viewports narrower than 800px"
-    },
+    }
   },
   css: `
     .f-sidebar__panel {
