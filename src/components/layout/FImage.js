@@ -12,11 +12,6 @@ Displays an image.
   `,
   props: {
     src: { default: "", type: String, description: "Image URL" },
-    // size: { default: "cover", type: String, description: "Background size: `cover`, `contain` or other css `value`" },
-    // position: { default: "center", type: String, description: "Background position: `50% 75%`, `center bottom` or other css `value`" },
-    // repeat: { default: "no-repeat", type: String, description: "Background repeat" },
-    // height: { default: "100%", type: String, description: "Image height" },
-    // minHeight: { default: "calc(var(--base) * 40)", type: String, description: "Image minimum height" },
   },
   template: `
     <div 
@@ -26,17 +21,17 @@ Displays an image.
         backgroundPosition: 'var(--image-position)', 
         backgroundRepeat: 'var(--image-repeat)',
         height: 'var(--image-height)',
-        minHeight: 'var(--image-min-height)',
+        minHeight: 'var(--image-min-height)'
       }"
       >&nbsp;</div>
   `,
   cssprops: {
     "--image-height": {
       default: "100%",
-      description: "Image minimum height"
+      description: "Image height"
     },
     "--image-min-height": {
-      default: "20vh",
+      default: "calc(var(--base) * 40)",
       description: "Image minimum height"
     },
     "--image-size": {
