@@ -136,7 +136,7 @@ Shows Markdown content.
         class="cells"
         :style="Object.assign({
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : '100vh',
+          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,

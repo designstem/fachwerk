@@ -10,9 +10,11 @@ export default {
 Displays a group of buttons.
 
 <f-buttons
-  v-model="someVariable"
+  set="a"
   :buttons="['First','Second']"
 />
+
+    Index of selected button: {{ get('a', 0) }}  
   `,
   props: {
     buttons: { default: [], type: Array },
