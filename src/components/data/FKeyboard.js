@@ -26,6 +26,9 @@ Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
       if (this.character == 'top' ||  this.character == 'right' ||  this.character == 'bottom' ||  this.character == 'left') {
         return `Arrow${titlecase(this.character)}`
       }
+      if(this.character == 'Escape'){
+        return `Escape`
+      }
       return `Key${titlecase(this.character)}`
     }
   },
