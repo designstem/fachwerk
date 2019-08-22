@@ -150,6 +150,7 @@ export default [
         title: "Add interaction",
         file: "./content/interaction.md"
       },
+      { component: "FValue" },
       { component: "FSlider" },
       { component: "FAnimation" },
       { component: "FToggle" },
