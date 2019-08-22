@@ -89,6 +89,7 @@ And 75% if the viewport is 800px or smaller...
           left: orientation == 'left' ? 0 : '',
         }"
       >
+        <f-theme theme="light">
         <a
           @click="currentOpen = false"
           class="quaternary"
@@ -117,6 +118,7 @@ And 75% if the viewport is 800px or smaller...
         <div style="padding: var(--base4) var(--base8) var(--base4) var(--base4)" v-if="!src && currentOpen">
           <slot />
         </div>
+        </f-theme>
       </f-fade>
   </span>
   `,
