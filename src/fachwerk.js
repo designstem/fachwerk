@@ -66,13 +66,14 @@ export function fachwerk(c = {}) {
       Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
     },
     template: `
-    <f-theme
-      :theme="config.theme"
-      :style="config.style"
-    >
+    <div>
       <f-header v-if="config.header.length" :links="config.header" />
       <f-menu v-if="config.menu" :src="config.src" />
       <f-pager v-if="config.pager" />
+      <f-theme
+        :theme="config.theme"
+        :style="config.style"
+      >
       <f-fetch :src="config.src" v-slot="{ value }">
         <div>
           <f-content
@@ -91,11 +92,12 @@ export function fachwerk(c = {}) {
           />
         </div>
       </f-fetch>
+      </f-theme>
       <f-footer v-if="config.footer" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
-    </f-theme>
+    </div>
   `
   });
 }
