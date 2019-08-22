@@ -1,4 +1,4 @@
-import { Css } from '../../../fachwerk.js'
+import { Css, log } from '../../../fachwerk.js'
 
 export default {
   mixins: [Css],
@@ -55,6 +55,7 @@ And 75% if the viewport is 800px or smaller...
     );
   },
   methods: {
+    log,
     clickOutside: function(e) {
       if( this.currentOpen == true ){
         this.currentOpen = false;
@@ -102,6 +103,7 @@ And 75% if the viewport is 800px or smaller...
         "
         ><f-close-icon /> 
         </a>
+        <f-keyboard character="Escape" v-on:keydown="currentOpen = false" />
         <f-fetch v-if="src" :src="src">
           <f-content
             slot-scope="data"

@@ -3,6 +3,7 @@ import { titlecase } from '../../../fachwerk.js'
 export default {
   props: {
     character: { default: "a", type: String },
+    keycode: { default: 0, type: Number },
     alt: { default: false, type: [Boolean, String] },
     ctrl: { default: false, type: [Boolean, String] }
   },
@@ -25,6 +26,9 @@ Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
     code() {
       if (this.character == 'top' ||  this.character == 'right' ||  this.character == 'bottom' ||  this.character == 'left') {
         return `Arrow${titlecase(this.character)}`
+      }
+      if(this.character == 'Escape'){
+        return `Escape`
       }
       return `Key${titlecase(this.character)}`
     }
