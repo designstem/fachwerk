@@ -165,26 +165,15 @@ Shows Markdown content.
       description: "Content height"
     },
     "--content-padding": {
-      default: "calc(var(--content-base) * 5)",
+      default: "var(--base8) var(--base6) var(--base6) var(--base6)",
       description: "Content padding"
     },
     "--content-gap": {
-      default: "calc(var(--content-base) * 3)",
-      description: "Gap between content columns"
-    },
-    "--content-section-padding": {
-      default: "calc(var(--content-base) * 3)",
-      description: "Padding around `section` tag"
-    },
-    "--content-base": {
-      default: "calc(var(--base) / 2 + 0.5vw)",
+      default: "var(--base3)",
       description: "Gap between content columns"
     }
   },
   css: `
-  .content {
-    --base: var(--content-base);
-  }
   .cells {
     display: grid;
   }
@@ -199,11 +188,6 @@ Shows Markdown content.
   .cell p:last-child {
     margin: 0;
   }
-  /*
-  .fit > .cell > p {
-    height: 100%;
-  }
-  */
   .fit > .cell {
     --image-min-height: 0;
   }

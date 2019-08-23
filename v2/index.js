@@ -188,11 +188,9 @@ new Vue({
         </f-inline>
       </div>
       <router-view
-        style="
-          --advanced-editor-height: auto;
-        "
+        style="--advanced-editor-height: auto;"
         :style="{
-          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 18)' : 'calc(var(--base) * 8) calc(var(--base) * 4)'
+          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 18)' : 'calc(var(--base) * 8) calc(var(--base) * 6)'
         }"
       ></router-view>
     </f-theme>

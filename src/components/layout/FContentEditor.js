@@ -157,14 +157,7 @@ Creates a code editor with a live preview.
           style="height: 100vh;"
         />
       </div>
-      <div
-        class="preview"
-        :style="{
-          '--content-base': preview ? '' : 'var(--base) * var(--content-editor-scale)',
-          '----content-padding': preview ? '' : 'calc(var(--base) * 3)',
-          '--content-gap': preview ? '' : 'calc(var(--base) * 2)'
-        }"
-      >
+      <div class="preview">
         <f-content
           :content="innerContent"
           :type="type"
