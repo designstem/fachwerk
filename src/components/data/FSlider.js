@@ -108,9 +108,9 @@ In some cases you want animation value to be available to its children component
     <div>
       <div>
         <label>
-        <slot name="title" :value="innerValue">
-          <template v-if="currentTitle">{{ currentTitle }}&nbsp;&nbsp;<code>{{ innerValue }}</code></template>
-        </slot>
+          <slot name="title" :value="innerValue">
+            <template v-if="currentTitle">{{ currentTitle }}&nbsp;&nbsp;<code>{{ innerValue }}</code></template>
+          </slot>
         </label>
         <input
           v-if="!set"

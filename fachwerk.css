@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,500i,700,700i|Cousine:400,400i,700,700i|IBM+Plex+Serif:400,400i,500,500i");
 
 /* Variables */
-  
+
 :root {
   --font-sansserif: IBM Plex Sans, sans-serif;
   --font-serif: IBM Plex Serif, serif;
@@ -28,8 +28,8 @@
   --lightergray: #eee;
   --lightestgray: #f4f4f4;
   --white: #ffffff;
-  
-  --transparent: rgba(0,0,0,0);
+
+  --transparent: rgba(0, 0, 0, 0);
 
   --primary: var(--darkgray);
   --secondary: var(--gray);
@@ -39,7 +39,7 @@
   --background: var(--white);
 
   --accent: var(--purple);
-  
+
   --lightemphasis: var(--lighteryellow);
   --emphasis: var(--yellow);
 
@@ -110,7 +110,7 @@ h1 {
   margin: 0.5em 0 0.5em 0;
 }
 h2 {
-  font-size: calc(var(--base) * 4);
+  font-size: calc(var(--base) * 5);
   margin: 1em 0 0.5em 0;
 }
 h3 {
@@ -127,12 +127,12 @@ h2:first-child,
 h3:first-child,
 h4:first-child,
 h5:first-child {
-  margin-top: 0
+  margin-top: 0;
 }
 
 p {
   font-size: calc(var(--base) * 2);
-  line-height: calc(var(--base) * 3);
+  line-height: 1.5em;
   margin: 0 0 var(--base2) 0;
   color: var(--primary);
 }
@@ -152,37 +152,24 @@ b,
 strong {
   color: var(--primary);
 }
-
-big {
-  font-size: 1.5em !important;
-  line-height: 1.5em !important;
+big, big p {
+  --base: 12px;
 }
-big h1,
-h1 big big h2,
-h1 big,
-big h3,
-h1 big,
-big h4,
-h4 big,
-big h5,
-h5 big {
-  line-height: 95% !important;
-}
-
-big {
+big h1 {
   letter-spacing: -0.02em;
 }
 
-big big {
+big big h1 {
   letter-spacing: -0.03em;
 }
 
-big big big {
+big big big h1 {
   letter-spacing: -0.04em;
 }
 
-small, small p {
-  font-size: 0.8em !important;
+small,
+small p {
+  --base: 7px;
   opacity: 0.8;
 }
 
@@ -279,7 +266,8 @@ input[type="number"] {
   font-size: calc(var(--base) * 1.75);
   font-weight: bold;
   margin: 0 0 var(--base2) 0;
-  box-shadow: inset var(--border-width) var(--border-width) 0px var(--lightergray);
+  box-shadow: inset var(--border-width) var(--border-width) 0px
+    var(--lightergray);
   width: var(--base8);
 }
 
@@ -287,11 +275,10 @@ input:disabled {
   opacity: 0.3;
 }
 
-label,
-.label {
-  font-size: calc(var(--base) * 2.1);
+label {
   display: block;
   margin-bottom: var(--base2);
+  font-weight: 500;
   color: var(--primary);
 }
 
@@ -370,7 +357,6 @@ pre {
   white-space: pre-wrap;
 }
 
-
 code {
   font-family: var(--font-mono);
   font-weight: normal;
@@ -431,7 +417,7 @@ center {
 }
 
 section {
-  padding: var(--content-section-padding, var(--base4));
+  padding: var(--content-padding);
   color: var(--primary);
   font-size: inherit;
   line-height: inherit;
@@ -1367,8 +1353,23 @@ span.CodeMirror-selectedtext {
 
 caption {
   text-align: left;
-  margin: 0 0 var(--base4) 0;
-  font-weight: bold;
-  color: var(--gray);
+  margin: 0 0 var(--base) 0;
+  font-weight: 500;
   display: block;
+  color: var(--secondary);
+}
+
+caption:first-child {
+  margin-top: 0;
+}
+
+caption + h1 {
+  margin-top: 0;
+}
+
+caption + h2,
+caption + h3,
+caption + h4,
+caption + h5 {
+  margin-top: calc(var(--base) * -0.5);
 }
