@@ -27,7 +27,7 @@ Press <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>a</kbd>
         return `Arrow${titlecase(this.character)}`
       }
       if(this.character == 'Escape'){
-        return `Escape`
+        return `${titlecase(this.character)}`
       }
       return `Key${titlecase(this.character)}`
     }
