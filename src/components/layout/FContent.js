@@ -6,6 +6,7 @@ import {
   parseContent,
   color,
   array2object,
+  setCssVariable
 } from "../../../fachwerk.js";
 
 import FMarkdown from "../internal/FMarkdown.js";
@@ -31,7 +32,7 @@ Shows Markdown content.
   data: () => ({ currentIndex: 0 }),
   computed: {
     preparedContent() {
-      return parseContent(this.content)
+      return parseContent(this.content);
     }
   },
   methods: {
@@ -91,6 +92,37 @@ Shows Markdown content.
       },
       { immediate: true }
     );
+    const paddingMap = {
+      slides: {
+        view: "var(--base8) var(--base6) var(--base6) var(--base6)",
+        edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
+      },
+      document: {
+        view: "var(--base8) calc(var(--base) * 18)",
+        edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
+      }
+    };
+    this.$watch(
+      "type",
+      type => {
+        setCssVariable(
+          "--content-padding",
+          paddingMap[type == "slides" ? "slides" : "document"][
+            this.$global.$data.state.preview ? "view" : "edit"
+          ]
+        );
+      },
+      { immediate: true }
+    );
+
+    Vue.prototype.$global.$on("edit", () =>
+      setCssVariable(
+        "--content-padding",
+        paddingMap[this.type == "slides" ? "slides" : "document"][
+          this.$global.$data.state.preview ? "view" : "edit"
+        ]
+      )
+    );
 
     const storedActiveIndex = store.get(this.saveId + ".index");
 
@@ -135,6 +167,7 @@ Shows Markdown content.
         :class="type == 'slides' ? 'fit' : ''"
         class="cells"
         :style="Object.assign({
+          '--base': type == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
           minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
@@ -163,10 +196,6 @@ Shows Markdown content.
     "--content-height": {
       default: "100vh",
       description: "Content height"
-    },
-    "--content-padding": {
-      default: "var(--base8) var(--base6) var(--base6) var(--base6)",
-      description: "Content padding"
     },
     "--content-gap": {
       default: "var(--base3)",

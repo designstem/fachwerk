@@ -77,6 +77,6 @@ Component can be imported using Javascript import:
     }
   },
   template: `
-  <f-content-editor :menu="false" :save-id="title" :content="generateContent(title,c)" />
+  <f-content-editor type="document" :menu="false" :save-id="title" :content="generateContent(title,c)" />
   `
 };
