@@ -142,12 +142,11 @@ new Vue({
   computed: {},
   created () {
     // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
-    console.log(sessionStorage.redirect)
-    if (sessionStorage.redirect) {
-      const redirect = sessionStorage.redirect
-      delete sessionStorage.redirect
-      this.$router.push(redirect)
-    }
+    // if (sessionStorage.redirect) {
+    //   const redirect = sessionStorage.redirect
+    //   delete sessionStorage.redirect
+    //   this.$router.push(redirect)
+    // }
   },
   mounted() {
     Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
@@ -189,9 +188,6 @@ new Vue({
       </div>
       <router-view
         style="--advanced-editor-height: auto;"
-        :style="{
-          '--content-padding': get('preview', false) ? 'calc(var(--base) * 12) calc(var(--base) * 18)' : 'calc(var(--base) * 8) calc(var(--base) * 6)'
-        }"
       ></router-view>
     </f-theme>
   `

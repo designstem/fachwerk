@@ -162,6 +162,7 @@ Creates a code editor with a live preview.
           :content="innerContent"
           :type="type"
           :saveId="saveId"
+          :preview="preview"
         />
       </div>
     </div>

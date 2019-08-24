@@ -48,7 +48,8 @@
 
   --slider-size: var(--base3);
 
-  --base: 10px;
+  --base: 8px;
+  
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
