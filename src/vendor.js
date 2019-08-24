@@ -9,11 +9,15 @@ import katex from "katex";
 import marked from "marked";
 import store from "store/dist/store.modern.js";
 import THREE from "three/build/three.js";
+import PortalVue from 'portal-vue'
 
 // @TODO 2.6+ import Vue from 'vue/dist/vue.esm.browser.js';
 
 import Vue from "vue/dist/vue.js";
+Vue.use(PortalVue)
+
 import VueRouter from 'vue-router/dist/vue-router.js'
+
 
 export {
   anime,
