@@ -1,4 +1,6 @@
 import { Vue, components, utils } from "../fachwerk.js";
+//import { Portal, PortalTarget } from "https://unpkg.com/portal-vue@2.1.6/dist/portal-vue.esm.js"
+//console.log(Portal)
 
 export function fachwerk(c = {}) {
   const config = {
@@ -66,10 +68,7 @@ export function fachwerk(c = {}) {
       Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
     },
     template: `
-    <div>
-      <portal to="fg-top-right">
-        <p>Some content</p>
-      </portal>
+    <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
       <f-menu v-if="config.menu" :src="config.src" />
       <f-pager v-if="config.pager" />
@@ -102,11 +101,12 @@ export function fachwerk(c = {}) {
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
       <portal-target
         multiple
-        name="fg-top-right"
+        name="foreground-top-right"
         style="
-          postion: fixed;
-          top: 0;
-          right: 0;
+          position: absolute;
+          top: var(--base);
+          right: var(--base);
+          display: flex;
         "
       />
     </div>

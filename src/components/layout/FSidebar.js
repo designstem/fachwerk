@@ -63,15 +63,17 @@ And 75% if the viewport is 800px or smaller...
   },
   template: `
     <span v-click-outside="clickOutside">
-      <span @click.prevent="currentOpen = !currentOpen">
-        <slot name="button">
-          <a style="
-            color: var(--blue);
-            border-bottom: 1px dotted var(--blue);
-            cursor: alias;"
-          >{{ title }}</a>
-        </slot>
-      </span>
+      <portal to="foreground-top-right">
+        <span @click.prevent="currentOpen = !currentOpen">
+          <slot name="button">
+            <a style="
+              color: var(--blue);
+              border-bottom: 1px dotted var(--blue);
+              cursor: alias;"
+            >{{ title }}</a>
+          </slot>
+        </span>
+      </portal>
       <f-fade class="f-sidebar__panel"
         v-if="currentOpen"
         style="
