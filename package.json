@@ -15,6 +15,7 @@
     "marked": "^0.6.2",
     "portal-vue": "^2.1.6",
     "rollup": "^1.1.2",
+    "rollup-plugin-alias": "^2.0.0",
     "rollup-plugin-commonjs": "^8.4.1",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.2.0",

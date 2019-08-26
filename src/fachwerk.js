@@ -99,16 +99,7 @@ export function fachwerk(c = {}) {
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
-      <portal-target
-        multiple
-        name="foreground-top-right"
-        style="
-          position: absolute;
-          top: var(--base);
-          right: var(--base);
-          display: flex;
-        "
-      />
+      <f-layer />
     </div>
   `
   });

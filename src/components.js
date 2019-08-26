@@ -302,6 +302,9 @@ export { FLink };
 import FColors from "./components/layout/FColors.js";
 export { FColors };
 
+import FLayer from "./components/layout/FLayer.js";
+export { FLayer };
+
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";

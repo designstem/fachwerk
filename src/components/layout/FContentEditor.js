@@ -95,18 +95,9 @@ Creates a code editor with a live preview.
       character="e"
       @keydown="set('preview', !get('preview', false))"
     />
-    <div
-      v-if="get('preview', false)"
-      style="
-        position: absolute;
-        z-index: 10000;
-        left: calc(var(--base) * 6);
-        top: var(--base);
-      "
-    >
-        <a slot="button" title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
-      <slot />
-    </div>
+    <portal to="topright" v-if="get('preview', false)" :order="-1">
+      <a title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+    </portal>
     <div class="content-editor">
       <div v-if="!get('preview', false)" class="editor">
         <div class="toolbar">
