@@ -1,7 +1,11 @@
+import { get } from "../../../fachwerk.js";
+
 export default {
   props: {
-    theme: { default: "light" }
+    theme: { default: "light", type: String },
+    menu: { default: true, type: Boolean }
   },
+  methods: { get },
   template: `
     <f-theme :theme="theme" style="display: flex;">
       <div style="
@@ -16,6 +20,21 @@ export default {
       >
         <slot name="menu_header" />
         <slot name="menu" />
+      </div>
+      <div v-if="!get('menu', true)"
+        class="closedmenu"
+        style="
+          min-width: 40px;
+          height: 100vh;
+          position: sticky;
+          top: 0;
+          cursor: pointer;
+        "
+        @click="set('menu', true)"
+      >
+        <f-inline style="margin-top: var(--base); --inline-gap: 0; --inline-justify: center">
+          <a class="quaternary"><f-menu-icon /></a>
+        </f-inline>
       </div>
       <div>
         <slot name="content" />

@@ -6,6 +6,7 @@ export default {
   <div>
     <portal-target
       multiple
+      class="topleft"
       name="topleft"
       style="
         position: absolute;
