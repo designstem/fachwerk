@@ -1,4 +1,6 @@
 import { Vue, components, utils } from "../fachwerk.js";
+//import { Portal, PortalTarget } from "https://unpkg.com/portal-vue@2.1.6/dist/portal-vue.esm.js"
+//console.log(Portal)
 
 export function fachwerk(c = {}) {
   const config = {
@@ -66,7 +68,7 @@ export function fachwerk(c = {}) {
       Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
     },
     template: `
-    <div>
+    <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
       <f-menu v-if="config.menu" :src="config.src" />
       <f-pager v-if="config.pager" />
@@ -97,6 +99,7 @@ export function fachwerk(c = {}) {
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
+      <f-layer />
     </div>
   `
   });

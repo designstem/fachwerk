@@ -8,17 +8,8 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
 `,
   methods: { send, get },
   template: `
-    <div>
-      <!-- @TODO Remove / 2 hack -->
-      <f-inline
-        style="
-          position: absolute;
-          z-index: 10000;
-          right: calc(var(--base) * 1.5);
-          top: calc(var(--base2) / 2);
-          cursor: pointer;
-        "
-      >
+     <portal to="topright" :order="2">
+      <f-inline>
         <a class="quaternary" style="padding: 0 4px" @click="send('prev')" ><f-leftarrow-icon /></a>
         <a class="quaternary" style="padding: 0 4px" @click="send('next')" ><f-rightarrow-icon /></a>
       </f-inline>
@@ -26,6 +17,6 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
       <f-keyboard alt character="right" @keydown="send('next')" />
       <f-keyboard v-if="get('preview')" character="left" @keydown="send('prev')" />
       <f-keyboard v-if="get('preview')" character="right" @keydown="send('next')" />
-    </div>
+    </portal>
   `
 };

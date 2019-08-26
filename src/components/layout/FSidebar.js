@@ -42,7 +42,8 @@ And 75% if the viewport is 800px or smaller...
     orientation: { default: "right", type: String },
     open: { default: false, type: Boolean },
     overlay: { default: false, type: Boolean },
-    width: { default: null, type: String }
+    width: { default: null, type: String },
+    layer: { default: 'topright', type: String }
   },
   data: () => ({ currentOpen: false }),
   mounted() {
@@ -62,16 +63,18 @@ And 75% if the viewport is 800px or smaller...
     }
   },
   template: `
-    <span v-click-outside="clickOutside">
-      <span @click.prevent="currentOpen = !currentOpen">
-        <slot name="button">
-          <a style="
-            color: var(--blue);
-            border-bottom: 1px dotted var(--blue);
-            cursor: alias;"
-          >{{ title }}</a>
-        </slot>
-      </span>
+    <span>
+      <portal :to="layer">
+        <span @click.prevent="currentOpen = !currentOpen">
+          <slot name="button">
+            <a style="
+              color: var(--blue);
+              border-bottom: 1px dotted var(--blue);
+              cursor: alias;"
+            >{{ title }}</a>
+          </slot>
+        </span>
+      </portal>
       <f-fade class="f-sidebar__panel"
         v-if="currentOpen"
         style="
@@ -122,26 +125,26 @@ And 75% if the viewport is 800px or smaller...
       </f-fade>
   </span>
   `,
-  directives: {
-    "click-outside": {
-      bind: function(el, binding) {
-        const handler = e => {
-          if (
-            binding.modifiers.bubble ||
-            (!el.contains(e.target) && el !== e.target)
-          ) {
-            binding.value(e);
-          }
-        };
-        el.__vueClickOutside__ = handler;
-        document.addEventListener("click", handler);
-      },
-      unbind: function(el, binding) {
-        document.removeEventListener("click", el.__vueClickOutside__);
-        el.__vueClickOutside__ = null;
-      }
-    }
-  },
+  // directives: {
+  //   "click-outside": {
+  //     bind: function(el, binding) {
+  //       const handler = e => {
+  //         if (
+  //           binding.modifiers.bubble ||
+  //           (!el.contains(e.target) && el !== e.target)
+  //         ) {
+  //           binding.value(e);
+  //         }
+  //       };
+  //       el.__vueClickOutside__ = handler;
+  //       document.addEventListener("click", handler);
+  //     },
+  //     unbind: function(el, binding) {
+  //       document.removeEventListener("click", el.__vueClickOutside__);
+  //       el.__vueClickOutside__ = null;
+  //     }
+  //   }
+  // },
   cssprops: {
     "--sidebar-width": {
       default: "33vw",

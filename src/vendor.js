@@ -10,10 +10,11 @@ import marked from "marked";
 import store from "store/dist/store.modern.js";
 import THREE from "three/build/three.js";
 
-// @TODO 2.6+ import Vue from 'vue/dist/vue.esm.browser.js';
-
-import Vue from "vue/dist/vue.js";
+import Vue from "vue/dist/vue.esm.js";
 import VueRouter from 'vue-router/dist/vue-router.js'
+
+import PortalVue from './vendor/PortalVue.js'
+Vue.use(PortalVue)
 
 export {
   anime,
