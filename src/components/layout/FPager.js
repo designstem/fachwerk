@@ -13,10 +13,6 @@ Sets a global pager for slides, shows prev / next buttons and also provides keyb
         <a class="quaternary" style="padding: 0 4px" @click="send('prev')" ><f-leftarrow-icon /></a>
         <a class="quaternary" style="padding: 0 4px" @click="send('next')" ><f-rightarrow-icon /></a>
       </f-inline>
-      <f-keyboard alt character="left" @keydown="send('prev')" />
-      <f-keyboard alt character="right" @keydown="send('next')" />
-      <f-keyboard v-if="get('preview')" character="left" @keydown="send('prev')" />
-      <f-keyboard v-if="get('preview')" character="right" @keydown="send('next')" />
     </portal>
   `
 };

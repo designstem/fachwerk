@@ -188,6 +188,7 @@ Shows Markdown content.
       :key="i"
       :theme="slide.theme || 'light'"
       :id="slide.section ? slug(slide.section) : 'id-' + i"
+      style="position: relative"
     >
       <f-fade
         v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"

@@ -21,8 +21,6 @@ Notes also respond to \`opennotes\` and \`closenotes\` events that trigger notes
   props: {
     title: { default: "Teacher notes", type: String },
     width: { default: "33vw", type: String },
-    /* @TODO: Remove this */
-    className: { default: "quaternary", type: String }
   },
   data: () => ({ open: false }),
   mounted() {
@@ -36,13 +34,13 @@ Notes also respond to \`opennotes\` and \`closenotes\` events that trigger notes
     :width="width"
     style="
       position: absolute;
-      z-index: 10000;
-      right: 95px;
-      top: 12px;
+      z-index: 5000;
+      right: var(--base2);
+      bottom: var(--base2);
     " 
     :style="{ '--sidebar-width': width }"
   >
-      <a slot="button" :class="className">{{ title }}</a>
+      <a slot="button" class="quaternary">{{ title }}</a>
     <slot />
   </f-sidebar>
   `

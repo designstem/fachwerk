@@ -1,4 +1,4 @@
-import { Css } from "../../../fachwerk.js";
+import { Css, get } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -43,7 +43,7 @@ And 75% if the viewport is 800px or smaller...
     open: { default: false, type: Boolean },
     overlay: { default: false, type: Boolean },
     width: { default: null, type: String },
-    layer: { default: 'topright', type: String }
+    button: { default: false, type: Boolean }
   },
   data: () => ({ currentOpen: false }),
   mounted() {
@@ -56,6 +56,7 @@ And 75% if the viewport is 800px or smaller...
     );
   },
   methods: {
+    get,
     clickOutside() {
       if (this.currentOpen == true) {
         this.currentOpen = false;
@@ -64,17 +65,15 @@ And 75% if the viewport is 800px or smaller...
   },
   template: `
     <span>
-      <portal :to="layer">
-        <span @click.prevent="currentOpen = !currentOpen">
-          <slot name="button">
-            <a style="
-              color: var(--blue);
-              border-bottom: 1px dotted var(--blue);
-              cursor: alias;"
-            >{{ title }}</a>
-          </slot>
-        </span>
-      </portal>
+      <span @click.prevent="currentOpen = !currentOpen">
+        <slot name="button">
+          <a style="
+            color: var(--blue);
+            border-bottom: 1px dotted var(--blue);
+            cursor: alias;"
+          >{{ title }}</a>
+        </slot>
+      </span>
       <f-fade class="f-sidebar__panel"
         v-if="currentOpen"
         style="
@@ -103,6 +102,7 @@ And 75% if the viewport is 800px or smaller...
             left: calc( 100% - var(--base6) );
             padding: 0 4px;
             background: var(--white);
+            --primary: var(--darkgray);
         "
         ><f-close-icon /> 
         </a>

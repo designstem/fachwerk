@@ -86,6 +86,10 @@ export function fachwerk(c = {}) {
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
+      <f-keyboard alt character="left" @keydown="send('prev')" />
+      <f-keyboard alt character="right" @keydown="send('next')" />
+      <f-keyboard v-if="!get('edit', false)" character="left" @keydown="send('prev')" />
+      <f-keyboard v-if="!get('edit', false)" character="right" @keydown="send('next')" />
     </div>
   `
   });
