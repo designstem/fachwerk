@@ -140,9 +140,6 @@ new Vue({
     ...utils
   },
   computed: {},
-  mounted() {
-    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
-  },
   template: `
     <f-layout :theme="['light','dark','yellow','blue'][theme]">
       <docs-menu slot="menu" :items="menuRoutes" />

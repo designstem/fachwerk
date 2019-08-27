@@ -1,3 +1,5 @@
+| chapter: Hello
+
 # Hallo Welt
 
 Here is a simple interactive scene to get you started.

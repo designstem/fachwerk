@@ -64,42 +64,28 @@ export function fachwerk(c = {}) {
         );
       }
     },
-    mounted() {
-      Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
-    },
     template: `
     <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
-      <f-menu v-if="config.menu" :src="config.src" />
-      <f-pager v-if="config.pager" />
-      <f-theme
-        :theme="config.theme"
-        :style="config.style"
-      >
-      <f-fetch :src="config.src" v-slot="{ value }">
-        <div>
-          <f-content
-            v-if="config.editor == 'none'"
-            :content="isarray(value) ? flattenContent(value) : value"
-            :type="config.type"
-          />
-          <f-content-editor
-            v-if="config.editor != 'none'"
-            :content="isarray(value) ? flattenContent(value) : value"
-            :preview="preview"
-            :style="editorStyle"
-            :save-id="'fachwerk.' + isarray(config.src)"
-            :type="['slides','document'][type]"
-            @togglePreview="preview = !preview"
-          />
-        </div>
-      </f-fetch>
-      </f-theme>
+      <f-layout :theme="config.theme" :style="config.style">
+        <f-menu slot="menu" />
+        <f-pager v-if="config.pager" />
+        <f-fetch :src="config.src" v-slot="{ value }">
+          <div slot="content">
+            <f-content-editor
+              :content="isarray(value) ? flattenContent(value) : value"
+              :style="editorStyle"
+              :save-id="'fachwerk.' + isarray(config.src)"
+              :type="['slides','document'][type]"
+              @togglePreview="preview = !preview"
+            />
+          </div>
+        </f-fetch>
+      </f-layout>
       <f-footer v-if="config.footer" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
-      <f-layer />
     </div>
   `
   });
