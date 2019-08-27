@@ -68,10 +68,10 @@ export function fachwerk(c = {}) {
     template: `
     <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
+      <f-pager v-if="get('type','slides') == 'slides'" />
       <f-fetch :src="config.src" v-slot="{ value }">
       <f-layout :theme="config.theme" :style="config.style">
         <f-menu slot="menu" :src="config.src" />
-        <f-pager />
           <div slot="content">
             <f-content-editor
               :content="isarray(value) ? flattenContent(value) : value"
