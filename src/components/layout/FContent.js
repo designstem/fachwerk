@@ -6,7 +6,9 @@ import {
   parseContent,
   color,
   array2object,
-  setCssVariable
+  setCssVariable,
+  get,
+  set
 } from "../../../fachwerk.js";
 
 import FMarkdown from "../internal/FMarkdown.js";
@@ -36,6 +38,8 @@ Shows Markdown content.
     }
   },
   methods: {
+    get,
+    set,
     array2object,
     first() {
       this.currentIndex = 0;
@@ -157,6 +161,12 @@ Shows Markdown content.
   },
   template: `
   <div class="content">
+    <portal to="topright" v-if="get('type', 'slides') == 'slides'" :order="-2">
+      <a class="quaternary" @click="set('type', 'document')">Document</a>
+    </portal>
+    <portal to="topright" v-if="get('type', 'slides') == 'document'" :order="-2">
+      <a class="quaternary" @click="set('type', 'slides')">Slides</a>
+    </portal>
     <f-theme
       v-for="(slide,i) in preparedContent"
       :key="i"

@@ -28,7 +28,7 @@ export default {
       <div>
         <slot name="content" />
       </div>
-      <portal to="topleft">
+      <portal to="topleft" :order="-2">
         <a class="quaternary" @click="set('menu', !get('menu',false))"><f-menu-icon /></a>
       </portal>
       <portal to="topleft">
