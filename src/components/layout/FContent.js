@@ -30,7 +30,8 @@ Shows Markdown content.
     content: { default: "", type: String },
     index: { default: 0, type: [String, Number] },
     saveId: { default: "fachwerk", type: String },
-    type: { default: "slides", type: String }
+    type: { default: "slides", type: String },
+    edit: { default: false, type: Boolean }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
@@ -118,17 +119,18 @@ Shows Markdown content.
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       },
       document: {
-        view: "var(--base8) calc(var(--base) * 18)",
+        view: "var(--base6) calc(var(--base) * 22)",
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       }
     };
+
     this.$watch(
       "type",
       type => {
         setCssVariable(
           "--content-padding",
           paddingMap[type == "slides" ? "slides" : "document"][
-            this.$global.$data.state.preview ? "view" : "edit"
+            this.edit ? "view" : "edit"
           ]
         );
       },
@@ -189,6 +191,7 @@ Shows Markdown content.
       :theme="slide.theme || 'light'"
       :id="slide.section ? slug(slide.section) : 'id-' + i"
       style="position: relative"
+      :style="{ borderBottom: get('type','slides') == 'document' ? '1px solid var(--subtle)' : '' }"
     >
       <f-fade
         v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"
@@ -197,7 +200,7 @@ Shows Markdown content.
         :style="Object.assign({
           '--base': get('type', 'slides') == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : get('type', 'slides') == 'slides' ? '100vh' : 'auto',
+          minHeight: slide.height ? slide.height : get('type', 'slides') == 'slides' ? '100vh' : '66vh',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,

@@ -9,6 +9,7 @@ export function fachwerk(c = {}) {
     editor: "hide",
     theme: "light",
     type: "slides",
+    edit: false,
     header: [],
     footer: false,
     menu: true,
@@ -63,7 +64,8 @@ export function fachwerk(c = {}) {
       }
     },
     mounted() {
-      Vue.set(this.$global.$data.state, 'type', this.type)
+      Vue.set(this.$global.$data.state, 'type', config.type)
+      Vue.set(this.$global.$data.state, 'edit', config.edit)
     },
     template: `
     <div style="position: relative">
@@ -78,13 +80,14 @@ export function fachwerk(c = {}) {
               :style="editorStyle"
               :save-id="'fachwerk.' + isarray(config.src)"
               :type="get('type','slides')"
+              :edit="get('edit', false)"
             />
           </div>
       </f-layout>
       </f-fetch>
       <f-footer v-if="config.footer" />
-      <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
-      <f-keyboard alt character="t" @keydown="type = 1 - type" />
+      <f-keyboard alt character="e" @keydown="set('edit', !get('edit', false))" />
+      <f-keyboard alt character="t" @keydown="set('type', get('type', 'slides') == 'document' ? 'document' : 'slides')" />
       <f-keyboard v-if="config.editor != 'none'" alt character="s" @keydown="send('save')" />
       <f-keyboard alt character="left" @keydown="send('prev')" />
       <f-keyboard alt character="right" @keydown="send('next')" />
