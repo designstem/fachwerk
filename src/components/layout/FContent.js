@@ -8,7 +8,8 @@ import {
   array2object,
   setCssVariable,
   get,
-  set
+  set,
+  slug
 } from "../../../fachwerk.js";
 
 import FMarkdown from "../internal/FMarkdown.js";
@@ -41,6 +42,7 @@ Shows Markdown content.
     get,
     set,
     array2object,
+    slug,
     first() {
       this.currentIndex = 0;
     },
@@ -55,15 +57,29 @@ Shows Markdown content.
         this.currentIndex++;
     },
     goto(id) {
-      if (typeof id === "string") {
-        const index = this.preparedContent.findIndex(
-          slide => slide.section === id || slide.id === id
-        );
-        if (index > -1) {
-          this.currentIndex = index;
+      if (Vue.prototype.$global.state.type == 'slides') {
+        if (typeof id === "string") {
+          const index = this.preparedContent.findIndex(
+            slide => slide.section === id || slide.id === id
+          );
+          if (index > -1) {
+            this.currentIndex = index;
+          }
+        } else {
+          this.currentIndex = id;
         }
-      } else {
-        this.currentIndex = id;
+      }
+      if (Vue.prototype.$global.state.type == 'document') {
+        if (typeof id === "string") {
+          const index = this.preparedContent.findIndex(
+            slide => slide.section === id || slide.id === id
+          );
+          if (index > -1) {
+            window.location.hash = slug(id)
+          }
+        } else {
+          window.location.hash = 'id-' + i
+        }
       }
     },
     background(slide) {
@@ -171,6 +187,7 @@ Shows Markdown content.
       v-for="(slide,i) in preparedContent"
       :key="i"
       :theme="slide.theme || 'light'"
+      :id="slide.section ? slug(slide.section) : 'id-' + i"
     >
       <f-fade
         v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"

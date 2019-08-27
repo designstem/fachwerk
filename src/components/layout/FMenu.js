@@ -8,14 +8,14 @@ export default {
   template: `
     <f-fetch :src="src" v-slot="{ value: content }">
       <div style="padding: var(--base2);">
-      <a
+      <!--a
         href="../"
         class="quaternary"
         style="margin-left: calc(var(--base) * -1)"
       >
         <f-leftarrow-icon />
         Back to projects
-      </a>
+      </a-->
       <div v-for="(c, i) in parseContent(content).filter(c => c.chapter || c.section)">
         <h5
           v-if="c.chapter"

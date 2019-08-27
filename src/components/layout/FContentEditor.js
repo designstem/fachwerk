@@ -1,4 +1,4 @@
-import { Vue, Css, store, get, set, log } from "../../../fachwerk.js";
+import { Vue, Css, store, get, set, log, setCssVariable } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -20,7 +20,7 @@ Creates a code editor with a live preview.
       type: [Boolean, Number, String]
     },
     preview: {
-      default: false,
+      default: true,
       type: [Boolean, Number, String]
     },
     saveId: {
@@ -49,17 +49,17 @@ Creates a code editor with a live preview.
     }
   },
   mounted() {
-    this.$watch(
-      "preview",
-      preview => {
-        Vue.set(
-          this.$global.$data.state,
-          'preview',
-          preview
-        );
-      },
-      { immediate: true }
-    );
+    // this.$watch(
+    //   "preview",
+    //   preview => {
+    //     Vue.set(
+    //       this.$global.$data.state,
+    //       'edit',
+    //       preview
+    //     );
+    //   },
+    //   { immediate: true }
+    // );
     this.$watch(
       "content",
       content => {
@@ -69,11 +69,12 @@ Creates a code editor with a live preview.
       },
       { immediate: true }
     );
+    
     if (this.$global) {
       this.$global.$on("save", () => this.handleSave());
       this.$global.$on("reset", () => this.handleReset());
     }
-    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
+    
   },
   unmounted() {
     clearTimeout(this.timeout);
@@ -89,16 +90,16 @@ Creates a code editor with a live preview.
     <f-keyboard
       alt
       character="e"
-      @keydown="set('preview', !get('preview', false))"
+      @keydown="set('edit', !get('edit', false))"
     />
-    <portal v-if="get('preview', false)" to="topleft" :order="-1">
-      <a title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+    <portal v-if="!get('edit', false)" to="topright" :order="-3">
+      <a title="Open editor Alt + e" class="quaternary" @click="set('edit', true)">Edit</a>
     </portal>
-    <portal v-if="!get('preview', false)" to="topleft" :order="-1">
-      <a title="Close editor Alt + e" class="quaternary" @click="set('preview', true)">View</a>
+    <portal v-if="get('edit', false)" to="topright" :order="-3">
+      <a title="Close editor Alt + e" class="quaternary" @click="set('edit', false)">View</a>
     </portal>
-    <div class="content-editor">
-      <div v-if="!get('preview', false)" class="editor">
+    <div class="content-editor" :style="{'--advanced-editor-height': get('type', 'slides') == 'slides' ? '100vh': 'auto' }">
+      <div v-if="get('edit', false)" class="editor">
         <div class="toolbar">
           <a
             v-if="state == 'saved' || state == 'saving'"
@@ -144,14 +145,10 @@ Creates a code editor with a live preview.
       default: "40vw",
       description: "Editor minimum width"
     },
-    "--content-editor-min-height": {
-      default: "auto",
-      description: "Editor minimum height"
-    },
-    "--content-editor-scale": {
-      default: "1",
-      description: "How much to scale content preview when editing"
-    }
+    // "--content-editor-min-height": {
+    //   default: "auto",
+    //   description: "Editor minimum height"
+    // },
   },
   css: `
   .content-editor {

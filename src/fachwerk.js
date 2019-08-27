@@ -1,4 +1,4 @@
-import { Vue, components, utils } from "../fachwerk.js";
+import { Vue, components, utils, get, set } from "../fachwerk.js";
 //import { Portal, PortalTarget } from "https://unpkg.com/portal-vue@2.1.6/dist/portal-vue.esm.js"
 //console.log(Portal)
 
@@ -33,8 +33,6 @@ export function fachwerk(c = {}) {
     el: config.el,
     data: {
       config,
-      type: config.type == "document" ? 1 : 0,
-      preview: config.editor == "hide" ? 1 : 0
     },
     methods: {
       ...utils,
@@ -64,24 +62,26 @@ export function fachwerk(c = {}) {
         );
       }
     },
+    mounted() {
+      Vue.set(this.$global.$data.state, 'type', this.type)
+    },
     template: `
     <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
+      <f-fetch :src="config.src" v-slot="{ value }">
       <f-layout :theme="config.theme" :style="config.style">
-        <f-menu slot="menu" />
-        <f-pager v-if="config.pager" />
-        <f-fetch :src="config.src" v-slot="{ value }">
+        <f-menu slot="menu" :src="config.src" />
+        <f-pager />
           <div slot="content">
             <f-content-editor
               :content="isarray(value) ? flattenContent(value) : value"
               :style="editorStyle"
               :save-id="'fachwerk.' + isarray(config.src)"
-              :type="['slides','document'][type]"
-              @togglePreview="preview = !preview"
+              :type="get('type','slides')"
             />
           </div>
-        </f-fetch>
       </f-layout>
+      </f-fetch>
       <f-footer v-if="config.footer" />
       <f-keyboard alt character="e" @keydown="preview = 1 - preview" />
       <f-keyboard alt character="t" @keydown="type = 1 - type" />
