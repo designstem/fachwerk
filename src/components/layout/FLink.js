@@ -1,9 +1,7 @@
 import { isurl, goto } from '../../../fachwerk.js'
 
 export default {
-  example: `<f-pager />
-
-Displays an internal or external link.
+  example: `Displays an internal or external link.
 
 This link goes to local <f-link to="/f-scene">f-scene</f-link> documentaton route
 

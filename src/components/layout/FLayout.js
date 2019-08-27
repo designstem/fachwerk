@@ -5,7 +5,8 @@ export default {
     theme: { default: "light", type: String },
   },
   data: () => ({
-    showMenu: true
+    showMenu: true,
+    showEditor: true
   }),
   methods: { get },
   template: `
@@ -19,17 +20,16 @@ export default {
           overflow: auto;
           background: var(--background);
           top: 0;
+          padding-top: var(--base4);
         "
-        @click="showMenu = false"
       >
-        <slot name="menu_header" />
         <slot name="menu" />
       </div>
       <div>
         <slot name="content" />
       </div>
       <portal to="topleft">
-        <a v-if="!showMenu" class="quaternary" @click="showMenu = true"><f-menu-icon /></a>
+        <a class="quaternary" @click="showMenu = !showMenu"><f-menu-icon /></a>
       </portal>
       <f-layer />
     </f-theme>

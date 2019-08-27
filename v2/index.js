@@ -145,21 +145,11 @@ new Vue({
   },
   template: `
     <f-layout :theme="['light','dark','yellow','blue'][theme]">
-      <a slot="menu_header" class="quaternary" @click="set('menu', false)"><f-close-icon  /></a>
       <docs-menu slot="menu" :items="menuRoutes" />
       <router-view
         slot="content"
         style="--advanced-editor-height: auto;"
       ></router-view>
-      <a
-        slot="topleft" 
-        v-if="!get('menu', true)"
-        @click="set('menu', !get('menu', true))"
-        class="quaternary"
-      >
-        <f-close-icon v-if="get('menu', true)" />
-        <f-menu-icon v-if="!get('menu', true)" />
-      </a>
       <f-colors
           slot="topright"
           :colors="['lightergray','darkgray','yellow','blue']"
