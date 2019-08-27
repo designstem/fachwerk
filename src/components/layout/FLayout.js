@@ -25,7 +25,7 @@ export default {
       >
         <slot name="menu" />
       </div>
-      <div>
+      <div style="flex: 1">
         <slot name="content" />
       </div>
       <portal to="topleft" :order="-2">
