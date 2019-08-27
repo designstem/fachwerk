@@ -19,7 +19,7 @@ Creates a code editor with a live preview.
       default: true,
       type: [Boolean, Number, String]
     },
-    preview: {
+    edit: {
       default: true,
       type: [Boolean, Number, String]
     },
@@ -49,17 +49,17 @@ Creates a code editor with a live preview.
     }
   },
   mounted() {
-    // this.$watch(
-    //   "preview",
-    //   preview => {
-    //     Vue.set(
-    //       this.$global.$data.state,
-    //       'edit',
-    //       preview
-    //     );
-    //   },
-    //   { immediate: true }
-    // );
+    this.$watch(
+      "edit",
+      edit => {
+        Vue.set(
+          this.$global.$data.state,
+          'edit',
+          edit
+        );
+      },
+      { immediate: true }
+    );
     this.$watch(
       "content",
       content => {
@@ -134,7 +134,7 @@ Creates a code editor with a live preview.
           :content="innerContent"
           :type="type"
           :saveId="saveId"
-          :preview="preview"
+          :edit="get('edit', false)"
         />
       </div>
     </div>
