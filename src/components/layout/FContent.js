@@ -106,27 +106,27 @@ Shows Markdown content.
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       }
     };
-    this.$watch(
-      "type",
-      type => {
-        setCssVariable(
-          "--content-padding",
-          paddingMap[type == "slides" ? "slides" : "document"][
-            this.$global.$data.state.preview ? "view" : "edit"
-          ]
-        );
-      },
-      { immediate: true }
-    );
+    // this.$watch(
+    //   "type",
+    //   type => {
+    //     setCssVariable(
+    //       "--content-padding",
+    //       paddingMap[type == "slides" ? "slides" : "document"][
+    //         this.$global.$data.state.preview ? "view" : "edit"
+    //       ]
+    //     );
+    //   },
+    //   { immediate: true }
+    // );
 
-    Vue.prototype.$global.$on("edit", () =>
-      setCssVariable(
-        "--content-padding",
-        paddingMap[this.type == "slides" ? "slides" : "document"][
-          this.$global.$data.state.preview ? "view" : "edit"
-        ]
-      )
-    );
+    // Vue.prototype.$global.$on("edit", () =>
+    //   setCssVariable(
+    //     "--content-padding",
+    //     paddingMap[this.type == "slides" ? "slides" : "document"][
+    //       this.$global.$data.state.preview ? "view" : "edit"
+    //     ]
+    //   )
+    // );
 
     const storedActiveIndex = store.get(this.saveId + ".index");
 
@@ -173,18 +173,18 @@ Shows Markdown content.
       :theme="slide.theme || 'light'"
     >
       <f-fade
-        v-if="type == 'slides' ? i == currentIndex : true"
-        :class="type == 'slides' ? 'fit' : ''"
+        v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"
+        :class="get('type', 'slides') == 'slides' ? 'fit' : ''"
         class="cells"
         :style="Object.assign({
-          '--base': type == 'slides' ? '11px' : '8px',
+          '--base': get('type', 'slides') == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+          minHeight: slide.height ? slide.height : get('type', 'slides') == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
           gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
-          padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
+          padding: (slide.padding || '').trim() ? slide.padding : 'var(--base8) var(--base6) var(--base6) var(--base6)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : '',
           backgroundRepeat: slide.background ? 'no-repeat' : '',
