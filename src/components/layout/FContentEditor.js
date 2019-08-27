@@ -103,7 +103,7 @@ Creates a code editor with a live preview.
           <a
             v-if="state == 'saved' || state == 'saving'"
             class="quaternary"
-            style="opacity: 0.3;"
+            style="opacity: 0.3; margin-right: var(--base);"
             @click="handleReset"
           >
             Reset to original
@@ -111,7 +111,7 @@ Creates a code editor with a live preview.
           <a
             @click="handleSave"
             class="quaternary"
-            :style="{ marginLeft: 'calc(var(--base) * 4)', opacity: state == 'saved' ? 1 : 0.5}"
+            :style="{ display: 'flex', justifyContent: 'flex-end', width: '14ch', opacity: state == 'saved' ? 1 : 0.5}"
           >
             {{ labels[state] }}
           </a>

@@ -151,11 +151,11 @@ new Vue({
         style="--advanced-editor-height: auto;"
       ></router-view>
       <f-colors
-          slot="topright"
-          :colors="['lightergray','darkgray','yellow','blue']"
-          value="0"
-          v-on:value="v => theme = v"
-        />
+        slot="topright"
+        :colors="['lightergray','darkgray','yellow','blue']"
+        value="0"
+        v-on:value="v => theme = v"
+      />
     </f-layout>
   `
 }).$mount("#fachwerk");

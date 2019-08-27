@@ -22,7 +22,7 @@ export default {
       style="
         position: absolute;
         top: var(--base);
-        right: var(--base);
+        right: var(--base2);
         display: flex;
       "
     />

@@ -1,4 +1,4 @@
-import { get } from "../../../fachwerk.js";
+import { get, set } from "../../../fachwerk.js";
 
 export default {
   props: {
@@ -8,11 +8,11 @@ export default {
     showMenu: true,
     showEditor: true
   }),
-  methods: { get },
+  methods: { get, set },
   template: `
     <f-theme :theme="theme" style="display: flex;">
       <div
-        v-if="showMenu"
+        v-if="get('menu',false)"
         style="
           position: sticky;
           min-width: 200px;
@@ -29,7 +29,13 @@ export default {
         <slot name="content" />
       </div>
       <portal to="topleft">
-        <a class="quaternary" @click="showMenu = !showMenu"><f-menu-icon /></a>
+        <a class="quaternary" @click="set('menu', !get('menu',false))"><f-menu-icon /></a>
+      </portal>
+      <portal to="topleft">
+        <slot name="topleft" />
+      </portal>
+      <portal to="topright">
+        <slot name="topright" />
       </portal>
       <f-layer />
     </f-theme>
