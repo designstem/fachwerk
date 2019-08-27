@@ -1,4 +1,4 @@
-import { Vue, Css, store, get, set, log } from "../../../fachwerk.js";
+import { Vue, Css, store, get, set, log, setCssVariable } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -20,16 +20,12 @@ Creates a code editor with a live preview.
       type: [Boolean, Number, String]
     },
     preview: {
-      default: false,
+      default: true,
       type: [Boolean, Number, String]
     },
     saveId: {
       default: "fachwerk",
       type: String
-    },
-    menu: {
-      default: false,
-      type: [Boolean, Number, String]
     },
   },
   data: () => ({
@@ -53,17 +49,17 @@ Creates a code editor with a live preview.
     }
   },
   mounted() {
-    this.$watch(
-      "preview",
-      preview => {
-        Vue.set(
-          this.$global.$data.state,
-          'preview',
-          preview
-        );
-      },
-      { immediate: true }
-    );
+    // this.$watch(
+    //   "preview",
+    //   preview => {
+    //     Vue.set(
+    //       this.$global.$data.state,
+    //       'edit',
+    //       preview
+    //     );
+    //   },
+    //   { immediate: true }
+    // );
     this.$watch(
       "content",
       content => {
@@ -73,11 +69,12 @@ Creates a code editor with a live preview.
       },
       { immediate: true }
     );
+    
     if (this.$global) {
       this.$global.$on("save", () => this.handleSave());
       this.$global.$on("reset", () => this.handleReset());
     }
-    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
+    
   },
   unmounted() {
     clearTimeout(this.timeout);
@@ -93,49 +90,33 @@ Creates a code editor with a live preview.
     <f-keyboard
       alt
       character="e"
-      @keydown="set('preview', !get('preview', false))"
+      @keydown="set('edit', !get('edit', false))"
     />
-    <portal to="topright" v-if="get('preview', false)" :order="-1">
-      <a title="Open editor Alt + e" class="quaternary" @click="set('preview', false)">Edit</a>
+    <portal v-if="!get('edit', false)" to="topright" :order="-3">
+      <a title="Open editor Alt + e" class="quaternary" @click="set('edit', true)">Edit</a>
     </portal>
-    <div class="content-editor">
-      <div v-if="!get('preview', false)" class="editor">
+    <portal v-if="get('edit', false)" to="topright" :order="-3">
+      <a title="Close editor Alt + e" class="quaternary" @click="set('edit', false)">View</a>
+    </portal>
+    <div class="content-editor" :style="{'--advanced-editor-height': get('type', 'slides') == 'slides' ? '100vh': 'auto' }">
+      <div v-if="get('edit', false)" class="editor">
         <div class="toolbar">
-        <div style="display: flex">
           <a
-            v-if="menu"
+            v-if="state == 'saved' || state == 'saving'"
             class="quaternary"
-            style="opacity: 0.5"
-            @click="send('openmenu')"
+            style="opacity: 0.3; margin-right: var(--base);"
+            @click="handleReset"
           >
-            <f-menu-icon />
+            Reset to original
           </a>
           <a
             @click="handleSave"
             class="quaternary"
-            :style="{ marginLeft: 'calc(var(--base) * 4)', opacity: state == 'saved' ? 1 : 0.5}"
+            :style="{ display: 'flex', justifyContent: 'flex-end', width: '14ch', opacity: state == 'saved' ? 1 : 0.5}"
           >
             {{ labels[state] }}
           </a>
-        </div>
-        <div>
-            <div
-              v-if="state == 'saved' || state == 'saving'"
-              class="quaternary"
-              style="opacity: 0.3"
-              @click="handleReset"
-            >
-              Reset to original
-            </div>
-            &nbsp;
-          </div>
-          <a
-            class="quaternary"
-            style="opacity: 0.5"
-            @click="set('preview', true)"
-            title="Close editor Alt + e"
-          ><f-close-icon /></a>
-          
+         
         </div>
         <f-editor
           v-if="!advanced"
@@ -164,14 +145,10 @@ Creates a code editor with a live preview.
       default: "40vw",
       description: "Editor minimum width"
     },
-    "--content-editor-min-height": {
-      default: "auto",
-      description: "Editor minimum height"
-    },
-    "--content-editor-scale": {
-      default: "1",
-      description: "How much to scale content preview when editing"
-    }
+    // "--content-editor-min-height": {
+    //   default: "auto",
+    //   description: "Editor minimum height"
+    // },
   },
   css: `
   .content-editor {
@@ -193,24 +170,12 @@ Creates a code editor with a live preview.
     flex: 1;
   }
   .content-editor .toolbar {
-    /* @TODO Fix this padding */
-    padding: var(--base) var(--base) 0 var(--base);
-    height: calc(var(--base) * 7);
+    padding: var(--base);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-start;
     background: var(--paleblue);
-  }
-  .content-editor .editor-button {
-    border: none;
-    background: none;
-    font-size: calc(var(--base) * 1.75);
-    font-family: var(--font-sansserif);
-    font-weight: normal;
-    color: var(--white);
-    padding: var(--base) calc(var(--base) * 1.75) 0 calc(var(--base) * 1.75);
-    cursor: pointer;
   }
   @media (max-width: 800px) {
     .content-editor {

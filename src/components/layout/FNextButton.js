@@ -1,4 +1,4 @@
-import { send } from '../../../fachwerk.js'
+import { send, get } from '../../../fachwerk.js'
 
 export default {
   description: `
@@ -9,7 +9,7 @@ Button that navigates to the next slide.
 <p />
   `,
   props: { title: { default: "Next step", description: "Button title" } },
-  methods: { send },
+  methods: { send, get },
   template: `
-  <button class="primary" @click="send('next')">{{ title }} <f-rightarrow-icon /></button>
+  <button v-show="get('type','slides') == 'slides'" class="primary" @click="send('next')">{{ title }} <f-rightarrow-icon /></button>
   `,};

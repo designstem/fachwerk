@@ -305,6 +305,9 @@ export { FColors };
 import FLayer from "./components/layout/FLayer.js";
 export { FLayer };
 
+import FLayout from "./components/layout/FLayout.js";
+export { FLayout };
+
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";

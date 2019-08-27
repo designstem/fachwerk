@@ -6,6 +6,7 @@ export default {
   <div>
     <portal-target
       multiple
+      class="topleft"
       name="topleft"
       style="
         position: absolute;
@@ -21,7 +22,7 @@ export default {
       style="
         position: absolute;
         top: var(--base);
-        right: var(--base);
+        right: var(--base2);
         display: flex;
       "
     />

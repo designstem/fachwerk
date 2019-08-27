@@ -6,7 +6,10 @@ import {
   parseContent,
   color,
   array2object,
-  setCssVariable
+  setCssVariable,
+  get,
+  set,
+  slug
 } from "../../../fachwerk.js";
 
 import FMarkdown from "../internal/FMarkdown.js";
@@ -36,7 +39,10 @@ Shows Markdown content.
     }
   },
   methods: {
+    get,
+    set,
     array2object,
+    slug,
     first() {
       this.currentIndex = 0;
     },
@@ -51,15 +57,29 @@ Shows Markdown content.
         this.currentIndex++;
     },
     goto(id) {
-      if (typeof id === "string") {
-        const index = this.preparedContent.findIndex(
-          slide => slide.section === id || slide.id === id
-        );
-        if (index > -1) {
-          this.currentIndex = index;
+      if (Vue.prototype.$global.state.type == 'slides') {
+        if (typeof id === "string") {
+          const index = this.preparedContent.findIndex(
+            slide => slide.section === id || slide.id === id
+          );
+          if (index > -1) {
+            this.currentIndex = index;
+          }
+        } else {
+          this.currentIndex = id;
         }
-      } else {
-        this.currentIndex = id;
+      }
+      if (Vue.prototype.$global.state.type == 'document') {
+        if (typeof id === "string") {
+          const index = this.preparedContent.findIndex(
+            slide => slide.section === id || slide.id === id
+          );
+          if (index > -1) {
+            window.location.hash = slug(id)
+          }
+        } else {
+          window.location.hash = 'id-' + i
+        }
       }
     },
     background(slide) {
@@ -102,27 +122,27 @@ Shows Markdown content.
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       }
     };
-    this.$watch(
-      "type",
-      type => {
-        setCssVariable(
-          "--content-padding",
-          paddingMap[type == "slides" ? "slides" : "document"][
-            this.$global.$data.state.preview ? "view" : "edit"
-          ]
-        );
-      },
-      { immediate: true }
-    );
+    // this.$watch(
+    //   "type",
+    //   type => {
+    //     setCssVariable(
+    //       "--content-padding",
+    //       paddingMap[type == "slides" ? "slides" : "document"][
+    //         this.$global.$data.state.preview ? "view" : "edit"
+    //       ]
+    //     );
+    //   },
+    //   { immediate: true }
+    // );
 
-    Vue.prototype.$global.$on("edit", () =>
-      setCssVariable(
-        "--content-padding",
-        paddingMap[this.type == "slides" ? "slides" : "document"][
-          this.$global.$data.state.preview ? "view" : "edit"
-        ]
-      )
-    );
+    // Vue.prototype.$global.$on("edit", () =>
+    //   setCssVariable(
+    //     "--content-padding",
+    //     paddingMap[this.type == "slides" ? "slides" : "document"][
+    //       this.$global.$data.state.preview ? "view" : "edit"
+    //     ]
+    //   )
+    // );
 
     const storedActiveIndex = store.get(this.saveId + ".index");
 
@@ -157,24 +177,31 @@ Shows Markdown content.
   },
   template: `
   <div class="content">
+    <portal to="topright" v-if="get('type', 'slides') == 'slides'" :order="-2">
+      <a class="quaternary" @click="set('type', 'document')">Document</a>
+    </portal>
+    <portal to="topright" v-if="get('type', 'slides') == 'document'" :order="-2">
+      <a class="quaternary" @click="set('type', 'slides')">Slides</a>
+    </portal>
     <f-theme
       v-for="(slide,i) in preparedContent"
       :key="i"
       :theme="slide.theme || 'light'"
+      :id="slide.section ? slug(slide.section) : 'id-' + i"
     >
       <f-fade
-        v-if="type == 'slides' ? i == currentIndex : true"
-        :class="type == 'slides' ? 'fit' : ''"
+        v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"
+        :class="get('type', 'slides') == 'slides' ? 'fit' : ''"
         class="cells"
         :style="Object.assign({
-          '--base': type == 'slides' ? '11px' : '8px',
+          '--base': get('type', 'slides') == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+          minHeight: slide.height ? slide.height : get('type', 'slides') == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
           gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
-          padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
+          padding: (slide.padding || '').trim() ? slide.padding : 'var(--base8) var(--base6) var(--base6) var(--base6)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : '',
           backgroundRepeat: slide.background ? 'no-repeat' : '',

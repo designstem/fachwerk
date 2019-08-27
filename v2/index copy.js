@@ -140,19 +140,55 @@ new Vue({
     ...utils
   },
   computed: {},
+  created () {
+    // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+    // if (sessionStorage.redirect) {
+    //   const redirect = sessionStorage.redirect
+    //   delete sessionStorage.redirect
+    //   this.$router.push(redirect)
+    // }
+  },
+  mounted() {
+    Vue.prototype.$global.$on("edit", () => (this.preview = !this.preview));
+  },
   template: `
-    <f-layout :theme="['light','dark','yellow','blue'][theme]">
-      <docs-menu slot="menu" :items="menuRoutes" />
+    <f-theme :theme="['light','dark','yellow','blue'][theme]" style="display: flex;">
+      <div v-if="get('menu', true)" style="
+        min-width: 200px;
+        height: 100vh;
+        overflow: auto;
+        background: var(--background);
+        position: sticky;
+        top: 0;
+      ">
+        <f-inline style="margin: var(--base); --inline-justify: space-between">
+          <f-colors
+            :colors="['lightergray','darkgray','yellow','blue']"
+            value="0"
+            v-on:value="v => theme = v"
+          />
+          <a class="quaternary" @click="set('menu', false)"><f-close-icon  /></a>
+        </f-inline>
+        <docs-menu :items="menuRoutes" />
+      </div>
+      <div v-if="!get('menu', true)"
+        class="closedmenu"
+        style="
+        min-width: 40px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        cursor: pointer;
+      "
+      @click="set('menu', true)"
+      >
+        <f-inline style="margin-top: var(--base); --inline-gap: 0; --inline-justify: center">
+          <a class="quaternary"><f-menu-icon /></a>
+        </f-inline>
+      </div>
       <router-view
-        slot="content"
         style="--advanced-editor-height: auto;"
       ></router-view>
-      <f-colors
-        slot="topright"
-        :colors="['lightergray','darkgray','yellow','blue']"
-        value="0"
-        v-on:value="v => theme = v"
-      />
-    </f-layout>
+    </f-theme>
   `
 }).$mount("#fachwerk");

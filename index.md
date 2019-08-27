@@ -14,10 +14,11 @@
   </f-scene>
 </center>
 
-# <big>Fachwerk</big>
+<big>
 
-<big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big>
+# Fachwerk
 
+A **VueJS** and **Markdown** based framework for creating interactive learning materials.
 
 <f-slider
 	set="r"
@@ -39,6 +40,8 @@ Our [documentation](./docs) contains helpful **🔮 guides** to get started and 
 Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
 
 ## FAQ
+
+</big>
 
 -
 
