@@ -122,18 +122,18 @@ Shows Markdown content.
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       }
     };
-    // this.$watch(
-    //   "type",
-    //   type => {
-    //     setCssVariable(
-    //       "--content-padding",
-    //       paddingMap[type == "slides" ? "slides" : "document"][
-    //         this.$global.$data.state.preview ? "view" : "edit"
-    //       ]
-    //     );
-    //   },
-    //   { immediate: true }
-    // );
+    this.$watch(
+      "type",
+      type => {
+        setCssVariable(
+          "--content-padding",
+          paddingMap[type == "slides" ? "slides" : "document"][
+            this.$global.$data.state.preview ? "view" : "edit"
+          ]
+        );
+      },
+      { immediate: true }
+    );
 
     // Vue.prototype.$global.$on("edit", () =>
     //   setCssVariable(
@@ -201,7 +201,7 @@ Shows Markdown content.
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
           gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
-          padding: (slide.padding || '').trim() ? slide.padding : 'var(--base8) var(--base6) var(--base6) var(--base6)',
+          padding: (slide.padding || '').trim() ? slide.padding : 'var(--content-padding)',
           background: slide.background ? background(slide) : '',
           backgroundSize: slide.background ? 'cover' : '',
           backgroundRepeat: slide.background ? 'no-repeat' : '',
