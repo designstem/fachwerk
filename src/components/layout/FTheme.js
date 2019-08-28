@@ -29,19 +29,7 @@ Technically it adjust CSS custom properties and redefines the color constants fo
     return {
       currentTheme: this.theme,
       themes: {
-        light: {
-          background: "var(--white)",
-          "--background": "var(--white)",
-          "--primary": "var(--darkgray)",
-          "--secondary": "var(--gray)",
-          "--tertiary": "var(--lightgray)",
-          "--lightblue": "var(--darkblue)",
-          "--quaternary": "var(--lightgray)",
-          "--blue": "var(--blue)",
-          "--accent": "var(--purple)",
-          "--lightemphasis": "var(--lighteryellow)",
-          "--emphasis": "var(--yellow)"
-        },
+        light: {},
         dark: {
           background: "var(--darkestgray)",
           "--background": "var(--darkestgray)",

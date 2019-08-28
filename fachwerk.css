@@ -147,7 +147,7 @@ a {
   font-weight: 500;
 }
 a:hover {
-  filter: brightness(90%);
+  filter: brightness(50%);
 }
 b,
 strong {
