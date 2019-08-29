@@ -92,10 +92,10 @@ Creates a code editor with a live preview.
       character="e"
       @keydown="set('edit', !get('edit', false))"
     />
-    <portal v-if="!get('edit', false)" to="topright" :order="-3">
+    <portal v-if="!get('edit', false)" to="topleft" :order="0">
       <a title="Open editor Alt + e" class="quaternary" @click="set('edit', true)">Edit</a>
     </portal>
-    <portal v-if="get('edit', false)" to="topright" :order="-3">
+    <portal v-if="get('edit', false)" to="topleft" :order="0">
       <a title="Close editor Alt + e" class="quaternary" @click="set('edit', false)">View</a>
     </portal>
     <div class="content-editor" :style="{'--advanced-editor-height': get('type', 'slides') == 'slides' ? '100vh': 'auto' }">
