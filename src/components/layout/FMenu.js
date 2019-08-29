@@ -1,13 +1,14 @@
-import { parseContent, goto, get } from "../../../fachwerk.js";
+import { parseContent, goto, get, set } from "../../../fachwerk.js";
 
 export default {
   props: {
-    src: { default: "", type: [String, Array] }
+    src: { default: "", type: [String, Array] },
+    title: { default: "", type: String }
   },
-  methods: { parseContent, goto, get },
+  methods: { parseContent, goto, get, set },
   template: `
     <f-fetch :src="src" v-slot="{ value: content }">
-      <div style="padding: var(--base2);">
+      <div>
       <!--a
         href="../"
         class="quaternary"
@@ -19,18 +20,26 @@ export default {
       <div v-for="(c, i) in parseContent(content).filter(c => c.chapter || c.section)">
         <h5
           v-if="c.chapter"
-          style="margin-top: var(--base2)"
+          style="
+            padding: var(--base) var(--base) var(--base) var(--base2);
+            margin: var(--base2) 0 0 0;
+          "
         >
           {{ c.chapter }}
         </h5>
         <h5
-          v-if="c.section"
-          style="display: block; cursor: pointer; padding-left: 1ch; margin: var(--base) 0 0 0"
+          style="
+            display: block;
+            cursor: pointer;
+            padding-left: 1ch;
+            margin: 0;
+            padding: var(--base) var(--base) var(--base) var(--base3)
+          "
           :style="{
-            borderLeft: get('section','') == c.section ? 'var(--border-width) solid var(--blue)' : 'var(--border-width) solid var(--transparent)',
-            fontWeight: get('section','') == c.section ? 'bold' : 'normal',
+            background: get('section','') == c.section ? 'var(--lightergray)' : 'var(--transparent)',
+            fontWeight: 'normal',
           }"
-          @click="goto(c.section)"
+          @click="set('section', c.section); goto(c.section)"
         >
           {{ c.section }}
         </h5>
