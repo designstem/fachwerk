@@ -1,9 +1,10 @@
-import { Vue, components, utils } from "../fachwerk.js";
+import { Vue, components, utils, get, set } from "../fachwerk.js";
+//import { Portal, PortalTarget } from "https://unpkg.com/portal-vue@2.1.6/dist/portal-vue.esm.js"
+//console.log(Portal)
 
 export function fachwerk(c = {}) {
   const config = {
     el: "#fachwerk",
-    title: 'Fachwerk',
     src: "./index.md",
     editor: "hide",
     theme: "light",
@@ -72,12 +73,12 @@ export function fachwerk(c = {}) {
       <f-pager v-if="get('type','slides') == 'slides'" />
       <f-fetch :src="config.src" v-slot="{ value }">
       <f-layout :theme="config.theme" :style="config.style">
-        <f-menu slot="menu" :src="config.src" :title="src.title" />
+        <f-menu slot="menu" :src="config.src" />
           <div slot="content">
             <f-content-editor
               :content="isarray(value) ? flattenContent(value) : value"
               :style="editorStyle"
-              :save-id="'fachwerk.' + slug(config.title)"
+              :save-id="'fachwerk.' + isarray(config.src)"
               :type="get('type','slides')"
               :edit="get('edit', false)"
             />
