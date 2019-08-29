@@ -1,11 +1,10 @@
-import { Vue, components, utils, get, set } from "../fachwerk.js";
-//import { Portal, PortalTarget } from "https://unpkg.com/portal-vue@2.1.6/dist/portal-vue.esm.js"
-//console.log(Portal)
+import { Vue, components, utils, get, set, slug } from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
   const config = {
     el: "#fachwerk",
     src: "./index.md",
+    title: "Fachwerk",
     editor: "hide",
     theme: "light",
     type: "slides",
@@ -33,7 +32,7 @@ export function fachwerk(c = {}) {
   new Vue({
     el: config.el,
     data: {
-      config,
+      config
     },
     methods: {
       ...utils,
@@ -41,9 +40,7 @@ export function fachwerk(c = {}) {
         return content
           .map(
             (c, i) =>
-              `<!-- Start of ${this.config.src[i]} -->\n\n${c}\n\n<!-- End of ${
-                this.config.src[i]
-              } -->`
+              `<!-- Start of ${this.config.src[i]} -->\n\n${c}\n\n<!-- End of ${this.config.src[i]} -->`
           )
           .join("\n\n---\n\n");
       }
@@ -64,8 +61,8 @@ export function fachwerk(c = {}) {
       }
     },
     mounted() {
-      Vue.set(this.$global.$data.state, 'type', config.type)
-      Vue.set(this.$global.$data.state, 'edit', config.edit)
+      Vue.set(this.$global.$data.state, "type", config.type);
+      Vue.set(this.$global.$data.state, "edit", config.edit);
     },
     template: `
     <div style="position: relative">
@@ -78,7 +75,7 @@ export function fachwerk(c = {}) {
             <f-content-editor
               :content="isarray(value) ? flattenContent(value) : value"
               :style="editorStyle"
-              :save-id="'fachwerk.' + isarray(config.src)"
+              :save-id="'fachwerk.' + slug(config.title)"
               :type="get('type','slides')"
               :edit="get('edit', false)"
             />
