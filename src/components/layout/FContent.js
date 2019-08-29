@@ -179,10 +179,10 @@ Shows Markdown content.
   },
   template: `
   <div class="content">
-    <portal to="menu_top" v-if="get('type', 'slides') == 'slides'" :order="-2">
+    <portal to="topright" v-if="get('type', 'slides') == 'slides'" :order="-2">
       <a class="quaternary" @click="set('type', 'document')">Document</a>
     </portal>
-    <portal to="menu_top" v-if="get('type', 'slides') == 'document'" :order="-2">
+    <portal to="topright" v-if="get('type', 'slides') == 'document'" :order="-2">
       <a class="quaternary" @click="set('type', 'slides')">Slides</a>
     </portal>
     <f-theme
