@@ -2,7 +2,8 @@ import { parseContent, goto, get, set } from "../../../fachwerk.js";
 
 export default {
   props: {
-    src: { default: "", type: [String, Array] }
+    src: { default: "", type: [String, Array] },
+    title: { default: "", type: String }
   },
   methods: { parseContent, goto, get, set },
   template: `
