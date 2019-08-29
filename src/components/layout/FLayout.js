@@ -12,7 +12,7 @@ export default {
   template: `
     <f-theme :theme="theme" style="display: flex;">
       <div
-        v-if="get('menu',false)"
+        v-show="get('menu',false)"
         style="
           position: sticky;
           min-width: 200px;
@@ -23,6 +23,9 @@ export default {
           padding-top: var(--base4);
         "
       >
+        <portal to="menu_top">
+          <slot name="menu_top" />
+        </portal>
         <slot name="menu" />
       </div>
       <div style="flex: 1">
