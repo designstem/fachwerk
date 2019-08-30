@@ -1,7 +1,28 @@
 | chapter: Hello
-| section: a
+| section: First section
+| theme: dark
 
-# Hallo Welt
+
+<f-notes2 size="half">
+
+## Yo
+
+</f-notes2>
+
+<f-sidebar2 src="./test.md" size="wide">
+  <var>aaaa</var>
+</f-sidebar2>
+
+<f-sidebar2>
+  <var>aaaa</var>
+  <div slot="content">
+
+## Hello world
+
+  </div>
+</f-sidebar2>
+
+## Hallo Welt
 
 Here is a simple interactive scene to get you started.
 
@@ -17,9 +38,9 @@ Slider value is `{{ get('a') }}`
 
 ---
 
-| section: Hiini
+| section: Second section
 
-# Ahaa
+## Ahaa
 
 Here is a simple interactive scene to get you started.
 

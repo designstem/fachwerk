@@ -26,6 +26,9 @@ export default {
         display: flex;
       "
     />
+    <portal-target
+      name="overlay"
+    />
   </div>`,
   css: `
   .topleft > * {
