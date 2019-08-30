@@ -10,7 +10,7 @@ export default {
   template: `
   <span>
     <span
-      @click.stop="open = !open"
+      @click.prevent="open = true"
       style="
         border-bottom: 1px dotted var(--gray);
         cursor: alias;

@@ -9,7 +9,7 @@ export default {
   template: `
   <span>
     <span
-      @click.stop="open = !open"
+      @click.prevent="open = true"
       style="
         position: absolute;
         right: var(--base2);
