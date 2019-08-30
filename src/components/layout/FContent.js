@@ -199,7 +199,7 @@ Shows Markdown content.
         :class="type == 'slides' ? 'fit' : ''"
         class="cells"
         :style="Object.assign({
-          '--base': type == 'slides' ? '11px' : '8px',
+          '----base': type == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
           minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',

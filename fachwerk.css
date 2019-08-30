@@ -47,9 +47,9 @@
   --border-radius: 6px;
 
   --slider-size: var(--base3);
-
-  --base: 8px;
   
+  --base: calc(4px + 0.5vw);
+
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
@@ -154,7 +154,7 @@ strong {
   color: var(--primary);
 }
 big, big p {
-  --base: 12px;
+  ----base: 12px;
 }
 big h1 {
   letter-spacing: -0.02em;
@@ -170,7 +170,7 @@ big big big h1 {
 
 small,
 small p {
-  --base: 7px;
+  ----base: 7px;
   opacity: 0.8;
 }
 
@@ -635,11 +635,9 @@ button.quaternary {
   outline: none;
   transition: all 0.1s linear;
   font-family: var(--font-sansserif);
-  font-size: 14px;
+  font-size: calc(var(--base) * 0.9);
   font-weight: bold;
   border: none;
-  --icon-stroke: var(--gray);
-  --icon-fill: var(--transparent);
 }
 .quaternary a {
   border-bottom: none;
