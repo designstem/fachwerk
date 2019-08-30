@@ -1,9 +1,9 @@
 | chapter: Hello
 | section: First section
 
-<f-overlay>
-  <pre>a</pre>
-</f-overlay>
+<f-sidebar2 src="./index.md">
+  <var>aaaa</var>
+</f-sidebar2>
 
 ## Hallo Welt
 

@@ -396,3 +396,6 @@ export { FRender };
 import FOverlay from "./components/internal/FOverlay.js";
 export { FOverlay };
 
+import FSidebar2 from "./components/layout/FSidebar2.js";
+export { FSidebar2 };
+
