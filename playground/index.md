@@ -2,24 +2,24 @@
 | section: First section
 
 
-<f-notes2 size="half">
+<f-notes size="half">
 
 ## Yo
 
-</f-notes2>
+</f-notes>
 
-<f-sidebar2 src="./test.md" size="wide">
+<f-sidebar src="./test.md" size="wide">
   <var>aaaa</var>
-</f-sidebar2>
+</f-sidebar>
 
-<f-sidebar2>
+<f-sidebar>
   <var>aaaa</var>
   <div slot="content">
 
 ## Hello world
 
   </div>
-</f-sidebar2>
+</f-sidebar>
 
 ## Hallo Welt
 
