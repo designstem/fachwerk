@@ -10,7 +10,7 @@ export default {
   template: `
   <span>
     <span
-      @click="open = !open"
+      @click.stop="open = !open"
       style="
         border-bottom: 1px dotted var(--gray);
         cursor: alias;
@@ -30,7 +30,7 @@ export default {
         right: var(--base2);
         z-index: 1000;
       "
-      @click="open = !open"
+      @click="open = false"
       >
         <f-close-icon />
       </a>
