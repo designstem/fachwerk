@@ -1,7 +1,11 @@
 | chapter: Hello
-| section: a
+| section: First section
 
-# Hallo Welt
+<f-overlay>
+  <pre>a</pre>
+</f-overlay>
+
+## Hallo Welt
 
 Here is a simple interactive scene to get you started.
 
@@ -17,9 +21,9 @@ Slider value is `{{ get('a') }}`
 
 ---
 
-| section: Hiini
+| section: Second section
 
-# Ahaa
+## Ahaa
 
 Here is a simple interactive scene to get you started.
 

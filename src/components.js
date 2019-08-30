@@ -393,3 +393,6 @@ export { FMarkdown };
 import FRender from "./components/internal/FRender.js";
 export { FRender };
 
+import FOverlay from "./components/internal/FOverlay.js";
+export { FOverlay };
+
