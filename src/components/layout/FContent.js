@@ -180,10 +180,10 @@ Shows Markdown content.
   },
   template: `
   <div class="content">
-    <portal to="topleft" v-if="get('type', 'slides') == 'slides'" :order="0">
+    <portal to="topleft" v-if="type == 'slides'" :order="0">
       <a class="quaternary" @click="set('type', 'document')">Document</a>
     </portal>
-    <portal to="topleft" v-if="get('type', 'slides') == 'document'" :order="0">
+    <portal to="topleft" v-if="type == 'document'" :order="0">
       <a class="quaternary" @click="set('type', 'slides')">Slides</a>
     </portal>
     <f-theme
@@ -192,16 +192,16 @@ Shows Markdown content.
       :theme="theme || slide.theme"
       :id="slide.section ? slug(slide.section) : 'id-' + i"
       style="position: relative"
-      :style="{ borderBottom: get('type','slides') == 'document' ? '1px solid var(--subtle)' : '' }"
+      :style="{ borderBottom: type == 'document' ? '1px solid var(--subtle)' : '' }"
     >
       <f-fade
-        v-if="get('type', 'slides') == 'slides' ? i == currentIndex : true"
-        :class="get('type', 'slides') == 'slides' ? 'fit' : ''"
+        v-if="type == 'slides' ? i == currentIndex : true"
+        :class="type == 'slides' ? 'fit' : ''"
         class="cells"
         :style="Object.assign({
-          '--base': get('type', 'slides') == 'slides' ? '11px' : '8px',
+          '--base': type == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : get('type', 'slides') == 'slides' ? '100vh' : '66vh',
+          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : '66vh',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
