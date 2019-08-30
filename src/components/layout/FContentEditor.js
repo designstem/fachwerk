@@ -1,4 +1,4 @@
-import { Vue, Css, store, get, set, log, setCssVariable } from "../../../fachwerk.js";
+import { Vue, Css, store, get, set } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -132,7 +132,7 @@ Creates a code editor with a live preview.
       <div class="preview">
         <f-content
           :content="innerContent"
-          :type="type"
+          :type="get('type','slides')"
           :saveId="saveId"
           :edit="get('edit', false)"
         />
