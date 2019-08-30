@@ -11,21 +11,21 @@ export default {
   },
   template: `
   <portal to="overlay">
-    <div style="
+    <f-fade style="
       position: fixed;
       top: 0;
       right: 0; 
       bottom: 0;
       background: var(--white);
-      border-left: 2px solid var(--primary);
       overflowY: auto;
+      box-shadow: -5px 0 10px rgba(0,0,0,0.15);
     "
     :style="{
       width: currentSize
     }"
   >
       <slot />
-    </div>
+    </f-fade>
   </portal>
   `
 };

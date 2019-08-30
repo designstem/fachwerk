@@ -1,6 +1,5 @@
 | chapter: Hello
 | section: First section
-| theme: dark
 
 
 <f-notes2 size="half">
