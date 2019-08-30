@@ -5,9 +5,6 @@ export default {
   template: `
   <div>
     <portal-target
-      name="overlay"
-    />
-    <portal-target
       multiple
       class="topleft"
       name="topleft"
@@ -29,7 +26,9 @@ export default {
         display: flex;
       "
     />
-    
+    <portal-target
+      name="overlay"
+    />
   </div>`,
   css: `
   .topleft > * {

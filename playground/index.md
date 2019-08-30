@@ -1,8 +1,25 @@
 | chapter: Hello
 | section: First section
+| theme: dark
 
-<f-sidebar2 src="./index.md">
+
+<f-notes2 size="half">
+
+## Yo
+
+</f-notes2>
+
+<f-sidebar2 src="./test.md" size="wide">
   <var>aaaa</var>
+</f-sidebar2>
+
+<f-sidebar2>
+  <var>aaaa</var>
+  <div slot="content">
+
+## Hello world
+
+  </div>
 </f-sidebar2>
 
 ## Hallo Welt

@@ -31,6 +31,7 @@ Shows Markdown content.
     index: { default: 0, type: [String, Number] },
     saveId: { default: "fachwerk", type: String },
     type: { default: "slides", type: String },
+    theme: { default: "", type: String },
     edit: { default: false, type: Boolean }
   },
   data: () => ({ currentIndex: 0 }),
@@ -188,7 +189,7 @@ Shows Markdown content.
     <f-theme
       v-for="(slide,i) in preparedContent"
       :key="i"
-      :theme="slide.theme || 'light'"
+      :theme="theme || slide.theme"
       :id="slide.section ? slug(slide.section) : 'id-' + i"
       style="position: relative"
       :style="{ borderBottom: get('type','slides') == 'document' ? '1px solid var(--subtle)' : '' }"
