@@ -201,7 +201,7 @@ Shows Markdown content.
         :style="Object.assign({
           '--base': type == 'slides' ? '11px' : '8px',
           '--transition-duration': '0.1s',
-          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : '66vh',
+          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
           gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
           gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
           gridTemplateAreas: slide.areas,
