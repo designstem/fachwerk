@@ -1355,9 +1355,10 @@ span.CodeMirror-selectedtext {
 caption {
   text-align: left;
   margin: 0 0 var(--base) 0;
-  font-weight: 500;
   display: block;
   color: var(--secondary);
+  font-size: calc(var(--base) * 1.75);
+  font-weight: 500;
 }
 
 caption:first-child {
