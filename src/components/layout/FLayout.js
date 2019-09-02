@@ -1,14 +1,19 @@
-import { get, set } from "../../../fachwerk.js";
+import { Vue, get, set } from "../../../fachwerk.js";
 
 export default {
   props: {
     theme: { default: "light", type: String },
+    menu: { default: false, type: Boolean },
   },
   data: () => ({
     showMenu: true,
     showEditor: true
   }),
   methods: { get, set },
+  mounted() {
+    Vue.set(this.$global.$data.state, 'menu', this.menu);
+    console.log(JSON.stringify(this.$global.$data.state))
+  },
   template: `
     <f-theme :theme="theme" style="display: flex;">
       <div

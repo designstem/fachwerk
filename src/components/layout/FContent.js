@@ -32,7 +32,11 @@ Shows Markdown content.
     saveId: { default: "fachwerk", type: String },
     type: { default: "slides", type: String },
     theme: { default: "", type: String },
-    edit: { default: false, type: Boolean }
+    edit: { default: false, type: Boolean },
+    hidetype: {
+      default: false,
+      type: Boolean
+    }
   },
   data: () => ({ currentIndex: 0 }),
   computed: {
@@ -59,7 +63,7 @@ Shows Markdown content.
         this.currentIndex++;
     },
     goto(id) {
-      if (Vue.prototype.$global.state.type == 'slides') {
+      if (Vue.prototype.$global.state.type == "slides") {
         if (typeof id === "string") {
           const index = this.preparedContent.findIndex(
             slide => slide.section === id || slide.id === id
@@ -71,16 +75,16 @@ Shows Markdown content.
           this.currentIndex = id;
         }
       }
-      if (Vue.prototype.$global.state.type == 'document') {
+      if (Vue.prototype.$global.state.type == "document") {
         if (typeof id === "string") {
           const index = this.preparedContent.findIndex(
             slide => slide.section === id || slide.id === id
           );
           if (index > -1) {
-            window.location.hash = slug(id)
+            window.location.hash = slug(id);
           }
         } else {
-          window.location.hash = 'id-' + i
+          window.location.hash = "id-" + i;
         }
       }
     },
@@ -107,6 +111,7 @@ Shows Markdown content.
     }
   },
   mounted() {
+    
     this.$watch(
       "index",
       index => {
@@ -120,7 +125,7 @@ Shows Markdown content.
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       },
       document: {
-        view: "var(--base6) calc(var(--base) * 22)",
+        view: "var(--base8) var(--base6) var(--base6) var(--base6)",
         edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
       }
     };
@@ -180,10 +185,10 @@ Shows Markdown content.
   },
   template: `
   <div class="content">
-    <portal to="topleft" v-if="type == 'slides'" :order="0">
-      <a class="quaternary" @click="set('type', 'document')">Document</a>
+    <portal to="topleft" v-if="!hidetype && type == 'slides' && get('menu', false)" :order="0">
+      <a class="quaternary" @click="set('type', 'document')">DocF</a>
     </portal>
-    <portal to="topleft" v-if="type == 'document'" :order="0">
+    <portal to="topleft" v-if="!hidetype && type == 'document' && get('menu', false)" :order="0">
       <a class="quaternary" @click="set('type', 'slides')">Slides</a>
     </portal>
     <f-theme
