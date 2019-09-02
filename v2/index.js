@@ -141,7 +141,7 @@ new Vue({
   },
   computed: {},
   template: `
-    <f-layout :theme="['light','dark','yellow','blue'][theme]">
+    <f-layout :theme="['light','dark','yellow','blue'][theme]" :menu="true">
       <docs-menu slot="menu" :items="menuRoutes" />
       <router-view
         slot="content"

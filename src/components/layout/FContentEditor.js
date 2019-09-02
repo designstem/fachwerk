@@ -15,6 +15,10 @@ Creates a code editor with a live preview.
       description:
         "Content type, can be a linear `document` or a paginated `slides`"
     },
+    hidetype: {
+      default: false,
+      type: Boolean
+    },
     advanced: {
       default: true,
       type: [Boolean, Number, String]
@@ -49,6 +53,7 @@ Creates a code editor with a live preview.
     }
   },
   mounted() {
+    Vue.set(this.$global.$data.state, 'type', this.type);
     this.$watch(
       "edit",
       edit => {
@@ -92,11 +97,8 @@ Creates a code editor with a live preview.
       character="e"
       @keydown="set('edit', !get('edit', false))"
     />
-    <portal v-if="!get('edit', false)" to="topleft" :order="0">
+    <portal v-if="!get('edit', false)" to="topright" :order="-2">
       <a title="Open editor Alt + e" class="quaternary" @click="set('edit', true)">Edit</a>
-    </portal>
-    <portal v-if="get('edit', false)" to="topleft" :order="0">
-      <a title="Close editor Alt + e" class="quaternary" @click="set('edit', false)">View</a>
     </portal>
     <div class="content-editor" :style="{'--advanced-editor-height': get('type', 'slides') == 'slides' ? '100vh': 'auto' }">
       <div v-if="get('edit', false)" class="editor">
@@ -116,7 +118,13 @@ Creates a code editor with a live preview.
           >
             {{ labels[state] }}
           </a>
-         
+          <a
+            title="Close editor Alt + e"
+            class="quaternary"
+            @click="set('edit', false)"
+          >
+            <f-close-icon />
+          </a>
         </div>
         <f-editor
           v-if="!advanced"
@@ -133,6 +141,7 @@ Creates a code editor with a live preview.
         <f-content
           :content="innerContent"
           :type="get('type','slides')"
+          :hidetype="hidetype"
           :saveId="saveId"
           :edit="get('edit', false)"
         />

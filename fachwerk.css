@@ -326,7 +326,7 @@ details code {
 
 blockquote {
   margin: 0;
-  padding: calc(var(--base2) / 2) var(--base2);
+  padding: var(--base) var(--base2) var(--base) var(--base3);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
 }

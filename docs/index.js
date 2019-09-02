@@ -35,7 +35,7 @@ new Vue({
       content: "",
       activeIndex: [0, 0],
       menu: 0,
-      preview: 0,
+      preview: 1,
       theme: 0
     };
   },
@@ -269,7 +269,7 @@ Function can be imported using Javascript import:
       class="editor"
       :type="activeMenu.type || 'document'"
       :content="content"
-      :preview="preview"
+      :edit="preview"
       :save-id="activeIndex.join('-')"
       style="
         --content-height: calc(100vh - var(--base10));

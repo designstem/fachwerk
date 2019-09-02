@@ -8,7 +8,7 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 new Vue({
   el: "#app",
   methods: Object.assign({}, utils),
-  data: { content: '', preview: 0 },
+  data: { content: '', preview: 1 },
   mounted() {
     fetch('./index.md')
       .then(res => res.text())
