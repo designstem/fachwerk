@@ -26,6 +26,11 @@ Repeats elements along the circle.
     opacity: { default: 1, type: [Number, String] }
   },
   methods: { polarpoints },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"
@@ -36,7 +41,7 @@ Repeats elements along the circle.
       :key="i"
       :position="p"
     >
-      <slot :value="i" />
+      <slot :index="i" />
     </f-group>
   </f-group>  
   `

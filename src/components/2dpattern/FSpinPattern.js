@@ -27,18 +27,23 @@ Repeats elements along the circle, rotating each towards the center of the circl
     opacity: { default: 1, type: [Number, String] }
   },
   methods: { range },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"
     :opacity="opacity"
   >
     <f-group
-      v-for="(a,i) in range(0,360,360 / count)"
+      v-for="(a,i) in range(0,360,360 / count).slice(0, count)"
       :key="i"
       :rotation="a"
     >
       <f-group :position="[r,0]">
-        <slot :value="i" />
+        <slot :index="i" />
       </f-group>
     </f-group>
   </f-group>  

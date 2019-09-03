@@ -47,6 +47,11 @@ Repeats the contents in a shifted rectangular grid.
       return this.height || this.cols
     }
   },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"
@@ -62,7 +67,11 @@ Repeats the contents in a shifted rectangular grid.
           :key="xIndex"
           :position="[xIndex * step - (yIndex % 2 ? step / 2 : 0), yIndex * step]"
         >
-          <slot :col="xIndex" :row="yIndex" />
+          <slot
+            :col="xIndex"
+            :row="yIndex"
+            :index="(yIndex * cols) + xIndex"
+          />
         </f-group>
       </f-group>
     </f-group>

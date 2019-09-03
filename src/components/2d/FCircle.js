@@ -28,6 +28,7 @@ Displays a circle.
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
+    multiply: { default: false, type: Boolean }
   },
   computed: {
     currentStrokeColor() {
@@ -54,6 +55,7 @@ Displays a circle.
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
+      :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
     />
     <circle
       v-if="!currentPoints"
@@ -65,6 +67,7 @@ Displays a circle.
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
+      :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
     />
     </f-group>
   `

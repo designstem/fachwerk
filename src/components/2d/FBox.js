@@ -29,7 +29,8 @@ Displays a 2D rectangle.
     position: { default: "", type: [String, Number, Object, Array] },
     rotation: { default: "", type: [String, Number, Object, Array] },
     scale: { default: "1", type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: [Number, String] }
+    opacity: { default: 1, type: [Number, String] },
+    multiply: { default: false, type: Boolean }
   },
   computed: {
     currentStrokeColor() {
@@ -58,6 +59,7 @@ Displays a 2D rectangle.
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
+      :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
     />
     <rect
       v-if="!currentPoints"
@@ -72,6 +74,7 @@ Displays a 2D rectangle.
       :fill="fill"
       :transform="transform"
       :opacity="opacity"
+      :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
     />
   </g>
   `

@@ -25,7 +25,8 @@ Displays a \`count\`-sided regular polygon.
     position: { default: "0 0", type: [String, Number, Object, Array] },
     rotation: { default: "0", type: [String, Number, Object, Array] },
     scale: { default: "1", type: [String, Number, Object, Array] },
-    opacity: { default: 1, type: [Number, String] }
+    opacity: { default: 1, type: [Number, String] },
+    multiply: { default: false, type: Boolean }
   },
   methods: { polarpoints, positionTransform },
   computed: {
@@ -55,6 +56,7 @@ Displays a \`count\`-sided regular polygon.
         :fill="fill"
         :transform="positionTransform([[x || 0, y || 0]])"
         :opacity="opacity"
+        :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
       />
     </f-group>
   `

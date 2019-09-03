@@ -41,6 +41,7 @@ Displays a straight, segmented or curved line.
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
+    multiply: { default: false, type: Boolean }
   },
   computed: {
     currentPoints() {
@@ -73,6 +74,7 @@ Displays a straight, segmented or curved line.
         stroke-linejoin="round"
         :fill="fill"
         :opacity="opacity"
+        :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
       />
       <line
         v-if="!currentPoints"
@@ -86,6 +88,7 @@ Displays a straight, segmented or curved line.
         stroke-linejoin="round"
         :fill="fill"
         :opacity="opacity"
+        :style="{ mixBlendMode: multiply ? 'multiply' : ''}"
       />
     </g>
     `
