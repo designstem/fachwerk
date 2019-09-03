@@ -186,7 +186,7 @@ Shows Markdown content.
   template: `
   <div class="content">
     <portal to="topleft" v-if="!hidetype && type == 'slides' && get('menu', false)" :order="0">
-      <a class="quaternary" @click="set('type', 'document')">DocF</a>
+      <a class="quaternary" @click="set('type', 'document')">Doc</a>
     </portal>
     <portal to="topleft" v-if="!hidetype && type == 'document' && get('menu', false)" :order="0">
       <a class="quaternary" @click="set('type', 'slides')">Slides</a>
