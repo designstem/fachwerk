@@ -1,6 +1,5 @@
 import Object2D from "../2d/internal/Object2D.js";
-import { range, polarpoints } from "../../../fachwerk.js"
-;
+import { range, polarpoints } from "../../../fachwerk.js";
 
 export default {
   mixins: [Object2D],
@@ -38,6 +37,11 @@ When \`:count="2"\`, the children element is horizontally mirrored around x axis
   computed: {
     id1() { return `id1${Math.random()}` },
     id2() { return `id2${Math.random()}` }
+  },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
   },
   template: `
   <f-group

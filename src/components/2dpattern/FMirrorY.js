@@ -27,6 +27,11 @@ Mirrors children element around vertical y axis.
   computed: {
     id() { return 'id' + Math.random() }
   },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"

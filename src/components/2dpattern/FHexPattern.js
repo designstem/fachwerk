@@ -1,6 +1,5 @@
 import Object2D from "../2d/internal/Object2D.js";
-import { range, polarx, polary } from "../../../fachwerk.js"
-;
+import { range, polarx, polary } from "../../../fachwerk.js";
 
 export default {
   mixins: [Object2D],
@@ -54,6 +53,11 @@ Repeats the contents in a hexagonal grid.
     currentCols() {
       return this.height || this.cols
     }
+  },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
   },
   template: `
   <f-group

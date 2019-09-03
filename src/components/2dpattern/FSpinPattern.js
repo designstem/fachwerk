@@ -27,6 +27,11 @@ Repeats elements along the circle, rotating each towards the center of the circl
     opacity: { default: 1, type: [Number, String] }
   },
   methods: { range },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"

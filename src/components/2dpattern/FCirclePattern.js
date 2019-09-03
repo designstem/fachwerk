@@ -26,6 +26,11 @@ Repeats elements along the circle.
     opacity: { default: 1, type: [Number, String] }
   },
   methods: { polarpoints },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"

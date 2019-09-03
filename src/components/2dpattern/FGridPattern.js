@@ -55,6 +55,12 @@ Repeats the contents in a 2D grid.
     }
   },
   methods: { range },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      console.log('refesh')
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"

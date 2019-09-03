@@ -47,6 +47,11 @@ Repeats the contents in a shifted rectangular grid.
       return this.height || this.cols
     }
   },
+  mounted() {
+    this.$global.$on("refresh", () => {
+      this.$forceUpdate()
+    });
+  },
   template: `
   <f-group
     :transform="transform"

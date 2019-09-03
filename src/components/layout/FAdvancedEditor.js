@@ -1,4 +1,4 @@
-import { Css, CodeMirror } from '../../../fachwerk.js'
+import { Vue, Css, CodeMirror } from '../../../fachwerk.js'
 
 export default {
   mixins: [Css],
@@ -74,6 +74,7 @@ export default {
     this.editor.on("change", (editor, { origin }) => {
       if (origin !== 'setValue') {
         this.$emit("input", editor.getValue());
+        Vue.prototype.$global.$emit('refresh')
       }
     });
   },
