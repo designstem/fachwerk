@@ -70,7 +70,11 @@ Repeats the contents in a 2D grid.
           :key="xIndex"
           :position="[xIndex * step, yIndex * step]"
         >
-          <slot :col="xIndex" :row="yIndex" />
+          <slot
+            :col="xIndex"
+            :row="yIndex"
+            :index="(yIndex * cols) + xIndex"
+          />
         </f-group>
       </f-group>
     </f-group>

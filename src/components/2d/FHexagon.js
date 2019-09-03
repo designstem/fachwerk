@@ -24,6 +24,7 @@ Displays a hexagon.
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
+    multiply: { default: false, type: Boolean }
   },
   template: `
     <f-regularpolygon
@@ -36,6 +37,7 @@ Displays a hexagon.
       :transform="transform"
       :opacity="opacity"
       :scale="scale"
+      :multiply="multiply"
     />
   `
 };

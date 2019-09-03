@@ -27,6 +27,7 @@ Displays a closed polygon based on points.
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
     opacity: { default: 1, type: [Number,String] },
+    multiply: { default: false, type: Boolean }
   },
   computed: {
     currentStrokeColor() {
@@ -45,6 +46,7 @@ Displays a closed polygon based on points.
       :opacity="opacity"
       :closed="true"
       :scale="scale"
+      :multiply="multiply"
     />
   `
 };

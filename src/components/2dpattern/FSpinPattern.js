@@ -33,12 +33,12 @@ Repeats elements along the circle, rotating each towards the center of the circl
     :opacity="opacity"
   >
     <f-group
-      v-for="(a,i) in range(0,360,360 / count)"
+      v-for="(a,i) in range(0,360,360 / count).slice(0, count)"
       :key="i"
       :rotation="a"
     >
       <f-group :position="[r,0]">
-        <slot :value="i" />
+        <slot :index="i" />
       </f-group>
     </f-group>
   </f-group>  

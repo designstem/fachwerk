@@ -36,7 +36,7 @@ Repeats elements along the circle.
       :key="i"
       :position="p"
     >
-      <slot :value="i" />
+      <slot :index="i" />
     </f-group>
   </f-group>  
   `
