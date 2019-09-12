@@ -106,7 +106,7 @@ Creates a code editor with a live preview.
           <a
             v-if="state == 'saved' || state == 'saving'"
             class="quaternary"
-            style="opacity: 0.3; margin-right: var(--base);"
+            style="opacity: 0.3; margin-right: var(--base); background: var(--transparent);"
             @click="handleReset"
           >
             Reset to original
@@ -114,11 +114,13 @@ Creates a code editor with a live preview.
           <a
             @click="handleSave"
             class="quaternary"
+            style="background: var(--transparent);"
             :style="{ display: 'flex', justifyContent: 'flex-end', width: '14ch', opacity: state == 'saved' ? 1 : 0.5}"
             v-html="labels[state]"
           />
           <a
             title="Close editor Alt + e"
+            style="background: var(--transparent);"
             class="quaternary"
             @click="set('edit', false)"
           >
