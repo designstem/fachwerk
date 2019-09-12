@@ -27,14 +27,36 @@ export default {
       "
     />
     <portal-target
+      multiple
+      class="bottomleft"
+      name="bottomleft"
+      style="
+        position: fixed;
+        bottom: var(--base);
+        left: var(--base);
+        display: flex;
+      "
+    />
+    <portal-target
+      class="bottomright"
+      name="bottomright"
+      multiple
+      style="
+        position: fixed;
+        bottom: var(--base);
+        right: var(--base2);
+        display: flex;
+      "
+    />
+    <portal-target
       name="overlay"
     />
   </div>`,
   css: `
-  .topleft > * {
+  .topleft > *, .bottomleft > * {
     margin-right: var(--base);
   }
-  .topright > * {
+  .topright > *, .bottomright > * {
     margin-left: var(--base);
   }
   `

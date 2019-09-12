@@ -35,7 +35,7 @@ export default {
       <portal to="topleft" :order="-2">
         <a class="quaternary" @click="set('menu', !get('menu',false))"><f-menu-icon /></a>
       </portal>
-      <portal v-if="get('menu', false)" to="topleft" :order="1">
+      <portal v-if="get('menu', false)" to="bottomleft" :order="1">
         <a
           href="../"
           class="quaternary"

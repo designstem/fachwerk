@@ -35,7 +35,7 @@ Creates a code editor with a live preview.
   data: () => ({
     innerContent: "",
     state: "idle",
-    labels: { idle: "Save locally", saving: "Saving...", saved: "● Saved locally" },
+    labels: { idle: "Save locally", saving: "Saving...", saved: "●&nbsp;Saved&nbsp;locally" },
     timeout: null
   }),
   methods: {
@@ -115,9 +115,8 @@ Creates a code editor with a live preview.
             @click="handleSave"
             class="quaternary"
             :style="{ display: 'flex', justifyContent: 'flex-end', width: '14ch', opacity: state == 'saved' ? 1 : 0.5}"
-          >
-            {{ labels[state] }}
-          </a>
+            v-html="labels[state]"
+          />
           <a
             title="Close editor Alt + e"
             class="quaternary"
