@@ -4,6 +4,5 @@ fachwerk({
   //editor: "show",
   //pager: false,
   menu: true,
-  type: 'document',
-  theme: 'dark'
+  type: 'document'
 });
