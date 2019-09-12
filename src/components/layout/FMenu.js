@@ -25,11 +25,12 @@ export default {
             cursor: pointer;
             padding-left: 1ch;
             margin: 0;
-            padding: var(--base) var(--base) var(--base) var(--base3)
+            padding: var(--base) var(--base) var(--base) var(--base3);
+            font-Weight: normal;
           "
           :style="{
+            color: get('section','') == c.section ? 'var(--background)' : 'var(--primary)',
             background: get('section','') == c.section ? 'var(--lightergray)' : 'var(--transparent)',
-            fontWeight: 'normal',
           }"
           @click="set('section', c.section); goto(c.section)"
         >

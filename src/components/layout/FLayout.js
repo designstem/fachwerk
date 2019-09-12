@@ -19,12 +19,12 @@ export default {
         v-if="get('menu',false)"
         style="
           position: sticky;
-          min-width: 200px;
+          width: 250px;
           height: 100vh;
           overflow: auto;
           background: var(--background);
           top: 0;
-          padding-top: var(--base4);
+          padding: var(--base5) 0 var(--base5) 0;
         "
       >
         <slot name="menu" />
