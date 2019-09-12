@@ -3,7 +3,7 @@ import { Vue, get, set } from "../../../fachwerk.js";
 export default {
   props: {
     theme: { default: "light", type: String },
-    menu: { default: false, type: Boolean },
+    menu: { default: false, type: Boolean }
   },
   data: () => ({
     showMenu: true,
@@ -11,8 +11,7 @@ export default {
   }),
   methods: { get, set },
   mounted() {
-    Vue.set(this.$global.$data.state, 'menu', this.menu);
-    console.log(JSON.stringify(this.$global.$data.state))
+    Vue.set(this.$global.$data.state, "menu", this.menu);
   },
   template: `
     <f-theme :theme="theme" style="display: flex;">
@@ -35,6 +34,15 @@ export default {
       </div>
       <portal to="topleft" :order="-2">
         <a class="quaternary" @click="set('menu', !get('menu',false))"><f-menu-icon /></a>
+      </portal>
+      <portal v-if="get('menu', false)" to="bottomleft" :order="1">
+        <a
+          href="../"
+          class="quaternary"
+        >
+          <f-leftarrow-icon />
+          Back to projects
+        </a>
       </portal>
       <portal to="topleft">
         <slot name="topleft" />
