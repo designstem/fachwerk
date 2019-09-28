@@ -39,6 +39,7 @@ export default {
         <a
           href="../"
           class="quaternary"
+          style="background: var(--background)"
         >
           <f-leftarrow-icon />
           Back to projects
