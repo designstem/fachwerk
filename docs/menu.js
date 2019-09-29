@@ -1,30 +1,17 @@
 export default [
   {
-    title: "Getting started",
+    title: "Fachwerk",
     items: [
       {
         title: "Getting started",
-        file: "../README.md"
+        file: "../README.md",
+        home: true
       },
-      {
-        title: "Release notes",
-        file: "../RELEASES.md"
-      }
-    ]
-  },
-  {
-    title: "Content",
-    items: [
       {
         title: "Creating content",
         file: "./content/creating.md"
       },
-      {
-        title: "Adding tables",
-        file: "./content/tables.md"
-      },
-      { component: "FLink", type: "slides" },
-      { component: "FTable" },
+      { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FSidebar" },
@@ -38,7 +25,12 @@ export default [
       {
         title: "Adding emojis",
         file: "./content/emoji.md"
-      }
+      },
+      {
+        title: "Adding tables",
+        file: "./content/tables.md"
+      },
+      { component: "FTable" },
     ]
   },
   {
@@ -53,6 +45,7 @@ export default [
         file: "./content/navigation.md",
         type: "slides"
       },
+      { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
       { component: "FPager" },
@@ -62,7 +55,7 @@ export default [
       { component: "FInline" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FColors" },
+      { component: "FColors" }
     ]
   },
   {
@@ -241,6 +234,15 @@ export default [
       { component: "FBounce" },
       { component: "FHr" },
       { component: "FVr" }
+    ]
+  },
+  {
+    title: "Development",
+    items: [
+      {
+        title: "Release notes",
+        file: "../RELEASES.md"
+      }
     ]
   }
 ];
