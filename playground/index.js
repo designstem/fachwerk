@@ -1,3 +1,8 @@
-import { fachwerk } from "https://designstem.github.io/fachwerk/fachwerk.js";
+import { fachwerk } from "../src/fachwerk.js";
 
-fachwerk()
+fachwerk({
+  //editor: "show",
+  //pager: false,
+  menu: true,
+  type: 'document'
+});
