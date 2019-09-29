@@ -3,7 +3,7 @@ import { Vue, get, set } from "../../../fachwerk.js";
 export default {
   props: {
     theme: { default: "light", type: String },
-    menu: { default: false, type: Boolean }
+    menu: { default: 'none', type: String }
   },
   data: () => ({
     showMenu: true,
@@ -11,10 +11,12 @@ export default {
   }),
   methods: { get, set },
   mounted() {
-    Vue.set(this.$global.$data.state, "menu", this.menu);
+    if (this.menu !== 'none') {
+      Vue.set(this.$global.$data.state, "menu", this.menu == 'show');
+    }
   },
   template: `
-    <f-theme :theme="theme" style="display: flex;">
+    <f-theme v-show="menu !== 'none'" :theme="theme" style="display: flex;">
       <div
         v-if="get('menu',false)"
         style="
@@ -32,17 +34,17 @@ export default {
       <div style="flex: 1">
         <slot name="content" />
       </div>
-      <portal to="topleft" :order="-2">
+      <portal v-if="menu !== 'none'" to="topleft" :order="-2">
         <a class="quaternary" @click="set('menu', !get('menu',false))"><f-menu-icon /></a>
       </portal>
-      <portal v-if="get('menu', false)" to="bottomleft" :order="1">
+      <portal v-if="menu !== 'none' && get('menu', false)" to="bottomleft" :order="1">
         <a
           href="../"
           class="quaternary"
           style="background: var(--background)"
         >
           <f-leftarrow-icon />
-          Back to projects
+          Back
         </a>
       </portal>
       <portal to="topleft">

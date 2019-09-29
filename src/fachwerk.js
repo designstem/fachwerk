@@ -8,10 +8,9 @@ export function fachwerk(c = {}) {
     editor: "hide",
     theme: "light",
     type: "slides",
-    edit: false,
     header: [],
     footer: false,
-    menu: true,
+    menu: 'hidden',
     pager: true,
     style: {},
     components: {},
@@ -62,24 +61,33 @@ export function fachwerk(c = {}) {
     },
     mounted() {
       Vue.set(this.$global.$data.state, "type", config.type);
-      Vue.set(this.$global.$data.state, "edit", config.edit);
+      if (config.editor !== 'none') {
+        Vue.set(this.$global.$data.state, "edit", config.editor == 'show');
+      }
     },
     template: `
     <div style="position: relative">
       <f-header v-if="config.header.length" :links="config.header" />
       <f-pager v-if="get('type','slides') == 'slides'" />
       <f-fetch :src="config.src" v-slot="{ value }">
-      <f-layout :theme="config.theme" :style="config.style">
+      <f-layout :theme="config.theme" :style="config.style" :menu="config.menu">
         <f-menu slot="menu" :src="config.src" />
-          <div slot="content">
-            <f-content-editor
-              :content="isarray(value) ? flattenContent(value) : value"
-              :style="editorStyle"
-              :save-id="'fachwerk.' + slug(config.title)"
-              :type="get('type','slides')"
-              :edit="get('edit', false)"
-            />
-          </div>
+        <div slot="content">
+          <f-content-editor
+            v-if="config.editor !== 'none'"
+            :content="isarray(value) ? flattenContent(value) : value"
+            :style="editorStyle"
+            :save-id="'fachwerk.' + slug(config.title)"
+            :type="get('type','slides')"
+            :edit="get('edit', false)"
+          />
+          <f-content
+            v-if="config.editor == 'none'"
+            :content="isarray(value) ? flattenContent(value) : value"
+            :style="editorStyle"
+            :type="get('type','slides')"
+          />
+        </div>
       </f-layout>
       </f-fetch>
       <f-footer v-if="config.footer" />
