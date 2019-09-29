@@ -684,7 +684,6 @@ header,
   align-items: center;
   justify-content: space-between;
   border-bottom: var(--border-width) solid var(--darkgray);
-  font-size: calc(var(--base) * 2.25);
   font-weight: bold;
   background: var(--yellow);
   color: var(--darkgray);

@@ -88,7 +88,7 @@ const menuMap = c => {
   if (c.home) {
     return {
       path: `/`,
-      title: 'Home'
+      title: c.title
     };
   }
   if (c.component) {
@@ -141,18 +141,39 @@ new Vue({
   },
   computed: {},
   template: `
-    <f-layout :theme="['light','dark','yellow','blue'][theme]" :menu="true">
+  <div>
+    <div style="
+      position: sticky;
+      top: 0;
+      padding: var(--base3) var(--base4);
+      z-index: 1000;
+      background: var(--yellow);
+      border-bottom: 2px solid var(--primary);
+      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
+    ">
+      <f-inline style="--inline-justify: space-between; margin: 0">
+      <f-inline style="--inline-gap: var(--base2)">
+        <a href="../v3">Fachwerk</a>
+        <a href="../v2">Documentation</a>
+        <a href="https://designstem.github.io/scenarios" target="_blank">Example projects</a>
+        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
+      </f-inline>
+      <f-github-icon />
+      </f-inline>
+    </div>
+    <f-layout :theme="['light','dark','yellow','blue'][theme]" menu="show">
       <docs-menu slot="menu" :items="menuRoutes" />
       <router-view
         slot="content"
         style="--advanced-editor-height: auto;"
       ></router-view>
-      <f-colors
+      <!--f-colors
         slot="topright"
         :colors="['lightergray','darkgray','yellow','blue']"
         value="0"
         v-on:value="v => theme = v"
-      />
+      /-->
     </f-layout>
+  </div>
   `
 }).$mount("#fachwerk");

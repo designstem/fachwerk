@@ -16,7 +16,7 @@ export default {
     }
   },
   template: `
-    <f-theme v-show="menu !== 'none'" :theme="theme" style="display: flex;">
+    <f-theme v-show="menu !== 'none'" :theme="theme" style="display: flex; position: relative;">
       <div
         v-if="get('menu',false)"
         style="
