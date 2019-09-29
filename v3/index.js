@@ -2,7 +2,7 @@ import {
   Vue,
   components,
   utils
-} from "https://designstem.github.io/fachwerk/fachwerk.js";
+} from "../fachwerk.js";
 
 // Register components globally
 
@@ -53,11 +53,32 @@ new Vue({
   // components and utilities.
 
   template: `
+  <div> 
+    <div style="
+      position: sticky;
+      top: 0;
+      padding: var(--base3) var(--base4);
+      z-index: 1000;
+      background: var(--yellow);
+      border-bottom: 2px solid var(--primary);
+      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
+    ">
+      <f-inline style="--inline-justify: space-between; margin: 0">
+      <f-inline style="--inline-gap: var(--base2)">
+        <a href="../v3">Fachwerk</a>
+        <a href="../v2">Documentation</a>
+        <a href="https://designstem.github.io/scenarios" target="_blank">Example projects</a>
+        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
+      </f-inline>
+      <f-github-icon />
+      </f-inline>
+    </div>
   <f-fetch src="./index.md" v-slot="{ value }">
     <f-content
       type="document"
       :content="value"
     />
   </f-fetch>
+  </div>
   `
 });

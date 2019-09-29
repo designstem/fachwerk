@@ -3,23 +3,10 @@ export default [
     title: "Fachwerk",
     items: [
       {
-        title: "Home",
-        file: "../index.md",
+        title: "Getting started",
+        file: "../README.md",
         home: true
       },
-      {
-        title: "Getting started",
-        file: "../README.md"
-      },
-      {
-        title: "Playground",
-        file: "playground.md"
-      }
-    ]
-  },
-  {
-    title: "Content",
-    items: [
       {
         title: "Creating content",
         file: "./content/creating.md"

@@ -13,7 +13,7 @@ export default {
         <div :style="{
           display: 'flex',
           alignItems: 'center',
-          padding: 'var(--base2) var(--base2) var(--base) var(--base2)',
+          padding: 'var(--base2) var(--base2) var(--base) var(--base6)',
           fontWeight: 'bold',
           color: 'var(--primary)',
           transform: 'translate(0,calc(var(--base) * 0))',
@@ -28,7 +28,7 @@ export default {
           :style="{
             display: 'flex',
             alignItems: 'center',
-            padding: 'var(--base) var(--base) var(--base) var(--base4)',
+            padding: 'var(--base) var(--base) var(--base) var(--base7)',
             border: 'none',
             fontWeight: 'normal'
           }"

@@ -31,7 +31,7 @@ export default {
       class="bottomleft"
       name="bottomleft"
       style="
-        position: fixed;
+        position: absolute;
         bottom: var(--base);
         left: var(--base);
         display: flex;
@@ -42,7 +42,7 @@ export default {
       name="bottomright"
       multiple
       style="
-        position: fixed;
+        position: absolute;
         bottom: var(--base);
         right: var(--base2);
         display: flex;
