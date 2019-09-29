@@ -6,9 +6,6 @@ export default {
 Displays an image.
 
 <f-image src="../images/example.jpg" />
-
-<p />
-
   `,
   props: {
     src: { default: "", type: String, description: "Image URL" },
@@ -31,7 +28,7 @@ Displays an image.
       description: "Image height"
     },
     "--image-min-height": {
-      default: "calc(var(--base) * 40)",
+      default: "calc(var(--base)*40)",
       description: "Image minimum height"
     },
     "--image-size": {
