@@ -9,7 +9,7 @@ export default [
       },
       {
         title: "Creating content",
-        file: "./content/creating.md"
+        file: "./tutorials/creating.md"
       },
       { component: "FLink" },
       { component: "FImage" },
@@ -20,15 +20,15 @@ export default [
       { component: "FIconHeading" },
       {
         title: "Using color",
-        file: "./content/colors.md"
+        file: "./tutorials/colors.md"
       },
       {
         title: "Adding emojis",
-        file: "./content/emoji.md"
+        file: "./tutorials/emoji.md"
       },
       {
         title: "Adding tables",
-        file: "./content/tables.md"
+        file: "./tutorials/tables.md"
       },
       { component: "FTable" },
     ]
@@ -38,11 +38,11 @@ export default [
     items: [
       {
         title: "Setting up grid",
-        file: "./content/layout.md"
+        file: "./tutorials/layout.md"
       },
       {
         title: "Creating pages",
-        file: "./content/navigation.md",
+        file: "./tutorials/navigation.md",
         type: "slides"
       },
       { component: "FLink" },
@@ -80,7 +80,7 @@ export default [
       { component: "FRotation" },
       {
         title: "Creating 2D graphics",
-        file: "./content/2d.md"
+        file: "./tutorials/2d.md"
       }
     ]
   },
@@ -135,7 +135,7 @@ export default [
     items: [
       {
         title: "Add interaction",
-        file: "./content/interaction.md"
+        file: "./tutorials/interaction.md"
       },
       { component: "FValue" },
       { component: "FSlider" },
@@ -152,7 +152,7 @@ export default [
       { component: "FMath" },
       {
         title: "Bringing math alive",
-        file: "./content/math.md"
+        file: "./tutorials/math.md"
       }
     ]
   },
@@ -173,7 +173,7 @@ export default [
     items: [
       {
         title: "Making music",
-        file: "./content/music.md",
+        file: "./tutorials/music.md",
         type: "slides"
       },
       { component: "FDrum" },
@@ -216,12 +216,12 @@ export default [
     items: [
       {
         title: "Global events",
-        file: "./advanced/events.md"
+        file: "./tutorials/events.md"
       },
       { component: "FReceive" },
       {
         title: "Testing",
-        file: "./advanced/testing.md"
+        file: "./tutorials/testing.md"
       },
       { component: "FHeader" },
       { component: "FFooter" },

@@ -66,7 +66,7 @@ new Vue({
       <f-inline style="--inline-justify: space-between; margin: 0">
       <f-inline style="--inline-gap: var(--base2)">
         <a href="../v3">Fachwerk</a>
-        <a href="../v2">Documentation</a>
+        <a href="../docs">Documentation</a>
         <a href="https://designstem.github.io/scenarios" target="_blank">Example projects</a>
         <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
       </f-inline>
