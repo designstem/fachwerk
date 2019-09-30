@@ -26,7 +26,7 @@ CC: {{ get('cc') }}
         .filter((_, i) => (this.device == "all" ? true : this.device == i))
         .forEach((input, i) => {
           input.addListener("controlchange", "all", ({ value, controller }) => {
-            this.$emit("raw", {
+            this.$emit("data", {
               type: "cc",
               cc: controller.number,
               name: controller.name,
@@ -43,26 +43,26 @@ CC: {{ get('cc') }}
           });
           input.addListener("noteon", "all", ({ note }) => {
             const { name, octave, number } = note;
-            this.$emit("raw", {
+            this.$emit("data", {
               type: "noteon",
               name,
               octave,
               number,
               note: name + octave,
-              device: this.device
+              device: i
             });
             this.$emit("noteon", name + octave);
           });
           input.addListener("noteoff", "all", ({ note }) => {
-            this.$emit("raw", {
+            const { name, octave, number } = note;
+            this.$emit("data", {
               type: "noteoff",
               name,
               octave,
               number,
               note: name + octave,
-              device: this.device
+              device: i
             });
-            const { name, octave, number } = note;
             this.$emit("noteoff", name + octave);
           });
         });

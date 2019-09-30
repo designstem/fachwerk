@@ -25,7 +25,7 @@ Sends and receives messages from websocket.
 
   `,
   props: {
-    src: { default: "", type: String, description: 'Websocket server URL' },
+    src: { default: "https://eka-server.now.sh", type: String, description: 'Websocket server URL' },
     name: { default: 'message', type: String, description: 'Websocket event name' }
   },
   data: () => ({ socket: null }),
