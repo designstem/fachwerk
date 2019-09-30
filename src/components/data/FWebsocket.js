@@ -47,22 +47,20 @@ Sends and receives messages from websocket.
   mounted() {
     this.socket = io.connect(this.src);
     this.socket.on(this.name, message => {
-      this.$emit('receive', message);
-      if (this.set) {
-        Vue.set(
-          this.$global.$data.state,
-          this.set,
-          typeof message === "object" && message.hasOwnProperty(this.set)
-            ? message[this.set]
-            : message
-        );
+      this.$emit("receive", message);
+      if (
+        this.set &&
+        typeof message === "object" &&
+        message.hasOwnProperty(this.set)
+      ) {
+        Vue.set(this.$global.$data.state, this.set, message[this.set]);
       }
     });
   },
   methods: {
-    onSend(message) {
+    onSend(key, message) {
       if (this.socket) {
-        this.socket.emit(this.name, message);
+        this.socket.emit(this.name, { [key]: message });
       }
     }
   },
