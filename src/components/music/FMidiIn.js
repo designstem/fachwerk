@@ -24,8 +24,15 @@ CC: {{ get('cc') }}
     WebMidi.enable(() => {
       WebMidi.inputs
         .filter((_, i) => (this.device == "all" ? true : this.device == i))
-        .forEach(input => {
+        .forEach((input, i) => {
           input.addListener("controlchange", "all", ({ value, controller }) => {
+            this.$emit("data", {
+              type: "cc",
+              cc: controller.number,
+              name: controller.name,
+              value,
+              device: i
+            });
             if (this.cc == "all") {
               this.$emit("cc", value);
             } else {
@@ -36,10 +43,26 @@ CC: {{ get('cc') }}
           });
           input.addListener("noteon", "all", ({ note }) => {
             const { name, octave, number } = note;
+            this.$emit("data", {
+              type: "noteon",
+              name,
+              octave,
+              number,
+              note: name + octave,
+              device: i
+            });
             this.$emit("noteon", name + octave);
           });
           input.addListener("noteoff", "all", ({ note }) => {
             const { name, octave, number } = note;
+            this.$emit("data", {
+              type: "noteoff",
+              name,
+              octave,
+              number,
+              note: name + octave,
+              device: i
+            });
             this.$emit("noteoff", name + octave);
           });
         });
