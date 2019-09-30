@@ -1,3 +1,3 @@
 import { fachwerk } from "../src/fachwerk.js";
 
-fachwerk();
+fachwerk({ editor: 'show', menu: 'none' })
