@@ -37,3 +37,10 @@ export const set = function(key, value) {
   }
   return null;
 };
+
+export const debug = function() {
+  if (this.$global) {
+    return JSON.parse(JSON.stringify(this.$global.$data.state))
+  }
+  return null;
+};

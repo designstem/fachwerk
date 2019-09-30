@@ -1,3 +1,5 @@
+import { Vue } from "../../../fachwerk.js";
+
 export default {
   description: `
 Sends and receives messages from websocket.
@@ -25,17 +27,43 @@ Sends and receives messages from websocket.
 
   `,
   props: {
-    src: { default: "https://eka-server.now.sh", type: String, description: 'Websocket server URL' },
-    name: { default: 'message', type: String, description: 'Websocket event name' }
+    src: {
+      default: "https://eka-server.now.sh",
+      type: String,
+      description: "Websocket server URL"
+    },
+    name: {
+      default: "message",
+      type: String,
+      description: "Websocket event name"
+    },
+    set: {
+      default: "",
+      type: String,
+      description: "Name for a global value to set"
+    }
   },
   data: () => ({ socket: null }),
   mounted() {
     this.socket = io.connect(this.src);
-    this.socket.on(this.name, message => this.$emit(this.name, message));
+    this.socket.on(this.name, message => {
+      this.$emit('receive', message);
+      if (this.set) {
+        Vue.set(
+          this.$global.$data.state,
+          this.set,
+          typeof message === "object" && message.hasOwnProperty(this.set)
+            ? message[this.set]
+            : message
+        );
+      }
+    });
   },
   methods: {
     onSend(message) {
-      this.socket.emit(this.name, message)
+      if (this.socket) {
+        this.socket.emit(this.name, message);
+      }
     }
   },
   template: `
