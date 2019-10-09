@@ -155,8 +155,8 @@ new Vue({
       <f-inline style="--inline-gap: var(--base2)">
         <a href="..">Fachwerk</a>
         <a href="../docs">Documentation</a>
-        <a href="../playground">Playground</a>
-        <a href="https://designstem.github.io/scenarios" target="_blank">Example projects</a>
+        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>
+        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>
         <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
       </f-inline>
       <f-github-icon />
