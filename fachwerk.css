@@ -64,6 +64,8 @@
   --rows: none;
   --gap: var(--base2);
 
+  --mobile-cols: 1fr;
+
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
 
@@ -742,7 +744,8 @@ footer,
 }
 @media (max-width: 800px) {
   .grid {
-    display: block;
+    /* display: block; */
+    grid-template-columns: var(--mobile-cols);
   }
   .grid > * {
     margin-bottom: var(--gap);
