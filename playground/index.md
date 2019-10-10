@@ -1,90 +1,25 @@
-## Publish your work to web
+## Create a project
 
-There are a couple of ways to publish your work on the web. The recommended option is to upload it to [Github](http://github.com), the world's most popular code repository. It makes your work not just accessible from the web but brings more visibility to the project and allows other community members to contribute.
+### Start a new project
 
-### 1. Set up a Github account
+1. Go to a playground https://designstem.github.io/fachwerk_example
 
-Go to http://github.com and register a new account.
+2. Click on **Edit** button on the corner and click on the integrated editor.
 
-You will receive an e-mail with a confirmation link. Click the link, and you are ready to move to the next step.
-  
-### 2. Make a copy of the example project
+3. Delete existing content:
 
-Go to https://github.com/designstem/fachwerk_example
+	On Windows, use <kbd>Ctrl + a</kbd> keys followed by <kbd>⌫</kbd> key.
+	On Mac,use <kbd>⌘ + a</kbd> followed by <kbd>delete</kbd> key.
 
-Click **Use this template** button.
+### Where is my content stored?
 
+Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys regularily to **save your content to your browser**.  This means the contents will be available when you reload the page or visit the page in the next time in the same browser.
 
-![](../docs/images/publish1.png)
+> **Your content changes are not available for other people visting the same webpage**. See [Publishing to web]() section how to publish content for everybody to see.
 
-Next, pick a name for your project, for example, `my_example`. 
+### Create text content
 
-> Note that you can only use letters, numbers, and dashes. It is recommended to use lowercase letters. You can later change the project name if necessary.
-
-![](../docs/images/publish1a.png)
-
-### 3. Configure the publishing of the project
-
-By default, Github does not publish your project to the web. To enable it, click on the **Settings** tab first:
-
-![](../docs/images/publish2.png)
-
-Scroll below, and you will find a **Github Pages** section.
-
-In **Select source** selection choose **master branch**.
-
-![](../docs/images/publish3.png)
-
-You now set your project to be published to the web.
-
-> ***Important:*** Note that publishing will not start right away; you need to edit and save your content first.
-
-### 4. Edit and save your project
-
-Go back to your project frontpage and click on **index.md** filename.
-
-![](../docs/images/publish4.png)
-
-Next, click on the **pencil icon** to edit the file.
-
-![](../docs/images/publish5.png)
-
-You now can freely edit the project contents.
-
-> If you have edited your content in the integrated editor in the previous step, you can copy and paste your content here.
-
-![](../docs/images/publish6.png)
-
-
-When finished, click on **Commit changes**, it is the same as *saving* changes.
-
-Note the textfield *Update index.md*.  It is the place to write down a quick note of what you changed in the project. It is useful when several people edit the same document but also helps *you* to keep track of the changes.
-
-### 5. We are live!
-
-Your project is now published on the web under the following link:
-
-> http://`yourusername`.github.io/`yourprojectname`
-
-For example, when the `username` is **kristjanjansen**, and the `yourprojectname` is **my_example** the link will be
-
-> http://kristjanjansen.github.io/my_example
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We are now ready to create content.
 
 
 

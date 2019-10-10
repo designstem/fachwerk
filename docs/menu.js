@@ -11,13 +11,19 @@ export default [
         title: "Creating content",
         file: "./tutorials/creating.md"
       },
-      { component: "FLink" },
-      { component: "FImage" },
-      { component: "FVideo" },
-      { component: "FSidebar" },
-      { component: "FNotes" },
-      { component: "FEmbed" },
-      { component: "FIconHeading" },
+      {
+        title: "Publishing content",
+        file: "./tutorials/publishing.md"
+      },
+      {
+        title: "Setting up grid",
+        file: "./tutorials/layout.md"
+      },
+      {
+        title: "Creating pages",
+        file: "./tutorials/navigation.md",
+        type: "slides"
+      },
       {
         title: "Using color",
         file: "./tutorials/colors.md"
@@ -36,15 +42,13 @@ export default [
   {
     title: "Layout and navigation",
     items: [
-      {
-        title: "Setting up grid",
-        file: "./tutorials/layout.md"
-      },
-      {
-        title: "Creating pages",
-        file: "./tutorials/navigation.md",
-        type: "slides"
-      },
+      { component: "FLink" },
+      { component: "FImage" },
+      { component: "FVideo" },
+      { component: "FSidebar" },
+      { component: "FNotes" },
+      { component: "FEmbed" },
+      { component: "FIconHeading" },
       { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
