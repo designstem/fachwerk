@@ -4,7 +4,7 @@
 
 ### Using regular SVG tags
 
-In several cases you might need to bring in regular SVG tags, such as `<rect>`, `<image>` etc that do not have a counterpart in Fachwerk component library. Also, you might want to use existing SVG code.
+In several cases you might need to bring in regular SVG tags, such as `<image>` etc that do not have a counterpart in Fachwerk component library. Also, you might want to use existing SVG code.
 
 Here are some tips how to use regular SVG tags in `<f-scene>` and `<f-artboard>`.
 

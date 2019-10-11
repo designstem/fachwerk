@@ -27,13 +27,13 @@ Displays a point in 2D space.
     :points="
       range(-4,4,0.05).map(x => ({ x, y: Math.cos(x) }))
     "
-    :stroke="color('red')"
+    :fill="color('red')"
   />
   <f-point
     :points="
       range(-4,4,0.05).map(x => ({ x, y: Math.sin(x) }))
     "
-    :stroke="color('blue')"
+    :fill="color('blue')"
   />
 </f-scene>
   `,
@@ -41,9 +41,10 @@ Displays a point in 2D space.
     x: { default: 0, type: [Number,String] },
     y: { default: 0, type: [Number,String] },
     points: { default: '', type: [String, Number, Array, Object] },
-    stroke: { default: "color('primary')", type: String },
-    strokeWidth: { default: '', type: [Number,String] },
+    stroke: { default: "", type: String, description: '***DEPRECIATED:*** Use `fill` instead' },
+    strokeWidth: { default: '', type: [Number,String], description: '***DEPRECIATED:*** Use `r` instead' },
     r: { default: 1.5, type: [Number,String] },
+    fill: { default: "color('primary')", type: String },
     position: { default: '0 0', type: [String, Number, Object, Array] },
     rotation: { default: '0', type: [String, Number, Object, Array] },
     scale: { default: '1', type: [String, Number, Object, Array] },
@@ -51,7 +52,11 @@ Displays a point in 2D space.
   },
   computed: {
     currentFillColor() {
-      return this.stroke == "color('primary')" ? color('primary') : this.stroke
+      // TODO: remove stroke
+      if (this.stroke) {
+        return this.stroke
+      }
+      return this.fill == "color('primary')" ? color('primary') : this.fill
     },
     currentRadius() {
       return this.svgScale() * (1 / this.groupScale()) * (1 / this.scale) * (this.strokeWidth || this.r)

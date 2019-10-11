@@ -1,23 +1,55 @@
 export default [
   {
-    title: "Fachwerk",
+    title: "About",
     items: [
       {
-        title: "Getting started",
+        title: "Read me first",
         file: "../README.md",
         home: true
+      }
+    ]
+  },
+  {
+    title: "Quickstart guide",
+    items: [
+      {
+        title: "Start a new project",
+        file: "./tutorials/quickstart/start.md"
       },
       {
-        title: "Creating content",
-        file: "./tutorials/creating.md"
+        title: "Add 2d graphics",
+        file: "./tutorials/quickstart/2dscene.md"
       },
-      { component: "FLink" },
-      { component: "FImage" },
-      { component: "FVideo" },
-      { component: "FSidebar" },
-      { component: "FNotes" },
-      { component: "FEmbed" },
-      { component: "FIconHeading" },
+      {
+        title: "Add interaction",
+        file: "./tutorials/quickstart/interaction.md"
+      },
+      {
+        title: "Publish a project",
+        file: "./tutorials/quickstart/publishing.md"
+      }
+    ]
+  },
+  {
+    title: "Advanced guides",
+    items: [
+      {
+        title: "Formatting content",
+        file: "./tutorials/formatting.md"
+      },
+      {
+        title: "Importing 2D graphics",
+        file: "./tutorials/2dimport.md"
+      },
+      {
+        title: "Setting up grid",
+        file: "./tutorials/layout.md"
+      },
+      {
+        title: "Creating pages",
+        file: "./tutorials/navigation.md",
+        type: "slides"
+      },
       {
         title: "Using color",
         file: "./tutorials/colors.md"
@@ -30,21 +62,19 @@ export default [
         title: "Adding tables",
         file: "./tutorials/tables.md"
       },
-      { component: "FTable" },
+      { component: "FTable" }
     ]
   },
   {
     title: "Layout and navigation",
     items: [
-      {
-        title: "Setting up grid",
-        file: "./tutorials/layout.md"
-      },
-      {
-        title: "Creating pages",
-        file: "./tutorials/navigation.md",
-        type: "slides"
-      },
+      { component: "FLink" },
+      { component: "FImage" },
+      { component: "FVideo" },
+      { component: "FSidebar" },
+      { component: "FNotes" },
+      { component: "FEmbed" },
+      { component: "FIconHeading" },
       { component: "FLink" },
       { component: "FNextButton" },
       { component: "FPrevButton" },
@@ -77,11 +107,7 @@ export default [
       { component: "FRoundedpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FRotation" },
-      {
-        title: "Creating 2D graphics",
-        file: "./tutorials/2d.md"
-      }
+      { component: "FRotation" }
     ]
   },
   {
@@ -134,7 +160,7 @@ export default [
     title: "Interaction",
     items: [
       {
-        title: "Add interaction",
+        title: "Advanced interaction",
         file: "./tutorials/interaction.md"
       },
       { component: "FValue" },
