@@ -10,7 +10,7 @@ export default [
     ]
   },
   {
-    title: "Quickstart guide",
+    title: "Quickstart",
     items: [
       {
         title: "Start a new project",
@@ -34,20 +34,28 @@ export default [
     title: "Advanced guides",
     items: [
       {
-        title: "Formatting content",
+        title: "Formatting text",
         file: "./tutorials/formatting.md"
       },
       {
-        title: "Importing 2D graphics",
-        file: "./tutorials/2dimport.md"
+        title: "Adding tables",
+        file: "./tutorials/tables.md"
+      },
+      {
+        title: "Advanced interaction",
+        file: "./tutorials/interaction.md"
+      },
+      {
+        title: "Bringing math alive",
+        file: "./tutorials/math.md"
       },
       {
         title: "Setting up grid",
-        file: "./tutorials/layout.md"
+        file: "./tutorials/grid.md"
       },
       {
         title: "Creating pages",
-        file: "./tutorials/navigation.md",
+        file: "./tutorials/pages.md",
         type: "slides"
       },
       {
@@ -59,10 +67,18 @@ export default [
         file: "./tutorials/emoji.md"
       },
       {
-        title: "Adding tables",
-        file: "./tutorials/tables.md"
+        title: "Importing 2D graphics",
+        file: "./tutorials/2dimport.md"
       },
-      { component: "FTable" }
+      {
+        title: "Global events",
+        file: "./tutorials/events.md"
+      },
+      // {
+      //   title: "Making music",
+      //   file: "./tutorials/music.md",
+      //   type: "slides"
+      // },
     ]
   },
   {
@@ -71,6 +87,7 @@ export default [
       { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
+      { component: "FTable" },
       { component: "FSidebar" },
       { component: "FNotes" },
       { component: "FEmbed" },
@@ -85,7 +102,7 @@ export default [
       { component: "FInline" },
       { component: "FHr" },
       { component: "FVr" },
-      { component: "FColors" }
+      { component: "FColors" },
     ]
   },
   {
@@ -159,10 +176,6 @@ export default [
   {
     title: "Interaction",
     items: [
-      {
-        title: "Advanced interaction",
-        file: "./tutorials/interaction.md"
-      },
       { component: "FValue" },
       { component: "FSlider" },
       { component: "FAnimation" },
@@ -176,10 +189,6 @@ export default [
     title: "Math",
     items: [
       { component: "FMath" },
-      {
-        title: "Bringing math alive",
-        file: "./tutorials/math.md"
-      }
     ]
   },
   {
@@ -197,11 +206,6 @@ export default [
   {
     title: "Audio and MIDI",
     items: [
-      {
-        title: "Making music",
-        file: "./tutorials/music.md",
-        type: "slides"
-      },
       { component: "FDrum" },
       { component: "FDrumpad" },
       { component: "FSynth" },
@@ -240,15 +244,7 @@ export default [
   {
     title: "Advanced",
     items: [
-      {
-        title: "Global events",
-        file: "./tutorials/events.md"
-      },
       { component: "FReceive" },
-      {
-        title: "Testing",
-        file: "./tutorials/testing.md"
-      },
       { component: "FHeader" },
       { component: "FFooter" },
       { component: "FTabs" },
@@ -268,7 +264,11 @@ export default [
       {
         title: "Release notes",
         file: "../RELEASES.md"
-      }
+      },
+      {
+        title: "Testing",
+        file: "./tutorials/testing.md"
+      },
     ]
   }
 ];

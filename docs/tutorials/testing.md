@@ -1,9 +1,9 @@
-# Testing
+## Testing
 
 > Fachwerk uses a custom test runner, inspired by Deno [testing utility](https://deno.land/x/testing/mod.ts) and Zeit [best](
 https://github.com/zeit/best) project.
 
-## Unit tests
+### Unit tests
 
 Unit tests are simple functions, located in `/test/tests` directory. Each test exports a function with a array as a return value `[expected,actual]`.
 
@@ -23,7 +23,7 @@ export const test_addone = () => {
 };
 ```
 
-## Test runner
+### Test runner
 
 > Point your browser to [/test](../test) page and follow the instructions.
 

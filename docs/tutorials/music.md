@@ -1,4 +1,4 @@
-# Making music
+## Making music
 
 ### Requirements
 

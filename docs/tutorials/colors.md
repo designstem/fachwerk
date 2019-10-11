@@ -1,4 +1,4 @@
-# Colors
+## Using colors
 
 A compact set of useful colors are available as CSS variables and Javascript functions
 

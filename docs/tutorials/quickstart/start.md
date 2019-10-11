@@ -1,6 +1,6 @@
-# Start a new project
+## Start a new project
 
-## Open an editor
+### Open an editor
 
 1. Go to a Fachwerk example project with inline editor https://designstem.github.io/fachwerk_example
 
@@ -10,9 +10,9 @@
 
   > **Your content changes are not available for other people visting the same webpage**. See <f-link to="/publishing-content">Publishing content to web</f-link> section how to publish content for everybody to see.
 
-## Write content
+### Write content
 
-### Text formatting
+#### Text formatting
 
 Let's start with a text content. Fachwerk is based on Markdown, a simple text format that is automatically converted to HTML.
 
@@ -34,21 +34,31 @@ For advanced formatting, you will need to sprinke in some HTML tags:
 
 `<kbd>Alt + s</kbd>` gives you <kbd>Alt + s</kbd>
 
-### Headings
+#### Headings
 
 To write headings, use a hash `#` character, up to 5 levels of headings is supported. So,
 
-	# H1
+	# Heading 1
 
 gives you first level heading:
 
-# H1
+<div style="opacity: 0.3">
+
+# Heading 1
+
+</div>
+
+<br>
 
 When you use **number** and **period** like `#### 1.` in the beginning of the heading, it will automatically turned into a bullet:
 
+<div style="opacity: 0.3">
+
 #### 1. Bullet
 
-### Ordered lists
+</div>
+
+#### Ordered lists
 
 Speaking of bullets: when you start a paragraph with **number** and **period** like `1.`, you will get a ordered list:
 
@@ -75,6 +85,6 @@ gives you
 
 ### More formatting
 
-> There are way more ways to format the content, see <f-link to="/formatting-content">Formatting content</f-link> guide.
+> There are way more ways to format the content, see <f-link to="/formatting-text">Formatting content</f-link> guide.
 
 <f-link class="tertiary" to="/add-2d-graphics">Let's add some 2D graphics</f-link>

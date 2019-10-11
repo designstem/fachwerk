@@ -1,4 +1,4 @@
-# Adding emojis
+## Adding emojis
 
 <f-fetch
   src="https://unpkg.com/emoji.json/emoji-compact.json"
