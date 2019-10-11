@@ -1,4 +1,4 @@
-# Bringing math alive
+## Bringing math alive
 
 For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components. `<f-math>` equations are written in classic LaTex syntax.
 

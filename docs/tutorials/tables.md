@@ -1,4 +1,4 @@
-# Adding tables
+## Adding tables
 
 Tables can be created with several methods:
   

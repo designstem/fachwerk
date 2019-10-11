@@ -1,4 +1,4 @@
-# Formatting content
+## Formatting text
 
 ### Basic text
 

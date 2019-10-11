@@ -32,7 +32,7 @@ Shows Markdown content.
     saveId: { default: "fachwerk", type: String },
     type: { default: "slides", type: String },
     theme: { default: "", type: String },
-    edit: { default: false, type: Boolean },
+    edit: { default: false, type: [Boolean, Number, String] },
     hidetype: {
       default: false,
       type: Boolean

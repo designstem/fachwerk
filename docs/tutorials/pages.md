@@ -1,6 +1,6 @@
-# Adding navigation
+## Creating pages
 
-## First page
+### First page
 
 To create multiple slides, separate the content with a separator.
 
@@ -21,9 +21,11 @@ It is even more convinient to click one *Groß* button, so let's add `<f-next-bu
 
 ---
 
-# Hey, you made it!
+## Creating pages
 
-### Second page
+### Hey, you made it!
+
+#### Second page
 
 Let's have a button to move to the previous page:
 
@@ -31,7 +33,7 @@ Let's have a button to move to the previous page:
 
 <p />
 
-### Conditional elements
+#### Conditional elements
 
 Let's make the navigation more interesting.
 
@@ -47,7 +49,9 @@ Current <var>a</var> value is <var>{{ get('a') }} </var>
 
 ---
 
-## Back to beginning
+## Creating pages
+
+### Back to beginning
 
 Let's have button that takes us back to the first slide.
 

@@ -1,4 +1,4 @@
-# Adding 2D graphics
+## Add 2D graphics
 
 Let's add some 2D graphics. Fachwerk offers several graphic components suitable for graph drawing, vector art, and bitmap generation.
 

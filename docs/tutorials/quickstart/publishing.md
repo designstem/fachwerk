@@ -1,4 +1,4 @@
-# Publish a project
+## Publish a project
 
 There are a couple of ways to publish your work on the web. The recommended option is to upload it to [Github](http://github.com), the world's most popular code repository. It makes your work not just accessible from the web but brings more visibility to the project and allows other community members to contribute.
 

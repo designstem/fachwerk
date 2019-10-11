@@ -1,6 +1,6 @@
-# Global events
+## Global events
 
-#### Sending events
+### Sending events
 
 You can send events from any part of the code to any part of the code using `send(name, value)` helper:
 
@@ -10,7 +10,7 @@ You can send events from any part of the code to any part of the code using `sen
   </button>
 </f-inline>
 
-#### Receiving events
+### Receiving events
 
 Inside the Markdown components, use `<f-receive>` component:
 

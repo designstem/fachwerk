@@ -1,6 +1,4 @@
-# Creating 2D graphics
-
-***TBD***
+## Importing 2D graphics
 
 ### Using regular SVG tags
 

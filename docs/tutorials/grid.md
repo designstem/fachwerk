@@ -1,4 +1,4 @@
-# Layout and grid
+## Setting up grid
 
 To separate the content into grid of rows and columns, separate the content with the single dash:
 
