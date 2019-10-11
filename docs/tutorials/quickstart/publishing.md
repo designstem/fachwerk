@@ -1,4 +1,4 @@
-## Publish your work to the web
+# Publish a project
 
 There are a couple of ways to publish your work on the web. The recommended option is to upload it to [Github](http://github.com), the world's most popular code repository. It makes your work not just accessible from the web but brings more visibility to the project and allows other community members to contribute.
 
@@ -51,7 +51,7 @@ Next, click on the **pencil icon** to edit the file.
 
 You now can freely edit the project contents.
 
-> If you have edited your content in the integrated editor in the previous step, you can copy and paste your content here.
+> If you have edited your content in the integrated editor in the previous steps, you can copy and paste your content here.<br><br>On Windows, use <kbd>Ctrl + a</kbd>, then <kbd>Ctrl + c</kbd> to copy the integrated editor content<br><br>On Mac,use <kbd>⌘ + a</kbd>, then <kbd>⌘ + c</kbd> to copy the integrated editor content
 
 ![](../docs/images/publish6.png)
 

@@ -1,23 +1,45 @@
 export default [
   {
-    title: "Fachwerk",
+    title: "About",
     items: [
       {
-        title: "Getting started",
+        title: "Read me first",
         file: "../README.md",
         home: true
+      }
+    ]
+  },
+  {
+    title: "Quickstart guide",
+    items: [
+      {
+        title: "Start a new project",
+        file: "./tutorials/quickstart/start.md"
       },
       {
-        title: "Quickstart",
-        file: "./tutorials/quickstart.md"
+        title: "Add 2d graphics",
+        file: "./tutorials/quickstart/2dscene.md"
       },
+      {
+        title: "Add interaction",
+        file: "./tutorials/quickstart/interaction.md"
+      },
+      {
+        title: "Publish a project",
+        file: "./tutorials/quickstart/publishing.md"
+      }
+    ]
+  },
+  {
+    title: "Advanced guides",
+    items: [
       {
         title: "Formatting content",
         file: "./tutorials/formatting.md"
       },
       {
-        title: "Publishing content",
-        file: "./tutorials/publishing.md"
+        title: "Importing 2D graphics",
+        file: "./tutorials/2dimport.md"
       },
       {
         title: "Setting up grid",
@@ -40,7 +62,7 @@ export default [
         title: "Adding tables",
         file: "./tutorials/tables.md"
       },
-      { component: "FTable" },
+      { component: "FTable" }
     ]
   },
   {
@@ -85,11 +107,7 @@ export default [
       { component: "FRoundedpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FRotation" },
-      {
-        title: "Creating 2D graphics",
-        file: "./tutorials/2d.md"
-      }
+      { component: "FRotation" }
     ]
   },
   {
@@ -142,7 +160,7 @@ export default [
     title: "Interaction",
     items: [
       {
-        title: "Add interaction",
+        title: "Advanced interaction",
         file: "./tutorials/interaction.md"
       },
       { component: "FValue" },

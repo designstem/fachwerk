@@ -8,6 +8,10 @@ Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technolog
 
 ## Quickstart
 
+Go to a <a href="/docs/#/start-a-new-project">Start a new project</a> guide in the docs.
+
+## Custom start
+
 Easiest way to have a custom Fachwerk application is to create a three files in your machine
 
 ##### 1. index.html
@@ -40,7 +44,7 @@ fachwerk();
 ##### 3. index.md
 
 ```md
-# Hallo Welt
+# Hello 🌏
 
 <f-scene grid>
   <f-circle />

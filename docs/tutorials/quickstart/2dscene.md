@@ -1,12 +1,12 @@
-## Adding 2D graphics
+# Adding 2D graphics
 
-Enough of text, let's add some 2D graphics. Fachwerk offers several graphic components, suitable for graph drawing, vector art and bitmap generation.
+Let's add some 2D graphics. Fachwerk offers several graphic components suitable for graph drawing, vector art, and bitmap generation.
 
 ### Drawing graphs
 
 #### Point
 
-Let's start with a simple 2D scene and draw a simple **point**. We draw using HTML-like tags, but they are custom, Fachwerk tags, starting with `f-`.
+Let's start with a simple 2D scene and draw a simple **point**. We use HTML-like tags, but they are custom, Fachwerk tags, starting with `f-e`.
 
 ```
 <f-scene>
@@ -23,7 +23,7 @@ We get the following graph:
 </f-scene>
 
 
-Not much of a looker but you can probably guess the coordinate system alread: we are using standard <var class="gray">cartesian coordinate system</var> for graph drawing. 
+Not much of a looker, but you can probably guess the coordinate system already: we are using standard <var class="gray">cartesian coordinate system</var> for graph drawing. 
 
 Let's add more **points** to the graph with coordinates to verify we have figured our where <var>x</var> and <var class="green">y</var> are in the graph.
 
@@ -36,7 +36,7 @@ Let's add more **points** to the graph with coordinates to verify we have figure
 </f-scene>
 ```
 
-For specifying a set of multiple points, there is actually a shortcut, we can draw multiple points in one go by specifing `points` attribute:
+For specifying a set of multiple points, there is a shortcut; we can draw multiple points in one go by specifying `points` attribute:
 
 
 ```
@@ -70,7 +70,7 @@ So we get the following:
 
 <f-scene grid>
   <f-point
-  	points="-1 -1, 1 -1, -1 1, 1 1"
+    points="-1 -1, 1 -1, -1 1, 1 1"
     fill="orange"
     r="5"
     opacity="0.5"
@@ -79,13 +79,13 @@ So we get the following:
 
 #### Line
 
-Time to draw a **line** on the graph!. Let's reuse the points we used in previous steps, just use `f-line` instead of `f-point`:
+Time to draw a **line** on the graph!. Let's reuse the points we used in previous steps; just use `f-line` instead of `f-point`:
 
 ```
 <f-scene grid>
   <f-line points="-1 -1, 1 -1, -1 1, 1 1" />
   <f-point
-  	points="-1 -1, 1 -1, -1 1, 1 1"
+    points="-1 -1, 1 -1, -1 1, 1 1"
     fill="orange"
     r="5"
     opacity="0.5"
@@ -93,19 +93,19 @@ Time to draw a **line** on the graph!. Let's reuse the points we used in previou
 </f-scene>
 ```
 
-This code gives us the line and the points
+This code gives us the line and the points.
 
 <f-scene grid>
   <f-line points="-1 -1, 1 -1, -1 1, 1 1" />
   <f-point
-  	points="-1 -1, 1 -1, -1 1, 1 1"
+    points="-1 -1, 1 -1, -1 1, 1 1"
     fill="orange"
     r="5"
     opacity="0.5"
   />
 </f-scene>
 
-Let's play around with the line a little bit. There is a `curved` attribute that smootens the curve:
+Let's play around with the line a little bit. There is a `curved` attribute that smoothens the curve:
 
 ```
 <f-scene grid>
@@ -130,11 +130,11 @@ There is also a `closed` attribute that closes the line:
 </f-scene>
 
 
-By combining `curved` and `closed` we get something hourglass-like. To shape it up, let's set `fill` and `opacity` attributes:
+By combining `curved` and `closed`, we get something hourglass-like. To shape it up, let's set `fill` and `opacity` attributes:
 
 <f-scene grid>
   <f-line
-  	points="-1 -1, 1 -1, -1 1, 1 1"
+    points="-1 -1, 1 -1, -1 1, 1 1"
     curved
     closed
     fill="orange"
@@ -148,26 +148,23 @@ By combining `curved` and `closed` we get something hourglass-like. To shape it 
 
 There is a wide variety of other geometrical shapes available, here are some of them:
 
-<div class="grid" style="--cols: 1fr 1fr">
+<div class="grid">
 
 <f-scene grid responsive>
-	<f-circle />
+  <f-circle />
   <f-text>f-circle</f-text>
 </f-scene>
 
 <f-scene grid responsive>
-	<f-box r="2" />
+  <f-box r="2" />
   <f-text>f-box</f-text>
 </f-scene>
 
 <f-scene grid responsive>
-	<f-hexagon />
+  <f-hexagon />
   <f-text>f-hexagon</f-text>
 </f-scene>
 
-<f-scene grid responsive>
-	<f-regularpolygon count="8" />
-  <f-text>f-regularpolygon</f-text>
-</f-scene>
-
 </div>
+
+<f-link class="tertiary" to="/add-interaction">Let's add some interaction</f-link>
