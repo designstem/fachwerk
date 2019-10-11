@@ -6,7 +6,7 @@ Let's add some 2D graphics. Fachwerk offers several graphic components suitable 
 
 #### Point
 
-Let's start with a simple 2D scene and draw a simple **point**. We use HTML-like tags, but they are custom, Fachwerk tags, starting with `f-e`.
+Let's start with a simple 2D scene and draw a simple **point**. We use HTML-like tags, but they are custom, Fachwerk tags, starting with `f-`.
 
 ```
 <f-scene>

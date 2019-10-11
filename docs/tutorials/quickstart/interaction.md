@@ -2,7 +2,7 @@
 
 All content in Fachwerk can be dynamic, so the user can interact with it and modify it on a page.
 
-#### Making a slider
+### Making a slider
 
 One of the most common ways to make content interactive is to make a **slider**. We use the component `f-slider` to do this:
 
@@ -12,7 +12,7 @@ One of the most common ways to make content interactive is to make a **slider**.
 
 <f-slider />
 
-#### Assign slider value to a variable
+### Assign slider value to a variable
 
 A slider itself has not much use. We need to link it's position to some kind of <var class="gray">variable</var>. Let's call it simply <var>r</var>:
 
@@ -29,7 +29,7 @@ To display the value of the slider we need following code to actually *get* the 
 
 <output>r = {{ get('r') }}</output>
 
-#### Assign a variable to 2d graphics
+### Assign a variable to 2d graphics
 
 The key thing to understand is that we can assign <var>r</var> value *to anything in our project*. 
 
@@ -67,7 +67,7 @@ Now, let's *connect* the `rotation` attribute to the <var>r</var> value we set p
 
 > There are many more methods to make project elemements interactive. See <f-link to="/advanced-interaction">Advanced interaction</f-link> guide to learn more.
 
-We are doing great!
+### Time to go live!
 
 It's now time to show our work to our colleagues, students and the world.
 
