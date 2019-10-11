@@ -434,6 +434,7 @@ kbd {
   color: var(--lightgray);
   padding: 0.2ch 0.5ch 0ch 0.5ch;
   font-size: 0.9em;
+  white-space: nowrap;
 }
 
 strong em,

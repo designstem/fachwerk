@@ -8,8 +8,12 @@ export default [
         home: true
       },
       {
-        title: "Creating content",
-        file: "./tutorials/creating.md"
+        title: "Quickstart",
+        file: "./tutorials/quickstart.md"
+      },
+      {
+        title: "Formatting content",
+        file: "./tutorials/formatting.md"
       },
       {
         title: "Publishing content",

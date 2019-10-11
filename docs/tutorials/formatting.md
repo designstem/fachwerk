@@ -1,16 +1,10 @@
-# Creating content
+# Formatting content
 
 ### Basic text
 
 Let's start with a simple paragraph. Fachwerk's content is based on **Markdown**, a simple text format that is converted to HTML.
 
 It supports **bold**, *italic* and you can use ***bold + italic*** or <mark>\<mark></mark> for text highlights, <kbd>kbd</kbd> keyboard reference, <var>var</var> for variables and `code` for code snippets.
-
-### Alternative text
-
-~Alternatively, texts can also be formatted to have a **different**, a more *classy* look.~
-
-~This format is meant for longer texts, but note that you have to will have to mark each paragraph separately with a tilde character.~
 
 ### Links
 

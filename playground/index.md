@@ -1,25 +1,70 @@
-## Create a project
+## Adding graphics
 
-### Start a new project
+Enough of text, let's add some 2D graphics. Fachwerk offers several graphic components, suitable for graph drawing, vector art and bitmap generation.
 
-1. Go to a playground https://designstem.github.io/fachwerk_example
+### Drawing graphs
 
-2. Click on **Edit** button on the corner and click on the integrated editor.
+#### Point
 
-3. Delete existing content:
+Let's start with a simple 2D scene and draw a simple **point**. We draw using HTML-like tags, but they are custom, Fachwerk tags, starting with `f-`.
 
-	On Windows, use <kbd>Ctrl + a</kbd> keys followed by <kbd>⌫</kbd> key.
-	On Mac,use <kbd>⌘ + a</kbd> followed by <kbd>delete</kbd> key.
+```
+<f-scene>
+  <f-point />
+</f-scene>
+```
 
-### Where is my content stored?
+> Note that `<f-point />` is a shorthand for longer code `<f-point></f-point>`. We use the short syntax in all the examples.
 
-Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys regularily to **save your content to your browser**.  This means the contents will be available when you reload the page or visit the page in the next time in the same browser.
+We get the following graph:
 
-> **Your content changes are not available for other people visting the same webpage**. See [Publishing to web]() section how to publish content for everybody to see.
-
-### Create text content
-
-We are now ready to create content.
+<f-scene grid>
+  <f-point />
+</f-scene>
 
 
+Not much of a looker but you can probably guess the coordinate system alread: we are using standard <var class="gray">cartesian coordinate system</var> for graph drawing. 
 
+Let's add more **points** to the graph with coordinates to verify we have figured our where <var>x</var> and <var class="green">y</var> are in the graph.
+
+```
+<f-scene grid>
+  <f-point position="-1 -1" />
+  <f-point position=" 1 -1" />
+  <f-point position="-1  1" />
+  <f-point position=" 1  1" />
+</f-scene>
+```
+
+For specifying a set of multiple points, there is actually a shortcut, we can draw multiple points in one go by specifing `position` attribute:
+
+```
+<f-scene grid>
+  <f-point position="-1 -1, 1 -1, -1 1, 1 1" />
+</f-scene>
+```
+
+So we get the following:
+
+<f-scene grid>
+  <f-point position="-1 -1" />
+  <f-point position=" 1 -1" />
+  <f-point position="-1  1" />
+  <f-point position=" 1  1" />
+</f-scene>
+
+#### Line
+
+Time to draw a **line** on the graph!.
+
+```
+<f-scene grid responsve>
+  <f-line points="-1 -1, 1 1" />
+</f-scene>
+```
+
+This code gives us the line below. 
+
+<f-scene grid>
+	<f-line points="-1 -1, 1 1" />
+</f-scene>
