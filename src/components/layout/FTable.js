@@ -24,7 +24,7 @@ A \`<table>\`, accepting array or array of objects as \`:rows\`.
   }
 ]"/>
   `,
-  props: { rows: { default: [], type: Array }, cols: { default: [], type: Array } },
+  props: { rows: { default: () => [], type: Array }, cols: { default: () => [], type: Array } },
   computed: {
     currentRows() {
       if (isarray(this.rows[0])) {
