@@ -31,6 +31,10 @@ A **VueJS** and **Markdown** based framework for creating interactive learning m
 
 Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is ✍🏾and can be stored in your browser so you can make instant changes and explorations in code.
 
+When ready for a next step, see our **getting started guide**:
+
+<a class="primary" href="./docs/#/start-a-new-project">Start a new project</a>
+
 ### 2. Learn
 
 Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!
@@ -73,6 +77,6 @@ Fachwerk is a part of [DesignSTEM](https://designstem.github.io/homepage) educat
 
 ### Why not React?
 
-Why indeed. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
+Why not indeed. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
 
 Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS templates offer this and mixed with latest Javascript features such as module imports it was a *Natürliche* choice for Fachwerk.
