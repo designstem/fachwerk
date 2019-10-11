@@ -10,7 +10,7 @@ export default [
     ]
   },
   {
-    title: "Quickstart",
+    title: "🚀 Quickstart",
     items: [
       {
         title: "Start a new project",
@@ -31,7 +31,7 @@ export default [
     ]
   },
   {
-    title: "Advanced guides",
+    title: "🔮 Guides",
     items: [
       {
         title: "Formatting text",
