@@ -653,9 +653,7 @@ button.quaternary {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
 .quaternary:hover {
-  background: var(--lightergray);
-  color: var(--darkgray);
-  --icon-stroke: var(--primary);
+  background: rgba(0,0,0,0.2);
 }
 a.quaternary {
   border-bottom: none;
