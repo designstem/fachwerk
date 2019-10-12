@@ -121,12 +121,12 @@ Shows Markdown content.
     );
     const paddingMap = {
       slides: {
-        view: "var(--base8) var(--base6) var(--base6) var(--base6)",
-        edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
+        view: "var(--base8) var(--base5) var(--base6) var(--base5)",
+        edit: "var(--base8) var(--base5) var(--base6) var(--base5)"
       },
       document: {
-        view: "var(--base8) var(--base6) var(--base6) var(--base6)",
-        edit: "var(--base8) var(--base6) var(--base6) var(--base6)"
+        view: "var(--base8) var(--base5) var(--base6) var(--base5)",
+        edit: "var(--base8) var(--base5) var(--base6) var(--base5)"
       }
     };
 
