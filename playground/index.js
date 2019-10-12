@@ -54,16 +54,29 @@ export function fachwerk(c = {}) {
         this.currentType = this.currentType === 'document' ? 'slider' : 'document'
       });
     },
+    computed: {
+      gridStyle() {
+        if (this.currentEdit) {
+          return {
+            '--cols': '200px 1fr 1fr'
+          }
+        } else {
+          return {
+            '--cols': '200px 1fr'
+          }
+        }
+      }
+    },
     template: `
-    <div class="grid" style="--cols: 200px 1fr 1fr; --gap: 0">
+    <div class="grid" :style="{...gridStyle, '--gap': 0}">
       <div>Menu</div>
       <div v-if="currentEdit">
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
       </div>
       <div>
-        <f-content-header2 :content="currentContent" />
-        <f-content2 :edit="currentEdit" :content="currentContent" />
+        <f-content-header2 :edit="currentEdit" :content="currentContent" />
+        <f-content2 :content="currentContent" />
       </div>
       <pre style="position: fixed; bottom: 0; left: var(--base2);">
 currentEdit: {{ currentEdit }}
