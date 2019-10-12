@@ -35,41 +35,39 @@ export function fachwerk(c = {}) {
 
   const FContentEditor2 = {
     props: {
-      edit: { default: 'hide', type: String },
-      menu: { default: 'hide', type: String },
-      type: { default: 'document', type: String },
+      edit: { default: "hide", type: String },
+      menu: { default: "hide", type: String },
+      type: { default: "document", type: String }
     },
     data: () => ({
-      currentContent: '',
-      currentEdit: false,
+      currentContent: "",
+      currentEdit: true,
       currentMenu: false,
-      currentType: 'document'
+      currentType: "document"
     }),
     mounted() {
+      this.$global.$on("menu", () => {
+        this.currentMenu = !this.currentMenu;
+      });
       this.$global.$on("edit", () => {
-        console.log('edit')
-        this.currentEdit = !this.currentEdit
+        this.currentEdit = !this.currentEdit;
       });
       this.$global.$on("type", () => {
-        this.currentType = this.currentType === 'document' ? 'slider' : 'document'
+        this.currentType =
+          this.currentType === "document" ? "slider" : "document";
       });
     },
     computed: {
       gridStyle() {
-        if (this.currentEdit) {
-          return {
-            '--cols': '200px 1fr 1fr'
-          }
-        } else {
-          return {
-            '--cols': '200px 1fr'
-          }
-        }
+        const menuCol = this.currentMenu ? "200px" : "55px";
+        const editCol = this.currentEdit ? "1fr" : "";
+        const contentCol = "1fr";
+        return [menuCol, editCol, contentCol].join(" ");
       }
     },
     template: `
-    <div class="grid" :style="{...gridStyle, '--gap': 0}">
-      <div>Menu</div>
+    <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
+      <f-menu2 />
       <div v-if="currentEdit">
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
@@ -81,17 +79,33 @@ export function fachwerk(c = {}) {
       <pre style="position: fixed; bottom: 0; left: var(--base2);">
 currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
-currentType: {{ currentType }}</pre>
+currentType: {{ currentType }}
+gridStyle: {{ gridStyle }}</pre>
+    </div>
+    `
+  };
+
+  const FMenu2 = {
+    template: `
+    <div style="
+      background: var(--lightergray);
+      height: 100vh;
+      padding: var(--base);
+    ">
+      <a class="quaternary" @click="$global.$emit('menu')"><f-menu-icon /></a>
     </div>
     `
   };
 
   const FEditorHeader2 = {
     props: {
-      value: { default: '', type: String },
+      value: { default: "", type: String }
     },
     mounted() {
-      this.$emit('input', 'Fachwerk is a Javascript framework for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.')
+      this.$emit(
+        "input",
+        "Fachwerk is a Javascript framework for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components."
+      );
     },
     template: `
     <div style="
@@ -107,29 +121,16 @@ currentType: {{ currentType }}</pre>
     `
   };
 
-  const FContent2 = {
-    props: {
-      content: { default: '', type: String },
-    },
-    template: `
-    <div style="
-      padding: var(--base5);
-    "
-      v-html="content"
-    />  
-    `
-  };
-
   const FContentHeader2 = {
     props: {
-      content: { default: '', type: String },
-      edit: { default: false, type: Boolean },
+      content: { default: "", type: String },
+      edit: { default: false, type: Boolean }
     },
     template: `
     <div style="
       height: var(--base6);
       padding: 0 var(--base);
-      background: var(--lightergray);
+      background: var(--lightestgray);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -139,10 +140,29 @@ currentType: {{ currentType }}</pre>
     `
   };
 
-  Vue.component('FContentEditor2', FContentEditor2);
-  Vue.component('FEditorHeader2', FEditorHeader2);
-  Vue.component('FContent2', FContent2);
-  Vue.component('FContentHeader2', FContentHeader2);
+  const FContent2 = {
+    props: {
+      content: { default: "", type: String },
+      type: { default: "document", type: String }
+    },
+    template: `
+    <div style="display: flex; justify-content: center;">
+    <p
+      :style="{
+        padding: 'var(--base5)',
+        maxWidth: type == 'document' ? '600px' : 'auto'
+      }"
+      v-html="content"
+    />  
+    </div>
+    `
+  };
+
+  Vue.component("FContentEditor2", FContentEditor2);
+  Vue.component("FMenu2", FMenu2);
+  Vue.component("FEditorHeader2", FEditorHeader2);
+  Vue.component("FContent2", FContent2);
+  Vue.component("FContentHeader2", FContentHeader2);
 
   new Vue({
     components: {
