@@ -6,7 +6,7 @@
 //   type: "document"
 // });
 
-import { Vue, components, parseContent } from "../fachwerk.js";
+import { Vue, components, parseContent, send } from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
   const config = {
@@ -60,8 +60,8 @@ for creating interactive learning materials in the browser.
 | section: world
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
-`
-      console.log(parseContent(this.currentContent))
+`;
+      console.log(parseContent(this.currentContent));
       this.$global.$on("menu", () => {
         this.currentMenu = !this.currentMenu;
       });
@@ -70,7 +70,7 @@ Content can be authored in a Markdown format, with custom additions such as dyna
       });
       this.$global.$on("type", () => {
         this.currentType =
-          this.currentType === "document" ? "slider" : "document";
+          this.currentType === "document" ? "slides" : "document";
       });
     },
     computed: {
@@ -89,8 +89,15 @@ Content can be authored in a Markdown format, with custom additions such as dyna
         <f-advanced-editor v-model="currentContent" />
       </div>
       <div>
-        <f-content-header2 :edit="currentEdit" :content="currentContent" />
-        <f-content2 :content="currentContent" />
+        <f-content-header2
+          :type="currentType"
+          :edit="currentEdit"
+          :content="currentContent"
+        />
+        <f-content2
+          :type="currentType"
+          :content="currentContent"
+        />
       </div>
       <pre style="position: fixed; bottom: 0; right: var(--base2);">
 currentEdit: {{ currentEdit }}
@@ -175,10 +182,21 @@ gridStyle: {{ gridStyle }}</pre>
     `
   };
 
+  const FPager2 = {
+    methods: { send },
+    template: `
+  <div style="display: flex;">
+    <a class="quaternary" style="padding: 0 4px" @click="send('prev')" ><f-leftarrow-icon /></a>
+    <a class="quaternary" style="padding: 0 4px" @click="send('next')" ><f-rightarrow-icon /></a>
+  </div>
+  `
+  };
+
   const FContentHeader2 = {
     props: {
       content: { default: "", type: String },
-      edit: { default: false, type: Boolean }
+      edit: { default: false, type: Boolean },
+      type: { default: "document", type: String },
     },
     computed: {
       currentContent() {
@@ -194,9 +212,11 @@ gridStyle: {{ gridStyle }}</pre>
       align-items: center;
       justify-content: space-between;
     ">
-      <a v-if="!edit" class="quaternary" @click="$global.$emit('edit')">Edit</a>
-      <div v-if="edit" /> 
-      <f-pager v-if="currentContent.length > 1" />
+      <div>
+        <a v-if="!edit" class="quaternary" @click="$global.$emit('edit')">Edit</a>
+        <a class="quaternary" @click="$global.$emit('type')">Type</a>
+      </div>
+      <f-pager2 v-if="type == 'slides' && currentContent.length > 1" />
     </div>
     `
   };
@@ -206,27 +226,38 @@ gridStyle: {{ gridStyle }}</pre>
       content: { default: "", type: String },
       type: { default: "document", type: String }
     },
+    data: () => ({
+      currentIndex: 0
+    }),
     computed: {
       currentContent() {
         return parseContent(this.content);
       }
     },
+    mounted() {
+      this.$global.$on("next", () => this.currentIndex++);
+      this.$global.$on("prev", () => this.currentIndex--);
+    },
     template: `
-    <div style="display: flex; justify-content: center;">
+    <div :style="{
+      display: type == 'document' ? 'flex' : 'block',
+      justifyContent: 'center'}
+    ">
       <div :style="{
         padding: 'var(--base5)',
-        maxWidth: type == 'document' ? '600px' : 'auto'
+        maxWidth: type == 'document' ? '700px' : '100%'
       }">
-        <f-fade
+        <div
           v-for="(slide,i) in currentContent"
           :key="i"
+          v-if="type == 'slides' ? i == currentIndex : true"
         >
           <f-markdown
-            v-for="(cell, j) in slide.content"
+            v-for="(contentCell, j) in slide.content"
             :key="j"
-            :content="cell"
+            :content="contentCell"
           />
-        </f-fade>  
+        </div>  
       </div>
     </div>
     `
@@ -237,6 +268,7 @@ gridStyle: {{ gridStyle }}</pre>
   Vue.component("FEditorHeader2", FEditorHeader2);
   Vue.component("FContent2", FContent2);
   Vue.component("FContentHeader2", FContentHeader2);
+  Vue.component("FPager2", FPager2);
 
   new Vue({
     components: {
