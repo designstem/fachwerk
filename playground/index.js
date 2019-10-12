@@ -78,7 +78,7 @@ currentType: {{ currentType }}</pre>
       value: { default: '', type: String },
     },
     mounted() {
-      this.$emit('input', 'It is me')
+      this.$emit('input', 'Fachwerk is a Javascript framework for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.')
     },
     template: `
     <div style="
@@ -110,6 +110,7 @@ currentType: {{ currentType }}</pre>
   const FContentHeader2 = {
     props: {
       content: { default: '', type: String },
+      edit: { default: false, type: Boolean },
     },
     template: `
     <div style="
@@ -120,7 +121,7 @@ currentType: {{ currentType }}</pre>
       align-items: center;
       justify-content: space-between;
     ">
-      <a class="quaternary" @click="$global.$emit('edit')">Edit</a>
+      <a v-if="!edit" class="quaternary" @click="$global.$emit('edit')">Edit</a>
     </div>
     `
   };
