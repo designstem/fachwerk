@@ -6,7 +6,7 @@
 //   type: "document"
 // });
 
-import { Vue, components, utils, get, set, slug } from "../fachwerk.js";
+import { Vue, components, parseContent } from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
   const config = {
@@ -67,7 +67,7 @@ export function fachwerk(c = {}) {
     },
     template: `
     <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
-      <f-menu2 />
+      <f-menu2 :menu="currentMenu" :content="currentContent" />
       <div v-if="currentEdit">
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
@@ -76,7 +76,7 @@ export function fachwerk(c = {}) {
         <f-content-header2 :edit="currentEdit" :content="currentContent" />
         <f-content2 :content="currentContent" />
       </div>
-      <pre style="position: fixed; bottom: 0; left: var(--base2);">
+      <pre style="position: fixed; bottom: 0; right: var(--base2);">
 currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
 currentType: {{ currentType }}
@@ -86,6 +86,15 @@ gridStyle: {{ gridStyle }}</pre>
   };
 
   const FMenu2 = {
+    props: {
+      content: { default: "", type: String },
+      menu: { default: false, type: Boolean }
+    },
+    computed: {
+      currentContent() {
+        return parseContent(this.content).filter(c => c.chapter || c.section)
+      }
+    },
     template: `
     <div style="
       background: var(--lightergray);
@@ -93,9 +102,82 @@ gridStyle: {{ gridStyle }}</pre>
       padding: var(--base);
     ">
       <a class="quaternary" @click="$global.$emit('menu')"><f-menu-icon /></a>
+      <div v-if="menu">
+        <div v-for="(c, i) in currentContent">
+          <h5
+            v-if="c.chapter"
+            style="
+              padding: var(--base) var(--base) var(--base) var(--base2);
+              margin: var(--base2) 0 0 0;
+            "
+          >
+            {{ c.chapter }}
+          </h5>
+          <h5
+            style="
+              display: block;
+              cursor: pointer;
+              padding-left: 1ch;
+              margin: 0;
+              padding: var(--base) var(--base) var(--base) var(--base3);
+              font-Weight: normal;
+            "
+          >
+            {{ c.section }}
+          </h5>
+        </div>
+      </div>
     </div>
     `
   };
+
+  /*
+
+  import { parseContent, goto, get, set } from "../../../fachwerk.js";
+
+export default {
+  props: {
+    src: { default: "", type: [String, Array] },
+    title: { default: "", type: String }
+  },
+  methods: { parseContent, goto, get, set },
+  template: `
+    <f-fetch :src="src" v-slot="{ value: content }">
+      <div>
+      <div v-for="(c, i) in parseContent(content).filter(c => c.chapter || c.section)">
+        <h5
+          v-if="c.chapter"
+          style="
+            padding: var(--base) var(--base) var(--base) var(--base2);
+            margin: var(--base2) 0 0 0;
+          "
+        >
+          {{ c.chapter }}
+        </h5>
+        <h5
+          style="
+            display: block;
+            cursor: pointer;
+            padding-left: 1ch;
+            margin: 0;
+            padding: var(--base) var(--base) var(--base) var(--base3);
+            font-Weight: normal;
+          "
+          :style="{
+            color: get('section','') == c.section ? 'var(--background)' : 'var(--primary)',
+            background: get('section','') == c.section ? 'var(--lightergray)' : 'var(--transparent)',
+          }"
+          @click="set('section', c.section); goto(c.section)"
+        >
+          {{ c.section }}
+        </h5>
+      </div>
+    </div>
+    </f-fetch>
+  `
+};
+
+  */
 
   const FEditorHeader2 = {
     props: {
@@ -104,7 +186,17 @@ gridStyle: {{ gridStyle }}</pre>
     mounted() {
       this.$emit(
         "input",
-        "Fachwerk is a Javascript framework for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components."
+`
+| section: hello
+
+Fachwerk is a Javascript framework for creating interactive learning materials in the browser.
+
+---
+
+| section: world
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+`
       );
     },
     template: `
