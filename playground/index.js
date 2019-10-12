@@ -42,7 +42,7 @@ export function fachwerk(c = {}) {
     data: () => ({
       currentContent: "",
       currentEdit: true,
-      currentMenu: false,
+      currentMenu: true,
       currentType: "document"
     }),
     mounted() {
@@ -61,7 +61,6 @@ for creating interactive learning materials in the browser.
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
-      console.log(parseContent(this.currentContent));
       this.$global.$on("menu", () => {
         this.currentMenu = !this.currentMenu;
       });
@@ -75,19 +74,19 @@ Content can be authored in a Markdown format, with custom additions such as dyna
     },
     computed: {
       gridStyle() {
-        const menuCol = this.currentMenu ? "200px" : "55px";
         const editCol = this.currentEdit ? "1fr" : "";
+        const menuCol = this.currentMenu ? "200px" : "55px";
         const contentCol = "1fr";
-        return [menuCol, editCol, contentCol].join(" ");
+        return [editCol, menuCol, contentCol].join(" ");
       }
     },
     template: `
     <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
-      <f-menu2 :menu="currentMenu" :content="currentContent" />
       <div v-if="currentEdit">
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
       </div>
+      <f-menu2 :menu="currentMenu" :content="currentContent" />
       <div>
         <f-content-header2
           :type="currentType"
@@ -113,6 +112,7 @@ gridStyle: {{ gridStyle }}</pre>
       content: { default: "", type: String },
       menu: { default: false, type: Boolean }
     },
+    data: () => ({ selected: null }),
     computed: {
       currentContent() {
         return parseContent(this.content).filter(c => c.chapter || c.section);
@@ -120,11 +120,16 @@ gridStyle: {{ gridStyle }}</pre>
     },
     template: `
     <div style="
-      background: var(--lightergray);
       height: 100vh;
-      padding: var(--base);
     ">
-      <a class="quaternary" @click="$global.$emit('menu')"><f-menu-icon /></a>
+      <div style="padding: var(--base);">
+        <a
+          class="quaternary"
+          @click="$global.$emit('menu')"
+        >
+          <f-menu-icon />
+        </a>
+      </div>
       <div v-if="menu">
         <div v-for="(c, i) in currentContent">
           <h5
@@ -145,8 +150,14 @@ gridStyle: {{ gridStyle }}</pre>
               padding: var(--base) var(--base) var(--base) var(--base3);
               font-Weight: normal;
             "
+            @click="selected = c.section"
           >
+            <span :style="{
+              color: c.section == selected ? '' : 'var(--gray)',
+              borderBottom: c.section == selected ? '2px solid var(--blue)' : '',
+            }">
             {{ c.section }}
+            </span>
           </h5>
         </div>
       </div>
@@ -207,7 +218,6 @@ gridStyle: {{ gridStyle }}</pre>
     <div style="
       height: var(--base6);
       padding: 0 var(--base);
-      background: var(--lightestgray);
       display: flex;
       align-items: center;
       justify-content: space-between;
