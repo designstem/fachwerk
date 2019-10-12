@@ -12,12 +12,12 @@ export default {
   `,
   props: {
     width: {
-      default: 300,
+      default: 250,
       type: [Number, String],
       description: "Scene width in pixels"
     },
     height: {
-      default: 300,
+      default: 250,
       type: [Number, String],
       description: "Scene height in pixels"
     },

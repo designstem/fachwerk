@@ -108,7 +108,7 @@ h5 {
   font-weight: 700;
 }
 h1 {
-  font-size: calc(var(--base) * 7);
+  font-size: calc(var(--base) * 5 + 1vw);
   line-height: 1em;
   margin: 0.5em 0 0.5em 0;
 }
@@ -147,6 +147,9 @@ a {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
   font-weight: 500;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 a:hover {
   filter: brightness(90%);

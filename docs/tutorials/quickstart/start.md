@@ -1,14 +1,16 @@
 ## Start a new project
 
-### Open an editor
+### First, the editor
 
-1. Go to a Fachwerk example project with inline editor https://designstem.github.io/fachwerk_example
+Go to a Fachwerk example project with inline editor: 
 
-2. Click on **Edit** button and start editing the code.
+<a class="primary" href="https://designstem.github.io/fachwerk_example" target="_blank">Open the editor</a> 
 
-  Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys regularily to **save your content to your browser**.  This means the contents will be available when you reload the page or visit the page in the next time in the same browser.
+Then, click on **Edit** button and start editing the code.
 
-  > **Your content changes are not available for other people visting the same webpage**. See <f-link to="/publishing-content">Publishing content to web</f-link> section how to publish content for everybody to see.
+Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys regularily to **save your content to your browser**.  This means the contents will be available when you reload the page or visit the page in the next time in the same browser.
+
+> **Your content changes are not available for other people visting the same webpage**. See <f-link to="/publishing-content">Publishing content to web</f-link> section how to publish content for everybody to see.
 
 ### Write content
 
