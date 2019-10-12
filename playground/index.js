@@ -46,6 +46,22 @@ export function fachwerk(c = {}) {
       currentType: "document"
     }),
     mounted() {
+      this.currentContent = `        
+| section: hello
+
+Fachwerk is a Javascript framework
+
+-
+
+for creating interactive learning materials in the browser.
+
+---
+
+| section: world
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+`
+      console.log(parseContent(this.currentContent))
       this.$global.$on("menu", () => {
         this.currentMenu = !this.currentMenu;
       });
@@ -92,7 +108,7 @@ gridStyle: {{ gridStyle }}</pre>
     },
     computed: {
       currentContent() {
-        return parseContent(this.content).filter(c => c.chapter || c.section)
+        return parseContent(this.content).filter(c => c.chapter || c.section);
       }
     },
     template: `
@@ -133,71 +149,17 @@ gridStyle: {{ gridStyle }}</pre>
 
   /*
 
-  import { parseContent, goto, get, set } from "../../../fachwerk.js";
-
-export default {
-  props: {
-    src: { default: "", type: [String, Array] },
-    title: { default: "", type: String }
-  },
-  methods: { parseContent, goto, get, set },
-  template: `
-    <f-fetch :src="src" v-slot="{ value: content }">
-      <div>
-      <div v-for="(c, i) in parseContent(content).filter(c => c.chapter || c.section)">
-        <h5
-          v-if="c.chapter"
-          style="
-            padding: var(--base) var(--base) var(--base) var(--base2);
-            margin: var(--base2) 0 0 0;
-          "
-        >
-          {{ c.chapter }}
-        </h5>
-        <h5
-          style="
-            display: block;
-            cursor: pointer;
-            padding-left: 1ch;
-            margin: 0;
-            padding: var(--base) var(--base) var(--base) var(--base3);
-            font-Weight: normal;
-          "
           :style="{
             color: get('section','') == c.section ? 'var(--background)' : 'var(--primary)',
             background: get('section','') == c.section ? 'var(--lightergray)' : 'var(--transparent)',
           }"
           @click="set('section', c.section); goto(c.section)"
-        >
-          {{ c.section }}
-        </h5>
-      </div>
-    </div>
-    </f-fetch>
-  `
-};
 
   */
 
   const FEditorHeader2 = {
     props: {
       value: { default: "", type: String }
-    },
-    mounted() {
-      this.$emit(
-        "input",
-`
-| section: hello
-
-Fachwerk is a Javascript framework for creating interactive learning materials in the browser.
-
----
-
-| section: world
-
-Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
-`
-      );
     },
     template: `
     <div style="
@@ -218,6 +180,11 @@ Content can be authored in a Markdown format, with custom additions such as dyna
       content: { default: "", type: String },
       edit: { default: false, type: Boolean }
     },
+    computed: {
+      currentContent() {
+        return parseContent(this.content);
+      }
+    },
     template: `
     <div style="
       height: var(--base6);
@@ -228,6 +195,8 @@ Content can be authored in a Markdown format, with custom additions such as dyna
       justify-content: space-between;
     ">
       <a v-if="!edit" class="quaternary" @click="$global.$emit('edit')">Edit</a>
+      <div v-if="edit" /> 
+      <f-pager v-if="currentContent.length > 1" />
     </div>
     `
   };
@@ -237,15 +206,28 @@ Content can be authored in a Markdown format, with custom additions such as dyna
       content: { default: "", type: String },
       type: { default: "document", type: String }
     },
+    computed: {
+      currentContent() {
+        return parseContent(this.content);
+      }
+    },
     template: `
     <div style="display: flex; justify-content: center;">
-    <p
-      :style="{
+      <div :style="{
         padding: 'var(--base5)',
         maxWidth: type == 'document' ? '600px' : 'auto'
-      }"
-      v-html="content"
-    />  
+      }">
+        <f-fade
+          v-for="(slide,i) in currentContent"
+          :key="i"
+        >
+          <f-markdown
+            v-for="(cell, j) in slide.content"
+            :key="j"
+            :content="cell"
+          />
+        </f-fade>  
+      </div>
     </div>
     `
   };
