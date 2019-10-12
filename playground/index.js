@@ -47,7 +47,11 @@ export function fachwerk(c = {}) {
     }),
     mounted() {
       this.currentContent = `        
-| section: hello
+| section: First section
+
+# Hello world
+
+### Something cool yea
 
 Fachwerk is a Javascript framework
 
@@ -57,7 +61,9 @@ for creating interactive learning materials in the browser.
 
 ---
 
-| section: world
+| section: Second section
+
+### Something cool
 
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
@@ -75,9 +81,10 @@ Content can be authored in a Markdown format, with custom additions such as dyna
     computed: {
       gridStyle() {
         const editCol = this.currentEdit ? "1fr" : "";
-        const menuCol = this.currentMenu ? "200px" : "55px";
+        const menubarCol = "55px";
+        const menuCol = this.currentMenu ? "200px" : "";
         const contentCol = "1fr";
-        return [editCol, menuCol, contentCol].join(" ");
+        return [editCol, menubarCol, menuCol, contentCol].join(" ");
       }
     },
     template: `
@@ -86,7 +93,12 @@ Content can be authored in a Markdown format, with custom additions such as dyna
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
       </div>
-      <f-menu2 :menu="currentMenu" :content="currentContent" />
+      <f-menubar2 :content="currentContent" />
+      <f-menu2
+        v-if="currentMenu"
+        :menu="currentMenu"
+        :content="currentContent"
+      />
       <div>
         <f-content-header2
           :type="currentType"
@@ -107,6 +119,47 @@ gridStyle: {{ gridStyle }}</pre>
     `
   };
 
+  const FMenubar2 = {
+    props: {
+      menu: { default: false, type: Boolean }
+    },
+    template: `
+    <div style="
+      height: 100vh;
+      padding: var(--base) 0;
+      background: var(--lightestgray);
+      display: flex;
+      justify-content: center;
+    ">
+      <div>
+        <a
+          class="quaternary"
+          @click="$global.$emit('menu')"
+        >
+          <f-menu-icon />
+        </a>
+        <br>
+        <br>
+        <a
+          class="quaternary"
+          @click="$global.$emit('type')"
+        >
+          &nbsp;Ty
+        </a>
+        <br>
+        <br>
+        <a
+          class="quaternary"
+          @click="$global.$emit('edit')"
+        >
+          &nbsp;Ed
+        </a>
+      </div>
+    </div>
+    `
+  };
+
+
   const FMenu2 = {
     props: {
       content: { default: "", type: String },
@@ -119,47 +172,35 @@ gridStyle: {{ gridStyle }}</pre>
       }
     },
     template: `
-    <div style="
-      height: 100vh;
-    ">
-      <div style="padding: var(--base);">
-        <a
-          class="quaternary"
-          @click="$global.$emit('menu')"
+    <div v-if="menu" style="height: 100vh; padding: var(--base2) 0" >
+      <div v-for="(c, i) in currentContent">
+        <h5
+          v-if="c.chapter"
+          style="
+            padding: var(--base) var(--base) var(--base) var(--base2);
+            margin: var(--base2) 0 0 0;
+          "
         >
-          <f-menu-icon />
-        </a>
-      </div>
-      <div v-if="menu">
-        <div v-for="(c, i) in currentContent">
-          <h5
-            v-if="c.chapter"
-            style="
-              padding: var(--base) var(--base) var(--base) var(--base2);
-              margin: var(--base2) 0 0 0;
-            "
-          >
-            {{ c.chapter }}
-          </h5>
-          <h5
-            style="
-              display: block;
-              cursor: pointer;
-              padding-left: 1ch;
-              margin: 0;
-              padding: var(--base) var(--base) var(--base) var(--base3);
-              font-Weight: normal;
-            "
-            @click="selected = c.section"
-          >
-            <span :style="{
-              color: c.section == selected ? '' : 'var(--gray)',
-              borderBottom: c.section == selected ? '2px solid var(--blue)' : '',
-            }">
-            {{ c.section }}
-            </span>
-          </h5>
-        </div>
+          {{ c.chapter }}
+        </h5>
+        <h5
+          style="
+            display: block;
+            cursor: pointer;
+            padding-left: 1ch;
+            margin: 0;
+            padding: var(--base) var(--base) var(--base) var(--base3);
+            font-Weight: normal;
+          "
+          @click="selected = c.section"
+        >
+          <span :style="{
+            color: c.section == selected ? '' : 'var(--gray)',
+            borderBottom: c.section == selected ? '2px solid var(--blue)' : '',
+          }">
+          {{ c.section }}
+          </span>
+        </h5>
       </div>
     </div>
     `
@@ -188,6 +229,7 @@ gridStyle: {{ gridStyle }}</pre>
       align-items: center;
       justify-content: space-between;
     ">
+      &nbsp;
       <a class="quaternary" @click="$global.$emit('edit')"><f-close-icon /></a>
     </div>
     `
@@ -206,7 +248,6 @@ gridStyle: {{ gridStyle }}</pre>
   const FContentHeader2 = {
     props: {
       content: { default: "", type: String },
-      edit: { default: false, type: Boolean },
       type: { default: "document", type: String },
     },
     computed: {
@@ -222,10 +263,7 @@ gridStyle: {{ gridStyle }}</pre>
       align-items: center;
       justify-content: space-between;
     ">
-      <div>
-        <a v-if="!edit" class="quaternary" @click="$global.$emit('edit')">Edit</a>
-        <a class="quaternary" @click="$global.$emit('type')">Type</a>
-      </div>
+      &nbsp;
       <f-pager2 v-if="type == 'slides' && currentContent.length > 1" />
     </div>
     `
@@ -251,11 +289,11 @@ gridStyle: {{ gridStyle }}</pre>
     template: `
     <div :style="{
       display: type == 'document' ? 'flex' : 'block',
-      justifyContent: 'center'}
-    ">
+      justifyContent: 'center'
+    }">
       <div :style="{
         padding: 'var(--base5)',
-        maxWidth: type == 'document' ? '700px' : '100%'
+        maxWidth: type == 'document' ? '800px' : '100%'
       }">
         <div
           v-for="(slide,i) in currentContent"
@@ -266,6 +304,7 @@ gridStyle: {{ gridStyle }}</pre>
             v-for="(contentCell, j) in slide.content"
             :key="j"
             :content="contentCell"
+            :style="{'--base': type == 'slides' ? '11px' : '8px'}"
           />
         </div>  
       </div>
@@ -274,6 +313,7 @@ gridStyle: {{ gridStyle }}</pre>
   };
 
   Vue.component("FContentEditor2", FContentEditor2);
+  Vue.component("FMenubar2", FMenubar2);
   Vue.component("FMenu2", FMenu2);
   Vue.component("FEditorHeader2", FEditorHeader2);
   Vue.component("FContent2", FContent2);
