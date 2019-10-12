@@ -35,17 +35,19 @@ export function fachwerk(c = {}) {
 
   const FContentEditor2 = {
     props: {
-      editor: { default: 'hide', type: String },
+      edit: { default: 'hide', type: String },
       menu: { default: 'hide', type: String },
       type: { default: 'document', type: String },
     },
     data: () => ({
       currentContent: '',
       currentEdit: false,
+      currentMenu: false,
       currentType: 'document'
     }),
     mounted() {
       this.$global.$on("edit", () => {
+        console.log('edit')
         this.currentEdit = !this.currentEdit
       });
       this.$global.$on("type", () => {
@@ -55,14 +57,18 @@ export function fachwerk(c = {}) {
     template: `
     <div class="grid" style="--cols: 200px 1fr 1fr; --gap: 0">
       <div>Menu</div>
-      <div>
+      <div v-if="currentEdit">
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor v-model="currentContent" />
       </div>
       <div>
         <f-content-header2 :content="currentContent" />
-        <f-content2 :content="currentContent" />
+        <f-content2 :edit="currentEdit" :content="currentContent" />
       </div>
+      <pre style="position: fixed; bottom: 0; left: var(--base2);">
+currentEdit: {{ currentEdit }}
+currentMenu: {{ currentMenu }}
+currentType: {{ currentType }}</pre>
     </div>
     `
   };
@@ -83,7 +89,7 @@ export function fachwerk(c = {}) {
       align-items: center;
       justify-content: space-between;
     ">
-      <a class="quaternary"><f-close-icon /></a>
+      <a class="quaternary" @click="$global.$emit('edit')"><f-close-icon /></a>
     </div>
     `
   };
@@ -114,7 +120,7 @@ export function fachwerk(c = {}) {
       align-items: center;
       justify-content: space-between;
     ">
-      Hello
+      <a class="quaternary" @click="$global.$emit('edit')">Edit</a>
     </div>
     `
   };
