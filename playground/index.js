@@ -22,8 +22,6 @@ for creating interactive learning materials in the browser. Content can be autho
 | section: Second section
 | background: yellow
 
-### Something cool
-
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
@@ -107,14 +105,14 @@ export function fachwerk(c = {}) {
         :menu="currentMenu"
         :content="currentContent"
       />
-      <div>
+      <div style="position: relative">
+        <f-content2
+          :type="currentType"
+          :content="currentContent"
+        />
         <f-content-header2
           :type="currentType"
           :edit="currentEdit"
-          :content="currentContent"
-        />
-        <f-content2
-          :type="currentType"
           :content="currentContent"
         />
       </div>
@@ -264,6 +262,10 @@ gridStyle: {{ gridStyle }}</pre-->
     },
     template: `
     <div style="
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
       height: var(--base6);
       padding: 0 var(--base);
       display: flex;
