@@ -6,6 +6,24 @@
 //   type: "document"
 // });
 
+const sampleContent = `        
+| section: First section
+
+Hello world
+
+-
+
+for creating interactive learning materials in the browser.
+
+---
+
+| section: Second section
+
+### Something cool
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+`;
+
 import { Vue, components, parseContent, send } from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
@@ -42,31 +60,11 @@ export function fachwerk(c = {}) {
     data: () => ({
       currentContent: "",
       currentEdit: true,
-      currentMenu: true,
-      currentType: "document"
+      currentMenu: false,
+      currentType: "slides"
     }),
     mounted() {
-      this.currentContent = `        
-| section: First section
-
-# Hello world
-
-### Something cool yea
-
-Fachwerk is a Javascript framework
-
--
-
-for creating interactive learning materials in the browser.
-
----
-
-| section: Second section
-
-### Something cool
-
-Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
-`;
+      this.currentContent = sampleContent
       this.$global.$on("menu", () => {
         this.currentMenu = !this.currentMenu;
       });
@@ -299,12 +297,22 @@ gridStyle: {{ gridStyle }}</pre>
           v-for="(slide,i) in currentContent"
           :key="i"
           v-if="type == 'slides' ? i == currentIndex : true"
+          :style="{
+            display: 'grid',
+            gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
+            gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
+            gridTemplateAreas: slide.areas,
+            gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
+          }"
         >
           <f-markdown
             v-for="(contentCell, j) in slide.content"
             :key="j"
             :content="contentCell"
-            :style="{'--base': type == 'slides' ? '11px' : '8px'}"
+            :style="{
+              '--base': type == 'slides' ? '11px' : '8px',
+              gridArea: 'a' + (j + 1)
+            }"
           />
         </div>  
       </div>
