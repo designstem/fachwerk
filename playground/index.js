@@ -8,6 +8,7 @@
 
 const sampleContent = `        
 | section: First section
+| background: red
 
 Hello world
 
@@ -24,7 +25,14 @@ for creating interactive learning materials in the browser.
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
-import { Vue, components, parseContent, send } from "../fachwerk.js";
+import {
+  Vue,
+  components,
+  parseContent,
+  send,
+  isimageurl,
+  color
+} from "../fachwerk.js";
 
 export function fachwerk(c = {}) {
   const config = {
@@ -64,7 +72,7 @@ export function fachwerk(c = {}) {
       currentType: "slides"
     }),
     mounted() {
-      this.currentContent = sampleContent
+      this.currentContent = sampleContent;
       this.$global.$on("menu", () => {
         this.currentMenu = !this.currentMenu;
       });
@@ -157,7 +165,6 @@ gridStyle: {{ gridStyle }}</pre>
     `
   };
 
-
   const FMenu2 = {
     props: {
       content: { default: "", type: String },
@@ -246,7 +253,7 @@ gridStyle: {{ gridStyle }}</pre>
   const FContentHeader2 = {
     props: {
       content: { default: "", type: String },
-      type: { default: "document", type: String },
+      type: { default: "document", type: String }
     },
     computed: {
       currentContent() {
@@ -280,6 +287,40 @@ gridStyle: {{ gridStyle }}</pre>
         return parseContent(this.content);
       }
     },
+    methods: {
+      gridStyle(slide) {
+        return {
+          display: "grid",
+          gridTemplateColumns: slide.cols
+            ? slide.cols
+            : "repeat(" + slide.colCount + ", 1fr)",
+          gridTemplateRows: slide.rows
+            ? slide.rows
+            : "repeat(" + slide.rowCount + ", auto)",
+          gridTemplateAreas: slide.areas,
+          gridGap: slide.gap ? slide.gap : "var(--gap)"
+        };
+      },
+      backgroundStyle(slide) {
+        const tint = slide.tint ? slide.tint : 0.3;
+        const background = slide.background
+          ? isimageurl(slide.background)
+            ? `linear-gradient(
+                rgba(0, 0, 0, ${tint}),
+                rgba(0, 0, 0, ${tint})
+                ),
+                  url(${slide.background})
+              `
+            : color(slide.background)
+          : "";
+
+        return {
+          background,
+          backgroundSize: slide.background ? "cover" : "",
+          backgroundRepeat: slide.background ? "no-repeat" : ""
+        };
+      }
+    },
     mounted() {
       this.$global.$on("next", () => this.currentIndex++);
       this.$global.$on("prev", () => this.currentIndex--);
@@ -297,13 +338,7 @@ gridStyle: {{ gridStyle }}</pre>
           v-for="(slide,i) in currentContent"
           :key="i"
           v-if="type == 'slides' ? i == currentIndex : true"
-          :style="{
-            display: 'grid',
-            gridTemplateColumns: slide.cols ? slide.cols : 'repeat(' + slide.colCount + ', 1fr)',
-            gridTemplateRows: slide.rows ? slide.rows : 'repeat(' + slide.rowCount + ', auto)',
-            gridTemplateAreas: slide.areas,
-            gridGap: slide.gap ? slide.gap : 'var(--content-gap)',
-          }"
+          :style="{...gridStyle(slide), ...backgroundStyle(slide)}"
         >
           <f-markdown
             v-for="(contentCell, j) in slide.content"
