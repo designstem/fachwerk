@@ -14,15 +14,17 @@ Hello world
 
 -
 
-for creating interactive learning materials in the browser.
+for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+
 
 ---
 
 | section: Second section
+| background: yellow
 
 ### Something cool
 
-Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
 import {
@@ -116,11 +118,11 @@ export function fachwerk(c = {}) {
           :content="currentContent"
         />
       </div>
-      <pre style="position: fixed; bottom: 0; right: var(--base2);">
+      <!--pre style="position: fixed; bottom: 0; right: var(--base2);">
 currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
 currentType: {{ currentType }}
-gridStyle: {{ gridStyle }}</pre>
+gridStyle: {{ gridStyle }}</pre-->
     </div>
     `
   };
@@ -330,15 +332,18 @@ gridStyle: {{ gridStyle }}</pre>
       display: type == 'document' ? 'flex' : 'block',
       justifyContent: 'center'
     }">
-      <div :style="{
-        padding: 'var(--base5)',
-        maxWidth: type == 'document' ? '800px' : '100%'
-      }">
+      <div>
         <div
           v-for="(slide,i) in currentContent"
           :key="i"
           v-if="type == 'slides' ? i == currentIndex : true"
-          :style="{...gridStyle(slide), ...backgroundStyle(slide)}"
+          :style="{
+            ...gridStyle(slide),
+            ...backgroundStyle(slide),
+            padding: 'var(--base5)',
+            maxWidth: type == 'document' ? '800px' : '100%',
+            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+          }"
         >
           <f-markdown
             v-for="(contentCell, j) in slide.content"
@@ -349,7 +354,7 @@ gridStyle: {{ gridStyle }}</pre>
               gridArea: 'a' + (j + 1)
             }"
           />
-        </div>  
+        </div>
       </div>
     </div>
     `
