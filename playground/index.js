@@ -504,7 +504,7 @@ const FContent2 = {
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + (slide.rowCount - 1) + ", auto) 1fr",
+          : "repeat(" + (slide.rowCount) + ", minmax(min-content, max-content))",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
@@ -584,11 +584,9 @@ const FContent2 = {
   },
   css: `
     aside {
-      padding: calc(var(--content-padding2) / 2) var(--content-padding2);
-      background: purple;
+      padding: var(--content-padding2);
     }
     aside:only-child {
-      padding: var(--content-padding2);
       height: 100%;
     }
     .cell *:only-child, .cell *:last-child {
