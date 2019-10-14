@@ -335,6 +335,9 @@ export { FVrIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
+import FMenuIcon2 from "./components/icons/FMenuIcon2.js";
+export { FMenuIcon2 };
+
 import FArrowIcon from "./components/icons/FArrowIcon.js";
 export { FArrowIcon };
 

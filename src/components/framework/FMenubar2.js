@@ -51,7 +51,7 @@ export default {
         class="quaternary"
         @click="$global.$emit('menu')"
       >
-        <f-menu-icon
+        <f-menu-icon2
           :style="{
             '--icon-stroke': menu ? 'var(--blue)' : '',
             opacity: hasMenuContent ? 1 : 0.2
