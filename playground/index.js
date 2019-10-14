@@ -20,7 +20,44 @@ import {
 
 import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
-let sampleContent2 = `   
+let sampleContent2 = ` 
+
+| section: AAA
+
+## AAA
+
+---
+
+| section: AAA2
+
+## AAA
+
+---
+
+| section: AAA3
+
+## AAA
+
+---
+
+| section: AAA4
+
+## AAA
+
+---
+
+| section: AAA5
+
+## AAA
+
+---
+
+| section: AAA6
+
+## AAA
+
+---
+
 | 1 1
 | 2 3   
 
@@ -238,7 +275,6 @@ const FContentEditor2 = {
         v-if="currentMenu"
         :menu="currentMenu"
         :content="currentContent"
-        style="position: sticky; top: 0;"
       />
       <div style="position: relative">
         <f-content2
@@ -348,7 +384,6 @@ const FMenubar2 = {
     }
     @media (max-width: 800px) {
       .menubar {
-        background: red;
         position: static;
         top: inherit;
         width: 100%;
@@ -364,6 +399,7 @@ const FMenubar2 = {
 };
 
 const FMenu2 = {
+  mixins: [Css],
   props: {
     content: { default: "", type: String },
     menu: { default: false, type: Boolean }
@@ -378,7 +414,7 @@ const FMenu2 = {
     this.$global.$on("section", section => (this.currentSection = section));
   },
   template: `
-    <div v-if="menu" style="height: 100vh; padding: var(--base2) 0" >
+    <div v-if="menu" class="menu">
       <div v-for="(c, i) in currentContent">
         <h5
           v-if="c.chapter"
@@ -409,6 +445,23 @@ const FMenu2 = {
         </h5>
       </div>
     </div>
+    `,
+    css: `
+    .menu {
+      height: 100vh;
+      padding: var(--base2) 0;
+      overflow: auto;
+      position: sticky;
+      top: 0;
+    }
+    @media (max-width: 800px) {
+      .menu {
+        height: inherit;
+        max-height: 50vh;
+        position: static;
+        top: inherit;
+      }
+    }
     `
 };
 
