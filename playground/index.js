@@ -6,17 +6,27 @@
 //   type: "document"
 // });
 
-const sampleContent = `   
+import {
+  Vue,
+  components,
+  parseContent,
+  send,
+  isimageurl,
+  color,
+  slug,
+  store
+} from "../fachwerk.js";
 
-<f-card />
+import FAdvancedEditor2 from '../src/components/framework/FAdvancedEditor2.js'
+
+
+let sampleContent = `   
+
+<f-content-example2 src="./example.md" />
 
 ---
 
-<f-content-example2 :content="\`
-<f-scene grid responsive>
-  <f-circle />
-</f-scene>
-\`" />
+<f-card />
 
 ---
 
@@ -47,40 +57,33 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
-import {
-  Vue,
-  components,
-  parseContent,
-  send,
-  isimageurl,
-  color,
-  slug,
-  store
-} from "../fachwerk.js";
+sampleContent = `Yo
+
+!
+`
 
 const FContentExample2 = {
   props: {
-    content: { default: "hide", type: String }
+    src: { default: "", type: String }
   },
   data: () => ({
     currentContent: ""
   }),
-  mounted() {
-    this.$watch(
-      "content",
-      content => {
-        this.currentContent = content.trim()
-      },
-      { immediate: true }
-    );
-  },
   template: `
-  <div class="grid" style="--cols: 1fr 1fr; border: 1px solid red; --height: 33vh">
-    <f-editor
-      v-model="currentContent"
-    />
-    <f-content :content="currentContent" />
-  </div>
+  <f-fetch :src="src" @value="content => currentContent = content">
+    <div class="grid" style="
+      --cols: 1fr 1fr;
+      box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+    ">
+      <f-advanced-editor2
+        v-model="currentContent"
+      />
+      <f-content2
+        style="--content-max-width: 100%"
+        :content="currentContent"
+      />
+    </div>
+  </f-fetch>
   `
 };
 
@@ -94,7 +97,7 @@ const FContentEditor2 = {
     currentContent: "",
     currentEdit: true,
     currentMenu: false,
-    currentType: "slides"
+    currentType: "document"
   }),
   mounted() {
     this.currentContent = sampleContent;
@@ -125,7 +128,10 @@ const FContentEditor2 = {
         style="position: sticky; top: 0; height: 100vh;"
       >
         <f-editor-header2 v-model="currentContent" />
-        <f-advanced-editor v-model="currentContent" />
+        <f-advanced-editor2
+          v-model="currentContent"
+          style="--advanced-editor-height: calc(100vh - var(--base6))"
+        />
       </div>
       <f-menubar2
         :content="currentContent"
@@ -452,7 +458,7 @@ const FContent2 = {
             ...gridStyle(slide),
             ...backgroundStyle(slide),
             padding: 'var(--base5)',
-            maxWidth: type == 'document' ? '800px' : '100%',
+            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
             minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
           }"
         >
@@ -470,6 +476,8 @@ const FContent2 = {
     </f-theme>
     `
 };
+
+Vue.component("FAdvancedEditor2", FAdvancedEditor2);
 
 Vue.component("FContentExample2", FContentExample2);
 Vue.component("FContentEditor2", FContentEditor2);
