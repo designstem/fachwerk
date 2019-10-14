@@ -104,14 +104,17 @@ const FContentExample2 = {
     <div class="grid" style="
       --cols: 1fr 1fr;
       box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+      align-items: stretch;
     ">
       <f-advanced-editor2
         v-model="currentContent"
+        style="background: var(--paleblue)"
       />
       <f-content2
-        style="--content-max-width: 100%"
         :content="currentContent"
+        style="height: 100%"
       />
+      
     </div>
   </f-fetch>
   `
@@ -480,6 +483,7 @@ const FContent2 = {
         :theme="slide.theme ? slide.theme : ''"
         :style="{
           border: '4px solid orange',
+          height: '100%'
         }"
       ><div :style="{
           border: '4px solid blue',
