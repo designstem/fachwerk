@@ -90,8 +90,9 @@ const FContentEditor2 = {
       </div>
       <f-menubar2
         :content="currentContent"
-        :type="currentType"
+        :menu="currentMenu"
         :edit="currentEdit"
+        :type="currentType"
         style="position: sticky; top: 0;"
       />
       <f-menu2
@@ -123,15 +124,19 @@ gridStyle: {{ gridStyle }}</pre-->
 const FMenubar2 = {
   props: {
     menu: { default: false, type: Boolean },
-    type: { default: 'document', type: String },
-    edit: { default: false, type: Boolean }
+    edit: { default: false, type: Boolean },
+    type: { default: "document", type: String },
+    content: { default: "", type: String },
   },
   computed: {
+    hasMenuContent() {
+      return parseContent(this.content).filter(c => c.chapter || c.section).length
+    },
     iconComponent() {
-      if (this.type == 'slides') {
-        return 'f-document-icon'
+      if (this.type == "slides") {
+        return "f-document-icon";
       }
-      return 'f-slides-icon'
+      return "f-slides-icon";
     }
   },
   template: `
@@ -144,20 +149,7 @@ const FMenubar2 = {
       align-items: center;
       flex-direction: column;
     ">
-        <a
-          class="quaternary"
-          @click="$global.$emit('menu')"
-        >
-          <f-menu-icon />
-        </a>
         <div>
-        <a
-          class="quaternary"
-          @click="$global.$emit('type')"
-        >
-          &nbsp;<component :is="iconComponent" />&nbsp;
-        </a>
-        <p />
         <a
           class="quaternary"
           @click="$global.$emit('edit')"
@@ -166,7 +158,25 @@ const FMenubar2 = {
             '--icon-stroke': edit ? 'var(--blue)' : ''}
           "/>
         </a>
+        <p />
+        <a
+          class="quaternary"
+          @click="$global.$emit('type')"
+        >
+          &nbsp;<component :is="iconComponent" />&nbsp;
+        </a>
       </div>
+      <a
+        class="quaternary"
+        @click="$global.$emit('menu')"
+      >
+        <f-menu-icon
+          :style="{
+            '--icon-stroke': menu ? 'var(--blue)' : '',
+            opacity: hasMenuContent ? 1 : 0.2
+          }
+        "/>
+      </a>
     </div>
     `
 };
@@ -183,7 +193,7 @@ const FMenu2 = {
     }
   },
   mounted() {
-    this.$global.$on("section", section => this.currentSection = section);
+    this.$global.$on("section", section => (this.currentSection = section));
   },
   template: `
     <div v-if="menu" style="height: 100vh; padding: var(--base2) 0" >
@@ -233,8 +243,8 @@ const FEditorHeader2 = {
       align-items: center;
       justify-content: space-between;
     ">
-      &nbsp;
       <a class="quaternary" @click="$global.$emit('edit')"><f-close-icon /></a>
+      &nbsp;
     </div>
     `
 };
@@ -322,9 +332,8 @@ const FContentHeader2 = {
       padding: 0 var(--base);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
     ">
-      <pre>{{ currentIndex }}</pre>
       <div v-if="type == 'slides' && currentContent.length > 1" style="display: flex;">
         <a class="quaternary" style="padding: 0 4px" @click="prev" ><f-leftarrow-icon /></a>
         <a class="quaternary" style="padding: 0 4px" @click="next" ><f-rightarrow-icon /></a>
@@ -345,7 +354,8 @@ const FContent2 = {
     currentContent() {
       return parseContent(this.content);
     }
-  },methods: {
+  },
+  methods: {
     slug,
     gridStyle(slide) {
       return {
