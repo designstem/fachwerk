@@ -70,12 +70,10 @@ export default {
         :id="slide.section ? slug(slide.section) : 'id-' + i"
         :theme="slide.theme ? slide.theme : ''"
         :style="{
-          border: '0px solid orange',
           height: '100%'
         }"
       ><div :style="{
           ...backgroundStyle(slide),
-          border: '4px solid blue',
           justifyContent: 'center',
           border: '-px solid red',
           textAlign: 'center',
@@ -86,7 +84,6 @@ export default {
             ...gridStyle(slide),
             textAlign: 'left',
             margin: '0 auto',
-            border: '0px solid green',
             padding: slide.padding ? slide.padding : 'var(--content-padding2)',
             maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
             minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
@@ -97,7 +94,6 @@ export default {
             :content="contentCell"
             class="cell"
             :style="{
-              border: '0px solid blue',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
             }"

@@ -60,8 +60,9 @@ export default {
     `,
     css: `
     .menu {
+      width: 200px;
       height: 100vh;
-      padding: var(--base2) 0;
+      padding: var(--base6) 0 var(--base2) 0;
       overflow: auto;
       position: sticky;
       top: 0;

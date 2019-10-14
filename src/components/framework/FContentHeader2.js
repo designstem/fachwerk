@@ -13,6 +13,8 @@ import {
 export default {
   props: {
     content: { default: "", type: String },
+    edit: { default: false, type: Boolean },
+    menu: { default: false, type: Boolean },
     type: { default: "document", type: String },
     saveId: { default: "fachwerk", type: String }
   },
@@ -20,6 +22,16 @@ export default {
   computed: {
     currentContent() {
       return parseContent(this.content);
+    },
+    hasMenuContent() {
+      return this.currentContent.filter(c => c.chapter || c.section)
+        .length;
+    },
+    iconComponent() {
+      if (this.type == "slides") {
+        return "f-document-icon";
+      }
+      return "f-slides-icon";
     }
   },
   methods: {
@@ -89,11 +101,40 @@ export default {
       padding: 0 var(--base);
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
     ">
-      <div v-if="type == 'slides' && currentContent.length > 1" style="display: flex;">
-        <a class="quaternary" style="padding: 0 4px" @click="prev" ><f-leftarrow-icon /></a>
-        <a class="quaternary" style="padding: 0 4px" @click="next" ><f-rightarrow-icon /></a>
+      <div>
+        <a
+          class="quaternary"
+          @click="$global.$emit('edit')"
+        >
+          <f-editor-icon :style="{
+            '--icon-stroke': edit ? 'var(--blue)' : ''}
+          "/>
+        </a>
+        <a
+          class="quaternary"
+          @click="$global.$emit('menu')"
+        >
+          <f-menu-icon2
+            :style="{
+              '--icon-stroke': menu ? 'var(--blue)' : '',
+              opacity: hasMenuContent ? 1 : 0.2
+            }
+          "/>
+        </a>
+      </div>
+      <div style="display: flex">
+        <div v-if="type == 'slides' && currentContent.length > 1" style="display: flex; margin-right: var(--base2)">
+          <a class="quaternary" style="padding: 0 4px" @click="prev" ><f-leftarrow-icon /></a>
+          <a class="quaternary" style="padding: 0 4px" @click="next" ><f-rightarrow-icon /></a>
+        </div>
+        <a
+          class="quaternary"
+          @click="$global.$emit('type')"
+        >
+          <component :is="iconComponent" />&nbsp;
+        </a>
       </div>
     </div>
     `
