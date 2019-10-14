@@ -14,19 +14,78 @@ import {
   isimageurl,
   color,
   slug,
-  store
+  store,
+  Css
 } from "../fachwerk.js";
 
-import FAdvancedEditor2 from '../src/components/framework/FAdvancedEditor2.js'
+import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
+let sampleContent2 = `   
+| 1 1
+| 2 3   
 
-let sampleContent = `   
+# Hello
 
-<f-content-example2 src="./example.md" />
+-
+
+<f-card />
+
+-
+
+<f-card />
 
 ---
 
-<f-card />
+| padding: 0
+| gap: 0
+| 1 2
+| 1 3
+
+<aside>
+
+Hello
+
+</aside>
+
+<aside>
+
+Hello
+
+</aside>
+
+<aside>
+
+Hello
+
+</aside>
+
+-
+
+<f-card>
+
+## Hello
+
+What is going on here?
+
+I do not know
+
+</f-card>
+
+-
+
+<f-card>
+
+## Hello
+
+What is going on here?
+
+I do not know
+
+</f-card>
+
+---
+
+<f-content-example2 src="./example.md" />
 
 ---
 
@@ -57,10 +116,40 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
-sampleContent = `Yo
+let sampleContent = `
+| background: red
+| cols: 1fr 2fr
+| rows: auto
+| height: 75vh
 
-!
-`
+<f-image src="../images/example.jpg" />
+
+-
+
+# Selline lugu
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+
+---
+
+| background: ../images/example.jpg
+| theme: dark
+
+a
+
+-
+
+b
+
+---
+
+| background: #aaa
+
+ab
+
+`;
 
 const FContentExample2 = {
   props: {
@@ -74,14 +163,17 @@ const FContentExample2 = {
     <div class="grid" style="
       --cols: 1fr 1fr;
       box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+      align-items: stretch;
     ">
       <f-advanced-editor2
         v-model="currentContent"
+        style="background: var(--paleblue)"
       />
       <f-content2
-        style="--content-max-width: 100%"
         :content="currentContent"
+        style="height: 100%"
       />
+      
     </div>
   </f-fetch>
   `
@@ -97,10 +189,10 @@ const FContentEditor2 = {
     currentContent: "",
     currentEdit: true,
     currentMenu: false,
-    currentType: "document"
+    currentType: "slides"
   }),
   mounted() {
-    this.currentContent = sampleContent;
+    this.currentContent = sampleContent2;
     this.$global.$on("menu", () => {
       this.currentMenu = !this.currentMenu;
     });
@@ -389,6 +481,7 @@ const FContentHeader2 = {
 };
 
 const FContent2 = {
+  mixins: [Css],
   props: {
     content: { default: "", type: String },
     type: { default: "document", type: String }
@@ -411,7 +504,7 @@ const FContent2 = {
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + slide.rowCount + ", auto)",
+          : "repeat(" + (slide.rowCount) + ", minmax(min-content, max-content))",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
@@ -440,40 +533,65 @@ const FContent2 = {
     this.$global.$on("index", index => (this.currentIndex = index));
   },
   template: `
-    <f-theme
-      theme="light"
-      :style="{
-        display: type == 'document' ? 'flex' : 'block',
-        justifyContent: 'center'
-      }"
-    >
-      <div>
-        <div
-          v-if="type == 'slides' ? i == currentIndex : true"
-          v-for="(slide,i) in currentContent"
-          :key="i"
-          :id="slide.section ? slug(slide.section) : 'id-' + i"
-          :theme="slide.theme ? slide.theme : ''"
-          :style="{
-            ...gridStyle(slide),
-            ...backgroundStyle(slide),
-            padding: 'var(--base5)',
-            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
-            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
-          }"
-        >
+    <div>
+      <f-theme
+        v-if="type == 'slides' ? i == currentIndex : true"
+        v-for="(slide,i) in currentContent"
+        :key="i"
+        :id="slide.section ? slug(slide.section) : 'id-' + i"
+        :theme="slide.theme ? slide.theme : ''"
+        :style="{
+          border: '4px solid orange',
+          height: '100%'
+        }"
+      ><div :style="{
+          border: '4px solid blue',
+          ...backgroundStyle(slide),
+          justifyContent: 'center',
+          border: '4px solid red',
+          textAlign: 'center',
+      }">
+        <div :style="{
+          ...gridStyle(slide),
+          textAlign: 'left',
+          margin: '0 auto',
+          border: '4px solid green',
+          padding: slide.padding ? slide.padding : 'var(--content-padding2)',
+          maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
+          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+        }">
           <f-markdown
             v-for="(contentCell, j) in slide.content"
             :key="j"
             :content="contentCell"
+            class="cell"
             :style="{
+              border: '4px solid blue',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
             }"
           />
         </div>
-      </div>
-    </f-theme>
+          </div>
+      </f-theme>
+    </div>
+    `,
+  cssprops: {
+    "--content-padding2": {
+      default: "var(--base4)",
+      description: "Content height"
+    }
+  },
+  css: `
+    aside {
+      padding: var(--content-padding2);
+    }
+    aside:only-child {
+      height: 100%;
+    }
+    .cell *:only-child, .cell *:last-child {
+      margin-bottom: 0;
+    }
     `
 };
 

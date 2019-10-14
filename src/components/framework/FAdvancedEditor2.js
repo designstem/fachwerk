@@ -96,6 +96,7 @@ export default {
     line-height: var(--font-mono-lineheight);
     padding: var(--base2);
     height: var(--advanced-editor-height) !important;
+    min-height: var(--advanced-editor-height) !important;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;
