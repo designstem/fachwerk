@@ -20,9 +20,11 @@ import {
 
 import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
-let sampleContent2 = `   
+let sampleContent2 = ` 
+
 | 1 1
 | 2 3   
+| theme: blue
 
 # Hello
 
@@ -180,6 +182,7 @@ const FContentExample2 = {
 };
 
 const FContentEditor2 = {
+  mixins: [Css],
   props: {
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
@@ -191,6 +194,9 @@ const FContentEditor2 = {
     currentMenu: false,
     currentType: "slides"
   }),
+  methods: {
+    send
+  },
   mounted() {
     this.currentContent = sampleContent2;
     this.$global.$on("menu", () => {
@@ -217,12 +223,11 @@ const FContentEditor2 = {
     <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
       <div
         v-if="currentEdit"
-        style="position: sticky; top: 0; height: 100vh;"
+        class="editor"
       >
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor2
           v-model="currentContent"
-          style="--advanced-editor-height: calc(100vh - var(--base6))"
         />
       </div>
       <f-menubar2
@@ -230,13 +235,11 @@ const FContentEditor2 = {
         :menu="currentMenu"
         :edit="currentEdit"
         :type="currentType"
-        style="position: sticky; top: 0;"
       />
       <f-menu2
         v-if="currentMenu"
         :menu="currentMenu"
         :content="currentContent"
-        style="position: sticky; top: 0;"
       />
       <div style="position: relative">
         <f-content2
@@ -254,11 +257,34 @@ currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
 currentType: {{ currentType }}
 gridStyle: {{ gridStyle }}</pre-->
+      <f-keyboard alt character="e" @keydown="currentEdit = !currentEdit" />
+      <f-keyboard alt character="t" @keydown="currentType = currentType == 'document' ? 'slides' : 'document'" />
+      <f-keyboard v-if="currentEdit" alt character="s" @keydown="send('save')" />
+      <f-keyboard alt character="left" @keydown="send('prev')" />
+      <f-keyboard alt character="right" @keydown="send('next')" />
+      <f-keyboard v-if="!currentEdit" character="left" @keydown="send('prev')" />
+      <f-keyboard v-if="!currentEdit" character="right" @keydown="send('next')" />
     </div>
+    `,
+    css: `
+    .editor {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      --advanced-editor-height: calc(100vh - var(--base6));
+    }
+    @media (max-width: 800px) {
+      .editor {
+        position: static;
+        height: 50vh;
+        --advanced-editor-height: calc(50vh - var(--base6));
+      }
+    }
     `
 };
 
 const FMenubar2 = {
+  mixins: [Css],
   props: {
     menu: { default: false, type: Boolean },
     edit: { default: false, type: Boolean },
@@ -278,32 +304,22 @@ const FMenubar2 = {
     }
   },
   template: `
-    <div style="
-      height: 100vh;
-      padding: var(--base) 0;
-      background: var(--lightestgray);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-    ">
-        <div>
-        <a
-          class="quaternary"
-          @click="$global.$emit('edit')"
-        >
-          &nbsp;<f-editor-icon :style="{
-            '--icon-stroke': edit ? 'var(--blue)' : ''}
-          "/>
-        </a>
-        <p />
-        <a
-          class="quaternary"
-          @click="$global.$emit('type')"
-        >
-          &nbsp;<component :is="iconComponent" />&nbsp;
-        </a>
-      </div>
+    <div class="menubar">
+      <a
+        class="quaternary"
+        @click="$global.$emit('edit')"
+      >
+        &nbsp;<f-editor-icon :style="{
+          '--icon-stroke': edit ? 'var(--blue)' : ''}
+        "/>
+      </a>
+      <a
+        class="quaternary"
+        @click="$global.$emit('type')"
+      >
+        &nbsp;<component :is="iconComponent" />&nbsp;
+      </a>
+      <div />
       <a
         class="quaternary"
         @click="$global.$emit('menu')"
@@ -316,10 +332,39 @@ const FMenubar2 = {
         "/>
       </a>
     </div>
+    `,
+    css: `
+    .menubar {
+      position: sticky;
+      top: 0;
+      width: 55px;
+      height: 100vh;
+      padding: var(--base) 0;
+      background: var(--lightestgray);
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto 1fr auto;
+      grid-gap: var(--base) 0;
+      justify-content: center;
+    }
+    @media (max-width: 800px) {
+      .menubar {
+        position: static;
+        top: inherit;
+        width: 100%;
+        height: var(--base6);
+        padding: 0 var(--base);
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: auto;
+        grid-gap: 0 var(--base);
+        align-items: center;
+      }
+    }
     `
 };
 
 const FMenu2 = {
+  mixins: [Css],
   props: {
     content: { default: "", type: String },
     menu: { default: false, type: Boolean }
@@ -334,7 +379,7 @@ const FMenu2 = {
     this.$global.$on("section", section => (this.currentSection = section));
   },
   template: `
-    <div v-if="menu" style="height: 100vh; padding: var(--base2) 0" >
+    <div v-if="menu" class="menu">
       <div v-for="(c, i) in currentContent">
         <h5
           v-if="c.chapter"
@@ -365,6 +410,23 @@ const FMenu2 = {
         </h5>
       </div>
     </div>
+    `,
+    css: `
+    .menu {
+      height: 100vh;
+      padding: var(--base2) 0;
+      overflow: auto;
+      position: sticky;
+      top: 0;
+    }
+    @media (max-width: 800px) {
+      .menu {
+        height: inherit;
+        max-height: 50vh;
+        position: static;
+        top: inherit;
+      }
+    }
     `
 };
 
@@ -447,7 +509,13 @@ const FContentHeader2 = {
     }
   },
   mounted() {
+    this.$global.$on("next", () => this.next());
+    this.$global.$on("prev", () => this.prev());
+    this.$global.$on("first", () => this.first());
+    this.$global.$on("last", () => this.last());
+    this.$global.$on("goto", id => this.goto(id));
     this.$global.$on("section", section => this.goto(section));
+
     this.$watch(
       "currentIndex",
       currentIndex => {
@@ -498,13 +566,12 @@ const FContent2 = {
     slug,
     gridStyle(slide) {
       return {
-        display: "grid",
         gridTemplateColumns: slide.cols
           ? slide.cols
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + (slide.rowCount) + ", minmax(min-content, max-content))",
+          : "repeat(" + slide.rowCount + ", minmax(min-content, max-content))",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
@@ -541,24 +608,26 @@ const FContent2 = {
         :id="slide.section ? slug(slide.section) : 'id-' + i"
         :theme="slide.theme ? slide.theme : ''"
         :style="{
-          border: '4px solid orange',
+          border: '0px solid orange',
           height: '100%'
         }"
       ><div :style="{
-          border: '4px solid blue',
           ...backgroundStyle(slide),
+          border: '4px solid blue',
           justifyContent: 'center',
-          border: '4px solid red',
+          border: '-px solid red',
           textAlign: 'center',
       }">
-        <div :style="{
-          ...gridStyle(slide),
-          textAlign: 'left',
-          margin: '0 auto',
-          border: '4px solid green',
-          padding: slide.padding ? slide.padding : 'var(--content-padding2)',
-          maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
-          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+        <div
+          class="cells"
+          :style="{
+            ...gridStyle(slide),
+            textAlign: 'left',
+            margin: '0 auto',
+            border: '0px solid green',
+            padding: slide.padding ? slide.padding : 'var(--content-padding2)',
+            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
+            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
         }">
           <f-markdown
             v-for="(contentCell, j) in slide.content"
@@ -566,7 +635,7 @@ const FContent2 = {
             :content="contentCell"
             class="cell"
             :style="{
-              border: '4px solid blue',
+              border: '0px solid blue',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
             }"
@@ -578,9 +647,9 @@ const FContent2 = {
     `,
   cssprops: {
     "--content-padding2": {
-      default: "var(--base4)",
+      default: "var(--base6) calc(var(--base) + 5vw)",
       description: "Content height"
-    }
+    },
   },
   css: `
     aside {
@@ -589,8 +658,25 @@ const FContent2 = {
     aside:only-child {
       height: 100%;
     }
+    .cells {
+      display: grid;
+    }
+    @media (max-width: 800px) {
+      .cells {
+        display: block;
+        padding: var(--content-padding2) !important;
+      }
+    }
     .cell *:only-child, .cell *:last-child {
       margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+      .cell {
+        margin-top: calc(var(--base) + 5vw);
+      }
+      .cell:first-child {
+        margin-top: 0;
+      }
     }
     `
 };
