@@ -6,7 +6,20 @@
 //   type: "document"
 // });
 
-const sampleContent = `        
+const sampleContent = `   
+
+<f-card />
+
+---
+
+<f-content-example2 :content="\`
+<f-scene grid responsive>
+  <f-circle />
+</f-scene>
+\`" />
+
+---
+
 | section: First section
 | theme: dark
 
@@ -45,6 +58,32 @@ import {
   store
 } from "../fachwerk.js";
 
+const FContentExample2 = {
+  props: {
+    content: { default: "hide", type: String }
+  },
+  data: () => ({
+    currentContent: ""
+  }),
+  mounted() {
+    this.$watch(
+      "content",
+      content => {
+        this.currentContent = content.trim()
+      },
+      { immediate: true }
+    );
+  },
+  template: `
+  <div class="grid" style="--cols: 1fr 1fr; border: 1px solid red; --height: 33vh">
+    <f-editor
+      v-model="currentContent"
+    />
+    <f-content :content="currentContent" />
+  </div>
+  `
+};
+
 const FContentEditor2 = {
   props: {
     edit: { default: "hide", type: String },
@@ -54,8 +93,8 @@ const FContentEditor2 = {
   data: () => ({
     currentContent: "",
     currentEdit: true,
-    currentMenu: true,
-    currentType: "document"
+    currentMenu: false,
+    currentType: "slides"
   }),
   mounted() {
     this.currentContent = sampleContent;
@@ -126,11 +165,12 @@ const FMenubar2 = {
     menu: { default: false, type: Boolean },
     edit: { default: false, type: Boolean },
     type: { default: "document", type: String },
-    content: { default: "", type: String },
+    content: { default: "", type: String }
   },
   computed: {
     hasMenuContent() {
-      return parseContent(this.content).filter(c => c.chapter || c.section).length
+      return parseContent(this.content).filter(c => c.chapter || c.section)
+        .length;
     },
     iconComponent() {
       if (this.type == "slides") {
@@ -431,6 +471,7 @@ const FContent2 = {
     `
 };
 
+Vue.component("FContentExample2", FContentExample2);
 Vue.component("FContentEditor2", FContentEditor2);
 Vue.component("FMenubar2", FMenubar2);
 Vue.component("FMenu2", FMenu2);

@@ -6,6 +6,8 @@
   --font-sansserif: IBM Plex Sans, sans-serif;
   --font-serif: IBM Plex Serif, serif;
   --font-mono: Cousine, monospace;
+  --font-mono-size: 15px;
+  --font-mono-lineheight: 22px;
 
   --purple: #663399; /* rebeccapurple; */
   --darkpurple: #4c2672; /* rebeccapurple; */

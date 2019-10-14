@@ -90,9 +90,9 @@ export default {
   css: `
   .CodeMirror {
     font-family: var(--font-mono);
+    font-size: var(--font-mono-size);
+    line-height: var(--font-mono-lineheight);
     padding: var(--base2);
-    font-size: calc(var(--base) * 1.85);
-    line-height: calc(var(--base) * 2.75);
     height: var(--advanced-editor-height) !important;
     min-height: 100vh;
   }
