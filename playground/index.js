@@ -21,12 +21,71 @@ import {
 import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
 let sampleContent2 = `   
+| 1 1
+| 2 3   
 
-<f-content-example2 src="./example.md" />
+# Hello
+
+-
+
+<f-card />
+
+-
+
+<f-card />
 
 ---
 
-<f-card />
+| padding: 0
+| gap: 0
+| 1 2
+| 1 3
+
+<aside>
+
+Hello
+
+</aside>
+
+<aside>
+
+Hello
+
+</aside>
+
+<aside>
+
+Hello
+
+</aside>
+
+-
+
+<f-card>
+
+## Hello
+
+What is going on here?
+
+I do not know
+
+</f-card>
+
+-
+
+<f-card>
+
+## Hello
+
+What is going on here?
+
+I do not know
+
+</f-card>
+
+---
+
+<f-content-example2 src="./example.md" />
 
 ---
 
@@ -128,9 +187,9 @@ const FContentEditor2 = {
   },
   data: () => ({
     currentContent: "",
-    currentEdit: false,
+    currentEdit: true,
     currentMenu: false,
-    currentType: "document"
+    currentType: "slides"
   }),
   mounted() {
     this.currentContent = sampleContent2;
@@ -445,7 +504,7 @@ const FContent2 = {
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + slide.rowCount + ", auto)",
+          : "repeat(" + (slide.rowCount - 1) + ", auto) 1fr",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
@@ -517,15 +576,20 @@ const FContent2 = {
       </f-theme>
     </div>
     `,
-    cssprops: {
-        "--content-padding2": {
-          default: "var(--base4)",
-          description: "Content height"
-        },
-      },
-    css: `
+  cssprops: {
+    "--content-padding2": {
+      default: "var(--base4)",
+      description: "Content height"
+    }
+  },
+  css: `
     aside {
+      padding: calc(var(--content-padding2) / 2) var(--content-padding2);
+      background: purple;
+    }
+    aside:only-child {
       padding: var(--content-padding2);
+      height: 100%;
     }
     .cell *:only-child, .cell *:last-child {
       margin-bottom: 0;

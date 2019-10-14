@@ -1,4 +1,7 @@
+import { Css } from "../../../fachwerk.js";
+
 export default {
+  mixins: [Css],
   description: `
 Shows a content card.
 
@@ -21,7 +24,7 @@ Shows a content card.
     subtitle: { default: "", type: String },
     background: { default: "var(--emphasis)", type: String },
     color: { default: "var(--primary)", type: String },
-    border: { default: "transparent", type: String },
+    border: { default: "transparent", type: String }
   },
   template: `
     <div
@@ -52,8 +55,17 @@ Shows a content card.
           :style="{ color }"
         >{{ subtitle }}</small>
       </div>
-      <slot />
+      <div class="card">
+        <slot />
+      </div>
     </div>
+    `,
+    css: `
+      .card > *:first-child {
+        margin-top: 0;
+      }
+      .card > *:last-child {
+        margin-bottom: 0;
+      }
     `
-    
-}
+};
