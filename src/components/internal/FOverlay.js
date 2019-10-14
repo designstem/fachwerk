@@ -5,8 +5,12 @@ export default {
   },
   computed: {
     currentSize() {
-      const sizeMap = { narrow: '33vw', half: '50vw', wide: '66vw' }
-      return sizeMap[this.size] ? sizeMap[this.size] : sizeMap['narrow']
+      const sizeMap = { narrow: '33vw', half: '50vw', wide: '66vw', full: '100vw' }
+      if( window.innerWidth <= 800){
+        return sizeMap['full'];
+      } else {
+        return sizeMap[this.size] ? sizeMap[this.size] : sizeMap['narrow']
+      }
     }
   },
   template: `
