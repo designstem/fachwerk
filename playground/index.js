@@ -14,13 +14,13 @@ import {
   isimageurl,
   color,
   slug,
-  store
+  store,
+  Css
 } from "../fachwerk.js";
 
-import FAdvancedEditor2 from '../src/components/framework/FAdvancedEditor2.js'
+import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
-
-let sampleContent = `   
+let sampleContent2 = `   
 
 <f-content-example2 src="./example.md" />
 
@@ -57,7 +57,28 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
-sampleContent = `a
+let sampleContent = `
+| background: red
+| cols: 1fr 2fr
+| rows: auto
+| height: 75vh
+
+<f-image src="../images/example.jpg" />
+
+-
+
+# Selline lugu
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+
+---
+
+| background: ../images/example.jpg
+| theme: dark
+
+a
 
 -
 
@@ -65,9 +86,11 @@ b
 
 ---
 
+| background: #aaa
+
 ab
 
-`
+`;
 
 const FContentExample2 = {
   props: {
@@ -102,12 +125,12 @@ const FContentEditor2 = {
   },
   data: () => ({
     currentContent: "",
-    currentEdit: true,
+    currentEdit: false,
     currentMenu: false,
     currentType: "document"
   }),
   mounted() {
-    this.currentContent = sampleContent;
+    this.currentContent = sampleContent2;
     this.$global.$on("menu", () => {
       this.currentMenu = !this.currentMenu;
     });
@@ -396,6 +419,7 @@ const FContentHeader2 = {
 };
 
 const FContent2 = {
+  mixins: [Css],
   props: {
     content: { default: "", type: String },
     type: { default: "document", type: String }
@@ -448,41 +472,60 @@ const FContent2 = {
   },
   template: `
     <div>
-        <div
-          v-if="type == 'slides' ? i == currentIndex : true"
-          v-for="(slide,i) in currentContent"
-          :key="i"
-          :id="slide.section ? slug(slide.section) : 'id-' + i"
-          :theme="slide.theme ? slide.theme : ''"
-          :style="{
-            border: '4px solid blue',
-            ...backgroundStyle(slide),
-            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
-            justifyContent: 'center',
-            border: '4px solid red',
-            textAlign: 'center'
-          }"
-        >
-          <div :style="{
-            ...gridStyle(slide),
-            margin: '0 auto',
-            border: '4px solid green',
-            padding: 'var(--base5)',
-            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%'
-          }">
-            <f-markdown
-              v-for="(contentCell, j) in slide.content"
-              :key="j"
-              :content="contentCell"
-              :style="{
-                border: '4px solid blue',
-                '--base': type == 'slides' ? '11px' : '8px',
-                gridArea: 'a' + (j + 1)
-              }"
-            />
+      <f-theme
+        v-if="type == 'slides' ? i == currentIndex : true"
+        v-for="(slide,i) in currentContent"
+        :key="i"
+        :id="slide.section ? slug(slide.section) : 'id-' + i"
+        :theme="slide.theme ? slide.theme : ''"
+        :style="{
+          border: '4px solid orange',
+        }"
+      ><div :style="{
+          border: '4px solid blue',
+          ...backgroundStyle(slide),
+          justifyContent: 'center',
+          border: '4px solid red',
+          textAlign: 'center',
+      }">
+        <div :style="{
+          ...gridStyle(slide),
+          textAlign: 'left',
+          margin: '0 auto',
+          border: '4px solid green',
+          padding: slide.padding ? slide.padding : 'var(--content-padding2)',
+          maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
+          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+        }">
+          <f-markdown
+            v-for="(contentCell, j) in slide.content"
+            :key="j"
+            :content="contentCell"
+            class="cell"
+            :style="{
+              border: '4px solid blue',
+              '--base': type == 'slides' ? '11px' : '8px',
+              gridArea: 'a' + (j + 1)
+            }"
+          />
+        </div>
           </div>
-      </div>
+      </f-theme>
     </div>
+    `,
+    cssprops: {
+        "--content-padding2": {
+          default: "var(--base4)",
+          description: "Content height"
+        },
+      },
+    css: `
+    aside {
+      padding: var(--content-padding2);
+    }
+    .cell *:only-child, .cell *:last-child {
+      margin-bottom: 0;
+    }
     `
 };
 
