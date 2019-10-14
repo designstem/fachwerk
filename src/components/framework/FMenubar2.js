@@ -67,6 +67,7 @@ export default {
       width: 55px;
       height: 100vh;
       padding: var(--base) 0;
+      background: var(--lightestgray);
       display: grid;
       grid-template-columns: auto;
       grid-template-rows: auto auto 1fr auto;
