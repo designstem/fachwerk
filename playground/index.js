@@ -22,44 +22,9 @@ import FAdvancedEditor2 from "../src/components/framework/FAdvancedEditor2.js";
 
 let sampleContent2 = ` 
 
-| section: AAA
-
-## AAA
-
----
-
-| section: AAA2
-
-## AAA
-
----
-
-| section: AAA3
-
-## AAA
-
----
-
-| section: AAA4
-
-## AAA
-
----
-
-| section: AAA5
-
-## AAA
-
----
-
-| section: AAA6
-
-## AAA
-
----
-
 | 1 1
 | 2 3   
+| theme: blue
 
 # Hello
 
@@ -601,7 +566,6 @@ const FContent2 = {
     slug,
     gridStyle(slide) {
       return {
-        display: "grid",
         gridTemplateColumns: slide.cols
           ? slide.cols
           : "repeat(" + slide.colCount + ", 1fr)",
@@ -644,24 +608,26 @@ const FContent2 = {
         :id="slide.section ? slug(slide.section) : 'id-' + i"
         :theme="slide.theme ? slide.theme : ''"
         :style="{
-          border: '4px solid orange',
+          border: '0px solid orange',
           height: '100%'
         }"
       ><div :style="{
-          border: '4px solid blue',
           ...backgroundStyle(slide),
+          border: '4px solid blue',
           justifyContent: 'center',
-          border: '4px solid red',
+          border: '-px solid red',
           textAlign: 'center',
       }">
-        <div :style="{
-          ...gridStyle(slide),
-          textAlign: 'left',
-          margin: '0 auto',
-          border: '4px solid green',
-          padding: slide.padding ? slide.padding : 'var(--content-padding2)',
-          maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
-          minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+        <div
+          class="cells"
+          :style="{
+            ...gridStyle(slide),
+            textAlign: 'left',
+            margin: '0 auto',
+            border: '0px solid green',
+            padding: slide.padding ? slide.padding : 'var(--content-padding2)',
+            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
+            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
         }">
           <f-markdown
             v-for="(contentCell, j) in slide.content"
@@ -669,7 +635,7 @@ const FContent2 = {
             :content="contentCell"
             class="cell"
             :style="{
-              border: '4px solid blue',
+              border: '0px solid blue',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
             }"
@@ -681,9 +647,9 @@ const FContent2 = {
     `,
   cssprops: {
     "--content-padding2": {
-      default: "var(--base4)",
+      default: "var(--base6) calc(var(--base) + 5vw)",
       description: "Content height"
-    }
+    },
   },
   css: `
     aside {
@@ -692,8 +658,25 @@ const FContent2 = {
     aside:only-child {
       height: 100%;
     }
+    .cells {
+      display: grid;
+    }
+    @media (max-width: 800px) {
+      .cells {
+        display: block;
+        padding: var(--content-padding2) !important;
+      }
+    }
     .cell *:only-child, .cell *:last-child {
       margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+      .cell {
+        margin-top: calc(var(--base) + 5vw);
+      }
+      .cell:first-child {
+        margin-top: 0;
+      }
     }
     `
 };
