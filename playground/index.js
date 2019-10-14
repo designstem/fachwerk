@@ -180,6 +180,7 @@ const FContentExample2 = {
 };
 
 const FContentEditor2 = {
+  mixins: [Css],
   props: {
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
@@ -191,6 +192,9 @@ const FContentEditor2 = {
     currentMenu: false,
     currentType: "slides"
   }),
+  methods: {
+    send
+  },
   mounted() {
     this.currentContent = sampleContent2;
     this.$global.$on("menu", () => {
@@ -217,12 +221,11 @@ const FContentEditor2 = {
     <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
       <div
         v-if="currentEdit"
-        style="position: sticky; top: 0; height: 100vh;"
+        class="editor"
       >
         <f-editor-header2 v-model="currentContent" />
         <f-advanced-editor2
           v-model="currentContent"
-          style="--advanced-editor-height: calc(100vh - var(--base6))"
         />
       </div>
       <f-menubar2
@@ -230,7 +233,6 @@ const FContentEditor2 = {
         :menu="currentMenu"
         :edit="currentEdit"
         :type="currentType"
-        style="position: sticky; top: 0;"
       />
       <f-menu2
         v-if="currentMenu"
@@ -254,11 +256,34 @@ currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
 currentType: {{ currentType }}
 gridStyle: {{ gridStyle }}</pre-->
+      <f-keyboard alt character="e" @keydown="currentEdit = !currentEdit" />
+      <f-keyboard alt character="t" @keydown="currentType = currentType == 'document' ? 'slides' : 'document'" />
+      <f-keyboard v-if="currentEdit" alt character="s" @keydown="send('save')" />
+      <f-keyboard alt character="left" @keydown="send('prev')" />
+      <f-keyboard alt character="right" @keydown="send('next')" />
+      <f-keyboard v-if="!currentEdit" character="left" @keydown="send('prev')" />
+      <f-keyboard v-if="!currentEdit" character="right" @keydown="send('next')" />
     </div>
+    `,
+    css: `
+    .editor {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      --advanced-editor-height: calc(100vh - var(--base6));
+    }
+    @media (max-width: 800px) {
+      .editor {
+        position: static;
+        height: 50vh;
+        --advanced-editor-height: calc(50vh - var(--base6));
+      }
+    }
     `
 };
 
 const FMenubar2 = {
+  mixins: [Css],
   props: {
     menu: { default: false, type: Boolean },
     edit: { default: false, type: Boolean },
@@ -278,32 +303,22 @@ const FMenubar2 = {
     }
   },
   template: `
-    <div style="
-      height: 100vh;
-      padding: var(--base) 0;
-      background: var(--lightestgray);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-    ">
-        <div>
-        <a
-          class="quaternary"
-          @click="$global.$emit('edit')"
-        >
-          &nbsp;<f-editor-icon :style="{
-            '--icon-stroke': edit ? 'var(--blue)' : ''}
-          "/>
-        </a>
-        <p />
-        <a
-          class="quaternary"
-          @click="$global.$emit('type')"
-        >
-          &nbsp;<component :is="iconComponent" />&nbsp;
-        </a>
-      </div>
+    <div class="menubar">
+      <a
+        class="quaternary"
+        @click="$global.$emit('edit')"
+      >
+        &nbsp;<f-editor-icon :style="{
+          '--icon-stroke': edit ? 'var(--blue)' : ''}
+        "/>
+      </a>
+      <a
+        class="quaternary"
+        @click="$global.$emit('type')"
+      >
+        &nbsp;<component :is="iconComponent" />&nbsp;
+      </a>
+      <div />
       <a
         class="quaternary"
         @click="$global.$emit('menu')"
@@ -316,6 +331,35 @@ const FMenubar2 = {
         "/>
       </a>
     </div>
+    `,
+    css: `
+    .menubar {
+      position: sticky;
+      top: 0;
+      width: 55px;
+      height: 100vh;
+      padding: var(--base) 0;
+      background: var(--lightestgray);
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto 1fr auto;
+      grid-gap: var(--base) 0;
+      justify-content: center;
+    }
+    @media (max-width: 800px) {
+      .menubar {
+        background: red;
+        position: static;
+        top: inherit;
+        width: 100%;
+        height: var(--base6);
+        padding: 0 var(--base);
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: auto;
+        grid-gap: 0 var(--base);
+        align-items: center;
+      }
+    }
     `
 };
 
@@ -447,7 +491,13 @@ const FContentHeader2 = {
     }
   },
   mounted() {
+    this.$global.$on("next", () => this.next());
+    this.$global.$on("prev", () => this.prev());
+    this.$global.$on("first", () => this.first());
+    this.$global.$on("last", () => this.last());
+    this.$global.$on("goto", id => this.goto(id));
     this.$global.$on("section", section => this.goto(section));
+
     this.$watch(
       "currentIndex",
       currentIndex => {
@@ -504,7 +554,7 @@ const FContent2 = {
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + (slide.rowCount) + ", minmax(min-content, max-content))",
+          : "repeat(" + slide.rowCount + ", minmax(min-content, max-content))",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
