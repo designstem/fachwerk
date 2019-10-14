@@ -20,14 +20,20 @@ export default {
   },
   data: () => ({
     currentContent: "",
-    currentEdit: true,
+    currentEdit: false,
     currentMenu: false,
+    hideEdit: false,
+    hideMenu: false,
     currentType: "document"
   }),
   methods: {
     send
   },
   mounted() {
+    this.currentEdit = this.edit == "show";
+    this.currentMenu = this.menu == "show";
+    this.hideEdit = this.edit == "none";
+    this.hideMenu = this.menu == "none";
     this.$watch("content", content => (this.currentContent = content), {
       immediate: true
     });
@@ -65,7 +71,9 @@ export default {
       <f-menubar2
         :content="currentContent"
         :menu="currentMenu"
+        :hideMenu="hideMenu"
         :edit="currentEdit"
+        :hideEdit="hideEdit"
         :type="currentType"
       />
       <f-menu2

@@ -5,7 +5,7 @@ export function fachwerk2(c = {}) {
     el: "#fachwerk",
     src: "./index.md",
     title: "Fachwerk",
-    editor: "hide",
+    edit: "hide",
     menu: "hide",
     type: "document",
     theme: "light",
@@ -34,7 +34,7 @@ export function fachwerk2(c = {}) {
     <f-fetch :src="config.src" v-slot="{ value: content }">
       <f-content-editor2
         :content="content"
-        :editor="config.editor"
+        :edit="config.edit"
         :menu="config.menu"
         :type="config.type"
       />

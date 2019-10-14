@@ -15,6 +15,8 @@ export default {
   props: {
     menu: { default: false, type: Boolean },
     edit: { default: false, type: Boolean },
+    hideMenu: { default: false, type: Boolean },
+    hideEdit: { default: false, type: Boolean },
     type: { default: "document", type: String },
     content: { default: "", type: String }
   },
@@ -33,6 +35,7 @@ export default {
   template: `
     <div class="menubar">
       <a
+        v-if="!hideEdit"
         class="quaternary"
         @click="$global.$emit('edit')"
       >
@@ -48,10 +51,11 @@ export default {
       </a>
       <div />
       <a
+        v-if="!hideMenu"
         class="quaternary"
         @click="$global.$emit('menu')"
       >
-        <f-menu-icon2
+        &nbsp;<f-menu-icon2
           :style="{
             '--icon-stroke': menu ? 'var(--blue)' : '',
             opacity: hasMenuContent ? 1 : 0.2
