@@ -57,9 +57,16 @@ Content can be authored in a Markdown format, with custom additions such as dyna
 Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 `;
 
-sampleContent = `Yo
+sampleContent = `a
 
-!
+-
+
+b
+
+---
+
+ab
+
 `
 
 const FContentExample2 = {
@@ -440,14 +447,7 @@ const FContent2 = {
     this.$global.$on("index", index => (this.currentIndex = index));
   },
   template: `
-    <f-theme
-      theme="light"
-      :style="{
-        display: type == 'document' ? 'flex' : 'block',
-        justifyContent: 'center'
-      }"
-    >
-      <div>
+    <div>
         <div
           v-if="type == 'slides' ? i == currentIndex : true"
           v-for="(slide,i) in currentContent"
@@ -455,25 +455,34 @@ const FContent2 = {
           :id="slide.section ? slug(slide.section) : 'id-' + i"
           :theme="slide.theme ? slide.theme : ''"
           :style="{
-            ...gridStyle(slide),
+            border: '4px solid blue',
             ...backgroundStyle(slide),
-            padding: 'var(--base5)',
-            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
             minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+            justifyContent: 'center',
+            border: '4px solid red',
+            textAlign: 'center'
           }"
         >
-          <f-markdown
-            v-for="(contentCell, j) in slide.content"
-            :key="j"
-            :content="contentCell"
-            :style="{
-              '--base': type == 'slides' ? '11px' : '8px',
-              gridArea: 'a' + (j + 1)
-            }"
-          />
-        </div>
+          <div :style="{
+            ...gridStyle(slide),
+            margin: '0 auto',
+            border: '4px solid green',
+            padding: 'var(--base5)',
+            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%'
+          }">
+            <f-markdown
+              v-for="(contentCell, j) in slide.content"
+              :key="j"
+              :content="contentCell"
+              :style="{
+                border: '4px solid blue',
+                '--base': type == 'slides' ? '11px' : '8px',
+                gridArea: 'a' + (j + 1)
+              }"
+            />
+          </div>
       </div>
-    </f-theme>
+    </div>
     `
 };
 
