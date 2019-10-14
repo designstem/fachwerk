@@ -34,6 +34,7 @@ export default {
     this.currentMenu = this.menu == "show";
     this.hideEdit = this.edit == "none";
     this.hideMenu = this.menu == "none";
+    this.currentType = this.type;
     this.$watch("content", content => (this.currentContent = content), {
       immediate: true
     });
@@ -48,17 +49,8 @@ export default {
         this.currentType === "document" ? "slides" : "document";
     });
   },
-  computed: {
-    gridStyle() {
-      const editCol = this.currentEdit ? "1fr" : "";
-      const menubarCol = "55px";
-      const menuCol = this.currentMenu ? "200px" : "";
-      const contentCol = "1fr";
-      return [editCol, menubarCol, menuCol, contentCol].join(" ");
-    }
-  },
   template: `
-    <div class="grid" :style="{'--cols': gridStyle, '--gap': 0}">
+    <div class="grid" :style="{'--cols': currentEdit ? '1fr 1fr' : '1fr', '--gap': 0}">
       <div
         v-if="currentEdit"
         class="editor"
@@ -68,20 +60,24 @@ export default {
           v-model="currentContent"
         />
       </div>
-      <f-menubar2
+      <!--f-menubar2
         :content="currentContent"
         :menu="currentMenu"
         :hideMenu="hideMenu"
         :edit="currentEdit"
         :hideEdit="hideEdit"
         :type="currentType"
-      />
-      <f-menu2
-        v-if="currentMenu"
-        :menu="currentMenu"
-        :content="currentContent"
-      />
-      <div style="position: relative">
+      /-->
+      <div
+        class="grid"
+        :style="{'--cols': currentMenu ? '200px 1fr' : '1fr', '--gap': 0}"
+        style="position: relative;"
+      >
+        <f-menu2
+          v-if="currentMenu"
+          :menu="currentMenu"
+          :content="currentContent"
+        />
         <f-content2
           :type="currentType"
           :content="currentContent"
@@ -89,6 +85,7 @@ export default {
         <f-content-header2
           :type="currentType"
           :edit="currentEdit"
+          :menu="currentMenu"
           :content="currentContent"
         />
       </div>
