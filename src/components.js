@@ -359,6 +359,15 @@ export { FToolsIcon };
 import FDownloadIcon from "./components/icons/FDownloadIcon.js";
 export { FDownloadIcon };
 
+import FDocumentIcon from "./components/icons/FDocumentIcon.js";
+export { FDocumentIcon };
+
+import FSlidesIcon from "./components/icons/FSlidesIcon.js";
+export { FSlidesIcon };
+
+import FEditorIcon from "./components/icons/FEditorIcon.js";
+export { FEditorIcon };
+
 // Music
 
 import FDrum from "./components/music/FDrum.js";

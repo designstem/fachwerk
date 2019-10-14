@@ -10,7 +10,10 @@ const sampleContent = `
 | section: First section
 | theme: dark
 
-Hello world
+### Hi
+
+Hello world for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+
 
 -
 
@@ -19,7 +22,9 @@ for creating interactive learning materials in the browser. Content can be autho
 
 ---
 
-bla
+### Hi
+
+Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
 
 ---
 
@@ -85,6 +90,8 @@ const FContentEditor2 = {
       </div>
       <f-menubar2
         :content="currentContent"
+        :type="currentType"
+        :edit="currentEdit"
         style="position: sticky; top: 0;"
       />
       <f-menu2
@@ -115,7 +122,17 @@ gridStyle: {{ gridStyle }}</pre-->
 
 const FMenubar2 = {
   props: {
-    menu: { default: false, type: Boolean }
+    menu: { default: false, type: Boolean },
+    type: { default: 'document', type: String },
+    edit: { default: false, type: Boolean }
+  },
+  computed: {
+    iconComponent() {
+      if (this.type == 'slides') {
+        return 'f-document-icon'
+      }
+      return 'f-slides-icon'
+    }
   },
   template: `
     <div style="
@@ -123,30 +140,31 @@ const FMenubar2 = {
       padding: var(--base) 0;
       background: var(--lightestgray);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
     ">
-      <div>
         <a
           class="quaternary"
           @click="$global.$emit('menu')"
         >
           <f-menu-icon />
         </a>
-        <br>
-        <br>
+        <div>
         <a
           class="quaternary"
           @click="$global.$emit('type')"
         >
-          &nbsp;Ty
+          &nbsp;<component :is="iconComponent" />&nbsp;
         </a>
-        <br>
-        <br>
+        <p />
         <a
           class="quaternary"
           @click="$global.$emit('edit')"
         >
-          &nbsp;Ed
+          &nbsp;<f-editor-icon :style="{
+            '--icon-stroke': edit ? 'var(--blue)' : ''}
+          "/>
         </a>
       </div>
     </div>
@@ -339,7 +357,7 @@ const FContent2 = {
           ? slide.rows
           : "repeat(" + slide.rowCount + ", auto)",
         gridTemplateAreas: slide.areas,
-        gridGap: slide.gap ? slide.gap : "var(--gap)"
+        gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
     },
     backgroundStyle(slide) {
