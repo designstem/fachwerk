@@ -371,6 +371,9 @@ export { FSlidesIcon };
 import FEditIcon from "./components/icons/FEditIcon.js";
 export { FEditIcon };
 
+import FExternalIcon from "./components/icons/FExternalIcon.js";
+export { FExternalIcon };
+
 // Music
 
 import FDrum from "./components/music/FDrum.js";

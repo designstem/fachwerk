@@ -144,15 +144,9 @@ new Vue({
     <docs-header
       rootSrc=".."
       docsSrc="."
-      style="
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      "
+      class="docs-header"
     />
-    <div style="
-      display: flex;
-    ">
+    <div class="docs-body">
       <docs-menu
         :items="menuRoutes"
         class="docs-menu"
@@ -164,6 +158,24 @@ new Vue({
   </div>
   `,
   css: `
+  .docs-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  @media (max-width: 800px) {
+    .docs-header {
+      position: static;
+    }
+  }
+  .docs-main {
+    display: flex;
+  }
+  @media (max-width: 800px) {
+    .docs-main {
+      display: block;
+    }
+  }
   .docs-menu {
     position: sticky;
     height: 100vh;
