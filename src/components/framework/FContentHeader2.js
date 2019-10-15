@@ -108,7 +108,7 @@ export default {
       right: 0;
       left: 0;
       height: var(--base6);
-      padding: 0 var(--base);
+      padding: 0 var(--base2);
       display: flex;
       align-items: center;
       justify-content: space-between;

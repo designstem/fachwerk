@@ -1,4 +1,7 @@
+import { Css } from "../../fachwerk.js";
+
 export default {
+  mixins: [Css],
   props: ["items", "value"],
   data: () => ({ currentActiveItem: 0 }),
   template: `
@@ -13,10 +16,9 @@ export default {
         <div :style="{
           display: 'flex',
           alignItems: 'center',
-          padding: 'var(--base2) var(--base2) var(--base) var(--base6)',
+          padding: 'var(--base3) var(--base3) var(--base2) var(--base3)',
           fontWeight: 'bold',
           color: 'var(--primary)',
-          transform: 'translate(0,calc(var(--base) * 0))',
         }"
         @click="currentActiveItem = i;"
         v-html="item.title"
@@ -28,14 +30,25 @@ export default {
           :style="{
             display: 'flex',
             alignItems: 'center',
-            padding: 'var(--base) var(--base) var(--base) var(--base7)',
+            padding: 'var(--base) var(--base) var(--base) var(--base3)',
             border: 'none',
             fontWeight: 'normal'
           }"
+          class="router-link"
           :to="item.path"
-          v-html="item.title"
-        /> 
+        >
+          <span v-html="item.title" />
+        </router-link>
       </div>
     </div>
+  `,
+  css: `
+    .router-link span {
+      border-bottom: 2px solid var(--transparent);
+    }
+    .router-link-exact-active span {
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue);
+    }
   `
 };

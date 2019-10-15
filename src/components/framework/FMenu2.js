@@ -49,7 +49,7 @@ export default {
           @click="currentSection = c.section; $global.$emit('section', c.section)"
         >
           <span :style="{
-            color: c.section == currentSection ? '' : 'var(--gray)',
+            color: c.section == currentSection ? 'var(--blue)' : 'var(--gray)',
             borderBottom: c.section == currentSection ? '2px solid var(--blue)' : '',
           }">
           {{ c.section }}

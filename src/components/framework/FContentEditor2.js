@@ -5,7 +5,7 @@ export default {
   props: {
     content: { default: "", type: [String, Array] },
     edit: { default: "hide", type: String },
-    menu: { default: "hide", type: String },
+    menu: { default: "show", type: String },
     type: { default: "document", type: String },
     title: { default: "Fachwerk", type: String }
   },
