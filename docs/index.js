@@ -9,15 +9,14 @@ import {
   slug
 } from "../fachwerk.js";
 
+import DocsHeader from "./components/DocsHeader.js";
+
 import DocsComponent from "./components/DocsComponent.js";
 import DocsFile from "./components/DocsFile.js";
 import DocsUtils from "./components/DocsUtils.js";
 import DocsMenu from "./components/DocsMenu.js";
-import DocsFrontpage from "./components/DocsFrontpage.js";
 
 import menu from "./menu.js";
-
-//const routes = [{ path: "/", component: DocsFrontpage }];
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -119,8 +118,6 @@ const menuRoutes = fullMenu.map(m => {
 });
 
 const router = new VueRouter({
-  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
-  //mode: 'history',
   routes: pageRoutes
 });
 
@@ -133,7 +130,7 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
-  components: { DocsMenu },
+  components: { DocsMenu, DocsHeader },
   router,
   data: { menuRoutes, preview: false, theme: 0 },
   methods: {
@@ -141,40 +138,28 @@ new Vue({
   },
   computed: {},
   template: `
-  <div>
-    <div style="
-      position: sticky;
-      top: 0;
-      padding: var(--base3) var(--base4);
-      z-index: 1000;
-      background: var(--yellow);
-      border-bottom: 2px solid var(--primary);
-      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
-    ">
-      <f-inline style="--inline-justify: space-between; margin: 0">
-      <f-inline style="--inline-gap: var(--base2)">
-        <a href="..">Fachwerk</a>
-        <a href="../docs">Documentation</a>
-        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>
-        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>
-        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
-      </f-inline>
-      <f-github-icon />
-      </f-inline>
+    <div>
+    <docs-header
+      style="
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    />
+    <div style="display: flex; --cols: auto 1fr; --gap: 0;">
+      <docs-menu
+        :items="menuRoutes"
+        style="
+          position: sticky;
+          width: 250px;
+          height: 100vh;
+          top: 0px;
+          overflow-y: auto;
+          box-shadow: 5px 0 10px rgba(0,0,0,0.05);
+        "
+      />
+      <router-view style="width: 100%;"></router-view>
     </div>
-    <f-layout :theme="['light','dark','yellow','blue'][theme]" menu="show">
-      <docs-menu slot="menu" :items="menuRoutes" />
-      <router-view
-        slot="content"
-        style="--advanced-editor-height: auto;"
-      ></router-view>
-      <!--f-colors
-        slot="topright"
-        :colors="['lightergray','darkgray','yellow','blue']"
-        value="0"
-        v-on:value="v => theme = v"
-      /-->
-    </f-layout>
-  </div>
+</div>
   `
 }).$mount("#fachwerk");

@@ -14,10 +14,10 @@ Function can be imported using Javascript import:
     }
   },
   template: `
-<f-content-editor2
+<f-content-editor
   type="document"
-  menu="none"
-  :title="title"
+  :hidetype="true"
+  :save-id="title"
   :content="generateUtils(title,content)"
 />
 </div>`

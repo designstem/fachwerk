@@ -9,13 +9,10 @@ import {
   slug
 } from "../fachwerk.js";
 
-import DocsHeader from "./components/DocsHeader.js";
-
-import DocsComponent2 from "./components/DocsComponent2.js";
-import DocsFile2 from "./components/DocsFile2.js";
-import DocsUtils2 from "./components/DocsUtils2.js";
+import DocsComponent from "./components/DocsComponent.js";
+import DocsFile from "./components/DocsFile.js";
+import DocsUtils from "./components/DocsUtils.js";
 import DocsMenu from "./components/DocsMenu.js";
-
 import DocsFrontpage from "./components/DocsFrontpage.js";
 
 import menu from "./menu.js";
@@ -60,28 +57,28 @@ const pageMap = c => {
   if (c.home) {
     return {
       path: `/`,
-      component: DocsFile2,
+      component: DocsFile,
       props: { title: c.title, src: c.file }
     };
   }
   if (c.component) {
     return {
       path: `/${kebabcase(c.component)}`,
-      component: DocsComponent2,
+      component: DocsComponent,
       props: { title: c.component, c: components[c.component] }
     };
   }
   if (c.file) {
     return {
       path: `/${slug(c.title)}`,
-      component: DocsFile2,
+      component: DocsFile,
       props: { title: c.title, src: c.file/*.replace(/^\.\//, "../docs/")*/ }
     };
   }
   if (c.utils) {
     return {
       path: `/${c.title}`,
-      component: DocsUtils2,
+      component: DocsUtils,
       props: { title: c.title, content: c.content }
     };
   }
@@ -122,6 +119,8 @@ const menuRoutes = fullMenu.map(m => {
 });
 
 const router = new VueRouter({
+  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+  //mode: 'history',
   routes: pageRoutes
 });
 
@@ -134,7 +133,7 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
-  components: { DocsMenu, DocsHeader },
+  components: { DocsMenu },
   router,
   data: { menuRoutes, preview: false, theme: 0 },
   methods: {
@@ -142,28 +141,40 @@ new Vue({
   },
   computed: {},
   template: `
-    <div>
-    <docs-header
-      style="
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      "
-    />
-    <div style="display: flex; --cols: auto 1fr; --gap: 0;">
-      <docs-menu
-        :items="menuRoutes"
-        style="
-          position: sticky;
-          width: 250px;
-          height: 100vh;
-          top: 0px;
-          overflow-y: auto;
-          box-shadow: 5px 0 10px rgba(0,0,0,0.05);
-        "
-      />
-      <router-view style="width: 100%;"></router-view>
+  <div>
+    <div style="
+      position: sticky;
+      top: 0;
+      padding: var(--base3) var(--base4);
+      z-index: 1000;
+      background: var(--yellow);
+      border-bottom: 2px solid var(--primary);
+      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
+    ">
+      <f-inline style="--inline-justify: space-between; margin: 0">
+      <f-inline style="--inline-gap: var(--base2)">
+        <a href="..">Fachwerk</a>
+        <a href="../docs">Documentation</a>
+        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>
+        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>
+        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
+      </f-inline>
+      <f-github-icon />
+      </f-inline>
     </div>
-</div>
+    <f-layout :theme="['light','dark','yellow','blue'][theme]" menu="show">
+      <docs-menu slot="menu" :items="menuRoutes" />
+      <router-view
+        slot="content"
+        style="--advanced-editor-height: auto;"
+      ></router-view>
+      <!--f-colors
+        slot="topright"
+        :colors="['lightergray','darkgray','yellow','blue']"
+        value="0"
+        v-on:value="v => theme = v"
+      /-->
+    </f-layout>
+  </div>
   `
 }).$mount("#fachwerk");
