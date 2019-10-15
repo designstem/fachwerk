@@ -150,18 +150,15 @@ new Vue({
         z-index: 1000;
       "
     />
-    <div class="grid" style="
-      --cols: 300px 1fr;
-      --gap: 0;
+    <div style="
+      display: flex;
     ">
       <docs-menu
         :items="menuRoutes"
         class="docs-menu"
       />
       <router-view
-        style="
-          flex: 1;
-        "
+        class="docs-router"
       ></router-view>
     </div>
   </div>
@@ -170,6 +167,7 @@ new Vue({
   .docs-menu {
     position: sticky;
     height: 100vh;
+    width: 250px;
     top: 0px;
     overflow-y: auto;
     box-shadow: 5px 0 10px rgba(0,0,0,0.05);
@@ -180,7 +178,12 @@ new Vue({
     .docs-menu {
       position: static;
       height: 33vh;
+      width: 100%;
     }
+  }
+  .docs-router {
+    flex: 1;
+    width: 100%;
   }
   `
 
