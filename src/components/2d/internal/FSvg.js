@@ -96,7 +96,7 @@ export default {
         </g>
       </svg>
       <!-- @TODO: Remove this / 2 hack -->
-      <button v-if="download" style="margin-top: calc(var(--base2) / 2); display: block" class="quaternary" @click="onDownload">⤓ Download</button>
+      <button v-if="download" style="margin-top: var(--base); display: block" class="quaternary" @click="onDownload">⤓ Download</button>
     </div>
   </div>
   `,

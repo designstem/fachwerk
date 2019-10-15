@@ -1,3 +1,5 @@
+| background: white
+| height: 100%
 | 1 1 
 | 2 3
 

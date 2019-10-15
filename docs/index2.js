@@ -9,6 +9,8 @@ import {
   slug
 } from "../fachwerk.js";
 
+import DocsHeader from "./components/DocsHeader.js";
+
 import DocsComponent2 from "./components/DocsComponent2.js";
 import DocsFile2 from "./components/DocsFile2.js";
 import DocsUtils2 from "./components/DocsUtils2.js";
@@ -132,7 +134,7 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
-  components: { DocsMenu },
+  components: { DocsMenu, DocsHeader },
   router,
   data: { menuRoutes, preview: false, theme: 0 },
   methods: {
@@ -140,26 +142,14 @@ new Vue({
   },
   computed: {},
   template: `
-    <!--div style="
-      position: sticky;
-      top: 0;
-      padding: var(--base3) var(--base4);
-      z-index: 1000;
-      background: var(--yellow);
-      border-bottom: 2px solid var(--primary);
-      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
-    ">
-      <f-inline style="--inline-justify: space-between; margin: 0">
-      <f-inline style="--inline-gap: var(--base2)">
-        <a href="..">Fachwerk</a>
-        <a href="../docs">Documentation</a>
-        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>
-        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>
-        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
-      </f-inline>
-      <f-github-icon />
-      </f-inline>
-    </div-->
+    <div>
+    <docs-header
+      style="
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    />
     <div style="display: flex; --cols: auto 1fr; --gap: 0;">
       <docs-menu
         :items="menuRoutes"
@@ -174,5 +164,6 @@ new Vue({
       />
       <router-view style="width: 100%;"></router-view>
     </div>
+</div>
   `
 }).$mount("#fachwerk");

@@ -368,8 +368,8 @@ export { FDocumentIcon };
 import FSlidesIcon from "./components/icons/FSlidesIcon.js";
 export { FSlidesIcon };
 
-import FEditorIcon from "./components/icons/FEditorIcon.js";
-export { FEditorIcon };
+import FEditIcon from "./components/icons/FEditIcon.js";
+export { FEditIcon };
 
 // Music
 

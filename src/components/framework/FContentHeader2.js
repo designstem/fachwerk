@@ -119,7 +119,7 @@ export default {
           class="quaternary"
           @click="$global.$emit('edit')"
         >
-          <f-editor-icon :style="{
+          <f-edit-icon :style="{
             '--icon-stroke': edit ? 'var(--blue)' : ''}
           "/>
         </a>

@@ -85,7 +85,7 @@ export default {
             textAlign: 'left',
             margin: '0 auto',
             padding: slide.padding ? slide.padding : 'var(--content-padding2)',
-            maxWidth: type == 'document' ? 'var(--content-max-width, 800px)' : '100%',
+            maxWidth: type == 'document' ? 'var(--content-max-width, 900px)' : '100%',
             minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
         }">
           <f-markdown

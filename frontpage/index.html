@@ -5,36 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../fachwerk.css" />
     <style>
-      h1 {
-        font-size: calc(var(--base) * 12) !important;
+      h1 big {
+        font-size: 1.5em;
+        line-height: 1em;
         letter-spacing: -0.03em;
       }
-      var {
-        font-size: 1em;
-      }
-      caption {
+      h6 {
         font-size: calc(var(--base) * 4.5) !important;
+        font-weight: 500;
+        color: var(--gray);
+        margin: 0 0 var(--base2) 0;
       }
       big {
-        font-size: calc(var(--base) * 2);
-        line-height: 1.5em;
-        padding: 0 calc(var(--base) * 15) 0 0;
-        display: block;
-      }
-      big > big {
-        font-size: calc(var(--base) * 2.5);
         line-height: 1.5em;
       }
     </style>
   </head>
   <body>
     <div id="fachwerk"></div>
-    <script src="https://unpkg.com/tone"></script>
-    <script src="https://unpkg.com/webmidi"></script>
-    <script src="https://raw.githack.com/tonaljs/v2/master/dist/tonal.min.js"></script>
-    <script src="https://unpkg.com/aframe"></script>
-    <script src="https://unpkg.com/aframe-rounded"></script>
-    <script src="https://unpkg.com/socket.io-client/dist/socket.io.slim.js"></script>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
