@@ -88,6 +88,7 @@ currentEdit: {{ currentEdit }}
 currentMenu: {{ currentMenu }}
 currentType: {{ currentType }}
 gridStyle: {{ gridStyle }}</pre-->
+      <portal-target name="overlay" style="z-index: 10000" />
       <f-keyboard alt character="e" @keydown="currentEdit = !currentEdit" />
       <f-keyboard alt character="t" @keydown="currentType = currentType == 'document' ? 'slides' : 'document'" />
       <f-keyboard v-if="currentEdit" alt character="s" @keydown="send('save')" />

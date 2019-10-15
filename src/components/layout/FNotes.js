@@ -12,8 +12,8 @@ export default {
       @click.prevent="open = true"
       style="
         position: absolute;
-        right: var(--base2);
-        bottom: var(--base2);
+        right: var(--base);
+        bottom: var(--base);
     ">
       <slot name="button">
         <a class="quaternary">{{ title }}</a>

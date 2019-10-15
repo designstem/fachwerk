@@ -26,8 +26,8 @@ export default {
     <f-overlay :size="size" v-if="open">
       <a class="quaternary" style="
         position: absolute;
-        top: var(--base2);
-        right: var(--base2);
+        top: var(--base);
+        right: var(--base);
         z-index: 1000;
       "
       @click="open = false"

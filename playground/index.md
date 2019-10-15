@@ -1,5 +1,7 @@
 
-# Hello 
+Sidebar 
+
+<f-sidebar title="Ahaa" src="./index2.md" />
 
 ---
 
