@@ -142,6 +142,8 @@ new Vue({
   template: `
   <div>
     <docs-header
+      rootSrc=".."
+      docsSrc="."
       style="
         position: sticky;
         top: 0;
