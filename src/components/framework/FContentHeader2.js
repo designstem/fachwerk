@@ -24,8 +24,7 @@ export default {
       return parseContent(this.content);
     },
     hasMenuContent() {
-      return this.currentContent.filter(c => c.chapter || c.section)
-        .length;
+      return this.currentContent.filter(c => c.chapter || c.section).length;
     },
     iconComponent() {
       if (this.type == "slides") {
@@ -79,6 +78,19 @@ export default {
     this.$global.$on("goto", id => this.goto(id));
     this.$global.$on("section", section => this.goto(section));
 
+    const storedCurrentIndex = store.get(this.saveId + ".index");
+
+    if (storedCurrentIndex && storedCurrentIndex < this.currentContent.length) {
+      this.currentIndex = storedCurrentIndex;
+      this.$global.$emit("index", this.currentIndex);
+      store.set(this.saveId + ".index", this.currentIndex);
+    }
+
+    this.$watch("currentIndex", currentIndex => {
+      this.$global.$emit("index", currentIndex);
+      store.set(this.saveId + ".index", currentIndex);
+    });
+
     this.$watch(
       "currentIndex",
       currentIndex => {
@@ -86,7 +98,6 @@ export default {
         if (currentSlide && currentSlide.section) {
           this.$global.$emit("section", currentSlide.section);
         }
-        store.set(this.saveId + ".index", currentIndex);
       },
       { immediate: true }
     );

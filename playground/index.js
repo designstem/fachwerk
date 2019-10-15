@@ -4,5 +4,6 @@ fachwerk2({
   src: ["./index2.md", "./index.md"],
   menu: "show",
   type: "slides",
-  edit: "show"
+  edit: "show",
+  title: "ahaa"
 });

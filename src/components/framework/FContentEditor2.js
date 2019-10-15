@@ -1,4 +1,4 @@
-import { Css, send, flattenContent, isarray } from "../../../fachwerk.js";
+import { Css, send, flattenContent, isarray, slug } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -6,7 +6,8 @@ export default {
     content: { default: "", type: [String, Array] },
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
-    type: { default: "document", type: String }
+    type: { default: "document", type: String },
+    title: { default: "Fachwerk", type: String }
   },
   data: () => ({
     currentContent: "",
@@ -19,13 +20,17 @@ export default {
   methods: {
     send
   },
+  computed: {
+    saveId() {
+      return slug(this.title);
+    }
+  },
   mounted() {
     this.currentEdit = this.edit == "show";
     this.currentMenu = this.menu == "show";
     this.hideEdit = this.edit == "none";
     this.hideMenu = this.menu == "none";
-    this.currentType = this.type;
-
+    this.currentType = this.type;    
     this.$watch(
       "content",
       content =>
@@ -53,19 +58,9 @@ export default {
         v-if="currentEdit"
         class="editor"
       >
-        <f-editor-header2 v-model="currentContent" />
-        <f-advanced-editor2
-          v-model="currentContent"
-        />
+        <f-editor-header2 v-model="currentContent" :saveId="saveId" />
+        <f-advanced-editor2 v-model="currentContent" />
       </div>
-      <!--f-menubar2
-        :content="currentContent"
-        :menu="currentMenu"
-        :hideMenu="hideMenu"
-        :edit="currentEdit"
-        :hideEdit="hideEdit"
-        :type="currentType"
-      /-->
       <div
         class="grid"
         :style="{'--cols': currentMenu ? '200px 1fr' : '1fr', '--gap': 0}"
@@ -85,6 +80,7 @@ export default {
           :edit="currentEdit"
           :menu="currentMenu"
           :content="currentContent"
+          :saveId="saveId"
         />
       </div>
       <!--pre style="position: fixed; bottom: 0; right: var(--base2);">
