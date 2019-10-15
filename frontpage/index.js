@@ -10,15 +10,13 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 
 new Vue({
   el: "#fachwerk",
-
   components: { DocsHeader },
-
   methods: {
     ...utils
   },
-
-  data: {},
-
+  mounted() {
+    this.set("componentCount", Object.keys(components).length);
+  },
   template: `
   <div> 
     <docs-header style="
@@ -33,7 +31,6 @@ new Vue({
         :content="value"
       />
     </f-fetch>
-    <f-footer />
   </div>
   `
 });

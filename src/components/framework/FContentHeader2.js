@@ -142,7 +142,7 @@ export default {
         </div>
         <a
           class="quaternary"
-          @click="$global.$emit('type')"
+          @click="$global.$emit('type', type == 'document' ? 'slides' : 'document')"
         >
           <component :is="iconComponent" />&nbsp;
         </a>

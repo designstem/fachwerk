@@ -645,7 +645,7 @@ button.quaternary {
   transition: all 0.1s linear;
   font-family: var(--font-sansserif);
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   border: none;
   --icon-stroke: var(--gray);
   --icon-fill: var(--transparent);
@@ -657,7 +657,7 @@ button.quaternary {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
 .quaternary:hover {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.3);
 }
 a.quaternary {
   border-bottom: none;

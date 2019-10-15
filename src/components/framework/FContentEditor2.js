@@ -48,6 +48,7 @@ export default {
     });
     this.$global.$on("edit", () => {
       this.currentEdit = !this.currentEdit;
+      window.scrollTo(0, 0);
     });
     this.$global.$on("type", () => {
       this.currentType =

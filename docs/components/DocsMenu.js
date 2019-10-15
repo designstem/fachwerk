@@ -3,9 +3,12 @@ import { Css } from "../../fachwerk.js";
 export default {
   mixins: [Css],
   props: ["items", "value"],
-  data: () => ({ currentActiveItem: 0 }),
+  data: () => ({ currentActiveItem: 0, show: true }),
+  mounted() {
+    this.$global.$on("type", type => (this.show = type == "document"));
+  },
   template: `
-    <div>
+    <div v-show="show">
       <div
         v-for="(item,i) in items"
         :key="i"
