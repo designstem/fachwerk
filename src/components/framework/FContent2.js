@@ -114,7 +114,7 @@ export default {
     },
   },
   css: `
-    aside {
+    section {
       padding: var(--content-padding2);
     }
     aside:only-child {
