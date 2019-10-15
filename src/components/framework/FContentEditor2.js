@@ -13,8 +13,8 @@ export default {
     currentContent: "",
     currentEdit: false,
     currentMenu: false,
-    hideEdit: false,
-    hideMenu: false,
+    showEdit: true,
+    showMenu: true,
     currentType: "document"
   }),
   methods: {
@@ -26,11 +26,6 @@ export default {
     }
   },
   mounted() {
-    this.currentEdit = this.edit == "show";
-    this.currentMenu = this.menu == "show";
-    this.hideEdit = this.edit == "none";
-    this.hideMenu = this.menu == "none";
-    this.currentType = this.type;
     this.$watch(
       "content",
       content =>
@@ -41,6 +36,13 @@ export default {
         immediate: true
       }
     );
+    
+    this.currentEdit = this.edit == "show";
+    this.currentMenu = this.menu == "show";
+    this.showEdit = this.edit !== "none";
+    this.showMenu = this.menu !== "none"
+    this.currentType = this.type;
+
     this.$global.$on("menu", () => {
       this.currentMenu = !this.currentMenu;
     });
@@ -78,7 +80,9 @@ export default {
         <f-content-header2
           :type="currentType"
           :edit="currentEdit"
+          :showEdit="showEdit"
           :menu="currentMenu"
+          :showMenu="showMenu"
           :content="currentContent"
           :saveId="saveId"
         />

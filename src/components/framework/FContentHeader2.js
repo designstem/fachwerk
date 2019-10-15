@@ -14,7 +14,9 @@ export default {
   props: {
     content: { default: "", type: String },
     edit: { default: false, type: [String, Boolean] },
+    showEdit: { default: true, type: [String, Boolean] },
     menu: { default: false, type: [String, Boolean] },
+    showMenu: { default: true, type: [String, Boolean] },
     type: { default: "document", type: String },
     saveId: { default: "fachwerk", type: String }
   },
@@ -22,9 +24,6 @@ export default {
   computed: {
     currentContent() {
       return parseContent(this.content);
-    },
-    hasMenuContent() {
-      return this.currentContent.filter(c => c.chapter || c.section).length;
     },
     iconComponent() {
       if (this.type == "slides") {
@@ -116,6 +115,7 @@ export default {
     ">
       <div>
         <a
+          v-if="showEdit"
           class="quaternary"
           @click="$global.$emit('edit')"
         >
@@ -124,7 +124,7 @@ export default {
           "/>
         </a>
         <a
-          v-if="hasMenuContent"
+          v-if="showMenu && currentContent.filter(c => c.chapter || c.section).length"
           class="quaternary"
           @click="$global.$emit('menu')"
         >
