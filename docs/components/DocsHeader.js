@@ -19,7 +19,7 @@ export default {
       padding: var(--base2);
   ">
     <div><a class="quaternary" href="..">Fachwerk</a></div>
-    <div><a class="quaternary" href="../docs">Documentation</a></div>
+    <div><a class="quaternary" href="./docs">Documentation</a></div>
     <div><a class="quaternary" href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a></div>
     <div><a class="quaternary" href="https://designstem.github.io/projects" target="_blank">Example projects</a></div>
     <div><a class="quaternary" href="https://github.com/designstem/fachwerk" target="_blank">Github</a></div>
