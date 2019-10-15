@@ -65,11 +65,13 @@
   --cols: 1fr 1fr 1fr;
   --rows: none;
   --gap: var(--base2);
+  --area: none;
 
   --mobile-cols: 1fr;
   --mobile-rows: none;
   --mobile-gap: var(--base2);
-
+  --mobile-area: none;
+  
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
 
@@ -745,12 +747,14 @@ header,
   grid-template-columns: var(--cols);
   grid-template-rows: var(--rows);
   grid-gap: var(--gap);
+  grid-template-areas: var(--area);
 }
 @media (max-width: 800px) {
   .grid {
     grid-template-columns: var(--mobile-cols);
     grid-template-rows: var(--mobile-rows);
     grid-gap: var(--mobile-gap);
+    grid-template-areas: var(--mobile-area);
   }
   .grid > * {
     margin-bottom: var(--gap);

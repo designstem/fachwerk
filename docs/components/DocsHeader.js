@@ -12,7 +12,7 @@ export default {
       width: 100%;
       --cols: auto auto auto auto auto 1fr;
       --gap: var(--base);
-      --mobile-cols: 1fr 1fr;
+      --mobile-cols: 1fr 1fr 1fr;
       --mobile-gap: 0;
       --rows: auto;
       align-items: center;

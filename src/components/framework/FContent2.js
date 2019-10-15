@@ -85,7 +85,7 @@ export default {
             textAlign: 'left',
             margin: '0 auto',
             padding: slide.padding ? slide.padding : 'var(--content-padding2)',
-            maxWidth: type == 'document' ? 'var(--content-max-width, 950px)' : '100%',
+            maxWidth: type == 'document' ? 'var(--content-max-width)' : '100%',
             minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
         }">
           <f-markdown
@@ -107,6 +107,10 @@ export default {
     "--content-padding2": {
       default: "var(--base6) calc(var(--base) + 5vw)",
       description: "Content height"
+    },
+    "--content-max-width": {
+      default: "800px",
+      description: "Content max width in document mode"
     },
   },
   css: `

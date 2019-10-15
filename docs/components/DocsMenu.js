@@ -4,6 +4,11 @@ export default {
   mixins: [Css],
   props: ["items", "value"],
   data: () => ({ currentActiveItem: 0, show: true }),
+  methods: {
+    top() {
+      window.scrollTo(0, 0);
+    }
+  },
   mounted() {
     this.$global.$on("type", type => (this.show = type == "document"));
   },
@@ -19,11 +24,10 @@ export default {
         <div :style="{
           display: 'flex',
           alignItems: 'center',
-          padding: 'var(--base3) var(--base3) var(--base2) var(--base3)',
+          padding: 'var(--base3) var(--base3) var(--base) var(--base2)',
           fontWeight: 'bold',
           color: 'var(--primary)',
         }"
-        @click="currentActiveItem = i;"
         v-html="item.title"
         />
         <router-link
@@ -33,12 +37,13 @@ export default {
           :style="{
             display: 'flex',
             alignItems: 'center',
-            padding: 'var(--base) var(--base) var(--base) var(--base3)',
+            padding: 'var(--base) var(--base) var(--base) var(--base5)',
             border: 'none',
             fontWeight: 'normal'
           }"
           class="router-link"
           :to="item.path"
+          @click.native="top"
         >
           <span v-html="item.title" />
         </router-link>

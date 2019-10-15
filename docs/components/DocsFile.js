@@ -2,10 +2,10 @@ export default {
   props: ["title", "src"],
   template: `
 <f-fetch :src="src" v-slot="{ value: content }">
-  <f-content-editor
+  <f-content-editor2
     type="document"
-    :hidetype="true"
-    :save-id="title"
+    menu="none"
+    :title="title"
     :content="content"
   />
 </f-fetch>`

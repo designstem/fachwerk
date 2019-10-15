@@ -1,3 +1,5 @@
+# &nbsp;
+
 # <big>Like <var>system&shy;atisch</var>?<br>Try Fach&shy;werk.</big>
 
 <big>
@@ -57,7 +59,7 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 | 2 3
 | 2 4
 
-###### Frequently Asked Questions
+# FAQ
 
 -
 
