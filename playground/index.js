@@ -2,5 +2,6 @@ import { fachwerk2 } from "../fachwerk.js";
 
 fachwerk2({
   edit: "show",
-  title: "babaa"
+  title: "babaa",
+  type: "document"
 });
