@@ -13,8 +13,8 @@ import {
 export default {
   props: {
     content: { default: "", type: String },
-    edit: { default: false, type: Boolean },
-    menu: { default: false, type: Boolean },
+    edit: { default: false, type: [String, Boolean] },
+    menu: { default: false, type: [String, Boolean] },
     type: { default: "document", type: String },
     saveId: { default: "fachwerk", type: String }
   },
@@ -113,13 +113,13 @@ export default {
           "/>
         </a>
         <a
+          v-if="hasMenuContent"
           class="quaternary"
           @click="$global.$emit('menu')"
         >
           <f-menu-icon2
             :style="{
               '--icon-stroke': menu ? 'var(--blue)' : '',
-              opacity: hasMenuContent ? 1 : 0.2
             }
           "/>
         </a>

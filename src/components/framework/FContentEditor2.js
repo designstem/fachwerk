@@ -1,19 +1,9 @@
-import {
-  Vue,
-  components,
-  parseContent,
-  send,
-  isimageurl,
-  color,
-  slug,
-  store,
-  Css
-} from "../../../fachwerk.js";
+import { Css, send, flattenContent, isarray } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
   props: {
-    content: { default: "", type: String },
+    content: { default: "", type: [String, Array] },
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
     type: { default: "document", type: String }
@@ -35,9 +25,17 @@ export default {
     this.hideEdit = this.edit == "none";
     this.hideMenu = this.menu == "none";
     this.currentType = this.type;
-    this.$watch("content", content => (this.currentContent = content), {
-      immediate: true
-    });
+
+    this.$watch(
+      "content",
+      content =>
+        (this.currentContent = isarray(content)
+          ? flattenContent(content)
+          : content),
+      {
+        immediate: true
+      }
+    );
     this.$global.$on("menu", () => {
       this.currentMenu = !this.currentMenu;
     });
