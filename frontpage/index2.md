@@ -1,63 +1,55 @@
 # <big>Like <var>system&shy;atisch</var>?<br>Try Fach&shy;werk.</big>
 
-<big>
-
-Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.
-
-</big>
+<big>A **VueJS** and **Markdown** based framework for creating interactive learning materials.</big>
 
 ---
 
 | background: var(--lightestgray)
 
+### 1. Play
+
+Best way to get the glimpse what the framework offers to try to edit the contents of this page. Everything here is <f-edit-icon /> and can be stored in your browser so you can make instant changes and explorations in code.
+
+When ready for a next step, see our **getting started guide**:
+
+<a class="primary" href="./docs/#/start-a-new-project">Start a new project</a>
+
+-
+
+### 2. Learn
+
+Our [documentation](./docs) contains helpful **🔮 guides** to get started and references to **📦 {{ get('componentCount') }} components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more. Again, edit away!
+
+-
+
+### 3. Build
+
+Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
+
+---
+
+###### Markdown, with layouts
+
+<big>It's easy to do another Markdown live playground but what about layouts?<br>With a simple separator `-` and number-based layouts you can arrange the content in any way you like</big>
+
+<f-content-example2 src="../docs/examples/content.md" />
+
+---
+
+## 2D vectors <button>2D Docs</button>
+
+<big>Fachwerk has a wide range of 2D components to use. They are built on top of `<svg>` but there also bitmap `<canvas>` available</big>
+
 <f-content-example2 src="../docs/examples/2d.md" />
 
 ---
 
-| 1 3 5
-| 2 4 6
-
-## 1. Play
-
-Best way to get the glimpse what the framework offers to try to edit the code samples in this page.
-
-But not only that: <var>this entire page is editable</var> and can be stored in your browser so you can make instant changes and explorations in code.
-
--
-
-<a class="primary" @click.prevent="send('edit')"><f-edit-icon />&nbsp;Edit this page</a>
-
--
-
-## 2. Learn
-
-Our documentation offer helpful guides to get started. 
-
-Also, there is a full editable reference to our **📦&nbsp;{{ get('componentCount') }}&nbsp;components**, covering everything from 2D/3D graphics, user interaction, comprehensive layouts, beautiful math and more.
-
--
-
-<a href="./docs" class="primary">See the documentation</a>
-
--
-
-## 3. Build
-
-Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
-
-Also, all the code is MIT-licenced and development process is fully open so please contribute!
--
-
-<a href="./docs" class="primary">Go to Github project page</a>
-
----
-
-| theme: dark
+| background: var(--lightergray)
 | 1 1
 | 2 3
-| 2 4
+| 4 5
 
-###### Frequently Asked Questions
+## FAQ
 
 -
 
@@ -92,7 +84,3 @@ Fachwerk is a part of [DesignSTEM](https://designstem.github.io/homepage) educat
 Why not indeed. React [MDX ecosystem](https://github.com/mdx-js) and tools like [Observable](observablehq.com) have been a great inspiration for us.
 
 Our goal of the framework is make it instantly usable for everybody with the minimal knowledge of HTML. VueJS templates offer this and mixed with latest Javascript features such as module imports it was a *natürliche* choice for Fachwerk.
-
----
-
-<f-footer />

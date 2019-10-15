@@ -79,12 +79,14 @@ export default {
     });
   },
   template: `
-    <textarea ref="editor" />
+    <div>
+      <textarea ref="editor" />
+    </div>
   `,
   cssprops: {
     "--advanced-editor-height": {
-      default: "100vh",
-      description: "Editor height. Set to `auto` to fit all the editor contents"
+      default: "auto",
+      description: "Advanced editor height"
     },
   },
   css: `
@@ -94,7 +96,7 @@ export default {
     line-height: var(--font-mono-lineheight);
     padding: var(--base2);
     height: var(--advanced-editor-height) !important;
-    min-height: 100vh;
+    min-height: var(--advanced-editor-height) !important;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;

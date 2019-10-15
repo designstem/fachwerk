@@ -335,6 +335,9 @@ export { FVrIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
+import FMenuIcon2 from "./components/icons/FMenuIcon2.js";
+export { FMenuIcon2 };
+
 import FArrowIcon from "./components/icons/FArrowIcon.js";
 export { FArrowIcon };
 
@@ -358,6 +361,15 @@ export { FToolsIcon };
 
 import FDownloadIcon from "./components/icons/FDownloadIcon.js";
 export { FDownloadIcon };
+
+import FDocumentIcon from "./components/icons/FDocumentIcon.js";
+export { FDocumentIcon };
+
+import FSlidesIcon from "./components/icons/FSlidesIcon.js";
+export { FSlidesIcon };
+
+import FEditIcon from "./components/icons/FEditIcon.js";
+export { FEditIcon };
 
 // Music
 
@@ -396,4 +408,28 @@ export { FRender };
 import FOverlay from "./components/internal/FOverlay.js";
 export { FOverlay };
 
+// Framework
 
+import FAdvancedEditor2 from "./components/framework/FAdvancedEditor2.js";
+export { FAdvancedEditor2 }
+
+import FContentExample2 from "./components/framework/FContentExample2.js";
+export { FContentExample2 }
+
+import FContentEditor2 from "./components/framework/FContentEditor2.js";
+export { FContentEditor2 }
+
+import FMenubar2 from "./components/framework/FMenubar2.js";
+export { FMenubar2 }
+
+import FMenu2 from "./components/framework/FMenu2.js";
+export { FMenu2 }
+
+import FEditorHeader2 from "./components/framework/FEditorHeader2.js";
+export { FEditorHeader2 }
+
+import FContent2 from "./components/framework/FContent2.js";
+export { FContent2 }
+
+import FContentHeader2 from "./components/framework/FContentHeader2.js";
+export { FContentHeader2 }

@@ -27,6 +27,7 @@ export default {
           background: var(--background);
           top: 0;
           padding: var(--base5) 0 var(--base5) 0;
+          box-shadow: 0 8px 8px rgba(0,0,0,0.1);
         "
       >
         <slot name="menu" />
