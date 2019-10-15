@@ -40,6 +40,8 @@ export default {
           <span v-html="item.title" />
         </router-link>
       </div>
+      <p />
+      <f-footer style="display: block;"/>
     </div>
   `,
   css: `
