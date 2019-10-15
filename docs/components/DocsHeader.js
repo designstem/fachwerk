@@ -1,4 +1,8 @@
 export default {
+  props: {
+    rootSrc: { default: '.', type: String },
+    docsSrc: { default: './docs', type: String }
+  },
   data: () => ({ show: true }),
   mounted() {
     this.$global.$on("type", type => (this.show = type == "document"));
@@ -18,8 +22,8 @@ export default {
       align-items: center;
       padding: var(--base2);
   ">
-    <div><a class="quaternary" href="..">Fachwerk</a></div>
-    <div><a class="quaternary" href="./docs">Documentation</a></div>
+    <div><a class="quaternary" :href="rootSrc">Fachwerk</a></div>
+    <div><a class="quaternary" :href="docsSrc">Documentation</a></div>
     <div><a class="quaternary" href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a></div>
     <div><a class="quaternary" href="https://designstem.github.io/projects" target="_blank">Example projects</a></div>
     <div><a class="quaternary" href="https://github.com/designstem/fachwerk" target="_blank">Github</a></div>
