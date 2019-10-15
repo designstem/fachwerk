@@ -65,7 +65,7 @@ const pageMap = c => {
     return {
       path: `/${kebabcase(c.component)}`,
       component: DocsComponent,
-      props: { title: c.component, c: components[c.component] }
+      props: { title: c.component, c: components[c.component], type: c.type || 'document' }
     };
   }
   if (c.file) {
@@ -146,7 +146,7 @@ new Vue({
       docsSrc="."
       class="docs-header"
     />
-    <div class="docs-body">
+    <div class="docs-main">
       <docs-menu
         :items="menuRoutes"
         class="docs-menu"

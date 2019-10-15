@@ -69,13 +69,9 @@ export default {
         :key="i"
         :id="slide.section ? slug(slide.section) : 'id-' + i"
         :theme="slide.theme ? slide.theme : ''"
-        :style="{
-          height: '100%'
-        }"
       ><div :style="{
           ...backgroundStyle(slide),
           justifyContent: 'center',
-          border: '-px solid red',
           textAlign: 'center',
       }">
         <div
@@ -114,10 +110,20 @@ export default {
     },
   },
   css: `
-    aside {
+    section {
       padding: var(--content-padding2);
     }
-    aside:only-child {
+    section:only-child {
+      height: 100%;
+    }
+    center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    center:only-child {
       height: 100%;
     }
     .cells {

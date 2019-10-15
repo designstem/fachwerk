@@ -224,9 +224,7 @@ ol li::before {
   text-align: center;
 }
 hr {
-  border: 0;
-  height: 0;
-  border-bottom: var(--border-width) solid var(--primary);
+  display: none;
 }
 .break {
   overflow-wrap: break-word;
@@ -422,10 +420,10 @@ output .red-bg {
 
 center {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100%;
 }
 
 section {

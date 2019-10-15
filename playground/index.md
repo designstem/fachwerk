@@ -1,36 +1,51 @@
+| rows: auto auto
+| cols: 1fr 1fr
+| 1 3
+| 2 3
+| padding: 0
+| gap: 0
 
-Sidebar 
+<section>
 
-<f-sidebar title="Ahaa" src="./index2.md" />
+Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed. Fachwerk is modular and flexible...
 
----
-
-<f-content-example2 src="./example.md" />
-
----
-
-| section: First section
-| theme: dark
-
-### Hi
-
-Hello world for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
-
+</section>
 
 -
 
-for creating interactive learning materials in the browser. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+<center>
 
+Puder
+
+</center>
+
+-
+
+<f-image src="../images/example.jpg" />
 
 ---
 
-### Hi
+| rows: auto auto
+| cols: 1fr 1fr
+| 1 3
+| 2 3
+| padding: 0
+| gap: 0
 
-Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+<section>
 
----
+Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed. Fachwerk is modular and flexible...
 
-| section: Second section
-| background: yellow
+</section>
 
-Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components. Content can be authored in a Markdown format, with custom additions such as dynamic layouts, interactivity and wide range of HTML-like components.
+-
+
+<center>
+
+Puder
+
+</center>
+
+-
+
+<f-image src="../images/example.jpg" />

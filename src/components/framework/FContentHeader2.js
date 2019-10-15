@@ -100,6 +100,7 @@ export default {
       },
       { immediate: true }
     );
+
   },
   template: `
     <div style="
