@@ -38,6 +38,7 @@ export function fachwerk2(c = {}) {
         :menu="config.menu"
         :type="config.type"
         :title="config.title"
+        :style="config.style"
       />
     </f-fetch>
     `
