@@ -12,7 +12,7 @@ Here is a **VueJS** and **Markdown** based framework for creating interactive le
 
 | background: var(--lightestgray)
 
-<f-content-example2 src="../docs/examples/2d.md" />
+<f-content-example2 src="./docs/examples/2d.md" />
 
 ---
 
@@ -50,7 +50,7 @@ Fachwerk is modular and flexible: if the built-in content authoring experience i
 Also, all the code is MIT-licenced and development process is fully open so please contribute!
 -
 
-<a href="./docs" class="primary">Go to Github project page</a>
+<a href="https://github.com/designstem/fachwerk" class="primary" target="_blank">Go to Github project page</a>
 
 ---
 

@@ -1,6 +1,6 @@
-import { Vue, components, utils } from "../fachwerk.js";
+import { Vue, components, utils } from "./fachwerk.js";
 
-import DocsHeader from "../docs/components/DocsHeader.js";
+import DocsHeader from "./docs/components/DocsHeader.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
