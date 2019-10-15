@@ -30,7 +30,7 @@ export default {
     this.currentMenu = this.menu == "show";
     this.hideEdit = this.edit == "none";
     this.hideMenu = this.menu == "none";
-    this.currentType = this.type;    
+    this.currentType = this.type;
     this.$watch(
       "content",
       content =>
@@ -58,7 +58,7 @@ export default {
         v-if="currentEdit"
         class="editor"
       >
-        <f-editor-header2 v-model="currentContent" :saveId="saveId" />
+        <f-editor-header2 v-model="currentContent" :content="content" :saveId="saveId" />
         <f-advanced-editor2 v-model="currentContent" />
       </div>
       <div
