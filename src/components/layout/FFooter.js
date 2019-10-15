@@ -8,7 +8,7 @@ Displays a page footer.
   `,
   template: `
   <div class="grid" style="
-    padding: var(--base3) var(--base3) var(--base8) var(--base3);
+    padding: var(--base3);
     --cols: auto 1fr auto
   ">
     <p style="opacity: 0.5">

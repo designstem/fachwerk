@@ -24,7 +24,7 @@ export default {
         <div :style="{
           display: 'flex',
           alignItems: 'center',
-          padding: 'var(--base3) var(--base3) var(--base) var(--base3)',
+          padding: 'var(--base3) var(--base3) var(--base) var(--base2)',
           fontWeight: 'bold',
           color: 'var(--primary)',
         }"
@@ -37,7 +37,7 @@ export default {
           :style="{
             display: 'flex',
             alignItems: 'center',
-            padding: 'var(--base) var(--base) var(--base) var(--base3)',
+            padding: 'var(--base) var(--base) var(--base) var(--base5)',
             border: 'none',
             fontWeight: 'normal'
           }"

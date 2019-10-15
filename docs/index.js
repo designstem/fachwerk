@@ -6,7 +6,8 @@ import {
   flatten,
   titlecase,
   kebabcase,
-  slug
+  slug,
+  Css
 } from "../fachwerk.js";
 
 import DocsHeader from "./components/DocsHeader.js";
@@ -130,6 +131,7 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
+  mixins: [Css],
   components: { DocsMenu, DocsHeader },
   router,
   data: { menuRoutes, preview: false, theme: 0 },
@@ -138,7 +140,7 @@ new Vue({
   },
   computed: {},
   template: `
-    <div>
+  <div>
     <docs-header
       style="
         position: sticky;
@@ -146,20 +148,38 @@ new Vue({
         z-index: 1000;
       "
     />
-    <div style="display: flex; --cols: auto 1fr; --gap: 0;">
+    <div class="grid" style="
+      --cols: 300px 1fr;
+      --gap: 0;
+    ">
       <docs-menu
         :items="menuRoutes"
-        style="
-          position: sticky;
-          width: 250px;
-          height: 100vh;
-          top: 0px;
-          overflow-y: auto;
-          box-shadow: 5px 0 10px rgba(0,0,0,0.05);
-        "
+        class="docs-menu"
       />
-      <router-view style="width: 100%;"></router-view>
+      <router-view
+        style="
+          flex: 1;
+        "
+      ></router-view>
     </div>
-</div>
+  </div>
+  `,
+  css: `
+  .docs-menu {
+    position: sticky;
+    height: 100vh;
+    top: 0px;
+    overflow-y: auto;
+    box-shadow: 5px 0 10px rgba(0,0,0,0.05);
+    z-index: 500;
+    background: white;
+  }
+  @media (max-width: 800px) {
+    .docs-menu {
+      position: static;
+      height: 33vh;
+    }
+  }
   `
+
 }).$mount("#fachwerk");

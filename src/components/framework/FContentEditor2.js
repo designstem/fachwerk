@@ -66,7 +66,7 @@ export default {
       </div>
       <div
         class="grid"
-        :style="{'--cols': currentMenu ? '200px 1fr' : '1fr', '--gap': 0}"
+        :style="{'--cols': currentMenu ? '250px 1fr' : '1fr', '--gap': 0}"
         style="position: relative;"
       >
         <f-menu2
