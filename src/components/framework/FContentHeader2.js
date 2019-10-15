@@ -100,6 +100,8 @@ export default {
       },
       { immediate: true }
     );
+
+    // this.$global.$emit('type', this.type)
   },
   template: `
     <div style="

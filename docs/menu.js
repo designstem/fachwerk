@@ -56,7 +56,6 @@ export default [
       {
         title: "Creating pages",
         file: "./tutorials/pages.md",
-        type: "slides"
       },
       {
         title: "Using color",
@@ -93,7 +92,7 @@ export default [
       { component: "FEmbed" },
       { component: "FIconHeading" },
       { component: "FLink" },
-      { component: "FNextButton" },
+      { component: "FNextButton", type: "slides" },
       { component: "FPrevButton" },
       { component: "FPager" },
       { component: "FMenu" },

@@ -1,7 +1,7 @@
 import { kebabcase } from "../../fachwerk.js";
 
 export default {
-  props: ["title", "c"],
+  props: ["title", "c", "type"],
   methods: {
     propsTable(props) {
       return Object.entries(props).map(p => ({
@@ -81,6 +81,7 @@ Component can be imported using Javascript import:
     type="document"
     edit="show"
     :title="title"
+    :type="type"
     :content="generateContent(title,c)"
   />
   `
