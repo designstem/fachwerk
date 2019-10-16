@@ -86,7 +86,7 @@ export default {
           :showEdit="showEdit"
           :menu="currentMenu"
           :showMenu="showMenu"
-          :content="currentContent"
+          :content="content"
           :saveId="saveId"
         />
       </div>

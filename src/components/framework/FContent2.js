@@ -35,7 +35,7 @@ export default {
         gridTemplateRows: slide.rows
           ? slide.rows
  //         : "repeat(" + slide.rowCount + ", minmax(min-content, max-content))",
-            : slide.rowCount > 1 ? "repeat(" + (slide.rowCount - 1) + ", auto) 1fr" : "auto",
+            : slide.rowCount > 1 ? "repeat(" + (slide.rowCount - 1) + ", auto) 1fr" : "1fr",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
