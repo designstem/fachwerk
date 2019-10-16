@@ -1,18 +1,12 @@
-# &nbsp;
+| theme: dark
 
 # <big>Like <var>system&shy;atisch</var>?<br>Try Fach&shy;werk.</big>
 
 <big>
 
-Here is a **VueJS** and **Markdown** based framework for creating interactive learning materials.
+Here is a **VueJS** and **Markdown** based framework<br>for creating interactive learning materials.
 
 </big>
-
----
-
-| background: var(--lightestgray)
-
-<f-content-example2 src="./docs/examples/2d.md" />
 
 ---
 
@@ -55,6 +49,11 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 ---
 
 | background: var(--lightestgray)
+
+<f-content-example2 src="./docs/examples/2d.md" />
+
+---
+
 | 1 1
 | 2 3
 | 2 4
@@ -97,4 +96,11 @@ Our goal of the framework is make it instantly usable for everybody with the min
 
 ---
 
-<f-footer />
+| background: var(--lightestgray)
+| 1
+| 2
+| rows: 1fr auto
+
+-
+
+<f-footer style="padding: 0" />
