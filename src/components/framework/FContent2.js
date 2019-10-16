@@ -64,7 +64,7 @@ export default {
     this.$global.$on("index", index => (this.currentIndex = index));
   },
   template: `
-    <div>
+    <div style="min-height: 100vh">
       <f-theme
         v-if="type == 'slides' ? i == currentIndex : true"
         v-for="(slide,i) in currentContent"
@@ -75,16 +75,18 @@ export default {
           ...backgroundStyle(slide),
           justifyContent: 'center',
           textAlign: 'center',
+          border: grid ? '1px dashed var(--tertiary)' : '',
       }">
         <div
           class="cells"
           :style="{
+            border: grid ? '1px dashed var(--secondary)' : '',
             ...gridStyle(slide),
             textAlign: 'left',
             margin: '0 auto',
             padding: slide.padding ? slide.padding : 'var(--content-padding2)',
             maxWidth: type == 'document' ? 'var(--content-max-width)' : '100%',
-            minHeight: slide.height ? slide.height : type == 'slides' ? '100vh' : 'auto',
+            minHeight: type == 'slides' ? '100vh' : slide.height ? slide.height : 'auto',
         }">
           <f-markdown
             v-for="(contentCell, j) in slide.content"
@@ -92,6 +94,7 @@ export default {
             :content="contentCell"
             class="cell"
             :style="{
+              margin: grid ? '1px' : '',
               border: grid ? '1px dashed var(--primary)' : '',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
@@ -104,7 +107,7 @@ export default {
     `,
   cssprops: {
     "--content-padding2": {
-      default: "var(--base6) calc(var(--base) + 5vw)",
+      default: "var(--base6)",
       description: "Content height"
     },
     "--content-max-width": {

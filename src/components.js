@@ -374,6 +374,9 @@ export { FEditIcon };
 import FExternalIcon from "./components/icons/FExternalIcon.js";
 export { FExternalIcon };
 
+import FHomeIcon from "./components/icons/FHomeIcon.js";
+export { FHomeIcon };
+
 // Music
 
 import FDrum from "./components/music/FDrum.js";

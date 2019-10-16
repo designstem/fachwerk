@@ -26,7 +26,10 @@ new Vue({
     "/>
     <f-fetch src="./index.md" v-slot="{ value }">
       <f-content-editor2
-        style="--base: 11px; --content-max-width: 1000px;"
+        style="
+          --base: 11px;
+          --content-max-width: 1000px;
+        "
         type="document"
         title="Frontpage"
         :content="value"

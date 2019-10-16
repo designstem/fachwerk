@@ -18,6 +18,7 @@ export default {
     menu: { default: false, type: [String, Boolean] },
     showMenu: { default: true, type: [String, Boolean] },
     type: { default: "document", type: String },
+    home: { default: "", type: String },
     saveId: { default: "fachwerk", type: String }
   },
   data: () => ({ currentIndex: 0 }),
@@ -106,9 +107,7 @@ export default {
   template: `
     <div style="
       position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
+      width: 100%;
       height: var(--base6);
       padding: 0 var(--base2);
       display: flex;
@@ -135,6 +134,13 @@ export default {
               '--icon-stroke': menu ? 'var(--blue)' : '',
             }
           "/>
+        </a>
+        <a
+          v-if="home"
+          class="quaternary"
+          :href="home"
+        >
+          <f-home-icon />
         </a>
       </div>
       <div style="display: flex">
