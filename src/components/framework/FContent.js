@@ -60,7 +60,8 @@ export default {
       return {
         background,
         backgroundSize: slide.background ? "cover" : "",
-        backgroundRepeat: slide.background ? "no-repeat" : ""
+        backgroundRepeat: slide.background ? "no-repeat" : "",
+        backgroundPosition: slide.backgroundPosition ? slide.backgroundPosition : "50% 50%"
       };
     }
   },
