@@ -127,6 +127,7 @@ export default {
           v-if="home"
           class="quaternary"
           :href="home"
+          style="margin-left: var(--base2)"
         >
           <f-home-icon />
         </a>

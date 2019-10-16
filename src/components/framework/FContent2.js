@@ -111,7 +111,7 @@ export default {
   cssprops: {
     "--content-padding2": {
       default: "var(--base6)",
-      description: "Content height"
+      description: "Content padding"
     },
     "--content-max-width": {
       default: "800px",
