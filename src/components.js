@@ -251,26 +251,11 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
-// import FContent from "./components/archive/FContent_old.js/index.js.js";
-// export { FContent };
-
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
 
-// import FMenu from "./components/archive/FMenu_old.js/index.js.js";
-// export { FMenu };
-
-// import FTreemenu from "./components/archive/FTreemenu_old.js/index.js.js";
-// export { FTreemenu };
-
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
-
-// import FAdvancedEditor from "./components/archive/FAdvancedEditor_old.js/index.js";
-// export { FAdvancedEditor };
-
-// import FContentEditor from "./components/archive/FContentEditor_old.js/index.js.js";
-// export { FContentEditor };
 
 import FNextButton from "./components/layout/FNextButton.js";
 export { FNextButton };
@@ -301,12 +286,6 @@ export { FLink };
 
 import FColors from "./components/layout/FColors.js";
 export { FColors };
-
-import FLayer from "./components/layout/FLayer.js";
-export { FLayer };
-
-import FLayout from "./components/layout/FLayout.js";
-export { FLayout };
 
 // Icons
 
