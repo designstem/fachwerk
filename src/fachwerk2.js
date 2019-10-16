@@ -4,7 +4,7 @@ export function fachwerk2(c = {}) {
   const config = {
     el: "#fachwerk",
     src: "./index.md",
-    title: "Fachwerko",
+    title: "Fachwerk",
     edit: "hide",
     menu: "hide",
     type: "document",
@@ -33,7 +33,7 @@ export function fachwerk2(c = {}) {
     },
     template: `
     <f-fetch :src="config.src" v-slot="{ value: content }">
-      <f-content-editor2
+      <f-content-editor
         :content="content"
         :edit="config.edit"
         :menu="config.menu"

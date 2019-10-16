@@ -25,7 +25,7 @@ new Vue({
       z-index: 1000;
     "/>
     <f-fetch src="./index.md" v-slot="{ value }">
-      <f-content-editor2
+      <f-content-editor
         style="
           --base: 11px;
           --content-max-width: 1000px;

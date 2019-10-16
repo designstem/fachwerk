@@ -1,29 +1,17 @@
-import { color } from "../../../fachwerk.js";
-
 export default {
   description: `
-Navigation menu icon.
+Menu icon.
   
 <f-menu-icon />
 
 <p />
   `,
-  data: () => ({
-    size: 16
-  }),
-  methods: { color },
   template: `
-  <f-artboard :width="size" :height="size">
-    <f-line
-      v-for="(y,i) in [3, size / 2, size - 3]"
-      :key="i"
-      :x1="2"
-      :y1="y"
-      :x2="size - 2"
-      :y2="y"
-      stroke="var(--icon-stroke)"
-      stroke-width="2"
-    />
-  </f-artboard>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 3V13" stroke="var(--icon-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 4L5 4" stroke="var(--icon-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 8L5 8" stroke="var(--icon-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 12L5 12" stroke="var(--icon-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
   `
 };

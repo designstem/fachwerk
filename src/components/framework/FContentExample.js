@@ -25,11 +25,11 @@ export default {
       box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
       align-items: stretch;
     ">
-      <f-advanced-editor2
+      <f-advanced-editor
         v-model="currentContent"
         style="background: var(--paleblue)"
       />
-      <f-content2
+      <f-content
         :content="currentContent"
         style="height: 100%"
       />
