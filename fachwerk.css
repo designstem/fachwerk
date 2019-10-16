@@ -51,7 +51,7 @@
   --slider-size: var(--base3);
 
   --base: 8px;
-  
+
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
@@ -71,7 +71,7 @@
   --mobile-rows: none;
   --mobile-gap: var(--base2);
   --mobile-area: none;
-  
+
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
 
@@ -164,7 +164,8 @@ b,
 strong {
   color: var(--primary);
 }
-big, big p {
+big,
+big p {
   --base: 12px;
 }
 big h1 {
@@ -224,7 +225,9 @@ ol li::before {
   text-align: center;
 }
 hr {
-  display: none;
+  border: 0;
+  height: 0;
+  border-bottom: var(--border-width) solid var(--primary);
 }
 .break {
   overflow-wrap: break-word;
@@ -657,7 +660,7 @@ button.quaternary {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
 .quaternary:hover {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 a.quaternary {
   border-bottom: none;

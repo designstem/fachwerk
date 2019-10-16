@@ -78,8 +78,9 @@ export default {
     this.$global.$on("section", section => this.goto(section));
 
     const storedCurrentIndex = store.get(this.saveId + ".index");
-
+    
     if (storedCurrentIndex && storedCurrentIndex < this.currentContent.length) {
+      console.log(storedCurrentIndex)
       this.currentIndex = storedCurrentIndex;
       this.$global.$emit("index", this.currentIndex);
       store.set(this.saveId + ".index", this.currentIndex);
