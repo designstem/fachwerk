@@ -83,7 +83,6 @@ export default {
         <div
           class="cells"
           :style="{
-            border: grid ? '1px dashed var(--tertiary)' : '',
             ...gridStyle(slide),
             ...cssStyle(slide),
             textAlign: 'left',
