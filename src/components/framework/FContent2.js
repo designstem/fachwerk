@@ -115,8 +115,6 @@ export default {
   css: `
     section {
       padding: var(--content-padding2);
-    }
-    section:only-child {
       height: 100%;
     }
     center {
@@ -125,8 +123,6 @@ export default {
       align-items: center;
       justify-content: center;
       text-align: center;
-    }
-    center:only-child {
       height: 100%;
     }
     .cells {
