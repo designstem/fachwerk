@@ -105,10 +105,9 @@ export default {
   },
   template: `
     <div style="
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
+      position: fixed;
+      top: 0px;
+      width: 100%;
       height: var(--base6);
       padding: 0 var(--base2);
       display: flex;
@@ -135,6 +134,13 @@ export default {
               '--icon-stroke': menu ? 'var(--blue)' : '',
             }
           "/>
+        </a>
+        <a
+          v-if="true"
+          class="quaternary"
+          href=""
+        >
+          <f-home-icon />
         </a>
       </div>
       <div style="display: flex">
