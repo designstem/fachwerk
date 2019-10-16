@@ -4,7 +4,7 @@
 
 #### Rewritten layout,  editor and preview components
 
-* There is a `fachwerk2()` function for testing. It is almost a drop-in replacement for `fachwerk()` execpt:
+* There is a new version of layout and integrated editor. It is almost a drop-in replacement for `fachwerk()` execpt:
 
 `config.editor` is now `config.edit`
 

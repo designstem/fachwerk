@@ -35,13 +35,13 @@ export function fachwerk(c = {}) {
     <f-fetch :src="config.src" v-slot="{ value: content }">
       <f-content-editor
         :content="content"
+        :title="config.title"
         :edit="config.edit"
         :menu="config.menu"
         :type="config.type"
-        :title="config.title"
-        :style="config.style"
         :home="config.home"
         :theme="config.theme"
+        :style="config.style"
       />
     </f-fetch>
     `
