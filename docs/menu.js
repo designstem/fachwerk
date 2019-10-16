@@ -218,22 +218,26 @@ export default [
   {
     title: "Icons",
     items: [
-      { component: "FFactIcon" },
-      { component: "FActivityIcon" },
-      { component: "FNoteIcon" },
-      { component: "FVrIcon" },
-      { component: "FLeftarrowIcon" },
-      { component: "FRightarrowIcon" },
-      { component: "FMenuIcon" },
-      { component: "FGithubIcon" },
-      { component: "FIcon" },
-      { component: "FArrowIcon" },
-      { component: "FCloseIcon" },
-      { component: "FGithubIcon" },
-      { component: "FPeopleIcon" },
-      { component: "FToolsIcon" },
-      { component: "FClockIcon" },
-      { component: "FDownloadIcon" }
+      {
+        title: "Icons audit",
+        file: "./tutorials/icons.md"
+      },
+      // { component: "FFactIcon" },
+      // { component: "FActivityIcon" },
+      // { component: "FNoteIcon" },
+      // { component: "FVrIcon" },
+      // { component: "FLeftarrowIcon" },
+      // { component: "FRightarrowIcon" },
+      // { component: "FMenuIcon" },
+      // { component: "FGithubIcon" },
+      // { component: "FIcon" },
+      // { component: "FArrowIcon" },
+      // { component: "FCloseIcon" },
+      // { component: "FGithubIcon" },
+      // { component: "FPeopleIcon" },
+      // { component: "FToolsIcon" },
+      // { component: "FClockIcon" },
+      // { component: "FDownloadIcon" }
     ]
   },
   {

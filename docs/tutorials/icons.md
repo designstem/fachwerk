@@ -1,3 +1,5 @@
+## Icons audit
+
 <f-value set="icons" :value="[
   { icon: 'f-activity-icon', props: '`:size` / medium', desc: 'Based on `<f-icon />`. We have used contextual emojis instead:  🛠️ 💻 📺 📷 etc` ***Remove?***', res: '' },
   { icon: 'f-arrow-icon', props: '`:rotation` / angle', desc: 'Building block, use direction-specific icons `<f-right-icon>` etc on top of it. **Hide**' },
