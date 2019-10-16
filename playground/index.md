@@ -1,9 +1,1 @@
-| --primary: red
-
-# Hello
-
----
-
-| blue: orange
-
-# World
+# Hello world
