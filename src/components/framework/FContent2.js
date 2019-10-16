@@ -64,7 +64,7 @@ export default {
     this.$global.$on("index", index => (this.currentIndex = index));
   },
   template: `
-    <div>
+    <div style="min-height: 100vh">
       <f-theme
         v-if="type == 'slides' ? i == currentIndex : true"
         v-for="(slide,i) in currentContent"
@@ -75,12 +75,12 @@ export default {
           ...backgroundStyle(slide),
           justifyContent: 'center',
           textAlign: 'center',
-          padding: type == 'document' ? 'var(--base3) 0' : ''
+          border: grid ? '1px dashed var(--tertiary)' : '',
       }">
         <div
           class="cells"
           :style="{
-            border: grid ? '1px dashed var(--quaternary)' : '',
+            border: grid ? '1px dashed var(--secondary)' : '',
             ...gridStyle(slide),
             textAlign: 'left',
             margin: '0 auto',

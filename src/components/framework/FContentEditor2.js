@@ -9,6 +9,7 @@ export default {
     type: { default: "document", type: String },
     title: { default: "Fachwerk", type: String },
     home: { default: "", type: String },
+    theme: { default: "light", type: String },
   },
   data: () => ({
     currentContent: "",
@@ -58,7 +59,7 @@ export default {
     });
   },
   template: `
-    <div class="grid" :style="{'--cols': currentEdit ? '1fr 1fr' : '1fr', '--gap': 0}">
+    <f-theme :theme="theme" class="grid" :style="{'--cols': currentEdit ? '1fr 1fr' : '1fr', '--gap': 0}">
       <div
         v-if="currentEdit"
         class="editor"
