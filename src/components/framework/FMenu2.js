@@ -29,7 +29,7 @@ export default {
     <div v-if="menu" class="menu">
       <div style="height: var(--base6)"></div>
         <div style="
-          padding: var(--base2) 0;
+          padding: var(--base3) 0;
           overflow: auto;
           height: 100%;
         ">

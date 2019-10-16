@@ -125,6 +125,13 @@ export default {
           "/>
         </a>
         <a
+          v-if="home"
+          class="quaternary"
+          :href="home"
+        >
+          <f-home-icon />
+        </a>
+        <a
           v-if="showMenu && currentContent.filter(c => c.chapter || c.section).length"
           class="quaternary"
           @click="$global.$emit('menu')"
@@ -134,13 +141,6 @@ export default {
               '--icon-stroke': menu ? 'var(--blue)' : '',
             }
           "/>
-        </a>
-        <a
-          v-if="home"
-          class="quaternary"
-          :href="home"
-        >
-          <f-home-icon />
         </a>
       </div>
       <div style="display: flex">
