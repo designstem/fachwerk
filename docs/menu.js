@@ -81,27 +81,32 @@ export default [
     ]
   },
   {
-    title: "Layout and navigation",
+    title: "Rich content",
     items: [
-      { component: "FLink" },
+      // { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FTable" },
       { component: "FSidebar" },
       { component: "FNotes" },
       { component: "FEmbed" },
-      { component: "FIconHeading" },
-      { component: "FLink" },
-      { component: "FNextButton", type: "slides" },
-      { component: "FPrevButton" },
-      { component: "FPager" },
-      { component: "FMenu" },
       { component: "FCard" },
-      { component: "FSectionCard" },
-      { component: "FInline" },
-      { component: "FHr" },
-      { component: "FVr" },
-      { component: "FColors" },
+      // { component: "FIconHeading" },
+      // { component: "FPager" },
+      // { component: "FMenu" },
+      // { component: "FSectionCard" },
+      // { component: "FInline" },
+      // { component: "FHr" },
+      // { component: "FVr" },
+      // { component: "FColors" },
+    ]
+  },
+  {
+    title: "Navigation",
+    items: [
+      { component: "FLink" },
+      { component: "FNextButton", },
+      { component: "FPrevButton" },
     ]
   },
   {
@@ -244,23 +249,23 @@ export default [
     title: "VR",
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
-  {
-    title: "Advanced",
-    items: [
-      { component: "FReceive" },
-      { component: "FHeader" },
-      { component: "FFooter" },
-      { component: "FTabs" },
-      { component: "FTheme" },
-      { component: "FEditor" },
-      { component: "FContent" },
-      { component: "FContentEditor" },
-      { component: "FFade" },
-      { component: "FBounce" },
-      { component: "FHr" },
-      { component: "FVr" }
-    ]
-  },
+  // {
+  //   title: "Advanced",
+  //   items: [
+  //     { component: "FReceive" },
+  //     { component: "FHeader" },
+  //     { component: "FFooter" },
+  //     { component: "FTabs" },
+  //     { component: "FTheme" },
+  //     { component: "FEditor" },
+  //     { component: "FContent" },
+  //     { component: "FContentEditor" },
+  //     { component: "FFade" },
+  //     { component: "FBounce" },
+  //     { component: "FHr" },
+  //     { component: "FVr" }
+  //   ]
+  // },
   {
     title: "Development",
     items: [
