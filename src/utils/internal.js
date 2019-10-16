@@ -1,4 +1,4 @@
-import { isarray } from "../../fachwerk.js"
+import { isarray } from "../../fachwerk.js";
 
 export const parseSheet = data => {
   return data.feed.entry.map(entry => {
@@ -27,9 +27,9 @@ const parseMeta = row => {
     .split(": ")
     .map(s => s.trim());
   // Handle case for key: key: value
-  const key = meta[0]
-  meta.shift()
-  const values = meta.join(': ') 
+  const key = meta[0];
+  meta.shift();
+  const values = meta.join(": ");
   return { [key]: values };
 };
 
@@ -39,7 +39,7 @@ export const parsePage = slide => {
   const metaMatch = slide.match(metaPattern);
   if (metaMatch && metaMatch.length) {
     meta = metaMatch.map(parseMeta);
-    slide = slide.replace(metaPattern,'')
+    slide = slide.replace(metaPattern, "");
   }
   const pattern = /(\|[0-9\s]+\r?\n)/g;
   const match = slide.match(pattern);
@@ -56,8 +56,7 @@ export const parsePage = slide => {
     const areas = cols
       .map(m => `'${m.map(m => `a${m}`).join(" ")}'`)
       .join("\n");
-    const content = slide.split(/\r?\n-\r?\n/)
-      .map(c => c.replace(pattern, ""))
+    const content = slide.split(/\r?\n-\r?\n/).map(c => c.replace(pattern, ""));
 
     return Object.assign({ rowCount, colCount, areas, content }, ...meta);
   } else {
@@ -75,12 +74,23 @@ export const parsePage = slide => {
 };
 
 export const parseContent = content => {
-  const processedContent = isarray(content) ? content.join('\n\n---\n\n') : content
+  const processedContent = isarray(content)
+    ? content.join("\n\n---\n\n")
+    : content;
   return processedContent
     .replace(/\r?\n--\r?\n/g, "")
     .split(/\r?\n---\r?\n/)
-    .map(parsePage)
-}
+    .map(parsePage);
+};
+
+export const flattenContent = (content) => {
+  return content
+    .map(
+      (c, i) =>
+        `<!-- Start of file ${i + 1} -->\n\n${c}\n\n<!-- End of file ${i + 1} -->`
+    )
+    .join("\n\n---\n\n");
+};
 
 export const getCssVariable = (value, el = document.body) =>
   getComputedStyle(el).getPropertyValue(value);

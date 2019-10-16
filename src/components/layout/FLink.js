@@ -20,7 +20,10 @@ This link goes to <f-link to="props">Local slide</f-link> with ID or section \`p
     to: { default: '', type: [String, Number], description: 'Local route to navigate' },
   },
   methods: {
-    goto
+    goto,
+    top() {
+      window.scrollTo(0, 0);
+    }
   },
   computed: {
     isRoute() {
@@ -35,7 +38,7 @@ This link goes to <f-link to="props">Local slide</f-link> with ID or section \`p
   },
   template: `
   <span>
-    <router-link v-if="isRoute" :to="to"><slot /></router-link>
+    <router-link v-if="isRoute" :to="to" @click.native="top"><slot /></router-link>
     <a v-if="isUrl" :href="to" target="_blank"><slot /></a>
     <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
   </span>

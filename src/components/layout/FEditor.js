@@ -42,8 +42,8 @@ Technically it creates a \`<textarea>\` tag. For richer code editing experience,
         color: var(--lightergray);
         background: var(--paleblue);
         font-family: var(--font-mono);
-        font-size: calc(var(--base) * 1.85);
-        line-height: calc(var(--base) * 2.75);
+        font-size: var(--font-mono-size);
+        line-height: var(--font-mono-lineheight);
         outline: none;
         resize: none;
         width: 100%;

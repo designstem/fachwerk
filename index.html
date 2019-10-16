@@ -1,82 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./fachwerk.css">
-</head>
-<body>
-  <div id="app">
-    
-    <f-keyboard
-      alt
-      character="p"
-      v-on:keydown="set('preview', 1 - get('preview', 0))"
-    ></f-keyboard>
-    
-    <header>
-      <div>
-        <a href=".">Fachwerk</a>&nbsp;&nbsp;&nbsp;
-        <a href="./docs">Documentation</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
-      </div>
-      <f-github-icon />
-      <!--div>
-        <f-inline>
-          <f-buttons
-            :buttons="['Edit','Preview']"
-            v-model="preview"
-          ></f-buttons>
-          <f-buttons
-            :buttons="['Light','Dark','Yellow','Blue']"
-            :value="get('theme', 0)"
-            v-on:input="i => set('theme', i)"
-          ></f-buttons>
-        </f-inline>
-      </div-->
-    </header>
-
-    <main style="min-height: 100vh">
-
-    <f-theme :theme="['light','dark','yellow','blue'][get('theme',0)]">
-
-      <f-content-editor
-        :content="content"
-        type="document"
-        :edit="preview"
-        save-id="frontpage"
-        style="--advanced-editor-height: auto"
-        :menu="false"
-      ></f-content-editor>
-
-    </f-theme>
-
-    <f-keyboard alt character="p" @keydown="preview = 1 - preview"></f-keyboard>
-    <f-keyboard alt character="s" @keydown="send('save')"></f-keyboard>
-
-    </main>
-
-    <div class="footer">
-      <div>
-        <p>
-          All code is licenced under
-          <a href="https://choosealicense.com/licenses/mit/" rel="licence">
-            MIT licence
-          </a>.
-          All content is licenced under
-          <br>
-          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            Creative Commons BY-NC-SA 4.0 International License
-          </a>.
-        </p>
-      </div>
-      <img src="./images/erasmus_logo.svg" style="width:240px" />
-    </div>
-
-  </div>
-  <script src="./index.js" type="module"></script>
-  <script src="./build.js" defer nomodule></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./fachwerk.css" />
+    <style>
+      h1 big {
+        font-size: 1.5em;
+        line-height: 1em;
+        letter-spacing: -0.03em;
+      }
+      h2 {
+        font-size: calc(var(--base) * 4.5) !important;
+      }
+      /*
+      h6 {
+        font-size: calc(var(--base) * 4.5) !important;
+        font-weight: 500;
+        color: var(--gray);
+        margin: 0 0 var(--base2) 0;
+      }
+      */
+      big {
+        line-height: 1.5em;
+      }
+      big p {
+        --base: 13px;
+      }
+      .bullet {
+        background: var(--red);
+      }
+      :root {
+        --purple: var(--red);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fachwerk"></div>
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>

@@ -16,8 +16,8 @@ Function can be imported using Javascript import:
   template: `
 <f-content-editor
   type="document"
-  :hidetype="true"
-  :save-id="title"
+  menu="none"
+  :title="title"
   :content="generateUtils(title,content)"
 />
 </div>`

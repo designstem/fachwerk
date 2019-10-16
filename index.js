@@ -1,19 +1,40 @@
-import { Vue, components, utils } from './fachwerk.js'
+import { Vue, components, utils } from "./fachwerk.js";
+
+import DocsHeader from "./docs/components/DocsHeader.js";
 
 for (const name in components) {
   Vue.component(name, components[name]);
 }
 
 Vue.prototype.$global = new Vue({ data: { state: {} } });
+
 new Vue({
-  el: "#app",
-  methods: Object.assign({}, utils),
-  data: { content: '', preview: 1 },
+  el: "#fachwerk",
+  components: { DocsHeader },
+  methods: {
+    ...utils
+  },
   mounted() {
-    fetch('./index.md')
-      .then(res => res.text())
-      .then(content => this.content = content)
-    this.set('componentCount', Object.keys(components).length)
-    this.set('utilsCount', Object.keys(utils).length)
-  }
+    this.set("componentCount", Object.keys(components).length);
+  },
+  template: `
+  <div> 
+    <docs-header style="
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    "/>
+    <f-fetch src="./index.md" v-slot="{ value }">
+      <f-content-editor
+        style="
+          --base: 11px;
+          --content-max-width: 1000px;
+        "
+        type="document"
+        title="Frontpage"
+        :content="value"
+      />
+    </f-fetch>
+  </div>
+  `
 });

@@ -79,22 +79,24 @@ export default {
     });
   },
   template: `
-    <textarea ref="editor" />
+    <div>
+      <textarea ref="editor" />
+    </div>
   `,
   cssprops: {
     "--advanced-editor-height": {
-      default: "100vh",
-      description: "Editor height. Set to `auto` to fit all the editor contents"
+      default: "auto",
+      description: "Advanced editor height"
     },
   },
   css: `
   .CodeMirror {
     font-family: var(--font-mono);
+    font-size: var(--font-mono-size);
+    line-height: var(--font-mono-lineheight);
     padding: var(--base2);
-    font-size: calc(var(--base) * 1.85);
-    line-height: calc(var(--base) * 2.75);
     height: var(--advanced-editor-height) !important;
-    min-height: 100vh;
+    min-height: var(--advanced-editor-height) !important;
   }
   .CodeMirror-linenumber {
     opacity: 0.2;

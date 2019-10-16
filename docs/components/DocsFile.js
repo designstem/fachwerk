@@ -4,8 +4,8 @@ export default {
 <f-fetch :src="src" v-slot="{ value: content }">
   <f-content-editor
     type="document"
-    :hidetype="true"
-    :save-id="title"
+    menu="none"
+    :title="title"
     :content="content"
   />
 </f-fetch>`

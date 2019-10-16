@@ -6,18 +6,18 @@ import {
   flatten,
   titlecase,
   kebabcase,
-  slug
+  slug,
+  Css
 } from "../fachwerk.js";
+
+import DocsHeader from "./components/DocsHeader.js";
 
 import DocsComponent from "./components/DocsComponent.js";
 import DocsFile from "./components/DocsFile.js";
 import DocsUtils from "./components/DocsUtils.js";
 import DocsMenu from "./components/DocsMenu.js";
-import DocsFrontpage from "./components/DocsFrontpage.js";
 
 import menu from "./menu.js";
-
-//const routes = [{ path: "/", component: DocsFrontpage }];
 
 import * as color from "../src/utils/color.js";
 import * as math from "../src/utils/math.js";
@@ -65,7 +65,7 @@ const pageMap = c => {
     return {
       path: `/${kebabcase(c.component)}`,
       component: DocsComponent,
-      props: { title: c.component, c: components[c.component] }
+      props: { title: c.component, c: components[c.component], type: c.type || 'document' }
     };
   }
   if (c.file) {
@@ -119,8 +119,6 @@ const menuRoutes = fullMenu.map(m => {
 });
 
 const router = new VueRouter({
-  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
-  //mode: 'history',
   routes: pageRoutes
 });
 
@@ -133,7 +131,8 @@ Vue.prototype.$global = new Vue({ data: { state: {} } });
 Vue.use(VueRouter);
 
 new Vue({
-  components: { DocsMenu },
+  mixins: [Css],
+  components: { DocsMenu, DocsHeader },
   router,
   data: { menuRoutes, preview: false, theme: 0 },
   methods: {
@@ -142,39 +141,62 @@ new Vue({
   computed: {},
   template: `
   <div>
-    <div style="
-      position: sticky;
-      top: 0;
-      padding: var(--base3) var(--base4);
-      z-index: 1000;
-      background: var(--yellow);
-      border-bottom: 2px solid var(--primary);
-      box-shadow: 0 4px 4px rgba(0,0,0,0.0);
-    ">
-      <f-inline style="--inline-justify: space-between; margin: 0">
-      <f-inline style="--inline-gap: var(--base2)">
-        <a href="..">Fachwerk</a>
-        <a href="../docs">Documentation</a>
-        <a href="https://designstem.github.io/fachwerk_example" target="_blank">Playground</a>
-        <a href="https://designstem.github.io/projects" target="_blank">Example projects</a>
-        <a href="https://github.com/designstem/fachwerk" target="_blank">Github</a>
-      </f-inline>
-      <f-github-icon />
-      </f-inline>
-    </div>
-    <f-layout :theme="['light','dark','yellow','blue'][theme]" menu="show">
-      <docs-menu slot="menu" :items="menuRoutes" />
+    <docs-header
+      rootSrc=".."
+      docsSrc="."
+      class="docs-header"
+    />
+    <div class="docs-main">
+      <docs-menu
+        :items="menuRoutes"
+        class="docs-menu"
+      />
       <router-view
-        slot="content"
-        style="--advanced-editor-height: auto;"
+        class="docs-router"
       ></router-view>
-      <!--f-colors
-        slot="topright"
-        :colors="['lightergray','darkgray','yellow','blue']"
-        value="0"
-        v-on:value="v => theme = v"
-      /-->
-    </f-layout>
+    </div>
   </div>
+  `,
+  css: `
+  .docs-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  @media (max-width: 800px) {
+    .docs-header {
+      position: static;
+    }
+  }
+  .docs-main {
+    display: flex;
+  }
+  @media (max-width: 800px) {
+    .docs-main {
+      display: block;
+    }
+  }
+  .docs-menu {
+    position: sticky;
+    height: 100vh;
+    width: 250px;
+    top: 0px;
+    overflow-y: auto;
+    box-shadow: 5px 0 10px rgba(0,0,0,0.05);
+    z-index: 500;
+    background: white;
+  }
+  @media (max-width: 800px) {
+    .docs-menu {
+      position: static;
+      height: 33vh;
+      width: 100%;
+    }
+  }
+  .docs-router {
+    flex: 1;
+    width: 100%;
+  }
   `
+
 }).$mount("#fachwerk");

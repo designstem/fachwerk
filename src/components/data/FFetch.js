@@ -71,6 +71,7 @@ Fetches data via AJAX.
             .then(res => {
               this.value = res;
               this.loaded = true;
+              this.$emit('value', res)
             })
             .catch(error => console.log(error));
         }

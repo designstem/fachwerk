@@ -251,26 +251,11 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
-import FContent from "./components/layout/FContent.js";
-export { FContent };
-
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
 
-import FMenu from "./components/layout/FMenu.js";
-export { FMenu };
-
-import FTreemenu from "./components/layout/FTreemenu.js";
-export { FTreemenu };
-
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
-
-import FAdvancedEditor from "./components/layout/FAdvancedEditor.js";
-export { FAdvancedEditor };
-
-import FContentEditor from "./components/layout/FContentEditor.js";
-export { FContentEditor };
 
 import FNextButton from "./components/layout/FNextButton.js";
 export { FNextButton };
@@ -302,12 +287,6 @@ export { FLink };
 import FColors from "./components/layout/FColors.js";
 export { FColors };
 
-import FLayer from "./components/layout/FLayer.js";
-export { FLayer };
-
-import FLayout from "./components/layout/FLayout.js";
-export { FLayout };
-
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";
@@ -335,6 +314,9 @@ export { FVrIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
+import FHamburgerIcon from "./components/icons/FHamburgerIcon.js";
+export { FHamburgerIcon };
+
 import FArrowIcon from "./components/icons/FArrowIcon.js";
 export { FArrowIcon };
 
@@ -358,6 +340,21 @@ export { FToolsIcon };
 
 import FDownloadIcon from "./components/icons/FDownloadIcon.js";
 export { FDownloadIcon };
+
+import FDocumentIcon from "./components/icons/FDocumentIcon.js";
+export { FDocumentIcon };
+
+import FSlidesIcon from "./components/icons/FSlidesIcon.js";
+export { FSlidesIcon };
+
+import FEditIcon from "./components/icons/FEditIcon.js";
+export { FEditIcon };
+
+import FExternalIcon from "./components/icons/FExternalIcon.js";
+export { FExternalIcon };
+
+import FHomeIcon from "./components/icons/FHomeIcon.js";
+export { FHomeIcon };
 
 // Music
 
@@ -396,4 +393,25 @@ export { FRender };
 import FOverlay from "./components/internal/FOverlay.js";
 export { FOverlay };
 
+// Framework
 
+import FAdvancedEditor from "./components/framework/FAdvancedEditor.js";
+export { FAdvancedEditor }
+
+import FContentExample from "./components/framework/FContentExample.js";
+export { FContentExample }
+
+import FContentEditor from "./components/framework/FContentEditor.js";
+export { FContentEditor }
+
+import FMenu from "./components/framework/FMenu.js";
+export { FMenu }
+
+import FEditorHeader from "./components/framework/FEditorHeader.js";
+export { FEditorHeader }
+
+import FContent from "./components/framework/FContent.js";
+export { FContent }
+
+import FContentHeader from "./components/framework/FContentHeader.js";
+export { FContentHeader }

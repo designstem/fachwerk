@@ -7,7 +7,7 @@ There are a couple of ways to publish your work on the web. The recommended opti
 Go to http://github.com and register a new account.
 
 You will receive an e-mail with a confirmation link. Click the link, and you are ready to move to the next step.
-  
+
 ### Make a copy of the example project
 
 Go to https://github.com/designstem/fachwerk_example
@@ -64,8 +64,9 @@ Note the textfield *Update index.md*.  It is the place to write down a quick not
 
 Your project is now published on the web under the following link:
 
-> http://`yourusername`.github.io/`yourprojectname`
+> http:// `yourusername`.github.io/ `yourprojectname`
 
 For example, when the `username` is **kristjanjansen**, and the `yourprojectname` is **my_example** the link will be
+
 
 > http://kristjanjansen.github.io/my_example

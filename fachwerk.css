@@ -6,6 +6,8 @@
   --font-sansserif: IBM Plex Sans, sans-serif;
   --font-serif: IBM Plex Serif, serif;
   --font-mono: Cousine, monospace;
+  --font-mono-size: 15px;
+  --font-mono-lineheight: 22px;
 
   --purple: #663399; /* rebeccapurple; */
   --darkpurple: #4c2672; /* rebeccapurple; */
@@ -49,7 +51,7 @@
   --slider-size: var(--base3);
 
   --base: 8px;
-  
+
   --base2: calc(var(--base) * 2);
   --base3: calc(var(--base) * 3);
   --base4: calc(var(--base) * 4);
@@ -63,17 +65,24 @@
   --cols: 1fr 1fr 1fr;
   --rows: none;
   --gap: var(--base2);
+  --area: none;
 
   --mobile-cols: 1fr;
+  --mobile-rows: none;
+  --mobile-gap: var(--base2);
+  --mobile-area: none;
 
   --text-size: calc(var(--base) * 1.5);
   --text-transform: scale(1, 1);
 
   --transition-duration: 0.2s;
 
-  /* @TODO Figure out css var vs cssprops situation */
   --icon-stroke: var(--primary);
   --icon-fill: var(--white);
+
+  /* Framework */
+
+  --header-height: 0;
 }
 
 /* All */
@@ -108,7 +117,7 @@ h5 {
   font-weight: 700;
 }
 h1 {
-  font-size: calc(var(--base) * 7);
+  font-size: calc(var(--base) * 5 + 1vw);
   line-height: 1em;
   margin: 0.5em 0 0.5em 0;
 }
@@ -147,6 +156,9 @@ a {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
   font-weight: 500;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 a:hover {
   filter: brightness(90%);
@@ -155,7 +167,8 @@ b,
 strong {
   color: var(--primary);
 }
-big, big p {
+big,
+big p {
   --base: 12px;
 }
 big h1 {
@@ -413,10 +426,10 @@ output .red-bg {
 
 center {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100%;
 }
 
 section {
@@ -638,7 +651,7 @@ button.quaternary {
   transition: all 0.1s linear;
   font-family: var(--font-sansserif);
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   border: none;
   --icon-stroke: var(--gray);
   --icon-fill: var(--transparent);
@@ -650,9 +663,7 @@ button.quaternary {
   margin: 0 calc(var(--base) * 0.5) !important;
 }
 .quaternary:hover {
-  background: var(--lightergray);
-  color: var(--darkgray);
-  --icon-stroke: var(--primary);
+  background: rgba(0, 0, 0, 0.3);
 }
 a.quaternary {
   border-bottom: none;
@@ -708,15 +719,13 @@ header,
   }
 }
 
-footer,
 .footer {
-  border-top: var(--border-width) solid var(--darkgray);
-  padding: var(--base4) var(--base4) calc(var(--base) * 12) var(--base4);
+  padding: var(--base3) var(--base3) calc(var(--base) * 12) var(--base3);
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  background: var(--yellow);
-  color: var(--primary);
+}
+.footer p {
+  opacity: 0.5;
 }
 
 @media (max-width: 800px) {
@@ -742,11 +751,14 @@ footer,
   grid-template-columns: var(--cols);
   grid-template-rows: var(--rows);
   grid-gap: var(--gap);
+  grid-template-areas: var(--area);
 }
 @media (max-width: 800px) {
   .grid {
-    /* display: block; */
     grid-template-columns: var(--mobile-cols);
+    grid-template-rows: var(--mobile-rows);
+    grid-gap: var(--mobile-gap);
+    grid-template-areas: var(--mobile-area);
   }
   .grid > * {
     margin-bottom: var(--gap);

@@ -1,5 +1,15 @@
 # Release notes
 
+### 0.0.9
+
+#### Rewritten layout,  editor and preview components
+
+* There is a new version of layout and integrated editor. It is almost a drop-in replacement for `fachwerk()` execpt:
+
+`config.editor` is now `config.edit`
+
+`config.pager`, `config.header` and `config.footer` are no longer supported.
+
 ### 0.0.8 / Mon 15 Jul 2018
 
 #### New features
