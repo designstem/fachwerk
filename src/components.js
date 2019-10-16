@@ -251,26 +251,11 @@ export { FButtons };
 import FTheme from "./components/layout/FTheme.js";
 export { FTheme };
 
-import FContent from "./components/layout/FContent.js";
-export { FContent };
-
 import FTabs from "./components/layout/FTabs.js";
 export { FTabs };
 
-import FMenu from "./components/layout/FMenu.js";
-export { FMenu };
-
-import FTreemenu from "./components/layout/FTreemenu.js";
-export { FTreemenu };
-
 import FEditor from "./components/layout/FEditor.js";
 export { FEditor };
-
-import FAdvancedEditor from "./components/layout/FAdvancedEditor.js";
-export { FAdvancedEditor };
-
-import FContentEditor from "./components/layout/FContentEditor.js";
-export { FContentEditor };
 
 import FNextButton from "./components/layout/FNextButton.js";
 export { FNextButton };
@@ -302,12 +287,6 @@ export { FLink };
 import FColors from "./components/layout/FColors.js";
 export { FColors };
 
-import FLayer from "./components/layout/FLayer.js";
-export { FLayer };
-
-import FLayout from "./components/layout/FLayout.js";
-export { FLayout };
-
 // Icons
 
 import FGithubIcon from "./components/icons/FGithubIcon.js";
@@ -335,8 +314,8 @@ export { FVrIcon };
 import FMenuIcon from "./components/icons/FMenuIcon.js";
 export { FMenuIcon };
 
-import FMenuIcon2 from "./components/icons/FMenuIcon2.js";
-export { FMenuIcon2 };
+import FHamburgerIcon from "./components/icons/FHamburgerIcon.js";
+export { FHamburgerIcon };
 
 import FArrowIcon from "./components/icons/FArrowIcon.js";
 export { FArrowIcon };
@@ -416,26 +395,23 @@ export { FOverlay };
 
 // Framework
 
-import FAdvancedEditor2 from "./components/framework/FAdvancedEditor2.js";
-export { FAdvancedEditor2 }
+import FAdvancedEditor from "./components/framework/FAdvancedEditor.js";
+export { FAdvancedEditor }
 
-import FContentExample2 from "./components/framework/FContentExample2.js";
-export { FContentExample2 }
+import FContentExample from "./components/framework/FContentExample.js";
+export { FContentExample }
 
-import FContentEditor2 from "./components/framework/FContentEditor2.js";
-export { FContentEditor2 }
+import FContentEditor from "./components/framework/FContentEditor.js";
+export { FContentEditor }
 
-import FMenubar2 from "./components/framework/FMenubar2.js";
-export { FMenubar2 }
+import FMenu from "./components/framework/FMenu.js";
+export { FMenu }
 
-import FMenu2 from "./components/framework/FMenu2.js";
-export { FMenu2 }
+import FEditorHeader from "./components/framework/FEditorHeader.js";
+export { FEditorHeader }
 
-import FEditorHeader2 from "./components/framework/FEditorHeader2.js";
-export { FEditorHeader2 }
+import FContent from "./components/framework/FContent.js";
+export { FContent }
 
-import FContent2 from "./components/framework/FContent2.js";
-export { FContent2 }
-
-import FContentHeader2 from "./components/framework/FContentHeader2.js";
-export { FContentHeader2 }
+import FContentHeader from "./components/framework/FContentHeader.js";
+export { FContentHeader }

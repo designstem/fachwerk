@@ -50,7 +50,7 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 
 | background: var(--lightestgray)
 
-<f-content-example2 src="./docs/examples/2d.md" />
+<f-content-example src="./docs/examples/2d.md" />
 
 ---
 

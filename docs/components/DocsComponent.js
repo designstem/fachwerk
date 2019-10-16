@@ -77,7 +77,7 @@ Component can be imported using Javascript import:
     }
   },
   template: `
-  <f-content-editor2
+  <f-content-editor
     type="document"
     edit="show"
     :title="title"

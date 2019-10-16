@@ -49,7 +49,9 @@ export default {
         </router-link>
       </div>
       <p />
-      <f-footer style="display: block;"/>
+      <small>
+      <f-footer style="margin: var(--base2); --cols: 1fr;"/>
+        </small>
     </div>
   `,
   css: `

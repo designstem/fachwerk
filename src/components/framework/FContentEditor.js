@@ -64,25 +64,25 @@ export default {
         v-if="currentEdit"
         class="editor"
       >
-        <f-editor-header2 v-model="currentContent" :content="content" :saveId="saveId" />
-        <f-advanced-editor2 v-model="currentContent" />
+        <f-editor-header v-model="currentContent" :content="content" :saveId="saveId" />
+        <f-advanced-editor v-model="currentContent" />
       </div>
       <div
         class="grid"
         :style="{'--cols': currentMenu ? '250px 1fr' : '1fr', '--gap': 0}"
         style="position: relative;"
       >
-        <f-menu2
+        <f-menu
           v-if="currentMenu"
           :menu="currentMenu"
           :content="currentContent"
         />
-        <f-content2
+        <f-content
           :type="currentType"
           :content="currentContent"
           :grid="grid"
         />
-        <f-content-header2
+        <f-content-header
           :type="currentType"
           :edit="currentEdit"
           :showEdit="showEdit"

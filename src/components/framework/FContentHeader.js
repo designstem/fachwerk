@@ -136,7 +136,7 @@ export default {
           class="quaternary"
           @click="$global.$emit('menu')"
         >
-          <f-menu-icon2
+          <f-menu-icon
             :style="{
               '--icon-stroke': menu ? 'var(--blue)' : '',
             }
