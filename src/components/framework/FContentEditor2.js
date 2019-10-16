@@ -15,7 +15,8 @@ export default {
     currentMenu: false,
     showEdit: true,
     showMenu: true,
-    currentType: "document"
+    currentType: "document",
+    grid: false
   }),
   methods: {
     send
@@ -77,6 +78,7 @@ export default {
         <f-content2
           :type="currentType"
           :content="currentContent"
+          :grid="grid"
         />
         <f-content-header2
           :type="currentType"
@@ -101,6 +103,7 @@ gridStyle: {{ gridStyle }}</pre-->
       <f-keyboard alt character="right" @keydown="send('next')" />
       <f-keyboard v-if="!currentEdit" character="left" @keydown="send('prev')" />
       <f-keyboard v-if="!currentEdit" character="right" @keydown="send('next')" />
+      <f-keyboard alt character="g" @keydown="grid = !grid" />
     </div>
     `,
   css: `

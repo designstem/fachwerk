@@ -14,10 +14,11 @@ export default {
   mixins: [Css],
   props: {
     content: { default: "", type: String },
-    type: { default: "document", type: String }
+    type: { default: "document", type: String },
+    grid: { default: false, type: Boolean },
   },
   data: () => ({
-    currentIndex: 0
+    currentIndex: 0,
   }),
   computed: {
     currentContent() {
@@ -33,7 +34,8 @@ export default {
           : "repeat(" + slide.colCount + ", 1fr)",
         gridTemplateRows: slide.rows
           ? slide.rows
-          : "repeat(" + slide.rowCount + ", minmax(min-content, max-content))",
+ //         : "repeat(" + slide.rowCount + ", minmax(min-content, max-content))",
+            : slide.rowCount > 1 ? "repeat(" + (slide.rowCount - 1) + ", auto) 1fr" : "auto",
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
@@ -90,6 +92,7 @@ export default {
             :content="contentCell"
             class="cell"
             :style="{
+              border: grid ? '1px dashed var(--primary)' : '',
               '--base': type == 'slides' ? '11px' : '8px',
               gridArea: 'a' + (j + 1)
             }"
