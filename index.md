@@ -64,21 +64,21 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 
 ### Inspiration?
 
-***Lea Verou*** and her [Mavo](https://www.smashingmagazine.com/2017/05/introducing-mavo/) framework.
+<var>Lea Verou</var> and her [Mavo](https://www.smashingmagazine.com/2017/05/introducing-mavo/) framework.
 
-***Sara Vieira*** and her unstoppable drive to do [useful](https://fiddly.netlify.com/) and [fun](https://makefrontendshitagain.party/) things on the Web.
+<var>Sara Vieira</var> and her unstoppable drive to do [useful](https://fiddly.netlify.com/) and [fun](https://makefrontendshitagain.party/) things on the Web.
 
-***Nadieh Bremer*** and [her work ](https://www.visualcinnamon.com/) all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
+<var>Nadieh Bremer</var> and [her work ](https://www.visualcinnamon.com/) all the way back to the [spirograph](https://www.visualcinnamon.com/2016/01/animating-dashed-line-d3).
 
-***Saskia Freeke*** and her stamina to create visual delight [every day](https://twitter.com/sasj_nl).
+<var>Saskia Freeke</var> and her stamina to create visual delight [every day](https://twitter.com/sasj_nl).
 
-***Alan Kay*** and his lecture [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) and [the future that never came to be](https://www.youtube.com/watch?v=8pTEmbeENF4).
+<var>Alan Kay</var> and his lecture [Doing with Images Makes Symbols](https://www.youtube.com/watch?v=p2LZLYcu_JY) and [the future that never came to be](https://www.youtube.com/watch?v=8pTEmbeENF4).
 
-***John Gold*** and his articles [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
+<var>John Gold</var> and his articles [Taking Robots to Design School](https://jon.gold/2016/05/robot-design-school) and [Declarative Design Tools](https://jon.gold/2016/06/declarative-design-tools/).
 
-***Rune Madsen*** and his book [Programming Design Systems](https://programmingdesignsystems.com/).
+<var>Rune Madsen</var> and his book [Programming Design Systems](https://programmingdesignsystems.com/).
 
-***Steven Wittens*** and his [love letters to math](http://acko.net).
+<var>Steven Wittens</var> and his [love letters to math](http://acko.net).
 
 -
 

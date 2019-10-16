@@ -1,6 +1,6 @@
-import { fachwerk2 } from "../fachwerk.js";
+import { fachwerk } from "../fachwerk.js";
 
-fachwerk2({
+fachwerk({
   edit: "hide",
   title: "playground",
   type: "slides",
