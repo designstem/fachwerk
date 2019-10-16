@@ -1,13 +1,10 @@
 import {
-  Vue,
-  components,
   parseContent,
-  send,
   isimageurl,
   color,
   slug,
-  store,
-  Css
+  Css,
+  array2object
 } from "../../../fachwerk.js";
 
 export default {
@@ -39,6 +36,13 @@ export default {
         gridTemplateAreas: slide.areas,
         gridGap: slide.gap ? slide.gap : "var(--base3)"
       };
+    },
+    cssStyle(slide) {
+      const cssVars = Object.entries(slide).filter(([key, value]) => key.startsWith('--'))
+      if (cssVars.length) {
+        return array2object(cssVars)
+      }     
+      return {}
     },
     backgroundStyle(slide) {
       const tint = slide.tint ? slide.tint : 0.3;
@@ -81,6 +85,7 @@ export default {
           :style="{
             border: grid ? '1px dashed var(--tertiary)' : '',
             ...gridStyle(slide),
+            ...cssStyle(slide),
             textAlign: 'left',
             margin: '0 auto',
             padding: slide.padding ? slide.padding : 'var(--content-padding2)',
