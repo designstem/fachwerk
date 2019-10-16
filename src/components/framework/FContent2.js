@@ -75,12 +75,11 @@ export default {
           ...backgroundStyle(slide),
           justifyContent: 'center',
           textAlign: 'center',
-          border: grid ? '1px dashed var(--tertiary)' : '',
       }">
         <div
           class="cells"
           :style="{
-            border: grid ? '1px dashed var(--secondary)' : '',
+            border: grid ? '1px dashed var(--tertiary)' : '',
             ...gridStyle(slide),
             textAlign: 'left',
             margin: '0 auto',
