@@ -77,9 +77,12 @@
 
   --transition-duration: 0.2s;
 
-  /* @TODO Figure out css var vs cssprops situation */
   --icon-stroke: var(--primary);
   --icon-fill: var(--white);
+
+  /* Framework */
+
+  --header-height: 0;
 }
 
 /* All */

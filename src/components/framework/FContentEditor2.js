@@ -7,7 +7,8 @@ export default {
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
     type: { default: "document", type: String },
-    title: { default: "Fachwerk", type: String }
+    title: { default: "Fachwerk", type: String },
+    home: { default: "", type: String },
   },
   data: () => ({
     currentContent: "",
@@ -88,6 +89,7 @@ export default {
           :showMenu="showMenu"
           :content="content"
           :saveId="saveId"
+          :home="home"
         />
       </div>
       <!--pre style="position: fixed; bottom: 0; right: var(--base2);">

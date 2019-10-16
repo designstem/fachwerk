@@ -18,6 +18,7 @@ export default {
     menu: { default: false, type: [String, Boolean] },
     showMenu: { default: true, type: [String, Boolean] },
     type: { default: "document", type: String },
+    home: { default: "", type: String },
     saveId: { default: "fachwerk", type: String }
   },
   data: () => ({ currentIndex: 0 }),
@@ -105,8 +106,7 @@ export default {
   },
   template: `
     <div style="
-      position: fixed;
-      top: 0px;
+      position: absolute;
       width: 100%;
       height: var(--base6);
       padding: 0 var(--base2);
@@ -136,9 +136,9 @@ export default {
           "/>
         </a>
         <a
-          v-if="true"
+          v-if="home"
           class="quaternary"
-          href=""
+          :href="home"
         >
           <f-home-icon />
         </a>

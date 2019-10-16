@@ -9,19 +9,17 @@ export default {
   },
   template: `
   <f-theme
-    v-show="show"
+    v-if="show"
     theme="dark"
-    class="grid"
     style="
+      display: flex;
       width: 100%;
-      --cols: auto auto auto auto 1fr;
-      --gap: var(--base);
-      --mobile-cols: 1fr 1fr;
-      --mobile-gap: 0;
-      --rows: auto;
       align-items: center;
-      padding: var(--base2);
       border-bottom: 1px solid var(--darkergray);
+      height: var(--base8);
+      padding: 0 var(--base2);
+      overflow: auto;
+      white-space: nowrap;
   ">
     <!-- en space -->
     <div><a class="quaternary" :href="rootSrc">Fachwerk</a></div>
