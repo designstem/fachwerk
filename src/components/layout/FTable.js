@@ -4,9 +4,9 @@ import FMarkdown from "../internal/FMarkdown.js";
 export default {
   components: { FMarkdown },
   description: `
-A table, accepting \`:rows\` data.
+A table, accepting data in \`:rows\` attribute, supporting multiple formats:
 
-### Array of arrays, no columns names
+#### Array of arrays, no columns names
 
 Column names are auto-generated.
 
@@ -17,7 +17,7 @@ Column names are auto-generated.
   ]"
 />
 
-### Array of arrays, with columns names
+#### Array of arrays, with columns names
 
 Column names come from \`:cols\` attribute.
 
@@ -29,7 +29,7 @@ Column names come from \`:cols\` attribute.
   ]"
 />
 
-### Array of objects, no column names
+#### Array of objects, no column names
 
 Column names are extracted from object keys.
 
@@ -48,7 +48,7 @@ Column names are extracted from object keys.
   ]"
 />
 
-### Array of objects, with column names
+#### Array of objects, with column names
 
 Column names come from \`:cols\` attribute.
 
