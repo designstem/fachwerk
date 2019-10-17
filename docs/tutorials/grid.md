@@ -1,5 +1,7 @@
 ## Setting up grid
 
+> This tutorial works best when you are in edit mode <f-edit-icon  />
+
 To separate the content into grid of rows and columns, separate the content with the single dash:
 
 `-`

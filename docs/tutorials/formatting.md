@@ -1,5 +1,7 @@
 ## Formatting text
 
+> This tutorial works best when you are in edit mode <f-edit-icon  />
+
 ### Basic text
 
 Let's start with a simple paragraph. Fachwerk's content is based on **Markdown**, a simple text format that is converted to HTML.

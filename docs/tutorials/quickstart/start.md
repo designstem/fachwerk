@@ -4,13 +4,13 @@
 
 Go to a Fachwerk example project with inline editor: 
 
-<a class="primary" href="https://designstem.github.io/fachwerk_example" target="_blank">Open the editor</a> 
+<a class="primary" href="https://designstem.github.io/fachwerk_example" target="_blank">Open the editor &nbsp;<f-external-icon /></a> 
 
-Then, click on **Edit** button and start editing the code.
+Then, click on <f-edit-icon /> **Edit** button or use <kbd>Alt + e</kbd> to start editing the code.
 
 Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys regularily to **save your content to your browser**.  This means the contents will be available when you reload the page or visit the page in the next time in the same browser.
 
-> **Your content changes are not available for other people visting the same webpage**. See <f-link to="/publishing-content">Publishing content to web</f-link> section how to publish content for everybody to see.
+> **Your content changes are not available for other people visting the same webpage**. See <f-link to="/publish-a-project">Publishing content to web</f-link> section how to publish content for everybody to see.
 
 ### Write content
 
@@ -18,7 +18,7 @@ Remember to click on **"Save locally"** button or use <kbd>Alt + s</kbd> keys re
 
 Let's start with a text content. Fachwerk is based on Markdown, a simple text format that is automatically converted to HTML.
 
-> See [Mastering Markdown](https://guides.github.com/features/mastering-markdown) guide for a complete reference of the syntax.
+> See <f-link to="https://guides.github.com/features/mastering-markdown">Mastering Markdown</f-link> guide for a complete reference of the syntax.
 
 To format texts, use an asterisk `*` character:
 
@@ -28,7 +28,9 @@ To format texts, use an asterisk `*` character:
 
 `***highlight***` gives you a  ***highlight***
 
-For advanced formatting, you will need to sprinke in some HTML tags:
+#### Advanced formatting
+
+For advanced formatting, you will need to sprinkle in some HTML tags:
 
 `<var>variable</var>` gives you<var>variable</var>
 
@@ -42,27 +44,25 @@ To write headings, use a hash `#` character, up to 5 levels of headings is suppo
 
 	# Heading 1
 
-gives you first level heading:
+	## Heading 2
+
+	### Heading 3
+
+gives you:
 
 <div style="opacity: 0.3">
 
 # Heading 1
 
-</div>
+## Heading 2
 
-<br>
-
-When you use **number** and **period** like `#### 1.` in the beginning of the heading, it will automatically turned into a bullet:
-
-<div style="opacity: 0.3">
-
-#### 1. Bullet
+### Heading 3
 
 </div>
 
 #### Ordered lists
 
-Speaking of bullets: when you start a paragraph with **number** and **period** like `1.`, you will get a ordered list:
+When you start a paragraph with **number** and **period** like `1.`, you will get a ordered list:
 
 	1. Bullet
 	2. Bullet
@@ -89,4 +89,4 @@ gives you
 
 > There are way more ways to format the content, see <f-link to="/formatting-text">Formatting content</f-link> guide.
 
-<f-link class="tertiary" to="/add-2d-graphics">Let's add some 2D graphics</f-link>
+<f-link class="primary" to="/add-2d-graphics">Let's add some 2D graphics</f-link>

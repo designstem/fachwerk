@@ -18,7 +18,7 @@ export default [
       },
       {
         title: "Add 2d graphics",
-        file: "./tutorials/quickstart/2dscene.md"
+        file: "./tutorials/quickstart/2d.md"
       },
       {
         title: "Add interaction",
@@ -41,10 +41,6 @@ export default [
       //   title: "Adding tables",
       //   file: "./tutorials/tables.md"
       // },
-      {
-        title: "Advanced interaction",
-        file: "./tutorials/interaction.md"
-      },
       {
         title: "Bringing math alive",
         file: "./tutorials/math.md"
@@ -69,15 +65,23 @@ export default [
       //   title: "Importing 2D graphics",
       //   file: "./tutorials/2dimport.md"
       // },
-      // {
-      //   title: "Global events",
-      //   file: "./tutorials/events.md"
-      // },
-      // {
-      //   title: "Making music",
-      //   file: "./tutorials/music.md",
-      //   type: "slides"
-      // },
+      {
+        title: "Advanced interaction",
+        file: "./tutorials/interaction.md"
+      },
+      {
+        title: "Drawing with functions",
+        file: "./tutorials/drawingfunctions.md"
+      },
+      {
+        title: "Handling events",
+        file: "./tutorials/events.md"
+      },
+      {
+        title: "Making music",
+        file: "./tutorials/music.md",
+        type: "slides"
+      },
     ]
   },
   {

@@ -1,5 +1,7 @@
 ## Advanced interaction
 
+> This tutorial works best when you are in edit mode <f-edit-icon  />
+
 ### Using slider
 
 All content in Fachwerk can be dynamic and interactive. Let's start with the simplest example: a slider that sets value `r1`:
@@ -76,17 +78,25 @@ Note that `r4` is either `0` or `1`: this represent which button is currently ac
 	<f-circle :r="[1,1.5][get('r4',0)]" />
 </f-scene>
 
+#### Using toggle button
+
+`<f-toggle>` can also set a global variable `r5`:
+
+<f-toggle set="r5" />
+
+<pre>r5 is currently {{ get('r5', false) }}</pre>
+
 #### Using checkbox
 
-You can also update global value `r5` with a checkbox
+You can also update global value `r5` with a plain checkbox
 
 <input
 	type="checkbox"
-	:checked="get('r5', false)"
-  v-on:input="e => set('r5',e.target.checked)"
+	:checked="get('r6', false)"
+  v-on:input="e => set('r6',e.target.checked)"
 />
 
-<pre>r5 is currently {{ get('r5', false) }}</pre>
+<pre>r5 is currently {{ get('r6', false) }}</pre>
 
 #### Set a global value with a hotkey
 
@@ -94,12 +104,12 @@ To wrap things up, the values can be also set using a keyboard.
 
 Use <kbd>Ctrl + Alt + r</kbd> to set the `r6` value:
 
-<f-keyboard ctrl alt character="r" v-on:keydown="set('r6', 1.5)"/>
+<f-keyboard ctrl alt character="r" v-on:keydown="set('r7', 1.5)"/>
 
-<pre>r6 is currently {{ get('r6', 1) }}</pre>
+<pre>r6 is currently {{ get('r7', 1) }}</pre>
 
 <f-scene grid>
-	<f-circle :r="get('r6', 1)" />
+	<f-circle :r="get('r7', 1)" />
 </f-scene>
 
 

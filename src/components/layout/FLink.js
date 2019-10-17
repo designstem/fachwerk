@@ -39,7 +39,12 @@ This link goes to <f-link to="props">Local slide</f-link> with ID or section \`p
   template: `
   <span>
     <router-link v-if="isRoute" :to="to" @click.native="top"><slot /></router-link>
-    <a v-if="isUrl" :href="to" target="_blank"><slot /></a>
+    <span v-if="isUrl">
+      <a :href="to" target="_blank">
+        <slot />
+      </a>
+      <f-external-icon style="transform: translateY(0.25em);"/>
+    </span>
     <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
   </span>
   `
