@@ -21,7 +21,7 @@ It is even more convinient to click one *Groß* button, so let's add `<f-next-bu
 
 ---
 
-## Adding navigation: ***Page 2***
+## Adding navigation ***Page 2***
 
 Let's make the navigation more interesting. First, we need to set up a slider... 
 
