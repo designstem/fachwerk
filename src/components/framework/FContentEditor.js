@@ -1,4 +1,4 @@
-import { Css, send, flattenContent, isarray, slug } from "../../../fachwerk.js";
+import { Css, send, flattenContent, isarray, slug, store } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -40,6 +40,13 @@ export default {
       }
     );
     
+    const storedContent = store.get(`${this.saveId}.editor`);
+    
+    if (storedContent) {
+      console.log(storedContent)
+      this.currentContent = storedContent
+    }
+
     this.currentEdit = this.edit == "show";
     this.currentMenu = this.menu == "show";
     this.showEdit = this.edit !== "none";
