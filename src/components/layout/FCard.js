@@ -28,6 +28,7 @@ Shows a card.
   },
   template: `
     <div
+      class="card"
       style="
         border-radius: var(--border-radius);
         padding: var(--base2);
@@ -55,16 +56,16 @@ Shows a card.
           :style="{ color }"
         >{{ subtitle }}</small>
       </div>
-      <div class="card">
+      <div class="card-content">
         <slot />
       </div>
     </div>
     `,
     css: `
-      .card > *:first-child {
+      .card-content > *:first-child {
         margin-top: 0;
       }
-      .card > *:last-child {
+      .card-content > *:last-child {
         margin-bottom: 0;
       }
     `

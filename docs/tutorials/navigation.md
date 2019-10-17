@@ -1,6 +1,4 @@
-## Adding navigation
-
-***Page 1***
+## Adding navigation ***Page 1***
 
 > This tutorial works best in slides mode <f-slides-icon  />
 
@@ -23,9 +21,7 @@ It is even more convinient to click one *Groß* button, so let's add `<f-next-bu
 
 ---
 
-## Adding navigation
-
-***Page 2***
+## Adding navigation ***Page 2***
 
 Let's make the navigation more interesting. First, we need to set up a slider... 
 
@@ -42,9 +38,7 @@ Current <var>a</var> value is <var>{{ get('a') }} </var>
 
 ---
 
-## Adding navigation
-
-***Page 3***
+## Adding navigation ***Page 3***
 
 #### Back to previous step
 

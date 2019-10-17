@@ -1,14 +1,17 @@
-## Setting up grid
+## Page setup and grid
 
-> This tutorial works best in edit mode <f-edit-icon  />
+> This tutorial works best in edit <f-edit-icon  /> and slides mode <f-slides-icon  />
+  Also, turn on grid debugging by pressing <kbd>alt</kbd> + <kbd>g</kbd>
+
+### Adding a grid
 
 To separate the content into grid of rows and columns, separate the content with the single dash:
 
 `-`
 
-### Default layout
+By default, grid columns have equal width
 
-This is standard layout: grid cells are in one row with columns of equal width.
+Row height is determined by the column with the highest content.
 
 ---
 
@@ -20,7 +23,7 @@ This is standard layout: grid cells are in one row with columns of equal width.
 
 -
 
-<f-card>Cell 3</f-card>
+<f-card>Cell 3<br>Longer content</f-card>
 
 ---
 
@@ -41,21 +44,25 @@ Content can be arranged into more complex layouts by drawing a grid of numbers.
 
 -
 
-<f-card>Cell 3</f-card>
+<f-card>Cell 3<br>Longer content</f-card>
 
 ---
 
-### Gap between cells
+### Padding, gap, row height
 
-To adjust the gap between cells you can set <code>| gap:</code> parameter. It accepts any CSS unit. To remove the gap, set it to `0`.
+To adjust the padding around cells, you can set `| padding:` parameter.  It accepts any CSS unit. To remove the padding, set it to `0`.
 
-Note that contents of the cells can be anything, including `f-image`.
+To adjust the gap between cells you can set `| gap:` parameter. It accepts any CSS unit. To remove the gap, set it to `0`.
+
+To make rows to equal height, add a `| row:` parameter `1fr 1fr`. Number of `fr`'s depends how many rows you have.
 
 ---
 
-| gap: 0
 | 1 1
 | 2 3
+| padding: 0
+| gap: 0
+| rows: 1fr 1fr
 
 <f-image src="../images/example.jpg" />
 
@@ -68,14 +75,18 @@ Note that contents of the cells can be anything, including `f-image`.
 <f-image src="../images/example.jpg" />
 
 ---
+
+### Padding for a single cell
 
 Use `<section>` tag to bring back the padding to the particular cell.
 
 ---
 
-| gap: 0
 | 1 1
 | 2 3
+| padding: 0
+| gap: 0
+| rows: 1fr 1fr
 
 <f-image src="../images/example.jpg" />
 
@@ -86,43 +97,31 @@ Use `<section>` tag to bring back the padding to the particular cell.
 -
 
 <section>
+
 Look, I have plenty of padding here!
+
 </section>
-
----
-
-### Padding around cells
-
-To adjust the padding around cells you can set <code>| padding:</code> parameter. It accepts any CSS unit. To remove the padding, set it to `0`.
-
----
-
-| gap: 0
-| 1 1
-| 2 3
-
-<f-image src="../images/example.jpg" />
-
--
-
-<f-image src="../images/example.jpg" />
-
--
-
-<f-image src="../images/example.jpg" />
 
 ---
 
 ### More options
 
-Setting <code>│ theme: dark</code> will set the theme for the particular slide. Available themes are `light` (default), `dark`, `yellow` and `blue.
+#### Height
 
-There is also a <code>&lt;center></code> tag to set the cell contents horizontally and vertically centered.
+By setting `| height`, the page will have particular height in document mode. In slides mode the height is fixed to `100vh` (full page height).
+
+#### Theme
+
+Setting `│ theme` will set the theme for the particular slide. Available themes are `light` (default), `dark`, `yellow` and `blue`.
+
+#### Centered content
+
+There is also a `&lt;center>` tag to set the cell contents horizontally and vertically centered.
 
 ---
 
-| theme: dark
 | height: 50vh
+| theme: dark
 
 <center>
 
@@ -135,22 +134,23 @@ There is also a <code>&lt;center></code> tag to set the cell contents horizontal
 
 ### Full reference
 
-Here is a full list of page / slide configuration options:
+Here is a full list of page configuration options:
 
 Key | Default | Description
 ---|---|---
 `\| 1 2 3`<br>`\| 4 5 6`|`\| 1 2 3 …`|Define a content grid. Use `-` to separate columns 
-`\| padding:`|responsive|Padding around content. Set to `0` to remove padding 
-`\| gap:`|responsive|Gap between columns. Set to `0` to remove gap 
+`\| padding:`|`var(--base6)`|Padding around content. Set to `0` to remove padding 
+`\| gap:`|`var(--base3)`|Gap between columns. Set to `0` to remove gap 
 `\| theme:`|`light`|Slide theme, can be `light dark yellow blue`
 `\| background:`||Slide background color or image url
+`\| backgroundposition:`| `50% 50%` |Slide background image position
 `\| tint:`|`0.3`|Slide background image darkening
-`\| height:`|`100vh`|Minimum content height
-`\| cols:`|`1fr 1fr ...`|CSS grid columns
-`\| rows:`|`auto ...`|CSS grid rows
+`\| height:`|`auto`| Minimum content height for documents. For slides it is always `100vh`
+`\| cols:`|`1fr 1fr ... 1fr`|CSS grid columns
+`\| rows:`|`auto auto ... 1fr`|CSS grid rows
 `\| id:`||Slide ID. Use `goto('id')` to navigate there
 `\| section:`||Section ID. Use `goto('section')` to navigate there
-`\| style:`||Css styles applied to a slide, formatted as HTML inline styles `key: value; key: value`
+`\| --variable:`||Css variable overrides
 
 
 
