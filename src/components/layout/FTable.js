@@ -82,7 +82,7 @@ Column names come from \`:cols\` attribute.
     }
   },
   template: `
-  <div>
+  <div v-if="currentRows.length">
   <table>
     <thead>
       <th

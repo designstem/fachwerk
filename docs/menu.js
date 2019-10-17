@@ -69,15 +69,15 @@ export default [
       //   title: "Importing 2D graphics",
       //   file: "./tutorials/2dimport.md"
       // },
-      // {
-      //   title: "Global events",
-      //   file: "./tutorials/events.md"
-      // },
-      // {
-      //   title: "Making music",
-      //   file: "./tutorials/music.md",
-      //   type: "slides"
-      // },
+      {
+        title: "Handling events",
+        file: "./tutorials/events.md"
+      },
+      {
+        title: "Making music",
+        file: "./tutorials/music.md",
+        type: "slides"
+      },
     ]
   },
   {
