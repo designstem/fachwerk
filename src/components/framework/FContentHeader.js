@@ -123,6 +123,7 @@ export default {
           v-if="showEdit"
           class="quaternary"
           @click="$global.$emit('edit')"
+          title="Edit content [alt + e]"
         >
           <f-edit-icon :style="{
             '--icon-stroke': edit ? 'var(--blue)' : ''}
@@ -133,6 +134,7 @@ export default {
           class="quaternary"
           :href="home"
           style="margin-left: var(--base2)"
+          title="Go back"
         >
           <f-home-icon />
         </a>
@@ -140,6 +142,7 @@ export default {
           v-if="showMenu && currentContent.filter(c => c.chapter || c.section).length"
           class="quaternary"
           @click="$global.$emit('menu')"
+          title="Show menu [alt + m]"
         >
           <f-menu-icon
             :style="{
@@ -156,6 +159,7 @@ export default {
         <a
           class="quaternary"
           @click="$global.$emit('type', type == 'document' ? 'slides' : 'document')"
+          :title="(type == 'document' ? 'Go to slide mode' : 'Go to document mode') + ' [alt + t]'"
         >
           <component :is="iconComponent" />&nbsp;
         </a>

@@ -50,18 +50,24 @@ export default {
       align-items: center;
       justify-content: space-between;
     ">
-      <a class="quaternary" @click="$global.$emit('edit')"><f-close-icon /></a>
+      <a
+        class="quaternary"
+        @click="$global.$emit('edit')"
+        title="Close editor"
+      ><f-close-icon /></a>
       <div>
         <a
           v-if="isRevertable && state !== 'reverted'"
           class="quaternary"
           style="opacity: 0.5"
           @click="handleRevert"
+          title="Revert to original content"
         >Revert</a>
         <a
           class="quaternary"
           v-html="labels[state]"
           @click="handleSave"
+          title="Save content [alt + s]"
         />
       </div>
     </div>

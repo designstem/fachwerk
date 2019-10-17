@@ -41,9 +41,8 @@ export default {
     );
     
     const storedContent = store.get(`${this.saveId}.editor`);
-    
+
     if (storedContent) {
-      console.log(storedContent)
       this.currentContent = storedContent
     }
 
@@ -95,7 +94,7 @@ export default {
           :showEdit="showEdit"
           :menu="currentMenu"
           :showMenu="showMenu"
-          :content="content"
+          :content="currentContent"
           :saveId="saveId"
           :home="home"
         />
