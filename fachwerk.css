@@ -310,6 +310,8 @@ details {
   padding: var(--base2);
   border-left: 4px solid var(--emphasis);
   margin-bottom: var(--base2);
+  cursor: pointer;
+  outline: none;
 }
 details p:first-child {
   margin-top: var(--base2);
@@ -321,7 +323,6 @@ details summary {
   color: var(--primary);
   font-weight: bold;
   margin: 0;
-  outline: none;
 }
 details pre,
 details code {

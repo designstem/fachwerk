@@ -1,4 +1,4 @@
-import { Css, send, flattenContent, isarray, slug } from "../../../fachwerk.js";
+import { Css, send, flattenContent, isarray, slug, store } from "../../../fachwerk.js";
 
 export default {
   mixins: [Css],
@@ -7,6 +7,7 @@ export default {
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
     type: { default: "document", type: String },
+    typebutton: { default: "show", type: String },
     title: { default: "Fachwerk", type: String },
     home: { default: "", type: String },
     theme: { default: "light", type: String },
@@ -40,6 +41,12 @@ export default {
       }
     );
     
+    const storedContent = store.get(`${this.saveId}.editor`);
+
+    if (storedContent) {
+      this.currentContent = storedContent
+    }
+
     this.currentEdit = this.edit == "show";
     this.currentMenu = this.menu == "show";
     this.showEdit = this.edit !== "none";
@@ -84,11 +91,12 @@ export default {
         />
         <f-content-header
           :type="currentType"
+          :typebutton="typebutton"
           :edit="currentEdit"
           :showEdit="showEdit"
           :menu="currentMenu"
           :showMenu="showMenu"
-          :content="content"
+          :content="currentContent"
           :saveId="saveId"
           :home="home"
         />

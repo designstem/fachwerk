@@ -1,6 +1,6 @@
-## Creating pages
+## Creating pages: Page 1
 
-### First page
+> ***Note*** This tutorial works best when you are in **slides** mode <f-slides-icon  />
 
 To create multiple slides, separate the content with a separator.
 
@@ -21,27 +21,16 @@ It is even more convinient to click one *Groß* button, so let's add `<f-next-bu
 
 ---
 
-## Creating pages
+## Creating pages: Page 2
 
-### Hey, you made it!
-
-#### Second page
-
-Let's have a button to move to the previous page:
-
-<f-prev-button />
-
-<p />
-
-#### Conditional elements
-
-Let's make the navigation more interesting.
-
-Let's set up a slider and allow to move to the next page only if the user has set the value <var>a</var> more than <var>180</var>:
+Let's make the navigation more interesting. First, we need to set up a slider... 
 
     <f-next-button v-if="get('a') > 180" />
 
+...and allow to move to the next page only if the user has set the value <var>a</var> more than <var>180</var>
+
 Current <var>a</var> value is <var>{{ get('a') }} </var>
+
 
 <f-slider set="a" />
 
@@ -49,13 +38,17 @@ Current <var>a</var> value is <var>{{ get('a') }} </var>
 
 ---
 
-## Creating pages
+## Creating pages: Page 3
 
-### Back to beginning
+#### Back to previous step
 
-Let's have button that takes us back to the first slide.
+Let's have a button to move to the previous page:
 
-Note that there is no special button for this but we can create our own:
+<f-prev-button />
+
+#### Back to beginning
+
+Let's have button that takes us back to the first slide. Note that there is no special component for this but we can create our own:
 
     <button 
       class="primary"

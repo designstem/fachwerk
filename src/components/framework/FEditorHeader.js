@@ -10,12 +10,19 @@ export default {
     state: "idle",
     labels: {
       idle: " Save locally",
+      reverted: " Save locally",
       // em space
       saving: "   Saving...",
       saved: "●&nbsp;Saved&nbsp;locally"
     },
     timeout: null
   }),
+  computed: {
+    isRevertable() {
+      const storedContent = store.get(`${this.saveId}.editor`);
+      return storedContent && storedContent !== this.content;
+    }
+  },
   methods: {
     handleSave() {
       store.set(`${this.saveId}.editor`, this.value);
@@ -25,15 +32,10 @@ export default {
     handleRevert() {
       store.remove(`${this.saveId}.editor`);
       this.$emit("input", this.content);
-      this.state = "idle";
+      this.state = "reverted";
     }
   },
   mounted() {
-    const storedContent = store.get(`${this.saveId}.editor`);
-    if (storedContent) {
-      this.$emit("input", storedContent);
-      this.state = "saved"
-    }
     if (this.$global) {
       this.$global.$on("save", () => this.handleSave());
       this.$global.$on("revert", () => this.handleRevert());
@@ -48,18 +50,24 @@ export default {
       align-items: center;
       justify-content: space-between;
     ">
-      <a class="quaternary" @click="$global.$emit('edit')"><f-close-icon /></a>
+      <a
+        class="quaternary"
+        @click="$global.$emit('edit')"
+        title="Close editor"
+      ><f-close-icon /></a>
       <div>
         <a
-          v-if="state == 'saved'"
+          v-if="isRevertable && state !== 'reverted'"
           class="quaternary"
           style="opacity: 0.5"
           @click="handleRevert"
+          title="Revert to original content"
         >Revert</a>
         <a
           class="quaternary"
           v-html="labels[state]"
           @click="handleSave"
+          title="Save content [alt + s]"
         />
       </div>
     </div>

@@ -18,6 +18,7 @@ export default {
     menu: { default: false, type: [String, Boolean] },
     showMenu: { default: true, type: [String, Boolean] },
     type: { default: "document", type: String },
+    typebutton: { default: "show", type: String },
     home: { default: "", type: String },
     saveId: { default: "fachwerk", type: String }
   },
@@ -37,21 +38,25 @@ export default {
     first() {
       this.currentIndex = 0;
       this.$global.$emit("index", this.currentIndex);
+      window.scrollTo(0, 0)
     },
     last() {
       this.currentIndex = this.currentContent.length - 1;
       this.$global.$emit("index", index);
+      window.scrollTo(0, 0)
     },
     prev() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
         this.$global.$emit("index", this.currentIndex);
+        window.scrollTo(0, 0)
       }
     },
     next() {
       if (this.currentIndex < this.currentContent.length - 1) {
         this.currentIndex++;
         this.$global.$emit("index", this.currentIndex);
+        window.scrollTo(0, 0)
       }
     },
     goto(id) {
@@ -68,6 +73,7 @@ export default {
         window.location.hash = "id-" + i;
       }
       this.$global.$emit("index", this.currentIndex);
+      window.scrollTo(0, 0)
     }
   },
   mounted() {
@@ -118,6 +124,7 @@ export default {
           v-if="showEdit"
           class="quaternary"
           @click="$global.$emit('edit')"
+          title="Edit content [alt + e]"
         >
           <f-edit-icon :style="{
             '--icon-stroke': edit ? 'var(--blue)' : ''}
@@ -128,6 +135,7 @@ export default {
           class="quaternary"
           :href="home"
           style="margin-left: var(--base2)"
+          title="Go back"
         >
           <f-home-icon />
         </a>
@@ -135,6 +143,7 @@ export default {
           v-if="showMenu && currentContent.filter(c => c.chapter || c.section).length"
           class="quaternary"
           @click="$global.$emit('menu')"
+          title="Show menu [alt + m]"
         >
           <f-menu-icon
             :style="{
@@ -144,15 +153,21 @@ export default {
         </a>
       </div>
       <div style="display: flex">
-        <div v-if="type == 'slides' && currentContent.length > 1" style="display: flex; margin-right: var(--base2)">
+        <div
+          v-if="type == 'slides' && currentContent.length > 1"
+          style="display: flex;"
+        >
           <a class="quaternary" style="padding: 0 4px" @click="prev" ><f-leftarrow-icon /></a>
           <a class="quaternary" style="padding: 0 4px" @click="next" ><f-rightarrow-icon /></a>
         </div>
         <a
+          v-if="typebutton == 'show'"
+          :style="{ marginLeft: typebutton == 'show' ? 'var(--base2)' : ''}"
           class="quaternary"
           @click="$global.$emit('type', type == 'document' ? 'slides' : 'document')"
+          :title="(type == 'document' ? 'Go to slide mode' : 'Go to document mode') + ' [alt + t]'"
         >
-          <component :is="iconComponent" />&nbsp;
+          <component :is="iconComponent" />
         </a>
       </div>
     </div>
