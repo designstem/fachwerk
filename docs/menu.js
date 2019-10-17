@@ -42,10 +42,6 @@ export default [
       //   file: "./tutorials/tables.md"
       // },
       {
-        title: "Advanced interaction",
-        file: "./tutorials/interaction.md"
-      },
-      {
         title: "Bringing math alive",
         file: "./tutorials/math.md"
       },
@@ -69,6 +65,14 @@ export default [
       //   title: "Importing 2D graphics",
       //   file: "./tutorials/2dimport.md"
       // },
+      {
+        title: "Advanced interaction",
+        file: "./tutorials/interaction.md"
+      },
+      {
+        title: "Drawing with functions",
+        file: "./tutorials/drawingfunctions.md"
+      },
       {
         title: "Handling events",
         file: "./tutorials/events.md"
