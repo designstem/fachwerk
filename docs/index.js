@@ -41,7 +41,7 @@ const fullMenu = menu.concat(
     utilsPages.map(g => {
       return g.map(([group, items]) => {
         return {
-          title: `${titlecase(group)} utilities`,
+          title: `🥣 ${titlecase(group)} utilities`,
           items: items.map(([title, content]) => ({
             title,
             content,

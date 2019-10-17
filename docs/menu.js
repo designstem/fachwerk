@@ -81,7 +81,7 @@ export default [
     ]
   },
   {
-    title: "Rich content",
+    title: "📦 Rich content",
     items: [
       // { component: "FLink" },
       { component: "FImage" },
@@ -102,7 +102,7 @@ export default [
     ]
   },
   {
-    title: "Navigation",
+    title: "📦 Navigation",
     items: [
       { component: "FLink" },
       { component: "FNextButton", },
@@ -110,7 +110,7 @@ export default [
     ]
   },
   {
-    title: "2D graphics",
+    title: "📦 2D graphics",
     items: [
       { component: "FScene" },
       { component: "FArtboard" },
@@ -132,7 +132,7 @@ export default [
     ]
   },
   {
-    title: "2D patterns",
+    title: "📦 2D patterns",
     items: [
       { component: "FGridPattern" },
       { component: "FBrickPattern" },
@@ -145,7 +145,7 @@ export default [
     ]
   },
   {
-    title: "2D canvas",
+    title: "📦 2D canvas",
     items: [
       { component: "FCanvas" },
       { component: "FPixel" },
@@ -153,7 +153,7 @@ export default [
     ]
   },
   {
-    title: "3D graphics",
+    title: "📦 3D graphics",
     items: [
       { component: "FScene3" },
       { component: "FGrid3" },
@@ -174,11 +174,11 @@ export default [
     ]
   },
   {
-    title: "3D patterns",
+    title: "📦 3D patterns",
     items: [{ component: "FGridPattern3" }]
   },
   {
-    title: "Interaction",
+    title: "📦 Interaction",
     items: [
       { component: "FValue" },
       { component: "FSlider" },
@@ -190,17 +190,17 @@ export default [
     ]
   },
   {
-    title: "Math",
+    title: "📦 Math",
     items: [
       { component: "FMath" },
     ]
   },
   {
-    title: "Data structures",
+    title: "📦 Data structures",
     items: [{ component: "FArray" }, { component: "FBuffer" }]
   },
   {
-    title: "Remote data",
+    title: "📦 Remote data",
     items: [
       { component: "FFetch" },
       { component: "FSheet" },
@@ -208,7 +208,7 @@ export default [
     ]
   },
   {
-    title: "Audio and MIDI",
+    title: "📦 Audio and MIDI",
     items: [
       { component: "FDrum" },
       { component: "FDrumpad" },
@@ -219,6 +219,10 @@ export default [
       { component: "FMidiOut" },
       { component: "FPiano" }
     ]
+  },
+   {
+    title: "📦 VR",
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
   {
     title: "Icons",
@@ -245,10 +249,7 @@ export default [
       // { component: "FDownloadIcon" }
     ]
   },
-  {
-    title: "VR",
-    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
-  },
+
   // {
   //   title: "Advanced",
   //   items: [
