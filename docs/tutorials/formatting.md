@@ -131,6 +131,17 @@ It is the same as to use `<blockquote>` tag it in HTML.
 
 </details>
 
+### Tables
+
+For simple tables, a following syntax can be used. Note that the table cells can contain additional formatting.
+
+Name        | Born        | Profession
+----------- | ----------- | ----------
+Klaus       | `1926`      | Actor
+Werner      | `1942`      | Director
+  
+See <f-link to="/f-table">`<f-table>`</f-link> component for more advanced table generation.
+
 ### Code
 
 For code snippets inside text use `this format`.

@@ -66,7 +66,7 @@ Displays the toggle control.
         :rx="(size - (padding * 2)) / 2"
         :ry="(size - (padding * 2)) / 2"
         :fill="color(innerValue ? 'green' : 'gray')"
-        stroke-width="3"
+        stroke-width="2"
         stroke="var(--primary)"
       />
       <f-circle
@@ -74,6 +74,7 @@ Displays the toggle control.
         :x="innerValue ? (size * width) - (size / 2) : size / 2"
         :y="size / 2"
         fill="white"
+        stroke-width="2"
       />
     </f-group>
   </f-artboard>

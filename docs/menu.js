@@ -37,10 +37,10 @@ export default [
         title: "Formatting text",
         file: "./tutorials/formatting.md"
       },
-      {
-        title: "Adding tables",
-        file: "./tutorials/tables.md"
-      },
+      // {
+      //   title: "Adding tables",
+      //   file: "./tutorials/tables.md"
+      // },
       {
         title: "Advanced interaction",
         file: "./tutorials/interaction.md"
