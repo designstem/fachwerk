@@ -59,19 +59,39 @@ In many cases the framework needs additional customization. You can start with s
 
 ### Custom configuration
 
-Fachwerk has several setup options:
+Fachwerk has several setup options you can pass in as an object:
 
-    fachwerk({
-      el: "#fachwerk",      // HTML tag id the content goes into
-      src: "./index.md",    // Path of the Markdown file, local or from the web
-      editor: "hide",       // Options for live editor: "none", "hide", "show"
-      theme: "light",       // Theme: "light", "dark", "blue", "yellow"
-      type: "slides",       // Content type: "slides", "document",
-      pager: true,          // Show global pager?
-      style: {}             // Add custom styles, for example CSS variables
-      components: {},       // Add custom components
-      utils: {},            // Add custom utilities
-    })
+```
+fachwerk({ el: "#fachwerk" })
+```
+
+key | default | options | description
+---|---|---|---
+`el`|`"#fachwerk"`||HTML tag id the content goes into
+`src`|`"./index.md"`||Path of the Markdown file, local path or web address
+`title`| `"Fachwerk"`||Title of the project. Used for local storage ID
+`edit`|`"hide"`|`"none"` `"hide"` `"show"`|Show integrated live editor?
+`menu`|`"hide"`|`"none"` `"hide"` `"show"`|Show navigation menu?
+`type`|`"document"`|`"slides"` `"document"`|Presentation mode
+`typebutton`|`"show"`|`"none"` `"show"`|Show presentation mode switcher?
+`home`| `""`||Home navigation URL, local file path or web address 
+`theme`|`"light"`|`"light"` `"dark"` `"blue"` `"yellow"`|Global theme
+`style`|`{}`||Add custom styles
+`components`|`{}`||Add custom components
+`utils`|`{}`||Add custom utilities
+
+
+### Custom styles
+
+Fachwerk supports custom style overrides, they are especially helpful setting global CSS variables.
+
+Here is how to do it:
+
+##### index.js
+
+```js
+fachwerk({ styles: { "--content-padding": "var(--base10)" } });
+```
 
 ### Custom components
 
@@ -183,7 +203,7 @@ new Vue({
   // Note that it will be only accessible
   // in the template, not inside Markdown
   // Use get() / set() helpers to
-  // pass values to Markdown
+  // pass values to index.md content
 
   data: {},
 
@@ -194,9 +214,10 @@ new Vue({
   // components and utilities.
 
   template: `
-  <f-fetch src="./index.md" v-slot="{ value }">
-    <f-content :content="value" />
+  <f-fetch src="./index.md" v-slot="{ value: content }">
+    <f-content-editor :content="content" />
   </f-fetch>
   `
+
 });
 ```
