@@ -1,6 +1,6 @@
 ## Formatting text
 
-> This tutorial works best when you are in edit mode <f-edit-icon  />
+> This tutorial works best in edit mode <f-edit-icon  />
 
 ### Basic text
 

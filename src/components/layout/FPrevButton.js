@@ -2,12 +2,16 @@ import { send, get } from "../../../fachwerk.js";
 
 export default {
   description: `
+
+> This page works best in slides mode <f-slides-icon  />
+
+<a @click="() => send('next')">Go to next slide</a>
+
+---
+
 Button that navigates to the previous slide.
 
 <f-prev-button />
-
-<p />
-
 `,
   props: { title: { default: "", description: "Button title" } },
   methods: { send, get },

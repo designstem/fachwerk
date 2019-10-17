@@ -51,7 +51,7 @@ export default [
       },
       {
         title: "Creating pages",
-        file: "./tutorials/pages.md",
+        file: "./tutorials/pages.md"
       },
       // {
       //   title: "Using color",
@@ -76,12 +76,12 @@ export default [
       {
         title: "Handling events",
         file: "./tutorials/events.md"
-      },
-      {
-        title: "Making music",
-        file: "./tutorials/music.md",
-        type: "slides"
-      },
+      }
+      // {
+      //   title: "Making music",
+      //   file: "./tutorials/music.md",
+      //   type: "slides"
+      // },
     ]
   },
   {
@@ -94,7 +94,7 @@ export default [
       { component: "FSidebar" },
       { component: "FNotes" },
       { component: "FEmbed" },
-      { component: "FCard" },
+      { component: "FCard" }
       // { component: "FIconHeading" },
       // { component: "FPager" },
       // { component: "FMenu" },
@@ -109,8 +109,8 @@ export default [
     title: "📦 Navigation",
     items: [
       { component: "FLink" },
-      { component: "FNextButton", },
-      { component: "FPrevButton" },
+      { component: "FNextButton" },
+      { component: "FPrevButton" }
     ]
   },
   {
@@ -195,9 +195,7 @@ export default [
   },
   {
     title: "📦 Math",
-    items: [
-      { component: "FMath" },
-    ]
+    items: [{ component: "FMath" }]
   },
   {
     title: "📦 Data structures",
@@ -211,20 +209,20 @@ export default [
       { component: "FWebsocket" }
     ]
   },
+  // {
+  //   title: "📦 Audio and MIDI",
+  //   items: [
+  //     { component: "FDrum" },
+  //     { component: "FDrumpad" },
+  //     { component: "FSynth" },
+  //     { component: "FSequencer" },
+  //     { component: "FMidiInfo" },
+  //     { component: "FMidiIn" },
+  //     { component: "FMidiOut" },
+  //     { component: "FPiano" }
+  //   ]
+  // },
   {
-    title: "📦 Audio and MIDI",
-    items: [
-      { component: "FDrum" },
-      { component: "FDrumpad" },
-      { component: "FSynth" },
-      { component: "FSequencer" },
-      { component: "FMidiInfo" },
-      { component: "FMidiIn" },
-      { component: "FMidiOut" },
-      { component: "FPiano" }
-    ]
-  },
-   {
     title: "📦 VR",
     items: [{ component: "FAframe" }, { component: "FAframeButton" }]
   },
@@ -234,7 +232,7 @@ export default [
       {
         title: "Icons audit",
         file: "./tutorials/icons.md"
-      },
+      }
       // { component: "FFactIcon" },
       // { component: "FActivityIcon" },
       // { component: "FNoteIcon" },
@@ -281,7 +279,7 @@ export default [
       {
         title: "Testing",
         file: "./tutorials/testing.md"
-      },
+      }
     ]
   }
 ];

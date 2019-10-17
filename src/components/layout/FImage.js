@@ -28,7 +28,7 @@ Displays an image.
       description: "Image height"
     },
     "--image-min-height": {
-      default: "calc(var(--base) * 35)",
+      default: "calc(var(--base) * 30)",
       description: "Image minimum height"
     },
     "--image-size": {

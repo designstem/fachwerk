@@ -1,6 +1,6 @@
 ## Creating pages: Page 1
 
-> This tutorial works best when you are in slides mode <f-slides-icon  />
+> This tutorial works best in slides mode <f-slides-icon  />
 
 To create multiple slides, separate the content with a separator.
 
