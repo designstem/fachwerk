@@ -37,21 +37,25 @@ export default {
     first() {
       this.currentIndex = 0;
       this.$global.$emit("index", this.currentIndex);
+      window.scrollTo(0, 0)
     },
     last() {
       this.currentIndex = this.currentContent.length - 1;
       this.$global.$emit("index", index);
+      window.scrollTo(0, 0)
     },
     prev() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
         this.$global.$emit("index", this.currentIndex);
+        window.scrollTo(0, 0)
       }
     },
     next() {
       if (this.currentIndex < this.currentContent.length - 1) {
         this.currentIndex++;
         this.$global.$emit("index", this.currentIndex);
+        window.scrollTo(0, 0)
       }
     },
     goto(id) {
@@ -68,6 +72,7 @@ export default {
         window.location.hash = "id-" + i;
       }
       this.$global.$emit("index", this.currentIndex);
+      window.scrollTo(0, 0)
     }
   },
   mounted() {

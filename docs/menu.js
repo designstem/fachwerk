@@ -57,22 +57,22 @@ export default [
         title: "Creating pages",
         file: "./tutorials/pages.md",
       },
-      {
-        title: "Using color",
-        file: "./tutorials/colors.md"
-      },
-      {
-        title: "Adding emojis",
-        file: "./tutorials/emoji.md"
-      },
-      {
-        title: "Importing 2D graphics",
-        file: "./tutorials/2dimport.md"
-      },
-      {
-        title: "Global events",
-        file: "./tutorials/events.md"
-      },
+      // {
+      //   title: "Using color",
+      //   file: "./tutorials/colors.md"
+      // },
+      // {
+      //   title: "Adding emojis",
+      //   file: "./tutorials/emoji.md"
+      // },
+      // {
+      //   title: "Importing 2D graphics",
+      //   file: "./tutorials/2dimport.md"
+      // },
+      // {
+      //   title: "Global events",
+      //   file: "./tutorials/events.md"
+      // },
       // {
       //   title: "Making music",
       //   file: "./tutorials/music.md",
