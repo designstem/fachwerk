@@ -1,5 +1,7 @@
 ## Bringing math alive
 
+> ***Note*** This tutorial works best when you are in **edit** mode <f-edit-icon  />
+
 For highlighting variables and  writing math equations we can use `<var>` tags and `<f-math>` components. `<f-math>` equations are written in classic LaTex syntax.
 
 ### Examples

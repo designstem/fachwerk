@@ -18,7 +18,7 @@ export default [
       },
       {
         title: "Add 2d graphics",
-        file: "./tutorials/quickstart/2dscene.md"
+        file: "./tutorials/quickstart/2d.md"
       },
       {
         title: "Add interaction",

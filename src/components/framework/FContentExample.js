@@ -31,7 +31,7 @@ export default {
       />
       <f-content
         :content="currentContent"
-        style="height: 100%"
+        style="height: 100%; min-height: auto;"
       />
       
     </div>

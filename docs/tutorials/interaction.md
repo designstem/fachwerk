@@ -1,5 +1,7 @@
 ## Advanced interaction
 
+> ***Note*** This tutorial works best when you are in **edit** mode <f-edit-icon  />
+
 ### Using slider
 
 All content in Fachwerk can be dynamic and interactive. Let's start with the simplest example: a slider that sets value `r1`:
