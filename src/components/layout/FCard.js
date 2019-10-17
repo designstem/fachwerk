@@ -38,7 +38,7 @@ Shows a card.
       :style="{
         color,
         background,
-        bborder: 'var(--border-width) solid ' + border
+        border: 'var(--border-width) solid ' + border
       }"
     >
       <div style="
