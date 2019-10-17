@@ -61,7 +61,7 @@ export default {
         background,
         backgroundSize: slide.background ? "cover" : "",
         backgroundRepeat: slide.background ? "no-repeat" : "",
-        backgroundPosition: slide.backgroundPosition ? slide.backgroundPosition : "50% 50%"
+        backgroundPosition: slide.backgroundposition ? slide.backgroundposition : "50% 50%"
       };
     }
   },
