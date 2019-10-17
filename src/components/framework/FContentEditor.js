@@ -7,6 +7,7 @@ export default {
     edit: { default: "hide", type: String },
     menu: { default: "hide", type: String },
     type: { default: "document", type: String },
+    typebutton: { default: "show", type: String },
     title: { default: "Fachwerk", type: String },
     home: { default: "", type: String },
     theme: { default: "light", type: String },
@@ -90,6 +91,7 @@ export default {
         />
         <f-content-header
           :type="currentType"
+          :typebutton="typebutton"
           :edit="currentEdit"
           :showEdit="showEdit"
           :menu="currentMenu"

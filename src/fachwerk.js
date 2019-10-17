@@ -8,6 +8,7 @@ export function fachwerk(c = {}) {
     edit: "hide",
     menu: "hide",
     type: "document",
+    typebutton: "show",
     home: "",
     theme: "light",
     style: {},
@@ -39,6 +40,7 @@ export function fachwerk(c = {}) {
         :edit="config.edit"
         :menu="config.menu"
         :type="config.type"
+        :typebutton="config.typebutton"
         :home="config.home"
         :theme="config.theme"
         :style="config.style"
