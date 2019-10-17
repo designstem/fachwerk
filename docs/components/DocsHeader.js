@@ -22,11 +22,11 @@ export default {
       white-space: nowrap;
   ">
     <!-- en space -->
-    <div><a class="quaternary" :href="rootSrc">Fachwerk</a></div>
-    <div><a class="quaternary" :href="docsSrc">Documentation</a></div>
-    <div><a class="quaternary" href="https://designstem.github.io/fachwerk_example" target="_blank">Playground <f-external-icon /></a></div>
-    <div><a class="quaternary" href="https://designstem.github.io/projects" target="_blank">Example projects <f-external-icon /></a></div>
-    <div><a class="quaternary" href="https://github.com/designstem/fachwerk" target="_blank">Github <f-external-icon /></a></div>
+    <a class="quaternary" :href="rootSrc">Fachwerk</a>&nbsp;
+    <a class="quaternary" :href="docsSrc">Documentation</a>&nbsp;
+    <a class="quaternary" href="https://designstem.github.io/fachwerk_example" target="_blank">Playground <f-external-icon /></a>&nbsp;
+    <a class="quaternary" href="https://designstem.github.io/projects" target="_blank">Example projects <f-external-icon /></a>&nbsp;
+    <a class="quaternary" href="https://github.com/designstem/fachwerk" target="_blank">Github <f-external-icon /></a>
 </f-theme>
 `
 };
