@@ -1,11 +1,11 @@
 export default {
   description: `
-Displays inline notes in a sidebar.
+Displays inline notes in a sidebar. Notes button is in the bottom of the page.
 
 <f-notes title="Sample notes">
-Sample notes content
+  Sample notes content
 </f-notes>
-    `,
+  `,
   props: {
     title: { default: "Teacher notes", type: String },
     size: { default: 'narrow', type: String }

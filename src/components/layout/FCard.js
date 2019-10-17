@@ -3,7 +3,7 @@ import { Css } from "../../../fachwerk.js";
 export default {
   mixins: [Css],
   description: `
-Shows a content card.
+Shows a card.
 
 <f-card>Some content here</f-card>
 

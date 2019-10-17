@@ -8,13 +8,6 @@ This link goes to local <f-link to="/f-scene">f-scene</f-link> documentaton rout
 This link goes to <f-link to="https://pudding.cool/2018/02/waveforms/">external site</f-link>
 
 This link goes to <f-link to="props">Local slide</f-link> with ID or section \`props\`
-
----
-
-<f-pager />
-
-| id: props
-
 `,
   props: {
     to: { default: '', type: [String, Number], description: 'Local route to navigate' },

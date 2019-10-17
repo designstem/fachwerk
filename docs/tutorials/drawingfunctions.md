@@ -1,6 +1,6 @@
 ## Drawing with functions
 
-> This tutorial works best when you are in edit mode <f-edit-icon  />
+> This tutorial works best in edit mode <f-edit-icon  />
 
 Let's have a small challenge, let's create an interactive a <var>spiral</var>, drawn with <var>functions</var>.
 

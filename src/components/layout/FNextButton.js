@@ -2,11 +2,15 @@ import { send, get } from '../../../fachwerk.js'
 
 export default {
   description: `
+
+> This page works best in slides mode <f-slides-icon  />
+
 Button that navigates to the next slide.
 
 <f-next-button />
 
-<p />
+---
+
   `,
   props: { title: { default: "Next step", description: "Button title" } },
   methods: { send, get },
