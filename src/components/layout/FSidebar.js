@@ -1,4 +1,11 @@
 export default {
+  description: `
+Displays content in a sidebar
+
+<f-sidebar src="../README.md">
+../README.md in a sidebar
+</f-sidebar>
+  `,
   props: {
     src: { default: "", type: String },
     title: { default: "Sidebar", type: String },

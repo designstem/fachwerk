@@ -4,14 +4,37 @@ import FMarkdown from "../internal/FMarkdown.js";
 export default {
   components: { FMarkdown },
   description: `
-A \`<table>\`, accepting array or array of objects as \`:rows\`.
+A table, accepting \`:rows\` data.
 
-<f-table :rows="[
-  ['Klaus','1926','Actor'],
-  ['Werner','1942','Director']
-]" />
+### Array of arrays, no columns names
 
-<f-table :rows="[
+Column names are auto-generated.
+
+<f-table
+  :rows="[
+    ['Klaus','1926','Actor'],
+    ['Werner','1942','Director']
+  ]"
+/>
+
+### Array of arrays, with columns names
+
+Column names come from \`:cols\` attribute.
+
+<f-table
+  :cols="['name','born','profession']"
+  :rows="[
+    ['Klaus','1926','Actor'],
+    ['Werner','1942','Director']
+  ]"
+/>
+
+### Array of objects, no column names
+
+Column names are extracted from object keys.
+
+<f-table
+  :rows="[
   {
   	name: 'Klaus',
     born: '1926',
@@ -22,7 +45,29 @@ A \`<table>\`, accepting array or array of objects as \`:rows\`.
     born: '1942',
     profession: 'Director'
   }
-]"/>
+  ]"
+/>
+
+### Array of objects, with column names
+
+Column names come from \`:cols\` attribute.
+
+<f-table
+  :cols="['name','geboren','beruf']"
+  :rows="[
+  {
+  	name: 'Klaus',
+    born: '1926',
+    profession: 'Actor'
+  },
+  {
+  	name: 'Werner',
+    born: '1942',
+    profession: 'Director'
+  }
+  ]"
+/>
+
   `,
   props: { rows: { default: () => [], type: Array }, cols: { default: () => [], type: Array } },
   computed: {

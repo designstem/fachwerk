@@ -1,4 +1,11 @@
 export default {
+  description: `
+Displays inline notes in a sidebar.
+
+<f-notes title="Sample notes">
+Sample notes content
+</f-notes>
+    `,
   props: {
     title: { default: "Teacher notes", type: String },
     size: { default: 'narrow', type: String }
