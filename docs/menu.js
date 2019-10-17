@@ -46,12 +46,12 @@ export default [
         file: "./tutorials/math.md"
       },
       {
-        title: "Setting up grid",
+        title: "Page setup and grid",
         file: "./tutorials/grid.md"
       },
       {
-        title: "Creating pages",
-        file: "./tutorials/pages.md"
+        title: "Adding navigation",
+        file: "./tutorials/navigation.md"
       },
       // {
       //   title: "Using color",

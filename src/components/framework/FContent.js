@@ -88,7 +88,7 @@ export default {
             ...cssStyle(slide),
             textAlign: 'left',
             margin: '0 auto',
-            padding: slide.padding ? slide.padding : 'var(--content-padding2)',
+            padding: slide.padding ? slide.padding : 'var(--content-padding)',
             maxWidth: type == 'document' ? 'var(--content-max-width)' : '100%',
             minHeight: type == 'slides' ? '100vh' : slide.height ? slide.height : 'auto',
         }">
@@ -110,7 +110,7 @@ export default {
     </div>
     `,
   cssprops: {
-    "--content-padding2": {
+    "--content-padding": {
       default: "var(--base6)",
       description: "Content padding"
     },
@@ -121,7 +121,7 @@ export default {
   },
   css: `
     section {
-      padding: var(--content-padding2);
+      padding: var(--content-padding);
       height: 100%;
     }
     center {
@@ -138,7 +138,7 @@ export default {
     @media (max-width: 800px) {
       .cells {
         display: block;
-        padding: var(--content-padding2) !important;
+        padding: var(--content-padding) !important;
       }
     }
     .cell *:only-child, .cell *:last-child {
