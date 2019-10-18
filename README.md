@@ -10,9 +10,9 @@ Fachwerk is based on [VueJS](https://vuejs.org) and the latest browser technolog
 
 🏰 <a href="https://designstem.github.io/fachwerk">Homepage</a>
 
-📖 <a href="/docs">Documentation</a>
+📖 <a href="https://designstem.github.io/fachwerk/docs">Documentation</a>
 
-🚀 <a href="/docs/#/start-a-new-project"> Quickstart guide</a>
+🚀 <a href="https://designstem.github.io/fachwerk/docs/#/start-a-new-project"> Quickstart guide</a>
 
 ## Custom start
 
