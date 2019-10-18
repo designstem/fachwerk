@@ -152,13 +152,13 @@ br {
   margin: 0 0 var(--base2) 0;
 }
 a {
-  text-decoration: none;
   color: var(--primary);
-  border-bottom: 2px solid var(--primary);
+  text-decoration: none;
   font-weight: 500;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  border-bottom: calc(var(--base) * 0.15) solid var(--primary);
 }
 a:hover {
   filter: brightness(90%);
@@ -365,13 +365,13 @@ pre {
   font-family: var(--font-mono);
   font-size: calc(var(--base) * 1.75);
   line-height: calc(var(--base) * 2.5);
-  border-radius: var(--border);
   background: var(--lightblue);
   color: var(--blue);
   padding: var(--base2);
   margin: 0 0 var(--base2) 0;
   word-break: break-word;
   white-space: pre-wrap;
+  border-radius: 2px;
 }
 
 code {
@@ -403,6 +403,7 @@ output {
   color: var(--white);
   background: var(--black);
   margin: 0 0 var(--base2) 0;
+  border-radius: 2px;
 }
 output p {
   margin: calc(var(--base) * 2.5) 0 0 0;
@@ -485,7 +486,7 @@ var {
   border-radius: var(--border-radius-small);
   color: var(--red);
   padding: 0 calc(var(--base) / 3);
-  font-family: KaTeX_Math, var(--font-serif) !important;
+  font-family: var(--font-serif) !important;
   font-style: italic;
   font-size: 1.1em;
   white-space: pre-wrap;

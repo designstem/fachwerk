@@ -41,18 +41,10 @@ export default [
       //   title: "Adding tables",
       //   file: "./tutorials/tables.md"
       // },
-      {
-        title: "Bringing math alive",
-        file: "./tutorials/math.md"
-      },
-      {
-        title: "Page setup and grid",
-        file: "./tutorials/grid.md"
-      },
-      {
-        title: "Adding navigation",
-        file: "./tutorials/navigation.md"
-      },
+      // {
+      //   title: "Bringing math alive",
+      //   file: "./tutorials/math.md"
+      // },
       // {
       //   title: "Using color",
       //   file: "./tutorials/colors.md"
@@ -66,17 +58,30 @@ export default [
       //   file: "./tutorials/2dimport.md"
       // },
       {
+        title: "Make art with code",
+        file: "./tutorials/art.md"
+      },
+      {
+        title: "Drawing with functions",
+        file: "./tutorials/drawing.md"
+      },
+      {
         title: "Advanced interaction",
         file: "./tutorials/interaction.md"
       },
       {
-        title: "Drawing with functions",
-        file: "./tutorials/drawingfunctions.md"
+        title: "Page setup and grid",
+        file: "./tutorials/grid.md"
       },
       {
-        title: "Handling events",
-        file: "./tutorials/events.md"
-      }
+        title: "Adding navigation",
+        file: "./tutorials/navigation.md"
+      },
+      // {
+      //   title: "Handling events",
+      //   file: "./tutorials/events.md"
+      // },
+ 
       // {
       //   title: "Making music",
       //   file: "./tutorials/music.md",

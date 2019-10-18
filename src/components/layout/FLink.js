@@ -35,8 +35,7 @@ This link goes to <f-link to="props">Local slide</f-link> with ID or section \`p
     <span v-if="isUrl">
       <a :href="to" target="_blank">
         <slot />
-      </a>
-      <f-external-icon style="transform: translateY(0.25em);"/>
+      </a>&nbsp;&nbsp;<f-external-icon style="transform: translateY(0.25em);"/>
     </span>
     <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
   </span>
