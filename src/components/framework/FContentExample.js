@@ -18,7 +18,11 @@ export default {
     currentContent: ""
   }),
   template: `
-  <f-fetch :src="src" @value="content => currentContent = content">
+  <f-fetch
+    :src="src"
+    @value="content => currentContent = content"
+    style="margin: var(--base3) 0;"
+  >
     <div class="grid" style="
       --cols: 1fr 1fr;
       --gap: 0;
