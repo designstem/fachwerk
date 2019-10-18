@@ -15,7 +15,7 @@ Here is a **VueJS** and **Markdown** based framework<br>for creating interactive
 
 ## 1. Play
 
-Best way to get the glimpse what the framework offers to try to edit the code samples in this page.
+Best way to get the glimpse what the framework offers to try to edit the code in this page.
 
 But not only that: <var>this entire page is editable</var> and can be stored in your browser so you can make instant changes and explorations in code.
 
@@ -39,9 +39,9 @@ Also, there is a full editable reference to our **📦&nbsp;{{ get('componentCou
 
 ## 3. Build
 
-Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a totally custom application importing our components, utilities and styling as needed.
+Fachwerk is modular and flexible: if the built-in content authoring experience is not enough, one can build a custom application importing our components and utilities as needed. 
 
-Also, all the code is MIT-licenced and development process is fully open so please contribute!
+Also, all the code is MIT-licenced so please contribute!
 -
 
 <a href="https://github.com/designstem/fachwerk" class="primary" target="_blank">Go to Github project page</a>
@@ -49,8 +49,28 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 ---
 
 | background: var(--lightestgray)
+| 1 1 1
+| 2 3 4
 
 <f-content-example src="./docs/examples/2d.md" />
+
+-
+
+###### Declarative delight
+
+Fachwerk is composed of VueJS components that allow to use simple HTML-like tags for complex visualizations.
+
+-
+
+###### Sophisticated state
+
+All elements on the page can talk to the other elements, either via global state for values or with a global event bus for events.
+
+-
+
+###### Useful utilites
+
+There are wide range of JS utility functions available from array manipulations to color calculations.
 
 ---
 

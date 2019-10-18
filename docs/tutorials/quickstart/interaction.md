@@ -81,13 +81,7 @@ While at it, let's bring back `closed` and `curved` attributes as well.
 
 ### Final code
 
-This code is <f-edit-icon /> editable, so play around with it!
-
-<br>
-
 <f-content-example src="./examples/rotatinghourglass.md" />
-
-<br>
 
 > There are many more methods to make project elemements interactive. See <f-link to="/advanced-interaction">Advanced interaction</f-link> guide to learn more.
 
