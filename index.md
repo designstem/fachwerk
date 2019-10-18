@@ -84,7 +84,9 @@ Also, all the code is MIT-licenced and development process is fully open so plea
 
 ### Who are making this?
 
-Fachwerk is a part of [DesignSTEM](https://designstem.github.io/homepage) education initiative that creates immersive experiences for future learning. We are educators, teachers, designers and engineers from 10 countries around Europe: Estonia, Finland, Germany, Netherlands, Slovenia, Greece, Portugal, England and Italy.
+Fachwerk is a part of [DesignSTEM](https://designstem.github.io/projects) education initiative that creates immersive experiences for future learning. 
+
+We are educators, teachers, designers and engineers from 10 countries around Europe: Estonia, Finland, Germany, Netherlands, Slovenia, Greece, Portugal, England and Italy.
 
 -
 
