@@ -62,7 +62,7 @@ export default [
         file: "./tutorials/art.md"
       },
       {
-        title: "Drawing with functions",
+        title: "Drawing with math",
         file: "./tutorials/drawing.md"
       },
       {
