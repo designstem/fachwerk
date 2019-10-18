@@ -2,27 +2,27 @@
 
 > This tutorial works best in edit mode <f-edit-icon  />
 
-Let's start with two ingredients, a simple **visual element**, say a circle, and bunch of **numbers**. 
+Let's start with two ingredients, a simple **visual element**, say a circle, and a bunch of **numbers**. 
 
-Let't see how two very different worlds can be combined for creative results.
+Let's see how two very different worlds can be combined for creative results.
 
 ### The circle
 
 By default, the circle is drawn in position `x="0"` and `y="0"` with radius `r="1"`.
 
 <f-scene grid>
-	<f-circle />
+  <f-circle />
 </f-scene>
 
-Let's adjust the position, radius and styling of the circle, so we get someting more usable:
+Let's adjust the position, radius, and styling of the circle, so we get something more usable:
 
 <f-scene grid>
-	<f-circle
-  	x="-1"
+  <f-circle
+    x="-1"
     y="0"
     r="0.5"
     fill="orange"
-  	stroke
+    stroke
     multiply
   />
 </f-scene>
@@ -35,11 +35,11 @@ Next, we need a set of numbers, let's say ranging from `-1` to `1`, with step `1
 
 ### The loop
 
-Great, now let's put those numbers to work. Let's draw three circles and our numbers will be their `x` coordinates.
+Great, now let's put those numbers to work. Let's draw three circles, and our numbers will be their `x` coordinates.
 
-To draw the actual circles, we need to <var>loop</var> over the three numbers. At each step in the loop, the `x` value will the respective number in the array.
+To draw the actual circles, we need to <var>loop</var> over the three numbers. At each step in the loop, the `x` value will increase.
 
-Which step?|Current `x` value in array
+Which step?|Current `x` value in the array
 ---|---
 First|`-1`
 Second|`0`
@@ -68,24 +68,24 @@ To link the `x` value from the loop to the actual <var class="gray">x</var> coor
 So, our three dots will look like this:
 
 <f-scene grid>
-	<f-circle
-  	v-for="x in [-1,0,1]"
+  <f-circle
+    v-for="x in [-1,0,1]"
     :x="x"
     y="0"
     r="0.5"
     fill="orange"
-  	stroke
+    stroke
     multiply
   />
 </f-scene>
 
-> Why we use `v-` when everywhere else we use `f-`? The code is actually not part of the Fachwerk, it's from the underlying framework VueJS where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
+> Why we use `v-` when everywhere else we use `f-`? That code is actually not part of the Fachwerk; it's from the underlying framework VueJS, where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
 
 ### Back to the numbers
 
-Let's draw more circles. Time for more numbers. 
+Let's draw more circles — time for more numbers. 
 
-We *could* write those numbers by hand but why not make the computer to do the work. Fachwerk has many useful <var>helper functions</var> for number generation, working with arrays, texts, colors and more.
+We *could* write those numbers by hand but why not make the computer to do the work. Fachwerk has many useful <var>helper functions</var> for number generation, working with arrays, texts, colors, and more.
 
 We gonna use a <f-link to="/range">`range()`</f-link> function. The function takes following parameters:
 
@@ -101,7 +101,7 @@ Look familiar?
 
 <output>{{ range(-1,1) }}</output>
 
-Now let's generate more numbers *in between the same range*. We introduce the third, `step` parameter and set it to something less that the default `1`. Say, `0.5`:
+Now let's generate more numbers *in between the same range*. We introduce the third, `step` parameter and set it to something less than the default `1`. Say, `0.5`:
 
 <pre v-pre>{{ range(-1,1,0.5) }}</pre>
 
@@ -112,13 +112,13 @@ Now let's generate more numbers *in between the same range*. We introduce the th
 Let's bring back the circle-generating code but now we replace handcoded array `[-1,0,1]` with new shiny `range(-1,1,0.5)`:
 
 <f-scene grid>
-	<f-circle
-  	v-for="x in range(-1,1,0.5)"
+  <f-circle
+    v-for="x in range(-1,1,0.5)"
     :x="x"
     y="0"
     r="0.5"
     fill="orange"
-  	stroke
+    stroke
     multiply
   />
 </f-scene>
@@ -129,9 +129,9 @@ Let's bring back the circle-generating code but now we replace handcoded array `
 
 So far we only worked in <var>x</var> axis. How to add another loop so we can repeat the circles in <var>y</var> axis as well?
 
-Unfortunately **we can not have multiple loops in the single component**. 
+Unfortunately, **we can not have multiple loops in the single component**. 
 
-To put loop inside another loop we need a new outer component, often called a <var>wrapper</var> component. 
+To put a loop inside another loop, we need a new outer component, often called a <var>wrapper</var> component. 
 
 It can be any component, but for our case, `<f-group>` is perfect.
 
@@ -187,14 +187,14 @@ So we get the fun:
 
 ### Time for colors
 
-Orange is great but get's a little bit too 🍊. Let's first see how to generate color in code. Fachwerk has a wide range of color helper functions but for now we just need `hsl()`.
+Orange is great but get's a little bit too 🍊. Let's first see how to generate color in code. Fachwerk has a wide range of color helper functions, but for now, we just need `hsl()`.
 
 **HSL** stands for **H**ue, **S**aturation and **B**rightess, but let's focus on just the **H**ue, the value that indicates the color position in the <var>spectrum</var> and ranges from `0` to `360`.
 
 Here are some examples:
 
 <code
-	v-for="h in range(0,360, 360 / 5)"
+  v-for="h in range(0,360, 360 / 5)"
   :style="{background: hsl(h), color: 'black'}"
 >hsl({{ h }})</code>
 
@@ -210,7 +210,7 @@ Let's now <var class="gray">bind</var> the random colors to  random circles:
 <f-circle :fill="hsl(random(0,360))" />
 ```
 
-Finally, let's remove the grid from `<f-scene>`, make it full width with `reponsive` attribute, downloadable with `download` attribute and hang it to the gallery:
+Finally, let's remove the grid from `<f-scene>`, make it full width with `responsive` attribute, downloadable with `download` attribute and hang it to the gallery:
 
 <f-scene responsive download>
   <f-group v-for="y in range(-1,1,0.5)">
