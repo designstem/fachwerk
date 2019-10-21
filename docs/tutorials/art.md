@@ -4,7 +4,7 @@ Let's start with two ingredients:
 
 1. A simple visual element, say a **circle**.
 
-2. A bunch of **numbers**. 
+2. A bunch of random or not-so-random **numbers**. 
 
 Let's see how two very different worlds can be combined for creative results.
 
@@ -12,7 +12,7 @@ Let's see how two very different worlds can be combined for creative results.
 
 ### The circle
 
-To draw a circle, the minimum amount of Fachwerk code is this:
+To draw a circle, this amount of Fachwerk code is needed:
 
 ```
 <f-scene>
@@ -30,93 +30,115 @@ Let's adjust the position, radius, and styling of the circle, so we get somethin
 
 <f-content-example src="./examples/art1.md" />
 
-> Play around with values in the `x`, `y` and `r` parameters to feel how they work.
+> Play around with values in the `x`, `y`, and `r` parameters to feel how they work.
 
 ---
 
-### The numbers
+### More circles
 
-Next, we need a set of numbers, let's say ranging from `-1` to `1`, with step `1`. We can express it as an <f-link to="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals"><var>array literal</var></f-link> that looks like this:
+When we want to have multiple circles, we can simply copy-paste our circle code and adjust the `x=` value to on each copy:
 
-<output>[-1, 0, 1]</output>
+<f-content-example src="./examples/art1b.md" />
+
+> Try to make circles partially overlap
+
+---
+
+### The array
+
+Fine, we got the three circles, but if you look at the code above, it feels ... **wasteful**. We copied *almost* the same code three times, but the only thing that is different about them is the `x` value. Squint, and you will see it:
+
+`x="-1"` in first circle
+` x="0"` in second circle
+` x="1"` in third circle
+
+In coding, we think about the group of values an <var>array of values</var>, and it looks like this:
+
+```
+[value, value, value]
+```
+
+In our circle-drawing case, our array of `x` values looks like this:
+
+```
+[-1,0,1]
+```
+
+Arrays are very useful for all data manipulation, but we focus on the task at hand: we want to *automate the repetitive circle drawing*, avoiding unnecessary copying and pasting.
 
 ---
 
 ### The loop
 
-Great, now let's put those numbers to work. 
+Arrays itself are not that useful. To make them them work, the most common way is to <var>loop over the array</var>. At each step in the loop, the `x` value will refer to the current element in the array:
 
-Let's draw three circles, and our three numbers will be their <var class="blue">x</var> coordinates.
+<f-content-example src="./examples/art1c.md" />
 
-To draw the actual circles, we need to <var>loop</var> over the three numbers. At each step in the loop, the `x` value will increase.
-
-Which step?|Current `x` value in the array
----|---
-First|`-1`
-Second|`0`
-Third|`1`
-
-The code for the loop looks like this:
-
-```
-<f-circle v-for="x in [-1,0,1]" />
-```
+> Try to add, remove, and reorder the numbers in the array. Keep them comma-separated.<br>Do not mind the `<pre>` tag, it's there to draw those blue boxes.
 
 ---
 
-### The bind
+### Circles in the loop
 
-To link the `x` value from the loop to the actual <var class="blue">x</var> coordinate, we need to <var>bind</var> the value to the `x=` attribute. To do this, we prefix the `x=` with a colon `:x=` to indicate a live, binded value.
+Let's now connect our **circle**, **array of x values** and the **loop**.
+
+If we could simply say out loud what we were doing while drawing the circles it goes like this:
+
+<br>
+
+<big>~*First, draw a circle with <var class="green">x</var> in <var class="green">-1</var> position*~</big>
+
+<big>~*Second, draw a circle with <var class="green">x</var> in <var class="green">0</var> position*~</big>
+
+ <big>~*Third, draw a circle with <var class="green">x</var> in <var class="green">1</var> position*~</big>
+
+---
+
+This is how it looks in code:
+
+<f-content-example src="./examples/art2.md" />
+
+> Play around with array values `[-1,0,1]` to feel how they affect the circles.
+
+---
+
+### Some notes
+
+Note one small detail: when we replaced manually entered values `x="-1"`, `x="0"`, `x="1"` with the looped value we had to add a colon `:` in front of the x.
+
+It is there to indicate a "live" value, in coding it's called a <var>binded value</var>. Notice the `:x="x"`
 
 ```
 <f-circle v-for="x in [-1,0,1]" :x="x" />
 ```
 
-Note that the name `x` for the loop's value can be chosen arbitrarily. The this code will work as well:
+Also note that the name `x` for the current value in the loop can be chosen arbitrarily. The this code will work as well:
 
 ```
 <f-circle v-for="donnerwetter in [-1,0,1]" :x="donnerwetter" />
 ```
 
----
-
-### The result
-
-So, our three dots will look like this:
-
-<f-content-example src="./examples/art2.md" />
-
-> Play around with array literal values `[-1,0,1]` to feel how the work. Try to add more values!
-
-🤔 Why we use `v-for` when everywhere else we use `f-` (f for Fachwerk)? The loop code is actually not part of the Fachwerk; it's from the underlying framework VueJS, where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
+🤔 Also, why we use `v-for` when everywhere else we use `f-` (f for Fachwerk)? The loop code is not part of the Fachwerk; it's from the underlying framework VueJS, where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
 
 ---
 
 ### Back to the numbers
 
-Let's draw more circles — time for more numbers. 
+Let's draw more circles — time for more numbers!
 
-We *could* write those numbers by hand but why not make the computer to do the work? Fachwerk has many useful <var>helper functions</var> for number generation, working with arrays, texts, colors, and more.
+We *could* write those numbers by hand but why not make the computer do the work? Fachwerk has many useful <var>helper functions</var> for number generation, working with arrays, texts, colors, and more.
 
 We gonna use a <f-link to="/range">`range()`</f-link> function. The function takes following parameters:
 
 ```
-range(from, to, step = 1)
+range(from, to, step)
 ```
 
-Just run the function with parameters `from = -1` and `to = 1` and let's see what it does:
+Just run the function with parameters `from = -1` and `to = 1` and `step = 1` and let's see what it does. Looks familiar?
 
-<pre v-pre>{{ range(-1,1) }}</pre>
+<f-content-example src="./examples/art2b.md" />
 
-Looks familiar?
-
-<output>{{ range(-1,1) }}</output>
-
-Now let's generate more numbers *in between the same range*. We introduce the third, `step` parameter and set it to something less than the default `1`. Say, `0.5`:
-
-<pre v-pre>{{ range(-1,1,0.5) }}</pre>
-
-<output>{{ range(-1,1,0.5) }}</output>
+> Try to adjust range parameters so something else, say `from = -2` and `to = 2`. What happens when you make a third, `step` parameter smaller, for example, `0.5`?
 
 ---
 
@@ -126,9 +148,7 @@ Let's bring back the circle-generating code but now we replace hand-coded array 
 
 <f-content-example src="./examples/art3.md" />
 
-> Try to tweak the `step` parameter to something even smaller, say `0.2` or `0.1`
-
----
+> Try to tweak the `step` parameter to something really small, say `0.1`
 
 ### The second dimension
 
@@ -136,7 +156,7 @@ So far we only worked in <var class="blue">x</var> axis. How to add another loop
 
 Unfortunately, **we can not have multiple loops in the single component**. 
 
-To put a loop inside another loop, we need a new outer component, often called a <var>wrapper</var> component. 
+To put a loop inside another loop, we need a new outer component, often called a *wrapper component*. 
 
 It can be any component, but for our case, `<f-group>` is perfect.
 
@@ -148,15 +168,19 @@ It can be any component, but for our case, `<f-group>` is perfect.
 
 Our circles look fine, but they are too ... *Standardisiert*. 
 
-To bring in the fun and creativity we need something *unexpected*. As we base everything on numbers, let's have <var>random</var> numbers, with the help of  <f-link to="/random">`random()`</f-link> function. Similar to `range()` it expects `from` and `to` parameters but it returns a single number in between the range:
+To bring in the fun and creativity we need something *unexpected*. As we base everything on numbers, let's have <var>random</var> numbers, with the help of  <f-link to="/random">`random()`</f-link> function. 
 
-<pre v-pre>{{ random(0,1,true) }}</pre> 
+```
+random(from, to)
+```
 
-So we get
+Similar to `range()` it expects `from` and `to` parameters but it returns a single number in between the range:
 
-<output>{{ random(0,1,true) }}</output>
+<f-content-example src="./examples/art4b.md" />
 
-Let's <var class="gray">bind</var> up this random number to the circle's radius `r`:
+> Tweak the `0` and `1` values to see what kind of the number the `random()` function returns
+
+What we need is to <var class="gray">bind</var> this random number to the circle's radius `r`:
 
 ```
 <circle :r="random(0,1,true)" />
