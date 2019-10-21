@@ -69,7 +69,7 @@ export default {
     this.$global.$on("index", index => (this.currentIndex = index));
   },
   template: `
-    <div style="min-height: 100vh">
+    <div>
       <f-theme
         v-if="type == 'slides' ? i == currentIndex : true"
         v-for="(slide,i) in currentContent"

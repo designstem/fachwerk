@@ -44,7 +44,7 @@ Displays content in a sidebar
       <f-fetch v-if="src" :src="src" v-slot="{ value: content }">
         <f-content type="document" theme="light" style="--content-padding: var(--base3)" :content="content" />
       </f-fetch>
-      <div v-if="!src" style="padding: var(--base2)">
+      <div v-if="!src" style="padding: var(--base3)">
         <slot name="content" />
       </div>
     </f-overlay>
