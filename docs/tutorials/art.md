@@ -10,7 +10,7 @@ Let's see how two very different worlds can be combined for creative results.
 
 ---
 
-### The circle
+### The simple circle
 
 To draw a circle, this amount of Fachwerk code is needed:
 
@@ -24,9 +24,9 @@ By default, the center position of the circle is `x="0"` and `y="0"` and radius 
 
 ---
 
-### The improved circle
+### The fancier circle
 
-Let's adjust the position, radius, and styling of the circle, so we get something more usable. While at it, let's also add a background grid.
+Let's adjust the position, radius, and styling of the circle, so we get something more eye-pleasing. While at it, let's also add a background grid.
 
 <f-content-example src="./examples/art1.md" />
 
@@ -40,7 +40,7 @@ When we want to have multiple circles, we can simply copy-paste our circle code 
 
 <f-content-example src="./examples/art1b.md" />
 
-> Try to make circles partially overlap
+> Try to make circles partially overlap by adjusting `x` parameter.
 
 ---
 
@@ -64,13 +64,15 @@ In our circle-drawing case, our array of `x` values looks like this:
 [-1,0,1]
 ```
 
-Arrays are very useful for all data manipulation, but we focus on the task at hand: we want to *automate the repetitive circle drawing*, avoiding unnecessary copying and pasting.
+Arrays are very useful for all kind data manipulation, and art experiments. 
+
+Let's see how we can avoid unnecessary copying-and-pasting and *automate the repetitive circle drawing* with arrays.
 
 ---
 
 ### The loop
 
-Arrays itself are not that useful. To make them them work, the most common way is to <var>loop over the array</var>. At each step in the loop, the `x` value will refer to the current element in the array:
+To make arrays for for out case, we need to <var>loop over the array values</var>. At each step in the loop, the `x` value will refer to the current element in the array:
 
 <f-content-example src="./examples/art1c.md" />
 
@@ -80,9 +82,7 @@ Arrays itself are not that useful. To make them them work, the most common way i
 
 ### Circles in the loop
 
-Let's now connect our **circle**, **array of x values** and the **loop**.
-
-If we could simply say out loud what we were doing while drawing the circles it goes like this:
+Let's go back to our three circles. If we could simply say out loud what we were doing while drawing the circles it goes like this:
 
 <br>
 
@@ -94,7 +94,9 @@ If we could simply say out loud what we were doing while drawing the circles it 
 
 ---
 
-This is how it looks in code:
+Let's now connect our circle `<f-circle>`, the loop `v-for` and array of x values `[-1,0,1]`.
+
+This is how it looks:
 
 <f-content-example src="./examples/art2.md" />
 
@@ -104,21 +106,17 @@ This is how it looks in code:
 
 ### Some notes
 
-Note one small detail: when we replaced manually entered values `x="-1"`, `x="0"`, `x="1"` with the looped value we had to add a colon `:` in front of the x.
+1. Notice that when we replaced manually entered looped value`:x="x"` we had to add a colon `:` in front of the x. 
 
-It is there to indicate a "live" value, in coding it's called a <var>binded value</var>. Notice the `:x="x"`
+	It is there to indicate a "live" value, in coding it's called a <var>binded value</var>. Without the colon `:` the code emits an error.
+<br>
+2. Also note that the name `x` for the current value in the loop can be chosen arbitrarily. The this code will work as well:
 
-```
-<f-circle v-for="x in [-1,0,1]" :x="x" />
-```
-
-Also note that the name `x` for the current value in the loop can be chosen arbitrarily. The this code will work as well:
-
-```
-<f-circle v-for="donnerwetter in [-1,0,1]" :x="donnerwetter" />
-```
-
-🤔 Also, why we use `v-for` when everywhere else we use `f-` (f for Fachwerk)? The loop code is not part of the Fachwerk; it's from the underlying framework VueJS, where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
+  ```
+  <f-circle v-for="donnerwetter in [-1,0,1]" :x="donnerwetter" />
+  ```
+<br>
+3. 🤔 Also, why we use `v-for` when everywhere else we use `f-` (f for Fachwerk)? The loop code is not part of the Fachwerk; it's from the underlying framework VueJS, where `v-` stands for Vue. Read more about `v-for` <f-link to="https://vuejs.org/v2/guide/list.html">here</f-link>.
 
 ---
 
@@ -134,7 +132,7 @@ We gonna use a <f-link to="/range">`range()`</f-link> function. The function tak
 range(from, to, step)
 ```
 
-Just run the function with parameters `from = -1` and `to = 1` and `step = 1` and let's see what it does. Looks familiar?
+Let's run the `range()` and let's see what it does. Looks familiar?
 
 <f-content-example src="./examples/art2b.md" />
 
