@@ -1,9 +1,5 @@
-<f-sidebar>
-  Hello
-  <div slot="content">
-    <f-embed src="http://designstem.github.io/projects/tattoo/about.md" />
+First
 
-    # Something weird
-    
-  </div>
-</f-sidebar>
+---
+
+Second

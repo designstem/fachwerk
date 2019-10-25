@@ -38,25 +38,25 @@ export default {
     first() {
       this.currentIndex = 0;
       this.$global.$emit("index", this.currentIndex);
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     },
     last() {
       this.currentIndex = this.currentContent.length - 1;
       this.$global.$emit("index", index);
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     },
     prev() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
         this.$global.$emit("index", this.currentIndex);
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
       }
     },
     next() {
       if (this.currentIndex < this.currentContent.length - 1) {
         this.currentIndex++;
         this.$global.$emit("index", this.currentIndex);
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
       }
     },
     goto(id) {
@@ -73,7 +73,7 @@ export default {
         window.location.hash = "id-" + i;
       }
       this.$global.$emit("index", this.currentIndex);
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     }
   },
   mounted() {
@@ -84,22 +84,39 @@ export default {
     this.$global.$on("goto", id => this.goto(id));
     this.$global.$on("section", section => this.goto(section));
 
-    const storedCurrentIndex = store.get(this.saveId + ".index");
-    
-    if (storedCurrentIndex && storedCurrentIndex < this.currentContent.length) {
-      this.currentIndex = storedCurrentIndex;
-      this.$global.$emit("index", this.currentIndex);
-      store.set(this.saveId + ".index", this.currentIndex);
-    }
+    // Get the current index from local storage
 
-    this.$watch("currentIndex", currentIndex => {
-      this.$global.$emit("index", currentIndex);
-      store.set(this.saveId + ".index", currentIndex);
-    });
+    const storedCurrentIndex = store.get(this.saveId + ".index");
+
+    // If the content is not empty and the stored index
+    // matches some page in the content, update the index
+
+    this.$watch(
+      "currentContent",
+      currentContent => {
+        if (
+          this.currentContent[0] !== "" &&
+          storedCurrentIndex <= this.currentContent.length
+        ) {
+          this.currentIndex = storedCurrentIndex;
+        }
+      },
+      { immediate: true }
+    );
 
     this.$watch(
       "currentIndex",
       currentIndex => {
+        // Pass the current index to content renderer as an event
+
+        this.$global.$emit("index", currentIndex);
+
+        // Update the current index in local storage
+
+        store.set(this.saveId + ".index", currentIndex);
+
+        // Pass the current menu item to the menu
+
         const currentSlide = this.currentContent[currentIndex];
         if (currentSlide && currentSlide.section) {
           this.$global.$emit("section", currentSlide.section);
@@ -107,7 +124,6 @@ export default {
       },
       { immediate: true }
     );
-
   },
   template: `
     <div style="
