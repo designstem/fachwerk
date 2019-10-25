@@ -108,7 +108,7 @@ export default {
       "currentIndex",
       currentIndex => {
         // Pass the current index to content renderer as an event
-
+ 
         this.$global.$emit("index", currentIndex);
 
         // Update the current index in local storage
