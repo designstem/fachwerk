@@ -91,14 +91,25 @@ export default {
     // If the content is not empty and the stored index
     // matches some page in the content, update the index
 
+    // console.log(
+    //   "s",
+    //   storedCurrentIndex,
+    //   this.currentContent.length,
+    //   !!this.currentContent[0].content[0],
+    // );
+    // console.log("s", this.currentContent[0].content[0]);
+
     this.$watch(
       "currentContent",
       currentContent => {
         if (
-          this.currentContent[0] !== "" &&
+          this.currentContent[0] &&
+          this.currentContent[0].content[0] !== "" &&
           storedCurrentIndex <= this.currentContent.length
         ) {
+          this.$global.$emit("index", storedCurrentIndex);
           this.currentIndex = storedCurrentIndex;
+          store.set(this.saveId + ".index", storedCurrentIndex);
         }
       },
       { immediate: true }
@@ -121,8 +132,7 @@ export default {
         if (currentSlide && currentSlide.section) {
           this.$global.$emit("section", currentSlide.section);
         }
-      },
-      { immediate: true }
+      }
     );
   },
   template: `
