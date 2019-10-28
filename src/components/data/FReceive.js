@@ -1,7 +1,6 @@
+import { Vue, makeNumber, scale } from "../../../fachwerk.js";
+
 export default {
-  props: {
-    name: { default: 'value', type: String}
-  },
   description: `
 Sends and receives a global event with a payload (value).
 
@@ -13,12 +12,24 @@ To send an event, use \`send(name, value)\` helper:
 
 <p />
 
-To receive event, use \`f-receive\` component with corresponding \`name\`:
+To receive event, use \`f-receive\` component with corresponding \`receive\` parameter:
 
-<f-receive name="hey" v-slot="{ value }">
+<f-receive receive="hey" v-slot="{ value }">
   <output >{{ value ? 'Received ' + value : 'Waiting for event "hey"' }}</output>
 </f-receive>
   `,
+  props: {
+    receive: {
+      default: "value",
+      type: String,
+      description: "Value name to receive"
+    },
+    set: {
+      default: "",
+      type: String,
+      description: "Name for global value to set"
+    }
+  },
   slots: {
     value: {
       type: "value",
@@ -28,7 +39,14 @@ To receive event, use \`f-receive\` component with corresponding \`name\`:
   data: () => ({ value: null }),
   mounted() {
     if (this.$global) {
-      this.$global.$on(this.name, value => this.value = value)
+      this.$global.$on(this.receive, value => {
+        this.value = value;
+        this.$emit("value", value);
+        this.$emit("input", value);
+        if (this.set) {
+          Vue.set(this.$global.$data.state, this.set, this.value);
+        }
+      });
     }
   },
   template: `
@@ -36,4 +54,4 @@ To receive event, use \`f-receive\` component with corresponding \`name\`:
       <slot :value="value" />
     </div>
   `
-}
+};
