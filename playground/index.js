@@ -1,7 +1,7 @@
 import { fachwerk } from "../fachwerk.js";
 
-const array = (length, defaultValue = 0) =>
-  Array.from({ length }).map(_ => defaultValue);
+const array = (length, step = 1) =>
+  Array.from({ length }).map((_, i) => i * step);
 
 fachwerk({
   edit: "show",

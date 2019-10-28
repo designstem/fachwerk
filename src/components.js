@@ -17,6 +17,9 @@ export { FScene };
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 
+import FPolargrid from "./components/2d/FPolargrid.js";
+export { FPolargrid };
+
 import FAxis from "./components/2d/FAxis.js";
 export { FAxis };
 
@@ -49,6 +52,9 @@ export { FRegularpolygon };
 
 import FHexagon from "./components/2d/FHexagon.js";
 export { FHexagon };
+
+import FTriangle from "./components/2d/FTriangle.js";
+export { FTriangle };
 
 import FRoundedpolygon from "./components/2d/FRoundedpolygon.js";
 export { FRoundedpolygon };
@@ -155,7 +161,6 @@ export { FExtrude3 };
 
 import FGridPattern3 from "./components/3dpattern/FGridPattern3.js";
 export { FGridPattern3 };
-
 
 // Aframe
 
@@ -396,22 +401,22 @@ export { FOverlay };
 // Framework
 
 import FAdvancedEditor from "./components/framework/FAdvancedEditor.js";
-export { FAdvancedEditor }
+export { FAdvancedEditor };
 
 import FContentExample from "./components/framework/FContentExample.js";
-export { FContentExample }
+export { FContentExample };
 
 import FContentEditor from "./components/framework/FContentEditor.js";
-export { FContentEditor }
+export { FContentEditor };
 
 import FMenu from "./components/framework/FMenu.js";
-export { FMenu }
+export { FMenu };
 
 import FEditorHeader from "./components/framework/FEditorHeader.js";
-export { FEditorHeader }
+export { FEditorHeader };
 
 import FContent from "./components/framework/FContent.js";
-export { FContent }
+export { FContent };
 
 import FContentHeader from "./components/framework/FContentHeader.js";
-export { FContentHeader }
+export { FContentHeader };
