@@ -4,7 +4,7 @@ const array = (length, defaultValue = 0) =>
   Array.from({ length }).map(_ => defaultValue);
 
 fachwerk({
-  edit: "show",
+  //edit: "show",
   title: "playground",
   utils: { array },
   type: "slides"

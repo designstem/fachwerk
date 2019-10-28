@@ -76,12 +76,12 @@ export default [
       {
         title: "Adding navigation",
         file: "./tutorials/navigation.md"
-      },
+      }
       // {
       //   title: "Handling events",
       //   file: "./tutorials/events.md"
       // },
- 
+
       // {
       //   title: "Making music",
       //   file: "./tutorials/music.md",
@@ -131,6 +131,7 @@ export default [
       { component: "FArc" },
       { component: "FBox" },
       { component: "FRect" },
+      { component: "FTriangle" },
       { component: "FHexagon" },
       { component: "FPolygon" },
       { component: "FRegularpolygon" },
