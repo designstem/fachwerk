@@ -124,6 +124,7 @@ export default [
       { component: "FScene" },
       { component: "FArtboard" },
       { component: "FGrid" },
+      { component: "FPolargrid" },
       { component: "FAxis" },
       { component: "FPoint" },
       { component: "FLine" },

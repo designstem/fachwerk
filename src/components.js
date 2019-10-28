@@ -17,6 +17,9 @@ export { FScene };
 import FGrid from "./components/2d/FGrid.js";
 export { FGrid };
 
+import FPolargrid from "./components/2d/FPolargrid.js";
+export { FPolargrid };
+
 import FAxis from "./components/2d/FAxis.js";
 export { FAxis };
 

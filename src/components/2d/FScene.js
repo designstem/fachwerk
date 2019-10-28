@@ -26,6 +26,11 @@ export default {
       type: Boolean,
       description: "Show background grid?"
     },
+    polargrid: {
+      default: false,
+      type: Boolean,
+      description: "Show background polar grid?"
+    },
     dots: {
       default: false,
       type: Boolean,
@@ -34,7 +39,13 @@ export default {
     step: {
       default: 0.5,
       type: [Number, String],
-      description: "Background grid or dots step"
+      description:
+        "Background grid step or dots step or polar grid diameter step"
+    },
+    count: {
+      default: 6,
+      type: [Number, String],
+      description: "Background polar grid angle count"
     },
     axis: {
       default: false,
@@ -104,6 +115,12 @@ export default {
         :inner-y="-2"
         :inner-width="4"
         :inner-height="4"
+        :step="step"
+      />
+      <f-polargrid
+        v-if="polargrid"
+        :r="innerWidth"
+        :count="count"
         :step="step"
       />
       <f-axis
