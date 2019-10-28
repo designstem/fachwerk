@@ -213,6 +213,9 @@ export { FKeyboard };
 import FWebsocket from "./components/data/FWebsocket.js";
 export { FWebsocket };
 
+import FMouse from "./components/data/FMouse.js";
+export { FMouse };
+
 // Content
 
 import FMath from "./components/layout/FMath.js";

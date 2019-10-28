@@ -1,3 +1,8 @@
+<f-mouse set="a" />
+
+    {{ debug() }}
+
+<!--
 <f-scene>
   <f-polargrid count="20" />
   <f-line
@@ -6,7 +11,7 @@
     closed
     :points="
       array(10,360 / 10)
-      	.map((a, i) => 
+      	.map((a, i) =>
         	polarxy(
           	a,
             [r, 2 - r][i % 2]
@@ -15,3 +20,4 @@
   	"
   />
 </f-scene>
+-->
