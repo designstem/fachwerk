@@ -1,6 +1,6 @@
 # Release notes
 
-### 0.0.9
+### 0.0.9 / Mon Nov 4, 2019
 
 #### Rewritten layout, editor and preview components
 
@@ -12,11 +12,21 @@
 
 `config.pager`, `config.header` and `config.footer` are no longer supported.
 
+#### Docs
+
+- New set of tutorials, featuring quickstart, drawing with math, making generative art and more
+
+- Removed old outdated tutorials
+
 #### New features
+
+- New `<f-content-example>` component to provide interactive code samples.
 
 - New `<f-triangle>` component.
 
 - New `<f-polargrid>` component and `<f-scene polargrid>` option.
+
+- New `<f-mouse>` (experimental) component.
 
 - `| backgroundposition: 50% 50%` option in slides to position background images.
 
@@ -28,7 +38,7 @@
 
 #### Bug fixes
 
-- `FSidbar` and other components work in full width on mobile
+- `FSidebar` and other components default to full width on mobile
 
 ### 0.0.8 / Mon 15 Jul 2018
 

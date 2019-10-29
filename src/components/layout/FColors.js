@@ -9,15 +9,16 @@ export default {
   `,
   props: {
     value: { default: -1, type: [Number, String] },
-    colors: { default: [], type: Array }
+    colors: { default: [], type: Array },
+    r: { default: 25, type: [Number, String] }
   },
-  data: () => ({ size: 24, currentCustom: "#000000", currentValue: null }),
+  data: () => ({ currentCustom: "#000000", currentValue: null }),
   methods: {
     color,
     onClick(i) {
       this.currentValue = i;
-      this.$emit('value', i)
-      this.$emit('input', i)
+      this.$emit("value", i);
+      this.$emit("input", i);
     }
   },
   mounted() {
@@ -28,8 +29,8 @@ export default {
   template: `
   <div style="display: flex; flex-wrap: wrap;">
     <f-scene v-for="(c,i) in colors"
-      :width="size"
-      :height="size"
+      :width="r"
+      :height="r"
       :key="i"
       :style="{
         cursor: 'pointer',
@@ -43,24 +44,11 @@ export default {
         :stroke="color('primary')"
       />
       <f-circle
-        r="1.4"
+        r="1.5"
         :fill="color(c)"
         stroke
       />
     </f-scene>
-    <!--div style="position: relative; line-height: 0;">
-      <div
-        :style="{
-          position: 'absolute',
-          width: size + 'px',
-          height: size + 'px',
-          borderRadius: (size / 2) + 'px',
-          background: currentCustom
-        }"
-      >&nbsp;</div>
-      <input type="color" v-model="currentCustom"
-        style="position: absolute; top: 0; left: 0; opacity: 1;" />
-    </div-->
   </div>
   `
 };

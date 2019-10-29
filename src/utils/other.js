@@ -1,4 +1,4 @@
-import { shuffle } from "../../fachwerk.js"
+import { shuffle } from "../../fachwerk.js";
 
 export const debounce_help = () => `
 
@@ -6,7 +6,7 @@ export const debounce_help = () => `
 
 Delays function execution until \`time\` milliseconds.
 
-`
+`;
 
 export const debounce = (fn, time) => {
   let timeout;
@@ -16,7 +16,6 @@ export const debounce = (fn, time) => {
     timeout = setTimeout(functionCall, time);
   };
 };
-
 
 export const log_help = () => `
 
@@ -44,9 +43,11 @@ Genrates a random alphabetical ID
 `;
 
 export const randomid = () => {
-  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
-  return shuffle(letters).slice(0,8).join('')
-}
+  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+  return shuffle(letters)
+    .slice(0, 8)
+    .join("");
+};
 
 export const isimageurl_help = () => `
 
@@ -64,8 +65,8 @@ Checks whenever URL is a link to an image
 `;
 
 export const isimageurl = url => {
-  return url.match(/(data:|https?:|\/\/)?\.(?:png|jpg|jpeg|gif|png|svg)/g)
-}
+  return url.match(/(data:|https?:|\/\/)?\.(?:png|jpg|jpeg|gif|png|svg)/g);
+};
 
 // https://stackoverflow.com/revisions/5717133/6
 
@@ -85,11 +86,14 @@ Checks whenever URL is a link to an image
 `;
 
 export const isurl = url => {
-  const pattern = new RegExp('^(https?:\\/\\/)?'+       // protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+                      // OR ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+                  // port and path
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+                         // query string
-    '(\\#[-a-z\\d_]*)?$','i');                          // fragment locator
+  const pattern = new RegExp(
+    "^(https?:\\/\\/)?" + // protocol
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  ); // fragment locator
   return !!pattern.test(url);
-}
+};

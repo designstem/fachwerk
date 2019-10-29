@@ -65,14 +65,18 @@ const pageMap = c => {
     return {
       path: `/${kebabcase(c.component)}`,
       component: DocsComponent,
-      props: { title: c.component, c: components[c.component], type: c.type || 'document' }
+      props: {
+        title: c.component,
+        c: components[c.component],
+        type: c.type || "document"
+      }
     };
   }
   if (c.file) {
     return {
       path: `/${slug(c.title)}`,
       component: DocsFile,
-      props: { title: c.title, src: c.file/*.replace(/^\.\//, "../docs/")*/ }
+      props: { title: c.title, src: c.file /*.replace(/^\.\//, "../docs/")*/ }
     };
   }
   if (c.utils) {
@@ -114,7 +118,7 @@ const menuMap = c => {
 const pageRoutes = flatten(fullMenu.map(c => c.items)).map(pageMap);
 
 const menuRoutes = fullMenu.map(m => {
-  m.items = m.items.map(menuMap);
+  m.items = m.items.filter(m => !m.hidden).map(menuMap);
   return m;
 });
 
@@ -198,5 +202,4 @@ new Vue({
     width: 100%;
   }
   `
-
 }).$mount("#fachwerk");

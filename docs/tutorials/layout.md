@@ -1,103 +1,152 @@
-# Layout and grid
+## Page layout and grid
 
-## Draw the grid by the numbers
+> This tutorial works best in edit <f-edit-icon  /> and slides mode <f-slides-icon  />
+> Also, turn on grid debugging by pressing <kbd>alt</kbd> + <kbd>g</kbd>
 
-If you separate the content using separator
+### Adding a grid
+
+To separate the content into grid of rows and columns, separate the content with the single dash:
 
 `-`
 
-the content before and after separator will be arranged into columns. By default the layout will have a *one row of columns with equal width*.
+By default, grid columns have equal width
 
-To organize content into different layouts you can edit the following mini-layout:
+Row height is determined by the column with the highest content.
 
-| 1 1 1
-| 2 2 3
-| 4 5 5
-| 6 6 6
+---
 
-
-All the content so far was **Column 1**...
+<f-card>Cell 1</f-card>
 
 -
 
-<f-card>Column 2</f-card>
+<f-card>Cell 2</f-card>
 
 -
 
-<f-card>Column 3</f-card>
+<f-card>Cell 3<br>Longer content</f-card>
+
+---
+
+### Custom layouts
+
+Content can be arranged into more complex layouts by drawing a grid of numbers.
+
+---
+
+| 1 1
+| 2 3
+
+<f-card>Cell 1</f-card>
 
 -
 
-<f-card>Column 4</f-card>
--
-
-<f-card>Column 5</f-card>
+<f-card>Cell 2</f-card>
 
 -
 
-...here starts the **Column 6**.
+<f-card>Cell 3<br>Longer content</f-card>
 
-## HTML grid
+---
 
-Fot more customizable layouts there a more classical grid system available, built on <a href="https://learncssgrid.com/" target="_blank">CSS grid</a> and CSS variables.
+### Padding, gap, row height
 
-#### Default grid
+To adjust the padding around cells, you can set `| padding:` parameter. It accepts any CSS unit. To remove the padding, set it to `0`.
 
-<div class="grid" style="--gap: var(--base3);">
-  <f-card>Column 1</f-card>
-  <f-card>Column 2</f-card>
-</div>
+To adjust the gap between cells you can set `| gap:` parameter. It accepts any CSS unit. To remove the gap, set it to `0`.
 
-<br>
+To make rows to equal height, add a `| row:` parameter `1fr 1fr`. Number of `fr`'s depends how many rows you have.
 
-#### Custom columns
+---
 
-<div
-  class="grid"
-  style="--cols: 1fr 3fr; --gap: var(--base3);">
-  <f-card>Column 1</f-card>
-  <f-card>Column 2</f-card>
-</div>
+| 1 1
+| 2 3
+| padding: 0
+| gap: 0
+| rows: 1fr 1fr
 
-<br>
+<f-image src="../images/example.jpg" />
 
-#### Custom rows
+-
 
-<div
-  class="grid"
-  style="--rows: 1fr 2fr; --gap: var(--base3);"
->
-  <f-card>Column 1</f-card>
-  <f-card>Column 2</f-card>
-  <f-card>Column 3</f-card>
-  <f-card>Column 4</f-card>
-</div>
+<f-image src="../images/example.jpg" />
 
-<br>
+-
 
-### Custom gap / gutter
+<f-image src="../images/example.jpg" />
 
-<div class="grid" style="--gap: 1px;">
-  <f-card>Column 1</f-card>
-  <f-card>Column 2</f-card>
-</div> 
+---
 
-<br>
+### Padding for a single cell
 
-### Horizontal rules
+Use `<section>` tag to bring back the padding to the particular cell.
 
-<div class="grid" style="--cols: 1fr; --rows: 1fr var(--border-width) 1fr; --gap: var(--base3);">
-  <f-card>Column 1</f-card>
-  <f-hr />
-  <f-card>Column 2</f-card>
-</div>
+---
 
-<br>
+| 1 1
+| 2 3
+| padding: 0
+| gap: 0
+| rows: 1fr 1fr
 
-### Vertical rules
+<f-image src="../images/example.jpg" />
 
-<div class="grid" style="--cols: 1fr var(--border-width) 1fr; --gap: var(--base3);">
-  <f-card>Column 1</f-card>
-  <f-vr />
-  <f-card>Column 2</f-card>
-</div>
+-
+
+<f-image src="../images/example.jpg" />
+
+-
+
+<section>
+
+Look, I have plenty of padding here!
+
+</section>
+
+---
+
+### More options
+
+#### Height
+
+By setting `| height`, the page will have particular height in document mode. In slides mode the height is fixed to `100vh` (full page height).
+
+#### Theme
+
+Setting `│ theme` will set the theme for the particular page. Available themes are `light` (default), `dark`, `yellow` and `blue`.
+
+#### Centered content
+
+There is also a `&lt;center>` tag to set the cell contents horizontally and vertically centered.
+
+---
+
+| height: 50vh
+| theme: dark
+
+<center>
+
+# Tschüß!
+
+</center>
+
+---
+
+### Full reference
+
+Here is a full list of page configuration options:
+
+| Key                      | Default             | Description                                                           |
+| ------------------------ | ------------------- | --------------------------------------------------------------------- |
+| `\| 1 2 3`<br>`\| 4 5 6` | `\| 1 2 3 …`        | Define a content grid. Use `-` to separate columns                    |
+| `\| padding:`            | `var(--base6)`      | Padding around content. Set to `0` to remove padding                  |
+| `\| gap:`                | `var(--base3)`      | Gap between columns. Set to `0` to remove gap                         |
+| `\| theme:`              | `light`             | Page theme, can be `light dark yellow blue`                           |
+| `\| background:`         |                     | Page background color or image url                                    |
+| `\| backgroundposition:` | `50% 50%`           | Page background image position                                        |
+| `\| tint:`               | `0.3`               | Page background image darkening                                       |
+| `\| height:`             | `auto`              | Minimum content height for documents. For slides it is always `100vh` |
+| `\| cols:`               | `1fr 1fr ... 1fr`   | CSS grid columns                                                      |
+| `\| rows:`               | `auto auto ... 1fr` | CSS grid rows                                                         |
+| `\| id:`                 |                     | Page ID. Use `goto('id')` to navigate there                           |
+| `\| section:`            |                     | Section ID. Use `goto('section')` to navigate there                   |
+| `\| --variable:`         |                     | Css variable overrides                                                |
