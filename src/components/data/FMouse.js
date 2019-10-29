@@ -1,6 +1,56 @@
 import { Vue, makeNumber, scale } from "../../../fachwerk.js";
 
 export default {
+  description: `
+
+Returns mouse coordinates
+
+#### Setting a global value
+
+<f-mouse set="m1" />
+
+    {{ get('m1') }}
+
+#### Setting a local value
+
+<f-mouse v-slot="{ value: m2 }">
+
+	  {{ m2 }}
+
+</f-mouse>
+
+#### Sending and receiving events
+
+Simplest way to send mouse events to other listeners is to use \`send\` parameter when you have to specify event channel name:
+
+<f-mouse send="m3" />
+
+<f-receive receive="m3" v-slot="{ value: m3 }">
+
+    {{ m3 }}
+
+</f-receive>
+
+#### Custom mouse events handling
+
+To set up a custom way to handle \`<f-mouse>\` events, you have to listen \`@value\` event, define event callback function and do anything there with mouse data.
+
+Here is a sample where we just use mouse x-coordinate, use \`set\` helper to set global state \`x\` and \`send\` helper send the mouse events to other listeners.
+
+<f-mouse 
+  @value="([x,y]) => { set('x', x); send('x', x) }"
+/>
+
+    {{ get('x') }}
+
+<f-receive receive="x" v-slot="{ value: x }">
+
+    {{ x }}
+
+</f-receive>
+
+
+  `,
   props: {
     set: {
       default: "",
@@ -68,88 +118,6 @@ export default {
     window.removeEventListener("mousemove", this.onMouse);
   },
   template: `
-  <div :value="currentMouse" />
+  <div><slot :value="currentMouse" /></div>
   `
 };
-
-/*
-
-import { Vue, set as setGlobal, send } from "../../../fachwerk.js";
-import { scale } from "../../utils/math.js";
-
-export default {
-  props: {
-    set: {
-      default: "",
-      type: String,
-      description: "Name for global value to set"
-    },
-    send: {
-      default: "",
-      type: String,
-      description: "Name for global event channel to send values to"
-    },
-    from: {
-      default: 0,
-      type: [Boolean, Number]
-    },
-    to: {
-      default: false,
-      type: [Boolean, Number]
-    }
-  },
-  data: () => ({ x: 0, y: 0, pressed: false }),
-  computed: {
-    currentMouse() {
-      if (this.to) {
-        return {
-          x: scale(this.x, 0, window.innerWidth, this.from, this.to),
-          y: scale(this.x, 0, window.innerHeight, this.from, this.to)
-        };
-      }
-      return { x: this.x, y: this.y };
-    }
-  },
-  methods: {
-    onMouseMove({ pageX: x, pageY: y }) {
-      this.mouse = { x, y };
-      this.$emit("value", this.currentMouse);
-      this.$emit("input", this.currentMouse);
-      if (this.send) {
-        console.log(this.x, this.y);
-
-        this.$global.$emit(this.send, this.currentMouse);
-      }
-      if (this.set) {
-        Vue.set(this.$global.$data.state, this.set, this.currentMouse);
-      }
-    },
-    onMousePressStart() {
-      this.pressed = true;
-    },
-    onMousePressEnd() {
-      this.pressed = false;
-    }
-  },
-
-  mounted() {
-    window.addEventListener("mousemove", this.onMouseMove);
-    // window.addEventListener("mousedown", this.onMousePressStart);
-    // window.addEventListener("mouseup", this.onMousePressEnd);
-    // window.addEventListener("touchstart", this.onMousePressStart);
-    // window.addEventListener("touchend", this.onMousePressEnd);
-  },
-
-  destroyed: function() {
-    window.removeEventListener("mousemove", this.onMouseMove);
-    // window.removeEventListener("mousedown", this.onMousePressStart);
-    // window.removeEventListener("mouseup", this.onMousePressEnd);
-    // window.removeEventListener("touchstart", this.onMousePressStart);
-    // window.removeEventListener("touchend", this.onMousePressEnd);
-  },
-  template: `
-  <div :value="{...currentMouse, pressed}" />
-  `
-};
-
-*/

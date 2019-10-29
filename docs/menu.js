@@ -72,11 +72,6 @@ export default [
         hidden: true
       },
       {
-        title: "mouse",
-        file: "./tutorials/drafts/mouse.md",
-        hidden: true
-      },
-      {
         title: "colors",
         file: "./tutorials/drafts/colors.md",
         hidden: true
@@ -210,6 +205,7 @@ export default [
       { component: "FToggle" },
       { component: "FButtons" },
       { component: "FKeyboard" },
+      { component: "FMouse" },
       { component: "FDrag" }
     ]
   },
