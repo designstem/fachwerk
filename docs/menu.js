@@ -50,8 +50,8 @@ export default [
         file: "./tutorials/interaction.md"
       },
       {
-        title: "Page setup and grid",
-        file: "./tutorials/grid.md"
+        title: "Page layout and grid",
+        file: "./tutorials/layout.md"
       },
       {
         title: "Adding navigation",
