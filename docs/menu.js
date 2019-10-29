@@ -37,26 +37,6 @@ export default [
         title: "Formatting text",
         file: "./tutorials/formatting.md"
       },
-      // {
-      //   title: "Adding tables",
-      //   file: "./tutorials/tables.md"
-      // },
-      // {
-      //   title: "Bringing math alive",
-      //   file: "./tutorials/math.md"
-      // },
-      // {
-      //   title: "Using color",
-      //   file: "./tutorials/colors.md"
-      // },
-      // {
-      //   title: "Adding emojis",
-      //   file: "./tutorials/emoji.md"
-      // },
-      // {
-      //   title: "Importing 2D graphics",
-      //   file: "./tutorials/2dimport.md"
-      // },
       {
         title: "Make art with code",
         file: "./tutorials/art.md"
@@ -76,23 +56,56 @@ export default [
       {
         title: "Adding navigation",
         file: "./tutorials/navigation.md"
-      }
-      // {
-      //   title: "Handling events",
-      //   file: "./tutorials/events.md"
-      // },
+      },
 
-      // {
-      //   title: "Making music",
-      //   file: "./tutorials/music.md",
-      //   type: "slides"
-      // },
+      // Drafts
+
+      {
+        title: "events",
+        file: "./tutorials/drafts/events.md",
+        hidden: true
+      },
+      {
+        title: "music",
+        file: "./tutorials/drafts/music.md",
+        type: "slides",
+        hidden: true
+      },
+      {
+        title: "mouse",
+        file: "./tutorials/drafts/mouse.md",
+        hidden: true
+      },
+      {
+        title: "colors",
+        file: "./tutorials/drafts/colors.md",
+        hidden: true
+      },
+      {
+        title: "math",
+        file: "./tutorials/drafts/math.md",
+        hidden: true
+      },
+      {
+        title: "emoji",
+        file: "./tutorials/drafts/emoji.md",
+        hidden: true
+      },
+      {
+        title: "2dimport",
+        file: "./tutorials/drafts/2dimport.md",
+        hidden: true
+      },
+      {
+        title: "controls",
+        file: "./tutorials/drafts/controls.md",
+        hidden: true
+      }
     ]
   },
   {
     title: "📦 Rich content",
     items: [
-      // { component: "FLink" },
       { component: "FImage" },
       { component: "FVideo" },
       { component: "FTable" },
