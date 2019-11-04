@@ -1,7 +1,7 @@
 import { THREE, color, range } from "../../../fachwerk.js";
 import Object3D from "./internal/Object3D.js";
 
-const InternalBox3 = {
+export default {
   mixins: [Object3D],
   props: {
     width: { default: 1, type: [String, Number] },
@@ -9,13 +9,13 @@ const InternalBox3 = {
     depth: { default: 1, type: [String, Number] },
     r: { default: "", type: [Number, String] },
     stroke: { default: "", type: String },
-    strokeWidth: { default: 3, type: [String, Number] },
+    strokeWidth: { default: 10, type: [String, Number] },
     fill: { default: "", type: String },
     scale: { default: "1 1 1", type: [String, Number, Array, Object] },
     position: { default: "0 0 0", type: [String, Number, Array, Object] },
     rotation: { default: "0 0 0", type: [String, Number, Array, Object] },
     opacity: { default: 1, type: [Number, String] },
-    shading: { default: true, type: Boolean }
+    shading: { default: false, type: Boolean }
   },
   data() {
     let curObj = this.obj;
@@ -25,29 +25,43 @@ const InternalBox3 = {
         this.r ? this.r * 2 : this.height,
         this.r ? this.r * 2 : this.depth
       );
-      curObj = new THREE.Mesh(
-        geometry,
-        this.shading
-          ? new THREE.MeshNormalMaterial({
-              opacity: this.opacity,
-              side: THREE.DoubleSide
-            })
-          : new THREE.MeshLambertMaterial({
-              transparent: true,
-              color:
-                this.fill == "color('primary')" ? color("primary") : this.fill,
-              opacity: this.opacity,
-              side: THREE.DoubleSide
-            })
-      );
+      const material = new THREE.LineBasicMaterial({
+        linewidth: this.strokeWidth,
+        color: this.stroke ? this.stroke : color("primary"),
+        opacity: this.opacity
+      });
+
+      if (!this.fill && !this.shading) {
+        const edges = new THREE.EdgesGeometry(geometry);
+        curObj = new THREE.LineSegments(edges, material);
+      }
+      if (this.shading) {
+        curObj = new THREE.Mesh(
+          geometry,
+          new THREE.MeshNormalMaterial({
+            opacity: this.opacity,
+            side: THREE.DoubleSide
+          })
+        );
+      }
+      if (this.fill && !this.shading) {
+        curObj = new THREE.Mesh(
+          geometry,
+          new THREE.MeshLambertMaterial({
+            transparent: true,
+            color: this.fill,
+            opacity: this.opacity,
+            side: THREE.DoubleSide
+          })
+        );
+      }
     }
     curObj.name = curObj.name || curObj.type;
     return { curObj };
   }
 };
 
-export default {
-  components: { InternalBox3 },
+const Box3 = {
   description: `
 Displays a 3D box.
 
