@@ -49,10 +49,9 @@ export const parsePage = slide => {
       return m
         .trim()
         .replace(/\|/g, "")
-        .split(/\s+/) 
+        .split(/\s+/)
         .filter(m => m && !m.match(/\s+/));
     });
-    console.log(cols);
     const colCount = cols[0].length;
     const areas = cols
       .map(m => `'${m.map(m => `a${m}`).join(" ")}'`)
@@ -84,11 +83,12 @@ export const parseContent = content => {
     .map(parsePage);
 };
 
-export const flattenContent = (content) => {
+export const flattenContent = content => {
   return content
     .map(
       (c, i) =>
-        `<!-- Start of file ${i + 1} -->\n\n${c}\n\n<!-- End of file ${i + 1} -->`
+        `<!-- Start of file ${i + 1} -->\n\n${c}\n\n<!-- End of file ${i +
+          1} -->`
     )
     .join("\n\n---\n\n");
 };
