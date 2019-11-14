@@ -49,9 +49,10 @@ export const parsePage = slide => {
       return m
         .trim()
         .replace(/\|/g, "")
-        .split("")
-        .filter(m => !m.match(/\s+/));
+        .split(/\s+/) 
+        .filter(m => m && !m.match(/\s+/));
     });
+    console.log(cols);
     const colCount = cols[0].length;
     const areas = cols
       .map(m => `'${m.map(m => `a${m}`).join(" ")}'`)
