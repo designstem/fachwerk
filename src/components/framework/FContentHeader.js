@@ -137,14 +137,15 @@ export default {
   },
   template: `
     <div style="
-      position: absolute;
+      position: fixed;
+      z-index:2;
       width: 100%;
       height: var(--base6);
       padding: 0 var(--base2);
       display: flex;
       align-items: center;
       justify-content: space-between;
-    ">
+    " class="content-header">
       <div>
         <a
           v-if="showEdit"
