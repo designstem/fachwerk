@@ -71,13 +71,14 @@ export default {
       height: 100vh;
       position: sticky;
       top: 0;
+      z-index:0;
+      background: var(--background);
     }
     @media (max-width: 800px) {
       .menu {
-        height: inherit;
-        max-height: 50vh;
-        position: static;
-        top: inherit;
+        position: fixed;
+        z-index:1;
+        box-shadow: 0 0 4px 1px hsla(0,0%,0%,0.15);
       }
     }
     `
