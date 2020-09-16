@@ -31,7 +31,7 @@ export default {
         <div style="
           padding: var(--base3) 0;
           overflow: auto;
-          height: 100%;
+          height: calc(100% - var(--base6));
         ">
         <div v-for="(c, i) in currentContent">
           <h5
