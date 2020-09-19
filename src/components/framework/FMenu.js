@@ -71,13 +71,13 @@ export default {
       height: 100vh;
       position: sticky;
       top: 0;
-      z-index:0;
+      z-index:1;
       background: var(--background);
     }
     @media (max-width: 800px) {
       .menu {
         position: fixed;
-        z-index:1;
+        z-index:2;
         box-shadow: 0 0 4px 1px hsla(0,0%,0%,0.15);
       }
     }
