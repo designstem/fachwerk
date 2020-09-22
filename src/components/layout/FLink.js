@@ -7,10 +7,13 @@ This link goes to local <f-link to="/f-scene">f-scene</f-link> documentaton rout
 
 This link goes to <f-link to="https://pudding.cool/2018/02/waveforms/">external site</f-link>
 
+This link goes to <f-link to="https://pudding.cool/2018/02/waveforms/" :icon="false">external site</f-link>, but without icon
+
 This link goes to <f-link to="props">Local slide</f-link> with ID or section \`props\`
 `,
   props: {
     to: { default: '', type: [String, Number], description: 'Local route to navigate' },
+    icon: {default: true, type: [Boolean, String], description: 'Shows or hides icon next to external links'}
   },
   methods: {
     goto,
@@ -35,7 +38,7 @@ This link goes to <f-link to="props">Local slide</f-link> with ID or section \`p
     <span v-if="isUrl">
       <a :href="to" target="_blank">
         <slot />
-      </a>&nbsp;&nbsp;<f-external-icon style="transform: translateY(0.25em);"/>
+      </a><span v-if="icon">&nbsp;<f-external-icon style="transform: translateY(-0.2em); width:0.75em; height:0.75em; margin-left:-0.25ch; max-width:32px; max-height:32px;"/></span>
     </span>
     <a v-if="isId" @click="goto(to)" style="cursor: pointer"><slot /></a>
   </span>
