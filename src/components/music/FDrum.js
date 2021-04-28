@@ -16,87 +16,85 @@ Synthesizer emitting drum sounds.
 `,
   data: () => ({ kick: null, snare: null, openhihat: null, closedhihat: null }),
   mounted() {
-
     // from https://github.com/Tonejs/Tone.js/blob/dev/examples/shiny.html
 
     const compressor = new Tone.Compressor({
-			"threshold" : -30,
-			"ratio" : 6,
-			"attack" : 0.3,
-			"release" : 0.1
-    }).toMaster();
-    
+      threshold: -30,
+      ratio: 6,
+      attack: 0.3,
+      release: 0.1,
+    }).toDestination();
+
     this.kick = new Tone.MembraneSynth({
-			"pitchDecay" : 0.01,
-			"octaves" : 6,
-			"oscillator" : {
-				"type" : "square4"
-			},
-			"envelope" : {
-				"attack" : 0.001,
-				"decay" : 0.2,
-				"sustain" : 0
-			}
-		}).connect(compressor);
+      pitchDecay: 0.01,
+      octaves: 6,
+      oscillator: {
+        type: "square4",
+      },
+      envelope: {
+        attack: 0.001,
+        decay: 0.2,
+        sustain: 0,
+      },
+    }).connect(compressor);
 
     // From https://github.com/Tonejs/Tone.js/blob/dev/examples/events.html
 
     this.snare = new Tone.NoiseSynth({
-			"volume" : -5,
-			"envelope" : {
-				"attack" : 0.001,
-				"decay" : 0.4,
-				"sustain" : 0
-			},
-			"filterEnvelope" : {
-				"attack" : 0.001,
-				"decay" : 0.2,
-				"sustain" : 0
-			}
-		}).toMaster();
+      volume: -5,
+      envelope: {
+        attack: 0.001,
+        decay: 0.4,
+        sustain: 0,
+      },
+      filterEnvelope: {
+        attack: 0.001,
+        decay: 0.2,
+        sustain: 0,
+      },
+    }).toDestination();
 
     // From https://github.com/Tonejs/Tone.js/blob/dev/examples/funkyShape.html
 
     const lowpassFilter = new Tone.Filter({
-      frequency: 12000
-    }).toMaster();
+      frequency: 12000,
+    }).toDestination();
 
     this.closedhihat = new Tone.NoiseSynth({
       volume: -10,
       filter: {
-        Q: 2
+        Q: 2,
       },
       envelope: {
         attack: 0.01,
-        decay: 0.01
+        decay: 0.01,
       },
       filterEnvelope: {
         attack: 0.01,
         decay: 0.03,
         baseFrequency: 4000,
         octaves: -2.5,
-        exponent: 4
-      }
+        exponent: 4,
+      },
     }).connect(lowpassFilter);
 
     this.openhihat = new Tone.NoiseSynth({
       volume: -10,
       filter: {
-        Q: 2
+        Q: 2,
       },
       envelope: {
         attack: 0.01,
-        decay: 0.2
+        decay: 0.2,
       },
       filterEnvelope: {
         attack: 0.01,
         decay: 0.03,
         baseFrequency: 4000,
         octaves: -2.5,
-        exponent: 4
-      }
+        exponent: 4,
+      },
     }).connect(lowpassFilter);
-
   },
   methods: {
     onKick() {
@@ -116,5 +114,5 @@ Synthesizer emitting drum sounds.
   <div>
     <slot :kick="onKick" :snare="onSnare" :closedhihat="onClosedhihat" :openhihat="onOpenhihat" /> 
   </div>
-  `
+  `,
 };

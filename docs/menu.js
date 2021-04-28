@@ -66,7 +66,7 @@ export default [
         hidden: true,
       },
       {
-        title: "music",
+        title: "Making music",
         file: "./tutorials/drafts/music.md",
         type: "slides",
         hidden: false,
