@@ -5,57 +5,57 @@ export default [
       {
         title: "Read me first",
         file: "../README.md",
-        home: true
-      }
-    ]
+        home: true,
+      },
+    ],
   },
   {
     title: "🚀 Quickstart",
     items: [
       {
         title: "Start a new project",
-        file: "./tutorials/quickstart/start.md"
+        file: "./tutorials/quickstart/start.md",
       },
       {
         title: "Add 2d graphics",
-        file: "./tutorials/quickstart/2d.md"
+        file: "./tutorials/quickstart/2d.md",
       },
       {
         title: "Add interaction",
-        file: "./tutorials/quickstart/interaction.md"
+        file: "./tutorials/quickstart/interaction.md",
       },
       {
         title: "Publish a project",
-        file: "./tutorials/quickstart/publishing.md"
-      }
-    ]
+        file: "./tutorials/quickstart/publishing.md",
+      },
+    ],
   },
   {
     title: "🔮 Guides",
     items: [
       {
         title: "Formatting text",
-        file: "./tutorials/formatting.md"
+        file: "./tutorials/formatting.md",
       },
       {
         title: "Make art with code",
-        file: "./tutorials/art.md"
+        file: "./tutorials/art.md",
       },
       {
         title: "Drawing with math",
-        file: "./tutorials/drawing.md"
+        file: "./tutorials/drawing.md",
       },
       {
         title: "Advanced interaction",
-        file: "./tutorials/interaction.md"
+        file: "./tutorials/interaction.md",
       },
       {
         title: "Page layout and grid",
-        file: "./tutorials/layout.md"
+        file: "./tutorials/layout.md",
       },
       {
         title: "Adding navigation",
-        file: "./tutorials/navigation.md"
+        file: "./tutorials/navigation.md",
       },
 
       // Drafts
@@ -63,40 +63,40 @@ export default [
       {
         title: "events",
         file: "./tutorials/drafts/events.md",
-        hidden: true
+        hidden: true,
       },
       {
         title: "music",
         file: "./tutorials/drafts/music.md",
         type: "slides",
-        hidden: true
+        hidden: false,
       },
       {
         title: "colors",
         file: "./tutorials/drafts/colors.md",
-        hidden: true
+        hidden: true,
       },
       {
         title: "math",
         file: "./tutorials/drafts/math.md",
-        hidden: true
+        hidden: true,
       },
       {
         title: "emoji",
         file: "./tutorials/drafts/emoji.md",
-        hidden: true
+        hidden: true,
       },
       {
         title: "2dimport",
         file: "./tutorials/drafts/2dimport.md",
-        hidden: true
+        hidden: true,
       },
       {
         title: "controls",
         file: "./tutorials/drafts/controls.md",
-        hidden: true
-      }
-    ]
+        hidden: true,
+      },
+    ],
   },
   {
     title: "📦 Rich content",
@@ -107,7 +107,7 @@ export default [
       { component: "FSidebar" },
       { component: "FNotes" },
       { component: "FEmbed" },
-      { component: "FCard" }
+      { component: "FCard" },
       // { component: "FIconHeading" },
       // { component: "FPager" },
       // { component: "FMenu" },
@@ -116,15 +116,15 @@ export default [
       // { component: "FHr" },
       // { component: "FVr" },
       // { component: "FColors" },
-    ]
+    ],
   },
   {
     title: "📦 Navigation",
     items: [
       { component: "FLink" },
       { component: "FNextButton" },
-      { component: "FPrevButton" }
-    ]
+      { component: "FPrevButton" },
+    ],
   },
   {
     title: "📦 2D graphics",
@@ -147,8 +147,8 @@ export default [
       { component: "FRoundedpolygon" },
       { component: "FGroup" },
       { component: "FText" },
-      { component: "FRotation" }
-    ]
+      { component: "FRotation" },
+    ],
   },
   {
     title: "📦 2D patterns",
@@ -160,16 +160,16 @@ export default [
       { component: "FSpinPattern" },
       { component: "FSlicePattern" },
       { component: "FMirrorX" },
-      { component: "FMirrorY" }
-    ]
+      { component: "FMirrorY" },
+    ],
   },
   {
     title: "📦 2D canvas",
     items: [
       { component: "FCanvas" },
       { component: "FPixel" },
-      { component: "FPixels" }
-    ]
+      { component: "FPixels" },
+    ],
   },
   {
     title: "📦 3D graphics",
@@ -189,12 +189,12 @@ export default [
       { component: "FLathe3" },
       { component: "FExtrude3" },
       { component: "FGroup3" },
-      { component: "FRotation3" }
-    ]
+      { component: "FRotation3" },
+    ],
   },
   {
     title: "📦 3D patterns",
-    items: [{ component: "FGridPattern3" }]
+    items: [{ component: "FGridPattern3" }],
   },
   {
     title: "📦 Interaction",
@@ -206,24 +206,24 @@ export default [
       { component: "FButtons" },
       { component: "FKeyboard" },
       { component: "FMouse" },
-      { component: "FDrag" }
-    ]
+      { component: "FDrag" },
+    ],
   },
   {
     title: "📦 Math",
-    items: [{ component: "FMath" }]
+    items: [{ component: "FMath" }],
   },
   {
     title: "📦 Data structures",
-    items: [{ component: "FArray" }, { component: "FBuffer" }]
+    items: [{ component: "FArray" }, { component: "FBuffer" }],
   },
   {
     title: "📦 Remote data",
     items: [
       { component: "FFetch" },
       { component: "FSheet" },
-      { component: "FWebsocket" }
-    ]
+      { component: "FWebsocket" },
+    ],
   },
   // {
   //   title: "📦 Audio and MIDI",
@@ -240,15 +240,15 @@ export default [
   // },
   {
     title: "📦 VR",
-    items: [{ component: "FAframe" }, { component: "FAframeButton" }]
+    items: [{ component: "FAframe" }, { component: "FAframeButton" }],
   },
   {
     title: "Icons",
     items: [
       {
         title: "Icons audit",
-        file: "./tutorials/icons.md"
-      }
+        file: "./tutorials/icons.md",
+      },
       // { component: "FFactIcon" },
       // { component: "FActivityIcon" },
       // { component: "FNoteIcon" },
@@ -265,7 +265,7 @@ export default [
       // { component: "FToolsIcon" },
       // { component: "FClockIcon" },
       // { component: "FDownloadIcon" }
-    ]
+    ],
   },
 
   // {
@@ -290,12 +290,12 @@ export default [
     items: [
       {
         title: "Release notes",
-        file: "../RELEASES.md"
+        file: "../RELEASES.md",
       },
       {
         title: "Testing",
-        file: "./tutorials/testing.md"
-      }
-    ]
-  }
+        file: "./tutorials/testing.md",
+      },
+    ],
+  },
 ];
