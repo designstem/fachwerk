@@ -20,7 +20,7 @@ Step sequencer emitting eight-note \`beat1\` / \`beat2\` / \`...\` events based 
     `,
   props: {
     bpm: { default: "120", type: [Number, String] },
-    beats: { default: "8", type: [Number, String] }
+    beats: { default: "8", type: [Number, String] },
   },
   mounted() {
     new Tone.Sequence(
@@ -32,16 +32,18 @@ Step sequencer emitting eight-note \`beat1\` / \`beat2\` / \`...\` events based 
       `${this.beats}n`
     ).start(0);
 
-    this.$watch("bpm", bpm => (Tone.Transport.bpm.value = parseFloat(bpm)), {
-      immediate: true
+    this.$watch("bpm", (bpm) => (Tone.Transport.bpm.value = parseFloat(bpm)), {
+      immediate: true,
     });
 
-    Vue.prototype.$global.$on("start", () => Tone.Transport.start());
+    Vue.prototype.$global.$on("start", () => {
+      Tone.start().then(() => Tone.Transport.start());
+    });
     Vue.prototype.$global.$on("stop", () => Tone.Transport.stop());
   },
   template: `
   <div>
     <slot /> 
   </div>
-  `
+  `,
 };

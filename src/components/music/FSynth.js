@@ -20,19 +20,19 @@ Polyphonic synthesizer emitting basic analog waves.
       default: "sine",
       type: String,
       description:
-        "Oscillator type, either `sine`, `square`, `triangle` or `sawtooth`"
-    }
+        "Oscillator type, either `sine`, `square`, `triangle` or `sawtooth`",
+    },
   },
   data: () => ({ synth: null }),
   mounted() {
-    this.synth = new Tone.PolySynth(10, Tone.MonoSynth).toMaster();
+    this.synth = new Tone.PolySynth(Tone.MonoSynth).toDestination();
     this.$watch(
       "osc",
-      osc => {
+      (osc) => {
         this.synth.set({
           oscillator: {
-            type: osc
-          }
+            type: osc,
+          },
         });
       },
       { immediate: true }
@@ -53,11 +53,11 @@ Polyphonic synthesizer emitting basic analog waves.
     },
     onNoteoff(note = "C4") {
       this.synth.triggerRelease(note);
-    }
+    },
   },
   template: `
 <div>
   <slot :note="onNote" :noteon="onNoteon" :noteoff="onNoteoff" /> 
 </div>
-`
+`,
 };

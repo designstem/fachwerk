@@ -30,14 +30,14 @@ export const octave = (octave = 4) =>
     { key: "G", sharp: true },
     { key: "A", sharp: false },
     { key: "A", sharp: true },
-    { key: "B", sharp: false }
+    { key: "B", sharp: false },
   ]
-    .map(n => ({
+    .map((n) => ({
       ...n,
       octave,
-      note: `${n.key}${n.sharp ? "#" : ""}${octave}`
+      note: `${n.key}${n.sharp ? "#" : ""}${octave}`,
     }))
-    .map(n => ({
+    .map((n) => ({
       ...n,
       // @TODO Bring Tonal back
       // flatnote: Tonal.Note.fromMidi(Tonal.Note.midi(n.note)),
@@ -89,7 +89,7 @@ Returns notes for a chord
 `;
 
 export const chord = (chord = "M", note = "C", octave = 4) =>
-  Tonal.Chord.intervals(note + chord).map(n =>
+  Tonal.Chord.intervals(note + chord).map((n) =>
     Tonal.Note.fromMidi(
       Tonal.Note.midi(Tonal.Distance.transpose(note + octave, n)),
       true
